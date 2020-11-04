@@ -44,73 +44,80 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header tit-up">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Customer Login</h4>
-			</div>
-			<div class="modal-body customer-box">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs">
-					<li><a href="#Registration" data-toggle="tab">Sign Up</a></li>
-					<li><a class="active" href="#Login" data-toggle="tab">Account Status</a></li>
-				</ul>
-				<!-- Tab panes -->
-				<div class="tab-content">
-					<div class="tab-pane active" id="Login">
-						<div class="form-control">
-							<!-- Container for the sign in status and user info -->
-				          <h2>User sign-in status</h2>
-				        </div>
-				          <!-- Container where we'll display the user details -->
-				          <div class="user-details-container">
-				            Apars's Classroom sign-in status: <span id="sign-in-status">Unknown</span>
-				            <div>Firebase auth <code>currentUser</code> object value:</div>
-				            <pre><code id="account-details">null</code></pre>
-				          </div>
-				      </div>
-
-					<div class="tab-pane" id="Registration">
-						<form id="sign-in-form" role="form" class="form-horizontal">
-							<!-- Input to enter the phone number -->
-				            <div class="form-group">
-				              <input class="form-control" type="text" pattern="\+[0-9\s\-\(\)]+" id="phone-number">
-				              <label for="phone-number">Enter your phone number...</label>
-				              <span >Input is not an international phone number! <br>Please use +88 before your phone number</span>
-				            </div>
-				            <!-- Container to display the re-captcha check -->
-            				<div id="recaptcha-container"></div>
-				            <p> Standard Data Charges may apply.</p>
-							<div class="row">							
-								<div class="col-sm-10">
-									<input type="submit" class="btn btn-light btn-radius btn-brd grd1" id="sign-in-button"value="Sign-in"/>
-								</div>
-							</div>
-						</form>
-
-					<div>
-						<!-- Button that handles sign-out -->
-						<button class="btn btn-light btn-radius btn-brd grd1" id="sign-out-button">Sign-out</button>
-			          <form id="verification-code-form" action="#">
-			            <!-- Input to enter the verification code -->
-			            <div class="form-group">
-			              <input class="form-control" type="text" id="verification-code">
-			              <label for="verification-code">Enter the verification code...</label>
-			            </div>
-
-			            <!-- Button that triggers code verification -->
-			            <input type="submit" class="btn btn-light btn-radius btn-brd grd1" id="verify-code-button" value="Verify Code"/>
-			            <!-- Button to cancel code verification -->
-			            <button class="btn btn-light btn-radius btn-brd grd1" id="cancel-verify-code-button">Cancel</button>
-			          </form>
-					</div>
-				</div>
-				</div>
-			</div>
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		  <div class="modal-content">
+			  <div class="modal-header tit-up">
+				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				  <h4 class="modal-title">Customer Login</h4>
+			  </div>
+			  <div class="modal-body customer-box">
+				  <!-- Nav tabs -->
+				  <ul class="nav nav-tabs">
+					  <li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
+					  <li><a href="#Registration" data-toggle="tab">Registration</a></li>
+				  </ul>
+				  <!-- Tab panes -->
+				  <div class="tab-content">
+					  <div class="tab-pane active" id="Login">
+						  <form role="form" class="form-horizontal">
+							  <div class="form-group">
+								  <div class="col-sm-12">
+									  <input class="form-control" id="email1" placeholder="Name" type="text">
+								  </div>
+							  </div>
+							  <div class="form-group">
+								  <div class="col-sm-12">
+									  <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+								  </div>
+							  </div>
+							  <div class="row">
+								  <div class="col-sm-10">
+									  <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+										  Submit
+									  </button>
+									  <a class="for-pwd" href="javascript void();">Forgot your password?</a>
+								  </div>
+							  </div>
+						  </form>
+					  </div>
+					  <div class="tab-pane" id="Registration">
+						  <form role="form" class="form-horizontal">
+							  <div class="form-group">
+								  <div class="col-sm-12">
+									  <input class="form-control" placeholder="Name" type="text">
+								  </div>
+							  </div>
+							  <div class="form-group">
+								  <div class="col-sm-12">
+									  <input class="form-control" id="email" placeholder="Email" type="email">
+								  </div>
+							  </div>
+							  <div class="form-group">
+								  <div class="col-sm-12">
+									  <input class="form-control" id="mobile" placeholder="Mobile" type="email">
+								  </div>
+							  </div>
+							  <div class="form-group">
+								  <div class="col-sm-12">
+									  <input class="form-control" id="password" placeholder="Password" type="password">
+								  </div>
+							  </div>
+							  <div class="row">							
+								  <div class="col-sm-10">
+									  <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										  Save &amp; Continue
+									  </button>
+									  <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										  Cancel</button>
+								  </div>
+							  </div>
+						  </form>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
 		</div>
 	  </div>
-	</div>
 
     <!-- LOADER -->
 	<div id="preloader">
@@ -581,40 +588,5 @@
 			visibleItems: 4
 		});
 	</script>
-	<!-- Import and configure the Firebase SDK -->
-<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
-<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
- 
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAh6cUTSjFFd-eFq5htAto3-USIhZIYmWQ",
-      authDomain: "chat-app-mridul-bhai.firebaseapp.com",
-      databaseURL: "https://chat-app-mridul-bhai.firebaseio.com",
-      projectId: "chat-app-mridul-bhai",
-      
-    };
-    firebase.initializeApp(config);
-
-    //make auth and firebase references
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-  </script>
-
-<script src="js/auth.js"></script>
-
-	<script type="text/javascript">
-/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
-(function(d, m){
-var kommunicateSettings = {"appId":"3ba7200bc36c1f1d5376314eabed83924","popupWidget":true,"automaticChatOpenOnNavigation":true};
-var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-window.kommunicate = m; m._globals = kommunicateSettings;
-})(document, window.kommunicate || {});
-</script>
 </body>
 </html>
