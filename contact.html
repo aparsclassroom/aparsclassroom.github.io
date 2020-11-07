@@ -186,12 +186,61 @@
             </div><!-- end title -->
 
             <div class="row">
+
                 <div class="col-xl-6 col-md-12 col-sm-12">
-					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczu5XaTIsLlei-5rbYjcAGtbS6riUc7pmTfpXvNWU-pIXsWQ/viewform?embedded=true" width="100%" height="1250px" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                </div><!-- end col -->
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<h3 class="mb-4">Contact Us</h3>
+									<form method="POST" autocomplete="off" id="contactform" name="contactform" class="contactform">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" for="name">Full Name</label>
+													<input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+												</div>
+											</div>
+											<div class="col-md-6"> 
+												<div class="form-group">
+													<label class="label" for="HSC_Batch">HSC Batch</label>
+													<input type="text" class="form-control" name="HSC_Batch" id="HSC_Batch" placeholder="HSC'21" required>
+											</div>
+											</div>
+											<div class="col-md-6"> 
+												<div class="form-group">
+													<label class="label" for="email">Email Address</label>
+													<input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+												</div>
+											</div>
+											<div class="col-md-6"> 
+												<div class="form-group">
+													<label class="label" for="phone">Phone Number</label>
+													<input type="number" class="form-control" name="phone" id="phone" placeholder="01XX XXX XXXX" required>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="subject">Subject</label>
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="message">Message</label>
+													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message" required></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" id="submit" value="Send Message" class="btn btn-outline-light">
+												<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 				<div class="col-xl-6 col-md-12 col-sm-12">
 					<div class="map-box">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1826.2908224894643!2d90.38925680809409!3d23.72662934615024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8dd4855f073%3A0x27aa71bcab92ae5a!2sBUET!5e0!3m2!1sen!2sbd!4v1604430956830!5m2!1sen!2sbd" width="100%" height="450" frameborder="0" style="border:0;"  tabindex="0"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1826.2908224894643!2d90.38925680809409!3d23.72662934615024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8dd4855f073%3A0x27aa71bcab92ae5a!2sBUET!5e0!3m2!1sen!2sbd!4v1604430956830!5m2!1sen!2sbd" width="100%" height="565" frameborder="0" style="border:0;"  tabindex="0"></iframe>
 					</div>
 				</div>
             </div><!-- end row -->
@@ -279,13 +328,22 @@
     </footer><!-- end footer -->
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwl1cbuCzwvHq_H97dYEwDAh2JRXbzWY934_L4abbkv0C5I0tY/exec'
+            const form = document.forms['contactform']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon 🥰"))
+                .catch(error => console.error('Error!', error.message))
+              form.reset();
+            });
 
+          </script>
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKjLTXdq6Db3Xit_pW_GK4EXuPRtnod4o"></script>
-	<!-- Mapsed JavaScript -->
-	<script src="js/mapsed.js"></script>
-	<script src="js/01-custom-places-example.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
 
