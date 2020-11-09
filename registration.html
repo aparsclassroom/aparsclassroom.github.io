@@ -6,7 +6,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="icon" type="image/png" href="https://colorlib.com/etc/cf/ContactFrom_v17/images/icons/favicon.ico" >
+
+        <!-- Facebook Metas -->
+        <meta property="og:title" content="Story Mode Learning App">
+        <meta property="og:site_name" content="Apar's Story Mode Learning App">
+        <meta property="og:description" content="Step towards Futuristic Learning System">
+        <meta property="og:image" content="https://story-mode-learning-app.github.io/img/fb/Thumbnail-image-fb.png">
+        <meta property="og:image:secure_url" content="https://story-mode-learning-app.github.io/img/fb/Thumbnail-image-fb.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="627">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.PNG">
 
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/css/bootstrap.min.css">
 
@@ -34,6 +45,9 @@
       border-radius: 4px;
       background-color: #f1f1f1;
     }
+    .contact100-form-btn:hover {
+      background-image: linear-gradient(to left, #039BE5, #01579b);
+    }
     </style>
 </head>
 <body>
@@ -45,17 +59,17 @@
 Registration Form
 </span>
 <label class="label-input100" for="first-name">Tell us your name *</label>
-<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+<div class="wrap-input100 rs1-wrap-input100">
 <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name" required>
 <span class="focus-input100"></span>
 </div>
-<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
+<div class="wrap-input100 rs2-wrap-input100">
 <input class="input100" type="text" name="last-name" placeholder="Last name" required>
 <span class="focus-input100"></span>
 </div>
 <label class="label-input100" for="email">Enter your email *</label>
-<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-<input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com" required>
+<div class="wrap-input100">
+<input id="email" class="input100" type="email" name="email" placeholder="Eg. example@email.com" required>
 <span class="focus-input100"></span>
 </div>
 <label class="label-input100" for="phone">Enter phone number</label>
@@ -83,8 +97,8 @@ Registration Form
 <input id="college" class="input100" type="text" name="college" placeholder="Eg. XYZ Govt. College, Cummila" required>
 <span class="focus-input100"></span>
 </div>
-<label class="label-input100" for="message">How much excited are You? *</label>
-<div class="wrap-input100 validate-input" data-validate="Answer is required">
+<label class="label-input100" for="message">How much excited are You about this Story Mode Learning App? *</label>
+<div class="wrap-input100">
 <textarea id="message" class="input100" name="message" placeholder="Very Much Excited 😍" required></textarea>
 <span class="focus-input100"></span>
 </div>
@@ -147,9 +161,11 @@ General Support
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+     .then(response => alert("You've been successfully registered 🥰"))
         .then(response => window.location.replace("https://story-mode-learning-app.github.io/"))
         
-        .catch(error => console.error('Error!', error.message))  
+        .catch(error => console.error('Error!', error.message))
+        form.reset();  
     })
   </script>
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js"></script>
