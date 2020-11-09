@@ -161,7 +161,7 @@ General Support
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-     .then(response => alert("You've been successfully registered 🥰 Click Ok to Enter the App"))
+     .then(response => alert("You've been successfully registered 🥰 \nClick Ok to Enter the App"))
         .then(response => window.location.replace("https://story-mode-learning-app.github.io/"))
         
         .catch(error => console.error('Error!', error.message))
