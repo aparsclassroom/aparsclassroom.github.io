@@ -48,14 +48,17 @@
     .contact100-form-btn:hover {
       background-image: linear-gradient(to left, #039BE5, #01579b);
     }
-    .alert{
+    #confirmation{
   text-align: center;
   margin-top:10px;
   display: none;
 }
+#newAlert{
+  text-align: center;
+}
     </style>
 </head>
-<body>
+<body onload="myFunction()">
 <div class="container-contact100">
 <div class="wrap-contact100">
 <form method="post" autocomplete="off" name="RegistrationForm" class="contact100-form validate-form">
@@ -63,6 +66,11 @@
 	Story Mode Learning App
 Registration Form
 </span>
+<div id="newAlert" class="alert alert-warning wrap-input100" role="alert">
+  <strong>Did You Know?</strong><br>
+    You have to Register only once
+  </button>
+</div>
 <label class="label-input100" style="color: red;">N.B. Kindly use Chorme or any other browser (if didn't)<br>বি.দ্র. অনুগ্রহ পূর্বক ক্রোম ব্রাউজারে এই লিংক পেস্ট করুন (যদি না করে থাকেন)</label>
 <label class="label-input100" for="first-name">Tell us your name *</label>
 <div class="wrap-input100 rs1-wrap-input100">
@@ -108,7 +116,7 @@ Registration Form
 <textarea id="message" class="input100" name="message" placeholder="Very Much Excited 😍" required></textarea>
 <span class="focus-input100"></span>
 </div>
-<div class="alert alert-success wrap-input100" role="alert">
+<div id="confirmation" class="alert alert-success wrap-input100" role="alert">
   <strong>Success!</strong> Please Wait...
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -178,7 +186,7 @@ General Support
         
         .catch(error => console.error('Error!', error.message))
           // Show alert
-        document.querySelector('.alert').style.display = 'block';
+        document.querySelector('#confirmation').style.display = 'block';
         form.reset();  
     })
   </script>
@@ -190,5 +198,10 @@ General Support
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/js/main.js"></script>
+<script>
+            function myFunction() { 
+                $("#newAlert").delay(2000).fadeOut(500); 
+            } 
+</script>
 </body>
 </html>
