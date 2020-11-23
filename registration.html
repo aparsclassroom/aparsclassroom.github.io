@@ -125,7 +125,7 @@ Registration Form
   </button>
 </div>
 <div class="container-contact100-form-btn">
-<button type="submit" name="submit" class="contact100-form-btn">
+<button type="submit" id="reg" name="submit" class="contact100-form-btn">
 Register
 </button>
 </div>
@@ -187,8 +187,8 @@ General Support
         .then(response => window.location.replace("https://storymodelearning.com/"))
         
         .catch(error => console.error('Error!', error.message))
-          // Show alert
         document.querySelector('#confirmation').style.display = 'block';
+        document.querySelector('#reg').style.display = 'none';
         form.reset();  
     })
   </script>
