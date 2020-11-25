@@ -56,12 +56,27 @@
 #newAlert{
   text-align: center;
 }
+#form .indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: transparent;
+}
+#form.valid .indicator {
+  background: green;
+}
+#form.invalid .indicator {
+  background: red;
+}
     </style>
 </head>
 <body onload="myFunction()">
 <div class="container-contact100">
 <div class="wrap-contact100">
-<form method="post" autocomplete="off" name="RegistrationForm" class="contact100-form validate-form">
+<form method="post" autocomplete="off" id="form" name="RegistrationForm" class="contact100-form validate-form">
 <span class="contact100-form-title" style="color: #01579b;">
 	Story Mode Learning App
 Registration Form
@@ -83,8 +98,9 @@ Registration Form
 </div>
 <label class="label-input100" for="email">Enter your email *</label>
 <div class="wrap-input100">
-<input id="email" class="input100" type="email" name="email" placeholder="Eg. example@email.com" required>
+<input id="email" class="input100" type="email" onkeyup="validate()" name="email" placeholder="Eg. example@email.com" required>
 <span class="focus-input100"></span>
+<span class="indicator"></span>
 </div>
 <label class="label-input100" for="phone">Enter phone number *</label>
 <div class="wrap-input100">
@@ -177,6 +193,24 @@ General Support
 </div>
 
 <script>
+  function validate() {
+    const form = document.getElementById('form');
+    const email = document.getElementById('email').value;
+    const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+
+    if (email.match(pattern)){
+      form.classList.add('valid')
+      form.classList.remove('invalid')
+    }
+    else {
+      form.classList.add('invalid')
+      form.classList.remove('valid')
+    }
+    if (email=="") {
+      form.classList.remove('valid')
+      form.classList.remove('invalid')
+    }
+  }
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxEwhMeyyqwpCrWNEMtgnmdNm439LIakZCSLZAMb8hpRp2R7xg/exec'
     const form = document.forms['RegistrationForm']
   
