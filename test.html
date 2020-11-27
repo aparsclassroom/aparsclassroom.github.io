@@ -135,8 +135,10 @@ Registration Form
 <textarea id="message" class="input100" name="message" placeholder="Very Much Excited 😍" required></textarea>
 <span class="focus-input100"></span>
 </div>
-
-<div class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v"></div>
+<div class="g-recaptcha" 
+        data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+        data-callback='onSubmit' 
+        data-action='submit'></div>
 
 <div id="confirmation" class="alert alert-success wrap-input100" role="alert">
   <strong>Success!</strong> Please Wait...
@@ -196,10 +198,10 @@ General Support
 </div>
 </div>
 <script>
-  function onSubmit(token) {
-    document.getElementById("form").submit();
-  }
-</script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    }
+  </script>
 <script>
   function validate() {
     const form = document.getElementById('form');
