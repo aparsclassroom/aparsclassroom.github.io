@@ -37,6 +37,7 @@
 
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/util.css">
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/main.css">
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <style> 
     select {
       width: 100%;
@@ -134,6 +135,11 @@ Registration Form
 <textarea id="message" class="input100" name="message" placeholder="Very Much Excited 😍" required></textarea>
 <span class="focus-input100"></span>
 </div>
+<button class="g-recaptcha" 
+        data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+        data-callback='onSubmit' 
+        data-action='submit'></button>
+
 <div id="confirmation" class="alert alert-success wrap-input100" role="alert">
   <strong>Success!</strong> Please Wait...
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -191,7 +197,11 @@ General Support
 </div>
 </div>
 </div>
-
+<script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    }
+  </script>
 <script>
   function validate() {
     const form = document.getElementById('form');
