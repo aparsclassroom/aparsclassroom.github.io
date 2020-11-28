@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Shuchipotro Download</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="shuchipotro-assets/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/main.css">
+<!--===============================================================================================-->
+<style>
+	.contact100-form-social-item img {
+		border-radius: 50%;
+		height: 35px;
+		width: 35px;
+	}
+	.contact100-form-social-item img:hover {
+		height: 45px;
+		width: 45px;
+	}
+	.contact100-form-title {
+		color:darkgreen;
+	}
+	#confirmation{
+  	text-align: center;
+  	display: none;
+	}
+	.contact100-form-btn:hover {
+		background-color: darkgreen;
+	}
+</style>
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form  method="post" autocomplete="off" id="form" name="Shuchipotro-Feedback" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					<b>Digital Interractive সূচিপত্র</b><br>
+					Feedback Form
+				</span>
+
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<label class="label-input100" for="name">Full name</label>
+					<input id="name" class="input100" type="text" name="name" placeholder="Enter your name..." required>
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<label class="label-input100" for="email">Email Address</label>
+					<input id="email" class="input100" type="email" name="email" placeholder="Enter your email..." required>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: 01XX XXX XXXX">
+					<label class="label-input100" for="number">Mobile Number</label>
+					<input id="number" class="input100" type="number" name="number" placeholder="01XX XXX XXXX" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<div class="label-input100">Select your HSC Batch</div>
+					<div>
+						<select class="js-select2" id="batch" name="batch" required>
+							<option value="HSC-21">HSC'21</option>
+							<option value="HSC-20">Admission</option>
+							<option value="HSC-22">HSC'22</option>
+							<option value="HSC-19">HSC'19</option>
+							<option value="HSC-23">HSC'23</option>
+							<option value="HSC-18">HSC'18</option>
+							<option value="HSC-15">HSC'15</option>
+							<option value="HSC-16">HSC'16</option>
+							<option value="HSC-17">HSC'17</option>
+							<option value="HSC-17">HSC'24</option>
+							<option value="HSC-17">HSC'14</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "College name is required">
+					<label class="label-input100" for="college">College</label>
+					<input id="college" class="input100" type="text" name="college" placeholder="i.e. Dhaka Residential Model College" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<div class="label-input100">Give a rating of Previous Versions 🤩</div>
+					<div>
+						<select class="js-select2" id="rating" name="rating" required>
+							<option value="5">⭐⭐⭐⭐⭐</option>
+							<option value="4">⭐⭐⭐⭐</option>
+							<option value="3">⭐⭐⭐</option>
+							<option value="2">⭐⭐</option>
+							<option value="1">⭐</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Feedback is required">
+					<label class="label-input100" for="feedback">Missing some Features / Have a Feedback?</label>
+					<textarea id="feedback" class="input100" name="feedback" placeholder="Type your Feedback here..." required></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<div id="confirmation" class="alert alert-success wrap-input100" role="alert">
+					<strong>Success!</strong> Please Wait...
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				<div class="container-contact100-form-btn">
+					<button type="submit" id="reg" name="submit" class="contact100-form-btn">
+						Start Download
+					</button>
+				</div>
+
+				<div class="contact100-form-social flex-c-m">
+					<a href="https://facebook.com/StoryModeLearningApp" target="_blank" class="contact100-form-social-item flex-c-m bg1 m-r-5">
+						<i class="fa fa-facebook-f" aria-hidden="true"></i>
+					</a>
+
+					<a href="registration.html" class="contact100-form-social-item flex-c-m bg2 m-r-5">
+						<img class="logo" src="https://storymodelearning.com/img/logo/logo.png" aria-hidden="true"></img>
+					</a>
+
+					<a href="tps://www.youtube.com/c/AparsClassroom/" target="_blank" class="contact100-form-social-item flex-c-m bg3">
+						<i class="fa fa-youtube-play" aria-hidden="true"></i>
+					</a>
+				</div>
+				<button class="g-recaptcha" 
+				data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+				data-callback='onSubmit' 
+				data-action='submit'></button>
+			</form>
+
+			<div class="contact100-more flex-col-c-m" style="background-image: url('shuchipotro-assets/images/bg.jpg');">
+			</div>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="shuchipotro-assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="shuchipotro-assets/vendor/bootstrap/js/popper.js"></script>
+	<script src="shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="shuchipotro-assets/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$(".js-select2").each(function(){
+			$(this).on('select2:open', function (e){
+				$(this).parent().next().addClass('eff-focus-selection');
+			});
+		});
+		$(".js-select2").each(function(){
+			$(this).on('select2:close', function (e){
+				$(this).parent().next().removeClass('eff-focus-selection');
+			});
+		});
+
+
+
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbxMXLtcnGOctrXrwGtKwXWYggDfb3PC9_e9F_C44J0WwRedU30/exec'
+    const form = document.forms['Shuchipotro-Feedback']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => window.location.replace("https://shuchipotro.aparsclassroom.com/November-v3"))
+        .catch(error => console.error('Error!', error.message))
+        document.querySelector('#confirmation').style.display = 'block';
+        document.querySelector('#reg').style.display = 'none';
+	})
+	
+
+	</script>
+	<script src="shuchipotro-assets/js/main.js"></script>
+	<script>
+		function onSubmit(token) {
+		  document.getElementById("form").submit();
+		}
+	  </script>
+</body>
+</html>
