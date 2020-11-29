@@ -46,6 +46,9 @@
 		height: 45px;
 		width: 45px;
 	}
+	#newAlert{
+  text-align: center;
+}
 	.contact100-form-title {
 		color:darkgreen;
 	}
@@ -58,7 +61,7 @@
 	}
 </style>
 </head>
-<body>
+<body onload="myFunction()">
 
 
 	<div class="container-contact100">
@@ -68,7 +71,9 @@
 					<b>Digital Interractive সূচিপত্র</b><br>
 					Feedback Form
 				</span>
-
+				<div id="newAlert" class="alert alert-success wrap-input100" role="alert">
+					<strong>Version 3.0</strong> November Edition <sup><strong>(Latest)</strong></sup>
+				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
 					<label class="label-input100" for="name">Full name</label>
@@ -200,7 +205,9 @@
 			});
 		});
 
-
+		function myFunction() { 
+                $("#newAlert").delay(3000).fadeOut(500); 
+            } 
 
 		const scriptURL = 'https://script.google.com/macros/s/AKfycbxMXLtcnGOctrXrwGtKwXWYggDfb3PC9_e9F_C44J0WwRedU30/exec'
     const form = document.forms['Shuchipotro-Feedback']
@@ -214,7 +221,6 @@
         document.querySelector('#reg').style.display = 'none';
 	})
 	
-
 	</script>
 	<script src="shuchipotro-assets/js/main.js"></script>
 	<script>
