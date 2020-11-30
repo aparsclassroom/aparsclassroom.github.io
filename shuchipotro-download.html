@@ -19,9 +19,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/animate/animate.css">
 <!--===============================================================================================-->
@@ -30,11 +28,13 @@
 	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/select2/select2.min.css">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <!--===============================================================================================-->
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/star.css">
 <!--===============================================================================================-->
 <style>
 	.contact100-form-social-item img {
@@ -122,21 +122,26 @@
 
 				<div class="wrap-input100">
 					<div class="label-input100">Give a rating of Previous Versions 🤩</div>
-					<div>
-						<select class="js-select2" id="rating" name="rating" required>
-							<option value="5">⭐⭐⭐⭐⭐</option>
-							<option value="4">⭐⭐⭐⭐</option>
-							<option value="3">⭐⭐⭐</option>
-							<option value="2">⭐⭐</option>
-							<option value="1">⭐</option>
-						</select>
-						<div class="dropDownSelect2"></div>
+					<div class="center">
+					<div class="stars">
+					  <input type="radio" id="five" name="rating" value="5" required>
+					  <label for="five" class="fas fa-star"></label>
+					  <input type="radio" id="four" name="rating" value="4" required>
+					  <label for="four" class="fas fa-star"></label>
+					  <input type="radio" id="three" name="rating" value="3" required>
+					  <label for="three" class="fas fa-star"></label>
+					  <input type="radio" id="two" name="rating" value="2" required>
+					  <label for="two" class="fas fa-star"></label>
+					  <input type="radio" id="one" name="rating" value="1" required>
+					  <label for="one" class="fas fa-star"></label>
+					  <span class="result"></span>
 					</div>
+				</div>
 					<span class="focus-input100"></span>
 				</div>
-
+				
 				<div class="wrap-input100 validate-input" data-validate = "Feedback is required">
-					<label class="label-input100" for="feedback">Missing some Features / Have a Feedback?</label>
+					<label class="label-input100" for="feedback">Missed some Features / Have a Feedback?</label>
 					<textarea id="feedback" class="input100" name="feedback" placeholder="Type your Feedback here..." required></textarea>
 					<span class="focus-input100"></span>
 				</div>
@@ -154,7 +159,7 @@
 
 				<div class="contact100-form-social flex-c-m">
 					<a href="https://facebook.com/StoryModeLearningApp" target="_blank" class="contact100-form-social-item flex-c-m bg1 m-r-5">
-						<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						<i class="fab fa-facebook" aria-hidden="true"></i>
 					</a>
 
 					<a href="registration.html" class="contact100-form-social-item flex-c-m bg2 m-r-5">
@@ -162,7 +167,7 @@
 					</a>
 
 					<a href="https://www.youtube.com/c/AparsClassroom/" target="_blank" class="contact100-form-social-item flex-c-m bg3">
-						<i class="fa fa-youtube-play" aria-hidden="true"></i>
+						<i class="fab fa-youtube" aria-hidden="true"></i>
 					</a>
 				</div>
 				<button class="g-recaptcha" 
