@@ -31,11 +31,7 @@
 
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/animsition/css/animsition.min.css">
 
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/select2/select2.min.css">
-
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/daterangepicker/daterangepicker.css">
-
-<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/select2/select2.min.css">
 
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/util.css">
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/main.css">
@@ -111,7 +107,7 @@ Registration Form
 </div>
 <label class="label-input100" for="hsc">Select Your HSC Batch</label>
 <div class="wrap-input100">
-    <select class="js-select2" id="hsc" name="hsc">
+    <select id="hsc" name="hsc">
         <option value="HSC-21">HSC'21</option>
         <option value="HSC-20">Auto Pass XD</option>
         <option value="HSC-22">HSC'22</option>
@@ -124,7 +120,6 @@ Registration Form
         <option value="HSC-17">HSC'24</option>
         <option value="HSC-17">HSC'14</option>
         </select>
-        <div class="dropDownSelect2"></div>
       </div>
       <span class="focus-input100"></span>
 <label class="label-input100" for="college">Enter Your College / University *</label>
@@ -244,26 +239,7 @@ General Support
 
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/popper.js"></script>
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://colorlib.com/etc/cf/ContactFrom_v18/vendor/select2/select2.min.js"></script>
-<script>
-		$(".js-select2").each(function(){
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-		})
-		$(".js-select2").each(function(){
-			$(this).on('select2:open', function (e){
-				$(this).parent().next().addClass('eff-focus-selection');
-			});
-		});
-		$(".js-select2").each(function(){
-			$(this).on('select2:close', function (e){
-				$(this).parent().next().removeClass('eff-focus-selection');
-			});
-		});
 
-	</script>
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/js/main.js"></script>
 <script>
             function myFunction() { 
