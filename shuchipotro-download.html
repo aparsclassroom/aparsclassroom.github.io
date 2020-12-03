@@ -181,7 +181,24 @@
 		</div>
 	</div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="storyMode" tabindex="-1" role="dialog" aria-labelledby="storyModeLabel">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="storyModeTitle">Did You Know? 🙄</h5>
+		  </div>
+		  <div class="modal-body">
+			<a href="https://www.facebook.com/AparsClassroom" target="_blank">Apar's Classroom</a> had recently launched <br><h5 style="color:#039BE5">Story Mode Learning App 🔥🔥🔥</h5></a>Wanna Check that out? Click below ❤
+		  </div>
+		  <div class="modal-footer">
+			<a type="button" href="registration.html" target="_blank" class="btn btn-outline-primary">Register to Story Mode</a>
+			<button type="button" class="btn btn-outline-success" data-dismiss="modal">Later</button>
+		  </div>
+		</div>
+	  </div>
+  </div>
+	  
 
 <!--===============================================================================================-->
 	<script src="shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -193,6 +210,10 @@
 <!--===============================================================================================-->
 	<script src="shuchipotro-assets/vendor/select2/select2.min.js"></script>
 	<script>
+		setTimeout(function() {
+   			 $('#storyMode').modal();
+			}, 15000);
+
 		$(".js-select2").each(function(){
 			$(this).select2({
 				minimumResultsForSearch: 20,
