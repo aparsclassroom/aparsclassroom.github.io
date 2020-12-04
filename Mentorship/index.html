@@ -218,7 +218,7 @@
         e.preventDefault()
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
        .then(response => alert("You've been successfully Applied for Mentorship 🥰 \n Plz Wait for further Notice"))
-          .then(response => window.location.replace("https://aparsclassroom.com/shuchipotro-download/"))
+          .then(response => window.location.replace("https://aparsclassroom.com/shuchipotro-download"))
           
           .catch(error => console.error('Error!', error.message))
           document.querySelector('#confirmation').style.display = 'block';
