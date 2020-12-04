@@ -79,11 +79,13 @@
         <p>তোমার JSC, SSC এর ফলাফল কিংবা কোনো বৃত্তি, সকল কিছু এখানে লিখবে।</p>
         <input id="Previous-Results" name="Previous-Results" type="text" required>
         <br><br>
-        <p style="font-size: 20px;">Select Your HSC Batch <br>        
-            <select id="hsc" name="hsc">
-            <option value="HSC-21">HSC'21</option>
-            <option value="HSC-22">HSC'22</option>
-            </select></p>
+        <div class="container">
+        <p style="font-size: 20px;">Select Your HSC Batch <br></p>
+            <input type="radio" id="check96" name="hsc" value="HSC-21" required>
+            <label  for="check96"> HSC'21 </label>         
+            <input type="radio" id="check69" name="hsc" value="HSC-22" required>
+            <label  for="check69"> HSC'22 </label>
+          </div>
             <br>
             <p style="font-size: 20px;">Phone Number</p>
         <input id="Phone-Number" name="Phone-Number" type="Number" placeholder="018XX XXX XXXX" required>
@@ -94,33 +96,33 @@
     <input id="FB-Link" name="FB-Link" type="text" placeholder="https://facebook.com/xyz" required>
     <div class="container">
     <p>Which device do you use to study?</p>
-    <input type="radio" id="check1" name="Device" value="Smart Phone">
+    <input type="radio" id="check1" name="Device" value="Smart Phone" required>
     <label  for="check1"> Smart Phone </label>         
-    <input type="radio" id="check2" name="Device" value="Computer">
+    <input type="radio" id="check2" name="Device" value="Computer" required>
     <label  for="check2"> Computer </label>
-    <input type="radio" id="check0" name="Device" value="Both">
+    <input type="radio" id="check0" name="Device" value="Both" required>
     <label  for="check0"> Both </label>
   <br><br>
 
   <p>Is it your personal device?</p>
-  <input type="radio" id="radio11.1" name="personal-device" value="Yes">
+  <input type="radio" id="radio11.1" name="personal-device" value="Yes" required>
   <label  for="radio11.1"> Yes </label>         
-  <input type="radio" id="radio11.2" name="personal-device" value="No">
+  <input type="radio" id="radio11.2" name="personal-device" value="No" required>
   <label  for="radio11.2"> No </label>
 <br><br>
 <p>Which internet connection you use to study?</p>
-<input type="radio" id="check3" name="internet" value="Mobile Data">
+<input type="radio" id="check3" name="internet" value="Mobile Data" required>
 <label  for="check3"> Mobile Data </label>         
-<input type="radio" id="check4" name="internet" value="Broadband/Wifi">
+<input type="radio" id="check4" name="internet" value="Broadband/Wifi" required>
 <label  for="check4"> Broadband/Wifi </label>
-<input type="radio" id="check5" name="internet" value="Both">
+<input type="radio" id="check5" name="internet" value="Both" required>
 <label  for="check5"> Both </label>
 <br><br>
     
           <p>তুমি কি পড়াশোনার ব্যাপারে Zoom App এ কথা বলতে পারবে?</p>
-            <input type="radio" id="radio10.1" name="zoom" value="হ্যাঁ">
+            <input type="radio" id="radio10.1" name="zoom" value="হ্যাঁ" required>
             <label  for="radio10.1"> হ্যাঁ </label>         
-            <input type="radio" id="radio10.2" name="zoom" value="না">
+            <input type="radio" id="radio10.2" name="zoom" value="না" required>
             <label  for="radio10.2"> না </label>
           <br><br>
     </div>
