@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Mentorship Form</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="../images/favicon.ico">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+        <!-- Facebook Metas -->
+        <meta property="og:title" content="Online Mentorship Form">
+        <meta property="og:site_name" content="Apar's Online Mentorship Form">
+        <meta property="og:description" content="Application Form">
+        <meta property="og:image" content="https://aparsclassroom.com/Mentorship/poster.jpg">
+        <meta property="og:image:secure_url" content="https://aparsclassroom.com/Mentorship/poster.jpg">
+        <meta property="og:image:type" content="image/jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="ifti()">
+    <div id="svg_wrap"></div>
+
+ <h1>Educational Consultation</h1>
+
+    <form method="post" autocomplete="off" id="form" name="MentorshipApplication">
+        <!-- Section 1 -->
+        <section class="intro">
+            <h1>অনলাইন মেন্টরশীপ!!!</h1>
+            <p>মেন্টর কি আসলে? 
+                - একজন কোচ, পারসোনাল কোচ৷ যে জানবে তুমি কে, কিসে পারো বেশি, কিসে দূর্বলতা, কি ট্রেনিং করাতে হবে তোমাকে, মানসিক সাপোর্ট প্রদান, স্ট্রাটেজি নির্ধারণ করে দেয়া৷ মানে মোট কথা তোমাকে চ্যাম্পিয়ন করা পর্যন্ত কোচের যা যা লাগে তাই করে। ফোন-জুম-সম্ভবে সরাসরি গাইডলাইন দিয়ে সাপোর্ট করা হবে। গতকালের গাইডলাইনটা সবার জন্য ছিল যেমন, আর মেন্টরের গাইডলাইন হয় ছাত্রের অবস্থা বুঝে উপদেশ দেয়া৷ আর কাজ শেষে তা দেখে দেয়া, এভাবে চলতেই থাকে৷
+                ইতিমধ্যে, ইন্ডিয়ায় এই সিস্টেম আছে, আর একেকজন মেন্টর রাখতে প্রতি ছাত্র ৭০ হাজার থেকে ১ লক্ষ রুপি পর্যন্ত খরচ করে৷ 
+                আশা করি, বাংলাদেশে এই সিস্টেম নিয়ে আসবো আমরা৷ আর আমার জন্য যেই চারজন ছাত্র-ছাত্রী নিব, তারা টাকা ছাড়াই এই সুযোগ পাবে৷
+                আমার মেন্টরশীপে ৪ জন (২১ ব্যাচের ২ জন ও ২২ ব্যাচের ২ জন) স্টুডেন্ট নিব৷ বাছাই প্রক্রিয়াতে এই ফর্মটি ফিলাপ করতে হবে যেখানে কোনো সাবজেক্ট এর পরীক্ষা থাকবেনা; থাকবে বেসিক ইনফরমেশনস, সাইকোলজি টেস্ট, কেন আমার মেন্টরশীপ দরকার তা লিখা- যেনো যাদের আসলেই দরকার তাদের আমরা চিনতে পারি। 😇</p>
+            <p>✔ আমরা ৫ ডিসেম্বর রাত ১০টা পর্যন্ত সময় দিব ফর্ম ফিলাপের, এরপর আর কেউ রেজিস্ট্রেশন করতে পারবে না।</p>
+            <p>✔ সেই ফর্ম রেসপন্স এর ভিত্তিতে প্রাথমিক ভাবে কয়েকজনকে সিলেক্ট করে তাদের পার্সোনালি ইন্টার্ভিউ নেয়া হবে।</p>
+            <p>✔ সর্বশেষে ফর্মে দেয়া তথ্য ও ইন্টার্ভিউ যাচাই বাছাই করে, ব্যাচ ২১ এর একজন ছেলে ও ১জন মেয়ে এবং ব্যাচ ২২ এর ১জন ছেলে ও ১জন মেয়ে সহ মোট ৪ জন সিলেক্ট করা হবে।</p>
+            <p>✔ একজন কেবল একবারই ফর্ম পূরণ করতে পারবে। কোনো ভাবে যদি একজন শিক্ষার্থী একাধিক ভাবে আবেদন করে, তাহলে তার রেজিস্ট্রেশন বাতিল বলে গণ্য হবে।</p>
+            <p>✔ পুরো ফর্মটির কোনো একটি তথ্যও ভুল প্রমাণিত হলে কিংবা অসতর্কতার কারণে ভুল লিখে থাকলে তার আবেদন বাতিল হবে।</p>
+            <p>✔ সিলেক্টেড সকলের সাথে আমরা ফেসবুকে মেসেজের মাধ্যমে যোগাযোগ করবো। যথাসময়ে রেসপন্স না করলে তার সিলেকশন বাতিল বলে গণ্য হবে।</p>
+            <p>✔ ফর্মে দেয়া তোমার সকল তথ্যই আমাদের কাছে সর্বাধিক সিকিউর থাকবে। তাই নিশ্চিন্তে আমাদের সাথে সকল কিছু শেয়ার করতে পারো।</p>
+            <br>
+            <p>আশা করি, যারা আমাকে পার্সোনাল মেন্টর হিসেবে পেতে চাও তারা খুব গুরত্ব সহকারে ফর্মটি পূরণ করবে। 😊</p>
+            <br><br>
+            <p><strong>নুমেরি সাত্তার অপার</strong></p>
+    </section>
+        <!-- Section-2 -->
+    <section>
+        <h1>Personal information</h1>
+        <input id="Name" name="Name" type="text" placeholder="Name *" required>
+        <input id="Father-Name" name="Father-Name" type="text" placeholder="Father's Name *" required>
+        <input id="Father-Occupation" name="Father-Occupation" type="text" placeholder="Father's Occupation *" required>
+        <input id="Mother-Name" name="Mother-Name" type="text" placeholder="Mother's Name *" required>
+        <input id="Mother-Occupation" name="Mother-Occupation" type="text" placeholder="Mother's Occupation *" required>
+        <br><br>
+        <p style="font-size: 20px; text-align: left;">Date of Birth *</p>
+        <input id="Date-of-Birth" name="Date-of-Birth" type="date" required>
+        <br><br>
+        <p style="font-size: 20px; text-align: left;">College *</p>
+        <input id="College" name="College" type="text" placeholder="XYZ Govt. College" required>
+        <br><br>
+        <p style="font-size: 20px; text-align: left;">School *</p>
+        <input id="School" name="School" type="text" placeholder="XYZ High School" required>
+        <br><br>
+        <p style="font-size: 20px; text-align: left;">Current Address *</p>
+        <p>তুমি কোথায় থাক, কোথায় থেকে পড়াশোনা কর তা বিস্তারিত লিখ।</p>
+        <input id="CurrentAddress" name="CurrentAddress" type="text" placeholder="ABC, Mohammadpur, Dhaka" required>
+        <br><br>
+        <p style="font-size: 20px;">Previous success story *</p>
+        <p>পূর্বে তোমার কোনো সাফল্যের গল্প থাকলে তা এখানে লিখবে।</p>
+        <input id="Success-Story" name="Success-Story" type="text" placeholder="write here" required>
+        <br><br>
+        <p style="font-size: 20px;">The story that depresses you *</p>
+        <p>তোমার জীবনে কোনো হতাশার গল্প থাকলে তা এখানে শেয়ার করতে পারো।</p>
+        <input id="depress-Story" name="depress-Story" type="text" placeholder="write here" required>
+        <br><br>
+        <p style="font-size: 20px;">Notable Achievements *</p>
+        <p>তোমার কোনো গুরুত্বপূর্ণ অর্জন থাকলে তা এখানে লিখবে।</p>
+        <input id="Achievements" name="Achievements" type="text" placeholder="Got an award, 10MS Certificate..." required>
+        <br><br>
+        <p style="font-size: 20px;">Previous Results *</p>
+        <p>তোমার JSC, SSC এর ফলাফল কিংবা কোনো বৃত্তি, সকল কিছু এখানে লিখবে।</p>
+        <input id="Previous-Results" name="Previous-Results" type="text" placeholder="write here" required>
+        <br><br>
+        <div class="container">
+        <p style="font-size: 20px;">Select Your HSC Batch *<br></p>
+            <input type="radio" id="check96" name="hsc" value="HSC-21" required>
+            <label  for="check96"> HSC'21 </label>         
+            <input type="radio" id="check69" name="hsc" value="HSC-22" required>
+            <label  for="check69"> HSC'22 </label>
+          </div>
+            <br>
+            <p style="font-size: 20px;">Phone Number *</p>
+        <input id="Phone-Number" name="Phone-Number" type="Number" placeholder="018XX XXX XXXX" required>
+        <br><br>
+        <p style="font-size: 20px;">Email Address *</p>
+    <input id="Email" name="Email" type="email" placeholder="xyz@email.com" required>
+    <p style="font-size: 20px;">Facebook ID Link *</p>
+    <input id="FB-Link" name="FB-Link" type="url" placeholder="https://facebook.com/xyz" required>
+    <div class="container">
+    <p>Which device do you use to study? *</p>
+    <input type="radio" id="check1" name="Device" value="Smart Phone" required>
+    <label  for="check1"> Smart Phone </label>         
+    <input type="radio" id="check2" name="Device" value="Computer" required>
+    <label  for="check2"> Computer </label>
+    <input type="radio" id="check0" name="Device" value="Both" required>
+    <label  for="check0"> Both </label>
+  <br><br>
+
+  <p>Is it your personal device? *</p>
+  <input type="radio" id="radio11.1" name="personal-device" value="Yes" required>
+  <label  for="radio11.1"> Yes </label>         
+  <input type="radio" id="radio11.2" name="personal-device" value="No" required>
+  <label  for="radio11.2"> No </label>
+<br><br>
+<p>Which internet connection you use to study? *</p>
+<input type="radio" id="check3" name="internet" value="Mobile Data" required>
+<label  for="check3"> Mobile Data </label>         
+<input type="radio" id="check4" name="internet" value="Broadband/Wifi" required>
+<label  for="check4"> Broadband/Wifi </label>
+<input type="radio" id="check5" name="internet" value="Both" required>
+<label  for="check5"> Both </label>
+<br><br>
+    
+          <p>তুমি কি পড়াশোনার ব্যাপারে Zoom App এ কথা বলতে পারবে? *</p>
+            <input type="radio" id="radio10.1" name="zoom" value="হ্যাঁ" required>
+            <label  for="radio10.1"> হ্যাঁ </label>         
+            <input type="radio" id="radio10.2" name="zoom" value="না" required>
+            <label  for="radio10.2"> না </label>
+          <br><br>
+    </div>
+    <br><br>
+    <p style="font-size: 20px;">Your Strength *</p>
+    <p>তুমি কোন বিষয়ে পারদর্শী, কিংবা পড়ালেখার বাইরেও কোন বিষয়ে নিজেকে অধিক দক্ষ মনে কর, তা লিখ</p>
+<input id="Strength" name="Strength" type="text" placeholder="write here" required>
+<br><br>
+<p style="font-size: 20px;">Your Weakness *</p>
+<p>কোন বিষয়টিতে তুমি ভয় পাও কিংবা পড়ালেখার বাইরেও কোন বিষয়ে তোমার দূর্বলতা আছে বলে মনে কর, তা লিখ।</p>
+<input id="Weakness" name="Weakness" type="text" placeholder="write here" required>
+<br><br>
+<p style="font-size: 20px;">Aim in Life *</p>
+<input id="Aim" name="Aim" type="text" placeholder="তুমি ভবিষ্যতে কি হতে চাও, তোমার লক্ষ্য কি?" required>
+    <br><br>
+    <p style="font-size: 20px;">তুমি দৈনিক অনলাইনে কতক্ষণ সময় ব্যয় করতে পারবে? *</p>
+<input id="Online-time" name="Online-time" type="text" placeholder="Ex- 5 Hours" required>
+    <br><br>
+    <p style="font-size: 20px;">তোমাকে পড়াশুনা থেকে দূরে সড়ায় কি তা বর্ণনা কর? *</p>
+<input id="Distractions" name="Distractions" type="text" placeholder="Ex- কোনো ভয়, মোবাইল, সঠিক শিক্ষা উপকরণের অভাব ইত্যাদি" required>
+</section>
+      <!-- Section-3 -->
+<section>   
+    <div class="container">
+        <h1>Psychological Test</h1>
+        <!-- Question-1 -->
+          <p>👉 ধরো তুমি বড় একজন ব্যাস্ত বিজন্যাসম্যান। তোমার এক ফ্রেন্ড তার কাজিন কে যেন তুমি জব দেও সে জন্য রিকুয়েষ্ট করছে । তুমি তার কথা রেখেছ । কিন্তু তার কাজিন ৭ দিনের কাজ ( প্রতিদিন ১ ঘন্টা কাজ করতে হয়) না করে কাজের ডেডলাইনের আগের দিন  তোমার টেবিলে একটা চিঠিতে লিখে গেছে যে আমি চলে যাচ্ছি আলবিদা, এমন সময় তোমার অনুভুতি কেমন হবে ? *</p>
+            <input type="radio" id="radio1.1" name="MCQ1" value="কিছুই বলবো না বন্ধুর ই তো কাজিন">
+            <label  for="radio1.1"> কিছুই বলবো না বন্ধুর ই তো কাজিন </label>         
+            <input type="radio" id="radio1.2" name="MCQ1" value="খুব রেগে যাবো">
+            <label  for="radio1.2"> খুব রেগে যাবো </label>
+            <input type="radio" id="radio1.3" name="MCQ1" value="আমি একাই কাজ শেষ দিবো">
+            <label  for="radio1.3"> আমি একাই কাজ শেষ দিবো </label>  
+            <input  type="text" id="radio1.4" name="MCQ1" style="margin-top: 5px;" placeholder="Others">
+          <br><br>
+          <!-- Question-2 -->
+            <p>👉 তোমার সমালোচনা করলে তুমি কিভাবে রেসপন্স করো ? *</p>
+            <input type="radio" id="radio2.1" name="MCQ2" value="কিছু করি না" required>
+            <label  for="radio2.1"> কিছু করি না </label>         
+            <input type="radio" id="radio2.2" name="MCQ2" value="আমার যুক্তি দেখাই" required>
+            <label  for="radio2.2"> আমার যুক্তি দেখাই </label>         
+            <input type="radio" id="radio2.3" name="MCQ2" value="আমি অনেক আত্মবিশ্বাসী" required>
+            <label  for="radio2.3"> আমি অনেক আত্মবিশ্বাসী </label>         
+            <input type="radio" id="radio2.4" name="MCQ2" value="তর্ক করি" required>
+            <label  for="radio2.4"> তর্ক করি </label>
+            <br><br>
+
+        <!-- Question-3 -->
+            <p>👉 ধরো তোমাকে বললাম তোমার খারাপ দিক নিয়ে ফেসবুক এ একটা পোষ্ট দেও। যেটা জানলে যারা তোমাকে ভাল ভাবতো তারা খারাপ ভাববে কিন্তু ভাল উপদেশ ও দিবে  তাহলে কি করবে ? *</p>
+            <input type="radio" id="radio3.1" name="MCQ3" value="আমি পোষ্ট দিব" required>
+            <label  for="radio3.1"> আমি পোষ্ট দিব </label>         
+            <input type="radio" id="radio3.2" name="MCQ3" value="কিছু জিনিস একান্ত ব্যাক্তিগত" required>
+            <label  for="radio3.2"> কিছু জিনিস একান্ত ব্যাক্তিগত </label>  
+        <!-- Question-4 -->    
+            <input type="radio" id="radio3.3" name="MCQ3" value="বলতে পারছি না" required>
+        <!-- Question-5 -->
+            <label  for="radio3.3"> বলতে পারছি না </label>
+      </div><br><br>
+      <p style="font-size: 20px;">👉 তুমি কি পরিমাণ মিশুক? * (Out of 1 to 10) </p>
+<input id="MCQ4" name="MCQ4" type="Number" placeholder="ie. 8" required>
+<br><br>
+<p style="font-size: 20px;">👉 মানুষকে তুমি নিজের কতটুকু কথা শেয়ার করো? * (Out of 1 to 10) </p>
+<input id="MCQ5" name="MCQ5" type="Number" placeholder="ie. 8" required>
+</section>
+<!-- Section-4 -->
+<section class="intro">
+    <h1>Essay Writing</h1>
+  <p>তোমার কেন এই মেন্টরশীপ প্রোগ্রাম টি দরকার তা নিয়ে সুন্দর করে গুছিয়ে একটি Essay লিখ।</p>
+  <textarea name="essay" id="essay" rows="30" placeholder="তোমার Eassy টি এখানে লিখ "></textarea>
+</section>
+
+
+<div id="confirmation" class="button" role="alert">
+    <strong>Success!</strong> Please Wait...
+    </button>
+  </div>
+  <div class="button" id="prev">&larr; Previous</div>
+<div class="button" id="next">Next &rarr;</div>
+<button class="button" type="submit" id="submit" name="submit">Agree and send application</button>
+<button class="g-recaptcha" 
+        data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+        data-callback='onSubmit' 
+        data-action='submit'></button>
+</form>
+
+<!-- The Modal -->
+<div id="OurIfti" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      <img src="https://storymodelearning.com/img/fb/Ifti.jpg" height="400px" alt="Ifti">
+      <h1>You will always remain in our hearts ❤ </h1>
+      <a href="https://rebrand.ly/help-Ifti-s-family" target="_blank" class="button">Learn More</a>
+  </div>
+
+</div>
+
+<script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbx72gnOvXtf01LPvwYUmhbF7UFtYLza3eIWUQEgDChQi4RFdA3K/exec'
+      const form = document.forms['MentorshipApplication']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => alert("You've been successfully Applied for Mentorship 🥰 \n Plz Wait for further Notice"))
+          .then(response => window.location.replace("https://aparsclassroom.com/shuchipotro-download"))
+          
+          .catch(error => console.error('Error!', error.message))
+          document.querySelector('#confirmation').style.display = 'block';
+          document.querySelector('#prev').style.display = 'none';
+          document.querySelector('#next').style.display = 'none';
+          document.querySelector('#submit').style.display = 'none';
+          form.reset();  
+      })
+    </script>
+</body>
+</html>

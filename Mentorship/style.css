@@ -90,6 +90,9 @@ p{
     text-align:justify;
     margin-top:0;
 }
+li {
+  text-align: left;
+}
 input[type="checkbox"] {
     display: none;
 }

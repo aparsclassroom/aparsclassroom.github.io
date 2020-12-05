@@ -111,5 +111,5 @@ window.onclick = function(event) {
   }
 } 
           function ifti() {
-            setTimeout(function(){ document.getElementById('OurIfti').style.display="block"; }, 100000);
+            setTimeout(function(){ document.getElementById('OurIfti').style.display="block"; }, 15000);
         }
