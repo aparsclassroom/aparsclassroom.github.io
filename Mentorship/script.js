@@ -96,7 +96,7 @@ $( document ).ready(function() {
     
     });
 
-var modal = document.getElementById("OurIfti");
+var modal = document.getElementById("result");
 
 var btn = document.getElementById("myBtn");
 
@@ -110,6 +110,6 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 } 
-          function ifti() {
-            setTimeout(function(){ document.getElementById('OurIfti').style.display="block"; }, 15000);
+          function result() {
+            setTimeout(function(){ document.getElementById('result').style.display="block"; }, 00);
         }
