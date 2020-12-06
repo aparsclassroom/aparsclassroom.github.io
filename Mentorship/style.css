@@ -200,7 +200,6 @@ textarea {
   color: black;
   background-color: #fefefe;
 }
-
 @media screen and (max-width: 999px) {
   .modal {
     display: none;
@@ -223,8 +222,7 @@ textarea {
     width: 85%;
   }
   .modal-content img {
-    height: 100%;
-    width: auto;
+    width: 250px;
   }
 }
 .close {
