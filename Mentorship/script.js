@@ -111,5 +111,5 @@ window.onclick = function(event) {
   }
 } 
           function result() {
-            setTimeout(function(){ document.getElementById('result').style.display="block"; }, 00);
+            setTimeout(function(){ document.getElementById('result').style.display="block"; }, 400);
         }
