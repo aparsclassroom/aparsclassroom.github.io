@@ -11,6 +11,7 @@ Primary style
   
   html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
   }
   
   body {
@@ -84,16 +85,13 @@ Shared style
   .cd-modal .modal-content {
     height: 100%;
     overflow-y: auto;
-    padding: 3em 5%;
+    padding: 3px;
+    margin: 5px;
   }
   .cd-modal h1, .cd-modal h2 {
     text-align: center;
   }
-  .cd-modal p {
-    line-height: 1.6;
-    margin: 2em auto;
-    max-width: 650px;
-  }
+
   .cd-modal .modal-close {
     /* 'X' icon */
     position: absolute;
@@ -156,6 +154,7 @@ Shared style
   @media only screen and (min-width: 1100px) {
     .cd-modal .modal-content {
       padding: 6em 5%;
+      padding-bottom: 15px;
     }
     .cd-modal .modal-close {
       height: 60px;
@@ -346,3 +345,36 @@ Animations
     }
   }
   
+  /*  Grid */
+
+/* results styles */
+/* .results {
+  margin-left: 2px;
+  margin-right: 2px;
+} */
+
+.results > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+}
+
+.cd-modal p {
+  line-height: 1.6;
+  margin: 2em auto;
+  max-width: 650px;
+}
+
+.results > ul > li > a {
+  padding: .5rem 1rem;
+  margin: .5rem;
+}
+
+/* footer */
+footer {
+  /* background-color: #333; */
+  padding: .75rem;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
