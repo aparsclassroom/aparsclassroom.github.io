@@ -170,7 +170,11 @@ Shared style
       font-size: 2.5rem;
     }
   }
-  
+  @media only screen and (max-width: 400px) {
+    footer p {
+      font-size: 12px;
+    }
+  }
   /* Transition Layer */
   .cd-transition-layer {
     position: fixed;
