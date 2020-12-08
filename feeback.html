@@ -21,7 +21,7 @@
         <button type="submit">Submit</button>
     </form>
 
-
+<div id="success">Success</div>
 <script>
          _ipgeolocation.enableSessionStorage(true);
     
@@ -64,8 +64,8 @@
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => window.location.replace("https://google.com"))
         .catch(error => console.error('Error!', error.message))
-        // document.querySelector('#confirmation').style.display = 'block';
-        // document.querySelector('#reg').style.display = 'none';
+        document.querySelector('#success').style.display = 'block';
+        document.querySelector('#data').style.display = 'none';
 	})
         </script>
 </body>
