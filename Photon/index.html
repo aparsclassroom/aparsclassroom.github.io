@@ -97,7 +97,7 @@
 					</div>
 				</div>
 					<div class="container-contact100-form-btn">
-						<button id="download" class="contact100-form-btn" href="https://aparsclassroom.com/free-pdf/Photon_December.pdf"><span>Download Now</span></button>
+						<button id="download" class="contact100-form-btn" href="https://aparsclassroom.com/free-pdf/Photon_December.pdf">Downloading...</button>
 				</div>
 				</form>
 			</div>
@@ -143,7 +143,7 @@
 		form.addEventListener('submit', e => {
 		  e.preventDefault()
 		  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-	
+		  .then(response => window.location.replace("https://aparsclassroom.com/free-pdf/Photon_December.pdf"))
 			document.querySelector('#download').style.display = 'block';
 			document.querySelector('#data').style.display = 'none';
 		})
