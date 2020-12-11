@@ -171,7 +171,7 @@
         e.preventDefault()
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
        .then(response => alert("You've been successfully Applied for Ambassador 🥰 \n Plz Wait for further Notice"))
-          .then(response => window.location.replace("https://aparsclassroom.com/shuchipotro-download"))
+          .then(response => window.location.replace("https://aparsclassroom.com/registration"))
           
           .catch(error => console.error('Error!', error.message))
           document.querySelector('#confirmation').style.display = 'block';
