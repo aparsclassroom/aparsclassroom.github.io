@@ -1,5 +1,5 @@
 _ipgeolocation.enableSessionStorage(true);
-   
+		var a;
 		var ip = sessionStorage.getItem("ip");
 		var country_name = sessionStorage.getItem("country_name");
 		var district = sessionStorage.getItem("district");
@@ -23,7 +23,7 @@ _ipgeolocation.enableSessionStorage(true);
 		}
 				   
 		$(document).ready(function() {
-		   var a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
+		    a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
         });
         function myFunction() {
             document.getElementById("ip-details").value = a;
