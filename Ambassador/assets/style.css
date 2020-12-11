@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&Poppins:wght@30&family=Alex+Brush&display=swap');
 @font-face {
-  font-family: RAGE;
-  src: url('assets/fonts/RAGE.TTF'); 
-}
-@font-face {
   font-family: Kalpurush;
-  src: url('assets/fonts/kalpurush.ttf'); 
+  src: url('fonts/kalpurush.ttf'); 
 }
 html {
   height: 100%;
