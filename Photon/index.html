@@ -98,7 +98,7 @@
 						</button>
 					</div>
 				</div>
-					<div class="container-contact100-form-btn">
+					<div id="down" class="container-contact100-form-btn">
 						If download did't start automatically... Click below
 						<a type="button" id="download" class="contact100-form-btn" href="https://aparsclassroom.com/free-pdf/Photon_December.pdf" download="ফোটন.pdf">Downloading... Please Wait 🥰</a>
 				</div>
@@ -149,7 +149,7 @@
 		  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
 		  .then(response => window.location.replace("https://cutt.ly/photon-v1"))
 		  .catch(error => console.error('Error!', error.message))
-			document.querySelector('#download').style.display = 'block';
+			document.querySelector('#down').style.display = 'block';
 			document.querySelector('#data').style.display = 'none';
 		})
 		
