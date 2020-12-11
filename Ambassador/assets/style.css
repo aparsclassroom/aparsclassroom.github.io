@@ -55,7 +55,7 @@ h1{
 }
 
 .button {
-  background: rgb(237, 40, 70);
+  background:#626A90;
   border-radius: 5px;
   padding: 15px 25px;
   display: inline-block;
@@ -140,9 +140,9 @@ input[type="radio"] {
 }
 .container label {
     position: relative;
-    color: #EC486A;
+    color: #626A90;
     font-size: 15px;
-    border: 2px solid #EC486A;
+    border: 2px solid #626A90;
     border-radius: 5px;
     padding: 5px 10px;
     display: flex;
@@ -154,19 +154,19 @@ input[type="radio"] {
     content: "";
     height: 20px;
     width: 20px;
-    border: 3px solid #EC486A;
+    border: 3px solid #626A90;
     border-radius: 50%;
     margin-right: 20px;
 }
 input[type="radio"]:checked + label {
-    background-color: #f56c88;
+    background-color: #ff617d;
     color: white;
 }
 input[type="radio"]:checked + label::before {
     height: 16px;
     width: 16px;
     border: 6px solid white;
-    background-color: #f56c88;
+    background-color: #ff617d;
 }
 #confirmation {
     display: none;

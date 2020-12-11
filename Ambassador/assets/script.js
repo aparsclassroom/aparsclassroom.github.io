@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     var base_color = "rgb(230,230,230)";
-    var active_color = "rgb(237, 40, 70)";
+    var active_color = "#626A90";
     
     
     
