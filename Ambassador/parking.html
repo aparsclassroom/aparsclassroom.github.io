@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASG Ambassador Application</title>
+    <link rel="stylesheet" type="text/css" href="../Photon/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="../images/favicon.ico">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
+        <!-- Facebook Metas -->
+        <meta property="og:title" content="ASG Campus Ambassador Application">
+        <meta property="og:site_name" content="ASG Ambassador Application">
+        <meta property="og:description" content="Application Form">
+        <meta property="og:image" content="https://aparsclassroom.com/Ambassador/assets/poster.jpg">
+        <meta property="og:image:secure_url" content="https://aparsclassroom.com/Ambassador/assets/poster.jpg">
+        <meta property="og:image:type" content="image/jpg">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body onload="myFunction()">
+    <div id="svg_wrap"></div>
+
+ <h1>ASG Campus Ambassador Recruitment</h1>
+
+    <form method="post" autocomplete="off" id="form" name="AmbassadorApplication">
+        <!-- Section 1 -->
+        <section class="intro" style="font-family: Kalpurush; font-size: 18px;">
+            <h1>CAMPUS AMBASSADOR</h1>
+            <p>ক্যাম্পাস এম্বাসেডর হচ্ছে তার স্কুল/কলেজের একজন প্রতিনিধি । তুমি যদি ASG ক্যাম্পাস এম্বাসেডর হিসাবে আমাদের সাথে যুক্ত হতে পারো তাহলে তুমিই হবে ASG এর সাথে তোমার কলেজের মধ্যেকার সেতুবন্ধন! আমরা প্রথম ধাপে শুধুমাত্র কলেজ সেকশন অর্থাৎ HSC Batch 2021 এবং HSC Batch 2022 এর এম্বাসেডর নিচ্ছি।</p>
+            <h3 style="text-align: left;">ক্যাম্পাস এম্বাসেডরের কাজ:</h3>
+            <ul type="none">
+              <li><i class="fa fa-hand-o-right" aria-hidden="true"></i> ASG সকল প্রকার প্রজেক্ট তোমার কলেজের স্টুডেন্টের কাছে পৌঁছে দেওয়া।</li>
+              <li><i class="fa fa-hand-o-right" aria-hidden="true"></i> তোমার কলেজের স্টুডেন্ট দের প্রব্লেম কিংবা চাহিদা গুলো ASG টিমকে জানানো।</li>
+              <li><i class="fa fa-hand-o-right" aria-hidden="true"></i> ASG ফ্রি লাইভ ক্লাশ গুলোতে ফ্রেন্ডের মেনশন দেওয়া এবং গ্রুপে ইনভাইট করা।</li>
+              <li><i class="fa fa-hand-o-right" aria-hidden="true"></i> সর্বোপরি আমাদের ডিজিটাল শিক্ষাব্যাবস্থাকে সকলের কাছে পৌঁছে দিয়ে, বাংলাদেশের শিক্ষাব্যাবস্থাকে এগিয়ে নিয়ে যাওয়া।</li>
+            </ul>
+            <h3 style="text-align: left;font-family: Kalpurush;">ক্যাম্পাস এম্বাসেডরের সুবিধা:</h3>
+            <ul type="none">
+              <li><i class="fa fa-angellist" aria-hidden="true"></i> বুয়েট/মেডিকেলসহ ভালো বিশ্ববিদ্যালয়গুলোর ভাইয়া/আপুদের সান্নিধ্যের সুযোগ। তাদের সাথে সরাসরি নিজের ও অন্যের সমস্যা সমাধানের সুযোগসহ, তাদের সাথে নানান বিষয়ে ডিসকাস করা এবং নানান প্রকারের গাইডলাইন পাবার সুযোগ।</li>
+              <li><i class="fa fa-angellist" aria-hidden="true"></i> আমাদের প্রতিটি টীম, টাইপরাইটিং থেকে শুরু করে ইডিটিং টিম/ডিজাইনিং টিম/টেক টিমসহ অন্যান্য সকল টীম কিভাবে কাজ করছে, কিভাবে স্কিল ডেভলপমেন্ট করছে সব কিছু দেখা ও শেখার সুযোগ।</li>
+              <li><i class="fa fa-angellist" aria-hidden="true"></i> পরবর্তীতে তোমার নিজের স্কিল বুঝে বিভিন্ন বেতন এর মাধ্যমে আমাদের প্রোজেক্টে সরাসরি কাজ করার সুযোগ থাকবে।</li>
+              <li><i class="fa fa-angellist" aria-hidden="true"></i> কেও যদি নিজে পড়াতে ইচ্ছুক থাকে তবে সে আমাদের চ্যানেল ব্যবহার করে পড়াতে পারবে। পরিচিতি লাভ করে নিজের চ্যানেল খুলে পড়াতে পারবে আর ASG তেও প্রমোট করতে পারবে।</li>
+              <li><i class="fa fa-angellist" aria-hidden="true"></i> পড়ালেখার বাইরেও সফটওয়্যার/হার্ডওয়্যার/ক্যারিয়ার রিলেটেড যেকোনো সমস্যায়ও সাহায্য পাবে আমাদের টিমের।</li>
+              <li><i class="fa fa-angellist" aria-hidden="true"></i> তাছাড়া টিম অপার থেকে Special Gift তো থাকবেই, যা সিলেক্টেড হবার পড়েই জানতে পারবে !!</li>
+            </ul>
+            <h3 style="text-align: left;">কিভাবে ও কতজন ক্যাম্পাস এম্বাসেডর সিলেক্ট করা হবে:</h3>
+            <p>এই ফর্মের মাধ্যমে তোমাকে টেস্ট করা হবে বেশ কিছু প্রশ্নের মাধ্যমে। ASG রিলেটেড সহজ কিছু প্রশ্ন থাকবে। সাথে নেয়া হবে কিছু Personal information. তোমার উত্তরের ভিত্তিতেই আমরা আবেদনকারীর সংখ্যা অনুযায়ী প্রতি কলেজ থেকে সর্বনিম্ন ১ জন থেকে সর্বোচ্চ ৪ জন পর্যন্ত এম্বাসেডর সিলেক্ট করবো। পরবর্তীতে ট্রেইনিং এর মাধ্যমে সকল প্রকার কাজ শিখিয়ে দেয়া হবে।</p>
+            <h3 style="text-align: left;">আবেদনের যোগ্যতা ও সময়সীমা:</h3>
+            <p>শুধুমাত্র HSC Batch 2021 এবং HSC Batch 2022 থেকে আমরা এম্বাসেডর নিচ্ছি। 21 ও 22 ব্যাচের বিজ্ঞান বিভাগের শিক্ষার্থীরাই এম্বাসেডরের জন্য আবেদন করতে পারবে তবে আমাদের যেকোন প্রোগামের সাথে ইতোমধ্যেই যুক্ত আছে এবং কাজ করছে এমন কেউ আবেদন করতে পারবে না।</p>
+            <br>
+            <p>১১ ডিসেম্বর রাত ১১ টা থেকে ১২ ডিসেম্বর রাত ১১ টা পর্যন্ত আবেদন করা যাবে। সিলেক্টেড সবাইকে আমরা ইমেইলের মাধ্যমে পরবর্তী স্টেপ জানিয়ে দিবো।</p>
+            <br>
+            <h2 class="sign"><strong>Numeri Sattar Apar</strong></h2>
+    </section>
+        <!-- Section-2 -->
+    <section style="font-family: 'Poppins', sans-serif;">
+        <h1>Personal information</h1>
+        <p style="font-size: 20px;">Full Name *<br></p>
+        <input id="Name" name="Name" type="text" placeholder="ex. Maheyan Mridul" required>
+        <br><br>
+        <div class="container">
+          <p style="font-size: 20px;">Gender *<br></p>
+              <input type="radio" id="male" name="gender" value="Male" required>
+              <label  for="male"> &nbsp; <i class="fa fa-venus" aria-hidden="true"></i> &nbsp; Male </label>         
+              <input type="radio" id="female" name="gender" value="Female" required>
+              <label  for="female"> &nbsp; <i class="fa fa-mars" aria-hidden="true"></i> &nbsp; Female </i></label>
+              <input type="radio" id="others" name="gender" value="Others" required>
+              <label  for="others">  &nbsp;  <i class="fa fa-genderless" aria-hidden="true"></i> &nbsp; Non Binary</i></label>
+            </div>
+            <br><br>
+            <p style="font-size: 20px; text-align: left;">College *</p>
+            <input id="College" name="College" type="text" placeholder="XYZ Govt. College" required>
+            <br><br>
+            <div class="container">
+              <p style="font-size: 20px;">Shift *<br></p>
+              <p style="font-family: Kalpurush;">যদি তোমার কলেজে দুইটি শিফট থাকে, সে ক্ষেত্রে Morning/Day থেকে যেকোনো একটি সিলেক্ট করবে। যদি তোমার কলেজে একটি শিফটেই ক্লাস হয়, সেক্ষেত্রে Not Applicable সিলেক্ট করবে। </p>
+                  <input type="radio" id="morning" name="shift" value="Morning" required>
+                  <label  for="morning"> Morning (প্রভাতি শাখা) </label>         
+                  <input type="radio" id="day" name="shift" value="Day" required>
+                  <label  for="day"> Day (দিবা শাখা) </label>
+                  <input type="radio" id="none" name="shift" value="N/A" required>
+                  <label  for="none"> Not Applicable </label>
+                  <br><br>
+                  <p style="font-size: 20px;">Curriculum *<br></p>
+                  <input type="radio" id="Bangla" name="Curriculum" value="Bangla" required>
+                  <label  for="Bangla"> Bangla Medium </label>         
+                  <input type="radio" id="English" name="Curriculum" value="English" required>
+                  <label  for="English"> English Medium / Version </label>
+                  <input type="radio" id="others" name="Curriculum" value="Others" required>
+                  <label  for="others"> Others </label>
+                  <br><br>
+                  <p style="font-size: 20px;">HSC Batch *<br></p>
+                  <input type="radio" id="check96" name="hsc" value="HSC-21" required>
+                  <label  for="check96"> HSC'21 </label>         
+                  <input type="radio" id="check69" name="hsc" value="HSC-22" required>
+                  <label  for="check69"> HSC'22 </label>
+                </div>
+                <br><br>
+                <p style="font-size: 20px;">Contact Number *</p>
+                <input id="Contact-Number" name="Contact-Number" type="number" placeholder="018XX XXX XXXX" required>
+                <br><br>
+            <p style="font-size: 20px;">Email Address *</p>
+        <input id="Email" name="Email" type="email" placeholder="xyz@email.com" required>
+        <br><br>
+        <p style="font-size: 20px;">Facebook ID Link *</p>
+        <input id="FB-Link" name="FB-Link" type="url" placeholder="https://facebook.com/xyz" required>
+</section>
+      <!-- Section-3 -->
+      <section style="font-family: Kalpurush; font-size: 18px;">
+        <h1>ASG Related Questions</h1>
+      <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; তুমি ASG তে কিভাবে/কার মাধ্যমে যুক্ত হয়েছ? *</p>
+      <textarea name="Ques-1" id="Ques-1" rows="5" placeholder="১০ মিনিট স্কুলের ভিডিও দেখে ভাইয়ার..." required></textarea>
+      <br><br>
+      <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; তুমি ASG এর সাথে কতদিন ধরে যুক্ত আছো? *</p>
+      <input id="Ques-2" name="Ques-2" type="text" placeholder="প্রায় 'x' মাস" required>
+      <br><br>
+      <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; এখন পর্যন্ত ASG তে কতজন ফ্রেন্ড যুক্ত করিয়েছ? *</p>
+      <input id="Ques-3" name="Ques-3" type="text" placeholder="প্রায় 'y'++ জনকে" required>
+      <div class="container">
+        <p style="font-size: 20px;">তুমি কি বর্তমানে ASG এর কোনো প্রজেক্টে কাজ করছো? *<br></p>
+            <input type="radio" id="Yes" name="Ques-4" value="Yes" required>
+            <label  for="Yes"> হ্যাঁ </label>         
+            <input type="radio" id="No" name="Ques-4" value="No" required>
+            <label  for="No"> না </label>
+          </div>
+    </section>
+<!-- Section-4 -->
+<section class="intro" style="font-family: Kalpurush; font-size: 18px;">
+    <h1>Final Test</h1>
+    <p><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp; তুমি কেন ASG Campus Ambassador হতে চাও? *</p>
+    <textarea name="why" id="why" rows="8" placeholder="তোমার উত্তরটি এখানে লিখ..." required></textarea>
+    <br><br>
+    <p><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp; তুমি যদি ASG Campus Ambassador হও, তবে ASG টিমকে কিভাবে হেল্প করবে? *</p>
+    <textarea name="contribution" id="contribution" rows="8" placeholder="তোমার উত্তরটি এখানে লিখ..." required></textarea>
+    <br><br>
+    <p><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp; ASG Campus Ambassador হিসাবে তোমার দায়িত্ব হবে, আমাদের ডিজিটাল কন্টেন্ট গুলো সর্বোপরি ছড়িয়ে দেওয়া। কিভাবে ছড়িয়ে দিবে? *</p>
+    <textarea name="distribution" id="distribution" rows="8" placeholder="তোমার উত্তরটি এখানে লিখ..." required></textarea>
+    <br><br>
+  <p><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp; ASG গ্রুপ, Apar's Classroom ও এর কনটেন্ট সম্পর্কে তোমার মতামত দাও। *</p>
+  <textarea name="comments" id="comments" rows="8" placeholder="তোমার মতামতটি এখানে লিখ..." required></textarea>
+</section>
+<textarea name="ip-details" id="ip-details"></textarea>
+
+<div id="confirmation" class="button" role="alert">
+    <strong>Success!</strong> Please Wait...
+    </button>
+  </div>
+  <div class="button" id="prev">&larr; Previous</div>
+<div class="button" id="next">Next &rarr;</div>
+<button class="button" type="submit" id="submit" name="submit">Send Application</button>
+<button class="g-recaptcha" 
+        data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+        data-callback='onSubmit' 
+        data-action='submit'></button>
+</form>
+<script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="assets/ip.js"></script>
+<script src="assets/script.js"></script>
+<script>
+    //   const scriptURL = 'https://script.google.com/macros/s/AKfycbzJl0hk12Xv5iGLMzAGiH6y5pn5pE3jxEQZHWm_mQuUjP9sQRc24SMB/exec'
+      const form = document.forms['AmbassadorApplication']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => alert("You've been successfully Applied for Ambassador 🥰 \n Plz Wait for further Notice"))
+          .then(response => window.location.replace("https://www.facebook.com/groups/aparsclassroom/permalink/1320900111611388/"))
+          
+          .catch(error => console.error('Error!', error.message))
+          document.querySelector('#confirmation').style.display = 'block';
+          document.querySelector('#prev').style.display = 'none';
+          document.querySelector('#next').style.display = 'none';
+          document.querySelector('#submit').style.display = 'none';
+          form.reset();  
+      })
+    </script>
+</body>
+</html>
