@@ -47,6 +47,9 @@
     .contact100-form-btn:hover {
       background-image: linear-gradient(to left, #039BE5, #01579b);
     }
+    #ip-details {
+  display: none;
+}
     #confirmation{
   text-align: center;
   margin-top:10px;
@@ -136,7 +139,7 @@ Registration Form
         data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
         data-callback='onSubmit' 
         data-action='submit'></button>
-
+        <textarea name="ip-details" id="ip-details"></textarea>
 <div id="confirmation" class="alert alert-success wrap-input100" role="alert">
   <strong>Success!</strong> Please Wait...
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -234,7 +237,7 @@ General Support
     })
   </script>
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/animsition/js/animsition.min.js"></script>
 
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/popper.js"></script>
@@ -242,9 +245,38 @@ General Support
 
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/js/main.js"></script>
 <script>
-            function myFunction() { 
-                $("#newAlert").delay(2000).fadeOut(500); 
-            } 
+  _ipgeolocation.enableSessionStorage(true);
+		var a;
+		var ip = sessionStorage.getItem("ip");
+		var country_name = sessionStorage.getItem("country_name");
+		var district = sessionStorage.getItem("district");
+		var isp = sessionStorage.getItem("isp");
+		var city = sessionStorage.getItem("city");
+		var latitude = sessionStorage.getItem("latitude");
+		var longitude = sessionStorage.getItem("longitude");
+			   
+			_ipgeolocation.makeAsyncCallsToAPI(false);
+			_ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
+			_ipgeolocation.getGeolocation(handleResponse, "28ff260c14dd4a8c9f7b2d35976545d0");
+   
+		function handleResponse(json) {
+			ip = json.ip;
+			country_name = json.country_name;
+			district = json.district;
+			isp = json.isp;
+			city = json.city;
+			latitude = json.latitude;
+			longitude = json.longitude;
+		}
+				   
+		$(document).ready(function() {
+		    a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
+        });
+        function myFunction() {
+          $("#newAlert").delay(2000).fadeOut(500); 
+            document.getElementById("ip-details").value = a;
+       }
+  
 </script>
 </body>
 </html>
