@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bio Dictionary</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="Assets/style.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" style="background-image: linear-gradient(to left, #94e498, #30966f);">
+        <a class="navbar-brand" href="#">Bio Dictionary</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App <span class="sr-only">(current)</span></a>
+              </li>
+              <button class="btn btn-outline-danger" type="button" onclick="mainApp.logOut();">Log Out</button>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" id="search1" placeholder="Search" aria-label="Search">
+          </form>
+        </div>
+      </nav>
+<div class="container">
+  <h2 style="text-align: center;">Bio Dictionary</h2>
+  <p style="text-align: center;">Search Something below:</p>  
+  <!-- <input class="form-control mr-sm-2" id="txt-search" type="search" placeholder="Search.."> -->
+  <a type="button" href="Botany.html" class="btn btn-primary btn-block">Botany</a>
+  <a type="button" href="Zoology.html" class="btn btn-danger btn-block">Zoology</a>
+  <br>
+  <!-- <div id="filter-records"> -->
+    
+</div>
+
+<!-- <script src="Assets/script.js"></script> -->
+<script src="Assets/firebase.js"></script>
+<script src="Assets/main.js"></script>
+
+</body>
+</html>

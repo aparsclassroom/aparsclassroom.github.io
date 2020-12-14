@@ -1,0 +1,22 @@
+.container input:focus {
+    border-radius: 10px;
+    padding: 25px;
+    color: #30966f;
+}
+.container .btn {
+    /* background-image: linear-gradient(to right, #94e498, #30966f);
+    padding: 15px;
+    border-radius: 30px; */
+    border: 1px solid black;
+    border-radius: 10px;
+}
+/* #words {
+    display: none;
+} */
+.container .btn:hover {
+    color: #fefefe;
+    background-image: linear-gradient(to right, #94e498, #30966f);
+}
+.navbar button:hover{
+    color: black;
+}

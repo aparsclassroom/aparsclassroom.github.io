@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login Page</title>
+	<!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> -->
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+        	        <!-- Facebook Metas -->
+					<!-- <meta property="og:title" content="Apar's Automation App">
+					<meta property="og:site_name" content="Apar's Automation App">
+					<meta property="og:description" content="by Automation Deptartment">
+					<meta property="og:image" content="https://autodepapar.github.io/img/thumb.jpg">
+					<meta property="og:image:secure_url" content="https://autodepapar.github.io/img/thumb.jpg">
+					<meta property="og:image:type" content="image/jpg"> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@1,600&display=swap">
+         <style>
+         	.featurette-heading {
+         		padding: auto;
+				 margin-top: 5px;
+				 text-align: center;
+				 font-family: 'Poppins',sans-serif;
+         	}
+         	.firebaseui-title{
+         		text-align: center;
+         		font-family:  'Poppins', sans-serif;
+			 }
+			 form:hover {
+				box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+			 }
+			 img {
+				 margin-top: 40px;
+				margin-bottom: 15px;
+			 }
+         </style>
+</head>
+<body>
+
+ <div class="container">
+ 	<h2 class="featurette-heading">Welcome to Apar's BioDictionary App</h2> 
+ 	<br>
+<div id="firebaseui-auth-container"></div>
+<div class="featurette-heading" id="loader">Loading...</div>
+</div>
+    <script src="Assets/firebase.js"></script>
+    <script src="Assets/login.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
