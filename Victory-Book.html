@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Registration Form - Apar's Classroom</title>
+<title>মুক্তিযুদ্ধ বিষয়ক বই - Apar's Classroom</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
         <!-- Facebook Metas -->
-        <meta property="og:title" content="Story Mode Learning App">
-        <meta property="og:site_name" content="Apar's Story Mode Learning App">
+        <meta property="og:title" content="মুক্তিযুদ্ধ বিষয়ক বই">
+        <meta property="og:site_name" content="Apar's মুক্তিযুদ্ধ বিষয়ক বই">
         <meta property="og:description" content="Registration Form">
-        <meta property="og:image" content="https://story-mode-learning-app.github.io/img/fb/Thumbnail-image-fb.png">
-        <meta property="og:image:secure_url" content="https://story-mode-learning-app.github.io/img/fb/Thumbnail-image-fb.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="627">
+        <meta property="og:image" content="https://aparsclassroom.com/image.jpg">
+        <meta property="og:image:secure_url" content="https://aparsclassroom.com/image.jpg">
+        <meta property="og:image:type" content="image/jpg">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.PNG">
 
@@ -36,7 +33,15 @@
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/util.css">
 <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/main.css">
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<style> 
+<style>
+
+@font-face {
+  font-family: Kalpurush;
+  src: url('Ambassador/assets/fonts/kalpurush.ttf'); 
+}
+* {
+    font-family: Kalpurush;
+}
     select {
       width: 100%;
       padding: 16px 20px;
@@ -44,8 +49,11 @@
       border-radius: 4px;
       background-color: #f1f1f1;
     }
+    .contact100-form-btn {
+      background-image: linear-gradient(to right, green, red);
+    }
     .contact100-form-btn:hover {
-      background-image: linear-gradient(to left, #039BE5, #01579b);
+      background-image: linear-gradient(to left, green, red);
     }
     #ip-details {
   display: none;
@@ -78,59 +86,50 @@
 <body onload="myFunction()">
 <div class="container-contact100">
 <div class="wrap-contact100">
-<form method="post" autocomplete="off" id="form" name="RegistrationForm" class="contact100-form validate-form">
-<span class="contact100-form-title" style="color: #01579b;">
-	<b>Story Mode Learning App</b>
-Registration Form
+<form method="post" autocomplete="off" id="form" name="VictoryForm" class="contact100-form validate-form">
+<span class="contact100-form-title"  style="color: red;">
+	<b style="color: green;">মুক্তিযুদ্ধ বিষয়ক বই</b><br>
+Download Form
 </span>
-<div id="newAlert" class="alert alert-warning wrap-input100" role="alert">
-  <strong>Did You Know?</strong><br>
-    You have to Register only once
-</div>
-<label class="label-input100" style="color: red;">N.B. Kindly use Chorme or any other browser (if didn't)<br>বি.দ্র. অনুগ্রহ পূর্বক ক্রোম ব্রাউজারে এই লিংক পেস্ট করুন (যদি না করে থাকেন)</label>
-<label class="label-input100" for="first-name">Tell us your name *</label>
-<div class="wrap-input100 rs1-wrap-input100">
-<input id="first-name" class="input100" type="text" name="first-name" placeholder="First name" required>
+<label class="label-input100" for="name">তোমার নাম লিখ *</label>
+<div class="wrap-input100 wrap-input100">
+<input id="name" class="input100" type="text" name="name" placeholder="তারিকুজ্জামান তারিক" required>
 <span class="focus-input100"></span>
 </div>
-<div class="wrap-input100 rs2-wrap-input100">
-<input class="input100" type="text" name="last-name" placeholder="Last name" required>
-<span class="focus-input100"></span>
-</div>
-<label class="label-input100" for="email">Enter your email *</label>
+<label class="label-input100" for="email">তোমার ইমেইল এড্রেস লিখ *</label>
 <div class="wrap-input100">
 <input id="email" class="input100" type="email" onkeyup="validate()" name="email" placeholder="Eg. example@email.com" required>
 <span class="focus-input100"></span>
 <span class="indicator"></span>
 </div>
-<label class="label-input100" for="phone">Enter phone number *</label>
+<label class="label-input100" for="phone">তোমার সচল মোবাইল নম্বর লিখ *</label>
 <div class="wrap-input100">
 <input id="phone" class="input100" type="number" name="phone" placeholder="Eg. 01X 0000 0000" required>
 <span class="focus-input100"></span>
 </div>
-<label class="label-input100" for="hsc">Select Your HSC Batch</label>
+<label class="label-input100" for="hsc">তোমার এইচ.এস.সি. ব্যাচ নির্বাচন কর</label>
 <div class="wrap-input100">
     <select id="hsc" name="hsc">
-        <option value="HSC-21">HSC'21</option>
-        <option value="HSC-20">Auto Pass XD</option>
-        <option value="HSC-22">HSC'22</option>
-        <option value="HSC-19">HSC'19</option>
-        <option value="HSC-23">HSC'23</option>
-        <option value="HSC-18">HSC'18</option>
-        <option value="HSC-15">HSC'15</option>
-        <option value="HSC-16">HSC'16</option>
-        <option value="HSC-17">HSC'17</option>
-        <option value="HSC-24">HSC'24</option>
-        <option value="HSC-14">HSC'14</option>
+        <option value="HSC-21">এইচ.এস.সি.'২১</option>
+        <option value="HSC-20">অ্যাডমিশন ব্যাচ</option>
+        <option value="HSC-22">এইচ.এস.সি.'২২</option>
+        <option value="HSC-19">এইচ.এস.সি.'১৯</option>
+        <option value="HSC-23">এইচ.এস.সি.'২৩</option>
+        <option value="HSC-18">এইচ.এস.সি.'১৮</option>
+        <option value="HSC-15">এইচ.এস.সি.'১৫</option>
+        <option value="HSC-16">এইচ.এস.সি.'১৬</option>
+        <option value="HSC-17">এইচ.এস.সি.'১৭</option>
+        <option value="HSC-24">এইচ.এস.সি.'২৪</option>
+        <option value="HSC-14">এইচ.এস.সি.'১৪</option>
         </select>
       </div>
       <span class="focus-input100"></span>
-<label class="label-input100" for="college">Enter Your College / University *</label>
+<label class="label-input100" for="college">তোমার স্কুল / কলেজের নাম লিখ *</label>
 <div class="wrap-input100">
 <input id="college" class="input100" type="text" name="college" placeholder="Eg. XYZ Govt. College, Cummila" required>
 <span class="focus-input100"></span>
 </div>
-<label class="label-input100" for="message">How much excited are You about this Story Mode Learning App? *</label>
+<label class="label-input100" for="message">আরো নতুন কী আশা করছ Apar's Classroom থেকে?*</label>
 <div class="wrap-input100">
 <textarea id="message" class="input100" name="message" placeholder="Very Much Excited 😍" required></textarea>
 <span class="focus-input100"></span>
@@ -141,18 +140,18 @@ Registration Form
         data-action='submit'></button>
         <textarea name="ip-details" id="ip-details"></textarea>
 <div id="confirmation" class="alert alert-success wrap-input100" role="alert">
-  <strong>Success!</strong> Please Wait...
+  <strong>সফল হয়েছে!</strong> একটু ধৈর্য্য ধরুন...
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="container-contact100-form-btn">
 <button type="submit" id="reg" name="submit" class="contact100-form-btn">
-Register
+ডাউনলোড
 </button>
 </div>
 </form>
-<div class="contact100-more flex-col-c-m" style="background-image: url('img/apar.jpg');">
+<div class="contact100-more flex-col-c-m" style="background-image: url('image.jpg')">
 <div class="flex-w size1 p-b-47">
 <div class="txt1 p-r-25">
 <span class="lnr lnr-map-marker"></span>
@@ -190,14 +189,65 @@ Lets Talk
 General Support
 </span>
 <span class="txt3">
-<a href="mailto:contact@storymodelearning.com">contact@storymodelearning.com</a>
+<a href="mailto:contact@storymodelearning.com">contact@aparsclassroom.com</a>
 </span>
 </div>
 </div>
 </div>
 </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="greetings" tabindex="-1" role="dialog" aria-labelledby="greetingsLabel">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="greetingsTitle">আসসালামু আলাইকুম 💚💗💚</h5>
+		  </div>
+		  <div class="modal-body">
+			<img src="https://scontent.fdac17-1.fna.fbcdn.net/v/t1.0-9/131534364_887569155316807_6041500620478154214_o.jpg?_nc_cat=109&ccb=2&_nc_sid=825194&_nc_ohc=-mKeihL0yZsAX8zdXfA&_nc_ht=scontent.fdac17-1.fna&oh=89a225dc579b0cba673bd71065165238&oe=5FFDF14E" alt="Victoy Day Poster" width="100%">
+		  </div>
+		  <div class="modal-footer">
+			<p><a href="https://www.facebook.com/AparsClassroom" target="_blank">অপার'স ক্লাসরুম </a> পরিবারের পক্ষ হতে সবাইকে বিজয় দিবসের শুভেচ্ছা</p>
+		  </div>
+		</div>
+	  </div>
+  </div>
 <script>
+    setTimeout(function() {
+      $('#greetings').modal();
+  }, 0);
+  setTimeout(function() { $('#greetings').modal('hide'); }, 3000);
+    _ipgeolocation.enableSessionStorage(true);
+          var a;
+          var ip = sessionStorage.getItem("ip");
+          var country_name = sessionStorage.getItem("country_name");
+          var district = sessionStorage.getItem("district");
+          var isp = sessionStorage.getItem("isp");
+          var city = sessionStorage.getItem("city");
+          var latitude = sessionStorage.getItem("latitude");
+          var longitude = sessionStorage.getItem("longitude");
+                 
+              _ipgeolocation.makeAsyncCallsToAPI(false);
+              _ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
+              _ipgeolocation.getGeolocation(handleResponse, "c09717e1fb99458b942e58281e1c4d6a");
+     
+          function handleResponse(json) {
+              ip = json.ip;
+              country_name = json.country_name;
+              district = json.district;
+              isp = json.isp;
+              city = json.city;
+              latitude = json.latitude;
+              longitude = json.longitude;
+          }
+                     
+          $(document).ready(function() {
+              a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
+          });
+          function myFunction() {
+              document.getElementById("ip-details").value = a;
+         }
+
     function onSubmit(token) {
       document.getElementById("form").submit();
     }
@@ -221,14 +271,14 @@ General Support
       form.classList.remove('invalid')
     }
   }
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxEwhMeyyqwpCrWNEMtgnmdNm439LIakZCSLZAMb8hpRp2R7xg/exec'
-    const form = document.forms['RegistrationForm']
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzj4QnPV7mUNmo8CnUPLZCTc93dMDxWrNXjEgXl52YFtqXZ-1__TEKs/exec'
+    const form = document.forms['VictoryForm']
   
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-     .then(response => alert("You've been successfully registered 🥰 \nClick Ok to Enter the App"))
-        .then(response => window.location.replace("https://storymodelearning.com/"))
+     .then(response => alert("ধন্যবাদ 🥰 \nডাউনলোড শুরু করতে OK বাটনে ক্লিক করুন"))
+        .then(response => window.location.replace("https://rebrand.ly/VictoryDay"))
         
         .catch(error => console.error('Error!', error.message))
         document.querySelector('#confirmation').style.display = 'block';
@@ -244,39 +294,6 @@ General Support
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/js/main.js"></script>
-<script>
-  _ipgeolocation.enableSessionStorage(true);
-		var a;
-		var ip = sessionStorage.getItem("ip");
-		var country_name = sessionStorage.getItem("country_name");
-		var district = sessionStorage.getItem("district");
-		var isp = sessionStorage.getItem("isp");
-		var city = sessionStorage.getItem("city");
-		var latitude = sessionStorage.getItem("latitude");
-		var longitude = sessionStorage.getItem("longitude");
-			   
-			_ipgeolocation.makeAsyncCallsToAPI(false);
-			_ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
-			_ipgeolocation.getGeolocation(handleResponse, "28ff260c14dd4a8c9f7b2d35976545d0");
-   
-		function handleResponse(json) {
-			ip = json.ip;
-			country_name = json.country_name;
-			district = json.district;
-			isp = json.isp;
-			city = json.city;
-			latitude = json.latitude;
-			longitude = json.longitude;
-		}
-				   
-		$(document).ready(function() {
-		    a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
-        });
-        function myFunction() {
-          $("#newAlert").delay(2000).fadeOut(500); 
-            document.getElementById("ip-details").value = a;
-       }
-  
-</script>
+
 </body>
 </html>
