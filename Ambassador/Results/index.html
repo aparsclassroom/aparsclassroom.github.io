@@ -27,18 +27,10 @@
 <br>
   <h2 style="text-align: center;">ASG Ambassador Result</h2> 
   <p style="text-align: center;">To find your result kindly enter your Name / Email / College below :</p>
-  <input class="form-control mr-sm-2" onkeydown="searchFunc()" onkeyup="resultFunc()" id="txt-search" type="search" placeholder="Search Your Name / Email / College Here...">
+  <input class="form-control mr-sm-2" onkeydown="searchFunc()" onkeyup="resultFunc()" onfocusout="outFocus()" id="txt-search" type="search" placeholder="Search Your Name / Email / College Here...">
   <br>
   <div id="filter-records"></div>
   <p id="nothingFound" style="text-align: center;"></p>
 <script src="Assets/script.js"></script>
-<script>
-  function searchFunc() {
-    document.getElementById("nothingFound").innerText = "Searching";
-  }
-  function resultFunc() {
-      document.getElementById("nothingFound").innerText = "That's All we know.. Couldn't find any more Results 🙃";    
-}
-</script>
 </body>
 </html>
