@@ -122,9 +122,9 @@
       <textarea name="Ques-1" id="Ques-1" rows="5" placeholder="Ques"></textarea>
       <button id="authorize_button" style="display: none;">Get Questions</button>
       <button id="signout_button" style="display: none;">Sign Out</button>
-  
-      <textarea id="content" style="white-space: pre-wrap;"></textarea>
-  
+        <button onclick="vanish()"></button>
+      <textarea id="content" rows="8" style="white-space: pre-wrap;"></textarea>
+    
       <textarea name="Ans-1" id="Ans-1" rows="5" placeholder="Ans.."></textarea>
       <br><br>
       <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; তুমি ASG এর সাথে কতদিন ধরে যুক্ত আছো? *</p>
@@ -240,7 +240,9 @@
         appendPre('Error: ' + response.result.error.message);
       });
     }
-
+    function vanish() {
+        document.getElementById("content").style.display = "none";
+    }
   </script>
 
   <script async defer src="https://apis.google.com/js/api.js"
