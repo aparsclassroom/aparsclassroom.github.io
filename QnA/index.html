@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        var url = "https://sheets.googleapis.com/v4/spreadsheets/1EBPIdlooou3Sl18yIPwVBUWsPAnmma7DM2NkDBbW44o/values/Sheet1!A1:A3?key=AIzaSyBx8u4YT-hf33lxsPZS7jwGZyIAPoWEkLQ&includeGridData=true";                                                             
+axios.get(url)
+  .then(function (response) {
+    console.log(response);                                                                                                                                                    
+  })
+  .catch(function (error) {
+    console.log(error);                                                                                                                                                       
+  });           
+    </script>
+</body>
+</html>
