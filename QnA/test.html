@@ -122,7 +122,7 @@
       <textarea name="Ques-1" id="Ques-1" rows="5" placeholder="Ques"></textarea>
       <button id="authorize_button" style="display: none;">Get Questions</button>
       <button id="signout_button" style="display: none;">Sign Out</button>
-        <button onclick="vanish()"></button>
+        <button id="vanish" onclick="vanish()">OK</button>
       <textarea id="content" rows="8" style="white-space: pre-wrap;"></textarea>
     
       <textarea name="Ans-1" id="Ans-1" rows="5" placeholder="Ans.."></textarea>
@@ -242,6 +242,7 @@
     }
     function vanish() {
         document.getElementById("content").style.display = "none";
+        document.getElementById("vanish").style.display = "none";
     }
   </script>
 
