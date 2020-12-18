@@ -1,88 +1,501 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>QnA</title>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <p>QnA</p>
-    <button id="authorize_button" style="display: none;">Get Questions</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASG Ambassador Application</title>
+    <link rel="stylesheet" type="text/css" href="https://aparsclassroom.com/Photon/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="https://aparsclassroom.com/Ambassador/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://aparsclassroom.com/Ambassador/images/favicon.ico">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
+        <!-- Facebook Metas -->
+        <meta property="og:title" content="ASG Campus Ambassador Application">
+        <meta property="og:site_name" content="ASG Ambassador Application">
+        <meta property="og:description" content="Application Form">
+        <meta property="og:image" content="https://aparsclassroom.com/Ambassador/assets/poster.jpg">
+        <meta property="og:image:secure_url" content="https://aparsclassroom.com/Ambassador/assets/poster.jpg">
+        <meta property="og:image:type" content="image/jpg">
+    <link rel="stylesheet" href="https://aparsclassroom.com/Ambassador/assets/style.css">
+<style>
+    textarea {
+        resize: none;
+    }
+    select {
+        position: relative;padding: 5px;
+    }
+    #moreQues,#moreQues2 {
+        display: none;
+    }
+    #promt2 {
+        display: none;
+    }
+</style>
+</head>
+<body onload="myFunction()">
+    <div id="svg_wrap"></div>
 
-    <pre id="content" style="white-space: pre-wrap;"></pre>
+ <h1>ASG Campus Ambassador Recruitment</h1>
 
-    <script type="text/javascript">
-      var CLIENT_ID = '211279023240-c1sh5jgeh607gbomhvkto11l0orkq4oe.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyCu_Fc8HaqtLNPjLFSMqp9XI8X1ufE_l70';
-      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
-      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
-      var authorizeButton = document.getElementById('authorize_button');
-      var signoutButton = document.getElementById('signout_button');
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
-        }, function(error) {
-          appendPre(JSON.stringify(error, null, 2));
-        });
-      }
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          authorizeButton.style.display = 'none';
-          signoutButton.style.display = 'block';
-          listMajors();
-        } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
-        }
-      }
-      function handleAuthClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
-      function handleSignoutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-      function listMajors() {
-        gapi.client.sheets.spreadsheets.values.get({
-          spreadsheetId: '1EBPIdlooou3Sl18yIPwVBUWsPAnmma7DM2NkDBbW44o',
-          range: 'A2:A',
-        }).then(function(response) {
-          var range = response.result;
-          if (range.values.length > 0) {
-            appendPre('Questions : ');
-            for (i = 0; i < range.values.length; i++) {
-              var row = range.values[i];
-              // Print columns A and E, which correspond to indices 0 and 4.
-              appendPre(row[0]);
-            }
-          } else {
-            appendPre('No data found.');
-          }
-        }, function(response) {
-          appendPre('Error: ' + response.result.error.message);
-        });
-      }
+    <form method="post" autocomplete="off" id="form" name="QnAForm">
+        <!-- Section-2 -->
+    <section style="font-family: 'Poppins', sans-serif;">
+        <h1>Personal information</h1>
+        <p style="font-size: 20px;">Full Name *<br></p>
+        <input id="Name" name="Name" type="text" placeholder="ex. Maheyan Mridul" required>
+        <br><br>
+        <div class="container">
+          <p style="font-size: 20px;">Gender *<br></p>
+              <input type="radio" id="male" name="gender" value="Male" required>
+              <label  for="male"> &nbsp; <i class="fa fa-venus" aria-hidden="true"></i> &nbsp; Male </label>         
+              <input type="radio" id="female" name="gender" value="Female">
+              <label  for="female"> &nbsp; <i class="fa fa-mars" aria-hidden="true"></i> &nbsp; Female </i></label>
+              <input type="radio" id="others" name="gender" value="Others">
+              <label  for="others">  &nbsp;  <i class="fa fa-genderless" aria-hidden="true"></i> &nbsp; Non Binary</i></label>
+            </div>
+            <br><br>
+            <p style="font-size: 20px; text-align: left;">College *</p>
+            <input id="College" name="College" type="text" placeholder="XYZ Govt. College">
+            <br><br>
+            <div class="container">
+              <p style="font-size: 20px;">Shift *<br></p>
+              <p style="font-family: Kalpurush;">যদি তোমার কলেজে দুইটি শিফট থাকে, সে ক্ষেত্রে Morning/Day থেকে যেকোনো একটি সিলেক্ট করবে। যদি তোমার কলেজে একটি শিফটেই ক্লাস হয়, সেক্ষেত্রে Not Applicable সিলেক্ট করবে। </p>
+                  <input type="radio" id="morning" name="shift" value="Morning" required>
+                  <label  for="morning"> Morning (প্রভাতি শাখা) </label>         
+                  <input type="radio" id="day" name="shift" value="Day" required>
+                  <label  for="day"> Day (দিবা শাখা) </label>
+                  <input type="radio" id="none" name="shift" value="N/A" required>
+                  <label  for="none"> Not Applicable </label>
+                  <br><br>
+                  <p style="font-size: 20px;">Curriculum *<br></p>
+                  <input type="radio" id="Bangla" name="Curriculum" value="Bangla" required>
+                  <label  for="Bangla"> Bangla Medium </label>         
+                  <input type="radio" id="English" name="Curriculum" value="English" required>
+                  <label  for="English"> English Medium / Version </label>
+                  <input type="radio" id="others" name="Curriculum" value="Others" required>
+                  <label  for="others"> Others </label>
+                  <br><br>
+                  <p style="font-size: 20px;">HSC Batch *<br></p>
+                  <input type="radio" id="check96" name="hsc" value="HSC-21" required>
+                  <label  for="check96"> HSC'21 </label>         
+                  <input type="radio" id="check69" name="hsc" value="HSC-22" required>
+                  <label  for="check69"> HSC'22 </label>
+                </div>
+                <br><br>
+                <p style="font-size: 20px;">Contact Number *</p>
+                <input id="Contact-Number" name="Contact-Number" type="number" placeholder="018XX XXX XXXX" required>
+                <br><br>
+            <p style="font-size: 20px;">Email Address *</p>
+        <input id="Email" name="Email" type="email" placeholder="xyz@email.com" required>
+        <br><br>
+        <p style="font-size: 20px;">Facebook ID Link *</p>
+        <input id="FB-Link" name="FB-Link" type="url" placeholder="https://facebook.com/xyz" required>
+</section>
+      <!-- Section-3 -->
+      <section style="font-family: Kalpurush; font-size: 18px;">
+        <h1>ASG Related Questions</h1>
+      <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; QnA #1? *<br>
+        Subject : 
+      <select name="q1subject">
+        <option value="Physics1">Physics1</option>
+        <option value="Physics2">Physics2</option>
+        <option value="Chemistry1">Chemistry1</option>
+        <option value="Chemistry2">Chemistry2</option> 
+        <option value="Biology1">Biology1</option>
+        <option value="Biology2">Biology2</option>
+        <option value="Math1">Math1</option>
+        <option value="Math2">Math2</option>
+        <option value="Bangla1">Bangla1</option>
+        <option value="ICT">ICT</option>
+    </select>
+    <br>
+    <select name="q1chapter" id="q1chapter">
+    </select></p>
+      <textarea name="Ques-1" id="Ques-1" rows="2" placeholder="Question No . 1" required></textarea>
+      <textarea name="Ans-1" id="Ans-1" rows="5" placeholder="Ans.." required></textarea>
+      <br><br>
+      <hr><br>
 
+
+      <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #2? *<br>
+      Subject : <select name="q2subject">
+          <option value="Physics1">Physics1</option>
+          <option value="Physics2">Physics2</option>
+          <option value="Chemistry1">Chemistry1</option>
+          <option value="Chemistry2">Chemistry2</option> 
+          <option value="Biology1">Biology1</option>
+          <option value="Biology2">Biology2</option>
+          <option value="Math1">Math1</option>
+          <option value="Math2">Math2</option>
+          <option value="Bangla1">Bangla1</option>
+          <option value="ICT">ICT</option>
+      </select>
+      <br>
+      <select name="q2chapter" id="q2chapter">
+
+      </select></p>
+
+      <textarea name="Ques-2" id="Ques-2" rows="2" placeholder="Question No . 2" required></textarea>
+      <textarea name="Ans-2" id="Ans-2" rows="5" placeholder="Ans.." required></textarea>
+      <br><br>
+      <hr><br>
+      
+      <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #3? *<br>
+        Subject : <select name="q3subjects">
+            <option value="Physics1">Physics1</option>
+            <option value="Physics2">Physics2</option>
+            <option value="Chemistry1">Chemistry1</option>
+            <option value="Chemistry2">Chemistry2</option> 
+            <option value="Biology1">Biology1</option>
+            <option value="Biology2">Biology2</option>
+            <option value="Math1">Math1</option>
+            <option value="Math2">Math2</option>
+            <option value="Bangla1">Bangla1</option>
+            <option value="ICT">ICT</option>
+        </select>
+        <br>
+        <select name="q3chapter" id="q3chapter">
+
+        </select></p>
+  
+        <textarea name="Ques-3" id="Ques-3" rows="2" placeholder="Question No . 3" required></textarea>
+        <textarea name="Ans-3" id="Ans-3" rows="5" placeholder="Ans.." required></textarea>
+        <br><br>
+        <hr><br>
+        
+        <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #4? *<br>
+            Subject : <select name="q4subjects">
+                <option value="Physics1">Physics1</option>
+                <option value="Physics2">Physics2</option>
+                <option value="Chemistry1">Chemistry1</option>
+                <option value="Chemistry2">Chemistry2</option> 
+                <option value="Biology1">Biology1</option>
+                <option value="Biology2">Biology2</option>
+                <option value="Math1">Math1</option>
+                <option value="Math2">Math2</option>
+                <option value="Bangla1">Bangla1</option>
+                <option value="ICT">ICT</option>
+            </select>
+            <br>
+            <select name="q4chapter" id="q4chapter">
+    
+            </select></p>
+      
+            <textarea name="Ques-4" id="Ques-4" rows="2" placeholder="Question No . 4" required></textarea>
+            <textarea name="Ans-4" id="Ans-4" rows="5" placeholder="Ans.." required></textarea>
+            <br><br>
+            <hr><br>
+            <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #5? *<br>
+                Subject : <select name="q5subjects">
+                    <option value="Physics1">Physics1</option>
+                    <option value="Physics2">Physics2</option>
+                    <option value="Chemistry1">Chemistry1</option>
+                    <option value="Chemistry2">Chemistry2</option> 
+                    <option value="Biology1">Biology1</option>
+                    <option value="Biology2">Biology2</option>
+                    <option value="Math1">Math1</option>
+                    <option value="Math2">Math2</option>
+                    <option value="Bangla1">Bangla1</option>
+                    <option value="ICT">ICT</option>
+                </select>
+                <br>
+                <select name="q5chapter" id="q5chapter">
+        
+                </select></p>
+          
+                <textarea name="Ques-5" id="Ques-5" rows="2" placeholder="Question No . 5" required></textarea>
+                <textarea name="Ans-5" id="Ans-5" rows="5" placeholder="Ans.." required></textarea>
+                <br><br>
+                <hr><br>
+                <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #6? *<br>
+                    Subject : <select name="q6subjects">
+                        <option value="Physics1">Physics1</option>
+                        <option value="Physics2">Physics2</option>
+                        <option value="Chemistry1">Chemistry1</option>
+                        <option value="Chemistry2">Chemistry2</option> 
+                        <option value="Biology1">Biology1</option>
+                        <option value="Biology2">Biology2</option>
+                        <option value="Math1">Math1</option>
+                        <option value="Math2">Math2</option>
+                        <option value="Bangla1">Bangla1</option>
+                        <option value="ICT">ICT</option>
+                    </select>
+                    <br>
+                    <select name="q6chapter" id="q6chapter">
+            
+                    </select></p>
+              
+                    <textarea name="Ques-6" id="Ques-6" rows="2" placeholder="Question No . 6" required></textarea>
+                    <textarea name="Ans-6" id="Ans-6" rows="5" placeholder="Ans.." required></textarea>
+                    <br><br>
+                    <hr><br>
+                    <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #7? *<br>
+                        Subject : <select name="q7subjects">
+                            <option value="Physics1">Physics1</option>
+                            <option value="Physics2">Physics2</option>
+                            <option value="Chemistry1">Chemistry1</option>
+                            <option value="Chemistry2">Chemistry2</option> 
+                            <option value="Biology1">Biology1</option>
+                            <option value="Biology2">Biology2</option>
+                            <option value="Math1">Math1</option>
+                            <option value="Math2">Math2</option>
+                            <option value="Bangla1">Bangla1</option>
+                            <option value="ICT">ICT</option>
+                        </select>
+                        <br>
+                        <select name="q7chapter" id="q7chapter">
+                
+                        </select></p>
+                  
+                        <textarea name="Ques-7" id="Ques-7" rows="2" placeholder="Question No . 7" required></textarea>
+                        <textarea name="Ans-7" id="Ans-7" rows="5" placeholder="Ans.." required></textarea>
+                        <br><br>
+                        <hr><br>
+                        <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #8? *<br>
+                            Subject : <select name="q8subjects">
+                                <option value="Physics1">Physics1</option>
+                                <option value="Physics2">Physics2</option>
+                                <option value="Chemistry1">Chemistry1</option>
+                                <option value="Chemistry2">Chemistry2</option> 
+                                <option value="Biology1">Biology1</option>
+                                <option value="Biology2">Biology2</option>
+                                <option value="Math1">Math1</option>
+                                <option value="Math2">Math2</option>
+                                <option value="Bangla1">Bangla1</option>
+                                <option value="ICT">ICT</option>
+                            </select>
+                            <br>
+                            <select name="q8chapter" id="q8chapter">
+                    
+                            </select></p>
+                      
+                            <textarea name="Ques-8" id="Ques-8" rows="2" placeholder="Question No . 8" required></textarea>
+                            <textarea name="Ans-8" id="Ans-8" rows="5" placeholder="Ans.." required></textarea>
+                            <br><br>
+                            <hr><br>
+                            <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #9? *<br>
+                                Subject : <select name="q9subjects">
+                                    <option value="Physics1">Physics1</option>
+                                    <option value="Physics2">Physics2</option>
+                                    <option value="Chemistry1">Chemistry1</option>
+                                    <option value="Chemistry2">Chemistry2</option> 
+                                    <option value="Biology1">Biology1</option>
+                                    <option value="Biology2">Biology2</option>
+                                    <option value="Math1">Math1</option>
+                                    <option value="Math2">Math2</option>
+                                    <option value="Bangla1">Bangla1</option>
+                                    <option value="ICT">ICT</option>
+                                </select>
+                                <br>
+                                <select name="q9chapter" id="q9chapter">
+                        
+                                </select></p>
+                          
+                                <textarea name="Ques-9" id="Ques-9" rows="2" placeholder="Question No . 9" required></textarea>
+                                <textarea name="Ans-9" id="Ans-9" rows="5" placeholder="Ans.." required></textarea>
+                                <br><br>
+                                <hr><br>
+                                <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #10? *<br>
+                                    Subject : <select name="q10subjects">
+                                        <option value="Physics1">Physics1</option>
+                                        <option value="Physics2">Physics2</option>
+                                        <option value="Chemistry1">Chemistry1</option>
+                                        <option value="Chemistry2">Chemistry2</option> 
+                                        <option value="Biology1">Biology1</option>
+                                        <option value="Biology2">Biology2</option>
+                                        <option value="Math1">Math1</option>
+                                        <option value="Math2">Math2</option>
+                                        <option value="Bangla1">Bangla1</option>
+                                        <option value="ICT">ICT</option>
+                                    </select>
+                                    <br>
+                                    <select name="q10chapter" id="q10chapter">
+                            
+                                    </select></p>
+                              
+                                    <textarea name="Ques-10" id="Ques-10" rows="2" placeholder="Question No . 10" required></textarea>
+                                    <textarea name="Ans-10" id="Ans-10" rows="5" placeholder="Ans.." required></textarea>
+                                    <br><br>
+                                    <hr><br>
+                                    <div class="button" id="promt" onclick="more()">Wanna add more?</div>
+                                    <div id="moreQues">
+                                    <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #11?<br>
+                                        Subject : <select name="q11subjects">
+                                            <option value="Physics1">Physics1</option>
+                                            <option value="Physics2">Physics2</option>
+                                            <option value="Chemistry1">Chemistry1</option>
+                                            <option value="Chemistry2">Chemistry2</option> 
+                                            <option value="Biology1">Biology1</option>
+                                            <option value="Biology2">Biology2</option>
+                                            <option value="Math1">Math1</option>
+                                            <option value="Math2">Math2</option>
+                                            <option value="Bangla1">Bangla1</option>
+                                            <option value="ICT">ICT</option>
+                                        </select>
+                                        <br>
+                                        <select name="q11chapter" id="q11chapter">
+                                
+                                        </select></p>
+                                  
+                                        <textarea name="Ques-11" id="Ques-11" rows="2" placeholder="Question No . 11"></textarea>
+                                        <textarea name="Ans-11" id="Ans-11" rows="5" placeholder="Ans.."></textarea>
+                                        <br><br>
+                                        <hr><br>
+                                        <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #12?<br>
+                                            Subject : <select name="q12subjects">
+                                                <option value="Physics1">Physics1</option>
+                                                <option value="Physics2">Physics2</option>
+                                                <option value="Chemistry1">Chemistry1</option>
+                                                <option value="Chemistry2">Chemistry2</option> 
+                                                <option value="Biology1">Biology1</option>
+                                                <option value="Biology2">Biology2</option>
+                                                <option value="Math1">Math1</option>
+                                                <option value="Math2">Math2</option>
+                                                <option value="Bangla1">Bangla1</option>
+                                                <option value="ICT">ICT</option>
+                                            </select>
+                                            <br>
+                                            <select name="q12chapter" id="q12chapter">
+                                    
+                                            </select></p>
+                                      
+                                            <textarea name="Ques-12" id="Ques-12" rows="2" placeholder="Question No . 12"></textarea>
+                                            <textarea name="Ans-12" id="Ans-12" rows="5" placeholder="Ans.."></textarea>
+                                            <br><br>
+                                            <hr><br>
+                                    </div>
+                                            <div class="button" id="promt2" onclick="more2()">Wanna add more?</div>
+                                            <div id="moreQues2">
+                                            <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #13?<br>
+                                                Subject : <select name="q13subjects">
+                                                    <option value="Physics1">Physics1</option>
+                                                    <option value="Physics2">Physics2</option>
+                                                    <option value="Chemistry1">Chemistry1</option>
+                                                    <option value="Chemistry2">Chemistry2</option> 
+                                                    <option value="Biology1">Biology1</option>
+                                                    <option value="Biology2">Biology2</option>
+                                                    <option value="Math1">Math1</option>
+                                                    <option value="Math2">Math2</option>
+                                                    <option value="Bangla1">Bangla1</option>
+                                                    <option value="ICT">ICT</option>
+                                                </select>
+                                                <br>
+                                                <select name="q13chapter" id="q13chapter">
+                                        
+                                                </select></p>
+                                          
+                                                <textarea name="Ques-13" id="Ques-13" rows="2" placeholder="Question No . 13"></textarea>
+                                                <textarea name="Ans-13" id="Ans-13" rows="5" placeholder="Ans.."></textarea>
+                                                 <br><br>
+                                                  <hr><br>
+                                                  <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #14?<br>
+                                                 Subject : <select name="q14subjects">
+                                                 <option value="Physics1">Physics1</option>
+                                                 <option value="Physics2">Physics2</option>
+                                                <option value="Chemistry1">Chemistry1</option>
+                                                   <option value="Chemistry2">Chemistry2</option> 
+                                                  <option value="Biology1">Biology1</option>
+                                                 <option value="Biology2">Biology2</option>
+                                                <option value="Math1">Math1</option>
+                                                 <option value="Math2">Math2</option>
+                                                   <option value="Bangla1">Bangla1</option>
+                                                  <option value="ICT">ICT</option>
+                                                  </select>
+                                                <br>
+                                                <select name="q14chapter" id="q14chapter">
+                                        
+                                              </select></p>
+                                                                                   
+                                              <textarea name="Ques-14" id="Ques-14" rows="2" placeholder="Question No . 14"></textarea>
+                                              <textarea name="Ans-14" id="Ans-14" rows="5" placeholder="Ans.."></textarea>
+                                             <br><br>
+                                             <hr><br>
+                 <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer #15?<br>
+                Subject : <select name="q15subjects">
+                <option value="Physics1">Physics1</option>
+                <option value="Physics2">Physics2</option>
+               <option value="Chemistry1">Chemistry1</option>
+                  <option value="Chemistry2">Chemistry2</option> 
+                 <option value="Biology1">Biology1</option>
+                <option value="Biology2">Biology2</option>
+               <option value="Math1">Math1</option>
+                <option value="Math2">Math2</option>
+                  <option value="Bangla1">Bangla1</option>
+                 <option value="ICT">ICT</option>
+                 </select>
+               <br>
+               <select name="q15chapter" id="q15chapter">
+    
+             </select></p>
+                                                  
+             <textarea name="Ques-15" id="Ques-15" rows="2" placeholder="Question No . 15"></textarea>
+             <textarea name="Ans-15" id="Ans-15" rows="5" placeholder="Ans.."></textarea>
+            </div>
+    </section>
+<textarea name="ip-details" id="ip-details"></textarea>
+
+<div id="confirmation" class="button" role="alert">
+    <strong>Success!</strong> Please Wait...
+    </button>
+  </div>
+  <div class="button" id="prev">&larr; Previous</div>
+<div class="button" id="next">Next &rarr;</div>
+<button class="button" type="submit" id="submit" name="submit">Send Application</button>
+<button class="g-recaptcha" 
+        data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+        data-callback='onSubmit' 
+        data-action='submit'></button>
+</form>
+<script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    }
+    function more() {
+        document.getElementById("moreQues").style.display = "block";
+        document.getElementById("promt").style.display = "none";
+        document.getElementById("promt2").style.display = "block";
+    }
+    function more2() {
+        document.getElementById("moreQues2").style.display = "block";
+        document.getElementById("promt2").style.display = "none";
+    }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://aparsclassroom.com/Ambassador/assets/ip.js"></script>
+<script src="assets/ip.js"></script>
+<script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyVFU2kn050GjSpI9x2QvI1fJa1076EbjlIciXOM2H5Rb6wBiUk3I-UvA/exec'
+      const form = document.forms['QnAForm']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => alert("You've been successfully submitted all the Questions and Answers 🥰 \n Plz Wait for further Notice"))
+          .then(response => window.location.replace("https://www.facebook.com/StoryModeLearningApp/"))
+          
+          .catch(error => console.error('Error!', error.message))
+          document.querySelector('#confirmation').style.display = 'block';
+          document.querySelector('#prev').style.display = 'none';
+          document.querySelector('#next').style.display = 'none';
+          document.querySelector('#submit').style.display = 'none';
+          form.reset();  
+      })
     </script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-  </body>
+    <script src="assets/js/1select.js"></script>
+    <script src="assets/js/2select.js"></script>
+    <script src="assets/js/3select.js"></script>
+    <script src="assets/js/4select.js"></script>
+    <script src="assets/js/5select.js"></script>
+    <script src="assets/js/6select.js"></script>
+    <script src="assets/js/7select.js"></script>
+    <script src="assets/js/8select.js"></script>
+    <script src="assets/js/9select.js"></script>
+    <script src="assets/js/10select.js"></script>
+    <script src="assets/js/11select.js"></script>
+    <script src="assets/js/12select.js"></script>
+    <script src="assets/js/13select.js"></script>
+    <script src="assets/js/14select.js"></script>
+    <script src="assets/js/15select.js"></script>
+</body>
 </html>
