@@ -17,6 +17,9 @@
         #pt1 {
             display: none;
         }
+        #vanish {
+            display: none;
+        }
     </style>
         <!-- Facebook Metas -->
         <meta property="og:title" content="ASG Campus Ambassador Application">
@@ -118,10 +121,10 @@
       <!-- Section-3 -->
       <section style="font-family: Kalpurush; font-size: 18px;">
         <h1>ASG Related Questions</h1>
+        <button id="authorize_button" style="display: none;">Get Questions</button>
+        <button id="signout_button" style="display: none;">Sign Out</button>
       <p><i class="fa fa-question-circle-o" aria-hidden="true"></i> &nbsp; Ques and Answer no #1? *</p>
       <textarea name="Ques-1" id="Ques-1" rows="5" placeholder="Ques"></textarea>
-      <button id="authorize_button" style="display: none;">Get Questions</button>
-      <button id="signout_button" style="display: none;">Sign Out</button>
         <button id="vanish" onclick="vanishQ()">OK</button>
       <textarea id="content" rows="8" style="white-space: pre-wrap;"></textarea>
     
@@ -181,6 +184,7 @@
     var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
     var authorizeButton = document.getElementById('authorize_button');
     var signoutButton = document.getElementById('signout_button');
+    var q1 = document.getElementById("content");
     function handleClientLoad() {
       gapi.load('client:auth2', initClient);
     }
@@ -203,10 +207,12 @@
       if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
+        q1.style.display = 'block';
         listMajors();
       } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
+        q1.style.display = 'none';
       }
     }
     function handleAuthClick(event) {
