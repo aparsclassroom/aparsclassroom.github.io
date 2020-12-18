@@ -57,15 +57,10 @@
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
-
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
       function listMajors() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1EBPIdlooou3Sl18yIPwVBUWsPAnmma7DM2NkDBbW44o',
-          range: 'A1:A',
+          range: 'A2:A',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
