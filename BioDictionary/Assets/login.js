@@ -11,16 +11,12 @@
             },
             signInFlow: 'popup',
             signInSuccessUrl: 'index.html',
-                signInOptions: [
-              {
-                provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                recaptchaParameters: {
-                  type: 'image',
-                  size: 'invisible',
-                  badge: 'bottomleft'
-                },
-                  whitelistedCountries: ['BD', '+880']
-              }
+               signInOptions: [
+                  {
+                    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                    signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
+                  }
+
             ],
           }; 
     ui.start('#firebaseui-auth-container', uiConfig);
