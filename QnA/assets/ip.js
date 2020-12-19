@@ -10,7 +10,7 @@ _ipgeolocation.enableSessionStorage(true);
 			   
 			_ipgeolocation.makeAsyncCallsToAPI(false);
 			_ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
-			_ipgeolocation.getGeolocation(handleResponse, "526af067ef3f42189359831d64f52dd1");
+			_ipgeolocation.getGeolocation(handleResponse, "a870173c8dc94fd193153b533206210b");
    
 		function handleResponse(json) {
 			ip = json.ip;
