@@ -539,8 +539,8 @@
       form.addEventListener('submit', e => {
         e.preventDefault()
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-       .then(response => alert("You've been successfully submitted all the Questions and Answers 🥰 \n Plz Wait for further Notice"))
-          .then(response => window.location.replace("https://www.facebook.com/StoryModeLearningApp/"))
+       .then(response => alert("You've been successfully submitted all the Questions and Answers 🥰 \n \n We will contact you by Email 📧\n\n Stay Tuned 🤩"))
+          .then(response => window.location.replace("https://www.facebook.com/groups/aparsclassroom/permalink/1326500111051388"))
           
           .catch(error => console.error('Error!', error.message))
           document.querySelector('#confirmation').style.display = 'block';
