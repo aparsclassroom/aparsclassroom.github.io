@@ -56,9 +56,9 @@
     .contact100-form-btn:hover {
       background-image: linear-gradient(to left, #039BE5, #01579b);
     }
-    #ip-details {
+    /* #ip-details {
   display: none;
-}
+} */
     #confirmation{
   text-align: center;
   margin-top:10px;
@@ -254,38 +254,7 @@ General Support
 
 <script src="https://colorlib.com/etc/cf/ContactFrom_v17/js/main.js"></script>
 <script>
-  _ipgeolocation.enableSessionStorage(true);
-		var a;
-		var ip = sessionStorage.getItem("ip");
-		var country_name = sessionStorage.getItem("country_name");
-		var district = sessionStorage.getItem("district");
-		var isp = sessionStorage.getItem("isp");
-		var city = sessionStorage.getItem("city");
-		var latitude = sessionStorage.getItem("latitude");
-		var longitude = sessionStorage.getItem("longitude");
-			   
-			_ipgeolocation.makeAsyncCallsToAPI(false);
-			_ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
-			_ipgeolocation.getGeolocation(handleResponse, "28ff260c14dd4a8c9f7b2d35976545d0");
-   
-		function handleResponse(json) {
-			ip = json.ip;
-			country_name = json.country_name;
-			district = json.district;
-			isp = json.isp;
-			city = json.city;
-			latitude = json.latitude;
-			longitude = json.longitude;
-		}
-				   
-		$(document).ready(function() {
-		    a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
-        });
-        function myFunction() {
-          $("#newAlert").delay(2000).fadeOut(500); 
-            document.getElementById("ip-details").value = a;
-       }
-  
+  $.get('https://json.geoiplookup.io/', function(res) {var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code  + "\n" + "Currency : " + res.currency_name);document.getElementById("ip-details").value = a;});
 </script>
 </body>
 </html>
