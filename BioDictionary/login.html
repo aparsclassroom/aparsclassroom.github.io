@@ -114,12 +114,13 @@ form a:hover {
 			<i class="fa fa-lock"></i>
 			<input type="password" id="password" name="password">
 		  </div>
-		  <button id="access" name="signin" class="btn">Log in</button>
-		  <a href="https://www.netflix.com/bd/">Buy a Subscription</a>
+      <button id="access" name="signin" class="btn">Log in</button>
+      <a type="button" id="forgotPass" style="display:none;cursor:pointer;color:red;">Forgot Password?&nbsp;&nbsp;</a>
+      <a href="https://www.netflix.com/bd/">Buy a Subscription</a>
 		</form>
 	  </div>
 	  <script>
-		  function toggleSignIn() {
+		  function toggleSignIn(e) {
   if (firebase.auth().currentUser) {
     firebase.auth().signOut();
   } else {
@@ -138,24 +139,42 @@ form a:hover {
       var errorMessage = error.message;
       if (errorCode === 'auth/wrong-password') {
         alert('Wrong password.');
+        document.getElementById("forgotPass").style.display = "inline-block";
       } else {
-        alert('You Don\'t have Access. To get access, Kindly Contact\nMaheyan Mridul \nEmail : developer@aparsclassroom.com');
+        alert('You don\'t have Access. To get access, Please Buy our subscription');
+        window.location.replace("https://www.netflix.com/bd/");
       }
-      console.log(error);
-      document.getElementById('access').disabled = false;
     });
   }
-  document.getElementById('access').disabled = true;
+  document.getElementById('access').disabled = false;
+  e.preventDefault();
 }
+
+function sendPasswordReset() {
+      var email = document.getElementById('email').value;
+      firebase.auth().sendPasswordResetEmail(email).then(function() {
+        alert('Password Reset Email Sent!\nNow Please Check Your Email Inbox 😊');
+        window.location.replace("https://mail.google.com/");
+      }).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode == 'auth/invalid-email') {
+          alert("Please Check your Email Address 🤔 \n\nIt is in wrong format 🙃");
+        } else if (errorCode == 'auth/user-not-found') {
+          alert('You haven\'t purchased our premium subscription yet 😶');
+          window.location.replace("https://www.netflix.com/bd/");
+        }
+      });
+    }
 function initApp() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-  window.location.replace("index.html");
+          window.location.replace("index.html");
     } 
   });
   document.getElementById('access').addEventListener('click', toggleSignIn, false);
+  document.getElementById('forgotPass').addEventListener('click', sendPasswordReset, false);
 }
-
 window.onload = function() {
   initApp();
 };
