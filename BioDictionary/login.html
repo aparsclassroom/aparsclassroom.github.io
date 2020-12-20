@@ -99,6 +99,17 @@ form a:hover {
   text-decoration: underline;
   text-decoration-style: dotted;
 }
+#forgotPass {
+    margin-right: 25px;
+  }
+@media only screen and (max-width: 400px) {
+  #forgotPass {
+    margin-right: 0px;
+  }
+  #subs {
+    display: block;
+  }
+} 
 	</style>
 </head>
 <body>
@@ -115,8 +126,8 @@ form a:hover {
 			<input type="password" id="password" name="password">
 		  </div>
       <button id="access" name="signin" class="btn">Log in</button>
-      <a type="button" id="forgotPass" style="display:none;cursor:pointer;color:red;">Forgot Password?&nbsp;&nbsp;</a>
-      <a href="https://www.netflix.com/bd/">Buy a Subscription</a>
+      <a type="button" id="forgotPass" style="display:none;cursor:pointer;color:red;">Forgot Password?</a>
+      <a id="subs" href="https://www.netflix.com/bd/">Buy a Subscription</a>
 		</form>
 	  </div>
 	  <script>
@@ -154,7 +165,7 @@ function sendPasswordReset() {
       var email = document.getElementById('email').value;
       firebase.auth().sendPasswordResetEmail(email).then(function() {
         alert('Password Reset Email Sent!\nNow Please Check Your Email Inbox 😊');
-        window.location.replace("https://mail.google.com/");
+        window.location.href = "https://mail.google.com/";
       }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
