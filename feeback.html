@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
     <style>
-        #ip-details,
+        /* #ip-details,
         #success {
             display: none;
-        }
+        } */
     </style>
 </head>
 <body onload="myFunction()">
@@ -24,13 +23,13 @@
 
 <div id="success">Success</div>
 <script>
-
-$.ajax ({
-  type: "GET",
-  url: "https://api.astroip.co/112.126.34.5/?api_key= 58d8d1f6-93e3-47eb-94d0-ef88afe6dd31",
-  success: function(response) { alert(response); }
+var a;
+$.getJSON('https://json.geoiplookup.io/', function(data) {
+  var a = JSON.stringify(data, null, 2);
 });
-
+function myFunction() {
+    document.getElementById("ip-details").value = a;
+}
 
 
 
