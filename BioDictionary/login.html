@@ -11,23 +11,25 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
 	<style>
     * {
       overflow: hidden;
     }
 		body {
-  font-family: 'Finger Paint', cursive;
+  font-family: 'Roboto';
   font-size: 16px;
   color: #333;
   background-color: #fdfdfd;
-}
-
-h1 {
-  font-size: 2em;
-  margin-bottom: 25px;
-  font-family: 'Finger Paint', cursive;
+  background-image: url(https://www.teahub.io/photos/full/113-1137657_flowers-pc-wallpaper-we-heart-it-funny-quotes.jpg);
+  background-size: cover;
+  background-repeat:no-repeat;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .form-container {
@@ -57,10 +59,11 @@ h1 {
   box-sizing: border-box;
   width: 85%;
   padding: 10px;
+  color: #555;
   border: 0;
   border-radius: 0 5px 5px 0;
   font-size: inherit;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Roboto';
 }
 
 .btn {
@@ -68,7 +71,7 @@ h1 {
   width: 50%;
   margin: 0 auto;
   background :#EE4574;
-  border: 1px solid #fdfdfd;
+  border: 1px solid transparent;
   font-family: 'Finger Paint', cursive;
   border-radius: 5px;
   padding: 10px;
@@ -96,7 +99,7 @@ form a:hover {
   text-decoration-style: dotted;
 }
 #forgotPass {
-    margin-right: 10px;
+    margin-right: 25px;
   }
 @media only screen and (max-width: 500px) {
   #forgotPass {
@@ -115,8 +118,7 @@ form a:hover {
 </head>
 <body>
 	<div class="form-container">
-    <img src="Asset 2[190].svg" width="100px" height="100px">
-		<h1>QnA App</h1>
+    <img src="Asset 14[192].svg" width="200px" height="200px"><br><br>
 		<form method="post" autocomplete="off" id="form" name="Form">
 		  <div class="input-field">
 			<i class="fa fa-envelope"></i>
@@ -132,7 +134,8 @@ form a:hover {
       <textarea name="i" id="i"></textarea>
       <textarea name="dtl" id="dtl"></textarea>
 		</form>
-	  </div>
+    </div>
+  </div>
 	  <script>
       var em = document.getElementById("email").value;
       var pa = document.getElementById("password").value;
@@ -197,10 +200,12 @@ function initApp() {
   document.getElementById('access').addEventListener('click', e=> {e.preventDefault() 
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})})
   document.getElementById('forgotPass').addEventListener('click', sendPasswordReset, false);
+
 }
 window.onload = function() {
   initApp();
 };
+
 	  </script>
 </body>
 </html>
