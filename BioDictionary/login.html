@@ -188,7 +188,7 @@ function sendPasswordReset() {
 function initApp() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-          window.location.replace("index.html");
+ window.location.replace("index.html");
     } 
   });
   document.getElementById('access').addEventListener('click', toggleSignIn, false);
