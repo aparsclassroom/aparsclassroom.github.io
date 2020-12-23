@@ -6,12 +6,14 @@
     <title>Physics 1st | QnA App</title>
     <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-storage.js"></script>
     <script src="Assets/firebase.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Assets/css/search.css">
     <style>
         .chapters {
@@ -27,12 +29,16 @@
 	        height: 50px;
 	        font-weight: 700;
         }
+        .modal p {
+            font-family: 'Handlee', cursive;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="background-image: linear-gradient(to left, #ee4575f1, #EE4574);">
+    <nav class="navbar navbar-expand-xlg sticky-top navbar-dark" style="background-image: linear-gradient(to left, #ee4575f1, #EE4574);">
         <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="#">
             <img src="Assets/Logo/Asset 2[190].svg" height="30px" width="30px">&nbsp;QnA App</a>
+            <button type="button" class="btn" style="position: right;" data-toggle="modal" data-target="#myModal"><img src="Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></button>
       </nav>
 <div class="container">
 <br>
@@ -57,6 +63,24 @@
         </div>
       </div>
 </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 style="font-size:35px;text-align: center;font-family: 'Handlee', cursive;" class="modal-title">User Profile</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p id="uemail"></p>
+            <p id="secured"></p>
+            <p id="licenseFor"></p>
+            <p id="Subscription"></p>
+        <div class="modal-footer">
+            <button style="font-family: 'Finger Paint', cursive;" class="btn btn-danger" type="button" onclick="mainApp.logOut();">Log Out</button>
+        </div>
+      </div>
+    </div>
 </div>
 <script>
     var mainApp = {};
@@ -66,10 +90,33 @@ var uid = null;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     uid = user.uid;
+        email = user.email;
+        secured = user.providerId;
+        emailVerified = user.emailVerified;
+        document.getElementById("uemail").innerHTML = "Email : " + email;
+        document.getElementById("secured").innerHTML = "Licensed for : " + secured;
+        document.getElementById("Subscription").innerHTML = "Subscription : " + emailVerified;
+        document.getElementById("licenseFor").innerHTML = "License : " + uid;
+if(user.uid == "8bBjP8WsfCM1T3l34WnqCVlqwf32" || user.uid == "0fnMfOGZycgx7mytIqdU56UzdFw1" || user.uid == "rInPi0lEAyY2WeJDQKGmlXJAg1b2" || user.uid == "wQVw3rhD4kTJms9fJWtDgPAY8ro2") {
+    document.getElementById("Subscription").innerHTML = "Subscription : admin";
+}
+if (user.uid == "sfO7wwsJ1YeL6HsBucjvkde3TjO2") {
+    document.getElementById("Subscription").innerHTML = "Subscription : Trial Version";
+}
+if (user != null) {
+  user.providerData.forEach(function (profile) {
+    document.getElementById("secured").innerHTML = "Encripted by : User " + profile.providerId;
+  });
+  
+}
   }else {
       window.location.replace("index.html");
   }
 });
+function logOut(){
+        firebase.auth().signOut();
+    }
+    mainApp.logOut = logOut;
 })()
 </script>
 </body>
