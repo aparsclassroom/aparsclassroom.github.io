@@ -129,8 +129,8 @@
       form.addEventListener('submit', e => {
         e.preventDefault()
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-       .then(response => alert("You've been successfully Applied for Ambassador 🥰 \n Plz Wait for further Notice"))
-          .then(response => window.location.replace("https://www.facebook.com/groups/aparsclassroom/permalink/1320900111611388/"))
+       .then(response => alert("You've been successfully Applied for 1 Year Subscription 🥰 \n Plz Wait for a manual Verification\n\nWhen verification process is completed we will email you.\nThis may take upto 24 hours (highest)"))
+          .then(response => window.location.replace("https://aparsclassroom.com/App/index.html"))
           
           .catch(error => console.error('Error!', error.message))
           document.querySelector('#confirmation').style.display = 'block';
