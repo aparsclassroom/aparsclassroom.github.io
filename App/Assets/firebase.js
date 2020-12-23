@@ -1,18 +1,18 @@
 var app_firebase = {};
 (function () { 
     var firebaseConfig = {
-        apiKey: "AIzaSyBfAZ4cn7orcPnmSGYO-bk_M1DDIheu944",
-        authDomain: "aparsbiodictionary.firebaseapp.com",
-        projectId: "aparsbiodictionary",
-        storageBucket: "aparsbiodictionary.appspot.com",
-        messagingSenderId: "822392075528",
-        appId: "1:822392075528:web:88e7424909b997ad9228bd",
-        measurementId: "G-QVPSFBGT5M"
+      apiKey: "AIzaSyB3jSPyVWw1xFZwM2QHvEvGfjka1bvPJdU",
+      authDomain: "apars-qna-app.firebaseapp.com",
+      projectId: "apars-qna-app",
+      storageBucket: "apars-qna-app.appspot.com",
+      messagingSenderId: "1020053403181",
+      appId: "1:1020053403181:web:f32e42e90b160f5402eaa4",
+      measurementId: "G-9GFZCDHVVJ"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
   app_firebase = firebase;
+  firebase.analytics();
 })()
 document.addEventListener("contextmenu", function(e) {
   e.preventDefault();

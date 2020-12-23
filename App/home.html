@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Physics 1st | QnA App</title>
-    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
     <script src="Assets/firebase.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -76,6 +76,7 @@
             <p id="secured"></p>
             <p id="licenseFor"></p>
             <p id="Subscription"></p>
+            <p id="ip-details"></p>
         <div class="modal-footer">
             <button style="font-family: 'Finger Paint', cursive;" class="btn btn-danger" type="button" onclick="mainApp.logOut();">Log Out</button>
         </div>
@@ -87,6 +88,7 @@
 (function() {
     var firebase = app_firebase;
 var uid = null;
+$.get('https://json.geoiplookup.io/', function(res) {var a = ("Reg. IP : " + res.ip + "<br>" + "District : " + res.district + "<br>" + "Country : " + res.country_name);document.getElementById("ip-details").innerHTML = a;});
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     uid = user.uid;
@@ -95,19 +97,24 @@ firebase.auth().onAuthStateChanged(function(user) {
         emailVerified = user.emailVerified;
         document.getElementById("uemail").innerHTML = "Email : " + email;
         document.getElementById("secured").innerHTML = "Licensed for : " + secured;
-        document.getElementById("Subscription").innerHTML = "Subscription : " + emailVerified;
         document.getElementById("licenseFor").innerHTML = "License : " + uid;
-if(user.uid == "8bBjP8WsfCM1T3l34WnqCVlqwf32" || user.uid == "0fnMfOGZycgx7mytIqdU56UzdFw1" || user.uid == "rInPi0lEAyY2WeJDQKGmlXJAg1b2" || user.uid == "wQVw3rhD4kTJms9fJWtDgPAY8ro2") {
-    document.getElementById("Subscription").innerHTML = "Subscription : admin";
+        if(emailVerified == true) {
+          document.getElementById("Subscription").innerHTML = "Subscription : Premium";
+        }
+        if(emailVerified != true) {
+          document.getElementById("Subscription").innerHTML = "Subscription : Not Valid";
+        }
+if(uid == "irPzlWXIHXTPg4OqVxWyUWoWczj2" || uid == "I0yXD5ENj9Oyep5vuVSsL7Xjr3j2") {
+    document.getElementById("Subscription").innerHTML = "Subscription : Admin";
 }
-if (user.uid == "sfO7wwsJ1YeL6HsBucjvkde3TjO2") {
+if (uid == "Sla61AFrk8R6NWCXTTuWLe1xDiN2") {
     document.getElementById("Subscription").innerHTML = "Subscription : Trial Version";
+    document.getElementById("secured").innerHTML = "Encripted by : Trial Version Password";
 }
 if (user != null) {
   user.providerData.forEach(function (profile) {
     document.getElementById("secured").innerHTML = "Encripted by : User " + profile.providerId;
   });
-  
 }
   }else {
       window.location.replace("index.html");
