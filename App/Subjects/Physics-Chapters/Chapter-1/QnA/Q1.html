@@ -68,10 +68,8 @@
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         uid = user.uid;
-        alert(uid);
       }else {
-          // window.location.replace("../../../../index.html");
-          alert(uid);
+          window.location.replace("../../../../index.html");
       }
     });
     })()
