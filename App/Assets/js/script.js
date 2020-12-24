@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var a = [
     {   
-        videolink: "https://storymodelearning.com/videos/advertise01.mp4",
+        videolink: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
+        poster: "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg",
         Number: "০১.",
         Question: "মহাকর্ষীয় বিভব ঋণাত্মক কেন?",
         Subject: "পদার্থবিজ্ঞান ১ম পত্র",
@@ -9,6 +10,8 @@ $(document).ready(function() {
         Topic: "মহাকর্ষীয় বিভব",
         link: "QnA/Q1.html"
     }, {
+        videolink: "https://media.geeksforgeeks.org/wp-content/uploads/20190616234019/Canvas.move_.mp4",
+        poster: "",
         Number: "০২.",
         Question: "আরেকটা প্রশ্ন?",
         Subject: "পদার্থবিজ্ঞান ১ম পত্র",
@@ -16,6 +19,8 @@ $(document).ready(function() {
         Topic: "আরেকটা টপিক",
         link: "QnA/Q1.html"
     }, {
+        videolink: "https://storymodelearning.com/videos/advertise01.mp4",
+        poster: "",
         Number: "০৩.",
         Question: "নতুন আরেকটা প্রশ্ন?",
         Subject: "পদার্থবিজ্ঞান ১ম পত্র",
@@ -31,7 +36,7 @@ $(document).ready(function() {
                 i = '<div class="card text-center">',
                 m = 1;
             $.each(a, function(a, e) {
-                -1 == e.Question.search(o) && -1 == e.Topic.search(o) && -1 == e.Number.search(o) || (i += '<div class="col-md-15 well">',i += '<video autoplay><source src="'+ e.videolink +'" type="video/mp4"></video>', i += "<h3>" + e.Number + " " + e.Question + "</h3>", i += '<h4>টপিক : ' + e.Topic + '</h4>', i += "<p>অধ্যায় : " + e.chapter + "  <br> বিষয় : " + e.Subject + "</p>", i += "<p>", i += "<a type='button' class='links' href=\"" + e.link + '">' + "উত্তর" + "</a>", i += "</p></div>&nbsp;", m % 2 == 0 && (i += '</div><div class="card text-center">'), m++)
+                -1 == e.Question.search(o) && -1 == e.Topic.search(o) && -1 == e.Number.search(o) || (i += '<div class="col-md-15 well">',i += '<video controls controlslist="nodownload"><source src="'+ e.videolink + '" poster="' + e.poster +'" type="video/mp4"></video>', i += "<h3>" + e.Number + " " + e.Question + "</h3>", i += '<h4>টপিক : ' + e.Topic + '</h4>', i += "<p>অধ্যায় : " + e.chapter + "  <br> বিষয় : " + e.Subject + "</p>", i += "<p>", i += "<a type='button' class='links' href=\"" + e.link + '">' + "উত্তর" + "</a>", i += "</p></div>&nbsp;", m % 2 == 0 && (i += '</div><div class="card text-center">'), m++)
             }), i += "</div>", $("#filter-records").html(i)
         } else $("#filter-records").html("");
         if (document.getElementById("filter-records").innerHTML == '<div class="card text-center"></div>') {

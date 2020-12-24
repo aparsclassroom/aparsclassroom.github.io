@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QnA Submission Form</title>
     <link rel="stylesheet" type="text/css" href="https://aparsclassroom.com/Photon/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="../images/favicon.ico">
+    <link rel="shortcut icon" href="../App/Assets/Logo/Asset 2[190].svg" type="image/x-icon">
+<link rel="apple-touch-icon" href="../App/Assets/Logo/Asset 2[190].svg">
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
         <!-- Facebook Metas -->
         <meta property="og:title" content="Apar's Classroom">
         <meta property="og:site_name" content="QnA Submission Form">
@@ -540,7 +539,7 @@
         e.preventDefault()
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
        .then(response => alert("You've been successfully submitted all the Questions and Answers 🥰 \n \n We will contact you by Email 📧\n\n Stay Tuned 🤩"))
-          .then(response => window.location.replace("https://www.facebook.com/groups/aparsclassroom/permalink/1326500111051388"))
+          .then(response => window.location.replace("realtime.html"))
           
           .catch(error => console.error('Error!', error.message))
           document.querySelector('#confirmation').style.display = 'block';
