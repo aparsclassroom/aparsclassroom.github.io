@@ -84,7 +84,7 @@
 					Feedback Form
 				</span>
 				<div id="newAlert" class="alert alert-success wrap-input100" role="alert">
-					<strong>Version 3.0</strong> November Edition <sup><strong>(Latest)</strong></sup>
+					<strong>Version 4.0</strong> December Edition <sup><strong>(Latest)</strong></sup>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
@@ -254,7 +254,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => window.location.replace("free-pdf/December-Shuchipotro.pdf"))
+        .then(response => window.location.replace("https://shuchipotro.aparsclassroom.com/December-v4"))
         .catch(error => console.error('Error!', error.message))
         document.querySelector('#confirmation').style.display = 'block';
         document.querySelector('#reg').style.display = 'none';
