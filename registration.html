@@ -15,7 +15,10 @@
   gtag('config', 'G-7R4CMSFEBN');
 </script>
 
-
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://storymodelearning.com/js/firebase.js"></script>
         <!-- Facebook Metas -->
         <meta property="og:title" content="Story Mode Learning App">
         <meta property="og:site_name" content="Apar's Story Mode Learning App">
@@ -210,6 +213,17 @@ General Support
     function onSubmit(token) {
       document.getElementById("form").submit();
     }
+          var mainApp = {};
+(function() {
+    var firebase = app_firebase;
+var uid = null;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    uid = user.uid;
+    window.location.replace("https://storymodelearning.com/home.html");
+  }
+});
+})()
   </script>
 <script>
   function validate() {
