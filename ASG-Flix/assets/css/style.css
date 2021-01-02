@@ -19,13 +19,13 @@ Description: This Template is created for web template
 
 @font-face {
   font-family: 'Glacial Indifference';
-  src: url("../fonts/GlacialIndifference-Regular.html") format("woff2"), url("../fonts/basiersquare-regular-webfont.woff") format("woff");
+  src: url("../fonts/basiersquare-regular-webfont.woff") format("woff2"), url("../fonts/basiersquare-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-display: swap;
   font-style: normal; }
 @font-face {
   font-family: 'Glacial Indifference bold';
-  src: url("../fonts/GlacialIndifference-Bold.html") format("woff2"), url("../fonts/GlacialIndifference-Bold.woff") format("woff");
+  src: url("../fonts/GlacialIndifference-Bold.woff") format("woff2"), url("../fonts/GlacialIndifference-Bold.woff") format("woff");
   font-weight: bold;
   font-display: swap;
   font-style: normal; }
@@ -314,7 +314,7 @@ header {
   top: 19px; }
   @media screen and (max-width: 767px) {
     .navbar-toggler {
-      top: -50px; } }
+      top: -35px; } }
 
 .scroll-to-fixed-fixed {
   background-color: #FFF;
