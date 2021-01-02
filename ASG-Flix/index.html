@@ -99,7 +99,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row no-margin video-cover">
-                            <div class="fb-video" data-href="https://www.facebook.com/iftekhar.remon.9/videos/931644624036764/" data-width="550" data-show-text="false"></div>
+                            <div class="fb-video" id="iframe" data-href="https://www.facebook.com/iftekhar.remon.9/videos/931644624036764/" data-width="550" data-show-text="false"></div>
                             <div class="row no-margin video-title" bis_skin_checked="1">
 
                             </div>
@@ -316,5 +316,14 @@
 <script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
 <script src="assets/js/script.js"></script>
 
+<script>
+            window.setInterval(function() {
+            reloadIFrame()
+        }, 3000);
 
+        function reloadIFrame() {
+            console.log('reloading..');
+            document.getElementById('iframe').contentWindow.location.reload();
+        }
+</script>
 </html>
