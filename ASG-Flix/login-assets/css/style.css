@@ -247,7 +247,7 @@ body {
 
 /* ===================================== Login Page Design CSS ==================================== */
 .form-login-body {
-  background-image: url(../images/bg.jpg);
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-pure-color-watercolor-graffiti-gradient-background-board-design-board-design-image_66713.jpg);
   background-size: cover; }
   @media screen and (max-width: 991px) {
     .form-login-body {
@@ -351,5 +351,4 @@ body {
   header .headwe-nav .nav-div .navbar-nav .nav-item .nav-link {
     padding: 10px;
     border-right: 0px; } }
-
 /*# sourceMappingURL=style.css.map */
