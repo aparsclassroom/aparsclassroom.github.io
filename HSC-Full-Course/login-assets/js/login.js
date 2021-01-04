@@ -1,5 +1,3 @@
-var app_firebase = {};
-(function () { 
     var firebaseConfig = {
     apiKey: "AIzaSyDWpAK3PGkY_mCf2tH-n4kLiK_ffj2TnWg",
     authDomain: "hsc-full-course-website.firebaseapp.com",
@@ -12,8 +10,7 @@ var app_firebase = {};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();  
-  app_firebase = firebase;
-})()
+  firebase.auth();
   
   (function () {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
