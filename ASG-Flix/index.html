@@ -65,7 +65,7 @@
                                             <a class="nav-link" href="videos.html">Videos</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="blog.html">Blog</a>
+                                            <a class="nav-link" href="blog.html">Playlists</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" type="button" data-toggle="modal" data-target="#loginModal">Login</a>
@@ -646,7 +646,30 @@
                 </div>
     
             </div>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v9.0'
+    });
+  };
 
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your Chat Plugin code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="563881590708674"
+theme_color="#70BE44">
+</div>
 
 
             <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
