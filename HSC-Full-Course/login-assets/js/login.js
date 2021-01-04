@@ -1,5 +1,6 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+var app_firebase = {};
+(function () { 
+    var firebaseConfig = {
     apiKey: "AIzaSyDWpAK3PGkY_mCf2tH-n4kLiK_ffj2TnWg",
     authDomain: "hsc-full-course-website.firebaseapp.com",
     projectId: "hsc-full-course-website",
@@ -11,6 +12,8 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();  
+  app_firebase = firebase;
+})()
   
   (function () {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
