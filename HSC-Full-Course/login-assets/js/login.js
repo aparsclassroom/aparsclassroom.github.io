@@ -35,7 +35,17 @@
           }; 
     ui.start('#firebaseui-auth-container', uiConfig);
     })()
-    
+    var mainApp = {};
+    (function() {
+        var firebase = firebaseConfig;
+    var uid = null;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        uid = user.uid;
+        window.location.replace("home.html");
+      }
+    });
+    })()
     // var mainApp = {};
     // (function() {
     //     var firebase = app_firebase;
