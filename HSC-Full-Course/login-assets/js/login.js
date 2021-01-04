@@ -12,31 +12,38 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();  
   
-  
-  
-  
-  
-  
-  //======================Login With Facebook==========================
-   var facebooklogin=document.getElementById("facebooklogin");
-   facebooklogin.onclick=function(){
-    var provider=new firebase.auth.FacebookAuthProvider();
-
-firebase.auth().signInWithPopup(provider).then(function(response){
-    var userobj=response.user;
-     var token=userobj.xa;
-     var provider="facebook";
-     var email=userobj.email;
-     if(token!=null && token!=undefined && token!=""){
-     sendDatatoServerPhp(email,provider,token,userobj.displayName);
-     }
-
-    console.log(response);
-})
-.catch(function(error){
-    console.log(error);
-})
-
-
-   }
-   //======================End Login With Facebook==========================
+  (function () {
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        var uiConfig = {
+            callbacks: {
+              signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+    
+                return true;
+              },
+              uiShown: function() {
+                document.getElementById('loader').style.display = 'none';
+              }
+            },
+            signInFlow: 'popup',
+            signInSuccessUrl: 'index.html',
+            signInOptions: [
+    
+              firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+              firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+              firebase.auth.EmailAuthProvider.PROVIDER_ID
+            ],
+          }; 
+    ui.start('#firebaseui-auth-container', uiConfig);
+    })()
+    
+          var mainApp = {};
+    (function() {
+        var firebase = app_firebase;
+    var uid = null;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        uid = user.uid;
+        window.location.replace("index.html");
+      }
+    });
+    })()
