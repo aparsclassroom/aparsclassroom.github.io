@@ -25,7 +25,7 @@
               }
             },
             signInFlow: 'popup',
-            signInSuccessUrl: '',
+            signInSuccessUrl: 'index.html',
             signInOptions: [
     
               firebase.auth.GoogleAuthProvider.PROVIDER_ID,
