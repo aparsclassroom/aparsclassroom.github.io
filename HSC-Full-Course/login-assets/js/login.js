@@ -56,7 +56,7 @@
         alert("Hey" + " " + uname + " " + "🤩");
         window.location.replace("index.html");
       } else {
-        nmodal ();
+        nmodal ()
       }
     });
     
