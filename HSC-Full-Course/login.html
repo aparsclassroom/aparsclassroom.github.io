@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | HSC Full Course</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <style>
         .g-recaptcha {
          display: none;
+        }
+        .mdl-button--raised:hover {
+          box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
         }
     </style>
         <!-- Firebase JS -->
@@ -28,16 +31,12 @@
                 <h4 style="text-align: center;">Choose any provider</h4>
             </div>
             <div class="modal-body">
-              <!-- <div class="form-title text-center">
-                <h4>Choose any provider</h4>
-              </div> -->
               <div id="firebaseui-auth-container"></div>
               <div id="loader">Loading...</div> 
-         
+            </div>
             <div class="modal-footer d-flex justify-content-center">
               <div class="signup-section">Need Help? <a type="button" target="_blank" href="https://m.me/AparsClassroom" class="text-info"> Help Desk</a></div>
             </div>
-        </div>
         </div>
         </div>
         </div>

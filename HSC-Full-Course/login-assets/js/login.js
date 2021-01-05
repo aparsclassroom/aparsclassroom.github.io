@@ -24,13 +24,12 @@
                 document.getElementById('loader').style.display = 'none';
               }
             },
-            signInFlow: 'popup',
+            signInFlow: 'redirectUrl',
             signInSuccessUrl: 'index.html',
             signInOptions: [
-    
+              firebase.auth.EmailAuthProvider.PROVIDER_ID,   
               firebase.auth.GoogleAuthProvider.PROVIDER_ID,
               firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-              firebase.auth.EmailAuthProvider.PROVIDER_ID,
               {
                 provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
                 recaptchaParameters: {
@@ -42,6 +41,8 @@
               whitelistedCountries: ['BD', '+880', 'IN', '+91']
               }
             ],
+            tosUrl: '/terms.html',
+            privacyPolicyUrl: '/privacy.html'
           }; 
     ui.start('#firebaseui-auth-container', uiConfig);
     })()
