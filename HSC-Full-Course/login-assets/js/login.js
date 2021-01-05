@@ -52,7 +52,7 @@
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         var uname = user.displayName;
-        alert("Welcome" + " " + uname + ",\n you are already signed in");
+        alert("Hey" + " " + uname + ",\n you are already signed in");
         window.location.replace("index.html");
       } else {
         nmodal ();
