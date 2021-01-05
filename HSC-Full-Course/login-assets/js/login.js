@@ -24,7 +24,7 @@
                 document.getElementById('loader').style.display = 'none';
               }
             },
-            signInFlow: 'redirectUrl',
+            signInFlow: 'popup',
             signInSuccessUrl: 'index.html',
             signInOptions: [
               firebase.auth.EmailAuthProvider.PROVIDER_ID,   
@@ -53,7 +53,6 @@
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         var uname = user.displayName;
-        alert("Hey" + " " + uname + " " + "🤩");
         window.location.replace("index.html");
       }else {
         nmodal ()
