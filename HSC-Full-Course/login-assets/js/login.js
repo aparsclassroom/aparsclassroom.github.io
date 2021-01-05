@@ -53,7 +53,7 @@
       if (user) {
         var uname = user.displayName;
         alert("Welcome" + " " + uname + ",\n you are already signed in");
-        window.location.replace("home.html");
+        window.location.replace("index.html");
       } else {
         nmodal ();
         alert("Welcome 🥰");
