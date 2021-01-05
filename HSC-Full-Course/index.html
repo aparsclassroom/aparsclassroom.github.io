@@ -91,6 +91,7 @@ theme_color="#70BE44">
                                             <a class="nav-link" href="blog.html">Playlists</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" id="login" href="login.html" type="button">Login</a>
                                             <a class="nav-link" id="accmd" type="button" data-toggle="modal" data-target="#accModal">Account</a>
                                         </li>
                                     </ul>
@@ -672,26 +673,29 @@ theme_color="#70BE44">
         </div>  
 
                 <div class="modal fade" id="accModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header border-bottom-0">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                      <h5 class="modal-title" id="custom-adTitle"><b>User Profile</b></h5>
+                      <button class="close" type="button" data-dismiss="modal">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                      <div id="dp"></div>
+                      <p id="userName"></p>
+                      <p id="userName2"></p>
+                      <p id="uemail"></p>
+                      <p id="secured"></p>
+                      <p id="licenseFor"></p>
+                      <p id="Subscription"></p>
+                          </div>
+                          <div class="modal-footer">
+                            <a type="button" data-dismiss="modal" class="btn btn-block btn-outline-secondary">Ok</a>
+                    </div>
                         </div>
-                        <div class="modal-body">
-                          <div class="form-title text-center">
-                            <div id="dp"></div>
-                            <p id="userName"></p>
-                            <p id="userName2"></p>
-                            <p id="uemail"></p>
-                            <p id="secured"></p>
-                            <p id="licenseFor"></p>
-                            <p id="Subscription"></p>
-                        </div>
+                      </div>
                      
                         <div class="modal-footer d-flex justify-content-center">
-                          <div class="signup-section">Not a member yet? <a type="button" href="https://m.me/AparsClassroom" class="text-info"> Help Desk</a></div>
+                          <div class="signup-section">Need Help? <a type="button" target="_blank" rel="noopener" href="https://m.me/AparsClassroom" class="text-info"> Help Desk</a></div>
                         </div>
                     </div>
                     </div>
@@ -732,6 +736,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     secured = user.providerId;
     emailVerified = user.emailVerified;
     photoUrl = user.photoURL;
+    document.getElementById("login").style.display = "none";
         document.getElementById("dp").innerHTML = '<img src="' + photoUrl +'" class="rounded mx-auto d-block" alt="dp">';
         document.getElementById("userName").innerHTML = "<strong>Name :</strong> " + uname;
         document.getElementById("userName2").innerHTML = "<strong>Phone :</strong> N/A";
@@ -764,6 +769,8 @@ if (user != null && uname == null) {
 }
   }else {
     //   window.location.replace("home.html");
+    document.getElementById("login").style.display = "inline-block";
+    document.getElementById("accmd").style.display = "none";
   }
 });
     function logOut(){
