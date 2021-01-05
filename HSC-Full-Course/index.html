@@ -689,7 +689,8 @@ theme_color="#70BE44">
                       <p id="Subscription"></p>
                           </div>
                           <div class="modal-footer">
-                            <a type="button" data-dismiss="modal" class="btn btn-block btn-outline-secondary">Ok</a>
+                            <a type="button" class="btn btn-inline-block btn-danger" onclick="mainApp.logOut();">Log Out</a>
+                            <a type="button" data-dismiss="modal" class="btn btn-inline-block btn-outline-secondary">Ok</a>
                     </div>
                         </div>
                       </div>
@@ -751,6 +752,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         if(emailVerified != true) {
           document.getElementById("Subscription").innerHTML = "<strong>Subscription :</strong> Free Trial";
         }
+        if (photoUrl == null) {
+            document.getElementById("dp").innerHTML = "";
+        }
         if(uname == null) {
           document.getElementById("userName").innerHTML = "<strong>Name :</strong> N/A";
           document.getElementById("uemail").innerHTML = "<strong>Email :</strong> N/A";
@@ -768,7 +772,6 @@ if (user != null && uname == null) {
   });
 }
   }else {
-    //   window.location.replace("home.html");
     document.getElementById("login").style.display = "inline-block";
     document.getElementById("accmd").style.display = "none";
   }
