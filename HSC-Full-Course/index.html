@@ -758,6 +758,9 @@ firebase.auth().onAuthStateChanged(function(user) {
           document.getElementById("uemail").innerHTML = "<strong>Email :</strong> N/A";
           document.getElementById("dp").innerHTML = "";
         }
+        if (user != null) {
+            alert( "Assalamu Alaikum" + " " + uname);
+        }
 if (user != null) {
   user.providerData.forEach(function (profile) {
     document.getElementById("secured").innerHTML = "<strong>Verified by :</strong> " + profile.providerId;
