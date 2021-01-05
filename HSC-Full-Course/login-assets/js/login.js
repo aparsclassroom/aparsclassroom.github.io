@@ -48,3 +48,15 @@
     function onSubmit(token) {
       document.getElementById("form").submit();
     }
+    var user = firebase.auth().currentUser;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var uname = user.displayName;
+        alert("Welcome" + uname + ",\n you are already signed in");
+        window.location.replace("home.html");
+      } else {
+        nmodal ();
+        alert("Welcome 🥰");
+      }
+    });
+    

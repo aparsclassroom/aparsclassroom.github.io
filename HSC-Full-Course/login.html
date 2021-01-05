@@ -25,12 +25,12 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header border-bottom-1 d-flex justify-content-center">
-                <h4 style="text-align: center;">Welcome 🥰</h4>
+                <h4 style="text-align: center;">Choose any provider</h4>
             </div>
             <div class="modal-body">
-              <div class="form-title text-center">
+              <!-- <div class="form-title text-center">
                 <h4>Choose any provider</h4>
-              </div>
+              </div> -->
               <div id="firebaseui-auth-container"></div>
               <div id="loader">Loading...</div> 
          
@@ -50,9 +50,9 @@
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script>
-      setTimeout(function() {
+  function nmodal() {
       $('#loginModal').modal();
-  }, 10);
+  }
   $('#loginModal').modal({
     backdrop: 'static',
     keyboard: false
