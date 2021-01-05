@@ -778,6 +778,9 @@ if (user != null && uname == null) {
 });
     function logOut(){
         firebase.auth().signOut();
+    document.getElementById("login").style.display = "inline-block";
+    document.getElementById("accmd").style.display = "none";
+     $('#accModal').modal('hide');
     }
     mainApp.logOut = logOut;
 })()
