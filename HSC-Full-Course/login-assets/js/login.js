@@ -57,7 +57,6 @@
         window.location.replace("index.html");
       } else {
         nmodal ();
-        alert("Welcome 🥰");
       }
     });
     
