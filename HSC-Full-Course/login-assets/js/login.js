@@ -30,8 +30,21 @@
     
               firebase.auth.GoogleAuthProvider.PROVIDER_ID,
               firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-              firebase.auth.EmailAuthProvider.PROVIDER_ID
+              firebase.auth.EmailAuthProvider.PROVIDER_ID,
+              {
+                provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                recaptchaParameters: {
+                  type: 'image',
+                  size: 'invisible',
+                  badge: 'bottomleft'
+                },
+                defaultCountry: 'BD',
+              whitelistedCountries: ['BD', '+880', 'IN', '+91']
+              }
             ],
           }; 
     ui.start('#firebaseui-auth-container', uiConfig);
     })()
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    }

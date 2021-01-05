@@ -7,9 +7,8 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>HSC Full Course | Apar's Classroom</title>
-        <!-- <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1152515561798223&autoLogAppEvents=1" nonce="mc4BWDph"></script> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
         <link rel="shortcut icon" href="assets/images/fav.jpg">
         <link rel="stylesheet" href="assets/css/fontawsom-all.min.css">
         <link rel="stylesheet" href="assets/css/animate.css">
@@ -22,6 +21,9 @@
         .detail p,
         .detail h6 {
             margin-bottom: 0px;
+        }
+        .g-recaptcha {
+            display: none;
         }
         </style>
     </head>
@@ -544,16 +546,8 @@ theme_color="#70BE44">
             </div>
         </div>
         <!--####################### Ads Starts Here ###################-->
-        <!-- <div class="ads-cont container-fluid">
-            <div class="fb-post" data-href="https://www.facebook.com/AparsClassroom/posts/1108776836219144" data-width="" data-show-text="true"><blockquote cite="https://www.facebook.com/AparsClassroom/posts/1108776836219144" class="fb-xfbml-parse-ignore"><p>Admission Course 20 কোর্সটি যদি আমাদের  Apar&#039;s  Classroom থেকে কেউ Purchase করো ,তাহলে তোমাদের জন্য Promo Code রয়েছে ।...</p>Posted by <a href="https://www.facebook.com/AparsClassroom/">Apar&#039;s Classroom</a> on&nbsp;<a href="https://www.facebook.com/AparsClassroom/posts/1108776836219144">Saturday, January 2, 2021</a></blockquote></div>
-        
-            <div class="fb-video" data-href="https://www.facebook.com/StoryModeLearningApp/videos/3460856850672235/" data-width="800" data-show-text="true"><blockquote cite="https://developers.facebook.com/StoryModeLearningApp/videos/3460856850672235/" class="fb-xfbml-parse-ignore"><a href="https://developers.facebook.com/StoryModeLearningApp/videos/3460856850672235/">&quot;Story Mode Learning&quot; Web App Launching Event</a><p>আয়মান ভাইয়ার হাত ধরে আজ শুভ সূচনা হতে যাচ্ছে আমাদের বহুল প্রতীক্ষিত &quot;Story Mode Learning&quot; ওয়েব অ্যাপ এর। সাথে থাকবেন অপার ভাইয়া ও তাদের আরোও কিছু Announcement. 
-                আমাদের কনটেস্ট উইনারের নাম ঘোষণাও হবে, সরাসরি তাকে আনা হবে লাইভে। শেয়ার করে জানিয়ে দাও সবাইকে।
-                
-                You can get our free facilities of Story Mode Learning Web App from here:
-                https://storymodelearning.com/registration</p>Posted by <a href="https://www.facebook.com/StoryModeLearningApp/">Story Mode Learning App</a> on Thursday, November 12, 2020</blockquote></div>       
-        
-        </div> -->
+        <div class="ads-cont container-fluid">
+        </div>
         <!--####################### Category Starts Here ###################-->
         <section class="sesion-type">
             <div class="container">
@@ -702,6 +696,10 @@ theme_color="#70BE44">
                     </div>
                     </div>
                     </div>
+                    <button class="g-recaptcha" 
+                    data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" 
+                    data-callback='onSubmit' 
+                    data-action='submit'></button>
     </body>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -784,6 +782,9 @@ if (user != null && uname == null) {
     }
     mainApp.logOut = logOut;
 })()
+function onSubmit(token) {
+      document.getElementById("form").submit();
+    }
 </script>
 
 </html>
