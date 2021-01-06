@@ -613,6 +613,9 @@ header {
     img {
         border-radius: 15px 0px;
     }
+    img:hover {
+      border-radius: 15px 0px 0px 25px;
+    }
     .sesion-type p:hover {
         font-weight: bolder;
     }
