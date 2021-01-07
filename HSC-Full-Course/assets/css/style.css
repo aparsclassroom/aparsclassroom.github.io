@@ -463,43 +463,38 @@ header {
 
 /* ===================================== Blog CSS ================================== */
 .video-cover iframe {
-  width: 100%; }
+  width: 100%;
+border-radius: 10px; }
 .video-cover p {
   margin-top: 15px;
-  font-size: .89rem; }
+  margin-bottom: -25px;
+  font-size: 1.2rem; }
 
-.comment-container .comment-box {
-  background-color: #f7f7f7;
-  padding: 5px;
-  margin-bottom: 15px; }
-  .comment-container .comment-box h6 {
-    margin-bottom: 0px;
-    font-family: "Glacial Indifference", "Open Sans", sans-serif; }
-  .comment-container .comment-box p {
-    margin-top: 5px; }
-  .comment-container .comment-box .detaila {
-    padding: 10px;
-    padding-left: 0px; }
-  .comment-container .comment-box .mghji {
-    padding: 10px; }
-
-.comment-text {
-  width: 100%;
-  margin-left: -10px;
-  margin-right: -10px; }
-
-.contri-bghy {
+.contri-bghy a {
   display: flex;
-  margin-bottom: 20px; }
-  .contri-bghy .image img {
-    width: 180px; }
-  .contri-bghy .detail {
-    padding: 0px 5px; }
-    .contri-bghy .detail h6 {
-      margin-bottom: 0px;
-      font-size: 1.2rem; }
-    .contri-bghy .detail span {
-      font-size: .9rem; }
+  color: black;
+  cursor: pointer;
+  margin-left: 5px; }
+.contri-bghy a:hover {
+  text-decoration: none;
+}
+@font-face {
+  font-family: Kalpurush;
+  src: url('/Ambassador/assets/fonts/kalpurush.ttf'); 
+}
+  .contri-bghy a .image {
+    padding: 5px 10px;
+    width: 80%;
+  border-radius: 15px;}
+  .contri-bghy a .detail {
+    padding: 0px 0px; }
+    .contri-bghy a .detail p {
+      font-family: Kalpurush;
+      margin-bottom: 5px;
+      font-size: 1.1rem; }
+    .contri-bghy a .detail span {
+      font-family: Kalpurush;
+      font-size: .8rem; }
 
 /* ===================================== Ads CSS ================================== */
 /* ===================================== Category CSS ================================== */
@@ -610,12 +605,12 @@ header {
         box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
         border-radius: 15px;
     }
-    img {
+    .single-sess img {
         border-radius: 15px 0px;
     }
-    img:hover {
-      border-radius: 15px 0px 0px 25px;
-    }
+.video-card img {
+  border-radius: 10px;
+}
     .sesion-type p:hover {
         font-weight: bolder;
     }
@@ -630,5 +625,8 @@ header {
     }
     .btn:hover {
         box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
+    }
+    .video-cover .share {
+      margin-bottom: 20px;
     }
 /*# sourceMappingURL=style.css.map */
