@@ -468,7 +468,7 @@ border-radius: 10px; }
 .video-cover p {
   margin-top: 15px;
   margin-bottom: -25px;
-  font-size: 1.2rem; }
+  font-size: 1.1rem; }
 
 .contri-bghy a {
   display: flex;
@@ -627,6 +627,17 @@ border-radius: 10px; }
         box-shadow: 0px 10px 15px rgba(0,0,0,0.5);
     }
     .video-cover .share {
-      margin-bottom: 20px;
+      margin-bottom: -30px;
     }
+    .share .sharethis-inline-reaction-buttons {
+       padding: 2px;
+       margin-bottom: 25px;
+    }
+    @media screen and (max-width: 600px) {
+      .video-cover .share {
+        margin-bottom: 0px; }
+        .video-cover p {
+          margin-top: 15px;
+          margin-bottom: -35px;
+          font-size: 1rem; } }
 /*# sourceMappingURL=style.css.map */
