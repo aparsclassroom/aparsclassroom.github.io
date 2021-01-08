@@ -52,7 +52,6 @@
     var user = firebase.auth().currentUser;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        var uname = user.displayName;
         window.location.replace("index.html");
       }else {
         nmodal ()

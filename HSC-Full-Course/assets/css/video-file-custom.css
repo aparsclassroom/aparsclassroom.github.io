@@ -1,0 +1,11 @@
+.row {margin-right:0px;}
+.detail p,
+.detail h6 {
+    margin-bottom: 0px;
+}
+.col-md-8 {
+    padding-right: 0px;
+}
+.contri-bghy .detail h6 {
+    font-size: larger;
+}
