@@ -629,6 +629,10 @@ border-radius: 10px; }
     .video-cover .share {
       margin-bottom: -30px;
     }
+    .video-cover .share .btn {
+      background-color: hotpink;
+      border: 1px solid hotpink;
+    }
     .share .sharethis-inline-reaction-buttons {
        padding: 2px;
        margin-bottom: 25px;
