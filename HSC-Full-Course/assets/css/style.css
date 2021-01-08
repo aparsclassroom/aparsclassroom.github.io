@@ -28,6 +28,7 @@
 * {
   margin: 0px;
   padding: 0px;
+  scroll-behavior: smooth;
   list-style: none; }
 
 img {
