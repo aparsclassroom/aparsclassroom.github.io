@@ -1,0 +1,27 @@
+{
+  "name": "example-sim",
+  "version": "1.0.0-dev.17",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phetsims/example-sim.git"
+  },
+  "devDependencies": {
+    "grunt": "~1.1.0"
+  },
+  "phet": {
+    "requirejsNamespace": "EXAMPLE_SIM",
+    "runnable": true,
+    "supportedBrands": [
+      "phet",
+      "adapted-from-phet"
+    ],
+    "supportsInteractiveDescriptions": true,
+    "simulation": true,
+    "ignoreForAutomatedMaintenanceReleases": true,
+    "readmeCreatedManually": true
+  },
+  "eslintConfig": {
+    "extends": "../chipper/eslint/sim_eslintrc.js"
+  }
+}
