@@ -25,7 +25,7 @@
               }
             },
             signInFlow: 'popup',
-            signInSuccessUrl: document.referrer,
+            signInSuccessUrl: "index.html",
             signInOptions: [
               firebase.auth.EmailAuthProvider.PROVIDER_ID,   
               firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -52,8 +52,9 @@
     var user = firebase.auth().currentUser;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        window.location.replace("index.html");
-      }else {
+          window.location.replace("index.html");
+    }
+      else {
         nmodal ()
       }
     });
