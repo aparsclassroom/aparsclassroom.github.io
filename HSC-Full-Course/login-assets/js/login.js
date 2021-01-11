@@ -25,7 +25,7 @@
               }
             },
             signInFlow: 'popup',
-            signInSuccessUrl: 'index.html',
+            signInSuccessUrl: document.referrer,
             signInOptions: [
               firebase.auth.EmailAuthProvider.PROVIDER_ID,   
               firebase.auth.GoogleAuthProvider.PROVIDER_ID,
