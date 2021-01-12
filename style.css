@@ -466,7 +466,8 @@ a img.aligncenter {
 
 
 .top-navbar .bg-light{
-	background: #4c5a7d !important;
+    /* background: #4c5a7d !important; */
+    background-image: linear-gradient(to left, rgb(71, 115, 90), rgb(49, 80, 61), rgb(28, 50, 39));
 }
 
 .top-navbar .navbar-light .navbar-nav .nav-link{
@@ -2477,7 +2478,6 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
 }
 
 .footer {
@@ -2766,7 +2766,7 @@ select.mobile-device {
     margin: 0;
     font-weight: 300;
     padding: 4px 0 0;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 #preloader {
