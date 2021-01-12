@@ -13,7 +13,15 @@
         <h1>Quick Exam</h1>
         <a class="btn" href="exam.html">Start Exam</a>
         <a class="btn" href="highscores.html">High Scores</a>
+        <a class="btn" onclick="close_window()">Close</a>
       </div>
     </div>
+    <script>
+      function close_window() {
+  if (confirm("Close Quick Exam?")) {
+    close();
+  }
+}
+    </script>
   </body>
 </html>

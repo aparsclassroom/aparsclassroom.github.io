@@ -29,9 +29,17 @@
           </button>
         </form>
         <a class="btn" href="exam.html">Retake?</a>
-        <a class="btn" href="../../Phy01-Ch-01-C001.html">Go Back</a>
+        <a class="btn" href="../../Phy01-Ch-01-C001.html">Go Home</a>
+        <a class="btn" onclick="close_window()">Close Exam</a>
       </div>
     </div>
     <script src="js/end.js"></script>
+    <script>
+            function close_window() {
+  if (confirm("Close Quick Exam?")) {
+    close();
+  }
+}
+    </script>
   </body>
 </html>
