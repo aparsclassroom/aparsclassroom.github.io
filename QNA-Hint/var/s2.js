@@ -3,7 +3,7 @@ var cc = "#B9D2B1";
 var fc = "#FBACBE";
 
 
-fetch('../Data/2.json')
+fetch('Data/2.json')
 .then((res) => {
     return res.json();
 })
