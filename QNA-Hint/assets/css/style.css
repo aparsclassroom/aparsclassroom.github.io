@@ -1,0 +1,90 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('../fonts/kalpurush.ttf'); 
+  }
+  .container {
+      margin-bottom: 30px;
+  }
+.center {
+    text-align:center!important;
+    max-width: 300px;
+     margin: auto;
+}
+.title {
+    padding: 5px;
+    background-color: red;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#ten-countdown {
+border: 5px solid #004853;
+display:none;
+padding: 5px;
+color: #004853;
+font-family: Verdana, sans-serif, Arial;
+font-size: 40px;
+font-weight: bold;
+text-decoration: none;
+}
+
+body {
+text-align: center;
+}
+.sub {
+    margin-top: 30px;
+}
+.ques {
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+.bangla {
+    font-family: Kalpurush;
+}
+.none {
+    display: none;
+}
+#hints {
+    margin-bottom: 5px;
+}
+.no1 img {
+    height: 200px;
+    max-width: 500px;
+}
+.left {
+    text-align: left;
+}
+
+.tab {
+    padding: 50px ;
+    max-width: 550px;
+    margin: 30px auto;
+    background:rgb(255, 255, 255);
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    box-shadow:0px 2px 10px rgba(0,0,0,0.3);
+    border-radius:5px;
+    transition:transform 0.2s ease-in-out;
+  }
+  @media screen and (max-width: 415px) {
+    .tab {
+      padding: 20px;
+    }
+  }
+  #yt {
+      margin-top: -100px;
+  }
+  #yt img {
+    height: 70px;
+}
+  @media screen and (max-width:400px) {
+    #yt {
+        margin-top: 10px;
+    }
+    #yt img {
+        height: 50px;
+    }
+  }
+  img {
+      position: relative;
+  }
