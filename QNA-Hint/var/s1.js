@@ -1,18 +1,13 @@
 var topicNo, question, mainAnswer, stp1, stp2, stp3, steps, step1Data, step2Data, step3Data, hint1Ans, hint2Ans, hint4Ans, youtubeLink;
 var cc = "#B9D2B1";
 var fc = "#FBACBE";
-fetch('var/Data/1.json')
-.then((res) => {
-    return res.json();
-})
-.then((loadedData) => {
-    data = loadedData;
-    topicNo = data.topicNo;
-    question = data.question;
-    mainAnswer = data.mainAnswer;
-    stp1 = data.stp1;
-    stp2 = data.stp2;
-    stp3 = data.stp3;
+
+    topicNo = "গাণিতিক সমস্যা - ১";
+    question = "দুটি ভেক্টর 𝐴 ⃗=30 𝑖 ̂  −100 𝑘 ̂ ও 𝐵 ⃗=3 𝑖 ̂  +4 𝑗 ̂−10 𝑘 ̂ হলে  𝐴 ⃗   এর ওপর 𝐵 ⃗ এর উপাংশ নির্ণয় কর? ";
+    mainAnswer = "3 𝑖 ̂  −10 𝑘 ̂";
+    stp1 = "ধাপ ১ : অভিক্ষেপ নির্ণয়";
+    stp2 = "ধাপ ২ : একক ভেক্টর নির্ণয়";
+    stp3 = "ধাপ ৩ : অভিক্ষেপ হতে উপাংশ নির্ণয়";
     steps =     
 `<div class="center bangla">
 <ul class="left">
@@ -21,18 +16,14 @@ fetch('var/Data/1.json')
     <li>${stp3}</li>
 </ul>
 </div>`;
-    step1Data = data.step1Data;
-    step2Data = data.step2Data;
-    step3Data = data.step3Data;
-    hint1Ans = data.hint1Ans;
-    hint2Ans = data.hint2Ans;
-    hint3Ans = data.hint3Ans;
-    youtubeLink = data.youtubeLink;
-    console.log(data);
-})
-.catch((err) => {
-    console.error(err);
-});
+    step1Data = "অভিক্ষেপ নির্ণয়";
+    step2Data = "একক ভেক্টর নির্ণয়";
+    step3Data = "অভিক্ষেপ হতে উপাংশ নির্ণয়";
+    hint1Ans = "√109";
+    hint2Ans = "something";
+    hint3Ans = "30N";
+    youtubeLink = "https://youtu.be/y8ESB5B4JLc?list=PLubWB9tWo5lVAdd2bXEW3Tgn99tcxzDbt&t=1184";
+
 
 $( document ).ready(function() {
     document.getElementById("topic").innerHTML = topicNo;
