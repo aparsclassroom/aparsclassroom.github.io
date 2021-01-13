@@ -28,6 +28,7 @@ fetch('var/Data/1.json')
     hint2Ans = data.hint2Ans;
     hint3Ans = data.hint3Ans;
     youtubeLink = data.youtubeLink;
+    console.log(data);
 })
 .catch((err) => {
     console.error(err);
