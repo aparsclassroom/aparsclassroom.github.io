@@ -2,14 +2,29 @@
     list-style: none;
     padding-left: 0;
     margin-bottom: 4rem;
+    cursor: pointer;
   }
   
   .high-score {
-    font-size: 2.8rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
   }
   
   .high-score:hover {
     transform: scale(1.025);
   }
-  
+  .score {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: #56a5eb;
+    margin-bottom: 1.2rem;
+  }
+  @media screen and (max-width:400px) {
+    .score {
+      text-align: center;
+      font-size: 25px;
+      color: #56a5eb;
+      margin-bottom: 1.2rem;
+    }
+  }
