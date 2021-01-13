@@ -2,7 +2,11 @@ var topicNo, question, mainAnswer, stp1, stp2, stp3, steps, step1Data, step2Data
 var cc = "#B9D2B1";
 var fc = "#FBACBE";
 
-
+$( document ).ready(function() {
+    document.getElementById("topic").innerHTML = topicNo;
+    document.getElementById("ques").innerHTML = question;
+    document.getElementById("help").style.display = "none";
+    document.getElementById("yt").style.display = "none";
 fetch('https://aparsclassroom.com/QNA-Hint/var/Data/2.json')
 .then((res) => {
     return res.json();
@@ -33,4 +37,5 @@ fetch('https://aparsclassroom.com/QNA-Hint/var/Data/2.json')
 })
 .catch((err) => {
     console.error(err);
+});
 });

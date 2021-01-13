@@ -45,12 +45,12 @@ function finished() {
 
 
  
-$( document ).ready(function() {
-    document.getElementById("topic").innerHTML = topicNo;
-    document.getElementById("ques").innerHTML = question;
-    document.getElementById("help").style.display = "none";
-    document.getElementById("yt").style.display = "none";
-});
+// $( document ).ready(function() {
+//     document.getElementById("topic").innerHTML = topicNo;
+//     document.getElementById("ques").innerHTML = question;
+//     document.getElementById("help").style.display = "none";
+//     document.getElementById("yt").style.display = "none";
+// });
 $(function() {
   $('#youtube').attr("href", youtubeLink);
 });
