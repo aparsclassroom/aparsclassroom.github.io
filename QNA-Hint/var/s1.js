@@ -3,7 +3,7 @@ var cc = "#B9D2B1";
 var fc = "#FBACBE";
 
 
-fetch('Data/1.json')
+fetch('https://aparsclassroom.com/QNA-Hint/var/Data/1.json')
 .then((res) => {
     return res.json();
 })
