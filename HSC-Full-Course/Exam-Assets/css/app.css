@@ -20,7 +20,7 @@
   
   h1 {
     font-size: 5.4rem;
-    color: #56a5eb;
+    color: green;
     margin-bottom: 5rem;
   }
   
@@ -85,16 +85,16 @@
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #56a5eb;
+    border: 0.1rem solid green;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: #56a5eb;
+    color: green;
     background-color: white;
   }
   
   .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 235, 111, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
   }
@@ -119,7 +119,7 @@
     padding: 1.5rem;
     font-size: 1.8rem;
     border: none;
-    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 235, 111, 0.5);
   }
   
   input::placeholder {

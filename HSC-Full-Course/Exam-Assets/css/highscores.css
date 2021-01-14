@@ -1,3 +1,27 @@
+.econtainer {
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 650px;
+  margin: 100px auto;
+  padding: 2rem;
+}
+
+.econtainer > * {
+  width: 100%;
+}
+
+@media screen and (max-width:400px) {
+  .econtainer {
+    margin: 30px auto;
+  }
+}
+iframe {
+  height: 100%;
+  width: 100%;
+}
 #highScoresList {
     list-style: none;
     padding-left: 0;
@@ -17,14 +41,20 @@
     text-align: center;
     font-size: 60px;
     font-weight: bold;
-    color: #56a5eb;
+    color: green;
     margin-bottom: 1.2rem;
   }
   @media screen and (max-width:400px) {
     .score {
       text-align: center;
-      font-size: 25px;
-      color: #56a5eb;
+      font-size: 30px;
+      color: green;
       margin-bottom: 1.2rem;
+    }
+    .btn {
+      margin-bottom: 30px;
+    }
+    #highScoresList {
+      margin-bottom: 30px;
     }
   }
