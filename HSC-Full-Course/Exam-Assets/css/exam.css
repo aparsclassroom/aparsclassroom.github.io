@@ -1,3 +1,10 @@
+@font-face {
+  font-family: Kalpurush;
+  src: url('/Ambassador/assets/fonts/kalpurush.ttf'); 
+}
+.bangla {
+  font-family: Kalpurush;
+}
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
@@ -32,7 +39,10 @@
   .incorrect {
     background-color: #dc3545;
   }
-  
+  .correct .choice-text,
+  .incorrect .choice-text {
+    color: white;
+  }
   /* HUD */
   
   #hud {
