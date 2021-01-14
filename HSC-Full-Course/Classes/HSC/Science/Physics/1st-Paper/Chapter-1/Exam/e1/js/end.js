@@ -4,6 +4,7 @@ const saveScoreBtn = document.getElementById('saveScoreBtn');
 const finalScore = document.getElementById('finalScore');
 const recentScore = document.getElementById('finalScore');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
+const online = document.getElementById("online");
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
@@ -17,6 +18,7 @@ $.get('https://json.geoiplookup.io/', function(res) {var a = ("IP Address : " + 
 scoreUpdated ()
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value;
+    online.disabled = !username.value;
 });
 saveHighScore = (e) => {
     e.preventDefault();
