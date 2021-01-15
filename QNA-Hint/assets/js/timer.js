@@ -107,35 +107,35 @@ function showhint1() {
 function check1() {
     var h1Input = document.getElementById("h1Ans").value;
     if (h1Input == hint1Ans) {
-      alert("Milse");
+      alert("Great!!! You have caluculated it 100% correct. Now try next Step Calculation");
       document.getElementById("valBtn1").style.display = "none";
       document.getElementById("valBtn2").style.display = "block";
       document.getElementById("tab1").style.background = cc;
     }else {
-      alert("Mile nai");
+      alert("Oh no.. It's a wrong answer.. Please check your calcultion and make sure you have used SI Unit only 😶");
       document.getElementById("tab1").style.background = fc;
     }
   }
   function check2() {
     var h2Input = document.getElementById("h2Ans").value;
     if (h2Input == hint2Ans) {
-      alert("Aidao Milse");
+      alert("Wow 🥰 !!! You have caluculated it 100% correct. Now try the final Step's Calculation");
       document.getElementById("valBtn2").style.display = "none";
       document.getElementById("valBtn3").style.display = "block";
       document.getElementById("tab2").style.background = cc;
     }else {
-      alert("agerta milsilo but aita Mile nai");
+      alert("Oh no.. It's a wrong answer.. Please check your calcultion and make sure you have used SI Unit only 😶");
       document.getElementById("tab2").style.background = fc;
     }
   }
   function check3() {
     var h3Input = document.getElementById("h3Ans").value;
     if (h3Input == hint3Ans) {
-      alert("Shobti Milse");
+      alert("You desserve a clap.. 👏👏👏\n You have successfully calculated all the answers. Well DONE");
       document.getElementById("valBtn3").style.display = "none";
       document.getElementById("tab3").style.background = cc;
     }else {
-      alert("ager 2ta milsilo but last aita Mile nai");
+      alert("Oh no.. It's a wrong answer.. Please check your calcultion and make sure you have used SI Unit only 😶");
       document.getElementById("tab3").style.background = fc;
     }
   }
