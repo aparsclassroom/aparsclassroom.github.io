@@ -43,6 +43,10 @@
             </div>
             <div id="tab3" class="tab"><span id="step3"></span>
               <p><input class="center form-control" id="h3Ans" name="h3Ans"></p><button type="button" class="btn center btn-dark" id="valBtn3" onclick="check3()">Check</button>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#seeCalc">
+    See Calculation
+  </button>
             </div>
           </div>
         </div>
@@ -50,9 +54,25 @@
         <a id="youtube" target="_blank"><img class="rounded float-right align-text-bottom" src="assets/images/youtube.png"></a>
         </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="seeCalc" tabindex="-1" role="dialog" aria-labelledby="seeCalcTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Full Calculation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="assets/images/seeHint1.png" alt="Full Calculation" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>      
+</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="var/s1.js"></script> 
-<script src="assets/js/timer.js"></script>        
-</body>
+<script src="assets/js/timer.js"></script>  
 </html>
