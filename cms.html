@@ -338,7 +338,7 @@ var q1=document.getElementById("q1").value,q2=document.getElementById("q2").valu
         .then(response => alert("Successfully submitted"))
         .catch(error => console.error('Error!', error.message))
         document.querySelector('#confirmation').style.display = 'block';
-        document.querySelector('#up').style.display = 'block';
+        document.querySelector('#up').style.display = 'none';
         form.reset();  
     })
   </script>
