@@ -1,5 +1,5 @@
 var Select_List_Data = {
-    'chapter': {
+    'Chapter_No': {
         Physics1: {
             text: ['Chapter 1: ভৌতজগত ও পরিমাপ', 'Chapter 2: ভেক্টর', 'Chapter 3: গতিবিদ্যা', 'Chapter 4: নিউটনীয় বলবিদ্যা', 'Chapter 5: কাজ-শক্তি-ক্ষমতা', 'Chapter 6: মহাকর্ষ ও অভিকর্ষ', 'Chapter 7: পদার্থের গাঠনিক ধর্ম', 'Chapter 8: পর্যাবৃত্ত গতি', 'Chapter 9: তরঙ্গ', 'Chapter 10: আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব'],
             value: ['Chapter1', 'Chapter2', 'Chapter3', 'Chapter4', 'Chapter5', 'Chapter6', 'Chapter7', 'Chapter8', 'Chapter9', 'Chapter10']
@@ -101,18 +101,18 @@ function appendDataToSelect(sel, obj) {
     }
     sel.appendChild(f);
 }
-document.forms['form'].elements['subjects'].onchange = function(e) {
-    var relName = 'chapter';
+document.forms['MCQForm'].elements['subject'].onchange = function(e) {
+    var relName = 'Chapter_No';
     var relList = this.form.elements[ relName ];
     var obj = Select_List_Data[ relName ][ this.value ];
     removeAllOptions(relList, true);
     appendDataToSelect(relList, obj);
 };
 (function() {
-    var form = document.forms['form'];
-    var sel = form.elements['subjects'];
+    var form = document.forms['MCQForm'];
+    var sel = form.elements['subject'];
     sel.selectedIndex = 0;
-    var relName = 'chapter';
+    var relName = 'Chapter_No';
     var rel = form.elements[ relName ];
     var data = Select_List_Data[ relName ][ sel.value ];
     appendDataToSelect(rel, data);

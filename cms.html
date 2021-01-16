@@ -9,21 +9,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <style>
+  @font-face {
+  font-family: Kalpurush;
+  src: url('Ambassador/assets/fonts/kalpurush.ttf'); 
+}
+  * {
+    color: black;
+  }
     .none {
         display: none;
     }
     .container {
         margin-bottom: 30px;
     }
+    .ques {
+      background-color: rgba(163, 205, 233, 0.801);
+      padding: 20px;
+      border-radius: 15px;
+      font-family: Kalpurush;
+      font-size: 18px;
+    }
 </style>
 </head>
 <body>
     <div class="container">
         <h1 style="text-align: center;">MCQ CMS</h1>
+        <div class="ques">
         <div class="form-group">
           <label for="q1">প্রশ্ন নং ১ </label>
           <input type="text" class="form-control" id="q1" aria-describedby="Question1Help" placeholder="Enter Question">
-          <small id="Question1Help" class="form-text text-muted">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
+          <small id="Question1Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
         </div>
             <div class="col">
           <label for="opt1_1">অপশন নং ১</label>
@@ -45,8 +60,9 @@
             <label for="a1">১ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a1" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
-
+        </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q2">প্রশ্ন নং ২ </label>
           <input type="text" class="form-control" id="q2" aria-describedby="Question2Help" placeholder="Enter Question">
@@ -72,9 +88,9 @@
             <label for="a2">২ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a2" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
-
+        </div>
           <hr style="border-width: 3px;">
-
+          <div class="ques">
                   <div class="form-group">
           <label for="q3">প্রশ্ন নং ৩ </label>
           <input type="text" class="form-control" id="q3" aria-describedby="Question3Help" placeholder="Enter Question">
@@ -100,7 +116,9 @@
             <label for="a3">৩ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a3" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+          </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q4">প্রশ্ন নং ৪ </label>
           <input type="text" class="form-control" id="q4" aria-describedby="Question4Help" placeholder="Enter Question">
@@ -126,7 +144,9 @@
             <label for="a4">৪ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a4" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+          </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q5">প্রশ্ন নং ৫ </label>
           <input type="text" class="form-control" id="q5" aria-describedby="Question5Help" placeholder="Enter Question">
@@ -152,7 +172,9 @@
             <label for="a5">৫ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a5" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+          </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q6">প্রশ্ন নং ৬ </label>
           <input type="text" class="form-control" id="q6" aria-describedby="Question6Help" placeholder="Enter Question">
@@ -178,7 +200,9 @@
             <label for="a6">৬ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a6" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+        </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q7">প্রশ্ন নং ৭ </label>
           <input type="text" class="form-control" id="q7" aria-describedby="Question7Help" placeholder="Enter Question">
@@ -204,7 +228,9 @@
             <label for="a7">৭ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a7" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+        </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q8">প্রশ্ন নং ৮ </label>
           <input type="text" class="form-control" id="q8" aria-describedby="Question8Help" placeholder="Enter Question">
@@ -230,7 +256,9 @@
             <label for="a8">৮ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a8" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+        </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q9">প্রশ্ন নং ৯ </label>
           <input type="text" class="form-control" id="q9" aria-describedby="Question9Help" placeholder="Enter Question">
@@ -256,7 +284,9 @@
             <label for="a9">৯ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a9" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
+        </div>
           <hr style="border-width: 3px;">
+          <div class="ques">
                   <div class="form-group">
           <label for="q10">প্রশ্ন নং ১০ </label>
           <input type="text" class="form-control" id="q10" aria-describedby="Question10Help" placeholder="Enter Question">
@@ -282,30 +312,44 @@
             <label for="a10">১০ নং প্রশ্নের উত্তর</label>
             <input type="number" class="form-control" id="a10" placeholder="উত্তরের ক্রম লিখ। ">
           </div>
-
-        <button id="process" onclick="processF()" class="btn btn-primary">Process</button>
+        </div>
+        <br>
+        <button id="process" onclick="processF()" class="btn btn-md btn-block btn-outline-primary">Process</button>
 
   <form id="preview" method="post" autocomplete="off" id="form" name="MCQForm" class="none">
         <h1 style="text-align: center;">Preview</h1>
         <textarea name="json" rows="20" readonly class="form-control rounded-0" id="json"></textarea><br>
         <div class="form-row">
+          <div class="form-group" style="margin-right: 10px;">
+              <input type="text" class="form-control" id="name" placeholder="Volunteer Name" name="name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="id" placeholder="Volunteer ID" name="id">
+            </div>
+            <div class="form-group">
             <div class="col">
-              <input type="text" class="form-control" id="name" placeholder="Full Name" name="name">
+
+              Subject : 
+              <select name="subject">
+                <option value="Physics1">Physics1</option>
+                <option value="Physics2">Physics2</option>
+                <option value="Chemistry1">Chemistry1</option>
+                <option value="Chemistry2">Chemistry2</option> 
+                <option value="Biology1">Biology1</option>
+                <option value="Biology2">Biology2</option>
+                <option value="Math1">Math1</option>
+                <option value="Math2">Math2</option>
+                <option value="Bangla1">Bangla1</option>
+                <option value="ICT">ICT</option>
+            </select>
             </div>
             <div class="col">
-                <input type="text" class="form-control" id="id" placeholder="10001XYZ" name="id">
+            <select name="Chapter_No" id="Chapter_No">
+            </select>
             </div>
-            <div class="col">
-                <input type="text" class="form-control" id="subject" placeholder="Physics" name="subject" required>
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" id="paper" placeholder="1st Paper" name="paper" required>
-            </div>
-            <div class="col">
-                <input type="number" class="form-control" id="Chapter_No" placeholder="Chapter No" name="Chapter_No" required>
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" id="video_Num" placeholder="video Number" name="video_Num" required>
+          </div>
+        <div class="form-group">
+                <input type="text" class="form-control" style="margin:5px;" id="video_Num" placeholder="video Number" name="video_Num" required>
             </div>
           </div>
           <br>
@@ -344,9 +388,7 @@ var q1=document.getElementById("q1").value,q2=document.getElementById("q2").valu
   </script>
 
     
- <script>
-
- </script>
+ <script src="QnA/assets/js/select.js"></script>
 </script>
 </body>
 </html>
