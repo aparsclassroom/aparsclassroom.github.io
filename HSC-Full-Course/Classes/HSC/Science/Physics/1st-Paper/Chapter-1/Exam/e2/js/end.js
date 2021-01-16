@@ -4,6 +4,7 @@ const saveScoreBtn = document.getElementById('saveScoreBtn');
 const finalScore = document.getElementById('finalScore');
 const recentScore = document.getElementById('finalScore');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
+const online = document.getElementById("online");
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
@@ -17,6 +18,7 @@ $.get('https://json.geoiplookup.io/', function(res) {var a = ("IP Address : " + 
 scoreUpdated ()
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value;
+    online.disabled = !username.value;
 });
 saveHighScore = (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ saveHighScore = (e) => {
 };
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzqbVIwLeNJLgRI2D96oV6D4LoUWKhVKKWvQMvvA-jVWGl7X_F7g7k1vw/exec'
+const scriptURL = '#'
  const form = document.forms['highScore']
 
 form.addEventListener('submit', e => {

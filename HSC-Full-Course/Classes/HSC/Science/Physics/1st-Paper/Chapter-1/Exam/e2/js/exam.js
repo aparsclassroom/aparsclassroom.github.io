@@ -28,17 +28,17 @@ fetch('questions.json')
 
 //CONSTANTS
 const CORRECT_BONUS = 5;
-const MAX_QUESTIONS = 5;
+const MAX_QUESTIONS = 10;
 
 startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuesions = [...questions];
     getNewQuestion();
+    ntimer ();
     game.classList.remove('hidden');
     loader.classList.add('hidden');
 };
-
 getNewQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
@@ -86,7 +86,13 @@ choices.forEach((choice) => {
         }, 1000);
     });
 });
-
+function ntimer () {
+setTimeout(function timer() {
+    alert("times up");
+    localStorage.setItem('mostRecentScore', score);
+    window.location.assign('end.html');
+  }, 600000)
+}
 incrementScore = (num) => {
     score += num;
     scoreText.innerText = score;
