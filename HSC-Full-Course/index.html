@@ -85,8 +85,8 @@ theme_color="#70BE44">
                     <img src="assets/images/Logo-with-Name.png" height="50px" width="50px">
                 </div>
                 <div class="col-md-9 nav-col">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                    <nav class="navbar navbar-expand-lg">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"> <i class="fas fa-bars" style="color:grey; font-size:28px;"></i></span> </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item active">
@@ -99,14 +99,15 @@ theme_color="#70BE44">
                                     <a class="nav-link" target="_blank" href="forum.html">QnA Forum</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Videos</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="playlists.html">Playlists</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="login" href="login.html" type="button">Login</a>
                                     <a class="nav-link" id="accmd" type="button" data-toggle="modal" data-target="#accModal">Account</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="dark-toggle" class="btn btn-outline-dark" onclick="darkmode.toggle();">🌓 Theme</a>
+                                    <div class="dark-toggle-switch"></div>
                                 </li>
                             </ul>
                         </div>
@@ -183,7 +184,7 @@ theme_color="#70BE44">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="video-card">
                     <a href="Classes/HSC/Science/phy-paper.html">
-                    <img src="assets/Physics/1st/Physics-1st.svg" alt="Physics">
+                    <img src="https://www.iceducation.ca/wp-content/uploads/2014/02/1073-x-644_-Physics.png" alt="Physics">
                 </a>
                 </div>
             </div>
@@ -302,7 +303,7 @@ theme_color="#70BE44">
                 </div> 
                 <div class="contri-row" bis_skin_checked="1">
                     <div class="image" bis_skin_checked="1">
-            	        <img src="" class="rounded" alt="Ashique Shah">
+            	        <img src="/images/Ashique_Shah.PNG" class="rounded" alt="Ashique Shah">
                     </div>
                     <div class="detail" bis_skin_checked="1">
                         <h6>Ashique Shah</h6>
@@ -312,17 +313,17 @@ theme_color="#70BE44">
                 </div>     
                 <div class="contri-row" bis_skin_checked="1">
                     <div class="image" bis_skin_checked="1">
-            	        <img src="" class="rounded" alt="Mohammadullah Siraji Fahim">
+            	        <img src="/images/Hridoy.PNG" class="rounded" alt="Mohammadullah Siraji Fahim">
                     </div>
                     <div class="detail" bis_skin_checked="1">
-                        <h6>Mohammadullah Siraji Fahim</h6>
+                        <h6>Hridoy</h6>
                         <p>Instructor</p>
                         <span>10 MS</span>
                     </div>
                 </div>  
                 <div class="contri-row" bis_skin_checked="1">
                     <div class="image" bis_skin_checked="1">
-            	        <img src="" class="rounded" alt="MD Asaduzzaman Santo">
+            	        <img src="/images/Shanto.PNG" class="rounded" alt="MD Asaduzzaman Santo">
                     </div>
                     <div class="detail" bis_skin_checked="1">
                         <h6>MD Asaduzzaman Santo</h6>
@@ -361,7 +362,7 @@ theme_color="#70BE44">
                     <ul class="list-unstyled link-list">
                         <li><a target="_blank" href="https://cutt.ly/Physics-1st-by-Apar">Physics 1st PDF</a><i class="fa fa-angle-right"></i></li>
                         <li><a target="_blank" href="https://cutt.ly/Chemistry-1st-10MS">Chemistry 1st PDF</a><i class="fa fa-angle-right"></i></li>
-                        <li><a target="_blank" href="https://cutt.ly/Chemistry-1st-10MS">Chemistry 2nd PDF</a><i class="fa fa-angle-right"></i></li>
+                        <li><a target="_blank" href="https://cutt.ly/Chemistry-2nd-10MS">Chemistry 2nd PDF</a><i class="fa fa-angle-right"></i></li>
                         <li><a target="_blank" href="https://cutt.ly/spoken-english-course">Spoken English Course</a><i class="fa fa-angle-right"></i></li>
                         <li><a target="_blank" href="https://cutt.ly/munzereen-book">Spoken English Book</a><i class="fa fa-angle-right"></i></li>
                     </ul>
@@ -400,7 +401,7 @@ theme_color="#70BE44">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="custom-adTitle"><b>User Profile</b></h5>
+                <h5 class="modal-title"><b>User Profile</b></h5>
                     <button class="close" type="button" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -427,5 +428,6 @@ theme_color="#70BE44">
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/script.js"></script>
+<script src="/HSC-Full-Course/assets/js/darkmode.js"></script>
 </body>
 </html>

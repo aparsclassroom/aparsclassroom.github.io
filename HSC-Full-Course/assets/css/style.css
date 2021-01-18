@@ -30,7 +30,52 @@
   padding: 0px;
   scroll-behavior: smooth;
   list-style: none; }
-
+.darkmode--activated,
+.darkmode--activated .contri-bghy a,
+.darkmode--activated .footer-ablove,
+.darkmode--activated .navbar-light,
+.darkmode--activated .detail h6,
+.darkmode--activated .video-title h6 {
+  color: white;
+  background-color: transparent;
+}
+.darkmode--activated a:hover {
+  color: var(--color-secondary);
+}
+.darkmode--activated .sesion-type p,
+.darkmode--activated .modal-body,
+.darkmode--activated .modal-title {
+  color: black;
+}
+.darkmode--activated li,
+.darkmode--activated .treanding-video h6,
+.darkmode--activated .copy .container,
+.darkmode--activated li a{
+  color: #2e2e30;
+  background-color: transparent;
+}
+.darkmode--activated .footer-ablove .btn{
+  background-color: black;
+}
+#dark-toggle {
+  border-radius: 4px;
+}
+#dark-toggle:hover {
+  background-color:#2e2e30;
+  color: white;
+}
+.darkmode--activated #dark-toggle:hover {
+  background-color:white;
+  color: black;
+}
+.darkmode--activated .footer-ablove .btn:hover{
+  background-color: #dc3545;
+}
+.darkmode--activated .navbar-nav li a,
+.darkmode--activated .footer .container li,
+.darkmode--activated .footer .container a{
+  color: white;
+}
 img {
   max-width: 100%; }
 
@@ -264,28 +309,9 @@ body {
 /* ===================================== Header CSS ================================== */
 header {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
-  header .header-top {
-    background-color: #cc1821; }
-    header .header-top .col-det .ulleft li {
-      float: left;
-      padding: 8px;
-      color: #FFF;
-      font-size: .85rem; }
-      header .header-top .col-det .ulleft li i {
-        margin-right: 5px; }
-      header .header-top .col-det .ulleft li span {
-        margin-left: 15px; }
-    header .header-top .col-det .ulright {
-      float: right; }
-      header .header-top .col-det .ulright li {
-        float: left;
-        padding: 8px;
-        color: #FFF;
-        font-size: .85rem; }
-        header .header-top .col-det .ulright li i {
-          margin-right: 5px; }
-        header .header-top .col-det .ulright li span {
-          margin-left: 15px; }
+  .navbar-nav li a {
+    color: var(--color-font);
+  }
   header .header-bottom img {
     margin-top: 8px; }
     @media screen and (max-width: 991px) {
@@ -520,6 +546,7 @@ border-radius: 10px; }
   font-size: 1.5rem; }
   .footer-ablove .btn {
     float: right;
+    isolation: isolate;
     background-color: #FFF;
     font-family: "title-font", "Open Sans", sans-serif; }
     .btn:hover {
