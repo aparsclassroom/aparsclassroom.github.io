@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+.cred {
+  font-family: 'Marck Script', cursive;color: darkblue;margin-top: 30px; font-size: 40px;
+}
 :root {
     background-color: #ecf5ff;
     font-size: 62.5%;

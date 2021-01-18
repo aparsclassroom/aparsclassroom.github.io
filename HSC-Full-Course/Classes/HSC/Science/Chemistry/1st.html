@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Chemistry 1st | Chapters | HSC Full Course</title>
 
-    <link rel="shortcut icon" href="../../../assets/images/Logo-with-Name.png">
+    <link rel="shortcut icon" href="../../../../assets/images/Logo-with-Name.png">
     <!-- CSS only -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/HSC-Full-Course/assets/css/fontawsom-all.min.css">
-    <link rel="stylesheet" href="/HSC-Full-Course/assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="/HSC-Full-Course/assets/css/style.css" />
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../../assets/css/fontawsom-all.min.css">
+    <link rel="stylesheet" href="../../../../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+
+            <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
+    <script src="/HSC-Full-Course/assets/sec/cred.js"></script>
+    <script src="/HSC-Full-Course/assets/sec/check.js"></script>
 </head>
 
 <body>
@@ -23,8 +30,8 @@
               <div class="container">
                   <div class="row nav-row">
                       <div class="col-md-3 logo">
-                        <a href="../../../index.html">
-                         <img src="../../../assets/images/Logo-with-Name.png" height="50px" width="50px">
+                        <a href="../../../../index.html">
+                         <img src="../../../../assets/images/Logo-with-Name.png" height="50px" width="50px">
                         </a>
                       </div>
                       <div class="col-md-9 nav-col">
@@ -36,10 +43,10 @@
                             <div class="collapse navbar-collapse" id="navbarNav">
                               <ul class="navbar-nav">
                                 <li class="nav-item">
-                                  <a class="nav-link" href="../../../index.html">Home </a>
+                                  <a class="nav-link" href="../../../../index.html">Home </a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="../../../about_us.html">About Us</a>
+                                  <a class="nav-link" href="../../../about.html">About Us</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                   <a class="nav-link dropdown-toggle" href="#" id="drp1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,7 +65,7 @@
                                     <a class="nav-link" href="blog.html">Blog</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="../../../contact_us.html">Contact US</a>
+                                    <a class="nav-link" href="/HSC-Full-Course/contact.html">Contact Us</a>
                                   </li>
                               </ul>
                             </div>
@@ -93,40 +100,40 @@
   	            <div class="col-md-4 col-sm-6">
                     <a data-toggle="modal" data-target="#ch1">
                         <div class="single-sess">
-                            <img src="/HSC-Full-Course/assets/Chemistry/2nd/Chapter 01.svg" alt="Chemistry 1st Chapter">
-                            <p>Click Here</p>
+                            <img src="https://i.ytimg.com/vi/DRX7CLjDM30/hqdefault.jpg" alt="Chemistry 1st Chapter">
+                            <p>Chapter 1</p>
                         </div>
                       </a>
   	            </div>
   	            <div class="col-md-4 col-sm-6">
                     <a data-toggle="modal" data-target="#ch2">
                         <div class="single-sess">
-                            <img src="/HSC-Full-Course/assets/Chemistry/2nd/Chapter 02.svg" alt="Chemistry 2nd Chapter">
-                            <p>Click Here</p>
+                            <img src="https://i.ytimg.com/vi/zEa93tHffeI/hqdefault.jpg" alt="Chemistry 2nd Chapter">
+                            <p>Chapter 2</p>
                         </div>
                       </a>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <a data-toggle="modal" data-target="#ch3">
                         <div class="single-sess">
-                            <img src="/HSC-Full-Course/assets/Chemistry/2nd/Chapter 03.svg" alt="Chemistry 3rd Chapter">
-                            <p>Click Here</p>
+                            <img src="https://i.ytimg.com/vi/S6yp4gbW1F8/hqdefault.jpg" alt="Chemistry 3rd Chapter">
+                            <p>Chapter 3</p>
                         </div>
                       </a>
                 </div>
   	            <div class="col-md-4 col-sm-6">
                       <a data-toggle="modal" data-target="#ch4">
   	                <div class="single-sess">
-  	                    <img src="/HSC-Full-Course/assets/Chemistry/2nd/Chapter 04.svg" alt="Chemistry 4th Chapter">
-  	                    <p>Click Here</p>
+  	                    <img src="https://i.ytimg.com/vi/ZJew8hCtIXs/hqdefault.jpg" alt="Chemistry 4th Chapter">
+  	                    <p>Chapter 4</p>
                       </div>
                     </a>
   	            </div>
   	            <div class="col-md-4 col-sm-6">
                     <a data-toggle="modal" data-target="#ch5">
                         <div class="single-sess">
-                            <img src="/HSC-Full-Course/assets/Chemistry/2nd/Chapter 05.svg" alt="Chemistry 5th Chapter">
-                            <p>Click Here</p>
+                            <img src="https://i.ytimg.com/vi/yDeMKTETv-M/hqdefault.jpg" alt="Chemistry 5th Chapter">
+                            <p>Chapter 5</p>
                         </div>
                       </a>
                   </div>
@@ -136,9 +143,10 @@
   <div class="footer-ablove">
     <div class="container">
         <div class="row">
-            <p>Are you looking for a consultant for your Business
-                <button class="btn btn-default">Get Quote</button>
-            </p>
+            <div class="col text-center">
+                <p>Thank you for staying with us 🥰</p>
+                <button onclick="window.open('https://www.facebook.com/groups/aparsclassroom/')" class="btn btn-block btn-outline-danger">Visit Group</button>
+            </div>
         </div>
     </div>
 </div>
@@ -147,7 +155,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 about col-sm-12">
-                <h2><i class="fas fa-info-circle"></i> About Us</h2>
+                <h2><i class="fas fa-info-circle"></i> About Contact Us
                 <p>
                     Smart Eye is a leading provider of information technology, consulting, and business process services. Our dedicated employees offer strategic insights, technological expertise and industry experience.
                 </p>
@@ -166,15 +174,15 @@
             <div class="col-md-3 col-sm-12">
                 <h2><i class="fas fa-life-ring"></i> Get Support</h2>
                 <ul class="list-unstyled link-list">
-                    <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="about" href="/HSC-Full-Course/about.html">About us</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="page" target="_blank" href="https://www.facebook.com/AparsClassroom/">Facebook Page</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="products" href="/">Latest Products</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="gallery" href="#">Gallery</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="contact" href="/HSC-Full-Course/contact.html">Us</a><i class="fa fa-angle-right"></i></li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-12 map-img">
-                <h2><i class="fas fa-map-marker-alt"></i> Contact Us</h2>
+                <h2><i class="fas fa-map-marker-alt"></i> Contact Us </h2>
                 <address class="md-margin-bottom-40">
                     Apar's Classroom <br>
                     Mirpur DOHS <br>
@@ -205,8 +213,8 @@
               <button class="close" type="button" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">                 
-                    <a type="button" href="Chemistry/Chapter-1/Phy01-Ch01-full.html" class="btn btn-block btn-dark">Playlist</a>
-                    <a type="button" href="Chemistry/Chapter-1/Phy01-Ch-01-C001.html" class="btn btn-block btn-secondary">Single Videos</a>
+                    <a type="button" href="1st-Paper/Chapter-1/Chem01-Ch01-full.html" class="btn btn-block btn-dark">Playlist</a>
+                    <a type="button" href="1st-Paper/Chapter-1/videos.html" class="btn btn-block btn-secondary">Single Videos</a>
                   </div>
                   <div class="modal-footer">
                     <a type="button" data-dismiss="modal" style="background:#0086fc;color: white;" class="btn btn-inline-block btn-outline-secondary">Close</a>
@@ -222,8 +230,8 @@
               <button class="close" type="button" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">                 
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-dark">Playlist</a>
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-secondary">Single Videos</a>
+                    <a type="button" href="1st-Paper/Chapter-2/Chem01-Ch02-full.html" class="btn btn-block btn-dark">Playlist</a>
+                    <a type="button" href="1st-Paper/Chapter-2/videos.html" class="btn btn-block btn-secondary">Single Videos</a>
                   </div>
                   <div class="modal-footer">
                     <a type="button" data-dismiss="modal" style="background:#0086fc;color: white;" class="btn btn-inline-block btn-outline-secondary">Close</a>
@@ -239,8 +247,8 @@
               <button class="close" type="button" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">                 
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-dark">Playlist</a>
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-secondary">Single Videos</a>
+                    <a type="button" href="1st-Paper/Chapter-3/Chem01-Ch03-full.html" class="btn btn-block btn-dark">Playlist</a>
+                    <a type="button" href="1st-Paper/Chapter-3/videos.html" class="btn btn-block btn-secondary">Single Videos</a>
                   </div>
                   <div class="modal-footer">
                     <a type="button" data-dismiss="modal" style="background:#0086fc;color: white;" class="btn btn-inline-block btn-outline-secondary">Close</a>
@@ -256,8 +264,8 @@
               <button class="close" type="button" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">                 
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-dark">Playlist</a>
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-secondary">Single Videos</a>
+                    <a type="button" href="1st-Paper/Chapter-4/Chem01-Ch04-full.html" class="btn btn-block btn-dark">Playlist</a>
+                    <a type="button" href="1st-Paper/Chapter-4/videos.html" class="btn btn-block btn-secondary">Single Videos</a>
                   </div>
                   <div class="modal-footer">
                     <a type="button" data-dismiss="modal" style="background:#0086fc;color: white;" class="btn btn-inline-block btn-outline-secondary">Close</a>
@@ -273,8 +281,8 @@
               <button class="close" type="button" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">                 
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-dark">Playlist</a>
-                    <a type="button" href="Phy1-Play1" class="btn btn-block btn-secondary">Single Videos</a>
+                    <a type="button" href="1st-Paper/Chapter-5/Chem01-Ch05-full.html" class="btn btn-block btn-dark">Playlist</a>
+                    <a type="button" href="1st-Paper/Chapter-5/videos.html" class="btn btn-block btn-secondary">Single Videos</a>
                   </div>
                   <div class="modal-footer">
                     <a type="button" data-dismiss="modal" style="background:#0086fc;color: white;" class="btn btn-inline-block btn-outline-secondary">Close</a>
@@ -282,8 +290,8 @@
                 </div>
               </div>
             </div>
-<script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
-<script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
-<script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
+<script src="../../../../assets/js/jquery-3.2.1.min.js"></script>
+<script src="../../../../assets/js/popper.min.js"></script>
+<script src="../../../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
