@@ -1,4 +1,4 @@
-Dvar Select_List_Data = {
+var Select_List_Data = {
     'Chapter_No': {
         Physics1: {
             text: ['Chapter 1: ভৌতজগত ও পরিমাপ', 'Chapter 2: ভেক্টর', 'Chapter 3: গতিবিদ্যা', 'Chapter 4: নিউটনীয় বলবিদ্যা', 'Chapter 5: কাজ-শক্তি-ক্ষমতা', 'Chapter 6: মহাকর্ষ ও অভিকর্ষ', 'Chapter 7: পদার্থের গাঠনিক ধর্ম', 'Chapter 8: পর্যাবৃত্ত গতি', 'Chapter 9: তরঙ্গ', 'Chapter 10: আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব'],
@@ -40,62 +40,64 @@ Dvar Select_List_Data = {
             text: ['Chapter 1 - তথ্য ও যোগাযোগ প্রযুক্তি : বিশ্ব ও বাংলাদেশ প্রেক্ষিত', 'Chapter 2 - কমিউনিকেশন সিস্টেমস ও নেটওয়ার্কিং', 'Chapter 3 - সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস', 'Chapter 4 - ওয়েব ডিজাইন পরিচিতি এবং HTML', 'Chapter 5 - প্রোগ্রামিং ভাষা', 'Chapter 6 - ডেটাবেজ ম্যানেজমেন্ট সিস্টেম'],
             value: ['Chapter1', 'Chapter2', 'Chapter3', 'Chapter4', 'Chapter5', 'Chapter6']
         }
-    
-    }    
+
+    }
 };
+
 function removeAllOptions(sel, removeGrp) {
     var len, groups, par;
     if (removeGrp) {
         groups = sel.getElementsByTagName('optgroup');
         len = groups.length;
-        for (var i=len; i; i--) {
-            sel.removeChild( groups[i-1] );
+        for (var i = len; i; i--) {
+            sel.removeChild(groups[i - 1]);
         }
     }
-    
+
     len = sel.options.length;
-    for (var i=len; i; i--) {
-        par = sel.options[i-1].parentNode;
-        par.removeChild( sel.options[i-1] );
+    for (var i = len; i; i--) {
+        par = sel.options[i - 1].parentNode;
+        par.removeChild(sel.options[i - 1]);
     }
 }
 
 function appendDataToSelect(sel, obj) {
     var f = document.createDocumentFragment();
-    var labels = [], group, opts;
-    
+    var labels = [],
+        group, opts;
+
     function addOptions(obj) {
         var f = document.createDocumentFragment();
         var o;
-        
-        for (var i=0, len=obj.text.length; i<len; i++) {
+
+        for (var i = 0, len = obj.text.length; i < len; i++) {
             o = document.createElement('option');
-            o.appendChild( document.createTextNode( obj.text[i] ) );
-            
-            if ( obj.value ) {
+            o.appendChild(document.createTextNode(obj.text[i]));
+
+            if (obj.value) {
                 o.value = obj.value[i];
             }
-            
+
             f.appendChild(o);
         }
         return f;
     }
-    
-    if ( obj.text ) {
+
+    if (obj.text) {
         opts = addOptions(obj);
         f.appendChild(opts);
     } else {
-        for ( var prop in obj ) {
-            if ( obj.hasOwnProperty(prop) ) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
                 labels.push(prop);
             }
         }
-        
-        for (var i=0, len=labels.length; i<len; i++) {
+
+        for (var i = 0, len = labels.length; i < len; i++) {
             group = document.createElement('optgroup');
             group.label = labels[i];
             f.appendChild(group);
-            opts = addOptions(obj[ labels[i] ] );
+            opts = addOptions(obj[labels[i]]);
             group.appendChild(opts);
         }
     }
@@ -103,8 +105,8 @@ function appendDataToSelect(sel, obj) {
 }
 document.forms['MCQForm'].elements['subject'].onchange = function(e) {
     var relName = 'Chapter_No';
-    var relList = this.form.elements[ relName ];
-    var obj = Select_List_Data[ relName ][ this.value ];
+    var relList = this.form.elements[relName];
+    var obj = Select_List_Data[relName][this.value];
     removeAllOptions(relList, true);
     appendDataToSelect(relList, obj);
 };
@@ -113,7 +115,7 @@ document.forms['MCQForm'].elements['subject'].onchange = function(e) {
     var sel = form.elements['subject'];
     sel.selectedIndex = 0;
     var relName = 'Chapter_No';
-    var rel = form.elements[ relName ];
-    var data = Select_List_Data[ relName ][ sel.value ];
+    var rel = form.elements[relName];
+    var data = Select_List_Data[relName][sel.value];
     appendDataToSelect(rel, data);
 }());
