@@ -1,11 +1,11 @@
-var Select_List_Data = {
+Dvar Select_List_Data = {
     'Chapter_No': {
         Physics1: {
             text: ['Chapter 1: ভৌতজগত ও পরিমাপ', 'Chapter 2: ভেক্টর', 'Chapter 3: গতিবিদ্যা', 'Chapter 4: নিউটনীয় বলবিদ্যা', 'Chapter 5: কাজ-শক্তি-ক্ষমতা', 'Chapter 6: মহাকর্ষ ও অভিকর্ষ', 'Chapter 7: পদার্থের গাঠনিক ধর্ম', 'Chapter 8: পর্যাবৃত্ত গতি', 'Chapter 9: তরঙ্গ', 'Chapter 10: আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব'],
             value: ['Chapter1', 'Chapter2', 'Chapter3', 'Chapter4', 'Chapter5', 'Chapter6', 'Chapter7', 'Chapter8', 'Chapter9', 'Chapter10']
         },
         Physics2: {
-            text: ['Chapter 1: তাপগতিবিদ্যা', 'Chapter 2: স্থির তড়িৎ', 'Chapter 3: গতিবিদ্যা', 'Chapter 3: চলতড়িৎ', 'Chapter 4: তড়িৎ প্রবাহের চুম্বকক্রিয়া', 'Chapter 5: তাড়িত-চৌম্বক আবেশ', 'Chapter 6: জ্যামিতিক আলোকবিজ্ঞান', 'Chapter 7: ভৌত আলোকবিজ্ঞান', 'Chapter 8: আধুনিক পদার্থবিজ্ঞান', 'Chapter 9: পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান', 'Chapter 10: অর্ধ-পরিবাহী ও ইলেকট্রনিক্স', 'Chapter 11: জ্যোতির্বিজ্ঞান'],
+            text: ['Chapter 1: তাপগতিবিদ্যা', 'Chapter 2: স্থির তড়িৎ', 'Chapter 3: চলতড়িৎ', 'Chapter 4: তড়িৎ প্রবাহের চুম্বকক্রিয়া', 'Chapter 5: তাড়িত-চৌম্বক আবেশ', 'Chapter 6: জ্যামিতিক আলোকবিজ্ঞান', 'Chapter 7: ভৌত আলোকবিজ্ঞান', 'Chapter 8: আধুনিক পদার্থবিজ্ঞান', 'Chapter 9: পরমাণুর মডেল ও নিউক্লিয়ার পদার্থবিজ্ঞান', 'Chapter 10: অর্ধ-পরিবাহী ও ইলেকট্রনিক্স', 'Chapter 11: জ্যোতির্বিজ্ঞান'],
             value: ['Chapter1', 'Chapter2', 'Chapter3', 'Chapter4', 'Chapter5', 'Chapter6', 'Chapter7', 'Chapter8', 'Chapter9', 'Chapter10', 'Chapter11']
         },
         Chemistry1: {
