@@ -1,134 +1,105 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Google Sheets API Quickstart</title>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <p>Google Sheets API Quickstart</p>
+<html lang="en">
 
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" style="display: none;">Authorize</button>
-    <button id="signout_button" style="display: none;">Sign Out</button>
-
-    <pre id="content" style="white-space: pre-wrap;"></pre>
-
-    <script type="text/javascript">
-      // Client ID and API key from the Developer Console
-      var CLIENT_ID = '358700614630-bhcgt4thlvk39dpkk90ebn6ujhjfi85l.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyCNZy0Bm2VnL3uaWZIRqgprH4mhS3Yt1Ro';
-
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
-
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
-
-      var authorizeButton = document.getElementById('authorize_button');
-      var signoutButton = document.getElementById('signout_button');
-
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-      }
-
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          // Listen for sign-in state changes.
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-          // Handle the initial sign-in state.
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
-          signoutButton.onclick = handleSignoutClick;
-        }, function(error) {
-          appendPre(JSON.stringify(error, null, 2));
-        });
-      }
-
-      /**
-       *  Called when the signed in status changes, to update the UI
-       *  appropriately. After a sign-in, the API is called.
-       */
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          authorizeButton.style.display = 'none';
-          signoutButton.style.display = 'block';
-          listMajors();
-        } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: black;
         }
-      }
+    </style>
+</head>
 
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
+<body>
+    <label for="item1Name">Item 1</label>
+    <input type="text" id="item1Name">
+    <label for="item1Price">Price</label>
+    <input type="number" id="item1Price">
+    <label for="item1Quantity">Quantity</label>
+    <input type="number" id="item1Quantity">
+    <br><br>
 
-      /**
-       *  Sign out the user upon button click.
-       */
-      function handleSignoutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
+    <label for="item2Name">Item 2</label>
+    <input type="text" id="item2Name">
+    <label for="item2Price">Price</label>
+    <input type="number" id="item2Price">
+    <label for="item2Quantity">Quantity</label>
+    <input type="number" id="item2Quantity">
+    <br><br>
 
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
+    <label for="item3Name">Item 3</label>
+    <input type="text" id="item3Name">
+    <label for="item3Price">Price</label>
+    <input type="number" id="item3Price">
+    <label for="item3Quantity">Quantity</label>
+    <input type="number" id="item3Quantity">
+    <br><br>
+    <button>Calculate</button>
 
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
-      function listMajors() {
-        gapi.client.sheets.spreadsheets.values.get({
-          spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-          range: 'Class Data!A2:E',
-        }).then(function(response) {
-          var range = response.result;
-          if (range.values.length > 0) {
-            appendPre('Name, Major:');
-            for (i = 0; i < range.values.length; i++) {
-              var row = range.values[i];
-              // Print columns A and E, which correspond to indices 0 and 4.
-              appendPre(row[0] + ', ' + row[4]);
-            }
-          } else {
-            appendPre('No data found.');
-          }
-        }, function(response) {
-          appendPre('Error: ' + response.result.error.message);
+    <div id="budget"></div>
+
+    <div id="total"></div>
+
+    <script>
+        var budget = document.getElementById("budget");
+        var total = document.getElementById("total");
+        var name1 = document.getElementById("item1Name");
+        var name2 = document.getElementById("item2Name");
+        var name3 = document.getElementById("item3Name");
+        var item1Price = document.getElementById("item1Price");
+        var item2Price = document.getElementById("item2Price");
+        var item3Price = document.getElementById("item3Price");
+        var item1Quantity = document.getElementById("item1Quantity");
+        var item2Quantity = document.getElementById("item2Quantity");
+        var item3Quantity = document.getElementById("item3Quantity");
+        var price1, price2, price3, budgetTotal;
+        document.querySelector("button").addEventListener('click', function budgetCalculator(e) {
+            e.preventDefault();
+            document.querySelector("button").innerText = "Calculate Again";
+            price1 = item1Price.value * item1Quantity.value;
+            price2 = item2Price.value * item2Quantity.value;
+            price3 = item3Price.value * item3Quantity.value;
+            budgetTotal = price1 + price2 + price3;
+            showCalculation();
         });
-      }
 
-    </script>
+        function showCalculation() {
+            budget.innerHTML = `
+          <h1>Calculated Budget</h1>
 
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+          <table>
+            <tr>
+              <th> Item Name </th>
+              <th> Quantity </th>
+              <th> Per Piece </th>
+              <th> Total </th>
+            </tr>
+            <tr>
+              <td> ${name1.value} </td>
+              <td> ${item1Quantity.value} </td>
+              <td> ${item1Price.value} </td>
+              <td> ${price1} </td>
+            </tr>
+            <tr>
+              <td> ${name2.value} </td>
+              <td> ${item2Quantity.value} </td>
+              <td> ${item2Price.value} </td>
+              <td> ${price2} </td>
+            </tr>
+            <tr>
+              <td> ${name3.value} </td>
+              <td> ${item3Quantity.value} </td>
+              <td> ${item3Price.value} </td>
+              <td> ${price3} </td>
+            </tr>
+          </table>
+          `
+            total.innerHTML = `
+          <h2>${budgetTotal}</h2>`;;
+        }
     </script>
-  </body>
+</body>
+
 </html>
