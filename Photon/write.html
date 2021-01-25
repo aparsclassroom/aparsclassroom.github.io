@@ -23,7 +23,15 @@
     <script>
         $(function() {
             $('#surveyElement input').attr("value", "ফাইলটি আপলোড দিন");
+            document.getElementById('surveyElement').addEventListener('click', function() {
+                $('#surveyElement input').attr("value", "অপেক্ষা করুন");
+                setTimeout(myFunction, 10000);
+            });
         });
+
+        function myFunction() {
+            $('#surveyElement input').attr("value", "ফাইলটি আপলোড দিন");
+        }
     </script>
     <style type='text/css'>
         body {
