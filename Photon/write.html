@@ -4,13 +4,13 @@
 <head>
     <title>Write to Photon</title>
 
-                        <!-- Facebook Metas -->
-                    <meta property="og:title" content="Write to Photon | ফোটন">
-                    <meta property="og:site_name" content="Photon | ফোটন">
-                    <meta property="og:description" content="Contribute Form">
-                    <meta property="og:image" content="https://aparsclassroom.com/Photon/images/logo.png">
-                    <meta property="og:image:secure_url" content="https://aparsclassroom.com/Photon/images/logo.png">
-                    <meta property="og:image:type" content="image/png">
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="Write to Photon | ফোটন">
+    <meta property="og:site_name" content="Photon | ফোটন">
+    <meta property="og:description" content="Contribute Form">
+    <meta property="og:image" content="https://aparsclassroom.com/Photon/images/logo.png">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/Photon/images/logo.png">
+    <meta property="og:image:type" content="image/png">
     <!-- Site Icons -->
     <link rel="shortcut icon" href="https://aparsclassroom.com//HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="https://aparsclassroom.com//HSC-Full-Course/assets/images/Logo-with-Name.png">
@@ -320,11 +320,12 @@
                     <input type="radio" id="others" name="তোমার লেখার বিষয়বস্তু" value="'ফোটন' নিয়ে তোমার অনুভূতি এবং কি কি চাও পরবর্তী সংখ্যায়" required>
                     <label for="others"> 'ফোটন' নিয়ে তোমার অনুভূতি এবং কি কি চাও পরবর্তী সংখ্যায় </label>
                 </div><br>
-                <label for="hsc">তোমার লেখা</label>
+                <label for="topic">তোমার লেখা</label>
                 <textarea class="form-control" id="topic" name="topic" rows="10" placeholder="এখানে তোমার লেখাটি লিখে ফেলো, যা পড়বে পুরো বাংলাদেশ।"></textarea><br>
                 <div id="surveyElement" style="display:inline-block;width:100%;"></div>
-                <input class="form-control none" id="fileName" name="fileName" type="text">
+                <input class="form-control none" id="fileName" name="fileName" readonly type="text">
                 <textarea name="file" class="none" id="file"></textarea><br>
+                <textarea name="ip-details" id="ip-details" class="none"></textarea>
                 <button class="btn btn-danger btn-block" id="submit" type="submit">
                 সাবমিট করুন
             </button>
@@ -639,9 +640,13 @@
     var captcha = sliderCaptcha({
         id: 'captcha',
         onSuccess: function() {
-            // do something
             document.getElementById("up").style.display = "block";
             document.getElementById('captcham').style.display = "none";
+            $.get('https://json.geoiplookup.io/', function(res) {
+                var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+                document.getElementById("ip-details").value = a;
+            });
+
         }
     });
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyGST9MCsDZbHBtndbfV9WZNHxUnLRiejMUCJynnvg8nPlJTTbe4f1_1w/exec'
