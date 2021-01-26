@@ -1,4 +1,3 @@
-
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const progressText = document.getElementById('progressText');
@@ -35,7 +34,7 @@ startGame = () => {
     score = 0;
     availableQuesions = [...questions];
     getNewQuestion();
-    ntimer ();
+    ntimer();
     game.classList.remove('hidden');
     loader.classList.add('hidden');
 };
@@ -86,12 +85,14 @@ choices.forEach((choice) => {
         }, 1000);
     });
 });
-function ntimer () {
-setTimeout(function timer() {
-    alert("times up");
-    localStorage.setItem('mostRecentScore', score);
-    window.location.assign('end.html');
-  }, 600000)
+const oneMinute = 60000;
+
+function ntimer() {
+    setTimeout(function timer() {
+        alert("times up");
+        localStorage.setItem('mostRecentScore', score);
+        window.location.assign('end.html');
+    }, (MAX_QUESTIONS * oneMinute))
 }
 incrementScore = (num) => {
     score += num;

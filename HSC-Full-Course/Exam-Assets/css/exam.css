@@ -1,10 +1,12 @@
 @font-face {
-  font-family: Kalpurush;
-  src: url('/Ambassador/assets/fonts/kalpurush.ttf'); 
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/kalpurush.ttf');
 }
+
 .bangla {
-  font-family: Kalpurush;
+    font-family: Kalpurush;
 }
+
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
@@ -12,81 +14,90 @@
     font-size: 1.8rem;
     border: 0.1rem solid rgb(86, 165, 235, 0.25);
     background-color: white;
-  }
-  
-  .choice-container:hover {
+}
+
+.choice-container:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 235, 111, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
-  }
-  
-  .choice-prefix {
+}
+
+.choice-prefix {
     padding: 1.5rem 2.5rem;
     background-color: green;
     color: white;
-  }
-  
-  .choice-text {
+}
+
+.choice-text {
     padding: 1.5rem;
     width: 100%;
-  }
-  
-  .correct {
+}
+
+.correct {
     background-color: #28a745;
-  }
-  
-  .incorrect {
+}
+
+.incorrect {
     background-color: #dc3545;
-  }
-  .correct .choice-text,
-  .incorrect .choice-text {
+}
+
+.correct .choice-text,
+.incorrect .choice-text,
+.correct sup,
+.correct sub,
+.incorrect sup,
+.incorrect sub {
     color: white;
-  }
-  /* HUD */
-  
-  #hud {
+}
+
+
+/* HUD */
+
+#hud {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .hud-prefix {
+}
+
+.hud-prefix {
     text-align: center;
     font-size: 2rem;
-  }
-  
-  .hud-main-text {
+}
+
+.hud-main-text {
     text-align: center;
-  }
-  
-  #progressBar {
+}
+
+#progressBar {
     width: 20rem;
     height: 4rem;
     border: 0.3rem solid green;
     margin-top: 1.5rem;
-  }
-  
-  #progressBarFull {
+}
+
+#progressBarFull {
     height: 3.4rem;
     background-color: green;
     width: 0%;
-  }
-  
-  /* LOADER */
-  #loader {
+}
+
+
+/* LOADER */
+
+#loader {
     border: 1.6rem solid white;
     border-radius: 50%;
     border-top: 1.6rem solid green;
     width: 12rem;
     height: 12rem;
     animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}

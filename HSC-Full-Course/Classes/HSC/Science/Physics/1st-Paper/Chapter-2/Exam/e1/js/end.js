@@ -41,7 +41,7 @@ saveHighScore = (e) => {
 };
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzqbVIwLeNJLgRI2D96oV6D4LoUWKhVKKWvQMvvA-jVWGl7X_F7g7k1vw/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz0MpaxnXBrETX23lG7T8AITTQug2ipPArqiZNNaBsAkXLwWgQT1AOE/exec'
 const form = document.forms['highScore']
 
 form.addEventListener('submit', e => {
@@ -50,7 +50,10 @@ form.addEventListener('submit', e => {
         .then(_response => alert("Saved Online!!!"))
         .catch(error => console.error('Error!', error.message))
     document.getElementById("online").innerText = "Please Wait..";
+    document.getElementById("online").disabled = true;
+
     setTimeout(function timer() {
         document.getElementById("online").style.display = "none";
+        document.getElementById("homeBtn").style.display = "block";
     }, 2500)
 })

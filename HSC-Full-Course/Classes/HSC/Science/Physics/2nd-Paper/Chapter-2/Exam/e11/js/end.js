@@ -50,6 +50,7 @@ form.addEventListener('submit', e => {
         .then(_response => alert("Saved Online!!!"))
         .catch(error => console.error('Error!', error.message))
     document.getElementById("online").innerText = "Please Wait..";
+    document.getElementById("online").disabled = true;
     setTimeout(function timer() {
         document.getElementById("online").style.display = "none";
     }, 2500)
