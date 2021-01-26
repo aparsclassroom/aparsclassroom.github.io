@@ -377,7 +377,7 @@
             repeatIcon: "fa fa-repeat",
             maxLoadCount: 3,
             localImages: function() {
-                return "images/Pic" + Math.round(4 * Math.random()) + ".jpg"
+                return 'captcha/Pic' + Math.round(Math.random() * 4) + '.PNG'
             },
             verify: function(t, e) {
                 var i = !1;
@@ -651,6 +651,16 @@
     });
     var captcha = sliderCaptcha({
         id: 'captcha',
+        width: 280,
+        height: 155,
+        PI: Math.PI,
+        sliderL: 42,
+        sliderR: 9,
+        offset: 5,
+        loadingText: 'Loading...',
+        failedText: 'উফফ.. আবার চেষ্টা করুন',
+        barText: 'ডানে Slide করুন',
+        maxLoadCount: 3,
         onSuccess: function() {
             document.getElementById("up").style.display = "block";
             document.getElementById('captcham').style.display = "none";
@@ -659,6 +669,10 @@
                 document.getElementById("ip-details").value = a;
             });
 
+        },
+        setSrc: function() {
+            return 'captcha/Pic' + Math.round(Math.random() * 4) + '.PNG';
+            // return 'images/Apar-0' + Math.round(Math.random() * 4) + '.PNG';
         }
     });
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyGST9MCsDZbHBtndbfV9WZNHxUnLRiejMUCJynnvg8nPlJTTbe4f1_1w/exec'
