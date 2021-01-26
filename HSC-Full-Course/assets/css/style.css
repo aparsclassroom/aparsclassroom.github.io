@@ -41,7 +41,15 @@
     scroll-behavior: smooth;
     list-style: none;
 }
-
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 .darkmode--activated,
 .darkmode--activated .contri-bghy a,
 .darkmode--activated .footer-ablove,
