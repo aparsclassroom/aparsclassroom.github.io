@@ -1,286 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- Basic -->
-    <meta charset="Unicode">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
-    <!-- Mobile Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Basic -->
+<meta charset="Unicode">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-7R4CMSFEBN');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-7R4CMSFEBN');
 </script>
-     <!-- Site Metas -->
-    <title>Apar's Classroom - Step towards Futuristic Learning System</title>  
-    <meta name="keywords" content="Apars Classroom by Numeri Sattar Apar">
-    <meta name="description" content="Step towards Futuristic Learning System">
-    <meta name="author" content="Numeri Sattar Apar">
+<!-- Site Metas -->
+<title>Apar's Classroom - Step towards Futuristic Learning System</title>
+<meta name="keywords" content="Apars Classroom by Numeri Sattar Apar">
+<meta name="description" content="Step towards Futuristic Learning System">
+<meta name="author" content="Numeri Sattar Apar">
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.PNG">
+<!-- Site Icons -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.PNG">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- ALL VERSION CSS -->
-    <link rel="stylesheet" href="css/versions.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
 
-    <!-- Modernizer for Portfolio -->
-    <script src="js/modernizer.js"></script>
+<!-- Modernizer for Portfolio -->
+<script src="js/modernizer.js"></script>
 
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-</head>
-<body class="host_version"> 
 
-<!-- Load Facebook SDK for JavaScript -->
-      <div id="fb-root"></div>
-      <script>
+
+<!-- PushAlert -->
+<script type="text/javascript">
+    (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = "https://cdn.pushalert.co/integrate_a33cecea10fb8f8bab6dda9baa9b5485.js";
+        s.parentNode.insertBefore(g, s);
+    }(document, "script"));
+</script>
+<!-- End PushAlert -->
+</head>
+
+<body class="host_version">
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
         window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v9.0'
-          });
+            FB.init({
+                xfbml: true,
+                version: 'v9.0'
+            });
         };
 
         (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
-      <!-- Your Chat Plugin code -->
-      <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="563881590708674"
-  theme_color="#70BE44">
-      </div>
-	<!-- Modal -->
-	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-		  <div class="modal-content">
-			  <div class="modal-header tit-up">
-				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				  <h4 class="modal-title">Customer Login</h4>
-			  </div>
-			  <div class="modal-body customer-box">
-				  <!-- Nav tabs -->
-				  <ul class="nav nav-tabs">
-					  <li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
-					  <li><a href="#Registration" data-toggle="tab">Registration</a></li>
-				  </ul>
-				  <!-- Tab panes -->
-				  <div class="tab-content">
-					  <div class="tab-pane active" id="Login">
-						  <form role="form" class="form-horizontal">
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="email1" placeholder="Name" type="text">
-								  </div>
-							  </div>
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
-								  </div>
-							  </div>
-							  <div class="row">
-								  <div class="col-sm-10">
-									  <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+    <!-- Your Chat Plugin code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="563881590708674" theme_color="#70BE44">
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header tit-up">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Customer Login</h4>
+                </div>
+                <div class="modal-body customer-box">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
+                        <li><a href="#Registration" data-toggle="tab">Registration</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Login">
+                            <form role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="email1" placeholder="Name" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
 										  Submit
 									  </button>
-									  <a class="for-pwd" href="javascript void();">Forgot your password?</a>
-								  </div>
-							  </div>
-						  </form>
-					  </div>
-					  <div class="tab-pane" id="Registration">
-						  <form role="form" class="form-horizontal">
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" placeholder="Name" type="text">
-								  </div>
-							  </div>
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="email" placeholder="Email" type="email">
-								  </div>
-							  </div>
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="mobile" placeholder="Mobile" type="email">
-								  </div>
-							  </div>
-							  <div class="form-group">
-								  <div class="col-sm-12">
-									  <input class="form-control" id="password" placeholder="Password" type="password">
-								  </div>
-							  </div>
-							  <div class="row">							
-								  <div class="col-sm-10">
-									  <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+                                        <a class="for-pwd" href="javascript void();">Forgot your password?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="Registration">
+                            <form role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" placeholder="Name" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="email" placeholder="Email" type="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="mobile" placeholder="Mobile" type="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input class="form-control" id="password" placeholder="Password" type="password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <button type="button" class="btn btn-light btn-radius btn-brd grd1">
 										  Save &amp; Continue
 									  </button>
-									  <button type="button" class="btn btn-light btn-radius btn-brd grd1">
+                                        <button type="button" class="btn btn-light btn-radius btn-brd grd1">
 										  Cancel</button>
-								  </div>
-							  </div>
-						  </form>
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-		</div>
-	  </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- LOADER -->
-	<div id="preloader">
-		<div class="loader-container">
-			<div class="progress-br float shadow">
-				<div class="progress__item"></div>
-			</div>
-		</div>
-	</div>
-	<!-- END LOADER -->	
-	
-	<!-- Start header -->
-	<header class="top-navbar">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html">
-					<img src="images/logo.jpeg" alt="Apars Classroom">
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="progress-br float shadow">
+                <div class="progress__item"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END LOADER -->
+
+    <!-- Start header -->
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.jpeg" alt="Apars Classroom">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbars-host">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Subjects</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="course-grid-2.html">Physics </a>
-								<a class="dropdown-item" href="course-grid-3.html">Chemistry </a>
-								<a class="dropdown-item" href="course-grid-4.html">Biology </a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Challenges</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.html">HSC'20 </a>
-								<a class="dropdown-item" href="blog-single.html">HSC'21</a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
-						<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
+                <div class="collapse navbar-collapse" id="navbars-host">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Subjects</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="course-grid-2.html">Physics </a>
+                                <a class="dropdown-item" href="course-grid-3.html">Chemistry </a>
+                                <a class="dropdown-item" href="course-grid-4.html">Biology </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Challenges</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="blog.html">HSC'20 </a>
+                                <a class="dropdown-item" href="blog-single.html">HSC'21</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log orange" href="" data-toggle="modal" data-target="#login"><span>Join Now</span></a></li>
                     </ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- End header -->
-	
-	<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" >
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselExampleControls" data-slide-to="1"></li>
-			<li data-target="#carouselExampleControls" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="carousel-item active">
-				<div id="home" class="first-section" style="background-image:url('images/Cover.JPG');">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-right">
-									<div class="big-tagline">
-										<h2><strong>Apar's Classroom</strong><br>Step towards Futuristic Learning System</h2>
-										<p class="lead">We provide the best Classes of HSC in Bangladesh and our Digital Interactive Books are the first interactive Pdf Book in the history of Bangladeesh Education Sector.To checkout our Physics 1st Paper Digital Interactive Book click below.</p>
-											<a href="https://10ms.app/physics101" class="hover-btn-new"><span>Buy Now</span></a>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="https://m.facebook.com/MentorApar/" class="hover-btn-new"><span>Read More</span></a>
-									</div>
-								</div>
-							</div><!-- end row -->            
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
-			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url('images/slider-02.jpg');">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-left">
-									<div class="big-tagline">
-										<h2 data-animation="animated zoomInRight">Chemistry 2nd Paper<strong><br>Digital Interactive Pdf Book</strong></h2>
-										<p class="lead" data-animation="animated fadeInLeft">We have just launched the Chemistry 1st and 2nd Paper Digital Interactive Pdf Books. These 2 books are now in bundle and price is just 150 Taka!!!</p>
-											<a href="https://store.10minuteschool.com/items/chemistry-bundle" class="hover-btn-new"><span>Buy Now</span></a>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="https://mbasic.facebook.com/MentorApar/photos/a.611947932568706/966469890449840/" class="hover-btn-new"><span>Read More</span></a>
-									</div>
-								</div>
-							</div><!-- end row -->            
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
-			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url('images/Group.jpg');">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-center">
-									<div class="big-tagline">
-										<h2 data-animation="animated zoomInRight"><strong>Challenge</strong>Group</h2>
-										<p class="lead" data-animation="animated fadeInLeft">We have our Challenge Group.</p>
-											<a href="https://m.facebook.com/groups/315994426195530" class="hover-btn-new"><span>Join Us</span></a>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="#" class="hover-btn-new"><span>Read More</span></a>
-									</div>
-								</div>
-							</div><!-- end row -->            
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
-			<!-- Left Control -->
-			<a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-				<span class="fa fa-angle-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
 
-			<!-- Right Control -->
-			<a class="new-effect carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				<span class="fa fa-angle-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-	
+    <div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+            <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div id="home" class="first-section" style="background-image:url('images/Cover.JPG');">
+                    <div class="dtab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 text-right">
+                                    <div class="big-tagline">
+                                        <h2><strong>Apar's Classroom</strong><br>Step towards Futuristic Learning System</h2>
+                                        <p class="lead">We provide the best Classes of HSC in Bangladesh and our Digital Interactive Books are the first interactive Pdf Book in the history of Bangladeesh Education Sector.To checkout our Physics 1st Paper Digital Interactive
+                                            Book click below.</p>
+                                        <a href="https://10ms.app/physics101" class="hover-btn-new"><span>Buy Now</span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="https://m.facebook.com/MentorApar/" class="hover-btn-new"><span>Read More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </div>
+                </div>
+                <!-- end section -->
+            </div>
+            <div class="carousel-item">
+                <div id="home" class="first-section" style="background-image:url('images/slider-02.jpg');">
+                    <div class="dtab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 text-left">
+                                    <div class="big-tagline">
+                                        <h2 data-animation="animated zoomInRight">Chemistry 2nd Paper<strong><br>Digital Interactive Pdf Book</strong></h2>
+                                        <p class="lead" data-animation="animated fadeInLeft">We have just launched the Chemistry 1st and 2nd Paper Digital Interactive Pdf Books. These 2 books are now in bundle and price is just 150 Taka!!!</p>
+                                        <a href="https://store.10minuteschool.com/items/chemistry-bundle" class="hover-btn-new"><span>Buy Now</span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="https://mbasic.facebook.com/MentorApar/photos/a.611947932568706/966469890449840/" class="hover-btn-new"><span>Read More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </div>
+                </div>
+                <!-- end section -->
+            </div>
+            <div class="carousel-item">
+                <div id="home" class="first-section" style="background-image:url('images/Group.jpg');">
+                    <div class="dtab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 text-center">
+                                    <div class="big-tagline">
+                                        <h2 data-animation="animated zoomInRight"><strong>Challenge</strong>Group</h2>
+                                        <p class="lead" data-animation="animated fadeInLeft">We have our Challenge Group.</p>
+                                        <a href="https://m.facebook.com/groups/315994426195530" class="hover-btn-new"><span>Join Us</span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="#" class="hover-btn-new"><span>Read More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </div>
+                </div>
+                <!-- end section -->
+            </div>
+            <!-- Left Control -->
+            <a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <!-- Right Control -->
+            <a class="new-effect carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
     <div id="overviews" class="section wb">
         <div class="container">
             <div class="section-title row text-center">
@@ -288,8 +310,9 @@
                     <h3>About</h3>
                     <p class="lead">Assalamu Alaikum. We are the Apar Military!</p>
                 </div>
-            </div><!-- end title -->
-        
+            </div>
+            <!-- end title -->
+
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="message-box">
@@ -300,126 +323,153 @@
                         <p>Join Our Group </p>
 
                         <a href="https://m.facebook.com/groups/784996545201750" class="hover-btn-new orange"><span>Join the Group</span></a>
-                    </div><!-- end messagebox -->
-                </div><!-- end col -->
-				
-				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    </div>
+                    <!-- end messagebox -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="post-media wow fadeIn">
                         <img src="images/Apar-02.PNG" alt="" class="img-fluid img-rounded">
-                    </div><!-- end media -->
-                </div><!-- end col -->
-			</div>
-			<div class="row align-items-center">
-				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    </div>
+                    <!-- end media -->
+                </div>
+                <!-- end col -->
+            </div>
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="post-media wow fadeIn">
                         <img src="images/Tiger_Challenge.PNG" alt="Tiger Challenge" class="img-fluid img-rounded">
-                    </div><!-- end media -->
-                </div><!-- end col -->
-				
-				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                    <div class="message-box">
-                        <h1><font face="Comic Sans MS">Tiger Challenge</font></h1>
-                        <h3>কুরবানি ইদের আগে শেষ চ্যালেঞ্জটা আমার নেয়া ক্লাসেই হউক, যেসকল বাঘের বাচ্চারা চ্যালেঞ্জ নিবা কমেন্টে Challenge Accepted লিখবে 🐅 </h3>
-                        <p><h3><strong>পদার্থবিজ্ঞান ২য় পত্র</strong><br>অধ্যায় ৫ঃ  তড়িতচৌম্বক আবেশ ও দিক পরিবর্তী প্রবাহ</h3><br><h2>মোট ভিডিও সংখ্যা- ৯ টি</h2><br> <h3>প্লেলিস্ট লিঙ্কঃ <font face="Comic Sans MS"> <a href="https://www.youtube.com/playlist?list=PLubWB9tWo5lVeZmapvavRvXS-YXhTcBhk">https://youtube.com/TigerChallenge/</a></font></h3></p>
+                    </div>
+                    <!-- end media -->
+                </div>
+                <!-- end col -->
 
-                        <p><b>প্রতি ১ ঘন্টা পর পর একটা করে ভিডিও আসবে, সকাল ১০ টায় প্রথম ভিডিও, ১১ টায় ২য় ভিডিও এভাবে করে সন্ধ্যা ৬ টায় ৯ নম্বর ভিডিও</b><br><br><h3><strong>চ্যালেঞ্জ কম্পলিট করার শেষ সময়ঃ ৩০ জুলাই দুপুর ৩ টা</strong></h3><br></p>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <div class="message-box">
+                        <h1>
+                            <font face="Comic Sans MS">Tiger Challenge</font>
+                        </h1>
+                        <h3>কুরবানি ইদের আগে শেষ চ্যালেঞ্জটা আমার নেয়া ক্লাসেই হউক, যেসকল বাঘের বাচ্চারা চ্যালেঞ্জ নিবা কমেন্টে Challenge Accepted লিখবে 🐅 </h3>
+                        <p>
+                            <h3><strong>পদার্থবিজ্ঞান ২য় পত্র</strong><br>অধ্যায় ৫ঃ তড়িতচৌম্বক আবেশ ও দিক পরিবর্তী প্রবাহ</h3><br>
+                            <h2>মোট ভিডিও সংখ্যা- ৯ টি</h2><br>
+                            <h3>প্লেলিস্ট লিঙ্কঃ
+                                <font face="Comic Sans MS"> <a href="https://www.youtube.com/playlist?list=PLubWB9tWo5lVeZmapvavRvXS-YXhTcBhk">https://youtube.com/TigerChallenge/</a></font>
+                            </h3>
+                        </p>
+
+                        <p><b>প্রতি ১ ঘন্টা পর পর একটা করে ভিডিও আসবে, সকাল ১০ টায় প্রথম ভিডিও, ১১ টায় ২য় ভিডিও এভাবে করে সন্ধ্যা ৬ টায় ৯ নম্বর ভিডিও</b><br><br>
+                            <h3><strong>চ্যালেঞ্জ কম্পলিট করার শেষ সময়ঃ ৩০ জুলাই দুপুর ৩ টা</strong></h3><br></p>
 
                         <a href="http://bit.ly/2hPOpzJ" class="hover-btn-new orange"><span>অংশগ্রহণের নিয়মাবলী</span></a>
-                    </div><!-- end messagebox -->
-                </div><!-- end col -->
-				
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+                    </div>
+                    <!-- end messagebox -->
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end section -->
 
     <section class="section lb page-section">
-		<div class="container">
-			 <div class="section-title row text-center">
+        <div class="container">
+            <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
                     <h3>Our history</h3>
                     <p class="lead">Not a long history!</p>
                 </div>
-            </div><!-- end title -->
-			<div class="timeline">
-				<div class="timeline__wrap">
-					<div class="timeline__items">
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-01">
-								<h2>June 26,2020</h2>
-								<p>We have launched our HSC Physics 1st Paper Interactive PDF Book.</p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-02">
-								<h2>August 30,2020</h2>
-								<p>We have launched our HSC Physics 2nd Paper Interactive PDF Book.</p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-03">
-								<h2>November 28,2020</h2>
-								<p>Our facebook group members has crossed the number of 200K. </p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-04">
-								<h2>December 07,2020</h2>
-								<p>We have crossed the number of 1K videos in youtube.</p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-01">
-								<h2>January 15,2021</h2>
-								<p>Our Youtube Channel has crossed 100K subscribers milestone. Youtube has awarded Apars Classroom with the <strong>"Silver Play Button"</strong></p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-02">
-								<h2>February 22,2021</h2>
-								<p>Launched first Website. The website has daily 30K+ visitors. Most of the visitors are HSC and SSC level students</p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-03">
-								<h2>May 20,2021</h2>
-								<p>We have Launced our First Android APP. Which has currently 100K+ downloads and 4.7+ Rating in Google Playstore. It's key feature is the Built in Voice Assistant.</p>
-							</div>
-						</div>
-						<div class="timeline__item">
-							<div class="timeline__content img-bg-04">
-								<h2>February 01,2021</h2>
-								<p>We have launched our Augmented Reality Feature in our APP. </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+            </div>
+            <!-- end title -->
+            <div class="timeline">
+                <div class="timeline__wrap">
+                    <div class="timeline__items">
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-01">
+                                <h2>June 26,2020</h2>
+                                <p>We have launched our HSC Physics 1st Paper Interactive PDF Book.</p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-02">
+                                <h2>August 30,2020</h2>
+                                <p>We have launched our HSC Physics 2nd Paper Interactive PDF Book.</p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-03">
+                                <h2>November 28,2020</h2>
+                                <p>Our facebook group members has crossed the number of 200K. </p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-04">
+                                <h2>December 07,2020</h2>
+                                <p>We have crossed the number of 1K videos in youtube.</p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-01">
+                                <h2>January 15,2021</h2>
+                                <p>Our Youtube Channel has crossed 100K subscribers milestone. Youtube has awarded Apars Classroom with the <strong>"Silver Play Button"</strong></p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-02">
+                                <h2>February 22,2021</h2>
+                                <p>Launched first Website. The website has daily 30K+ visitors. Most of the visitors are HSC and SSC level students</p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-03">
+                                <h2>May 20,2021</h2>
+                                <p>We have Launced our First Android APP. Which has currently 100K+ downloads and 4.7+ Rating in Google Playstore. It's key feature is the Built in Voice Assistant.</p>
+                            </div>
+                        </div>
+                        <div class="timeline__item">
+                            <div class="timeline__content img-bg-04">
+                                <h2>February 01,2021</h2>
+                                <p>We have launched our Augmented Reality Feature in our APP. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<div class="section cl">
-		<div class="container">
-			<div class="row text-left stat-wrap">
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-study"></i></span>
-					<p class="stat_count">20000+</p>
-					<h3>Students</h3>
-				</div><!-- end col -->
+    <div class="section cl">
+        <div class="container">
+            <div class="row text-left stat-wrap">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-study"></i></span>
+                    <p class="stat_count">20000+</p>
+                    <h3>Students</h3>
+                </div>
+                <!-- end col -->
 
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-online"></i></span>
-					<p class="stat_count">600+</p>
-					<h3>Videos</h3>
-				</div><!-- end col -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-online"></i></span>
+                    <p class="stat_count">600+</p>
+                    <h3>Videos</h3>
+                </div>
+                <!-- end col -->
 
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-years"></i></span>
-					<p class="stat_count">2</p>
-					<h3>Years Completed</h3>
-				</div><!-- end col -->
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</div><!-- end section -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-years"></i></span>
+                    <p class="stat_count">2</p>
+                    <h3>Years Completed</h3>
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end section -->
 
 
     <div id="testimonials" class="parallax section db parallax-off" style="background-image:url('images/Apar-04.PNG');">
@@ -427,13 +477,14 @@
             <div class="section-title text-center">
                 <h3>Testimonials</h3>
                 <p>Hear from Our Satisfied Loyal Customers</p>
-            </div><!-- end title -->
+            </div>
+            <!-- end title -->
 
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="testi-carousel owl-carousel owl-theme">
                         <div class="testimonial clearfix">
-							<div class="testi-meta">
+                            <div class="testi-meta">
                                 <img src="images/Ayman_Sadiq.PNG" alt="Ayman Sadiq" class="img-fluid">
                                 <h4>Ayman Sadiq </h4>
                             </div>
@@ -446,7 +497,7 @@
                         <!-- end testimonial -->
 
                         <div class="testimonial clearfix">
-							<div class="testi-meta">
+                            <div class="testi-meta">
                                 <img src="images/Chinmoy.PNG" alt="" class="img-fluid">
                                 <h4>Chinmoy Shaha</h4>
                             </div>
@@ -459,7 +510,7 @@
                         <!-- end testimonial -->
 
                         <div class="testimonial clearfix">
-							<div class="testi-meta">
+                            <div class="testi-meta">
                                 <img src="images/Sadman Sadik.PNG" alt="" class="img-fluid ">
                                 <h4>Sadman Sadik</h4>
                             </div>
@@ -471,7 +522,7 @@
                         </div>
                         <!-- end testimonial -->
                         <div class="testimonial clearfix">
-							<div class="testi-meta">
+                            <div class="testi-meta">
                                 <img src="images/Bill Gates.PNG" alt="Ay" class="img-fluid">
                                 <h4>Bill Gates</h4>
                             </div>
@@ -484,7 +535,7 @@
                         <!-- end testimonial -->
 
                         <div class="testimonial clearfix">
-							<div class="testi-meta">
+                            <div class="testi-meta">
                                 <img src="images/Jeff Bezos.PNG" alt="" class="img-fluid">
                                 <h4>Jeff Bezos</h4>
                             </div>
@@ -497,7 +548,7 @@
                         <!-- end testimonial -->
 
                         <div class="testimonial clearfix">
-							<div class="testi-meta">
+                            <div class="testi-meta">
                                 <img src="images/Shahrukh_Khan.PNG" alt="" class="img-fluid">
                                 <h4>Shah Rukh Khan</h4>
                             </div>
@@ -506,14 +557,20 @@
                                 <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
                             </div>
                             <!-- end testi-meta -->
-                        </div><!-- end testimonial -->
-                    </div><!-- end carousel -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+                        </div>
+                        <!-- end testimonial -->
+                    </div>
+                    <!-- end carousel -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end section -->
 
-   <div class="parallax section dbcolor">
+    <div class="parallax section dbcolor">
         <div class="container">
             <div class="row logos">
                 <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
@@ -534,9 +591,12 @@
                 <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
                     <a href="https://www.microsoft.com/"><img src="images/Microsft.PNG" alt="" class="img-repsonsive"></a>
                 </div>
-			</div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end section -->
 
     <footer class="footer">
         <div class="container">
@@ -548,20 +608,24 @@
                         </div>
                         <p> Click the links below:</p>
                         <div class="footer-right" style="margin-bottom: 30px;">
-							<ul class="footer-links-soi">
-								<li><a href="https://mbasic.facebook.com/APAR123"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://www.youtube.com/channel/UC0CZ_JoktU8-mzfjbQfo4WQ"><i class="fa fa-youtube"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-							</ul><!-- end links -->
-						</div>
-						<script type="text/javascript" src="https://www.stat-counter.org/count/82wn"></script><br>
- <a href='https://www.symptoma.de/de/info/covid-19'>Coronavirus Übertragung</a> <script type='text/javascript' src='https://whomania.com/ctr?id=c5bcc978f49e5e2aa12d300011ce66d99a221945'></script>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
+                            <ul class="footer-links-soi">
+                                <li><a href="https://mbasic.facebook.com/APAR123"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UC0CZ_JoktU8-mzfjbQfo4WQ"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                            <!-- end links -->
+                        </div>
+                        <script type="text/javascript" src="https://www.stat-counter.org/count/82wn"></script><br>
+                        <a href='https://www.symptoma.de/de/info/covid-19'>Coronavirus Übertragung</a>
+                        <script type='text/javascript' src='https://whomania.com/ctr?id=c5bcc978f49e5e2aa12d300011ce66d99a221945'></script>
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
 
-				<div class="col-lg-4 col-md-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
                             <h3>Information Link</h3>
@@ -570,12 +634,15 @@
                             <li><a href="index.html">Home</a></li>
                             <li><a href="blog.html">Challenges</a></li>
                             <li><a href="pricing.html">Pricing</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                        <!-- end links -->
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
+
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
@@ -587,37 +654,46 @@
                             <li><a href="https://www.aparsclassroom.com">www.aparsclassroom.com</a></li>
                             <li>Apars Classroom, Dhaka, Bangladesh</li>
                             <li>+880 187 330 7425</li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </footer><!-- end footer -->
-<div class="copyrights">
+                        </ul>
+                        <!-- end links -->
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </footer>
+    <!-- end footer -->
+    <div class="copyrights">
         <div class="container">
             <div class="footer-distributed">
-                <div class="footer-center">                   
+                <div class="footer-center">
                     <p class="footer-company-name">All Rights Reserved. &copy; 2020-21 <a href="https://m.facebook.com/MentorApar/">Apar's Classroom</a> Design By : <a href="https://facebook.com/MridulisMaheyan/">Maheyan Mridul</a></p>
                 </div>
             </div>
-        </div><!-- end container -->
-    </div><!-- end copyrights -->
-    
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end copyrights -->
+
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
-	<script src="js/timeline.min.js"></script>
-	<script>
-		timeline(document.querySelectorAll('.timeline'), {
-			forceVerticalMode: 700,
-			mode: 'horizontal',
-			verticalStartPosition: 'left',
-			visibleItems: 4
-		});
-	</script>
+    <script src="js/timeline.min.js"></script>
+    <script>
+        timeline(document.querySelectorAll('.timeline'), {
+            forceVerticalMode: 700,
+            mode: 'horizontal',
+            verticalStartPosition: 'left',
+            visibleItems: 4
+        });
+    </script>
 </body>
+
 </html>
