@@ -94,33 +94,33 @@ $(function() {
         });
     });
 }(jQuery));
-document.getElementById("notify").addEventListener('click', function() {
-    if (window.Notification && Notification.permission === "granted") {
-        var notification = new Notification(title, {
-            body: noti,
-            icon: logo,
-            image: img
-        });
-    } else if (window.Notification && Notification.permission !== "denied") {
-        Notification.requestPermission(function(status) {
-            if (status === "granted") {
-                var notification = new Notification(title, {
-                    body: noti,
-                    icon: logo,
-                    image: img
-                });
-            } else {
-                if (window.confirm(noti)) {
-                    window.open(noti2);
-                };
-            }
-        });
-    } else {
-        if (window.confirm(noti)) {
-            window.open(noti2);
-        };
-    }
-    notification.onclick = function() {
-        window.open(noti2);
-    };
-});
+// document.getElementById("notify").addEventListener('click', function() {
+//     if (window.Notification && Notification.permission === "granted") {
+//         var notification = new Notification(title, {
+//             body: noti,
+//             icon: logo,
+//             image: img
+//         });
+//     } else if (window.Notification && Notification.permission !== "denied") {
+//         Notification.requestPermission(function(status) {
+//             if (status === "granted") {
+//                 var notification = new Notification(title, {
+//                     body: noti,
+//                     icon: logo,
+//                     image: img
+//                 });
+//             } else {
+//                 if (window.confirm(noti)) {
+//                     window.open(noti2);
+//                 };
+//             }
+//         });
+//     } else {
+//         if (window.confirm(noti)) {
+//             window.open(noti2);
+//         };
+//     }
+//     notification.onclick = function() {
+//         window.open(noti2);
+//     };
+// });
