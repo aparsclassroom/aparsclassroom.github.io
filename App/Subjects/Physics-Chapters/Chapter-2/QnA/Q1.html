@@ -10,60 +10,23 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
     <script src="/App/Assets/firebase.js"></script>
     <script src="/App/Assets/js/bc.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="shortcut icon" href="../../../../Assets/Logo/Asset 2[190].svg" type="image/x-icon">
     <link rel="apple-touch-icon" href="../../../../Assets/Logo/Asset 2[190].svg">
     <meta name="keywords" content="মহাকর্ষীয় বিভব, পদার্থবিজ্ঞান ১ম পত্র, ৬ষ্ঠ অধ্যায়">
     <meta name="description" content="মহাকর্ষীয় ক্ষেত্রের কোনো বিন্দুতে অসীম থেকে(মহাকর্ষীয় ক্ষেত্রের বাহির থেকে) একক ভরের কোন বস্তুকে ঐ বিন্দুতে আনতে যে পরিমাণ কাজ সাধিত হয় তাকে মহাকর্ষীয় বিভব বলে।">
     <link rel="stylesheet" href="../../../../Assets/css/style.css">
+    <script>
+        var q = 1;
+    </script>
+
 </head>
 
 <body>
     <div class="container">
-        <div class="wrapper">
-            <div class="card front-face">
-                <div class="info">
-                    <div class="title">প্রশ্ন</div>
-                    <div class="ques">
-                        <p style="font-size: 20px;">মহাকর্ষীয় বিভব ঋণাত্মক কেন?</p>
-                    </div>
-                    <div class="meta">
-                        <div class="sub">
-                            <p>পদার্থবিজ্ঞান ১ম পত্র</p>
-                        </div>
-                        <div class="chap">
-                            <p>৬ষ্ঠ অধ্যায়</p>
-                        </div>
-                        <div class="chapname">
-                            <p>মহাকর্ষীয় বিভব</p>
-                        </div>
-                        <img src="../../../../Assets/Logo/Asset 2[190].svg">
-                        <div class="contributor">
-                            <p>&copy; Apar's Classroom</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="back" class="card back-face">
-                <div id="visans" class="title">চিত্র</div>
-                <img src="https://media4.giphy.com/media/iyHMJe7k5G1rO/giphy.gif" id="gif" style="display: none;">
-                <div class="info">
-                    <div id="textAns">
-                        <div class="title">উত্তর</div>
-                        <div class="ans">
-                            <p>মহাকর্ষীয় ক্ষেত্রের কোনো বিন্দুতে অসীম থেকে(মহাকর্ষীয় ক্ষেত্রের বাহির থেকে) একক ভরের কোন বস্তুকে ঐ বিন্দুতে আনতে যে পরিমাণ কাজ সাধিত হয় তাকে মহাকর্ষীয় বিভব বলে।</p>
-                            <p>এখানে সরণ বলের বিপরীতমুখী হয় বলে কৃতকাজ ঋণাত্মক। আবার মহাকর্ষীয় ক্ষেত্রের কোনো বিন্দুতে বিভব ঐ বিন্দুতে একক ভরের কোন বস্তুর স্থিতিশক্তির সমান। কৃতকাজ ঋণাত্মক বলে মহাকর্ষীয় বিভব সর্বদা ঋণাত্মক।</p>
-                        </div>
-                    </div>
-                    <div class="visit">
-                        <a id="change1" type="button" onclick="openVisualise()">Visualise</a>
-                        <a id="change2" type="button" onclick="openText()">Text</a>
-                        <a type="button" href="../Chapter1.html">Return</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="qnaCard"></div>
     </div>
-    <script src="../../../../Assets/js/qna.js"></script>
+    <script src="/App/Assets/js/qna.js"></script>
 </body>
 
 </html>
