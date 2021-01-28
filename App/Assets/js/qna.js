@@ -1,6 +1,6 @@
 var serial = q - 1;
 $(document).ready(function() {
-    fetch('../js/q2.json')
+    fetch('../js/q1.json')
         .then((res) => {
             return res.json();
         })
@@ -13,7 +13,7 @@ $(document).ready(function() {
             Answer1 = a[serial].Answer1;
             Answer2 = a[serial].Answer2;
             img = a[serial].img;
-            link = a[serial].link;
+            link = a[serial].chaplink;
             document.getElementById('qnaCard').innerHTML = `
             
             <div class="wrapper">
