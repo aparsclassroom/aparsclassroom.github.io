@@ -25,7 +25,7 @@
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:image:width" content="640">
     <meta property="og:image:height" content="480">
-    <script charset="UTF-8" src="//web.webpushs.com/js/push/af52b0c87e76067466011f0387066481_1.js" async></script>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -58,6 +58,15 @@
             isolation: isolate;
         }
     </style>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -422,6 +431,7 @@
                         <p id="Subscription"></p>
                     </div>
                     <div class="modal-footer">
+                        <div class='onesignal-customlink-container'></div>
                         <a type="button" class="btn btn-inline-block btn-danger" onclick="mainApp.logOut();">Log Out</a>
                         <a type="button" data-dismiss="modal" class="btn btn-inline-block btn-outline-secondary">Ok</a>
                     </div>

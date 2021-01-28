@@ -66,8 +66,15 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-<script charset="UTF-8" src="//web.webpushs.com/js/push/af52b0c87e76067466011f0387066481_1.js" async></script>
-
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+            appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
+        });
+    });
+</script>
 </head>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXSVSX2"
