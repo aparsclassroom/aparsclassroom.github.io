@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>File Uploader</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-7R4CMSFEBN');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7R4CMSFEBN');
+    </script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
+            });
+        });
+    </script>
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
-   <div>
-     <input id="files" type="file" name="files[]" multiple/>
-     <button id="upload">Upload</button>
-     <div id="progress-wrp">
-        <div class="progress-bar"></div>
-        <div class="status">0%</div>
+    <div>
+        <input id="files" type="file" name="files[]" multiple/>
+        <button id="upload">Upload</button>
+        <div id="progress-wrp">
+            <div class="progress-bar"></div>
+            <div class="status">0%</div>
+        </div>
     </div>
-   </div> 
-   <div id="result">
-       
-   </div>
+    <div id="result">
+
+    </div>
 </body>
+
 </html>
