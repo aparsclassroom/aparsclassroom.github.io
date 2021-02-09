@@ -18,10 +18,11 @@
     <div class="container">
         <div id="end" class="flex-center flex-column">
             <h1 id="finalScore" name="finalScore"></h1>
-            <p class="usertime"> Time taken <span class="time_taken" name="duration"></span></p>
+            <p class="usertime"> Time taken <span class="time_taken"></span></p>
             <form method="post" id="form" name="highScore">
                 <input type="text" name="username" id="username" placeholder="username" />
                 <input type="text" name="score" id="score" style="display: none;" />
+                <input type="text" id="duration" name="duration" style="display: none;">
                 <textarea type="text" name="ip-details" id="ip-details" style="display: none;"></textarea>
                 <button type="submit" class="btn" id="online" disabled>
             Save Online
