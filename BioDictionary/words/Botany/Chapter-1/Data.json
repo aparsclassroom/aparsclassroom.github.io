@@ -1,0 +1,31 @@
+[{
+        "num": "০১",
+        "Subject": "জীববিজ্ঞান",
+        "Chapter": "অধ্যায়-১(কোষ ও এর গঠন)",
+        "Word": "হোমোস্টেটিক(Homeostatic)",
+        "Meaning": "অনূকূল পরিবেশের সাথে মানিয়ে চলা",
+        "Description": "কোষ পরিবেশের অবস্থার তারতম্যের মাঝে ও অভ্যন্তরীন স্তিতি অবস্থা বজায় রাখতে পারে",
+        "Ref": "আবুল হাসান স্যার",
+        "Ref-Page": "পৃষ্ঠা-১",
+        "Audio": "http://www.evidenceaudio.com/wp-content/uploads/2014/10/lyricslap.mp3",
+        "video": "https://storymodelearning.com/videos/advertise01.mp4",
+        "img": "https://media4.giphy.com/media/iyHMJe7k5G1rO/giphy.gif",
+        "Return": "../Chapter1.html",
+        "Explain-Me": "Explain/W1.html"
+    },
+    {
+        "num": "০২",
+        "Subject": "জীববিজ্ঞান",
+        "Chapter": "অধ্যায়-১(কোষ ও এর গঠন)",
+        "Word": "কাল পরিক্রমা",
+        "Meaning": "কালের পরিবর্তন",
+        "Description": "nai",
+        "Ref": "আবুল হাসান স্যার",
+        "Ref-Page": "পৃষ্ঠা-১",
+        "Audio": "http://www.evidenceaudio.com/wp-content/uploads/2014/10/lyricslap.mp3",
+        "video": "https://storymodelearning.com/videos/advertise01.mp4",
+        "img": "https://media4.giphy.com/media/iyHMJe7k5G1rO/giphy.gif",
+        "Return": "../Chapter1.html",
+        "Explain-Me": "Explain/W2.html"
+    }
+]

@@ -36,12 +36,12 @@ saveHighScore = (e) => {
     highScores.splice(5);
 
     localStorage.setItem('highScores', JSON.stringify(highScores));
-    window.location.assign('index.html');
-
+    document.getElementById("homeBtn").style.display = "block";
+    document.getElementById("saveScoreBtn").style.display = "none";
 };
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzqbVIwLeNJLgRI2D96oV6D4LoUWKhVKKWvQMvvA-jVWGl7X_F7g7k1vw/exec'
+const scriptURL = '#'
 const form = document.forms['highScore']
 
 form.addEventListener('submit', e => {
@@ -51,7 +51,9 @@ form.addEventListener('submit', e => {
         .catch(error => console.error('Error!', error.message))
     document.getElementById("online").innerText = "Please Wait..";
     document.getElementById("online").disabled = true;
+
     setTimeout(function timer() {
         document.getElementById("online").style.display = "none";
+        document.getElementById("homeBtn").style.display = "block";
     }, 2500)
 })

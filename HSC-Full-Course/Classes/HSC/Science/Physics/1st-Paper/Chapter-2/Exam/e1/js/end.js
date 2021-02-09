@@ -5,12 +5,14 @@ const finalScore = document.getElementById('finalScore');
 const recentScore = document.getElementById('finalScore');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
 const online = document.getElementById("online");
-
+const user_min = localStorage.getItem("minutes");
+const user_sec = localStorage.getItem("seconds");
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 const MAX_HIGH_SCORES = 5;
 
 finalScore.innerText = mostRecentScore;
+document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
 
 function scoreUpdated() {
     score.value = mostRecentScore;
@@ -30,6 +32,7 @@ saveHighScore = (e) => {
     const score = {
         score: mostRecentScore,
         name: username.value,
+        duration: user_min + " min : " + user_sec + " sec",
     };
     highScores.push(score);
     highScores.sort((a, b) => b.score - a.score);

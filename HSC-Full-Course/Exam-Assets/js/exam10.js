@@ -12,7 +12,6 @@ let questionCounter = 0;
 let availableQuesions = [];
 
 let questions = [];
-
 fetch('questions.json')
     .then((res) => {
         return res.json();
@@ -41,7 +40,9 @@ startGame = () => {
 getNewQuestion = () => {
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        //go to the end page
+        localStorage.setItem("minutes", minutes);
+        localStorage.setItem("seconds", seconds);
+        clearInterval(mytime);
         return window.location.assign('end.html');
     }
     questionCounter++;
@@ -85,16 +86,50 @@ choices.forEach((choice) => {
         }, 1000);
     });
 });
-
-const oneMinute = 60000;
+const oneMinute = (1000 * 60);
 
 function ntimer() {
     setTimeout(function timer() {
-        alert("times up");
+        document.getElementById('timer').classList.remove('quiz_timer');
+        document.getElementById('timer').classList.add('finish');
+        document.getElementById('st').classList.remove('time');
+        document.getElementById('st').classList.add('ftime');
+        document.getElementById('st').innerHTML = "Times Up!";
+        clearInterval(mytime);
         localStorage.setItem('mostRecentScore', score);
-        window.location.assign('end.html');
+        localStorage.setItem("minutes", minutes);
+        localStorage.setItem("seconds", seconds);
+        setTimeout(() => {
+            window.location.assign('end.html');
+        }, 1000);
+
     }, (MAX_QUESTIONS * oneMinute))
 }
+
+
+let dt = new Date(new Date().setTime(0));
+let ctime = dt.getTime();
+let seconds = Math.floor((ctime % (1000 * 60)) / 1000);
+let minutes = Math.floor((ctime % (1000 * 60 * 60)) / (1000 * 60));
+let time = 0;
+let mytime = setInterval(function() {
+    time++;
+
+    if (seconds < 59) {
+        seconds++;
+    } else {
+        seconds = 0;
+        minutes++;
+    }
+    let formatted_sec = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    let formatted_min = minutes < 10 ? `0${minutes}` : `${minutes}`
+    document.querySelector("span.time").innerHTML = `${formatted_min} : ${formatted_sec}`;
+}, 1000);
+
+
+
+
+
 incrementScore = (num) => {
     score += num;
     scoreText.innerText = score;

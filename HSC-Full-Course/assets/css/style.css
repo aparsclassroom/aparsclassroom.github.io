@@ -41,15 +41,16 @@
     scroll-behavior: smooth;
     list-style: none;
 }
-        
-        body::-webkit-scrollbar {
-            display: none;
-        }
-        
-        body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .darkmode--activated,
 .darkmode--activated .contri-bghy a,
 .darkmode--activated .footer-ablove,
@@ -889,8 +890,19 @@ header .nav-col .navbar-nav li {
     margin-right: 3px;
 }
 
-.footer .about p {
+footer p {
+    margin-top: 10px;
     font-size: .85rem;
+}
+
+footer p:hover {
+    color: red;
+    margin-top: 20px;
+    transform: scale(1.125);
+}
+
+.darkmode--activated footer p:hover {
+    color: yellow;
 }
 
 .footer .link-list li {

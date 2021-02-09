@@ -145,3 +145,24 @@ input {
 input::placeholder {
     color: #aaa;
 }
+
+.container .flex-center #finalScore {
+    margin-bottom: 2.5rem;
+}
+
+.usertime {
+    color: green;
+    font-size: 25px;
+    margin-bottom: 2.5rem;
+}
+
+.time_taken {
+    color: red;
+    font-weight: bold;
+}
+
+.time_taken:hover {
+    color: orange;
+    font-weight: bold;
+    cursor: pointer;
+}

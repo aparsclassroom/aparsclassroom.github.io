@@ -101,3 +101,46 @@
         transform: rotate(360deg);
     }
 }
+
+.quiz_timer {
+    border: 5px solid #004853;
+    padding: 5px;
+    color: #004853;
+    font-family: Verdana, sans-serif, Arial;
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 130px;
+    margin-left: 50%;
+}
+
+.finish {
+    padding: 5px;
+    width: 150px;
+    font-size: 25px;
+    color: white;
+    font-family: Verdana, sans-serif, Arial;
+    background-color: red;
+    border: 5px solid black;
+    font-weight: bold;
+    text-decoration: none;
+    width: 130px;
+    margin-left: 50%;
+}
+
+@media screen and (max-width:400px) {
+    .quiz_timer {
+        margin-left: 70%;
+        font-size: 25px;
+        width: 100px;
+    }
+}
+
+.time {
+    color: #004853;
+}
+
+.ftime {
+    color: white;
+    font-size: 22px;
+}

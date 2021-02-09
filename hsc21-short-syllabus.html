@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shuchipotro Download</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7R4CMSFEBN');
+    </script>
+
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="Digital Interactive সূচিপত্র">
+    <meta property="og:site_name" content="Apar's Digital Interactive সূচিপত্র">
+    <meta property="og:description" content="Feedback and Download Form">
+    <meta property="og:image" content="https://aparsclassroom.com/shuchipotro-assets/images/fbdec.jpg">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/shuchipotro-assets/images/fbdec.jpg">
+    <meta property="og:image:type" content="image/jpg">
+
+    <!--===============================================================================================-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.PNG">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/vendor/select2/select2.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!--===============================================================================================-->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="shuchipotro-assets/css/star.css">
+    <!--===============================================================================================-->
+    <style>
+        body {
+            overflow-x: hidden
+        }
+        
+        .container {
+            max-width: 600px;
+        }
+        
+        .block {
+            position: absolute;
+            left: 0;
+            top: 0
+        }
+        
+        #up {
+            display: none;
+        }
+        
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125)
+        }
+        
+        .card-header {
+            padding: .75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: rgba(0, 0, 0, .03);
+            border-bottom: 1px solid rgba(0, 0, 0, .125)
+        }
+        
+        .card-header:first-child {
+            border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+        }
+        
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem
+        }
+        
+        .sliderContainer {
+            position: relative;
+            text-align: center;
+            line-height: 40px;
+            background: #f7f9fa;
+            color: #45494c;
+            border-radius: 2px
+        }
+        
+        .sliderbg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: #f7f9fa;
+            height: 40px;
+            border-radius: 2px;
+            border: 1px solid #e6e8eb
+        }
+        
+        .sliderContainer_active .slider {
+            top: -1px;
+            border: 1px solid #1991fa
+        }
+        
+        .sliderContainer_active .sliderMask {
+            border-width: 1px 0 1px 1px
+        }
+        
+        .sliderContainer_success .slider {
+            top: -1px;
+            border: 1px solid #52ccba;
+            background-color: #52ccba !important
+        }
+        
+        .sliderContainer_success .sliderMask {
+            border: 1px solid #52ccba;
+            border-width: 1px 0 1px 1px;
+            background-color: #d2f4ef
+        }
+        
+        .sliderContainer_success .sliderIcon:before {
+            content: ""
+        }
+        
+        .sliderContainer_fail .slider {
+            top: -1px;
+            border: 1px solid #f57a7a;
+            background-color: #f57a7a !important
+        }
+        
+        .sliderContainer_fail .sliderMask {
+            border: 1px solid #f57a7a;
+            background-color: #fce1e1;
+            border-width: 1px 0 1px 1px
+        }
+        
+        .sliderContainer_fail .sliderIcon:before {
+            content: ""
+        }
+        
+        .sliderContainer_active .sliderText,
+        .sliderContainer_success .sliderText,
+        .sliderContainer_fail .sliderText {
+            display: none
+        }
+        
+        .sliderMask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            border: 0 solid #ff0707;
+            background: #d1e9fe;
+            border-radius: 2px
+        }
+        
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+            cursor: pointer;
+            transition: background .2s linear;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+        
+        .slider:hover {
+            background: skyblue
+        }
+        
+        .slider:hover .sliderIcon {
+            background-position: 0 -13px
+        }
+        
+        .sliderText {
+            position: relative
+        }
+        
+        .refreshIcon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            margin: 6px;
+            color: rgba(0, 0, 0, .25);
+            font-size: 1rem;
+            z-index: 5;
+            transition: color .3s linear
+        }
+        
+        .refreshIcon:hover {
+            color: #6c757d
+        }
+        
+        .contact100-form-social-item img {
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+        }
+        
+        .contact100-form-social-item img:hover {
+            height: 45px;
+            width: 45px;
+        }
+        
+        #newAlert {
+            text-align: center;
+        }
+        
+        .contact100-form-title {
+            color: black;
+        }
+        
+        .yellow {
+            color: #ff0707;
+        }
+        
+        #confirmation {
+            text-align: center;
+            display: none;
+        }
+        
+        .contact100-form-btn:hover {
+            background-color: #ff0707;
+        }
+        
+        #ip-details {
+            display: none;
+        }
+    </style>
+</head>
+
+<body onload="myFunction()">
+    <div class="container">
+        <div id="captcham">
+            <h1 style="text-align: center;">Kindy Solve this captcha</h1>
+            <div class="slidercaptcha card">
+                <div class="card-body">
+                    <div id="captcha"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-contact100" id="up">
+        <div class="wrap-contact100">
+            <form method="post" autocomplete="off" id="form" name="Shuchipotro-Feedback" class="contact100-form validate-form">
+                <span class="contact100-form-title">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/10minutesschool.png/500px-10minutesschool.png" alt="Robi 10 Minute School" height="50px" width="150px">
+				<br><br>
+				HSC'<span class="yellow">21</span> Short Syllabus<br>
+                <b>Digital <span class="yellow">Interactive</span> সূচিপত্র</b>
+                </span>
+                <div id="newAlert" class="alert alert-danger wrap-input100" role="alert">
+                    <strong>HSC'21</strong> Crash Course <sup><strong>(Started Now)</strong></sup>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Name is required">
+                    <label class="label-input100" for="name">Full name</label>
+                    <input id="name" class="input100" type="text" name="name" placeholder="Enter your name..." required>
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <label class="label-input100" for="email">Email Address</label>
+                    <input id="email" class="input100" type="email" name="email" placeholder="Enter your email..." required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Valid email is required: 01XX XXX XXXX">
+                    <label class="label-input100" for="number">Mobile Number</label>
+                    <input id="number" class="input100" type="number" name="number" placeholder="01XX XXX XXXX" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <div class="label-input100">Select your HSC Batch</div>
+                    <div>
+                        <select class="js-select2" id="batch" name="batch" required>
+                            <option value="">-- Select You Batch --</option>
+							<option value="HSC-21">HSC'21</option>
+							<option value="HSC-20">Admission</option>
+							<option value="HSC-22">HSC'22</option>
+							<option value="HSC-19">HSC'19</option>
+							<option value="HSC-23">HSC'23</option>
+							<option value="HSC-18">HSC'18</option>
+							<option value="HSC-15">HSC'15</option>
+							<option value="HSC-16">HSC'16</option>
+							<option value="HSC-17">HSC'17</option>
+							<option value="HSC-17">HSC'24</option>
+							<option value="HSC-17">HSC'14</option>
+						</select>
+                        <div class="dropDownSelect2"></div>
+                    </div>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="College name is required">
+                    <label class="label-input100" for="college">College</label>
+                    <input id="college" class="input100" type="text" name="college" placeholder="i.e. Dhaka Residential Model College" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100">
+                    <div class="label-input100">তুমি কী এইচ এস সি ২১ ব্যাচের ক্র্যাশ কোর্সে এনরোল হয়েছো ?</div>
+                    <div>
+                        <select class="js-select2" id="crashCourse" name="Crash Course" required>
+                            <option value="">--Select--</option>
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>
+							<option value="Later">No, But I will Enroll Later</option>
+						</select>
+                        <div class="dropDownSelect2"></div>
+                    </div>
+                    <span class="focus-input100"></span>
+                </div>
+                <textarea name="ip-details" id="ip-details"></textarea>
+                <div class="wrap-input100 validate-input" data-validate="message is required">
+                    <label class="label-input100" for="message">Do You have any message?</label>
+                    <textarea id="message" class="input100" name="message" placeholder="Enter you message here..."></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+                <div id="confirmation" class="alert alert-success wrap-input100" role="alert">
+                    <strong>Success!</strong> Please Wait...
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <button type="submit" id="reg" name="submit" class="contact100-form-btn">
+						Start Download
+					</button>
+                </div>
+
+                <div class="contact100-form-social flex-c-m">
+                    <a href="https://facebook.com/StoryModeLearningApp" target="_blank" class="contact100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="registration.html" class="contact100-form-social-item flex-c-m bg2 m-r-5">
+                        <img class="logo" src="https://storymodelearning.com/img/logo/logo.png" aria-hidden="true"></img>
+                    </a>
+
+                    <a href="https://www.youtube.com/c/AparsClassroom/" target="_blank" class="contact100-form-social-item flex-c-m bg3">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit' data-action='submit'></button>
+            </form>
+
+            <div class="contact100-more flex-col-c-m" style="background-image: url('shuchipotro-assets/images/Digital-shuchipotro-HSC-SHORT-COURSE_Page_01.png');">
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="storyMode" tabindex="-1" role="dialog" aria-labelledby="storyModeLabel">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="storyModeTitle">Did You Know? 🙄</h5>
+                </div>
+                <div class="modal-body">
+                    <img src="https://d1yreyj8btzg0t.cloudfront.net/images/hsc-2021.png" alt="Crash Course" width="100%">
+                    <a href="https://course.aparsclassroom.com/hsc21apar" target="_blank">10 Minute School</a> had recently launched <br>
+                    <h5 style="color:#039BE5">HSC 21 Crash Course 🔥🔥🔥</h5>
+                    </a>Wanna Check that out? Click below ❤
+                </div>
+                <div class="modal-footer">
+                    <a type="button" href="https://course.aparsclassroom.com/hsc21apar" target="_blank" class="btn btn-outline-danger">Enroll Now</a>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Later</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="shuchipotro-assets/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="shuchipotro-assets/vendor/bootstrap/js/popper.js"></script>
+    <script src="shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="shuchipotro-assets/vendor/select2/select2.min.js"></script>
+    <script>
+        ! function() {
+            "use strict";
+            var t = function() {
+                    var t = arguments.length,
+                        e = arguments[0] || {};
+                    "object" != typeof e && "function" != typeof e && (e = {}), 1 == t && (e = this, i--);
+                    for (var i = 1; i < t; i++) {
+                        var n = arguments[i];
+                        for (var o in n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o])
+                    }
+                    return e
+                },
+                e = function(t) {
+                    return "function" == typeof t && "number" != typeof t.nodeType
+                },
+                i = function(e, n) {
+                    this.$element = e, this.options = t({}, i.DEFAULTS, n), this.$element.style.position = "relative", this.$element.style.width = this.options.width + "px", this.$element.style.margin = "0 auto", this.init()
+                };
+            i.VERSION = "1.0", i.Author = "argo@163.com", i.DEFAULTS = {
+                width: 280,
+                height: 155,
+                PI: Math.PI,
+                sliderL: 42,
+                sliderR: 9,
+                offset: 5,
+                loadingText: "Loading...",
+                failedText: "Try Again",
+                barText: "Slide To Verify",
+                repeatIcon: "fa fa-repeat",
+                maxLoadCount: 3,
+                localImages: function() {
+                    return 'Photon/captcha/Pic' + Math.round(Math.random() * 3) + '.PNG'
+                },
+                verify: function(t, e) {
+                    var i = !1;
+                    return $.ajax({
+                        url: e,
+                        data: {
+                            datas: JSON.stringify(t)
+                        },
+                        dataType: "json",
+                        type: "post",
+                        async: !1,
+                        success: function(t) {
+                            i = JSON.stringify(t), console.log("Result: " + i)
+                        }
+                    }), i
+                },
+                remoteUrl: null
+            }, window.sliderCaptcha = function(t) {
+                var e = document.getElementById(t.id);
+                return new i(e, "object" == typeof t && t)
+            }, window.sliderCaptcha.Constructor = i;
+            var n = i.prototype;
+            n.init = function() {
+                this.initDOM(), this.initImg(), this.bindEvents()
+            }, n.initDOM = function() {
+                var i = function(t, e) {
+                        var i = document.createElement(t);
+                        return i.className = e, i
+                    },
+                    n = function(t, e) {
+                        var i = document.createElement("canvas");
+                        return i.width = t, i.height = e, i
+                    }(this.options.width - 2, this.options.height),
+                    o = n.cloneNode(!0),
+                    s = i("div", "sliderContainer"),
+                    r = i("i", "refreshIcon " + this.options.repeatIcon),
+                    a = i("div", "sliderMask"),
+                    l = i("div", "sliderbg"),
+                    d = i("div", "slider"),
+                    c = i("i", "fa fa-arrow-right sliderIcon"),
+                    h = i("span", "sliderText");
+                o.className = "block", h.innerHTML = this.options.barText;
+                var p = this.$element;
+                p.appendChild(n), p.appendChild(r), p.appendChild(o), d.appendChild(c), a.appendChild(d), s.appendChild(l), s.appendChild(a), s.appendChild(h), p.appendChild(s);
+                var u = {
+                    canvas: n,
+                    block: o,
+                    sliderContainer: s,
+                    refreshIcon: r,
+                    slider: d,
+                    sliderMask: a,
+                    sliderIcon: c,
+                    text: h,
+                    canvasCtx: n.getContext("2d"),
+                    blockCtx: o.getContext("2d")
+                };
+                e(Object.assign) ? Object.assign(this, u) : t(this, u)
+            }, n.initImg = function() {
+                var t = this,
+                    i = window.navigator.userAgent.indexOf("Trident") > -1,
+                    n = this.options.sliderL + 2 * this.options.sliderR + 3,
+                    o = function(e, n) {
+                        var o = t.options.sliderL,
+                            s = t.options.sliderR,
+                            r = t.options.PI,
+                            a = t.x,
+                            l = t.y;
+                        e.beginPath(), e.moveTo(a, l), e.arc(a + o / 2, l - s + 2, s, .72 * r, 2.26 * r), e.lineTo(a + o, l), e.arc(a + o + s - 2, l + o / 2, s, 1.21 * r, 2.78 * r), e.lineTo(a + o, l + o), e.lineTo(a, l + o), e.arc(a + s - 2, l + o / 2, s + .4, 2.76 * r, 1.24 * r, !0), e.lineTo(a, l), e.lineWidth = 2, e.fillStyle = "rgba(255, 255, 255, 0.7)", e.strokeStyle = "rgba(255, 255, 255, 0.7)", e.stroke(), e[n](), e.globalCompositeOperation = i ? "xor" : "destination-over"
+                    },
+                    s = function(t, e) {
+                        return Math.round(Math.random() * (e - t) + t)
+                    },
+                    r = new Image;
+                r.crossOrigin = "Anonymous";
+                var a = 0;
+                r.onload = function() {
+                    t.x = s(n + 10, t.options.width - (n + 10)), t.y = s(10 + 2 * t.options.sliderR, t.options.height - (n + 10)), o(t.canvasCtx, "fill"), o(t.blockCtx, "clip"), t.canvasCtx.drawImage(r, 0, 0, t.options.width - 2, t.options.height), t.blockCtx.drawImage(r, 0, 0, t.options.width - 2, t.options.height);
+                    var e = t.y - 2 * t.options.sliderR - 1,
+                        i = t.blockCtx.getImageData(t.x - 3, e, n, n);
+                    t.block.width = n, t.blockCtx.putImageData(i, 0, e + 1), t.text.textContent = t.text.getAttribute("data-text")
+                }, r.onerror = function() {
+                    if (a++, "file:" === window.location.protocol && (a = t.options.maxLoadCount, console.error("can't load pic resource file from File protocal. Please try http or https")), a >= t.options.maxLoadCount) return t.text.textContent = "加载失败", void t.classList.add("text-danger");
+                    r.src = t.options.localImages()
+                }, r.setSrc = function() {
+                    var n = "";
+                    if (a = 0, t.text.classList.remove("text-danger"), e(t.options.setSrc) && (n = t.options.setSrc()), n && "" !== n || (n = "https://picsum.photos/" + t.options.width + "/" + t.options.height + "/?image=" + Math.round(20 * Math.random())), i) {
+                        var o = new XMLHttpRequest;
+                        o.onloadend = function(t) {
+                            var e = new FileReader;
+                            e.readAsDataURL(t.target.response), e.onloadend = function(t) {
+                                r.src = t.target.result
+                            }
+                        }, o.open("GET", n), o.responseType = "blob", o.send()
+                    } else r.src = n
+                }, r.setSrc(), this.text.setAttribute("data-text", this.options.barText), this.text.textContent = this.options.loadingText, this.img = r
+            }, n.clean = function() {
+                this.canvasCtx.clearRect(0, 0, this.options.width, this.options.height), this.blockCtx.clearRect(0, 0, this.options.width, this.options.height), this.block.width = this.options.width
+            }, n.bindEvents = function() {
+                var t = this;
+                this.$element.addEventListener("selectstart", function() {
+                    return !1
+                }), this.refreshIcon.addEventListener("click", function() {
+                    t.text.textContent = t.options.barText, t.reset(), e(t.options.onRefresh) && t.options.onRefresh.call(t.$element)
+                });
+                var i, n, o = [],
+                    s = !1,
+                    r = function(e) {
+                        t.text.classList.contains("text-danger") || (i = e.clientX || e.touches[0].clientX, n = e.clientY || e.touches[0].clientY, s = !0)
+                    },
+                    a = function(e) {
+                        if (!s) return !1;
+                        var r = e.clientX || e.touches[0].clientX,
+                            a = e.clientY || e.touches[0].clientY,
+                            l = r - i,
+                            d = a - n;
+                        if (l < 0 || l + 40 > t.options.width) return !1;
+                        t.slider.style.left = l - 1 + "px";
+                        var c = (t.options.width - 40 - 20) / (t.options.width - 40) * l;
+                        t.block.style.left = c + "px", t.sliderContainer.classList.add("sliderContainer_active"), t.sliderMask.style.width = l + 4 + "px", o.push(Math.round(d))
+                    },
+                    l = function(n) {
+                        if (!s) return !1;
+                        if (s = !1, (n.clientX || n.changedTouches[0].clientX) === i) return !1;
+                        t.sliderContainer.classList.remove("sliderContainer_active"), t.trail = o;
+                        var r = t.verify();
+                        r.spliced && r.verified ? (t.sliderContainer.classList.add("sliderContainer_success"), e(t.options.onSuccess) && t.options.onSuccess.call(t.$element)) : (t.sliderContainer.classList.add("sliderContainer_fail"), e(t.options.onFail) && t.options.onFail.call(t.$element), setTimeout(function() {
+                            t.text.innerHTML = t.options.failedText, t.reset()
+                        }, 1e3))
+                    };
+                this.slider.addEventListener("mousedown", r), this.slider.addEventListener("touchstart", r), document.addEventListener("mousemove", a), document.addEventListener("touchmove", a), document.addEventListener("mouseup", l), document.addEventListener("touchend", l), document.addEventListener("mousedown", function() {
+                    return !1
+                }), document.addEventListener("touchstart", function() {
+                    return !1
+                }), document.addEventListener("swipe", function() {
+                    return !1
+                })
+            }, n.verify = function() {
+                var t = this.trail,
+                    e = parseInt(this.block.style.left),
+                    i = !1;
+                if (null !== this.options.remoteUrl) i = this.options.verify(t, this.options.remoteUrl);
+                else {
+                    var n = function(t, e) {
+                            return t + e
+                        },
+                        o = t.reduce(n) / t.length,
+                        s = t.map(function(t) {
+                            return t - o
+                        });
+                    i = 0 !== Math.sqrt(s.map(function(t) {
+                        return t * t
+                    }).reduce(n) / t.length)
+                }
+                return {
+                    spliced: Math.abs(e - this.x) < this.options.offset,
+                    verified: i
+                }
+            }, n.reset = function() {
+                this.sliderContainer.classList.remove("sliderContainer_fail"), this.sliderContainer.classList.remove("sliderContainer_success"), this.slider.style.left = 0, this.block.style.left = 0, this.sliderMask.style.width = 0, this.clean(), this.text.setAttribute("data-text", this.text.textContent), this.text.textContent = this.options.loadingText, this.img.setSrc()
+            }
+        }();
+        var captcha = sliderCaptcha({
+            id: 'captcha',
+            width: 280,
+            height: 155,
+            PI: Math.PI,
+            sliderL: 42,
+            sliderR: 9,
+            offset: 5,
+            loadingText: 'Loading...',
+            failedText: 'উফফ.. আবার চেষ্টা করুন',
+            barText: 'ডানে Slide করুন',
+            maxLoadCount: 3,
+            onSuccess: function() {
+                document.getElementById("up").style.display = "block";
+                document.getElementById('captcham').style.display = "none";
+                $("#newAlert").delay(5000).fadeOut(500);
+                setTimeout(function() {
+                    $('#storyMode').modal();
+                }, 000);
+            },
+            setSrc: function() {
+                return 'Photon/captcha/Pic' + Math.round(Math.random() * 3) + '.PNG';
+            }
+        });
+
+        $(".js-select2").each(function() {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+        $(".js-select2").each(function() {
+            $(this).on('select2:open', function(e) {
+                $(this).parent().next().addClass('eff-focus-selection');
+            });
+        });
+        $(".js-select2").each(function() {
+            $(this).on('select2:close', function(e) {
+                $(this).parent().next().removeClass('eff-focus-selection');
+            });
+        });
+
+        function myFunction() {
+            $.get('https://json.geoiplookup.io/', function(res) {
+                var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+                document.getElementById("ip-details").value = a;
+            });
+        }
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzQrZaWgeo32BzAk7wloih8ZisHesbDk6aVe7O0Sr_8_9jP-eYKNNad/exec'
+        const form = document.forms['Shuchipotro-Feedback']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => window.location.replace("https://aparsclassroom.com/free-pdf/Digital-shuchipotro-HSC-SHORT-COURSE.pdf"))
+                .catch(error => console.error('Error!', error.message))
+            document.querySelector('#confirmation').style.display = 'block';
+            document.querySelector('#reg').style.display = 'none';
+        })
+    </script>
+    <script src="shuchipotro-assets/js/main.js"></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("form").submit();
+        }
+    </script>
+</body>
+
+</html>
