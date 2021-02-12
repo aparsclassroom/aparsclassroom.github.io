@@ -62,7 +62,6 @@ a {
 
 a:hover {
     border: 1px solid rgb(236, 8, 84);
-    transition: all 0.5s ease-in-out;
     background-color: white;
     color: rgb(236, 8, 84);
 }
