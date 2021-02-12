@@ -2,57 +2,57 @@
 <html>
 
 <head>
-    <title>Sample script for uploading file to Google Drive without authorization</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <title>Volunteer Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        h3 {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <form id="form">
-        <label for="name">Name : </label>
-        <input type="text" id="name" name="name"><br>
-        <input name="file" id="uploadfile" type="file">
-        <input name="filename" id="filename" type="text">
+    <div class="container">
+        <h3>Volunteer Form</h3>
 
-        <input id="link" name="link"></input>
-        <button id="submit" type="submit">Upload</button>
-    </form>
+        <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbxPAi08OJd8B0b66kUcfP2WTDhb3EK9mo8jtS5Bn6C_idosef50cVs/exec" method="POST">
+            <div class="form-group">
+                <input type="hidden" name="fileContent" id="fileContent">
+                <input type="hidden" name="filename" id="filename">
+
+                <label> Name : </label><input class="form-control" required type="text" name="name" id="name"><br>
+                <label> Email : </label> <input class="form-control" required type="email" name="email" id="email"><br>
+                <label> Contact : </label><input class="form-control" required type="number" name="contact" id="contact"><br>
+                <label> Skills : </label> <input class="form-control" required type="text" name="skills" id="skills"><br>
+                <label> Facebook Id: </label><input class="form-control" type="url" name="facebookUrl" id="facebookUrl"><br>
+
+                <input class="form-control" required id="attach" name="attach" type="file"><br>
+                <input value="Submit" id="sub" type="button" class="btn btn-block btn-outline-dark" onclick="UploadFile();">
+            </div>
+        </form>
+    </div>
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxPAi08OJd8B0b66kUcfP2WTDhb3EK9mo8jtS5Bn6C_idosef50cVs/execc'
-        const form = document.getElementById('form');
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => alert("ধন্যবাদ 🥰 \nডাউনলোড শুরু করতে OK বাটনে ক্লিক করুন"))
-                .catch(err => console.log(err));
-        });
-
-        var link = document.getElementById('link');
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const file = form.file.files[0];
-            const fr = new FileReader();
-            fr.readAsArrayBuffer(file);
-            fr.onload = f => {
-
-                const url = "https://script.google.com/macros/s/AKfycbxPAi08OJd8B0b66kUcfP2WTDhb3EK9mo8jtS5Bn6C_idosef50cVs/execc"; // <--- Please set the URL of Web Apps.
-
-                const qs = new URLSearchParams({
-                    filename: form.filename.value || file.name,
-                    mimeType: file.type
-                });
-                fetch(`${url}?${qs}`, {
-                        method: "POST",
-                        body: JSON.stringify([...new Int8Array(f.target.result)])
-                    })
-                    .then(res => res.json())
-                    .then(e => link.value = e.fileUrl) // <--- You can retrieve the returned value here.
-                    .catch(err => console.log(err));
+        function UploadFile() {
+            var reader = new FileReader();
+            var file = document.getElementById('attach').files[0];
+            reader.onload = function() {
+                document.getElementById('fileContent').value = reader.result;
+                document.getElementById('filename').value = file.name;
+                document.getElementById('sub').value = "please wait....";
+                document.getElementById('uploadForm').submit();
             }
-        });
+            reader.readAsDataURL(file);
+        }
     </script>
 </body>
+
 
 </html>
