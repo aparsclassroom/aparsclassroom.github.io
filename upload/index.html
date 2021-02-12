@@ -2,48 +2,57 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>File Uploader</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-7R4CMSFEBN');
-    </script>
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
-            });
-        });
-    </script>
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <title>Sample script for uploading file to Google Drive without authorization</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
 </head>
 
 <body>
-    <div>
-        <input id="files" type="file" name="files[]" multiple/>
-        <button id="upload">Upload</button>
-        <div id="progress-wrp">
-            <div class="progress-bar"></div>
-            <div class="status">0%</div>
-        </div>
-    </div>
-    <div id="result">
+    <form id="form">
+        <label for="name">Name : </label>
+        <input type="text" id="name" name="name"><br>
+        <input name="file" id="uploadfile" type="file">
+        <input name="filename" id="filename" type="text">
 
-    </div>
+        <input id="link" name="link"></input>
+        <button id="submit" type="submit">Upload</button>
+    </form>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxPAi08OJd8B0b66kUcfP2WTDhb3EK9mo8jtS5Bn6C_idosef50cVs/execc'
+        const form = document.getElementById('form');
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("ধন্যবাদ 🥰 \nডাউনলোড শুরু করতে OK বাটনে ক্লিক করুন"))
+                .catch(err => console.log(err));
+        });
+
+        var link = document.getElementById('link');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const file = form.file.files[0];
+            const fr = new FileReader();
+            fr.readAsArrayBuffer(file);
+            fr.onload = f => {
+
+                const url = "https://script.google.com/macros/s/AKfycbxPAi08OJd8B0b66kUcfP2WTDhb3EK9mo8jtS5Bn6C_idosef50cVs/execc"; // <--- Please set the URL of Web Apps.
+
+                const qs = new URLSearchParams({
+                    filename: form.filename.value || file.name,
+                    mimeType: file.type
+                });
+                fetch(`${url}?${qs}`, {
+                        method: "POST",
+                        body: JSON.stringify([...new Int8Array(f.target.result)])
+                    })
+                    .then(res => res.json())
+                    .then(e => link.value = e.fileUrl) // <--- You can retrieve the returned value here.
+                    .catch(err => console.log(err));
+            }
+        });
+    </script>
 </body>
 
 </html>
