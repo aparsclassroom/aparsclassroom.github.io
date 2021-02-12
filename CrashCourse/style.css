@@ -51,7 +51,7 @@ a {
     text-align: center;
     background: rgba(240, 8, 85, 0.747);
     outline: none;
-    border: none;
+    border: 1px solid rgb(236, 8, 84);
     margin: 10px;
     border-radius: 10px;
     text-decoration: none;
