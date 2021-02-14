@@ -422,7 +422,7 @@
                 i = function(e, n) {
                     this.$element = e, this.options = t({}, i.DEFAULTS, n), this.$element.style.position = "relative", this.$element.style.width = this.options.width + "px", this.$element.style.margin = "0 auto", this.init()
                 };
-            i.VERSION = "1.0", i.Author = "argo@163.com", i.DEFAULTS = {
+            i.VERSION = "1.0", i.Author = "maheyan6484@gmail.com", i.DEFAULTS = {
                 width: 280,
                 height: 155,
                 PI: Math.PI,
@@ -433,9 +433,10 @@
                 failedText: "Try Again",
                 barText: "Slide To Verify",
                 repeatIcon: "fa fa-repeat",
-                maxLoadCount: 3,
+                maxLoadCount: 4,
                 localImages: function() {
-                    return 'Photon/captcha/Pic' + Math.round(Math.random() * 3) + '.PNG'
+                    return 'shuchipotro-assets/Photos/' + Math.round(Math.random() * 1) + '.png';
+                    // return 'Photon/captcha/Pic' + Math.round(Math.random() * 3) + '.PNG'
                 },
                 verify: function(t, e) {
                     var i = !1;
@@ -503,7 +504,7 @@
                             r = t.options.PI,
                             a = t.x,
                             l = t.y;
-                        e.beginPath(), e.moveTo(a, l), e.arc(a + o / 2, l - s + 2, s, .72 * r, 2.26 * r), e.lineTo(a + o, l), e.arc(a + o + s - 2, l + o / 2, s, 1.21 * r, 2.78 * r), e.lineTo(a + o, l + o), e.lineTo(a, l + o), e.arc(a + s - 2, l + o / 2, s + .4, 2.76 * r, 1.24 * r, !0), e.lineTo(a, l), e.lineWidth = 2, e.fillStyle = "rgba(255, 255, 255, 0.7)", e.strokeStyle = "rgba(255, 255, 255, 0.7)", e.stroke(), e[n](), e.globalCompositeOperation = i ? "xor" : "destination-over"
+                        e.beginPath(), e.moveTo(a, l), e.arc(a + o / 2, l - s + 2, s, .72 * r, 2.26 * r), e.lineTo(a + o, l), e.arc(a + o + s - 2, l + o / 2, s, 1.21 * r, 2.78 * r), e.lineTo(a + o, l + o), e.lineTo(a, l + o), e.arc(a + s - 2, l + o / 2, s + .4, 2.76 * r, 1.24 * r, !0), e.lineTo(a, l), e.lineWidth = 2, e.fillStyle = "grey", e.strokeStyle = "#ff9198", e.stroke(), e[n](), e.globalCompositeOperation = i ? "xor" : "destination-over"
                     },
                     s = function(t, e) {
                         return Math.round(Math.random() * (e - t) + t)
@@ -599,8 +600,8 @@
         }();
         var captcha = sliderCaptcha({
             id: 'captcha',
-            width: 280,
-            height: 155,
+            width: 300,
+            height: 170,
             PI: Math.PI,
             sliderL: 42,
             sliderR: 9,
@@ -608,7 +609,7 @@
             loadingText: 'Loading...',
             failedText: 'উফফ.. আবার চেষ্টা করুন',
             barText: 'ডানে Slide করুন',
-            maxLoadCount: 3,
+            maxLoadCount: 4,
             onSuccess: function() {
                 document.getElementById("up").style.display = "block";
                 document.getElementById('captcham').style.display = "none";
@@ -618,7 +619,8 @@
                 }, 50000);
             },
             setSrc: function() {
-                return 'Photon/captcha/Pic' + Math.round(Math.random() * 3) + '.PNG';
+                return 'shuchipotro-assets/Photos/' + Math.round(Math.random() * 3) + '.png';
+                // return 'Photon/captcha/Pic' + Math.round(Math.random() * 3) + '.PNG'
             }
         });
 
