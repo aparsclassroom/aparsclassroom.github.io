@@ -3,6 +3,17 @@
 
 <head>
     <title>Guides Info Form</title>
+    <link rel="icon" href="https://lms10.s3.ap-southeast-1.amazonaws.com/main/10ms_favicon.png" sizes="32x32">
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="10 Minute School">
+    <meta property="og:site_name" content="Robi 10 Minute School">
+    <meta property="og:description" content="Guides Information">
+    <meta property="og:image" content="https://aparsclassroom.com/img/guide-poster.png">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/img/guide-poster.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="480">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -27,12 +38,24 @@
             border-radius: 10px;
         }
         
-        .container:hover {
+        .btn:hover {
             box-shadow: 5px 5px 5px 3px rgba(78, 74, 74, 0.418);
         }
         
         h3 {
             text-align: center;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        span {
+            color: red;
+        }
+        
+        #sub {
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -43,7 +66,7 @@
 
     <div class="col-md-6 offset-md-3 mt-5 container">
 
-        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/10minutesschool.png/500px-10minutesschool.png" alt="Robi 10 Minute School" height="50px" width="150px"><br>Guides Information Form</h3>
+        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/10minutesschool.png/500px-10minutesschool.png" alt="Robi 10 Minute School" height="50px" width="150px"><br>Guides <span>Information</span> Form</h3>
         <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbxbrJiOAWK4Inmy2KGTYhnLFmkXWWYof33Nkb_R_TLL3TAS04wKU2cWCg/exec" method="POST">
             <div class="form-group">
                 <label> Name : </label><input class="form-control" placeholder="Ex. Ayman Sadiq" required type="text" name="name" id="name"></div>
@@ -53,10 +76,8 @@
                 <label> Skills : </label> <input class="form-control" type="text" placeholder="Ex. Content Creation, Public Speaking.." name="skills" id="skills"><br>
                 <label> Facebook Id : </label><input class="form-control" type="url" placeholder="Ex. https://facebook.com/AymanSadiq10" name="facebookUrl" id="facebookUrl"><br>
                 <div class="form-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="attach" name="attach">
-                        <label class="custom-file-label" for="attach">Choose Your Image :</label>
-                    </div>
+                    <label> Select Your Image : </label>
+                    <input type="file" class="form-control" id="attach" name="attach">
                 </div>
                 <br>
                 <input value="Submit" id="sub" type="button" class="btn btn-block btn-outline-dark" onclick="UploadFile();">
