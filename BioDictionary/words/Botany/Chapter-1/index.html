@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src='/BioDictionary/Assets/js/script.js'></script> -->
+
     <!-- <script src="/BioDictionary/Assets/main/Botany/Chapter-1/script.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -26,37 +26,12 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/BioDictionary/Assets/css/chapter.css">
-    <style>
-        .all-container {
-            opacity: 0;
-            height: 100%;
-        }
-        
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #FDFDFD;
-            z-index: 999999;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 
 <body>
     <div id="preloader">
         <div class="loader">
-            <img class="img-fluid" src="/images/ajax-loader.gif" height="500px" width="500px" alt="preloader">
+            <img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" height="500px" width="500px" alt="preloader">
         </div>
     </div>
     <div class="all-container">
@@ -73,72 +48,12 @@
             <br>
             <div id="filter-records"></div>
             <p id="status" style="text-align: center;"></p>
-            <div id="all"></div>
+            <div id="all"><img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" alt="preloader"></div>
         </div>
     </div>
 </body>
 
-<script>
-    var a;
-    $(document).ready(function() {
-        fetch('https://script.google.com/macros/s/AKfycbyWk6nOuDNBDEc78NbhALhG_3koTtNatoqYrrLxqtiMybpf_Jq4YIQo/exec')
-            .then((res) => {
-                return res.json();
-            })
-            .then((loadedData) => {
-                a = loadedData;
-                i1 = '<div class="card text-center">',
-                    m1 = 1;
-                $.each(a, function(a, e) {
-                    (
-                        i1 += '<div class="col-md-15 well">',
-                        i1 += "<h3>" + e.Number + " " + e.Word + "</h3>",
-                        i1 += '<h4>অর্থ : ' + e.Meaning + '</h4>',
-                        i1 += "<a type='button' class='links' href=\"" + e.ExplainMe + '">' + "ব্যাখ্যা" + "</a>",
-                        i1 += "</p></div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
-                        m1++)
-                }), i1 += "</div>", $("#all").html(i1)
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-
-        $("#txt-search").keyup(function() {
-            var e = $(this).val();
-            if ("" !== e) {
-                var o = new RegExp(e, "i"),
-                    i = '<div class="card text-center">',
-                    m = 1;
-                $.each(a, function(a, e) {
-                    -1 == e.Question.search(o) && -1 == e.Topic.search(o) && -1 == e.Number.search(o) || (i += '<div class="col-md-15 well">', i += "<h3>" + e.Number + " " + e.Question + "</h3>", i += '<h4>টপিক : ' + e.Topic + '</h4>', i += "<a type='button' class='links' href=\"" + e.cardlink + '">' + "উত্তর" + "</a>", i += "</p></div>&nbsp;", m % 2 == 0 && (i += '</div><div class="card text-center">'), m++)
-                }), i += "</div>", $("#filter-records").html(i)
-            } else $("#filter-records").html("");
-            if (document.getElementById("filter-records").innerHTML == '<div class="card text-center"></div>') {
-                document.getElementById("filter-records").innerHTML = '<p style=' + '"text-align: center;">এই টপিকের কোনো প্রশ্ন পাওয়া যায় নি 😶</p>';
-                document.getElementById("status").style.display = "none";
-                document.getElementById("all").style.display = "block";
-            }
-            if ("" == e) {
-                document.getElementById("all").style.display = "block";
-                document.getElementById("status").style.display = "none";
-            }
-        })
-    });
-
-    const n = document.getElementById("status");
-
-    function searchFunc() {
-        n.innerText = "Searching...";
-    }
-
-    function resultFunc() {
-        n.style.display = "block";
-        n.innerText = "সার্চ সম্পন্ন 🥰";
-        document.getElementById("all").style.display = "none";
-        setTimeout(function() {
-            n.style.display = "none";
-        }, 2000)
-    }
-</script>
+<script src="/BioDictionary/Assets/main/Botany/Chapter-1/script.js"></script>
+<script src='/BioDictionary/Assets/js/script.js'></script>
 
 </html>
