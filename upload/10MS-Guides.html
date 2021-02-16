@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guides Info Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: url('https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Noto Sans', sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .container:hover {
+            box-shadow: 5px 5px 5px 3px rgba(78, 74, 74, 0.418);
+        }
+        
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="col-md-6 offset-md-3 mt-5 container">
+
+        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/10minutesschool.png/500px-10minutesschool.png" alt="Robi 10 Minute School" height="50px" width="150px"><br>Guides Information Form</h3>
+        <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbxbrJiOAWK4Inmy2KGTYhnLFmkXWWYof33Nkb_R_TLL3TAS04wKU2cWCg/exec" method="POST">
+            <div class="form-group">
+                <label> Name : </label><input class="form-control" placeholder="Ex. Ayman Sadiq" required type="text" name="name" id="name"></div>
+            <div class="form-group">
+                <label> Email : </label> <input class="form-control" placeholder="Ex. ayman@sadiq.com" required type="email" name="email" id="email"><br>
+                <label> Contact : </label><input class="form-control" required placeholder="Ex. 01800000000" type="number" name="contact" id="contact"><br>
+                <label> Skills : </label> <input class="form-control" type="text" placeholder="Ex. Content Creation, Public Speaking.." name="skills" id="skills"><br>
+                <label> Facebook Id : </label><input class="form-control" type="url" placeholder="Ex. https://facebook.com/AymanSadiq10" name="facebookUrl" id="facebookUrl"><br>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="attach" name="attach">
+                        <label class="custom-file-label" for="attach">Choose Your Image :</label>
+                    </div>
+                </div>
+                <br>
+                <input value="Submit" id="sub" type="button" class="btn btn-block btn-outline-dark" onclick="UploadFile();">
+            </div>
+
+    </div>
+    </form>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    function UploadFile() {
+        var reader = new FileReader();
+        var file = document.getElementById('attach').files[0];
+        reader.onload = function() {
+            document.getElementById('fileContent').value = reader.result;
+            document.getElementById('filename').value = file.name;
+            document.getElementById('sub').value = "please wait....";
+            document.getElementById('uploadForm').submit();
+        }
+        reader.readAsDataURL(file);
+    }
+</script>
+
+</html>
