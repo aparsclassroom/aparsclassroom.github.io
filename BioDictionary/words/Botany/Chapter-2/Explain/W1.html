@@ -5,113 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BioDictionary</title>
     <link rel="stylesheet" href="/App/Assets/css/style.css">
-    <script src='/BioDictionary/Assets/js/script.js'></script>
+    <link rel="stylesheet" href="/BioDictionary/Assets/Vendor/css/bootstrap.css">
+    <script src="/BioDictionary/Assets/Vendor/js/jquery.js"></script>
+    <script src="/BioDictionary/Assets/Vendor/js/popper.js"></script>
+    <script src="/BioDictionary/Assets/Vendor/js/bootstrap.js"></script>
+    <script>
+        var sl = 1;
+    </script>
 </head>
 
 <body>
     <div class="container">
-        <div id="qnaCard"></div>
+        <div id="explainations"><img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" alt="preloader"></div>
     </div>
-    <script>
-        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1xIuJeZVGSYZ261OBYsGm85BPiVhvRC3fqii81uwYMJc/edit#gid=1277988533';
-        var data, a, img;
-
-        function init() {
-            Tabletop.init({
-                key: publicSpreadsheetUrl,
-                callback: showInfo,
-                simpleSheet: true
-            })
-        }
-
-        function showInfo(data, tabletop) {
-            // alert('Successfully processed!')
-
-            var a = data;
-            var serial = 0;
-            var Question = a[serial].Word;
-            var Subject = a[serial].Subject;
-            var chapter = a[serial].Chapter;
-            var Topic = a[serial].Ref;
-            var Answer1 = a[serial].Meaning;
-            var Answer2 = a[serial].Description;
-            var img = a[serial].img;
-            var link = a[serial].Return;
-
-            document.getElementById('qnaCard').innerHTML = `
-
-                <div class="wrapper">
-            <div class="card front-face">
-                <div class="info">
-                    <div class="title">প্রশ্ন</div>
-                    <div class="ques">
-                        <p id="qu" style="font-size: 20px;">${Question}</p>
-                    </div>
-                    <div class="meta">
-                        <div class="sub">
-                            <p>${Subject}</p>
-                        </div>
-                        <div class="chap">
-                            <p>${chapter}</p>
-                        </div>
-                        <div class="chapname">
-                            <p>${Topic}</p>
-                        </div>
-                        <img src="/App/Assets/Logo/Asset 2[190].svg">
-                        <div class="contributor">
-                            <p>&copy; Apar's Classroom</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="back" class="card back-face">
-                <div id="visans" class="title">চিত্র</div>
-                <img src="${img}" id="gif" style="display: none;">
-                <div class="info">
-                    <div id="textAns">
-                        <div class="title">উত্তর</div>
-                        <div class="ans">
-                            <p>${Answer1}</p>
-                            <p>${Answer2}</p>
-                        </div>
-                    </div>
-                    <div class="visit">
-                        <a id="change1" type="button" onclick="openVisualise()">Visualise</a>
-                        <a id="change2" type="button" onclick="openText()">Text</a>
-                        <a type="button" href="${link}">Return</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-                `;
-            if (img == "") {
-                document.getElementById('change1').style.display = "none";
-            } else {
-                document.getElementById('change1').style.cssText = "display:inline-block;";
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', init)
-
-
-        function openVisualise() {
-            document.getElementById("gif").style.display = "flex";
-            document.getElementById('change1').style.display = "none";
-            document.getElementById('change2').style.cssText = "display:inline-block;";
-            document.getElementById("textAns").style.display = "none";
-            document.getElementById('visans').style.display = "block";
-        }
-
-        function openText() {
-            document.getElementById("gif").style.display = "none";
-            document.getElementById('change2').style.display = "none";
-            document.getElementById('change1').style.cssText = "display:inline-block;";
-            document.getElementById("textAns").style.display = "block";
-            document.getElementById('visans').style.display = "none";
-        }
-    </script>
+    <div id="mod"></div>
 </body>
+<script src="/BioDictionary/Assets/main/Botany/Chapter-2/script.js"></script>
+<script src="/BioDictionary/Assets/js/explain.js"></script>
 
 </html>
