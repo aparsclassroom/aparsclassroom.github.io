@@ -528,7 +528,7 @@ mark {
 
 .figure-caption {
     font-size: 90%;
-    color: #6c757d
+    color: black
 }
 
 code,
@@ -9199,8 +9199,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }

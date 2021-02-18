@@ -27,6 +27,7 @@ window.addEventListener('load', function() {
         .then((loadedData) => {
             a = loadedData;
             var serial = sl - 1;
+            var num = a[serial].Number;
             var Word = a[serial].Word;
             var Subject = a[serial].Subject;
             var chapter = a[serial].Chapter;
@@ -40,22 +41,33 @@ window.addEventListener('load', function() {
             var link = a[serial].Return;
             document.title = a[serial].Word + ' | BioDictionary';
             document.getElementById('explainations').innerHTML = `
+            <div class="mx-auto">
+                <div id="row" class="row">
+                    <div id="main" class="col">
+                        <h3 class = "bangla">শব্দ নং : ${num}</h3>
+                        <h2 class = "bangla">${Word}</h2>
+                        <p class = "bangla"><b>অর্থ :</b> ${meaning}</p>
+                        <p class = "bangla"><b>ব্যাখ্যা :</b> ${description}</p>
+                        <p class = "bangla"><b>বিষয় :</b> ${Subject}</p>
+                        <p class = "bangla"><b>অধ্যায় :</b> ${chapter}</p>
+                        <p class = "bangla"><b>সূত্র :</b> ${ref}</p>
+                        <p class = "bangla"><b>পৃষ্ঠা :</b> ${RefPage}</p>
+  
+                        <button type="button" id="vidbtn" class="btn btn-primary" onclick="document.getElementById('vidID').play();" data-toggle="modal" data-target="#Video">Video</button> 
+                        <input type="button" class="btn btn-secondary" value="Read" id="ad" onclick="play()">
+                        <audio id="audio" src="${audio}"></audio>
+                        <a type="button" href="${link}" class="btn btn-dark">Return</a>
+                    </div>
+                    <div id="fi" class="col">
+                        <figure id="image" class="figure">
+                            <img src="${img}" class="figure-img img-fluid rounded" alt="${Word}">
+                            <figcaption class="figure-caption bangla">চিত্র : ${Word}</figcaption>
+                        </figure>
 
-                <h3 class = "bangla">${Word}</h3>
-                <p class = "bangla">${meaning}</p>
-                <p class = "bangla">${description}</p>
-                <p class = "bangla">${Subject}</p>
-                <p class = "bangla">${chapter}</p>
-                <p class = "bangla">${ref}</p>
-                <p class = "bangla">${RefPage}</p>
-                <a type="button" href="${link}" class="btn btn-dark">Return<a>
-                <img src="${img}" id="image" style="display: none;">
-                <button type="button" id="vidbtn" class="btn btn-primary" onclick="document.getElementById('vidID').play();" data-toggle="modal" data-target="#Video">
-                Video
-              </button>
-              <input type="button" class="btn btn-warning"  value="Read" id="ad" onclick="play()">
-              <audio id="audio" src="${audio}"></audio>
 
+            </div>
+            </div>
+            </div>
             `;
             document.getElementById('vid').innerHTML = `
             <video  id="vidID" display="inline-block" controls disablePictureInPicture controlsList="nodownload" width="100%">
@@ -68,6 +80,10 @@ window.addEventListener('load', function() {
             })
             if (img == "" || img == "https://gdurl.com") {
                 document.getElementById('image').style.display = "none";
+                document.getElementById('fi').style.display = "none";
+                // document.getElementById('main').classList.remove("col-md-6");
+                // document.getElementById('fi').classList.remove("col-md-5");
+                // document.getElementById('row').classList.remove("row");
             } else {
                 document.getElementById('image').style.cssText = "display:inline-block;";
             }

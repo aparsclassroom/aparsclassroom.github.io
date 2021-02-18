@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/kalpurush.ttf');
+}
+
+.bangla {
+    font-family: Kalpurush;
+}
+
+p {
+    font-size: 18px;
+}
+
+.container {
+    margin: 100px;
+}
+
+#fi {
+    margin-top: 20px;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.mx-auto {
+    max-width: 900px;
+    background: url('https://media.istockphoto.com/photos/yellow-background-picture-id1032083272?k=6&m=1032083272&s=612x612&w=0&h=UfQGfNpNfFtsH0-WKb-QT7wydzdXB7yTY5Hc9iWm_l4=') center;
+    background-size: cover;
+    padding: 4rem 2rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 30px;
+    }
+}
+
+a {
+    padding: 100px;
+}
+
+img {
+    border-radius: 10px;
+}

@@ -11,7 +11,6 @@ $(document).ready(function() {
         })
         .then((loadedData) => {
             a = loadedData;
-            console.log(a);
             i1 = '<div class="card text-center">',
                 m1 = 1;
             $.each(a, function(a, e) {

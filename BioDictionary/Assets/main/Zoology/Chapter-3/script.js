@@ -1,1 +1,1 @@
-const inf = "#";
+const inf = "QUtmeWNiek9NOW9NbXBGc0Y1NUdVbkx4RmctWjVEQ1ZnUnlNdENwSUhEbUZySEo1bS1GWUZNUjduYXJ3";
