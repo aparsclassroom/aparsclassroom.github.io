@@ -55,7 +55,7 @@ window.addEventListener('load', function() {
   
                         <button type="button" id="vidbtn" class="btn btn-inline-block btn-danger" onclick="vidPlay()" data-toggle="modal" data-target="#Video">Video</button> 
                         <input type="button" class="btn btn-inline-block btn-secondary" value="Read" id="ad" onclick="play()">
-                        <audio id="audio" src="${audio}"></audio>
+                        <audio id="audio" preload="none" src="${audio}"></audio>
                        
                     </div>
                     <div  class="col">
@@ -119,4 +119,5 @@ function play() {
         audio.currentTime = 0
         document.getElementById('ad').value = "Read Again";
     }
+
 }
