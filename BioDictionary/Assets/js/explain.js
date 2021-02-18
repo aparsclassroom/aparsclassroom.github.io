@@ -53,19 +53,19 @@ window.addEventListener('load', function() {
                         <p class = "bangla"><b>সূত্র :</b> ${ref}</p>
                         <p class = "bangla"><b>পৃষ্ঠা :</b> ${RefPage}</p>
   
-                        <button type="button" id="vidbtn" class="btn btn-primary" onclick="document.getElementById('vidID').play();" data-toggle="modal" data-target="#Video">Video</button> 
-                        <input type="button" class="btn btn-secondary" value="Read" id="ad" onclick="play()">
+                        <button type="button" id="vidbtn" class="btn btn-inline-block btn-danger" onclick="vidPlay()" data-toggle="modal" data-target="#Video">Video</button> 
+                        <input type="button" class="btn btn-inline-block btn-secondary" value="Read" id="ad" onclick="play()">
                         <audio id="audio" src="${audio}"></audio>
-                        <a type="button" href="${link}" class="btn btn-dark">Return</a>
+                       
                     </div>
-                    <div id="fi" class="col">
-                        <figure id="image" class="figure">
-                            <img src="${img}" class="figure-img img-fluid rounded" alt="${Word}">
+                    <div  class="col">
+                        <figure id="fi" class="figure">
+                            <img src="${img}" id="image" class="figure-img img-fluid rounded" alt="${Word}">
                             <figcaption class="figure-caption bangla">চিত্র : ${Word}</figcaption>
                         </figure>
-
-
-            </div>
+                        
+                        <a type="button" href="${link}" id="rt" class="btn btn-block btn-outline-dark">Return</a>
+                        </div>
             </div>
             </div>
             `;
@@ -74,6 +74,7 @@ window.addEventListener('load', function() {
             <source src="${video}" type="video/mp4">
             Your browser does not support the video tag.
         </video>`;
+
             $('#Video').on('hidden.bs.modal', function() {
                 document.getElementById('vidID').currentTime = 0;
                 document.getElementById('vidID').pause();
@@ -81,9 +82,6 @@ window.addEventListener('load', function() {
             if (img == "" || img == "https://gdurl.com") {
                 document.getElementById('image').style.display = "none";
                 document.getElementById('fi').style.display = "none";
-                // document.getElementById('main').classList.remove("col-md-6");
-                // document.getElementById('fi').classList.remove("col-md-5");
-                // document.getElementById('row').classList.remove("row");
             } else {
                 document.getElementById('image').style.cssText = "display:inline-block;";
             }
@@ -103,6 +101,13 @@ window.addEventListener('load', function() {
             console.error(err);
         });
 })
+
+function vidPlay() {
+    document.getElementById('vidID').play();
+    document.getElementById("audio").pause();
+    document.getElementById("audio").currentTime = 0
+    document.getElementById('ad').value = "Read";
+}
 
 function play() {
     var audio = document.getElementById("audio");
