@@ -24,6 +24,7 @@ body {
 
 p {
     font-size: 18px;
+    width: 100%;
 }
 
 .container {
@@ -36,6 +37,13 @@ p {
 
 figcaption {
     text-align: center;
+}
+
+.load {
+    max-width: 900px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .mx-auto {
