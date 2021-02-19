@@ -40,6 +40,7 @@ window.addEventListener('load', function() {
             var video = a[serial].video;
             var audio = a[serial].Audio;
             var link = a[serial].Return;
+
             document.title = a[serial].Word + ' | BioDictionary';
             document.getElementById('explainations').innerHTML = `
             <div class="mx-auto">
@@ -158,12 +159,12 @@ window.addEventListener('load', function() {
                 var url = window.location.href
                 var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
                 for (var i = 0; i < bookmarks.length; i++) {
-                    if (bookmarks[i].url != url) {
-                        deletebook.style.display = "none";
-                        book.style.display = "inline-block";
-                    } else {
+                    if (bookmarks[i].url === url) {
                         deletebook.style.display = "inline-block";
                         book.style.display = "none";
+                    } else {
+                        deletebook.style.display = "none";
+                        book.style.display = "inline-block";
                     }
                 }
             }
