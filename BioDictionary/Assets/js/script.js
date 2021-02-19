@@ -84,10 +84,12 @@ function getBook() {
     }
 
 }
-getBook()
+
 
 function aseKina() {
     if (localStorage.getItem('bookmarks') === null || localStorage.getItem('bookmarks') === "[]") {
         document.getElementById('bk').style.display = "none";
+    } else {
+        getBook()
     }
 }
