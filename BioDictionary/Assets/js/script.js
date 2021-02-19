@@ -1,5 +1,6 @@
 var a;
 $(document).ready(function() {
+    aseKina()
     const lin1 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy8=";
     const lin2 = "L2V4ZWM=";
     var ln1 = window.atob(lin1);
@@ -62,4 +63,31 @@ function resultFunc() {
     setTimeout(function() {
         n.style.display = "none";
     }, 2000)
+}
+
+var url;
+
+function getBook() {
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    // Get output id
+    var bookmarksResults = document.getElementById('bookmarksResults');
+
+    // Build output
+    bookmarksResults.innerHTML = '';
+    for (var i = 0; i < bookmarks.length; i++) {
+        var name = bookmarks[i].name;
+        url = bookmarks[i].url;
+        time = bookmarks[i].time;
+        bookmarksResults.innerHTML += '<div class="well">' +
+            ' <h3 class="bangla">' + name + '</h3> ' +
+            ' <span> Bookmarked : ' + time + '</span> <a class="btn btn-primary" href="' + url + '">Open</a><hr></div>';
+    }
+
+}
+getBook()
+
+function aseKina() {
+    if (localStorage.getItem('bookmarks') === null || localStorage.getItem('bookmarks') === "[]") {
+        document.getElementById('bk').style.display = "none";
+    }
 }

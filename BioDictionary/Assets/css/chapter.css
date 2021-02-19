@@ -115,3 +115,7 @@ video {
     -ms-flex-pack: center;
     justify-content: center;
 }
+
+hr {
+    border-top: 1px dashed black;
+}

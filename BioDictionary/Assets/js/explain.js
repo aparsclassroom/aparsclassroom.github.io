@@ -15,6 +15,7 @@ window.addEventListener('load', function() {
     </div>
 </div>
     `;
+
     const lin1 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy8=";
     const lin2 = "L2V4ZWM=";
     var ln1 = window.atob(lin1);
@@ -44,6 +45,8 @@ window.addEventListener('load', function() {
             <div class="mx-auto">
                 <div id="row" class="row">
                     <div id="main" class="col">
+                    <button class="btn-primary" id="book">Bookmark</button>
+                    <button class="btn-danger" id="deletebook">Remove Bookmark</button>
                         <h3 class = "bangla">শব্দ নং : ${num}</h3>
                         <h2 class = "bangla">${Word}</h2>
                         <p class = "bangla"><b>অর্থ :</b> ${meaning}</p>
@@ -56,7 +59,6 @@ window.addEventListener('load', function() {
                         <button type="button" id="vidbtn" class="btn btn-inline-block btn-danger" onclick="vidPlay()" data-toggle="modal" data-target="#Video">Video</button> 
                         <input type="button" class="btn btn-inline-block btn-secondary" value="Read" id="ad" onclick="play()">
                         <audio id="audio" preload="none" src="${audio}"></audio>
-                       
                     </div>
                     <div  class="col">
                         <figure id="fi" class="figure">
@@ -65,15 +67,82 @@ window.addEventListener('load', function() {
                         </figure>
                         
                         <a type="button" href="${link}" id="rt" class="btn btn-block btn-outline-dark">Return</a>
-                        </div>
+                        </div>               
             </div>
             </div>
+
             `;
             document.getElementById('vid').innerHTML = `
             <video  id="vidID" display="inline-block" controls disablePictureInPicture controlsList="nodownload" width="100%">
             <source src="${video}" type="video/mp4">
             Your browser does not support the video tag.
         </video>`;
+
+            document.getElementById('deletebook').style.display = "none";
+            var book = document.getElementById('book');
+            var deletebook = document.getElementById('deletebook');
+            book.addEventListener('click', saveBook);
+            deletebook.addEventListener('click', deleteBook);
+
+            function asebook(url) {
+                var url = window.location.href
+                var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+                for (var i = 0; i < bookmarks.length; i++) {
+                    if (bookmarks[i].url != url) {
+                        deletebook.style.display = "none";
+                        book.style.display = "inline-block";
+                    } else {
+                        deletebook.style.display = "inline-block";
+                        book.style.display = "none";
+                    }
+                }
+            }
+            asebook()
+
+            function saveBook(e) {
+                var bookmark = {
+                        sl: num + "_" + chapter + "_" + Subject,
+                        time: new Date(),
+                        name: Word,
+                        url: window.location.href
+                    }
+                    // Test if bookmarks is null
+                if (localStorage.getItem('bookmarks') === null) {
+                    // Init array
+                    var bookmarks = [];
+                    // Add to array
+                    bookmarks.push(bookmark);
+                    // Set to localStorage
+                    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                    console.log("first bookmark added")
+                } else {
+                    // Get bookmarks from localStorage
+                    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+                    // Add bookmark to array
+                    bookmarks.push(bookmark);
+                    // Re-set back to localStorage
+                    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                }
+                console.log("new bookmark added")
+                asebook()
+            }
+
+            function deleteBook(url) {
+                var url = window.location.href
+                var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+                // Loop through the bookmarks
+                for (var i = 0; i < bookmarks.length; i++) {
+                    if (bookmarks[i].url == url) {
+                        bookmarks.splice(i, 1);
+                        deletebook.style.display = "none";
+                        book.style.display = "inline-block";
+                    }
+
+                }
+                // Re-set back to localStorage
+                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                // asebook()
+            }
 
             $('#Video').on('hidden.bs.modal', function() {
                 document.getElementById('vidID').currentTime = 0;
