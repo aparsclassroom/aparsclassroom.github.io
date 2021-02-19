@@ -128,7 +128,7 @@ window.addEventListener('load', function() {
                 }
                 // Re-set back to localStorage
                 localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                // asebook()
+                asebook()
             }
 
             $('#Video').on('hidden.bs.modal', function() {
