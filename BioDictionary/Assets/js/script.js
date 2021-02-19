@@ -93,3 +93,9 @@ function aseKina() {
         getBook()
     }
 }
+
+document.getElementById('clearBooks').addEventListener('click', () => {
+    localStorage.removeItem('bookmarks')
+    bookmarksResults.innerHTML = 'No Bookmarks 😶';
+    document.getElementById('clearBooks').style.display = "none";
+})

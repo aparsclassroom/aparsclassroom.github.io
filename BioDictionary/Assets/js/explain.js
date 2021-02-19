@@ -89,29 +89,23 @@ window.addEventListener('load', function() {
 
             function saveBook(e) {
                 var bookmark = {
-                        sl: num + "_" + chapter + "_" + Subject,
-                        time: new Date(),
-                        name: Word,
-                        url: window.location.href
-                    }
-                    // Test if bookmarks is null
+                    sl: num + "_" + chapter + "_" + Subject,
+                    time: new Date(),
+                    name: Word,
+                    url: window.location.href
+                }
                 if (localStorage.getItem('bookmarks') === null) {
-                    // Init array
                     var bookmarks = [];
-                    // Add to array
                     bookmarks.push(bookmark);
-                    // Set to localStorage
                     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
                     console.log("first bookmark added")
                 } else {
-                    // Get bookmarks from localStorage
                     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-                    // Add bookmark to array
                     bookmarks.push(bookmark);
-                    // Re-set back to localStorage
                     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                    console.log("new bookmark added")
                 }
-                console.log("new bookmark added")
+                asekina()
                 asebook()
             }
 
@@ -130,6 +124,7 @@ window.addEventListener('load', function() {
                 // Re-set back to localStorage
                 localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
                 asebook()
+                asekina()
             }
 
             $('#Video').on('hidden.bs.modal', function() {
@@ -154,6 +149,43 @@ window.addEventListener('load', function() {
             }
             var book = document.getElementById('book');
             var deletebook = document.getElementById('deletebook');
+
+            var result = JSON.parse(localStorage.getItem("bookmarks"));
+            var alreadyExists = result.filter(function(item) {
+                return window.location.href === item.url
+            }).length;
+
+            if (alreadyExists > 0) {
+                deletebook.style.display = "inline-block";
+                book.style.display = "none";
+                return false;
+            } else {
+                deletebook.style.display = "none";
+                book.style.display = "inline-block";
+            }
+
+            function aseKi() {
+                if (localStorage.getItem('bookmarks') === null || localStorage.getItem('bookmarks') === "[]") {
+
+                } else {
+                    asekina()
+                }
+            }
+            aseKi()
+
+            function asekina() {
+                var url = window.location.href
+                var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+                for (var i = 0; i < bookmarks.length; i++) {
+                    if (bookmarks[i].url === url) {
+                        return book.style.display = "inline-block";
+
+
+                    } else {
+                        return deletebook.style.display = "none";
+                    }
+                }
+            }
 
             function asebook(url) {
                 var url = window.location.href
