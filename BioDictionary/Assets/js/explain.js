@@ -98,12 +98,11 @@ window.addEventListener('load', function() {
                     var bookmarks = [];
                     bookmarks.push(bookmark);
                     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                    console.log("first bookmark added")
                 } else {
                     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
                     bookmarks.push(bookmark);
                     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                    console.log("new bookmark added")
+                    alert("New bookmark added")
                 }
                 asekina()
                 asebook()
