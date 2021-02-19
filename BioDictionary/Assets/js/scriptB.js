@@ -1,6 +1,12 @@
 var a;
 $(document).ready(function() {
-
+    document.getElementById('navB').innerHTML = `
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="background-image: linear-gradient(to left, #ee4575f1, #EE4574);">
+    <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="../../../Botany.html">
+        <img src="../../../Assets/Logo/Asset 2[190].svg" height="30px" width="30px">&nbsp;QnA App</a>
+    <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></button>
+</nav>
+    `;
     document.getElementById('moda').innerHTML = `    <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
