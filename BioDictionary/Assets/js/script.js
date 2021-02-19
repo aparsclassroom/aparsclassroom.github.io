@@ -1,6 +1,29 @@
 var a;
 $(document).ready(function() {
+
+    document.getElementById('moda').innerHTML = `    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Bookmarks</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="bookmarksResults"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" id="clearBooks">Clear</button>
+                    <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
     aseKina()
+    document.getElementById('clearBooks').addEventListener('click', () => {
+        localStorage.removeItem('bookmarks')
+        bookmarksResults.innerHTML = 'No Bookmarks 😶';
+        document.getElementById('clearBooks').style.display = "none";
+    })
     const lin1 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy8=";
     const lin2 = "L2V4ZWM=";
     var ln1 = window.atob(lin1);
@@ -93,9 +116,3 @@ function aseKina() {
         getBook()
     }
 }
-
-document.getElementById('clearBooks').addEventListener('click', () => {
-    localStorage.removeItem('bookmarks')
-    bookmarksResults.innerHTML = 'No Bookmarks 😶';
-    document.getElementById('clearBooks').style.display = "none";
-})

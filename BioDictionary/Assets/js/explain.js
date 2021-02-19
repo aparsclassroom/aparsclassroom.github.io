@@ -98,11 +98,12 @@ window.addEventListener('load', function() {
                     var bookmarks = [];
                     bookmarks.push(bookmark);
                     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                    alert(Word + " added as your First bookmark!!!")
                 } else {
                     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
                     bookmarks.push(bookmark);
                     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                    alert("New bookmark added")
+                    alert("You've added " + Word + " as a new bookmark")
                 }
                 asekina()
                 asebook()
@@ -117,6 +118,7 @@ window.addEventListener('load', function() {
                         bookmarks.splice(i, 1);
                         deletebook.style.display = "none";
                         book.style.display = "inline-block";
+                        alert("You've removed " + Word + " as a bookmark")
                     }
 
                 }
