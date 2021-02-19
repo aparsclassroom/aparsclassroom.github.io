@@ -84,20 +84,7 @@ window.addEventListener('load', function() {
             book.addEventListener('click', saveBook);
             deletebook.addEventListener('click', deleteBook);
 
-            function asebook(url) {
-                var url = window.location.href
-                var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-                for (var i = 0; i < bookmarks.length; i++) {
-                    if (bookmarks[i].url != url) {
-                        deletebook.style.display = "none";
-                        book.style.display = "inline-block";
-                    } else {
-                        deletebook.style.display = "inline-block";
-                        book.style.display = "none";
-                    }
-                }
-            }
-            asebook()
+
 
             function saveBook(e) {
                 var bookmark = {
@@ -164,7 +151,23 @@ window.addEventListener('load', function() {
             } else {
                 document.getElementById('ad').style.cssText = "display:inline-block;";
             }
+            var book = document.getElementById('book');
+            var deletebook = document.getElementById('deletebook');
 
+            function asebook(url) {
+                var url = window.location.href
+                var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+                for (var i = 0; i < bookmarks.length; i++) {
+                    if (bookmarks[i].url != url) {
+                        deletebook.style.display = "none";
+                        book.style.display = "inline-block";
+                    } else {
+                        deletebook.style.display = "inline-block";
+                        book.style.display = "none";
+                    }
+                }
+            }
+            asebook()
         })
         .catch((err) => {
             console.error(err);
