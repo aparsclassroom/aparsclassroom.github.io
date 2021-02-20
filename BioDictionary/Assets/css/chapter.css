@@ -123,7 +123,13 @@ hr {
     color: red;
 }
 
+.bklink {
+    text-decoration: none;
+    color: black;
+}
+
 .bklink:hover {
     text-decoration: none;
-    color: blue;
+    color: rgb(255, 123, 0);
+    transform: scale(1.025);
 }
