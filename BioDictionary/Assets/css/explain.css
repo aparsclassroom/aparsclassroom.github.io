@@ -76,7 +76,7 @@ figcaption {
 }
 
 a {
-    padding: 100px;
+    cursor: pointer;
 }
 
 img {
@@ -84,5 +84,5 @@ img {
 }
 
 #rt {
-    margin-top: 10px;
+    text-align: right;
 }

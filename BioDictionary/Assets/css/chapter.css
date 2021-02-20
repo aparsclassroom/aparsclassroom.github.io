@@ -75,17 +75,10 @@ p {
     font-size: 20px;
 }
 
-.chobi,
-video {
-    height: 400px;
-    width: 100%;
-}
-
 .col-md-15 {
     border: 3px solid #EE4574;
     border-radius: 10px;
     margin: 5px;
-    padding-top: 25px;
 }
 
 .container {
@@ -118,4 +111,23 @@ video {
 
 hr {
     border-top: 1px dashed black;
+}
+
+.well h3,
+.well h4,
+.well p {
+    margin: 15px;
+}
+
+.card a {
+    color: black;
+}
+
+.card h3:hover {
+    color: red;
+}
+
+.card a:hover {
+    text-decoration: none;
+    color: blue;
 }

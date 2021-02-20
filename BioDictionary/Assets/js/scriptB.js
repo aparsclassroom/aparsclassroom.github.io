@@ -27,7 +27,7 @@ $(document).ready(function() {
     aseKina()
     document.getElementById('clearBooks').addEventListener('click', () => {
         localStorage.removeItem('bookmarks')
-        bookmarksResults.innerHTML = 'No Bookmarks 😶';
+        bookmarksResults.innerHTML = 'No Bookmarks left 😶';
         document.getElementById('clearBooks').style.display = "none";
     })
     const lin1 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy8=";
@@ -46,10 +46,11 @@ $(document).ready(function() {
             $.each(a, function(a, e) {
                 (
                     i1 += '<div class="col-md-15 well">',
-                    i1 += "<h3>" + e.Number + " " + e.Word + "</h3>",
-                    i1 += '<h4>অর্থ : ' + e.Meaning + '</h4>',
-                    i1 += "<a type='button' class='links' href=\"" + e.ExplainMe + '">' + "ব্যাখ্যা" + "</a>",
-                    i1 += "</p></div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
+                    i1 += "<h3>Word Number : " + e.Number + "</h3>",
+                    i1 += "<h3>" + e.Word + "</h3>",
+                    i1 += '<h4>অর্থ: ' + e.Meaning + '</h4>',
+                    i1 += "<a type='button' class='links text-center' href=\"" + e.ExplainMe + '">' + "ব্যাখ্যা" + "</a>",
+                    i1 += "</div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
                     m1++)
             }), i1 += "</div>", $("#all").html(i1)
         })
@@ -106,10 +107,10 @@ function getBook() {
     for (var i = 0; i < bookmarks.length; i++) {
         var name = bookmarks[i].name;
         url = bookmarks[i].url;
+        sl = bookmarks[i].sl;
         time = bookmarks[i].time;
-        bookmarksResults.innerHTML += '<div class="well">' +
-            ' <h3 class="bangla">' + name + '</h3> ' +
-            ' <span> Bookmarked : ' + time + '</span> <a class="btn btn-primary" href="' + url + '">Open</a><hr></div>';
+        bookmarksResults.innerHTML += '<div class="card">' +
+            '<a class="" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span> Bookmarked : ' + time + '</span> </a><hr></div>';
     }
 
 }

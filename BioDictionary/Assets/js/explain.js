@@ -40,14 +40,28 @@ window.addEventListener('load', function() {
             var video = a[serial].video;
             var audio = a[serial].Audio;
             var link = a[serial].Return;
-
             document.title = a[serial].Word + ' | BioDictionary';
             document.getElementById('explainations').innerHTML = `
             <div class="mx-auto">
                 <div id="row" class="row">
                     <div id="main" class="col">
-                    <button class="btn-primary" id="book">Bookmark</button>
-                    <button class="btn-danger" id="deletebook">Remove Bookmark</button>
+                    <a type="button" id="book">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="blue" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+</svg>
+                    </a>
+                    <a id="deletebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
+  <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+</svg>
+                    </a>
+
+                    <a type="button" href="${link}" id="rt">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+</svg>
+                    </a>
                         <h3 class = "bangla">শব্দ নং : ${num}</h3>
                         <h2 class = "bangla">${Word}</h2>
                         <p class = "bangla"><b>অর্থ :</b> ${meaning}</p>
@@ -57,8 +71,12 @@ window.addEventListener('load', function() {
                         <p class = "bangla"><b>সূত্র :</b> ${ref}</p>
                         <p class = "bangla"><b>পৃষ্ঠা :</b> ${RefPage}</p>
   
-                        <button type="button" id="vidbtn" class="btn btn-inline-block btn-danger" onclick="vidPlay()" data-toggle="modal" data-target="#Video">Video</button> 
-                        <input type="button" class="btn btn-inline-block btn-secondary" value="Read" id="ad" onclick="play()">
+                        <a type="button" id="vidbtn"  onclick="vidPlay()" data-toggle="modal" data-target="#Video"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                      </svg></a> 
+                        <a type="button" id="ad" onclick="play()">
+                        <span id="adImg"></span>
+                        </a>
                         <audio id="audio" preload="none" src="${audio}"></audio>
                     </div>
                     <div  class="col">
@@ -66,8 +84,6 @@ window.addEventListener('load', function() {
                             <img src="${img}" id="image" class="figure-img img-fluid rounded" alt="${Word}">
                             <figcaption class="figure-caption bangla">চিত্র : ${Word}</figcaption>
                         </figure>
-                        
-                        <a type="button" href="${link}" id="rt" class="btn btn-block btn-outline-dark">Return</a>
                         </div>               
             </div>
             </div>
@@ -146,7 +162,12 @@ window.addEventListener('load', function() {
             if (audio == "" || audio == "https://gdurl.com") {
                 document.getElementById('ad').style.display = "none";
             } else {
-                document.getElementById('ad').style.cssText = "display:inline-block;";
+                document.getElementById('adImg').innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+              </svg>
+                `;
             }
             var book = document.getElementById('book');
             var deletebook = document.getElementById('deletebook');
@@ -212,18 +233,32 @@ function vidPlay() {
     document.getElementById('vidID').play();
     document.getElementById("audio").pause();
     document.getElementById("audio").currentTime = 0
-    document.getElementById('ad').value = "Read";
+    document.getElementById('adImg').innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+    <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+  </svg>
+    `;
 }
 
 function play() {
     var audio = document.getElementById("audio");
     if (audio.paused) {
         audio.play();
-        document.getElementById('ad').value = "Stop Reading";
+        document.getElementById('adImg').innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+        `;
     } else {
         audio.pause();
         audio.currentTime = 0
-        document.getElementById('ad').value = "Read Again";
+        document.getElementById('adImg').innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic-mute-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M12.734 9.613A4.995 4.995 0 0 0 13 8V7a.5.5 0 0 0-1 0v1c0 .274-.027.54-.08.799l.814.814zm-2.522 1.72A4 4 0 0 1 4 8V7a.5.5 0 0 0-1 0v1a5 5 0 0 0 4.5 4.975V15h-3a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-3v-2.025a4.973 4.973 0 0 0 2.43-.923l-.718-.719zM11 7.88V3a3 3 0 0 0-5.842-.963L11 7.879zM5 6.12l4.486 4.486A3 3 0 0 1 5 8V6.121zm8.646 7.234l-12-12 .708-.708 12 12-.708.707z"/>
+</svg>
+        `;
     }
 
 }
