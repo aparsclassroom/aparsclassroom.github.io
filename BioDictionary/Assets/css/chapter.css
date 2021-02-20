@@ -119,15 +119,11 @@ hr {
     margin: 15px;
 }
 
-.card a {
-    color: black;
-}
-
 .card h3:hover {
     color: red;
 }
 
-.card a:hover {
+.bklink:hover {
     text-decoration: none;
     color: blue;
 }
