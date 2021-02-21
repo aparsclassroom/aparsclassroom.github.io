@@ -8,7 +8,24 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
-    <script src="Assets/firebase.js"></script>
+    <script>
+        var app_firebase = {};
+        (function() {
+            var firebaseConfig = {
+                apiKey: "AIzaSyAzbLXoKCAZZ5PrmdQ4RuAmqdWuRCEuZQk",
+                authDomain: "hsccrashcourse.firebaseapp.com",
+                projectId: "hsccrashcourse",
+                storageBucket: "hsccrashcourse.appspot.com",
+                messagingSenderId: "692807340931",
+                appId: "1:692807340931:web:06fc3e7bcbf657eb66dcb6",
+                measurementId: "G-T1YY7V1VRM"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            app_firebase = firebase;
+            firebase.analytics();
+        })()
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -156,7 +173,7 @@
             var b = (imp.ip);
             document.getElementById("i").value = b;
         });
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbx19Z7C8Ud6-Qg8cNv-A9pndUfY0I-z6WFZqO_oRqi1nn2nTo2JDBrt/exec'
+        // const scriptURL = 'https://script.google.com/macros/s/AKfycbx19Z7C8Ud6-Qg8cNv-A9pndUfY0I-z6WFZqO_oRqi1nn2nTo2JDBrt/exec'
         const form = document.forms['Form']
 
         function toggleSignIn(e) {
@@ -181,7 +198,7 @@
                         document.getElementById("forgotPass").style.display = "inline-block";
                     } else {
                         alert('You don\'t have Access. To get access, Please Buy our subscription');
-                        window.location.replace("https://www.netflix.com/bd/");
+                        // window.location.replace("https://www.netflix.com/bd/");
                     }
                 });
             }
@@ -201,7 +218,7 @@
                     alert("Please Check your Email Address 🤔 \n\nIt is in wrong format 🙃");
                 } else if (errorCode == 'auth/user-not-found') {
                     alert('You haven\'t purchased our premium subscription yet 😶');
-                    window.location.replace("https://www.netflix.com/bd/");
+                    // window.location.replace("https://www.netflix.com/bd/");
                 }
             });
         }
