@@ -1,5 +1,6 @@
 var a;
 window.addEventListener('load', function() {
+
     document.getElementById('mod').innerHTML = `
     <div class="modal fade" id="Video" tabindex="-1" role="dialog" aria-labelledby="VideoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -96,6 +97,48 @@ window.addEventListener('load', function() {
             <source src="${video}" type="video/mp4">
             Your browser does not support the video tag.
         </video>`;
+            $(function() {
+                var id = {
+                    sl: num + "_" + chapter + "_" + Subject,
+                    time: new Date(),
+                    name: Word,
+                    url: window.location.href
+                }
+                var result = JSON.parse(sessionStorage.getItem("todayWatched"));
+                if (result == null) {
+                    result = [];
+                }
+                var alreadyExists = result.filter(function(item) {
+                    return item.url === window.location.href
+                }).length;
+                if (alreadyExists > 0) {
+                    return false;
+                } else {
+                    result.push(id);
+                }
+                sessionStorage.setItem("todayWatched", JSON.stringify(result));
+            });
+            $(function() {
+                var id = {
+                    sl: num + "_" + chapter + "_" + Subject,
+                    time: new Date(),
+                    name: Word,
+                    url: window.location.href
+                }
+                var result = JSON.parse(localStorage.getItem("watched"));
+                if (result == null) {
+                    result = [];
+                }
+                var alreadyExists = result.filter(function(item) {
+                    return item.url === window.location.href
+                }).length;
+                if (alreadyExists > 0) {
+                    return false;
+                } else {
+                    result.push(id);
+                }
+                localStorage.setItem("watched", JSON.stringify(result));
+            });
 
             document.getElementById('deletebook').style.display = "none";
             var book = document.getElementById('book');
@@ -175,6 +218,9 @@ window.addEventListener('load', function() {
             var deletebook = document.getElementById('deletebook');
 
             var result = JSON.parse(localStorage.getItem("bookmarks"));
+            if (result === null) {
+                return;
+            }
             var alreadyExists = result.filter(function(item) {
                 return window.location.href === item.url
             }).length;
