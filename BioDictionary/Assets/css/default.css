@@ -1,0 +1,39 @@
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: #2c3f52;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.container {
+    margin-top: 25px;
+}
+
+h1 {
+    font-family: Kalpurush;
+}
+
+a {
+    color: #888;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a:hover,
+a:active {
+    color: #333;
+}
