@@ -80,7 +80,8 @@ body {
 
 /* Caption Style 1 */
 
-.cs-style-1 figcaption {
+
+/* .cs-style-1 figcaption {
     height: 100%;
     width: 100%;
     opacity: 0;
@@ -117,7 +118,8 @@ body {
 
 /* Caption Style 2 */
 
-.cs-style-2 figure img {
+
+/* .cs-style-2 figure img {
     z-index: 10;
     -webkit-transition: -webkit-transform 0.4s;
     -moz-transition: -moz-transform 0.4s;
@@ -146,12 +148,13 @@ body {
     position: absolute;
     right: 20px;
     top: 30px;
-}
+} */
 
 
 /* Caption Style 3 */
 
-.cs-style-3 figure {
+
+/* .cs-style-3 figure {
     overflow: hidden;
 }
 
@@ -203,12 +206,13 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-}
+} */
 
 
 /* Caption Style 4 */
 
-.cs-style-4 li {
+
+/* .cs-style-4 li {
     -webkit-perspective: 1700px;
     -moz-perspective: 1700px;
     perspective: 1700px;
@@ -274,7 +278,7 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-}
+} */
 
 
 /* Caption Style 5 */
@@ -328,7 +332,8 @@ body {
 
 /* Caption Style 6 */
 
-.cs-style-6 figure img {
+
+/* .cs-style-6 figure img {
     z-index: 10;
     -webkit-transition: -webkit-transform 0.4s;
     -moz-transition: -moz-transform 0.4s;
@@ -359,12 +364,13 @@ body {
     position: absolute;
     bottom: 20px;
     right: 20px;
-}
+} */
 
 
 /* Caption Style 7 */
 
-.cs-style-7 li:first-child {
+
+/* .cs-style-7 li:first-child {
     z-index: 6;
 }
 
@@ -443,7 +449,7 @@ body {
     -moz-transition: opacity 0.3s 0.2s;
     transition: opacity 0.3s 0.2s;
     opacity: 1;
-}
+} */
 
 @media screen and (max-width: 31.5em) {
     .grid {

@@ -16,7 +16,6 @@ html {
 body {
     color: #2c3f52;
     background: #f9f9f9;
-    text-align: center;
 }
 
 .container {
@@ -25,6 +24,7 @@ body {
 
 h1 {
     font-family: Kalpurush;
+    text-align: center;
 }
 
 a {
@@ -36,4 +36,5 @@ a {
 a:hover,
 a:active {
     color: #333;
+    text-decoration: none;
 }

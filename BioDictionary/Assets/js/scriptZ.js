@@ -1,9 +1,9 @@
 var a;
 $(document).ready(function() {
     document.getElementById('navB').innerHTML = `
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="background-image: linear-gradient(to left, #ee4575f1, #EE4574);">
+    <nav class="navbar sticky-top navbar-dark" style="background-color: #2c3f52;">
     <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="../../../Zoology.html">
-        <img src="../../../Assets/Logo/Asset 2[190].svg" height="30px" width="30px">&nbsp;QnA App</a>
+    <img src="/BioDictionary/Assets/images/logo/logo-main.svg" alt="logo" height="30px" width="30px">&nbsp;BioDictionary</a>
     <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></button>
 </nav>
     `;
