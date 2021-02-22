@@ -1,5 +1,5 @@
 body {
-    background: url('https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Circle-Simple-Background-Image-1.jpg');
+    background: url('../images/Background/bg.webp');
     background-color: #fff;
     background-attachment: fixed;
     background-color: #fdfdfd;
@@ -48,7 +48,7 @@ figcaption {
 
 .mx-auto {
     max-width: 900px;
-    background: url('https://media.istockphoto.com/photos/yellow-background-picture-id1032083272?k=6&m=1032083272&s=612x612&w=0&h=UfQGfNpNfFtsH0-WKb-QT7wydzdXB7yTY5Hc9iWm_l4=') center;
+    background: url('https://www.basicneedsindia.org/wp-content/uploads/2018/05/website-background-patterns-28-hd-background-and-wallpaper.jpg') center;
     background-size: cover;
     padding: 4rem 2rem;
     display: grid;

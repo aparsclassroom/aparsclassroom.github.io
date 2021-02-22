@@ -4,6 +4,7 @@
 }
 
 body {
+    background: url('../images/Background/bg.webp');
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -19,6 +20,12 @@ body {
     -ms-user-select: none;
     user-select: none;
     font-family: Kalpurush;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .card {
@@ -29,7 +36,7 @@ body {
 .container input:focus {
     border-radius: 10px;
     padding: 25px;
-    color: #EE4574;
+    color: #2c3f52;
     font-size: larger;
 }
 
@@ -42,11 +49,11 @@ body {
 
 h3,
 h2 {
-    color: #EE4574;
+    color: #2c3f52;
 }
 
 h5 {
-    color: #EE4574;
+    color: #2c3f52;
     font-weight: bold;
 }
 
@@ -55,7 +62,7 @@ h5 {
     display: inline-block;
     padding: 10px 20px;
     margin-bottom: 10px;
-    background: #EE4574;
+    background: #2c3f52;
     border: 1px solid #fff;
     color: #fff;
     border-radius: 40px;
@@ -64,9 +71,9 @@ h5 {
 }
 
 .links:hover {
-    color: #EE4574;
+    color: #2c3f52;
     background: #fdfdfd;
-    border: 1px solid #EE4574;
+    border: 1px solid #2c3f52;
     cursor: pointer;
     text-decoration: none;
 }
@@ -76,7 +83,7 @@ p {
 }
 
 .col-md-15 {
-    border: 3px solid #EE4574;
+    border: 3px solid #2c3f52;
     border-radius: 10px;
     margin: 5px;
 }
@@ -110,7 +117,11 @@ p {
 }
 
 hr {
-    border-top: 1px dashed black;
+    border-top: 1px dashed #ed4e6e;
+}
+
+.eng {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .well h3,
@@ -120,7 +131,9 @@ hr {
 }
 
 .card h3:hover {
-    color: red;
+    color: #ed4e6e;
+    transform: scale(1.025);
+    cursor: pointer;
 }
 
 .bklink {
@@ -130,6 +143,6 @@ hr {
 
 .bklink:hover {
     text-decoration: none;
-    color: rgb(255, 123, 0);
+    color: #ed4e6e;
     transform: scale(1.025);
 }

@@ -15,7 +15,12 @@ html {
 
 body {
     color: #2c3f52;
-    background: #f9f9f9;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .container {
