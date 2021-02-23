@@ -1,19 +1,20 @@
 var app_firebase = {};
-(function () { 
+(function() {
     var firebaseConfig = {
-        apiKey: "AIzaSyBfAZ4cn7orcPnmSGYO-bk_M1DDIheu944",
-        authDomain: "aparsbiodictionary.firebaseapp.com",
-        projectId: "aparsbiodictionary",
-        storageBucket: "aparsbiodictionary.appspot.com",
-        messagingSenderId: "822392075528",
-        appId: "1:822392075528:web:88e7424909b997ad9228bd",
-        measurementId: "G-QVPSFBGT5M"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  app_firebase = firebase;
+        apiKey: "AIzaSyDpX318g79F8msrHeEEifiSO06e5twwu9w",
+        authDomain: "asg-biodictionary.firebaseapp.com",
+        projectId: "asg-biodictionary",
+        storageBucket: "asg-biodictionary.appspot.com",
+        messagingSenderId: "342222541178",
+        appId: "1:342222541178:web:d3ad1c34fdcdb71ad046c3",
+        measurementId: "G-MQV49ZPHK7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    app_firebase = firebase;
+    firebase.analytics();
 })()
 document.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
+    e.preventDefault();
 });
+console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")

@@ -1,0 +1,206 @@
+<!doctype html>
+
+<head>
+    <title>Learn Firebase Storage Quickly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css" />
+</head>
+
+<body>
+
+    <br>
+
+    <div class="ui two column middle aligned center aligned grid">
+        <div class="column">
+            <form class="ui large form">
+
+                <div class="ui stacked secondary segment">
+                    <div class="field">
+                        <div class="ui left icon input large">
+                            <i class="user icon"></i>
+                            <input type="text" placeholder="E-mail address" id="email" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input large">
+                            <i class="lock icon"></i>
+                            <input type="text" placeholder="Password" id="pword" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="ui left icon input large">
+                            <i class="image icon"></i>
+                            <input type="file" id="fileUploader" />
+                        </div>
+                    </div>
+                    <div class=" ui fluid large teal submit button" onclick="signUpUser()">Sign Up</div>
+                </div>
+
+                <div class="ui large image">
+                    <img id="img">
+                </div>
+
+                <div class="field">
+                    <h3>Upload An Image</h3>
+                    <input type="file" onchange="uploadImage()">
+                </div>
+
+
+                <div class="field">
+                    <h3>Upload Multiple Images</h3>
+                    <input type="file" onchange="uploadMultipleImages()" multiple>
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-storage.js"></script>
+    <script>
+        // Firebase Config
+        var firebaseConfig = {
+            apiKey: "AIzaSyDpX318g79F8msrHeEEifiSO06e5twwu9w",
+            authDomain: "asg-biodictionary.firebaseapp.com",
+            projectId: "asg-biodictionary",
+            storageBucket: "asg-biodictionary.appspot.com",
+            messagingSenderId: "342222541178",
+            appId: "1:342222541178:web:d3ad1c34fdcdb71ad046c3",
+            measurementId: "G-MQV49ZPHK7"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+
+        // -------------------------------------
+        // Upload Multiple Images
+        // -------------------------------------
+
+        function uploadMultipleImages(e) {
+            let files = e.target.files;
+
+            for (const file of files) {
+                firebase
+                    .app()
+                    .storage()
+                    .ref('images')
+                    .child(file.name)
+                    .put(file);
+            }
+        }
+
+        // -------------------------------------
+        // Get All The Images
+        // -------------------------------------
+        function getAllImages() {
+
+            firebase
+                .storage()
+                .ref('images')
+                .listAll()
+                .then(snap => {
+                    snap.items.forEach(itemRef => {
+                        itemRef.getDownloadURL().then(imgUrl => {
+                            console.log(imgUrl)
+                        });
+                    })
+                })
+        }
+        // getAllImages()
+
+        // -------------------------------------
+        // Upload A Single Image
+        // -------------------------------------
+
+        function uploadImage(e) {
+            let file = e.target.files[0];
+
+            firebase
+                .app()
+                .storage()
+                .ref('images')
+                .child(file.name)
+                .put(file);
+        }
+
+
+        // -------------------------------------
+        // Get An Image
+        // -------------------------------------
+        function getAnImage() {
+
+            firebase
+                .storage()
+                .ref('images')
+                .child(yourimagefilename)
+                .getDownloadURL()
+                .then(imgUrl => {
+                    console.log(imgUrl);
+                });
+        }
+
+        // -------------------------------------
+        // Upload Profile Picture With Authentication
+        // -------------------------------------
+
+        // DOM Elements
+        const email = document.getElementById('email'),
+            pword = document.getElementById('pword'),
+            fileUploader = document.getElementById('fileUploader'),
+            img = document.getElementById('img')
+
+        // Data
+        let file = {};
+
+        // File Uploaded Change Event
+        fileUploader.addEventListener('change', function(e) {
+            file = e.target.files[0];
+        })
+
+
+        // Signup User
+        function signUpUser() {
+            firebase.auth().createUserWithEmailAndPassword(email.value, pword.value).then(auth => {
+
+                // Upload A Profile Image to the Cloud Storage
+                firebase
+                    .storage()
+                    .ref("users")
+                    .child(auth.user.uid + "/profile.jpg")
+                    .put(file);
+
+            }).catch(error => {
+                console.log(error.message)
+            })
+        }
+
+        // Check to see if a user is logged in or not
+        // firebase.auth().onAuthStateChanged(user => {
+
+        //     if (user) {
+
+        //         // Get A Profile Image from the Cloud Storage
+        //         firebase
+        //             .storage()
+        //             .ref("users")
+        //             .child(user.uid + "/profile.jpg")
+        //             .getDownloadURL()
+        //             .then(imgUrl => {
+        //                 user.updateProfile({
+        //                     photoURL: imgUrl // <- URL from uploaded photo.
+        //                 })
+        //             })
+        //     }
+        // })
+    </script>
+</body>
+
+</html>

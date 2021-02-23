@@ -625,8 +625,7 @@ pre code {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px
+    margin-left: -10px;
 }
 
 .no-gutters {
@@ -7937,7 +7936,7 @@ button.bg-dark:hover {
 
 .pr-4,
 .px-4 {
-    padding-right: 1.5rem!important
+    padding-right: .5rem!important
 }
 
 .pb-4,
