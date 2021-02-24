@@ -72,7 +72,7 @@ body {
     border: 1px solid #2c3f52;
 }
 
-form a {
+a {
     display: inline-block;
     color: #555;
     text-decoration: none;
@@ -83,7 +83,7 @@ form a {
     display: none;
 }
 
-form a:hover {
+a:hover {
     text-decoration: underline;
     text-decoration-style: dotted;
 }

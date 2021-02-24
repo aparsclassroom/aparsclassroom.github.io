@@ -54,7 +54,7 @@ var mainApp = {};
                         displayName: usname
                     }).then(function() {
                         document.getElementById('usname').value = "";
-                        document.getElementById("nam").innerText = usname;
+                        document.getElementById("nam").innerHTML = usname + ` <i class="fas fa-check-circle"></i>`;
                         $('#nameModal').modal('hide');
                     }).catch(function(error) {
                         alert(error)
