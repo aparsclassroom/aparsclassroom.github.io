@@ -24,41 +24,58 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-
+    <script src="https://kit.fontawesome.com/dbb868ec12.js" crossorigin="anonymous"></script>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
-
-    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            "use strict";
+            $(window).on("load", function() {
+                $(".loader").fadeOut();
+                $("#preloader").delay(350).fadeOut("slow");
+                $("body").delay(350).css({
+                    "overflow": "visible"
+                });
+                $(".all-container").css({
+                    "opacity": "1"
+                });
+            });
+        }(jQuery));
+    </script>
+    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js" defer></script>
     <link rel="stylesheet" href="Assets/css/style.css">
-    <script src="Assets/js/firebase.js"></script>
-    <script src="Assets/js/main.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Bio Dictionary</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div id="preloader">
+        <div class="loader">
+            <img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" height="500px" width="500px" alt="preloader">
+        </div>
+    </div>
+    <div class="all-container">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #2c3f52;">
+            <a class="navbar-brand" href="#">Bio Dictionary</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App <span class="sr-only">(current)</span></a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App <span class="sr-only">(current)</span></a>
+                    </li>
 
-            </ul>
-            <a type="button" class="btn" href="dashboard.html"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></a>
-        </div>
-    </nav>
-    <div class="container">
-        <h2 style="text-align: center;">Bio Dictionary</h2>
+                </ul>
+                <a type="button" class="btn btn-outline-light" href="dashboard.html"><i class="fas fa-user-circle" height="30px" width="30px"></i> Profile</a>
+            </div>
+        </nav>
+        <div class="container">
+            <h2 style="text-align: center;">Bio Dictionary</h2>
 
-        <a class="btn btn-block btn-dark" type="button" href="Botany.html">Botany</a>
-        <a class="btn btn-block btn-dark" type="button" href="Zoology.html">Zoology</a>
+            <a class="btn btn-block btn-dark" type="button" href="Botany.html">Botany</a>
+            <a class="btn btn-block btn-dark" type="button" href="Zoology.html">Zoology</a>
 </body>
 <script src="Assets/js/firebase.js"></script>
 <script src="Assets/js/main.js"></script>

@@ -10,8 +10,6 @@ var mainApp = {};
             photoUrl = user.photoURL;
             emailVerified = user.emailVerified;
             uid = user.uid;
-            document.getElementById("dpimage").src = url;
-            document.getElementById('dp').innerHTML = `<img id="dpimage" src="${photoUrl}" height="250px"  alt="${name}">`;
 
         } else {
             window.location.replace("login.html");

@@ -14,47 +14,69 @@
     <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
     <link href='/BioDictionary/Assets/Vendor/css/bootstrap.css' rel="stylesheet">
     <link rel="stylesheet" href="/BioDictionary/Assets/css/dashboard.css">
-    <script src="https://kit.fontawesome.com/dbb868ec12.js" crossorigin="anonymous"></script>
+    <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function() {
+            "use strict";
+            $(window).on("load", function() {
+                $(".loader").fadeOut();
+                $("#preloader").delay(350).fadeOut("slow");
+                $("body").delay(350).css({
+                    "overflow": "visible"
+                });
+                $(".all-container").css({
+                    "opacity": "1"
+                });
+            });
+        }(jQuery));
+    </script>
+    <script src="https://kit.fontawesome.com/dbb868ec12.js" defer crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #2c3f52;">
-        <a class="navbar-brand" href="./index.html">Bio Dictionary</a>
+    <div id="preloader">
+        <div class="loader">
+            <img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" height="500px" width="500px" alt="preloader">
+        </div>
+    </div>
+    <div class="all-container">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #2c3f52;">
+            <a class="navbar-brand" href="./index.html">Bio Dictionary</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App <span class="sr-only">(current)</span></a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App <span class="sr-only">(current)</span></a>
+                    </li>
 
-            </ul>
-            <button class="btn btn-outline-light" onclick="mainApp.logOut();"><i class="fas fa-sign-out-alt"></i> Logout</button>
-        </div>
-    </nav>
+                </ul>
+                <button class="btn btn-danger" onclick="mainApp.logOut();"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
 
-    <div class="row py-5 px-4">
-        <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
+        <div class="row py-5 px-4">
+            <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
 
-            <!-- Profile widget -->
-            <div class="bg-white shadow rounded overflow-hidden">
-                <div class="px-4 pt-0 pb-4 bg">
-                    <div class="media align-items-end profile-header">
-                        <div class="profile mr-3"><img id="imgs" alt="Profile Image" width="130" class="rounded mb-2 img-thumbnail"><a href="#" type="button" data-toggle="modal" data-target="#imageModal" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
-                        <div class="media-body mb-5 text-white">
-                            <h4 class="mt-0 mb-0"><span id="nam"></span> <a type="button" data-toggle="modal" data-target="#nameModal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <!-- Profile widget -->
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <div class="px-4 pt-0 pb-4 bg">
+                        <div class="media align-items-end profile-header">
+                            <div class="profile mr-3"><img id="imgs" alt="Profile Image" width="130" class="rounded mb-2 img-thumbnail"><a href="#" type="button" data-toggle="modal" data-target="#imageModal" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
+                            <div class="media-body mb-5 text-white">
+                                <h4 class="mt-0 mb-0"><span id="nam"></span> <a type="button" data-toggle="modal" data-target="#nameModal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                               </svg></a></h4>
-                            <p class="small mb-4">
-                                <span id="email"></p>
+                                <p class="small mb-4">
+                                    <span id="email"></p>
                         </div>
                     </div>
                 </div>
@@ -101,6 +123,7 @@
 
         </div>
     </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -109,46 +132,45 @@
                     <h5 class="modal-title" id="imageModalLabel">Update Profile Image</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-                                </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" accept="image/png, image/jpeg" name="img" id="img">
-                                <label class="custom-file-label" for="img">Choose any Image</label>
-
+                                    </button>
                             </div>
-                            <img id="target" width="100%">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="imgbutton" disabled class="btn btn-success">Save Image</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="modal-body">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" accept="image/png, image/jpeg" name="img" id="img">
+                                    <label class="custom-file-label" for="img">Choose any Image</label>
+
+                                </div>
+                                <img id="target" width="100%">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="imgbutton" disabled class="btn btn-success">Save Image</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="nameModalLabel">Update User Name</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="nameModalLabel">Update User Name</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                                         </button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" placeholder="Enter Your Name 🥰 " class="form-control" name="usname" id="usname">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="namUp" disabled class="btn btn-success">Update</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" placeholder="Enter Your Name 🥰 " class="form-control" name="usname" id="usname">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="namUp" disabled class="btn btn-success">Update</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 </body>
 <script src="Assets/js/dashboard-fb.js"></script>
-<script src='/BioDictionary/Assets/Vendor/js/jquery.js'></script>
 <script src="/BioDictionary/Assets/Vendor/js/bootstrap.js"></script>
 <script src="Assets/js/dashboard.js"></script>
 
