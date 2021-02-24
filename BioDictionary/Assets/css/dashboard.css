@@ -111,7 +111,6 @@ a:hover {
 svg:hover,
 .fa-clipboard-check:hover,
 .fa-paperclip:hover {
-    fill: #ed4e6e;
     transform: scale(1.5);
     cursor: pointer;
 }
