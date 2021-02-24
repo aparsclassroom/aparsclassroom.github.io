@@ -105,9 +105,18 @@ function showImage(src, target) {
         target.src = this.result;
     };
     src.addEventListener("change", function() {
+        document.getElementById('imgbutton').disabled = false;
         fr.readAsDataURL(src.files[0]);
     });
 }
 var src = document.getElementById("img");
 var target = document.getElementById("target");
 showImage(src, target);
+
+
+function na() {
+    document.getElementById('usname').addEventListener('keyup', function() {
+        document.getElementById('namUp').disabled = false;
+    })
+}
+na()
