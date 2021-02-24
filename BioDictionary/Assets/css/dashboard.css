@@ -98,3 +98,35 @@ a:hover {
     color: #ed4e6e;
     transform: scale(1.025);
 }
+
+.bklink {
+    text-decoration: none;
+}
+
+#dpimage {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+svg:hover,
+.fa-clipboard-check:hover,
+.fa-paperclip:hover {
+    fill: #ed4e6e;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.fa-paperclip {
+    color: blue;
+}
+
+.fa-clipboard-check {
+    color: orange;
+    font-size: 22px;
+}
+
+nav .btn {
+    padding: 5px;
+    padding-right: 12px;
+    padding-left: 12px;
+}

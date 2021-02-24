@@ -14,55 +14,29 @@
     <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
     <link href='/BioDictionary/Assets/Vendor/css/bootstrap.css' rel="stylesheet">
     <link rel="stylesheet" href="/BioDictionary/Assets/css/dashboard.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .bklink {
-            text-decoration: none;
-        }
-        
-        #dpimage {
-            margin-left: 50px;
-            margin-right: 50px;
-        }
-        
-        svg:hover {
-            fill: #ed4e6e;
-            transform: scale(1.5);
-        }
-    </style>
-    <script src='/BioDictionary/Assets/Vendor/js/jquery.js' defer></script>
-    <script src="/BioDictionary/Assets/Vendor/js/bootstrap.js" defer></script>
-    <script src="Assets/js/dashboard.js" defer></script>
+    <script src="https://kit.fontawesome.com/dbb868ec12.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="background-color: #2c3f52;">
-        <a class="navbar-brand" href="index.html">BioDictionary</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #2c3f52;">
+        <a class="navbar-brand" href="#">Bio Dictionary</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                  </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+
             </ul>
+            <button class="btn btn-outline-light"><i class="fas fa-sign-out-alt"></i> Logout</button>
         </div>
     </nav>
 
@@ -91,9 +65,9 @@
                     </div>
                     <div class="py-4">
 
-                        <h5 class="mb-0">Bookmarks <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
+                        <h5 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
                             <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
-                            </svg> <a class="btn btn-link text-muted" type="button" id="showB" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">Show all</a></h5>
+                            </svg>  Bookmarks <a class="btn btn-link text-muted" type="button" id="showB" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">Show all</a></h5>
                         <div class="row cmt">
                             <div class="collapse" id="collapseExample3">
                                     <div id="bookmarksResults">Nothing Left</div>
@@ -103,7 +77,7 @@
                     </div>
                         <div class="py-4">
 
-                            <h5 class="mb-0">Recently Read <a class="btn btn-link text-muted" type="button" id="showR" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">Show all</a></h5>
+                            <h5 class="mb-0"><i class="fas fa-clipboard-check"></i> Recently Read <a class="btn btn-link text-muted" type="button" id="showR" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">Show all</a></h5>
                             <div class="row cmt">
                                 <div class="collapse" id="collapseExample1">
                                     <div id="today">Nothing Left</div>
@@ -112,7 +86,7 @@
                         </div>
                     </div>
                     <div class="py-4">
-                        <h5 class="mb-0" id="allT">All Time History <a class="btn btn-link text-muted" type="button" id="showA" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show all</a></h5>
+                        <h5 class="mb-0" id="allT"><i class="fas fa-paperclip"></i> Lifetime History <a class="btn btn-link text-muted" type="button" id="showA" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show all</a></h5>
                         <div class="row cmt">
                             <div class="collapse" id="collapseExample">
                                 <div id="wrdsResults">Nothing Left</div>
@@ -173,125 +147,9 @@
                 </div>
             </div>
 </body>
-<script>
-    var app_firebase = {};
-    (function() {
-        var firebaseConfig = {
-            apiKey: "AIzaSyDpX318g79F8msrHeEEifiSO06e5twwu9w",
-            authDomain: "asg-biodictionary.firebaseapp.com",
-            projectId: "asg-biodictionary",
-            storageBucket: "asg-biodictionary.appspot.com",
-            messagingSenderId: "342222541178",
-            appId: "1:342222541178:web:d3ad1c34fdcdb71ad046c3",
-            measurementId: "G-MQV49ZPHK7"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        app_firebase = firebase;
-        firebase.analytics();
-    })()
-    var mainApp = {};
-    (function() {
-        var firebase = app_firebase;
-        var uid = null;
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                namex = user.displayName;
-                email = user.email;
-                photoUrl = user.photoURL;
-                emailVerified = user.emailVerified;
-                uid = user.uid;
-
-                document.getElementById('email').innerText = email;
-                document.getElementById("imgs").src = photoUrl;
-                console.log(user.photoURL)
-                if (user.photoURL === null) {
-                    document.getElementById('imgs').src = "https://storymodelearning.com/img/about/baby.jpg";
-                }
-                if (namex === null) {
-                    document.getElementById('nam').innerText = "Unkown";
-                } else {
-                    document.getElementById('nam').innerText = namex;
-                }
-                document.getElementById('license').innerHTML = "<b>License : </b>" + uid;
-                document.getElementById('created').innerHTML = "<b>Enrolled : </b>" + user.metadata.creationTime;
-            } else {
-                window.location.replace("login.html");
-            }
-        });
-
-        function logOut() {
-            firebase.auth().signOut();
-        }
-        mainApp.logOut = logOut;
-    })()
-
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            document.getElementById('imgbutton').addEventListener('click', uploadImage)
-
-            function uploadImage() {
-                document.getElementById('imgbutton').innerText = "Uploading ... ";
-                const ref = firebase.storage().ref("users");
-                const file = document.querySelector('#img').files[0]
-                const metadata = {
-                    contentType: file.type
-                };
-                const task = ref.child(user.uid + "/avatar.jpg").put(file, metadata);
-                task
-                    .then(snapshot => snapshot.ref.getDownloadURL())
-                    .then((url) => {
-                        document.getElementById("imgs").src = url;
-                        document.getElementById('img').value = "";
-                        document.getElementById('imgbutton').innerText = "Successfully Uploaded 🥰";
-                        $('#imageModal').modal('hide');
-                    })
-                    .catch(console.error);
-            }
-            // Get A Profile Image from the Cloud Storage
-
-            firebase
-                .storage()
-                .ref("users")
-                .child(user.uid + "/avatar.jpg")
-                .getDownloadURL()
-                .then(imgUrl => {
-                    user.updateProfile({
-                        photoURL: imgUrl // <- URL from uploaded photo.
-                    })
-                })
-        }
-        document.getElementById('namUp').addEventListener('click', () => {
-            var usname = document.getElementById('usname').value;
-            var user = firebase.auth().currentUser;
-            user.updateProfile({
-                displayName: usname
-            }).then(function() {
-                document.getElementById('usname').value = "";
-                document.getElementById("nam").innerText = usname;
-                $('#nameModal').modal('hide');
-            }).catch(function(error) {
-                alert(error)
-            });
-        })
-    })
-
-    function showImage(src, target) {
-        var fr = new FileReader();
-        // when image is loaded, set the src of the image where you want to display it
-        fr.onload = function(e) {
-            target.src = this.result;
-        };
-        src.addEventListener("change", function() {
-            // fill fr with image data    
-            fr.readAsDataURL(src.files[0]);
-        });
-    }
-
-    var src = document.getElementById("img");
-    var target = document.getElementById("target");
-    showImage(src, target);
-</script>
+<script src="Assets/js/dashboard-fb.js"></script>
+<script src='/BioDictionary/Assets/Vendor/js/jquery.js'></script>
+<script src="/BioDictionary/Assets/Vendor/js/bootstrap.js"></script>
+<script src="Assets/js/dashboard.js"></script>
 
 </html>

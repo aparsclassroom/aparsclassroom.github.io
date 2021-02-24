@@ -46,10 +46,9 @@ var url;
 
 function getBook() {
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-    // Get output id
+
     var bookmarksResults = document.getElementById('bookmarksResults');
 
-    // Build output
     bookmarksResults.innerHTML = '';
     for (var i = 0; i < bookmarks.length; i++) {
         var name = bookmarks[i].name;
