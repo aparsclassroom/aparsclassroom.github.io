@@ -14,7 +14,7 @@
     background-image: linear-gradient(to right, #94e498, #30966f);
 }
 
-.navbar button:hover {
+.navbar .btn-outline-light:hover {
     color: black;
 }
 
@@ -40,4 +40,14 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+}
+
+.btn-danger {
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid white;
 }

@@ -108,9 +108,15 @@ a:hover {
     margin-right: 50px;
 }
 
+.bi-pencil-square:hover {
+    color: #ed4e6e;
+}
+
 svg:hover,
 .fa-clipboard-check:hover,
-.fa-paperclip:hover {
+.fa-paperclip:hover,
+.fa-check-circle:hover,
+.fa-question-circle:hover {
     transform: scale(1.5);
     cursor: pointer;
 }
@@ -122,6 +128,19 @@ svg:hover,
 .fa-clipboard-check {
     color: orange;
     font-size: 22px;
+}
+
+.fa-question-circle {
+    color: gray;
+}
+
+.fa-question-circle:hover {
+    color: whitesmoke;
+}
+
+.fa-check-circle {
+    color: chartreuse;
+    font-size: 18px;
 }
 
 nav .btn {

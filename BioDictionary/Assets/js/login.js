@@ -2,6 +2,31 @@ function onSubmit(token) {
     document.getElementById("form").submit();
 }
 
+function freeTrial() {
+
+    if (firebase.auth().currentUser) {
+        //Start signOut
+        firebase.auth().signOut();
+        //SignOut End
+    } else {
+        //Start Auth Anon
+        firebase.auth().signInAnonymously().catch(function(error) {
+            //Handle Error Here
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            //Start Exclude
+            if (errorCode = 'auth/operation-not-allowed') {
+                alert('You must enable anon auth on firebase console');
+            } else {
+                console.error(error);
+            }
+            //End Exclude
+        });
+        //End Auth Anon
+    }
+    document.getElementById('sign-in').disabled = true;
+}
+
 function toggleSignIn(e) {
     if (firebase.auth().currentUser) {
         firebase.auth().signOut();
@@ -59,6 +84,7 @@ function initApp() {
     });
     document.getElementById('access').addEventListener('click', toggleSignIn, false);
     document.getElementById('forgotPass').addEventListener('click', sendPasswordReset, false);
+    document.getElementById('free').addEventListener('click', freeTrial, false);
 
 }
 window.onload = function() {

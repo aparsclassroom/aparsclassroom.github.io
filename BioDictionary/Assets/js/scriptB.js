@@ -53,6 +53,7 @@ $(document).ready(function() {
                     i1 += "</div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
                     m1++)
             }), i1 += "</div>", $("#all").html(i1)
+
         })
         .catch((err) => {
             console.error(err);
