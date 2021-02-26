@@ -146,3 +146,28 @@ hr {
     color: #ed4e6e;
     transform: scale(1.025);
 }
+
+.wh {
+    background-color: gray;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.wh:hover {
+    color: #2c3f52;
+    background: #fdfdfd;
+    border: 1px solid #2c3f52;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.wh:hover::before {
+    content: "You have to Unlock 🔑";
+}
