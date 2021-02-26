@@ -42,11 +42,10 @@ var mainApp = {};
                 if (namex === null) {
                     document.getElementById('nam').innerHTML = `Unknown <i class="fas fa-question-circle"></i>`;
                 } else {
-                    document.getElementById('nam').innerHTML = namex + ` <i class="fas fa-check-circle"></i>`;
+                    document.getElementById('nam').innerHTML = namex + ` <i class="fas fa-check-circle" title="Verified"></i>`;
                 }
                 document.getElementById('license').innerHTML = "<b>License : </b>" + uid;
                 document.getElementById('created').innerHTML = "<b>Enrolled : </b>" + user.metadata.creationTime;
-                console.log(emailVerified)
                 document.getElementById('namUp').addEventListener('click', () => {
                     var usname = document.getElementById('usname').value;
                     var user = firebase.auth().currentUser;
@@ -78,7 +77,9 @@ var mainApp = {};
                         .then((url) => {
                             document.getElementById("imgs").src = url;
                             document.getElementById('img').value = "";
+                            target.src = "";
                             document.getElementById('imgbutton').innerText = "Successfully Uploaded 🥰";
+                            document.getElementById('imgbutton').innerText = "Update again?";
                             firebase
                                 .storage()
                                 .ref("users")
@@ -92,7 +93,6 @@ var mainApp = {};
                             $('#imageModal').modal('hide');
                         })
                         .catch(console.error);
-
                 }
             }
         } else {

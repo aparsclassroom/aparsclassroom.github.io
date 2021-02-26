@@ -11,6 +11,7 @@ var mainApp = {};
             emailVerified = user.emailVerified;
             ann = user.isAnonymous;
             uid = user.uid;
+            console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
             if (ann === true) {
                 document.getElementById('dsh').style.display = "none";
                 document.getElementById('lg').style.display = "inline-block";

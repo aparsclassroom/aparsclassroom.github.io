@@ -12,6 +12,7 @@
                 free = user.isAnonymous;
 
                 isFree()
+                console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
 
                 function isFree() {
 
