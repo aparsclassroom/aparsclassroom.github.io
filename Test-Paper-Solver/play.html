@@ -20,9 +20,12 @@
         .inp {
             text-align: center;
         }
-        #o3, #o1 {
+        
+        #o3,
+        #o1 {
             max-width: 80%;
         }
+        
         .ques {
             text-align: justify;
         }
@@ -30,53 +33,58 @@
         #answers {
             margin-top: 20px;
         }
+        
         .inst {
             margin-top: 30px;
-background-color: cornsilk;
+            background-color: cornsilk;
         }
+        
         .ansFil {
-
             margin: 10px;
             border: 1px dashed black;
             border-radius: 10px;
             background-color: transparent;
         }
-
+        
         .quiz_timer {
-    border: 5px solid #004853;
-    padding: 5px;
-    color: #004853;
-    font-family: Verdana, sans-serif, Arial;
-    font-size: 35px;
-    font-weight: bold;
-    text-decoration: none;
-    width: 200px;
+            border: 5px solid #004853;
+            padding: 5px;
+            color: #004853;
+            font-family: Verdana, sans-serif, Arial;
+            font-size: 35px;
+            font-weight: bold;
+            text-decoration: none;
+            width: 200px;
         }
-        .dragdrop{
+        
+        .dragdrop {
             cursor: grabbing;
         }
-.time {
-    color: #004853;
-}
-
-.ftime {
-    color: white;
-}
-textarea {
-    background-color: rgba(209, 162, 162, 0.623);
-    border: 1px dashed black;
-    width: 100%;
-    resize: none;
-    border-radius: 10px;
-    text-align: center;
-}
-/* #dis {
+        
+        .time {
+            color: #004853;
+        }
+        
+        .ftime {
+            color: white;
+        }
+        
+        textarea {
+            background-color: rgba(209, 162, 162, 0.623);
+            border: 1px dashed black;
+            width: 100%;
+            resize: none;
+            border-radius: 10px;
+            text-align: center;
+        }
+        /* #dis {
     display: none;
 } */
-.ds {
-    margin-top: 5px;
-    border: 1px dashed black;
-}
+        
+        .ds {
+            margin-top: 5px;
+            border: 1px dashed black;
+        }
     </style>
 </head>
 
@@ -86,44 +94,47 @@ textarea {
             <span id="st" class="time">00:00</span>
         </div>
         <h1 style="text-align: center;">Formula Solver App</h1>
-        <h4 style="color: brown;">দুটি ভেক্টর 𝐴 ⃗=30 𝑖 ̂  −100 𝑘 ̂ ও 𝐵 ⃗=3 𝑖 ̂  +4 𝑗 ̂−10 𝑘 ̂ হলে  𝐴 ⃗   এর ওপর 𝐵 ⃗ এর উপাংশ নির্ণয় কর?</h4>
+        <h4 style="color: brown;">দুটি ভেক্টর 𝐴 ⃗=30 𝑖 ̂ −100 𝑘 ̂ ও 𝐵 ⃗=3 𝑖 ̂ +4 𝑗 ̂−10 𝑘 ̂ হলে 𝐴 ⃗ এর ওপর 𝐵 ⃗ এর উপাংশ নির্ণয় কর?</h4>
         <div id="form">
 
-        
-        <button onclick="checkResult ()" id="ys" class="btn btn-success">Stop Timer</button><br>
-        <div class="inst">
-            <p>Drag and Drop Correct Formulas To solve the math 👇👇👇</p>
-            <p>বি. দ্র. ফর্মুলাগুলো স্ক্রীনের যেখানে ইচ্ছা ড্র্যাগ করে রাখা যাবে।</p>
-            <img id="o3" src="/QNA-Hint/assets/images/h3.png" height="50px" value="Formula 3" class="btn ds btn-outline-warning dragdrop"><br>
-           <img id="o1" src="/QNA-Hint/assets/images/h1.png" height="50px" value="Formula 1" class="btn ds btn-outline-warning dragdrop"><br>
-           <img id="o2" src="/QNA-Hint/assets/images/h2.png" height="50px" value="Formula 2" class="btn ds btn-outline-warning dragdrop"><br>
 
-        </div>
+            <button onclick="checkResult ()" id="ys" class="btn btn-success">Stop Timer</button><br>
+            <div class="inst">
+                <p>Drag and Drop Correct Formulas To solve the math 👇👇👇</p>
+                <p>বি. দ্র. ফর্মুলাগুলো স্ক্রীনের যেখানে ইচ্ছা ড্র্যাগ করে রাখা যাবে।</p>
+                <img id="o3" src="/QNA-Hint/assets/images/h3.png" height="50px" value="Formula 3" class="btn ds btn-outline-warning dragdrop"><br>
+                <img id="o1" src="/QNA-Hint/assets/images/h1.png" height="50px" value="Formula 1" class="btn ds btn-outline-warning dragdrop"><br>
+                <img id="o2" src="/QNA-Hint/assets/images/h2.png" height="50px" value="Formula 2" class="btn ds btn-outline-warning dragdrop"><br>
 
-       
-            <div id="d1" class="ansFil align-items-center" >
-                <p>Step 1 : অভিক্ষেপ নির্ণয়ঃ</p><p>অভিক্ষেপ নির্ণয়ের সঠিক ফর্মুলা কোনটি?</p>
+            </div>
+
+
+            <div id="d1" class="ansFil align-items-center">
+                <p>Step 1 : অভিক্ষেপ নির্ণয়ঃ</p>
+                <p>অভিক্ষেপ নির্ণয়ের সঠিক ফর্মুলা কোনটি?</p>
                 <textarea id="a" rows="3" readonly class="inp">
                   Drop the Formula Here 📄📎
                 </textarea>
                 <img id="theDiv1" width="100%">
             </div>
-            <div id="d2" class="ansFil align-items-center " >
-               <div><p>Step 2 : একক ভেক্টর নির্ণয়ঃ </p>একক ভেক্টর নির্ণয়ের সঠিক ফর্মুলা কোনটি?</div>
-                 <textarea id="b" rows="3" readonly class="inp">
+            <div id="d2" class="ansFil align-items-center ">
+                <div>
+                    <p>Step 2 : একক ভেক্টর নির্ণয়ঃ </p>একক ভেক্টর নির্ণয়ের সঠিক ফর্মুলা কোনটি?</div>
+                <textarea id="b" rows="3" readonly class="inp">
                     Drop the Formula Here 📄📎
                   </textarea>
-                  <img id="theDiv2" height="50px">
-                </div>
-            <div id="d3" class="ansFil align-items-center " >
-               <div><p>Step 3 : অভিক্ষেপ হতে উপাংশ নির্ণয়ঃ </p>অভিক্ষেপ হতে উপাংশ নির্ণয়ের সঠিক ফর্মুলা কোনটি?</div>
-                 <textarea id="c" rows="3" readonly class="inp">
-                    Drop the Formula Here 📄📎
-                  </textarea>
-                  <img id="theDiv3" width="100%">
+                <img id="theDiv2" height="50px">
             </div>
-        </p>
-    </div>
+            <div id="d3" class="ansFil align-items-center ">
+                <div>
+                    <p>Step 3 : অভিক্ষেপ হতে উপাংশ নির্ণয়ঃ </p>অভিক্ষেপ হতে উপাংশ নির্ণয়ের সঠিক ফর্মুলা কোনটি?</div>
+                <textarea id="c" rows="3" readonly class="inp">
+                    Drop the Formula Here 📄📎
+                  </textarea>
+                <img id="theDiv3" width="100%">
+            </div>
+            </p>
+        </div>
         <div>
             <div id="dis">
                 <div id="i1"></div>
@@ -134,63 +145,63 @@ textarea {
     </div>
     <div class="modal fade" id="seeCalc" tabindex="-1" role="dialog" aria-labelledby="seeCalcTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered " role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle"><span id="title"></span></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><span id="title"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+                </div>
+                <div class="modal-body">
+                    <div id="image"></div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div id="image"></div>
-            </div>
-          </div>
         </div>
-      </div>      
-    </body>
+    </div>
+</body>
 <script>
     $('.dragdrop').draggable({
         revert: false,
         placeholder: true,
         droptarget: '.inp',
         drop: function(evt, droptarget) {
-            
+
             droptarget.value = evt.target.attributes.value.value;
             // console.log(droptarget.attributes.id.value)
 
 
             if (droptarget.attributes.id.value === "a") {
-                
+
                 if (o1.attributes.value.value === a.value) {
                     $(this).appendTo(droptarget).draggable('destroy');
                     // a.classList.remove("inp");
                     a.style.display = "none";
                     document.getElementById('d1').style.background = "green";
                     document.getElementById('theDiv1').src = evt.target.attributes.src.value;
-                        $('#seeCalc').modal();
-                        document.getElementById('title').innerHTML = "Congratulations! Step 1 Unlocked";
-                        document.getElementById('i1').innerHTML = `
+                    $('#seeCalc').modal();
+                    document.getElementById('title').innerHTML = "Congratulations! Step 1 Unlocked";
+                    document.getElementById('i1').innerHTML = `
                         <h1>Step 1</h1>
                         <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture1.png" alt="Full Calculation" width="100%">
                         `;
-            document.getElementById('image').innerHTML = `
+                    document.getElementById('image').innerHTML = `
             
             <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture1.png" alt="Full Calculation" width="100%">
             `;
-        } else {
-            $('#seeCalc').modal();
-            document.getElementById('d1').style.background = "red";
-            a.value = "Try Again";
-            document.getElementById('title').innerHTML = "Alert";
-            document.getElementById('image').innerHTML = `
+                } else {
+                    $('#seeCalc').modal();
+                    document.getElementById('d1').style.background = "red";
+                    a.value = "Try Again";
+                    document.getElementById('title').innerHTML = "Alert";
+                    document.getElementById('image').innerHTML = `
             <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Warning.png" alt="Full Calculation" width="100%">
             <h3 style="text-align:center"> Bhul Hoise 💔</h3>
             `;
-        }
+                }
                 return;
             }
             if (droptarget.attributes.id.value === "b") {
-               
+
                 if (o2.attributes.value.value === b.value) {
                     // b.classList.remove("inp");
                     b.style.display = "none";
@@ -207,27 +218,27 @@ textarea {
             
             <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture2.png" alt="Full Calculation" width="100%">
             `;
-        } else {
-            $('#seeCalc').modal();
-            b.value = "Try Again";
-            document.getElementById('d2').style.background = "red";
-            document.getElementById('title').innerHTML = "Alert";
-            document.getElementById('image').innerHTML = `
+                } else {
+                    $('#seeCalc').modal();
+                    b.value = "Try Again";
+                    document.getElementById('d2').style.background = "red";
+                    document.getElementById('title').innerHTML = "Alert";
+                    document.getElementById('image').innerHTML = `
             <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Warning.png" alt="Full Calculation" width="100%">
             <h3 style="text-align:center"> Bhul Hoise 💔</h3>
             `;
-        }
+                }
                 return;
             }
-           if (droptarget.attributes.id.value === "c") {
-           
-            if (o3.attributes.value.value === c.value) {
-                // c.classList.remove("inp");
-                c.style.display = "none";
-                $(this).appendTo(droptarget).draggable('destroy');
-                document.getElementById('d3').style.background = "green";
-                document.getElementById('theDiv3').src = evt.target.attributes.src.value;
-                document.getElementById('i3').innerHTML = `
+            if (droptarget.attributes.id.value === "c") {
+
+                if (o3.attributes.value.value === c.value) {
+                    // c.classList.remove("inp");
+                    c.style.display = "none";
+                    $(this).appendTo(droptarget).draggable('destroy');
+                    document.getElementById('d3').style.background = "green";
+                    document.getElementById('theDiv3').src = evt.target.attributes.src.value;
+                    document.getElementById('i3').innerHTML = `
                         <h1>Step 3</h1>
                         <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture3.png" alt="Full Calculation" width="100%">
                         `;
@@ -237,21 +248,21 @@ textarea {
             
             <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture3.png" alt="Full Calculation" width="100%">
             `;
-        } else {
-            $('#seeCalc').modal();
-            c.value = "Try Again";
-            document.getElementById('d3').style.background = "red";
-            document.getElementById('title').innerHTML = "Alert";
-            document.getElementById('image').innerHTML = `
+                } else {
+                    $('#seeCalc').modal();
+                    c.value = "Try Again";
+                    document.getElementById('d3').style.background = "red";
+                    document.getElementById('title').innerHTML = "Alert";
+                    document.getElementById('image').innerHTML = `
             <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Warning.png" alt="Full Calculation" width="100%">
             <h3 style="text-align:center"> Bhul Hoise 💔</h3>
             `;
-        }
+                }
                 return;
-           }
-           
+            }
+
         }
-        
+
     });
     var checkbtn = document.getElementById('checkbtn');
     var a1 = document.getElementById('ans1');
@@ -265,20 +276,20 @@ textarea {
     var a = document.getElementById('a');
     var b = document.getElementById('b');
     var c = document.getElementById('c');
- function checkResult () {
-    if (o1.attributes.value.value === a.value && o2.attributes.value.value === b.value && o3.attributes.value.value === c.value) {
-        document.getElementById('ys').innerText = "Congrats";
-         localStorage.setItem("minutes", minutes);
-        localStorage.setItem("seconds", seconds);
-        clearInterval(mytime);
-        document.getElementById('dis').style.display = "block";
-        document.getElementById('form').style.display = "none";
-         return;
-     } else {
-        alert("Kisu Hoy Nai");
-     }
- }
- 
+
+    function checkResult() {
+        if (o1.attributes.value.value === a.value && o2.attributes.value.value === b.value && o3.attributes.value.value === c.value) {
+            document.getElementById('ys').innerText = "Congrats";
+            localStorage.setItem("minutes", minutes);
+            localStorage.setItem("seconds", seconds);
+            clearInterval(mytime);
+            document.getElementById('dis').style.display = "block";
+            document.getElementById('form').style.display = "none";
+            return;
+        } else {
+            alert("Kisu Hoy Nai");
+        }
+    }
 </script>
 <!-- Modal -->
 
@@ -286,4 +297,5 @@ textarea {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="js/timer.js"></script>
+
 </html>
