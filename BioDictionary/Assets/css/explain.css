@@ -1,3 +1,4 @@
+@import url("player.css");
 body {
     background: url('../images/Background/bg.webp');
     background-color: #fff;
@@ -85,4 +86,8 @@ img {
 
 #rt {
     text-align: right;
+}
+
+#player {
+    border-radius: 100px;
 }

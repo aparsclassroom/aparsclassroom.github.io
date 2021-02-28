@@ -2,22 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Bio Dictionary</title>
+    <title>BioDictionary</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-7R4CMSFEBN');
-    </script>
-
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
@@ -41,7 +28,7 @@
         }(jQuery));
     </script>
     <script src="/HSC-Full-Course/assets/js/bootstrap.min.js" defer></script>
-    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/home.css">
 </head>
 
 <body>
@@ -72,10 +59,101 @@
             </div>
         </nav>
         <div class="container">
-            <h2 style="text-align: center;">Bio Dictionary</h2>
 
-            <a class="btn btn-block btn-dark" type="button" href="Botany.html">Botany</a>
-            <a class="btn btn-block btn-dark" type="button" href="Zoology.html">Zoology</a>
+            <div class="component">
+                <h2 style="text-align: center; margin-top: 40px;">BioDictionary</h2>
+                <ul class="align">
+
+                    <li>
+                        <figure class='book'>
+
+                            <!-- Front -->
+
+                            <ul class='hardcover_front'>
+                                <li>
+                                    <div class="coverDesign blue bangla">
+                                        <h1>উদ্ভিদবিদ্যা</h1>
+                                        <p>ডিকশনারি</p>
+                                    </div>
+                                </li>
+                                <li></li>
+                            </ul>
+
+                            <!-- Pages -->
+
+                            <ul class='page'>
+                                <li></li>
+                                <li>
+                                    <a class="btn" href="Botany.html">Click Me</a>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+
+                            <!-- Back -->
+
+                            <ul class='hardcover_back'>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <ul class='book_spine'>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <figcaption>
+                                <h3>জীববিজ্ঞান (১ম পত্র)</h3>
+                                <span>উদ্ভিদবিদ্যা ডিকশনারি</span>
+                                <p>এই বইয়ে রয়েছে এইচ.এস.সি সিলেবাসের উদ্ভিদবিদ্যার ১২ টি অধ্যায়ের উপর ৩৬০+ শব্দের ব্যাখ্যা ও রেফারেন্সসহ উত্তর এবং শব্দ / টপিক সম্পর্কিত ভিডিও ক্লাস ও অডিও বুক। পাশাপাশি রয়েছে প্রতিটি শব্দের ওপর আঁকা ডিজিটাল ছবি।</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class='book'>
+
+                            <!-- Front -->
+
+                            <ul class='hardcover_front'>
+                                <li>
+                                    <img src="Assets/images/Subect/gazi-azmal.jpg" alt="" width="100%" height="100%">
+                                </li>
+                                <li></li>
+                            </ul>
+
+                            <!-- Pages -->
+
+                            <ul class='page'>
+                                <li></li>
+                                <li>
+                                    <a class="btn" href="Zoology.html">Click Me</a>
+                                </li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+
+                            <!-- Back -->
+
+                            <ul class='hardcover_back'>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <ul class='book_spine'>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <figcaption>
+                                <h3>জীববিজ্ঞান (২য় পত্র)</h3>
+                                <span>প্রাণিবিদ্যা ডিকশনারি</span>
+                                <p>এই বইয়ে রয়েছে এইচ.এস.সি সিলেবাসের প্রাণিবিদ্যার ১২ টি অধ্যায়ের উপর ৩৬০+ শব্দের ব্যাখ্যা ও রেফারেন্সসহ উত্তর এবং শব্দ / টপিক সম্পর্কিত ভিডিও ক্লাস ও অডিও বুক। পাশাপাশি রয়েছে প্রতিটি শব্দের ওপর আঁকা ডিজিটাল ছবি।</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="Assets/js/firebase.js"></script>
 <script src="Assets/js/main.js"></script>

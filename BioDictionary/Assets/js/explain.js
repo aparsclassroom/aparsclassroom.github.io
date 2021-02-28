@@ -66,7 +66,7 @@ window.addEventListener('load', function() {
                         <p class = "bangla"><b>সূত্র :</b> ${ref}</p>
                         <p class = "bangla"><b>পৃষ্ঠা :</b> ${RefPage}</p>
   
-                        <a type="button" id="vidbtn"  onclick="vidPlay()" data-toggle="modal" data-target="#Video">
+                        <a type="button" id="vidbtn" onclick="vidPlay()" data-toggle="modal" data-target="#Video">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                       </svg>
@@ -93,10 +93,9 @@ window.addEventListener('load', function() {
 
             `;
             document.getElementById('vid').innerHTML = `
-            <video  id="vidID" display="inline-block" controls disablePictureInPicture controlsList="nodownload" width="100%">
-            <source src="${video}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>`;
+            <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="${video}"></div>
+        `;
+            player = new Plyr('#player', {});
             $(function() {
                 var id = {
                     sl: num + "_" + chapter + "_" + Subject,
@@ -190,9 +189,11 @@ window.addEventListener('load', function() {
             }
 
             $('#Video').on('hidden.bs.modal', function() {
-                document.getElementById('vidID').currentTime = 0;
-                document.getElementById('vidID').pause();
+                player.currentTime = 0
+                player.pause();
             })
+
+
             if (img == "" || img == "https://gdurl.com") {
                 document.getElementById('image').style.display = "none";
                 document.getElementById('fi').style.display = "none";
@@ -201,6 +202,7 @@ window.addEventListener('load', function() {
             }
             if (video == "" || video == "https://gdurl.com") {
                 document.getElementById('vidbtn').style.display = "none";
+                document.getElementById('vid').innerHTML = "";
             } else {
                 document.getElementById('vidbtn').style.cssText = "display:inline-block;";
             }
@@ -208,9 +210,8 @@ window.addEventListener('load', function() {
                 document.getElementById('ad').style.display = "none";
             } else {
                 document.getElementById('adImg').innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-volume-off-fill" viewBox="0 0 16 16">
+                <path d="M10.717 3.55A.5.5 0 0 1 11 4v8a.5.5 0 0 1-.812.39L7.825 10.5H5.5A.5.5 0 0 1 5 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
               </svg>
                 `;
             }
@@ -277,15 +278,17 @@ window.addEventListener('load', function() {
         });
 })
 
+
+var player;
+
 function vidPlay() {
-    document.getElementById('vidID').play();
+    player.play();
     document.getElementById("audio").pause();
     document.getElementById("audio").currentTime = 0
     document.getElementById('adImg').innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-    <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-volume-off" viewBox="0 0 16 16">
+  <path d="M10.717 3.55A.5.5 0 0 1 11 4v8a.5.5 0 0 1-.812.39L7.825 10.5H5.5A.5.5 0 0 1 5 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM10 5.04L8.312 6.39A.5.5 0 0 1 8 6.5H6v3h2a.5.5 0 0 1 .312.11L10 10.96V5.04z"/>
+</svg>
     `;
 }
 
@@ -294,18 +297,19 @@ function play() {
     if (audio.paused) {
         audio.play();
         document.getElementById('adImg').innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
-        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
-        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+        <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+        <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+        <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
       </svg>
         `;
     } else {
         audio.pause();
         audio.currentTime = 0
         document.getElementById('adImg').innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mic-mute-fill" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12.734 9.613A4.995 4.995 0 0 0 13 8V7a.5.5 0 0 0-1 0v1c0 .274-.027.54-.08.799l.814.814zm-2.522 1.72A4 4 0 0 1 4 8V7a.5.5 0 0 0-1 0v1a5 5 0 0 0 4.5 4.975V15h-3a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-3v-2.025a4.973 4.973 0 0 0 2.43-.923l-.718-.719zM11 7.88V3a3 3 0 0 0-5.842-.963L11 7.879zM5 6.12l4.486 4.486A3 3 0 0 1 5 8V6.121zm8.646 7.234l-12-12 .708-.708 12 12-.708.707z"/>
-</svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-volume-mute-fill" viewBox="0 0 16 16">
+        <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/>
+      </svg>
         `;
     }
 
