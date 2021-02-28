@@ -236,7 +236,7 @@ function factory($) {
                 placeholder: false,
                 droptarget: false,
                 container: false,
-                scroll: false,
+                scroll: true,
                 //callbacks
                 update: null,
                 drop: null
@@ -404,7 +404,7 @@ function factory($) {
                 //options
                 handle: null,
                 delegate: null,
-                scroll: false,
+                scroll: true,
                 scrollspeed: 15,
                 scrolltimeout: 50,
                 //callbacks
