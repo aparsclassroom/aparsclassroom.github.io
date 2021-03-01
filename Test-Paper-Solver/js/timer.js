@@ -16,3 +16,10 @@ let mytime = setInterval(function() {
     let formatted_min = minutes < 10 ? `0${minutes}` : `${minutes}`
     document.querySelector("span.time").innerHTML = `${formatted_min} : ${formatted_sec}`;
 }, 1000);
+
+
+var cursor = document.querySelector(".cursor");
+var cursor2 = document.querySelector(".cursor2");
+document.addEventListener("mousemove", function(e) {
+    cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+});
