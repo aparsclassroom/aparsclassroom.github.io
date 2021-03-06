@@ -21,7 +21,7 @@ function toggleSignIn() {
                     alert('Wrong password.');
                     document.getElementById("forgotPass").style.display = "inline-block";
                 } else {
-                    alert('You don\'t have Access. To get access, Please Buy our subscription');
+                    alert('You don\'t have Access. To get access, Please join our affiliation program');
                 }
             });
     }
@@ -38,7 +38,7 @@ function sendPasswordReset() {
         if (errorCode == 'auth/invalid-email') {
             alert("Please Check your Email Address 🤔 \n\nIt is in wrong format 🙃");
         } else if (errorCode == 'auth/user-not-found') {
-            alert('You haven\'t purchased our premium subscription yet 😶');
+            alert('You haven\'t joined our affiliation program yet 😶');
         }
     });
 }
