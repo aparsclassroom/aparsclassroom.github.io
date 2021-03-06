@@ -37,7 +37,7 @@
                         <h2 class="mdl-card__title-text">Verify your phone number to apply discount cupon</h2>
                     </div>
                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                        <p>Sign in with your phone number below.</p>
+                        <p>You have to Verify your phone number first!</p>
 
                         <form id="sign-in-form" action="#">
                             <!-- Input to enter the phone number -->
@@ -110,7 +110,8 @@
                     var providerData = user.providerData;
                     var emailVerified = user.emailVerified;
 
-                    alert("Your " + phoneNumber + "is now verified !!!")
+                    alert("Your " + phoneNumber + " is now verified !!!")
+                    document.location.href = "BioDictionary"
                 }
                 updateSignInButtonUI();
                 updateSignInFormUI();
@@ -274,13 +275,6 @@
                 document.getElementById('verification-code-form').style.display = 'block';
             } else {
                 document.getElementById('verification-code-form').style.display = 'none';
-            }
-        }
-
-        function updateSignedInUserStatusUI() {
-            var user = firebase.auth().currentUser;
-            if (user) {
-                document.location.href = "BioDictionary"
             }
         }
     </script>
