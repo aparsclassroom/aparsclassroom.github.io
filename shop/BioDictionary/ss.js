@@ -34,8 +34,8 @@ function saveStorage(e, t) {
 }
 
 
-
+saveStorage('#form');
 document.getElementById('app').addEventListener('click', () => {
-    saveStorage('#form');
+
     document.location.href = "../index.html";
 })
