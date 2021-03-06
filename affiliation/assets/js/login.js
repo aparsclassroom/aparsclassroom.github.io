@@ -1,3 +1,17 @@
+function showPass() {
+    var x = document.getElementById("password");
+    var y = document.getElementById('icon');
+    if (x.type === "password") {
+        x.type = "text";
+        y.classList.remove("fa-lock");
+        y.classList.add("fa-eye");
+    } else {
+        x.type = "password";
+        y.classList.remove("fa-eye");
+        y.classList.add("fa-lock");
+    }
+}
+
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
         firebase.auth().signOut();
