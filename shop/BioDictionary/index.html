@@ -125,7 +125,7 @@
             <p style="font-size: 20px; color: #EE4574;">Transaction ID ***</p>
             <input id="Trnx-ID" style="color: #EE4574;" name="Trnx-ID" type="text" placeholder="XXX XXX XXX" required>
             <br><br>
-            <a id="app" href="../index.html">Apply Cupon</a>
+            <button id="app">Apply Cupon</button>
             <input id="cupon" name="cupon" type="text" placeholder="Discount Cupon">
         </section>
         <textarea name="ip-details" id="ip-details"></textarea>
@@ -135,6 +135,7 @@
             <strong>Success!</strong> Please Wait...
             </button>
         </div>
+        <button type="submit" id="save">Save</button>
         <div class="button" id="prev">&larr; Previous</div>
         <div class="button" id="next">Next &rarr;</div>
         <button class="button" type="submit" id="submit" name="submit">Confirm Purchase</button>
@@ -171,7 +172,7 @@
     </script>
     <script src="../../BioDictionary/purchase/assets/script.js"></script>
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyEd3ooKfsxYjSW_n0Lq8b18E3c9Yb5j9wL859Sr6GKYaVRK4zpmsl-/exec'
+        const scriptURL = '#'
         const form = document.forms['QnAPurchase']
 
         form.addEventListener('submit', e => {
@@ -181,7 +182,7 @@
                     body: new FormData(form)
                 })
                 .then(response => alert("You've been successfully Applied for 1 Year Subscription 🥰 \n Plz Wait for a manual Verification\n\nWhen verification process is completed we will email you.\nThis may take upto 24 hours (highest)"))
-                .then(response => window.location.replace("https://aparsclassroom.com/App/index.html"))
+                .then(response => window.location.replace("#"))
 
             .catch(error => console.error('Error!', error.message))
             document.querySelector('#confirmation').style.display = 'block';
@@ -194,16 +195,8 @@
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                // User is signed in.
-                var uid = user.uid;
-                var email = user.email;
                 var photoURL = user.photoURL;
                 var phoneNumber = user.phoneNumber;
-                var isAnonymous = user.isAnonymous;
-                var displayName = user.displayName;
-                var providerData = user.providerData;
-                var emailVerified = user.emailVerified;
-
                 document.getElementById('Contact-Number').value = phoneNumber;
                 document.getElementById('app').style.display = "none";
                 document.getElementById('cupon').style.display = "block";
@@ -213,7 +206,7 @@
             }
         });
     </script>
-
+    <script src="ss.js"></script>
 </body>
 
 </html>
