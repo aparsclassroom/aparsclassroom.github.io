@@ -336,6 +336,7 @@ limitations under the License.
             if (user) {
                 document.getElementById('sign-in-status').textContent = 'Signed in';
                 document.getElementById('account-details').textContent = JSON.stringify(user, null, '  ');
+                document.location.href = "BioDictionary"
             } else {
                 document.getElementById('sign-in-status').textContent = 'Signed out';
                 document.getElementById('account-details').textContent = 'null';

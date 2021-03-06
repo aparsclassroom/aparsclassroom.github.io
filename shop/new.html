@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/affiliation/assets/js/core/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="aff"></h1>
+    <h1 id="href"></h1>
+    <a href="new2.html?Ok" rel="noopener noreferrer">Click</a>
+</body>
+<script>
+    const product = "BioDictionary";
+    document.getElementById('href').innerText = window.location.href;
+    var str = window.location.search;
+    var res = str.substring(1, 8);
+    if (localStorage.getItem(product) === "") {
+        localStorage.setItem(product, res);
+    }
+    if (res === "") {
+        document.getElementById('aff').innerText = localStorage.getItem(product)
+
+    } else {
+        document.getElementById('aff').innerText = res
+        localStorage.setItem(product, res);
+
+    }
+</script>
+
+</html>
