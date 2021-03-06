@@ -117,7 +117,9 @@
     </form>
 
     <script>
-        document.getElementById('aff').value = window.location.search;
+        var str = window.location.search;
+        var res = str.substring(1, 8);
+        document.getElementById("aff").value = res;
 
         function onSubmit(token) {
             document.getElementById("form").submit();
