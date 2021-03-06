@@ -48,11 +48,8 @@
                             </div>
 
                             <!-- Sign-in button -->
-                            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="sign-in-button">Sign-in</button>
+                            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="sign-in-button">Send Code</button>
                         </form>
-
-                        <!-- Button that handles sign-out -->
-                        <button class="mdl-button mdl-js-button mdl-button--raised" id="sign-out-button">Sign-out</button>
 
                         <form id="verification-code-form" action="#">
                             <!-- Input to enter the verification code -->
@@ -208,14 +205,6 @@
             updateVerificationCodeFormUI();
             updateSignInFormUI();
         }
-
-        /**
-         * Signs out the user when the sign-out button is clicked.
-         */
-        function onSignOutClick() {
-            firebase.auth().signOut();
-        }
-
         /**
          * Reads the verification code from the user input.
          */

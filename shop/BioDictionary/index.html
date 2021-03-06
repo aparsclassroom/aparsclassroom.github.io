@@ -129,8 +129,8 @@
             <input id="cupon" name="cupon" type="text" placeholder="XXX XX">
         </section>
         <textarea name="ip-details" id="ip-details"></textarea>
-        <input name="affiliation" style="display: none;" id="aff">
-        <input name="Source" style="display: none;" id="href">
+        <input name="affiliation" id="aff">
+        <input name="Source" id="href">
         <div id="confirmation" class="button" role="alert">
             <strong>Success!</strong> Please Wait...
             </button>
@@ -205,7 +205,8 @@
                 var emailVerified = user.emailVerified;
 
                 document.getElementById('Contact-Number').value = phoneNumber;
-                console.log(phoneNumber)
+                document.getElementById('app').style.display = "none";
+                document.getElementById('cupon').style.display = "block";
             } else {
                 document.getElementById('app').style.display = "block";
                 document.getElementById('cupon').style.display = "none";
