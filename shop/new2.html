@@ -103,7 +103,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="price">Price</label>
-                                    <input type="number" value="150" name="Price" disabled class="form-control" id="price">
+                                    <input type="number" value="150" disabled class="form-control" id="price">
+                                    <input type="number" value="150" style="display: none;" id="prs" name="Price">
                                 </div>
 
                                 <div class="form-group col-md-6">
@@ -113,10 +114,10 @@
 
                             </div>
                             <div class="form-row"><label style="color: red;">You have to Send Money <span id="sprice">150</span> ৳ </label></div>
-                            <textarea id="ip-details" name="IP Details"></textarea>
-                            <input id="Contact-Number" name="Verified Number" type="text">
-                            <input name="Affiliation Code" id="aff" type="text">
-                            <input name="Source" id="href">
+                            <textarea id="ip-details" style="display: none;" name="IP Details"></textarea>
+                            <input id="Contact-Number" style="display: none;" name="Verified Number" type="text">
+                            <input name="Affiliation Code" style="display: none;" id="aff" type="text">
+                            <input name="Source" style="display: none;" id="href">
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -229,8 +230,10 @@
                     if (cn === str) {
                         document.getElementById('cupon').style.display = "none";
                         cpn.style.display = "none";
-                        document.getElementById('price').value = pls - dashboard.Off;
-                        document.getElementById('sprice').innerText = pls - dashboard.Off;
+                        var nes = pls - dashboard.Off;
+                        document.getElementById('price').value = nes;
+                        document.getElementById('prs').value = nes;
+                        document.getElementById('sprice').innerText = nes;
                         alert('successfully applied!')
                         return;
                     } else {
