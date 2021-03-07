@@ -131,6 +131,7 @@
                             <input id="Contact-Number" style="display: none;" name="Verified Number" type="text">
                             <input name="Affiliation Code" style="display: none;" id="aff" type="text">
                             <input name="Source" style="display: none;" id="href">
+                            <input type="text" id="cupn" name="Cupon">
                             <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -247,6 +248,7 @@
                         document.getElementById('price').value = nes;
                         document.getElementById('prs').value = nes;
                         document.getElementById('sprice').innerText = nes;
+                        document.getElementById('cupn').value = cupon;
                         document.getElementById('smp').innerHTML = "<del style='color:red'> 150 ৳ </del> " + nes;
                         alert('successfully applied!')
                         return;
