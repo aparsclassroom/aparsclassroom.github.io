@@ -247,7 +247,7 @@
                         document.getElementById('price').value = nes;
                         document.getElementById('prs').value = nes;
                         document.getElementById('sprice').innerText = nes;
-                        document.getElementById('smp').innerText = nes;
+                        document.getElementById('smp').innerHTML = "<del style='color:red'> 150 ৳ </del> " + nes;
                         alert('successfully applied!')
                         return;
                     } else {
