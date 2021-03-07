@@ -35,9 +35,5 @@ function saveStorage(e, t) {
 
 
 saveStorage('#form', {
-    exclude: ['affiliation']
+    exclude: ['ip-details', 'hidden'] // does not save input types
 });
-document.getElementById('app').addEventListener('click', () => {
-
-    document.location.href = "../index.html";
-})

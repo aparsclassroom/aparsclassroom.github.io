@@ -126,10 +126,13 @@
             <input id="Trnx-ID" style="color: #EE4574;" name="Trnx-ID" type="text" placeholder="XXX XXX XXX" required>
             <br><br>
             <button id="app">Apply Cupon</button>
-            <input id="cupon" name="cupon" type="text" placeholder="Discount Cupon">
+            <div id="cup">
+                <input id="cupon" name="cupon" type="text" oninput="func()" placeholder="Discount Cupon"><button id="cpnCheck">Check</button>
+            </div>
+
         </section>
         <textarea name="ip-details" id="ip-details"></textarea>
-        <input name="affiliation" id="aff">
+        <input name="affiliation" id="aff" type="text">
         <input name="Source" id="href">
         <div id="confirmation" class="button" role="alert">
             <strong>Success!</strong> Please Wait...
@@ -188,24 +191,66 @@
             document.querySelector('#prev').style.display = 'none';
             document.querySelector('#next').style.display = 'none';
             document.querySelector('#submit').style.display = 'none';
-            form.reset();
         })
 
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                var photoURL = user.photoURL;
                 var phoneNumber = user.phoneNumber;
                 document.getElementById('Contact-Number').value = phoneNumber;
                 document.getElementById('app').style.display = "none";
-                document.getElementById('cupon').style.display = "block";
+                document.getElementById('cup').style.display = "block";
             } else {
                 document.getElementById('app').style.display = "block";
-                document.getElementById('cupon').style.display = "none";
+                document.getElementById('cup').style.display = "none";
             }
         });
     </script>
-    <script src="ss.js"></script>
+
+    <script>
+        document.getElementById('app').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.location.href = "../index.html";
+        })
+        var cpn = document.getElementById('cpnCheck');
+        var cupon;
+
+        function func() {
+            cupon = document.getElementById('cupon').value;
+        }
+
+        cpn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('cupon').value = "Checking";
+
+            const igs = 'QUtmeWNieFZESnF6WXY2bU1tN3lOMnFmTGVWNWJsekQ4QTBaNTRMT1ZJOHZ0TmpjdEkyU0M0NnhMaXJEb0lYM09xd0xJUTF6WWc=';
+            fetch('https://script.google.com/macros/s/' + window.atob(igs) + '/exec')
+
+            .then((res) => {
+                    return res.json();
+                })
+                .then((loadedData) => {
+                    loadedData.find(dashboard => {
+                        var ss = dashboard.Cupon
+                        var cn = window.atob(ss)
+                        var sr = cupon.trim();
+                        var str = sr.toUpperCase()
+                        if (cn === str) {
+                            document.getElementById('cupon').disabled = "true";
+                            document.getElementById('cupon').value = dashboard.Off;
+                            alert('successfully applied!')
+                            return;
+                        } else {
+                            document.getElementById('cupon').value = "Code not Valid";
+                            alert('Code not valid')
+                        }
+                    })
+                }).catch((err => {
+                    console.log(err)
+                }))
+
+        })
+    </script>
 </body>
 
 </html>
