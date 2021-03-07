@@ -1,31 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyAH2zBEVee1dvhrlnJCofm4P4o-hVqECTA",
+            authDomain: "chatbot-ylwurt.firebaseapp.com",
+            databaseURL: "https://chatbot-ylwurt.firebaseio.com",
+            projectId: "chatbot-ylwurt",
+            storageBucket: "chatbot-ylwurt.appspot.com",
+            messagingSenderId: "170430657555",
+            appId: "1:170430657555:web:94e053b14b5cb41e92fbe6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
 </head>
 
 <body>
-    <h1 id="aff"></h1>
-    <a href="new.html?test" rel="noopener noreferrer">Click</a>
+    <div class="container">
+
+
+        <h1>Hello, world!</h1>
+
+        <button id="app">Apply Cupon</button>
+        <div id="cup">
+            <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" placeholder="Discount Cupon"><button id="cpnCheck" disabled>Check</button>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Purchase Form
+  </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" id="form" name="BioDictionary">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" required id="name" placeholder="Your Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="xyz@gmail.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputAddress">College</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="Dhaka Residential Model College">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="hscBatch">HSC Batch</label>
+                                    <select id="hscBatch" required class="form-control">
+                                        <option value="">--Choose any--</option>
+                              <option value="HSC 21">HSC'21</option>
+                              <option value="HSC 22">HSC'22</option>
+                              <option value="HSC 23">HSC'23</option>
+                              <option value="HSC 20">HSC'20</option>
+                              <option value="Other">Other</option>
+                            </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">Your Bkash Number</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputState">Payment Gateway</label>
+                                    <select id="inputState" required class="form-control">
+                                        <option value="">--Choose any--</option>
+                              <option value="Bkash1">01733593733 (BKash)</option>
+                              <option value="Nagad">01733593733 (Nagad)</option>
+                            </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="price">Price</label>
+                                    <input type="number" disabled class="form-control" id="price">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="Tranx">Transaction Id.</label>
+                                    <input type="text" class="form-control" id="Tranx" placeholder="9vdvd3csvs">
+                                </div>
+
+                            </div>
+                            <div class="form-row"><label style="color: red;">You have to Send Money <span id="sprice">x</span> ৳ </label></div>
+                            <textarea name="ip-details" id="ip-details"></textarea>
+                            <input name="affiliation" id="aff" type="text">
+                            <input name="Source" id="href">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                              All the informations are correct & I have sent the money 🥰
+                            </label>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 <script>
-    const product = "Product 2";
-    var str = window.location.search;
-    var res = str.substring(1, 8);
+    $.get('https://json.geoiplookup.io/', function(res) {
+        var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+        document.getElementById("ip-details").value = a;
+    });
+</script>
+<script>
+    const scriptURL = '#'
+    const form = document.forms['BioDictionary']
 
-    if (localStorage.getItem(product) === "") {
-        localStorage.setItem(product, res);
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => alert("You've been successfully Applied for 1 Year Subscription 🥰 \n Plz Wait for a manual Verification\n\nWhen verification process is completed we will email you.\nThis may take upto 24 hours (highest)"))
+            // .then(response => window.location.replace("#"))
+
+        .catch(error => console.error('Error!', error.message))
+    })
+
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            var phoneNumber = user.phoneNumber;
+            document.getElementById('Contact-Number').value = phoneNumber;
+            document.getElementById('app').style.display = "none";
+            document.getElementById('cup').style.display = "block";
+        } else {
+            document.getElementById('app').style.display = "block";
+            document.getElementById('cup').style.display = "none";
+        }
+    });
+</script>
+<script>
+    document.getElementById('app').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.location.href = "./index.html";
+    })
+    var cpn = document.getElementById('cpnCheck');
+    var cupon;
+
+    function func() {
+        cupon = document.getElementById('cupon').value;
     }
-    if (res === "") {
-        document.getElementById('aff').innerText = localStorage.getItem(product)
-    } else {
-        document.getElementById('aff').innerText = res
-        localStorage.setItem(product, res);
+
+    function suc() {
+        if (document.getElementById("cupon").value === "") {
+            document.getElementById('cpnCheck').disabled = true;
+        } else {
+            document.getElementById('cpnCheck').disabled = false;
+        }
     }
+    cpn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('cupon').value = "Checking";
+
+        const igs = 'QUtmeWNieFZESnF6WXY2bU1tN3lOMnFmTGVWNWJsekQ4QTBaNTRMT1ZJOHZ0TmpjdEkyU0M0NnhMaXJEb0lYM09xd0xJUTF6WWc=';
+        fetch('https://script.google.com/macros/s/' + window.atob(igs) + '/exec')
+
+        .then((res) => {
+                return res.json();
+            })
+            .then((loadedData) => {
+                loadedData.find(dashboard => {
+                    var ss = dashboard.Cupon
+                    var cn = window.atob(ss)
+                    var sr = cupon.trim();
+                    var str = sr.toUpperCase()
+                    if (cn === str) {
+                        document.getElementById('cupon').disabled = "true";
+                        cpn.style.display = "none";
+                        document.getElementById('price').value = dashboard.serial - dashboard.Off;
+                        document.getElementById('sprice').value = dashboard.serial - dashboard.Off;
+                        alert('successfully applied!')
+                        return;
+                    } else {
+                        document.getElementById('cupon').value = "Code not Valid";
+                        alert('Code not valid')
+                    }
+                })
+            }).catch((err => {
+                console.log(err)
+            }))
+
+    })
 </script>
 
 </html>
