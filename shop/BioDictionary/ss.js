@@ -34,7 +34,9 @@ function saveStorage(e, t) {
 }
 
 
-saveStorage('#form');
+saveStorage('#form', {
+    exclude: ['affiliation']
+});
 document.getElementById('app').addEventListener('click', () => {
 
     document.location.href = "../index.html";
