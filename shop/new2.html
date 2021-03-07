@@ -103,7 +103,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="price">Price</label>
-                                    <input type="number" disabled class="form-control" id="price">
+                                    <input type="number" value="150" disabled class="form-control" id="price">
                                 </div>
 
                                 <div class="form-group col-md-6">
@@ -230,7 +230,7 @@
                         document.getElementById('cupon').style.display = "none";
                         cpn.style.display = "none";
                         document.getElementById('price').value = pls - dashboard.Off;
-                        document.getElementById('sprice').value = pls - dashboard.Off;
+                        document.getElementById('sprice').innerText = pls - dashboard.Off;
                         alert('successfully applied!')
                         return;
                     } else {
