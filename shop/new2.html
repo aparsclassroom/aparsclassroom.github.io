@@ -197,7 +197,7 @@
     cpn.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementById('cupon').value = "Checking";
-
+        const pls = 150;
         const igs = 'QUtmeWNieFZESnF6WXY2bU1tN3lOMnFmTGVWNWJsekQ4QTBaNTRMT1ZJOHZ0TmpjdEkyU0M0NnhMaXJEb0lYM09xd0xJUTF6WWc=';
         fetch('https://script.google.com/macros/s/' + window.atob(igs) + '/exec')
 
@@ -211,10 +211,10 @@
                     var sr = cupon.trim();
                     var str = sr.toUpperCase()
                     if (cn === str) {
-                        document.getElementById('cupon').disabled = "true";
+                        document.getElementById('cupon').style.display = "none";
                         cpn.style.display = "none";
-                        document.getElementById('price').value = dashboard.serial - dashboard.Off;
-                        document.getElementById('sprice').value = dashboard.serial - dashboard.Off;
+                        document.getElementById('price').value = pls - dashboard.Off;
+                        document.getElementById('sprice').value = pls - dashboard.Off;
                         alert('successfully applied!')
                         return;
                     } else {
