@@ -244,6 +244,7 @@
                         var str = sr.toUpperCase()
                         if (cn === str) {
                             document.getElementById('cupon').disabled = "true";
+                            cpn.style.display = "none";
                             document.getElementById('cupon').value = dashboard.Off;
                             alert('successfully applied!')
                             return;
