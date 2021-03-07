@@ -110,8 +110,8 @@
                     var providerData = user.providerData;
                     var emailVerified = user.emailVerified;
 
-                    alert("Your " + phoneNumber + " is now verified !!!")
-                    document.location.href = "BioDictionary"
+                    alert("Your mobile number : " + phoneNumber + " is now verified !!!")
+                    window.history.back();
                 }
                 updateSignInButtonUI();
                 updateSignInFormUI();
