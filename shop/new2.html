@@ -62,21 +62,21 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" required id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" required id="name" name="Name" placeholder="Your Name">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="xyz@gmail.com">
+                                    <input type="email" class="form-control" id="email" name="Email" placeholder="xyz@gmail.com">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputAddress">College</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Dhaka Residential Model College">
+                                    <label for="college">College</label>
+                                    <input type="text" class="form-control" id="college" name="College" placeholder="Dhaka Residential Model College">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="hscBatch">HSC Batch</label>
-                                    <select id="hscBatch" required class="form-control">
+                                    <select id="hscBatch" name="HSC Batch" required class="form-control">
                                         <option value="">--Choose any--</option>
                               <option value="HSC 21">HSC'21</option>
                               <option value="HSC 22">HSC'22</option>
@@ -88,34 +88,34 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputCity">Your Bkash Number</label>
-                                    <input type="text" class="form-control" id="inputCity">
+                                    <label for="Bkash">Your Bkash Number</label>
+                                    <input type="text" name="User Bkash" class="form-control" id="Bkash">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputState">Payment Gateway</label>
-                                    <select id="inputState" required class="form-control">
+                                    <label for="Gateway">Payment Gateway</label>
+                                    <select id="Gateway" name="Payment Gateway" required class="form-control">
                                         <option value="">--Choose any--</option>
-                              <option value="Bkash1">01733593733 (BKash)</option>
-                              <option value="Nagad">01733593733 (Nagad)</option>
+                              <option value="01733593733 (BKash)">01733593733 (BKash)</option>
+                              <option value="01733593733 (Nagad)">01733593733 (Nagad)</option>
                             </select>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="price">Price</label>
-                                    <input type="number" value="150" disabled class="form-control" id="price">
+                                    <input type="number" value="150" name="Price" disabled class="form-control" id="price">
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="Tranx">Transaction Id.</label>
-                                    <input type="text" class="form-control" id="Tranx" placeholder="9vdvd3csvs">
+                                    <input type="text" class="form-control" name="Tranx Id" id="Tranx" placeholder="9vdvd3csvs">
                                 </div>
 
                             </div>
                             <div class="form-row"><label style="color: red;">You have to Send Money <span id="sprice">150</span> ৳ </label></div>
-                            <textarea name="ip-details" id="ip-details"></textarea>
-                            <input name="Contact-Number" id="Contact-Number" type="text">
-                            <input name="affiliation" id="aff" type="text">
+                            <textarea id="ip-details" name="IP Details"></textarea>
+                            <input id="Contact-Number" name="Verified Number" type="text">
+                            <input name="Affiliation Code" id="aff" type="text">
                             <input name="Source" id="href">
                             <div class="form-group">
                                 <div class="form-check">
@@ -163,7 +163,7 @@
     });
 </script>
 <script>
-    const scriptURL = '#'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyEd3ooKfsxYjSW_n0Lq8b18E3c9Yb5j9wL859Sr6GKYaVRK4zpmsl-/exec'
     const form = document.forms['BioDictionary']
 
     form.addEventListener('submit', e => {
