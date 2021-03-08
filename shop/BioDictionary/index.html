@@ -2,38 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
-
+    <script src="../assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
+    <script src="assets/ss.min.js" defer></script>
     <script>
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-            apiKey: "AIzaSyAH2zBEVee1dvhrlnJCofm4P4o-hVqECTA",
-            authDomain: "chatbot-ylwurt.firebaseapp.com",
-            databaseURL: "https://chatbot-ylwurt.firebaseio.com",
-            projectId: "chatbot-ylwurt",
-            storageBucket: "chatbot-ylwurt.appspot.com",
-            messagingSenderId: "170430657555",
-            appId: "1:170430657555:web:94e053b14b5cb41e92fbe6"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
+        const product = "BioDictionary";
     </script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>ASG Shop</title>
-
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -54,18 +37,18 @@
         <br>
         <div class="d-flex justify-content-center">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#purchaseFrm">
         Purchase Form
       </button>
 
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true">
+        <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel" data-backdrop="static" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Purchase Form</h5>
+                        <h5 class="modal-title" id="purchaseFrmLabel">Purchase Form</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -149,119 +132,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-<script>
-    const product = "BioDictionary";
-    document.getElementById('href').value = window.location.href;
-    var str = window.location.search;
-    var res = str.substring(1, 8);
-    if (localStorage.getItem(product) === "") {
-        localStorage.setItem(product, res);
-    }
-    if (res === "") {
-        document.getElementById('aff').value = localStorage.getItem(product)
-
-    } else {
-        document.getElementById('aff').value = res
-        localStorage.setItem(product, res);
-
-    }
-    $.get('https://json.geoiplookup.io/', function(res) {
-        var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
-        document.getElementById("ip-details").value = a;
-    });
-</script>
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwHWOaJuvYuj2zn4SwfvpT7Gw91fatM2uVhjL1r4kes-I1XYHNA7ZGT_AuS8ifoJGQ/exec'
-    const form = document.forms['BioDictionary']
-
-    form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => alert("You've been successfully Applied for 1 Year Subscription 🥰 \n Plz Wait for a manual Verification\n\nWhen verification process is completed we will email you.\nThis may take upto 24 hours (highest)"))
-            .then(response => window.location.replace("https://facebook.com/maheyan.mridul/"))
-
-        .catch(error => console.error('Error!', error.message))
-    })
-
-
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            var phoneNumber = user.phoneNumber;
-            document.getElementById('Contact-Number').value = phoneNumber;
-            document.getElementById('app').style.display = "none";
-            document.getElementById('cup').style.display = "block";
-        } else {
-            document.getElementById('app').style.display = "block";
-            document.getElementById('cup').style.display = "none";
-        }
-    });
-</script>
-<script>
-    document.getElementById('app').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.location.href = "../index.html";
-    })
-    var cpn = document.getElementById('cpnCheck');
-    var cupon;
-
-    function func() {
-        cupon = document.getElementById('cupon').value;
-    }
-
-    function suc() {
-        if (document.getElementById("cupon").value === "") {
-            document.getElementById('cpnCheck').disabled = true;
-        } else {
-            document.getElementById('cpnCheck').disabled = false;
-        }
-    }
-    cpn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('cupon').value = "Checking";
-        const pls = 150;
-        const igs = 'QUtmeWNieFZESnF6WXY2bU1tN3lOMnFmTGVWNWJsekQ4QTBaNTRMT1ZJOHZ0TmpjdEkyU0M0NnhMaXJEb0lYM09xd0xJUTF6WWc=';
-        fetch('https://script.google.com/macros/s/' + window.atob(igs) + '/exec')
-
-        .then((res) => {
-                return res.json();
-            })
-            .then((loadedData) => {
-                loadedData.find(dashboard => {
-                    var ss = dashboard.Cupon
-                    var cn = window.atob(ss)
-                    var sr = cupon.trim();
-                    var str = sr.toUpperCase()
-                    if (cn === str) {
-                        document.getElementById('cupon').style.display = "none";
-                        cpn.style.display = "none";
-                        var nes = pls - dashboard.Off;
-                        document.getElementById('price').value = nes;
-                        document.getElementById('prs').value = nes;
-                        document.getElementById('sprice').innerText = nes;
-                        document.getElementById('cupn').value = cupon;
-                        document.getElementById('smp').innerHTML = "<del style='color:red'> 150 ৳ </del> " + nes;
-                        alert('successfully applied!')
-                        return;
-                    } else {
-                        document.getElementById('cupon').value = "Code not Valid";
-                        alert('Code not valid')
-                    }
-                })
-            }).catch((err => {
-                console.log(err)
-            }))
-
-    })
-</script>
 
 </html>
