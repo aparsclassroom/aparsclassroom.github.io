@@ -3676,6 +3676,12 @@ input[type="button"].btn-block {
     border: 0;
 }
 
+@media screen and (max-width:600px) {
+    .dropdown-item {
+        white-space: normal;
+    }
+}
+
 .dropdown-item:hover,
 .dropdown-item:focus {
     color: #16181b;
