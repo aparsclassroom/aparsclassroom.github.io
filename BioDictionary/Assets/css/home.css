@@ -31,11 +31,25 @@ html {
 }
 
 body {
-    background: #ecf0f1;
+    background: url('../images/Background/bg.webp');
     color: #34495e;
     font-family: 'Lato', 'Arial', sans-serif;
     font-weight: 400;
     line-height: 1.2;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .all-container {
