@@ -2,7 +2,7 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-var penl1, penl2, penl3, penl4, penl5, verl1, verl2, verl3, verl4, verl5;
+var verl1, verl2, verl3, verl4, verl5;
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -14,6 +14,13 @@ function initApp() {
                 .then((loadedData) => {
                     loadedData.find(dashboard => {
                         if (dashboard.UID === user.uid) {
+                            verl1 = dashboard.Verified_Income_of_Link_1;
+                            verl2 = dashboard.Verified_Income_of_Link_2;
+                            verl3 = dashboard.Verified_Income_of_Link_3;
+                            verl4 = dashboard.Verified_Income_of_Link_4;
+                            verl5 = dashboard.Verified_Income_of_Link_5;
+                            var totalv = verl1 + verl2 + verl3 + verl4 + verl5;
+                            var wallet = (totalv - dashboard.cashOut);
                             document.getElementById('contoller').innerText = dashboard.Controler_Name;
                             document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
                             document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
@@ -21,6 +28,8 @@ function initApp() {
                             document.getElementById('email').value = dashboard.Email;
                             document.getElementById('nid').value = dashboard.NID;
                             document.getElementById('uid').value = dashboard.UID;
+                            document.getElementById('cash').placeholder = "Maximum : " + wallet;
+                            document.getElementById('lmt').placeholder = wallet;
                             document.getElementById('clg').value = dashboard.College_University;
                             document.getElementById('mbl1').value = dashboard.Mobile_1;
                             document.getElementById('bkash').value = dashboard.Bkash;
