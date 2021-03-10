@@ -29,7 +29,7 @@ function initApp() {
                             document.getElementById('nid').value = dashboard.NID;
                             document.getElementById('uid').value = dashboard.UID;
                             document.getElementById('cash').placeholder = "Maximum : " + wallet;
-                            document.getElementById('lmt').placeholder = wallet;
+                            document.getElementById('lmt').innerText = wallet;
                             document.getElementById('clg').value = dashboard.College_University;
                             document.getElementById('mbl1').value = dashboard.Mobile_1;
                             document.getElementById('bkash').value = dashboard.Bkash;
