@@ -1,0 +1,48 @@
+[
+
+    {
+        "title": "DASHBOARD",
+        "category": "dashboard",
+        "tags": "performance, completed sell, verified earning, total pending income, total sell",
+        "description": "Here you will find your affiliation performance.\n Such as : Your Completed Sell, Total Verified Earning, Total Pending\n You will also find here : Total Verified Income, Total Cash Out, Remaining in Wallet",
+        "url": "./dashboard.html"
+    },
+
+    {
+        "title": "USER PROFILE",
+        "category": "profile",
+        "tags": "user, user profile, all data",
+        "description": "Here you will find your affiliation profile. All of you data will be populated here. In this section you will also find 2 charts. Those are on Total Pending Income and Total Verified Earning.",
+        "url": "./profile.html"
+    },
+
+    {
+        "title": "PRODUCTS",
+        "category": "products",
+        "tags": "products, affiliate links, incentive, posters, captions, images, videos, commission",
+        "description": "Here is all your custom made products links. Click on the copy button to copy links. You can also find here all the captions, images, videos for posting on any social media.",
+        "url": "./products.html"
+    },
+    {
+        "title": "TUTORIAL",
+        "category": "tutorial",
+        "tags": "tutorial, video, how to, help me",
+        "description": "How to use this Affiliation Dashboard. Watch this video full and you can find any type of solution.",
+        "url": "./tutorial.html"
+    },
+    {
+        "title": "CASH OUT",
+        "category": "cash out",
+        "tags": "cash out, terms and conditions",
+        "description": "You can cash out from your wallet. You Can also find all the Terms and Conditions of ASG Affiliation Program",
+        "url": "./cashout.html"
+    },
+    {
+        "title": "Facebook Chat Group",
+        "category": "Support",
+        "tags": "Facebook, Chat Group, Chat Support, Discount Cupon",
+        "description": "Join this Exclusive Chat Group to avail the Expert Support and Get all the latest news about Discount Cupons about Affiliation Program",
+        "url": "https://www.facebook.com/messages/t/2456849744439298"
+    }
+
+]
