@@ -15,21 +15,21 @@
     <a href="new2.html?Ok" rel="noopener noreferrer">Click</a>
 </body>
 <script>
-    const product = "BioDictionary";
-    document.getElementById('href').innerText = window.location.href;
-    var str = window.location.search;
-    var res = str.substring(1, 8);
-    if (localStorage.getItem(product) === "") {
-        localStorage.setItem(product, res);
-    }
-    if (res === "") {
-        document.getElementById('aff').innerText = localStorage.getItem(product)
+    firebase.auth()
+        .signInWithEmailAndPassword('email', 'oldPassword')
+        .then(function(user) {
 
-    } else {
-        document.getElementById('aff').innerText = res
-        localStorage.setItem(product, res);
+            firebase.auth().currentUser.updatePassword('newPassword').then(function() {
 
-    }
+                //Do something
+
+            }).catch(function(err) {
+                //Do something
+            });
+
+        }).catch(function(err) {
+            //Do something
+        });
 </script>
 
 </html>
