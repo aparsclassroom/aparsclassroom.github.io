@@ -35,21 +35,22 @@
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qw1CVt43VKw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <br>
-        <h3 class="text-center">Price : <span id="smp">150</span> ৳</h3>
-        <br>
-        <div class="d-flex justify-content-center">
-            <br> <button id="app" class="btn btn-outline-dark">Do you have any Cupon ?</button>
-            <div id="cup">
-                <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" placeholder="Discount Cupon">&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-success" id="cpnCheck" disabled>Apply</button>
+        <div class="cove">
+            <h3 class="text-center">Price : <span id="smp">150</span> ৳</h3>
+
+            <div class="d-flex justify-content-center">
+                <br> <button id="app" class="btn btn-outline-dark">Do you have any Cupon ?</button>
+                <div id="cup">
+                    <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" placeholder="Discount Cupon">&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-success" id="cpnCheck" disabled>Apply</button>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="d-flex justify-content-center">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#purchaseFrm">
+            <br>
+            <div class="d-flex justify-content-center">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#purchaseFrm">
         Purchase Form
       </button>
-
+            </div>
         </div>
     </div>
     <!-- Modal -->
@@ -70,7 +71,7 @@
                                 <input type="text" class="form-control" required id="name" name="Name" placeholder="Your Name">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="email">Email</label>
+                                <label for="email">Email <span style="color: red;">***</span></label>
                                 <input type="email" class="form-control" id="email" required name="Email" placeholder="xyz@gmail.com">
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="Bkash">Your Bkash Number</label>
+                                <label for="Bkash">Your Bkash Number <span style="color: red;">***</span></label>
                                 <input type="text" name="User Bkash" required class="form-control" id="Bkash">
                             </div>
                             <div class="form-group col-md-6">
@@ -113,7 +114,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="Tranx">Transaction Id.</label>
+                                <label for="Tranx">Transaction Id. <span style="color: red;">***</span></label>
                                 <input type="text" class="form-control" name="Tranx Id" id="Tranx" required placeholder="9vdvd3csvs">
                             </div>
 
@@ -135,7 +136,8 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    <span style="text-align: left;"> <span style="color: red;">Note: </span> your email and tranx id will be your email and password for the App.</span>
+                    <button type="submit" class="btn btn-success">Confirm</button>
                     </form>
                 </div>
             </div>
