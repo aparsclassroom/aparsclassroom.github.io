@@ -1,0 +1,38 @@
+body {
+    background: url('/BioDictionary/Assets/images/Background/bg.webp');
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+    background-attachment: fixed;
+    background-color: #fdfdfd;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Kalpurush;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.flex-column {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.flex-column>* {
+    max-width: 700px;
+}
+
+iframe {
+    border-radius: 15px;
+}

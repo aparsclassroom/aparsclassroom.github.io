@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <link rel="stylesheet" href="../assets/minimal.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/print.css" media="print">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
@@ -22,20 +24,21 @@
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
-
 </head>
 
 <body>
-    <div class="container">
-
-
+    <div class="container flex-column">
         <h1 class="text-center">Assalamu Alaikum!</h1>
         <h3 class="text-center">Product : BioDictionary</h3>
+        <br>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qw1CVt43VKw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <br>
         <h3 class="text-center">Price : <span id="smp">150</span> ৳</h3>
         <br>
         <div class="d-flex justify-content-center">
-            <button id="app" class="btn btn-dark">Do you have any Cupon ?</button>
+            <br> <button id="app" class="btn btn-outline-dark">Do you have any Cupon ?</button>
             <div id="cup">
                 <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" placeholder="Discount Cupon">&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-success" id="cpnCheck" disabled>Apply</button>
             </div>
@@ -48,37 +51,37 @@
       </button>
 
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel" data-backdrop="static" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="purchaseFrmLabel">Purchase Form</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel" data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseFrmLabel">Purchase Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" id="form" name="BioDictionary">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" required id="name" name="Name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" required name="Email" placeholder="xyz@gmail.com">
-                                </div>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" id="form" name="BioDictionary">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" required id="name" name="Name" placeholder="Your Name">
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="college">College</label>
-                                    <input type="text" class="form-control" id="college" required name="College" placeholder="Dhaka Residential Model College">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="hscBatch">HSC Batch</label>
-                                    <select id="hscBatch" name="HSC Batch" required class="form-control">
+                            <div class="form-group col-md-6">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" required name="Email" placeholder="xyz@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="college">College</label>
+                                <input type="text" class="form-control" id="college" required name="College" placeholder="Dhaka Residential Model College">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="hscBatch">HSC Batch</label>
+                                <select id="hscBatch" name="HSC Batch" required class="form-control">
                                         <option value="">--Choose any--</option>
                               <option value="HSC 21">HSC'21</option>
                               <option value="HSC 22">HSC'22</option>
@@ -86,59 +89,59 @@
                               <option value="HSC 20">HSC'20</option>
                               <option value="Other">Other</option>
                             </select>
-                                </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="Bkash">Your Bkash Number</label>
-                                    <input type="text" name="User Bkash" required class="form-control" id="Bkash">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="Gateway">Payment Gateway</label>
-                                    <select id="Gateway" name="Payment Gateway" required class="form-control">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Bkash">Your Bkash Number</label>
+                                <input type="text" name="User Bkash" required class="form-control" id="Bkash">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Gateway">Payment Gateway</label>
+                                <select id="Gateway" name="Payment Gateway" required class="form-control">
                                         <option value="">--Choose any--</option>
                               <option value="01733593733 (BKash)">01733593733 (BKash)</option>
                               <option value="01733593733 (Nagad)">01733593733 (Nagad)</option>
                             </select>
-                                </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="price">Price</label>
-                                    <input type="number" value="150" disabled class="form-control" id="price">
-                                    <input type="number" value="150" style="display: none;" id="prs" name="Price">
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="Tranx">Transaction Id.</label>
-                                    <input type="text" class="form-control" name="Tranx Id" id="Tranx" required placeholder="9vdvd3csvs">
-                                </div>
-
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="price">Price</label>
+                                <input type="number" value="150" disabled class="form-control" id="price">
+                                <input type="number" value="150" style="display: none;" id="prs" name="Price">
                             </div>
-                            <div class="form-row"><label style="color: red;">You have to Send Money <span id="sprice">150</span> ৳ </label></div>
-                            <textarea id="ip-details" style="display: none;" name="IP Details"></textarea>
-                            <input id="Contact-Number" style="display: none;" name="Verified Number" type="text">
-                            <input name="Affiliation Code" style="display: none;" id="aff" type="text">
-                            <input name="Source" style="display: none;" id="href">
-                            <input type="text" id="cupn" style="display: none;" value="Mridul" name="Cupon">
-                            <input type="text" id="productCode" style="display: none;" value="asgp=1" name="Product Code">
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" required type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
+
+                            <div class="form-group col-md-6">
+                                <label for="Tranx">Transaction Id.</label>
+                                <input type="text" class="form-control" name="Tranx Id" id="Tranx" required placeholder="9vdvd3csvs">
+                            </div>
+
+                        </div>
+                        <div class="form-row"><label style="color: red;">You have to Send Money <span id="sprice">150</span> ৳ </label></div>
+                        <textarea id="ip-details" style="display: none;" name="IP Details"></textarea>
+                        <input id="Contact-Number" style="display: none;" name="Verified Number" type="text">
+                        <input name="Affiliation Code" style="display: none;" id="aff" type="text">
+                        <input name="Source" style="display: none;" id="href">
+                        <input type="text" id="cupn" style="display: none;" value="Mridul" name="Cupon">
+                        <input type="text" id="productCode" style="display: none;" value="asgp=1" name="Product Code">
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" required type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
                               All the informations are correct &amp; I have sent the money 🥰
                             </label>
-                                </div>
                             </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Confirm</button>
-                        </form>
-                    </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
