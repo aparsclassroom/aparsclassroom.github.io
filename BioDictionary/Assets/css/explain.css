@@ -11612,10 +11612,11 @@ button.bg-slack:hover {
     padding-right: .25rem!important
 }
 
-.pb-1,
+
+/* .pb-1,
 .py-1 {
     padding-bottom: .25rem!important
-}
+} */
 
 .pl-1,
 .px-1 {
@@ -15890,12 +15891,12 @@ a.text-warning:hover {
 }
 
 .text-danger {
-    color: #a91e2c!important
+    color: #F44E58!important
 }
 
 a.text-danger:focus,
 a.text-danger:hover {
-    color: #68121b!important
+    color: #F44E58!important
 }
 
 .text-light {
@@ -31563,7 +31564,7 @@ article a:hover {
 
 .text-danger,
 .text-danger:hover {
-    color: #a91e2c!important
+    color: #F44E58!important
 }
 
 .text-danger .display-1,
