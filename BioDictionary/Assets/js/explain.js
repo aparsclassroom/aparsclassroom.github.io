@@ -82,7 +82,7 @@ window.addEventListener('load', function() {
                     </div>   
                 </div>
                 
-                <div class="col-12 col-md-6 mt-4 mt-md-0 text-md-right">                 
+                <div class="col-12 col-md-6 mt-4 mt-md-0 text-md-right" id="fi">                 
    
                         <img src="${img}" id="image" class="card-img-top rounded" alt="${Word}">
                         <figcaption style="margin-top:10px;" class="figure-caption bangla text-center">চিত্র : ${Word}</figcaption>
