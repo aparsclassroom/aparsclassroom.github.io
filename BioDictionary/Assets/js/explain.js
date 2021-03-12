@@ -61,7 +61,9 @@ window.addEventListener('load', function() {
 
                 <div class="row align-items-center">
                     <div class="mb-3">
-                    <h3 class = "bangla text-danger text-center navbar-brand shadow-soft py-2 px-3 rounded border border-light"><strong>${Word}</strong></h3>
+                    <div class="text-center">
+                    <h3 class = "bangla text-danger navbar-brand shadow-soft py-2 px-3 rounded border border-light"><strong>${Word}</strong></h3>
+                    </div>
                     <div style="padding:15px;border-radius:10px" class="shadow-inset">
                     <p class = "bangla"><b>অর্থ :</b> ${meaning}</p>
                     </div>
