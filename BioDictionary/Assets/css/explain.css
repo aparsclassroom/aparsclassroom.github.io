@@ -8,6 +8,17 @@
     font-family: Kalpurush;
 }
 
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
 :root {
     --blue: #0056B3;
     --indigo: #6610f2;
