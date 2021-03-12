@@ -131,6 +131,7 @@ h6 {
 p {
     margin-top: 0;
     margin-bottom: 1rem;
+    max-width: 400px;
 }
 
 .svgs {
@@ -6746,7 +6747,11 @@ input[type=submit].btn-block {
 .card-body {
     flex: 1 1 auto;
     padding: 1.5rem;
-    max-width: 500px;
+}
+
+.card-bodys {
+    flex: 1 1 auto;
+    padding: 1.5rem;
 }
 
 .card-title {
