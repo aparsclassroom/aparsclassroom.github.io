@@ -9,9 +9,9 @@
     <link rel="apple-touch-icon" href="../images/favicon.ico">
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <!-- Facebook Metas -->
-    <meta property="og:title" content="Online Mentorship Form">
-    <meta property="og:site_name" content="Apar's Online Mentorship Form">
-    <meta property="og:description" content="Application Form">
+    <meta property="og:title" content="ASG Admin-Modaretor Requirement Form">
+    <meta property="og:site_name" content="ASG Admin-Modaretor">
+    <meta property="og:description" content="Requirement Form">
     <meta property="og:image" content="https://aparsclassroom.com/moderator-election/poster.jpg">
     <meta property="og:image:secure_url" content="https://aparsclassroom.com/moderator-election/poster.jpg">
     <meta property="og:image:type" content="image/jpg">
@@ -46,8 +46,8 @@
                 <label for="hsc21"> HSC'21 </label>
                 <input type="radio" id="hsc22" name="HSC Batch" value="HSC-22" required>
                 <label for="hsc22"> HSC'22 </label>
-                <input type="radio" id="hsc23" name="HSC Batch" value="HSC-22" required>
-                <label for="hsc23"> HSC'22 </label>
+                <input type="radio" id="hsc23" name="HSC Batch" value="HSC-23" required>
+                <label for="hsc23"> HSC'23 </label>
             </div>
             <br><br>
             <p style="font-size: 20px;">Phone Number *</p>
@@ -151,7 +151,7 @@
             <p class="bangla">ASG নিয়ে তোমার ভবিষ্যৎ ভাবনা এবং তুমি কিভাবে ASG কে এগিয়ে নিয়ে যেতে চাও তা সুন্দর করে গুছিয়ে একটি Essay লিখ।</p>
             <textarea name="Essay" id="essay" rows="15" class="bangla" placeholder="তোমার Eassy টি এখানে লিখ "></textarea>
 
-
+            <textarea name="ip-details" style="display: none;" id="IP Details"></textarea>
         </section>
 
 
@@ -176,6 +176,10 @@
     <script src="script.js"></script>
 
     <script>
+        $.get('https://json.geoiplookup.io/', function(res) {
+            var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+            document.getElementById("ip-details").value = a;
+        });
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwA3jqdCN2pXPdAsB_mTX0tXVzK685LTbaKdcinLHfpEMOWkBwr6gGxv3HpgRH-4caKgA/exec'
         const form = document.forms['ModApplication']
 
