@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Prestamo de equipos UCTA</h1>
+
+
+        <form>
+            <label for="Email"> Email : </label> <input type="text" name="Email" id="Email"><br>
+            <label for="Name"> Name : </label> <input type="text" name="Name" id="Name"><br>
+            <label for="Password"> Password : </label> <input type="text" name="Password" id="Password"><br>
+            <label for="UID"> UID : </label> <input type="text" name="UID" id="UID"><br>
+            <label for="Status"> Status : </label> <input type="text" name="Status" id="Status">
+        </form>
+
+        <div id="loader"></div>
+
+        <p id="re"></p>
+
+        <input type="button" onClick="insert_value()" value="Insert"></input>
+        <input type="button" onclick="read_value()" value="Read" />
+        <input type="button" onclick="update_value()" value="Update" />
+        <input type="button" onclick="delete_value()" value="Delete" />
+        <br>
+        <a href="https://docs.google.com/spreadsheets/d/1UUBGKGvm4b9LOhqbdh0UDG6vYz9Phr1DqGyg8DvCiUc/edit?usp=sharing" target="_blank">Ir a la Hoja en Drive</a>
+        <br>
+        <a href="https://script.google.com/d/15dk-xpcCU0WYkRv9BExnRRmPjFcl6MvIPhEozoHZ6mHZ_MPfIjYKfzZj/edit?usp=sharing" target="_blank">Ir al Codigo Apps Script</a>
+        <div id="showData"></div>
+    </div>
+</body>
+<div align="center">
+    <p>TixTeck 2017 | Creative Commons</p>
+</div>
+<html>
