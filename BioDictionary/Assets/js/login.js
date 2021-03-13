@@ -48,7 +48,7 @@ function toggleSignIn(e) {
                     document.getElementById("forgotPass").style.display = "inline-block";
                 } else {
                     alert('You don\'t have Access. To get access, Please Buy our subscription');
-                    window.location.replace("Buy-Subcription/Hasib.html");
+                    window.location.replace("/shop/BioDictionary?aff=107");
                 }
             });
     }
