@@ -4,34 +4,36 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </head>
 
 <body>
-    <div align="center">
-        <h1>Admin Dashboard</h1>
+    <div class="container">
+        <div align="center">
+            <h1>Admin Dashboard</h1>
 
 
-        <form>
-            <label for="Email"> Email : </label> <input type="text" name="Email" id="Email"><br>
-            <label for="Name"> Name : </label> <input type="text" name="Name" id="Name"><br>
-            <label for="Password"> Password : </label> <input type="text" name="Password" id="Password"><br>
-            <label for="UID"> UID : </label> <input type="text" name="UID" id="UID"><br>
-            <label for="Status"> Status : </label> <input type="text" name="Status" id="Status">
-        </form>
+            <form>
+                <label for="Email"> Email : </label> <input class="form-group" type="text" name="Email" id="Email"><br>
+                <label for="Name"> Name : </label> <input class="form-group" type="text" name="Name" id="Name"><br>
+                <label for="Password"> Password : </label> <input class="form-group" type="text" name="Password" id="Password"><br>
+                <label for="UID"> UID : </label> <input class="form-group" type="text" name="UID" id="UID"><br>
+                <label for="Status"> Status : </label> <input class="form-group" type="text" name="Status" id="Status">
+            </form>
 
-        <div id="loader"></div>
+            <div id="loader"></div>
 
-        <p id="re"></p>
+            <p id="re"></p>
 
-        <input type="button" onClick="insert_value()" value="Insert"></input>
-        <input type="button" onclick="read_value()" value="Read" />
-        <input type="button" onclick="update_value()" value="Update" />
-        <input type="button" onclick="delete_value()" value="Delete" />
-        <br>
-        <div id="showData"></div>
+            <input type="button" class="btn btn-primary" onClick="insert_value()" value="Insert"></input>
+            <input type="button" class="btn btn-warning" onclick="read_value()" value="Read" />
+            <input type="button" class="btn btn-success" onclick="update_value()" value="Update" />
+            <input type="button" class="btn btn-danger" onclick="delete_value()" value="Delete" />
+            <br><br><br>
+            <div id="showData">Loading...</div>
+        </div>
     </div>
 </body>
 
