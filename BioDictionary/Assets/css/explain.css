@@ -261,8 +261,15 @@ img {
     margin-left: 50px;
 }
 
+figcaption {
+    margin-left: 50px;
+}
+
 @media screen and (max-width: 600px) {
     img {
+        margin-left: 0px;
+    }
+    figcaption {
         margin-left: 0px;
     }
 }
