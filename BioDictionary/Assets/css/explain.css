@@ -257,7 +257,14 @@ figure {
 
 img {
     vertical-align: middle;
-    border-style: none
+    border-style: none;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    img {
+        margin-left: 0px;
+    }
 }
 
 svg {
