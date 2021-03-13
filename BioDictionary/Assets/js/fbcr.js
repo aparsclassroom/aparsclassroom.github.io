@@ -7,7 +7,8 @@ var mainApp = {};
             free = user.isAnonymous;
             if (free === true) {
                 alert("It is a premium feature");
-                location.replace("index.html");
+                logOut();
+                location.replace("/shop/BioDictionary?aff=107");
                 return;
             } else {
                 console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
