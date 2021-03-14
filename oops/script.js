@@ -23,7 +23,6 @@ function load() {
         cell4.innerHTML = "<b>Password</b>";
         cell5.innerHTML = "<b>UID</b>";
         cell6.innerHTML = "<b>Status</b>";
-        console.log(json.records);
         for (var i = 0; i < json.records.length; i++) {
             tr = table.insertRow(-1);
 
@@ -52,7 +51,7 @@ function load() {
         divContainer.appendChild(table);
     });
 }
-load()
+
 
 function insert_value() {
 
@@ -74,9 +73,11 @@ function insert_value() {
         method: "GET",
         dataType: "jsonp"
     });
+    document.getElementById('insrt').reset();
+    $('#insertMD').modal('hide')
 }
 
-
+load()
 
 
 
@@ -86,11 +87,11 @@ function update_value() {
     $("#re").css("visibility", "hidden");
     document.getElementById("loader").style.visibility = "visible";
 
-    var Email = $("#Email").val();
-    var Name = $("#Name").val();
-    var Password = $("#Password").val();
-    var UID = $("#UID").val();
-    var Status = $("#Status").val();
+    var Email = $("#Emailup").val();
+    var Name = $("#Nameup").val();
+    var Password = $("#Passwordup").val();
+    var UID = $("#UIDup").val();
+    var Status = $("#Statusup").val();
     var url = script_url + "?callback=ctrlq&Name=" + Name + "&Email=" + Email + "&Password=" + Password + "&UID=" + UID + "&Status=" + Status + "&action=update";
 
 
@@ -100,15 +101,15 @@ function update_value() {
         method: "GET",
         dataType: "jsonp"
     });
+    $('#updateMD').modal('hide')
 }
 
 function delete_value() {
     $("#re").css("visibility", "hidden");
     document.getElementById("loader").style.visibility = "visible";
     $('#mySpinner').addClass('spinner');
-    var Email = $("#Email").val();
-    var Name = $("#name").val();
-    var url = script_url + "?callback=ctrlq&name=" + Name + "&Email=" + Email + "&action=delete";
+    var Email = $("#Emaildlt").val();
+    var url = script_url + "?callback=ctrlq&Email=" + Email + "&action=delete";
 
 
     var request = jQuery.ajax({
@@ -117,10 +118,11 @@ function delete_value() {
         method: "GET",
         dataType: "jsonp"
     });
+    document.getElementById('dlte').reset();
+    $('#deleteMD').modal('hide');
 }
 
 function ctrlq(e) {
-    console.log(e);
     $("#re").html(e.result);
     $("#re").css("visibility", "visible");
     read_value();
@@ -154,7 +156,6 @@ function read_value() {
         cell4.innerHTML = "<b>Password</b>";
         cell5.innerHTML = "<b>UID</b>";
         cell6.innerHTML = "<b>Status</b>";
-        console.log(json.records);
         for (var i = 0; i < json.records.length; i++) {
             tr = table.insertRow(-1);
 

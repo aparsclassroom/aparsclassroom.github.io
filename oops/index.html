@@ -2,39 +2,173 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </head>
 
 <body>
+    <div class="container csc">
+
+        <h1 class="text-center">Admin Dashboard</h1>
+
+
+        <!-- <form>
+            <div class="form-group">
+                <label style="text-align: left !important;" for="Email"> Email : </label> <input class="form-control" type="text" name="Email" id="Email">
+            </div>
+            <div class="form-group">
+                <label for="Name"> Name : </label> <input class="form-control" type="text" name="Name" id="Name">
+            </div>
+            <div class="form-group">
+                <label for="Password"> Password : </label> <input class="form-control" type="text" name="Password" id="Password">
+            </div>
+            <div class="form-group">
+                <label for="UID"> UID : </label> <input class="form-control" type="text" name="UID" id="UID">
+            </div>
+            <div class="form-group">
+                <label for="Status"> Status : </label>
+                <select id="Status" name="Status" class="form-control">
+                    <option value="Pending" checked>Pending</option>
+                    <option value="Verified">Verified</option>
+                    </select>
+            </div>
+            <button type="reset" class="btn btn-outline-dark">Reset</button>
+        </form> -->
+    </div>
     <div class="container">
         <div align="center">
-            <h1>Admin Dashboard</h1>
-
-
-            <form>
-                <label for="Email"> Email : </label> <input class="form-group" type="text" name="Email" id="Email"><br>
-                <label for="Name"> Name : </label> <input class="form-group" type="text" name="Name" id="Name"><br>
-                <label for="Password"> Password : </label> <input class="form-group" type="text" name="Password" id="Password"><br>
-                <label for="UID"> UID : </label> <input class="form-group" type="text" name="UID" id="UID"><br>
-                <label for="Status"> Status : </label> <input class="form-group" type="text" name="Status" id="Status">
-            </form>
-
             <div id="loader"></div>
 
             <p id="re"></p>
-
-            <input type="button" class="btn btn-primary" onClick="insert_value()" value="Insert"></input>
-            <input type="button" class="btn btn-warning" onclick="read_value()" value="Read" />
-            <input type="button" class="btn btn-success" onclick="update_value()" value="Update" />
-            <input type="button" class="btn btn-danger" onclick="delete_value()" value="Delete" />
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertMD">
+                Insert
+              </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMD">
+                Update
+              </button>
+            <input type="button" class="btn btn-warning" onclick="read_value()" value="Refresh" />
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteMD">
+                Delete
+              </button>
             <br><br><br>
             <div id="showData">Loading...</div>
         </div>
     </div>
-</body>
 
-<html>
+
+    <div class="modal fade" id="deleteMD" tabindex="-1" role="dialog" aria-labelledby="deleteMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteMDLabel">Delete User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="dlte">
+                        <div class="form-group">
+                            <label style="text-align: left !important;" for="Emailup"> Email : </label> <input class="form-control" type="text" name="Email" id="Emaildlt">
+                        </div>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-danger" onclick="delete_value()" value="Delete" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateMD" tabindex="-1" role="dialog" aria-labelledby="updateMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateMDLabel">Update User Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updt">
+                        <div class="form-group">
+                            <label style="text-align: left !important;" for="Emailup"> Email : </label> <input class="form-control" type="text" name="Email" id="Emailup">
+                        </div>
+                        <div class="form-group">
+                            <label for="Nameup"> Name : </label> <input class="form-control" type="text" name="Name" id="Nameup">
+                        </div>
+                        <div class="form-group">
+                            <label for="Passwordup"> Password : </label> <input class="form-control" type="text" name="Password" id="Passwordup">
+                        </div>
+                        <div class="form-group">
+                            <label for="UIDup"> UID : </label> <input class="form-control" type="text" name="UID" id="UIDup">
+                        </div>
+                        <div class="form-group">
+                            <label for="Statusup"> Status : </label>
+                            <select id="Statusup" name="Status" class="form-control">
+                    <option value="Pending" checked>Pending</option>
+                    <option value="Verified">Verified</option>
+                    </select>
+                        </div>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-success" onclick="update_value()" value="Update" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="insertMD" tabindex="-1" role="dialog" aria-labelledby="insertMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="insertMDLabel">Add a new User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="insrt">
+                        <div class="form-group">
+                            <label style="text-align: left !important;" for="Email"> Email : </label> <input class="form-control" type="text" name="Email" id="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="Name"> Name : </label> <input class="form-control" type="text" name="Name" id="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password"> Password : </label> <input class="form-control" type="text" name="Password" id="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="UID"> UID : </label> <input class="form-control" type="text" name="UID" id="UID">
+                        </div>
+                        <div class="form-group">
+                            <label for="Status"> Status : </label>
+                            <select id="Status" name="Status" class="form-control">
+                    <option value="Pending" checked>Pending</option>
+                    <option value="Verified">Verified</option>
+                    </select>
+                        </div>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-primary" onClick="insert_value()" value="Insert"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
