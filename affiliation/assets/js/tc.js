@@ -7,7 +7,7 @@ var verl1, verl2, verl3, verl4, verl5;
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            const script = 'https://script.google.com/macros/s/AKfycbyyK8VetDHphVHUhG2u0z5YfBfdaC5x8cOq6kKtslLEubMqq5QEQlRcT-r2YfpzKYbw/exec?uid='
+            const script = 'https://script.google.com/macros/s/AKfycbynylOid2GFjXCvErwpnpg-IcvgeT5Rz3gcoFdRAZVO8hv8PH8luqCAl7nMszSEVvit/exec?uid='
             fetch(script + user.uid)
                 .then((res) => {
                     return res.json();
