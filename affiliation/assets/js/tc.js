@@ -7,45 +7,42 @@ var verl1, verl2, verl3, verl4, verl5;
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            fetch('https://script.google.com/macros/s/AKfycbynylOid2GFjXCvErwpnpg-IcvgeT5Rz3gcoFdRAZVO8hv8PH8luqCAl7nMszSEVvit/exec')
+            const script = 'https://script.google.com/macros/s/AKfycbyyK8VetDHphVHUhG2u0z5YfBfdaC5x8cOq6kKtslLEubMqq5QEQlRcT-r2YfpzKYbw/exec?uid='
+            fetch(script + user.uid)
                 .then((res) => {
                     return res.json();
                 })
-                .then((loadedData) => {
-                    loadedData.find(dashboard => {
-                        if (dashboard.UID === user.uid) {
-                            verl1 = dashboard.Verified_Income_of_Link_1;
-                            verl2 = dashboard.Verified_Income_of_Link_2;
-                            verl3 = dashboard.Verified_Income_of_Link_3;
-                            verl4 = dashboard.Verified_Income_of_Link_4;
-                            verl5 = dashboard.Verified_Income_of_Link_5;
-                            var totalv = verl1 + verl2 + verl3 + verl4 + verl5;
-                            var wallet = (totalv - dashboard.cashOut);
-                            document.getElementById('contoller').innerText = dashboard.Controler_Name;
-                            document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
-                            document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
-                            document.getElementById('Username').value = dashboard.Name;
-                            document.getElementById('email').value = dashboard.Email;
-                            document.getElementById('nid').value = dashboard.NID;
-                            document.getElementById('uid').value = dashboard.UID;
-                            document.getElementById('cash').placeholder = "Maximum : " + wallet;
-                            document.getElementById('lmt').innerText = wallet;
-                            document.getElementById('clg').value = dashboard.College_University;
-                            document.getElementById('mbl1').value = dashboard.Mobile_1;
-                            document.getElementById('bkash').value = dashboard.Bkash;
-                            if (dashboard.Mobile_2 != "") {
-                                document.getElementById('mbl2').value = dashboard.Mobile_2;
-                            }
-                            if (dashboard.Nagad != "") {
-                                document.getElementById('nagad').value = dashboard.Nagad;
-                            }
-                            if (dashboard.Rocket != "") {
-                                document.getElementById('rocket').value = dashboard.Rocket;
-                            }
-                            document.getElementById('aff').value = dashboard.Id;
-                            document.getElementById('serial').value = dashboard.Serial;
-                        }
-                    })
+                .then((dashboard) => {
+                    verl1 = dashboard.Verified_Income_of_Link_1;
+                    verl2 = dashboard.Verified_Income_of_Link_2;
+                    verl3 = dashboard.Verified_Income_of_Link_3;
+                    verl4 = dashboard.Verified_Income_of_Link_4;
+                    verl5 = dashboard.Verified_Income_of_Link_5;
+                    var totalv = verl1 + verl2 + verl3 + verl4 + verl5;
+                    var wallet = (totalv - dashboard.cashOut);
+                    document.getElementById('contoller').innerText = dashboard.Controler_Name;
+                    document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
+                    document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
+                    document.getElementById('Username').value = dashboard.Name;
+                    document.getElementById('email').value = dashboard.Email;
+                    document.getElementById('nid').value = dashboard.NID;
+                    document.getElementById('uid').value = user.uid;
+                    document.getElementById('cash').placeholder = "Maximum : " + wallet;
+                    document.getElementById('lmt').innerText = wallet;
+                    document.getElementById('clg').value = dashboard.College_University;
+                    document.getElementById('mbl1').value = dashboard.Mobile_1;
+                    document.getElementById('bkash').value = dashboard.Bkash;
+                    if (dashboard.Mobile_2 != "") {
+                        document.getElementById('mbl2').value = dashboard.Mobile_2;
+                    }
+                    if (dashboard.Nagad != "") {
+                        document.getElementById('nagad').value = dashboard.Nagad;
+                    }
+                    if (dashboard.Rocket != "") {
+                        document.getElementById('rocket').value = dashboard.Rocket;
+                    }
+                    document.getElementById('aff').value = dashboard.Id;
+                    document.getElementById('serial').value = dashboard.Serial;
                 }).catch((err => {
                     console.log(err);
                 }))
