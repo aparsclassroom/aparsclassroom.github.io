@@ -1,6 +1,6 @@
 document.getElementById('href').value = window.location.href;
 var str = window.location.search;
-var res = str.substring(1, 8);
+var res = str.substring(1, 16);
 if (localStorage.getItem(product) === "") {
     localStorage.setItem(product, res);
 }
