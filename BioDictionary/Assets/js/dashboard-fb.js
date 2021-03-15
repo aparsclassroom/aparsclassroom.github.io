@@ -128,6 +128,7 @@ function ValidateSize(file) {
         alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
         document.getElementById('img').value = "";
         target.src = "";
+        document.getElementById('imgbutton').disabled = true;
         return;
     }
 }
