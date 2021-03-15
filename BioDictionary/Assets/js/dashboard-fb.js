@@ -115,7 +115,7 @@ function showImage(src, target) {
     };
     src.addEventListener("change", function() {
         document.getElementById('imgbutton').disabled = false;
-        var src = file.files[0].size / 524 / 524;
+        var src = src.files[0].size / 524 / 524;
         if (src > 1) {
             alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
             $(file).val('');
