@@ -52,6 +52,14 @@ function load() {
     });
 }
 
+function success() {
+    if (document.getElementById("Email").value === "") {
+        document.getElementById('addU').disabled = true;
+    } else {
+        document.getElementById('addU').disabled = false;
+    }
+}
+
 
 function insert_value() {
 
