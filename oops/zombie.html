@@ -134,7 +134,7 @@
 
                 var url = script + "?uid=" + uid;
 
-                document.getElementById('result').innerText = "Searching...";
+                document.getElementById('result').innerText = "Getting your account informations. please wait....";
                 fetch(url)
                     .then((res) => {
                         return res.json();
