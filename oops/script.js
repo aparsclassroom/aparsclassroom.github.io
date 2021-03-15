@@ -88,11 +88,10 @@ function update_value() {
     document.getElementById("loader").style.visibility = "visible";
 
     var Email = $("#Emailup").val();
-    var Name = $("#Nameup").val();
     var Password = $("#Passwordup").val();
     var UID = $("#UIDup").val();
     var Status = $("#Statusup").val();
-    var url = script_url + "?callback=ctrlq&Name=" + Name + "&Email=" + Email + "&Password=" + Password + "&UID=" + UID + "&Status=" + Status + "&action=update";
+    var url = script_url + "?callback=ctrlq&Email=" + Email + "&Password=" + Password + "&UID=" + UID + "&Status=" + Status + "&action=update";
 
 
     var request = jQuery.ajax({
