@@ -59,13 +59,14 @@
                         <h2 class="mdl-card__title-text">ASG Affiliation</h2>
                     </div>
                     <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                        <p>Enter an email and password below and sign in</p>
+                        <div id="loginForm">
+                            <p>Enter an email and password below and sign in</p>
 
-                        <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
-                        <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password" />
-                        <br/><br/>
-                        <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button> &nbsp;&nbsp;&nbsp;
-
+                            <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
+                            <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password" />
+                            <br/><br/>
+                            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button> &nbsp;&nbsp;&nbsp;
+                        </div>
                         <!-- Container where we'll display the user details -->
                         <div class="quickstart-user-details-container">
                             <div id="result"></div>
@@ -124,7 +125,7 @@
                 var isAnonymous = user.isAnonymous;
                 var uid = user.uid;
                 var providerData = user.providerData;
-
+                document.getElementById('loginForm').style.display = "none";
 
                 const script = "https://script.google.com/macros/s/AKfycbxJMBXrtAM5hdHyvUhG33XrkJBbyNqRGu9cguDM_JGkN2HwbxwqvXgQTr2QEoY3ENJ1uA/exec";
 
@@ -226,6 +227,7 @@
                 })
                 document.getElementById('quickstart-sign-in').textContent = 'Sign out';
             } else {
+                document.getElementById('loginForm').style.display = "block";
                 document.getElementById('result').innerText = "Please Login to your Account"
                 document.getElementById('quickstart-sign-in').textContent = 'Sign in';
             }
