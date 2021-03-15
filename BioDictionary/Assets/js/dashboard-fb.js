@@ -123,7 +123,7 @@ var target = document.getElementById("target");
 showImage(src, target);
 
 function ValidateSize(file) {
-    var FileSize = file.files[0].size / 600 / 600;
+    var FileSize = file.files[0].size / 824 / 824;
     if (FileSize > 1) {
         alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
         $(file).val('');
