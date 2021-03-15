@@ -124,11 +124,9 @@ showImage(src, target);
 
 function ValidateSize(file) {
     var FileSize = file.files[0].size / 1024 / 1024;
-    console.log(file.files[0].size)
-    console.log(FileSize)
     if (FileSize > 1) {
         alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
-        $(file).val('');
+        target.src = "";
         return;
     }
 }
