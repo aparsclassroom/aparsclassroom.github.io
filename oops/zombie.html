@@ -126,9 +126,9 @@
                 var providerData = user.providerData;
 
 
-                const script = "https://script.google.com/macros/s/AKfycbxjNkmOSPr6XTjLVyfEP-DP-Cy2DrNBRf-FYppilu_f_SujDOelzI_1n-V7Ay8FadmsHA/exec";
+                const script = "https://script.google.com/macros/s/AKfycbxJMBXrtAM5hdHyvUhG33XrkJBbyNqRGu9cguDM_JGkN2HwbxwqvXgQTr2QEoY3ENJ1uA/exec";
 
-                var url = script + "?id=" + uid;
+                var url = script + "?uid=" + uid;
 
                 document.getElementById('result').innerText = "Searching...";
                 fetch(url)
@@ -137,7 +137,90 @@
                     })
 
                 .then((loadedData) => {
-                    document.getElementById('result').innerText = "Name : " + loadedData.name + "\nEmail : " + email + "\nIncome : " + loadedData.money;
+
+                    Serial = loadedData.Serial;
+                    Affiliation_Token = loadedData.Affiliation_Token;
+                    Status = loadedData.Status;
+                    Name = loadedData.Name;
+                    Mobile_1 = loadedData.Mobile_1;
+                    Mobile_2 = loadedData.Mobile_2;
+                    Bkash = loadedData.Bkash;
+                    Nagad = loadedData.Nagad;
+                    Rocket = loadedData.Rocket;
+                    College_University = loadedData.College_University;
+                    Facebook_Link = loadedData.Facebook_Link;
+                    Affiliation_Link = loadedData.Affiliation_Link;
+                    Verified_Passive_Income = loadedData.Verified_Passive_Income;
+                    Pending_Passive_Income = loadedData.Pending_Passive_Income;
+                    Verified_Direct_Income = loadedData.Verified_Direct_Income;
+                    Pending_Direct_Income = loadedData.Pending_Direct_Income;
+                    Total_Sell = loadedData.Total_Sell;
+                    Controler_Name = loadedData.Controler_Name;
+                    Controler_Info = loadedData.Controler_Info;
+                    Cash_Out = loadedData.Cash_Out;
+                    Remaning_in_Wallet = loadedData.Remaning_in_Wallet;
+                    Total_Pending = loadedData.Total_Pending;
+                    Total_Income = loadedData.Total_Income;
+                    comment = loadedData.Comment;
+
+                    document.getElementById('result').innerHTML = `
+                    
+                    <h4> Name : ${Name}</h4>
+
+                    <h4> uid : ${uid}</h4>
+
+
+                    <h4> Email : ${email}</h4>
+
+                    <p> Serial : ${Serial} </p>                    
+                    
+                    <p> Affiliation_Token : ${Affiliation_Token} </p>    
+
+                    <p> Mobile_1 : ${Mobile_1} </p>    
+
+                    <p> Mobile_2 : ${Mobile_2} </p>    
+
+                    <p> Bkash : ${Bkash} </p>    
+
+
+                    <p> Nagad : ${Nagad} </p>    
+
+
+                    <p> Rocket : ${Rocket} </p>    
+
+                    <p> College_University : ${College_University} </p>    
+
+                    <p> Facebook_Link : ${Facebook_Link} </p>    
+
+                    <p> Verified_Passive_Income : ${Verified_Passive_Income} </p>    
+                    
+                    <p> Pending_Passive_Income : ${Pending_Passive_Income} </p>  
+
+                    <p> Verified_Direct_Income : ${Verified_Direct_Income} </p>  
+
+                    <p> Pending_Direct_Income : ${Pending_Direct_Income} </p>  
+
+
+                    <p> Total_Sell : ${Total_Sell} </p>  
+
+
+                    <p> Controler_Name : ${Controler_Name} </p>  
+
+                    <p> Controler_Info : ${Controler_Info} </p> 
+
+
+                    <p> Cash_Out : ${Cash_Out} </p> 
+
+
+                    <p> Remaning_in_Wallet : ${Remaning_in_Wallet} </p> 
+
+                    <p> Total_Pending : ${Total_Pending} </p> 
+
+                    <p> Total_Income : ${Total_Income} </p> 
+
+                    <p> comment : ${comment} </p> 
+                    
+                    `;
                 }).catch((e) => {
                     alert("Something has happened -_- Please Try Again")
                 })
