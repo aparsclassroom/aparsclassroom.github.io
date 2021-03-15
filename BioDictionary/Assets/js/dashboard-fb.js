@@ -115,21 +115,28 @@ function showImage(src, target) {
     };
     src.addEventListener("change", function() {
         document.getElementById('imgbutton').disabled = false;
-        fr.readAsDataURL(src.files[0]);
+        var src = file.files[0].size / 524 / 524;
+        if (src > 1) {
+            alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
+            $(file).val('');
+            return;
+        } else {
+            fr.readAsDataURL(src.files[0]);
+        }
     });
 }
 var src = document.getElementById("img");
 var target = document.getElementById("target");
 showImage(src, target);
 
-function ValidateSize(file) {
-    var FileSize = file.files[0].size / 524 / 524;
-    if (FileSize > 2) {
-        alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
-        $(file).val('');
-        return;
-    }
-}
+// function ValidateSize(file) {
+//     var FileSize = file.files[0].size / 524 / 524;
+//     if (FileSize > 2) {
+//         alert('Profile Image size exceeds 1 MB\nPlease Select a smaller Image 😶');
+//         $(file).val('');
+//         return;
+//     }
+// }
 
 function na() {
     document.getElementById('usname').addEventListener('keyup', function() {
