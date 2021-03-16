@@ -86,14 +86,11 @@ var mainApp = {};
 
 
                 updateBtn.addEventListener('click', () => {
-
+                    updateBtn.innerText = "Updated !";
                     var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
                     fetch(url).then((res) => {
-                        updateBtn.innerText = "Updated !";
-                        return res.json();
-                    }).then((loadedData) => {
                         updateBtn.innerText = "Updated Successfully!";
-
+                        return res.json();
                     }).catch((e) => {
                         updateBtn.innerText = "Can't Update 😶";
                     })
