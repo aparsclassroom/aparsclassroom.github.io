@@ -1,9 +1,9 @@
-var Mobile = document.getElementById('Mobile').value;
-var Bkash = document.getElementById('Bkash').value;
-var Nagad = document.getElementById('Nagad').value;
-var Rocket = document.getElementById('Rocket').value;
-var college = document.getElementById('college').value;
-var fb = document.getElementById('fb').value;
+var Mobile = document.getElementById('Mobile');
+var Bkash = document.getElementById('Bkash');
+var Nagad = document.getElementById('Nagad');
+var Rocket = document.getElementById('Rocket');
+var college = document.getElementById('college');
+var fb = document.getElementById('fb');
 var updateBtn = document.getElementById('updateBtn');
 
 var app_firebase = {};
@@ -44,12 +44,12 @@ var mainApp = {};
                     return res.json();
                 }).then((loadedData) => {
                     console.log(loadedData)
-                    Mobile = loadedData.Mobile;
-                    Bkash = loadedData.Bkash;
-                    Nagad = loadedData.Nagad;
-                    Rocket = loadedData.Rocket;
-                    college = loadedData.College_University;
-                    fb = loadedData.Facebook_Link;
+                    Mobile.value = loadedData.Mobile;
+                    Bkash.value = loadedData.Bkash;
+                    Nagad.value = loadedData.Nagad;
+                    Rocket.value = loadedData.Rocket;
+                    college.value = loadedData.College_University;
+                    fb.value = loadedData.Facebook_Link;
 
                 }).catch((e) => {
                     console.error(e)
