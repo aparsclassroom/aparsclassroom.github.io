@@ -43,7 +43,6 @@ var mainApp = {};
                 fetch(script + "?uid=" + uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
-                    console.log(loadedData)
                     Mobile.value = loadedData.Mobile;
                     Bkash.value = loadedData.Bkash;
                     Nagad.value = loadedData.Nagad;
@@ -89,7 +88,7 @@ var mainApp = {};
                     updateBtn.innerText = "Updated !";
                     var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
                     fetch(url).then((res) => {
-                        updateBtn.innerText = "Updated Successfully!";
+                        updateBtn.innerText = "Updated Again?";
                         return res.json();
                     }).catch((e) => {
                         updateBtn.innerText = "Can't Update 😶";
@@ -130,7 +129,7 @@ var mainApp = {};
                 }
             }
         } else {
-            // window.location.replace("login.html");
+            window.location.replace("login.html");
         }
     });
 
