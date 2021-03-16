@@ -35,7 +35,7 @@ var mainApp = {};
                 fetch(script + "?uid=" + uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
-                    console.log(loadeddata)
+                    console.log(loadedData)
                 }).catch((e) => {
                     console.error(e)
                 })
