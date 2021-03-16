@@ -87,12 +87,14 @@ var mainApp = {};
 
                 updateBtn.addEventListener('click', () => {
                     var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
-                    var request = jQuery.ajax({
-                        crossDomain: true,
-                        url: url,
-                        method: "GET",
-                        dataType: "jsonp"
-                    });
+                    fetch(url).then((res) => {
+                        return res.json();
+                    }).then((loadedData) => {
+                        console.log(loadedData)
+
+                    }).catch((e) => {
+                        console.error(e)
+                    })
                 })
 
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
