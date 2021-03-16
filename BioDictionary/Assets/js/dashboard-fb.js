@@ -32,7 +32,7 @@ var mainApp = {};
                 return;
             } else {
                 const script = 'https://script.google.com/macros/s/AKfycbwy7wXJwzFmEObIa-7pMd1OzS7RHR6zAxfVgc_oKheTrt4yWm6UNE57-sfOk9dkY7B1Og/exec';
-                fetch(script + "?url=" + uid).then((res) => {
+                fetch(script + "?uid=" + uid).then((res) => {
                     res.json()
                 }).then((loadedData) => {
                     console.log(loadedData)
