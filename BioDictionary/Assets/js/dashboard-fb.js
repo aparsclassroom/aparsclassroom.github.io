@@ -1,3 +1,11 @@
+var Mobile = document.getElementById('Mobile').value;
+var Bkash = document.getElementById('Bkash').value;
+var Nagad = document.getElementById('Nagad').value;
+var Rocket = document.getElementById('Rocket').value;
+var college = document.getElementById('college').value;
+var fb = document.getElementById('fb').value;
+var updateBtn = document.getElementById('updateBtn');
+
 var app_firebase = {};
 (function() {
     var firebaseConfig = {
@@ -36,6 +44,13 @@ var mainApp = {};
                     return res.json();
                 }).then((loadedData) => {
                     console.log(loadedData)
+                    Mobile = loadedData.Mobile;
+                    Bkash = loadedData.Bkash;
+                    Nagad = loadedData.Nagad;
+                    Rocket = loadedData.Rocket;
+                    college = loadedData.College_University;
+                    fb = loadedData.Facebook_Link;
+
                 }).catch((e) => {
                     console.error(e)
                 })
@@ -67,6 +82,19 @@ var mainApp = {};
                         alert(error)
                     });
                 })
+
+
+
+                updateBtn.addEventListener('click', () => {
+                    var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile + "&Bkash=" + Bkash + "&Nagad=" + Nagad + "&Rocket= " + Rocket + "&College= " + college + "&fb= " + +"&action=update"
+                    var request = jQuery.ajax({
+                        crossDomain: true,
+                        url: url,
+                        method: "GET",
+                        dataType: "jsonp"
+                    });
+                })
+
 
 
 
