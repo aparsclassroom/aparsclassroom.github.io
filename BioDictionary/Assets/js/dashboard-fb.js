@@ -31,6 +31,14 @@ var mainApp = {};
                 location.replace("index.html");
                 return;
             } else {
+                const script = 'https://script.google.com/macros/s/AKfycbwy7wXJwzFmEObIa-7pMd1OzS7RHR6zAxfVgc_oKheTrt4yWm6UNE57-sfOk9dkY7B1Og/exec';
+                fetch(script + "?url=" + uid).then((res) => {
+                    res.json()
+                }).then((loadedData) => {
+                    console.log(loadedData)
+                }).catch((e) => {
+                    console.error(e)
+                })
                 document.getElementById('email').innerText = email;
                 document.getElementById("imgs").src = photoUrl;
 
@@ -96,7 +104,7 @@ var mainApp = {};
                 }
             }
         } else {
-            window.location.replace("login.html");
+            // window.location.replace("login.html");
         }
     });
 
