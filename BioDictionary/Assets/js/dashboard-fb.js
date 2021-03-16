@@ -90,10 +90,10 @@ var mainApp = {};
                     fetch(url).then((res) => {
                         return res.json();
                     }).then((loadedData) => {
-                        console.log(loadedData)
+                        updateBtn.innerText = "Updated !";
 
                     }).catch((e) => {
-                        console.error(e)
+                        updateBtn.innerText = "Can't Update 😶";
                     })
                 })
 
