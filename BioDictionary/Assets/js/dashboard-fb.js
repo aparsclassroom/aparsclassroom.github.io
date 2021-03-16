@@ -86,7 +86,7 @@ var mainApp = {};
 
 
                 updateBtn.addEventListener('click', () => {
-                    var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile + "&Bkash=" + Bkash + "&Nagad=" + Nagad + "&Rocket= " + Rocket + "&College= " + college + "&fb= " + +"&action=update"
+                    var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
                     var request = jQuery.ajax({
                         crossDomain: true,
                         url: url,
@@ -94,9 +94,6 @@ var mainApp = {};
                         dataType: "jsonp"
                     });
                 })
-
-
-
 
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
 
