@@ -28,7 +28,7 @@ function initApp() {
                 document.getElementById('email').value = user.email;
                 document.getElementById('uid').value = user.uid;
                 document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
-                document.getElementById('totalPending').innerText = loadedData.Total_Pending;
+                document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
                 document.getElementById('totalEarning').innerText = loadedData.Total_Income;
                 document.getElementById('ttsell').innerText = loadedData.Total_Sell;
                 college.value = loadedData.College_University;
@@ -102,7 +102,7 @@ function initApp() {
 
 
                 var myChart = new Chart(ctx, {
-                    type: 'line',
+                    type: 'bar',
                     responsive: true,
                     legend: {
                         display: false
