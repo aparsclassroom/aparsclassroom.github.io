@@ -408,7 +408,7 @@
                             updateBtn.innerText = "Updated !";
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
-                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
+                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket= " + Rocket.value.trim() + "&College= " + college.value.trim() + "&fb= " + fb.value.trim() + "&action=update"
                             fetch(url).then((res) => {
                                 updateBtn.innerText = "Updated Again?";
                                 return res.json();
