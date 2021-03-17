@@ -58,7 +58,7 @@ function initApp() {
                         updateBtn.innerText = "Can't Update 😶";
                     })
                 })
-                const label = ['Link 1', 'Link 2'];
+                var label = ['Link 1', 'Link 2'];
                 var ctx = document.getElementById('totalPending').getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
