@@ -148,7 +148,6 @@
                                 <h5 class="title">Profile Details</h5>
                             </div>
                             <div class="card-body">
-                                <!-- <form> -->
                                 <div class="row">
                                     <div class="col-md-3 pr-md-1">
                                         <div class="form-group">
@@ -464,9 +463,9 @@
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
                             document.getElementById('desc').innerHTML = ss;
-                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket= " + Rocket.value.trim() + "&College= " + college.value.trim() + "&fb= " + fb.value.trim() + "&action=update"
+                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket=" + Rocket.value.trim() + "&College=" + college.value.trim() + "&fb=" + fb.value.trim() + "&action=update"
                             fetch(url).then((res) => {
-                                updateBtn.innerText = "Updated Again?";
+                                updateBtn.innerText = "Update Again?";
                                 return res.json();
                             }).catch((e) => {
                                 updateBtn.innerText = "Can't Update 😶";
