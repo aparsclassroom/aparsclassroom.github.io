@@ -215,19 +215,19 @@
                                     <div class="col-md-4 pr-md-1">
                                         <div class="form-group">
                                             <label>Bkash Number</label>
-                                            <input type="tel" class="form-control cp" id="Bkash" placeholder="Bkash Number" value="Loading...">
+                                            <input type="tel" class="form-control" id="Bkash" placeholder="Bkash Number" value="Loading...">
                                         </div>
                                     </div>
                                     <div class="col-md-4 px-md-1">
                                         <div class="form-group">
                                             <label>Nagad Number</label>
-                                            <input type="text" class="form-control cp" id="Nagad" placeholder="Nagad Number" value="N/A">
+                                            <input type="text" class="form-control" id="Nagad" placeholder="Nagad Number" value="N/A">
                                         </div>
                                     </div>
                                     <div class="col-md-4 pl-md-1">
                                         <div class="form-group">
                                             <label>Rocket Number</label>
-                                            <input type="text" class="form-control cp" id="Rocket" placeholder="Rocket Number" value="N/A">
+                                            <input type="text" class="form-control" id="Rocket" placeholder="Rocket Number" value="N/A">
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -329,7 +329,7 @@
                                                         <span id="afflink" class="cp">Loading...</span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button class="btn btn-round btn-danger" data-clipboard-target="#afflink" id="copy">Copy</button>
+                                                        <button class="btn btn-round btn-danger cp" data-clipboard-target="#afflink">Copy</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -588,7 +588,7 @@
         };
 
 
-        var clipboard = new ClipboardJS('#copy');
+        var clipboard = new ClipboardJS('.cp');
 
         clipboard.on('success', function(e) {
             alert(e.text + "\ncopied successfully!!")
