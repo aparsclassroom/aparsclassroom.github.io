@@ -376,7 +376,7 @@
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                     const script = 'https://script.google.com/macros/s/AKfycbwy7wXJwzFmEObIa-7pMd1OzS7RHR6zAxfVgc_oKheTrt4yWm6UNE57-sfOk9dkY7B1Og/exec';
-                    fetch(script + "?uid=" + uid).then((res) => {
+                    fetch(script + "?uid=" + user.uid).then((res) => {
                         return res.json();
                     }).then((loadedData) => {
                         console.log(loadedData)
@@ -405,7 +405,7 @@
 
                         updateBtn.addEventListener('click', () => {
                             updateBtn.innerText = "Updated !";
-                            var url = script + "?callback=ctrlq&uid=" + uid + "&Status=" + +"&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
+                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + status.value + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
                             fetch(url).then((res) => {
                                 updateBtn.innerText = "Updated Again?";
                                 return res.json();
