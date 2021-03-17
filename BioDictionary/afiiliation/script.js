@@ -15,7 +15,7 @@ function logOut() {
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            const script = 'https://script.google.com/macros/s/AKfycbxa9Dr3Go_mw9Ly52IsBgIBjJcRjXOqUWyfq_jY79aXZt9JxrRlCdaZ_khL6LAaJil7pg/exec';
+            const script = 'https://script.google.com/macros/s/AKfycbxhN_haNW6WWO8IykSvK8sTpJPIQ8tdlj2MJZ9V87XCPCzakOpVEUp5ylmXigklBCn1GA/exec';
             fetch(script + "?uid=" + user.uid).then((res) => {
                 return res.json();
             }).then((loadedData) => {
@@ -162,7 +162,7 @@ function initApp() {
                 console.log(err);
             }))
         } else {
-            // document.location.replace("index.html");
+            document.location.replace("index.html");
         }
     })
 }
