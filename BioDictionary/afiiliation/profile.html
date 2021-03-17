@@ -389,12 +389,12 @@
                         document.getElementById('uid').value = user.uid;
                         college.value = loadedData.College_University;
                         document.getElementById('Mobile').value = loadedData.Mobile;
-                        document.getElementById('bkash').value = loadedData.Bkash;
+                        Bkash.value = loadedData.Bkash;
                         if (loadedData.Nagad != "") {
-                            document.getElementById('Nagad').value = loadedData.Nagad;
+                            Nagad.value = loadedData.Nagad;
                         }
                         if (loadedData.Rocket != "") {
-                            document.getElementById('Rocket').value = loadedData.Rocket;
+                            Rocket.value = loadedData.Rocket;
                         }
                         document.getElementById('aff').value = loadedData.Affiliation_Token;
                         document.getElementById('name').innerText = user.displayName;
