@@ -19,7 +19,6 @@ function initApp() {
             fetch(script + "?uid=" + user.uid).then((res) => {
                 return res.json();
             }).then((loadedData) => {
-                console.log(loadedData)
                 document.getElementById('desc').innerHTML = loadedData.Status;
                 document.getElementById('bio').innerText = loadedData.Status;
                 document.getElementById('avatar').src = user.photoURL;
