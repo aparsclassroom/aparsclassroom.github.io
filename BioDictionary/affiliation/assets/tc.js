@@ -9,7 +9,7 @@ var status = document.getElementById('bio');
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            const script = 'https://script.google.com/macros/s/AKfycbynylOid2GFjXCvErwpnpg-IcvgeT5Rz3gcoFdRAZVO8hv8PH8luqCAl7nMszSEVvit/exec?uid='
+            const script = 'https://script.google.com/macros/s/AKfycbxhN_haNW6WWO8IykSvK8sTpJPIQ8tdlj2MJZ9V87XCPCzakOpVEUp5ylmXigklBCn1GA/exec?uid='
             fetch(script + user.uid)
                 .then((res) => {
                     return res.json();
