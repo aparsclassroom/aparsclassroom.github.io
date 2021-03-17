@@ -118,7 +118,7 @@ function initApp() {
                             borderWidth: 2,
                             borderDash: [],
                             borderDashOffset: 0.0,
-                            data: [loadedData.Verified_Direct_Income, loadedData.Verified_Direct_Income],
+                            data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income],
                         }]
                     },
                     options: gradientBarChartConfiguration
