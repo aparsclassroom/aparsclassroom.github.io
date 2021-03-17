@@ -265,8 +265,7 @@
                                         </p>
                                     </div>
                                 </p>
-                                <div class="card-description">
-
+                                <div class="card-description text-center" id="desc">
                                 </div>
                             </div>
 
@@ -321,7 +320,7 @@
                                                         <span id="pro1">BioDictionary</span>
                                                     </td>
                                                     <td>
-                                                        <a id="poster" target="_blank"><i class="fab fa-google"></i> Drive</a>
+                                                        <a id="poster" target="_blank" href="https://facebook.com/"><i class="fab fa-google"></i> Drive</a>
                                                     </td>
                                                     <td>
                                                         <span id="incentive">10%</span>
@@ -330,7 +329,7 @@
                                                         <span id="afflink" class="cp">Loading...</span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button class="btn btn-round btn-danger" data-clipboard-target="#link1" id="copy1">Copy</button>
+                                                        <button class="btn btn-round btn-danger" data-clipboard-target="#afflink" id="copy">Copy</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -435,7 +434,7 @@
                         return res.json();
                     }).then((loadedData) => {
                         console.log(loadedData)
-
+                        document.getElementById('desc').innerHTML = loadedData.Status;
                         document.getElementById('bio').innerText = loadedData.Status;
                         document.getElementById('avatar').src = user.photoURL;
                         document.getElementById('profile').src = user.photoURL;
@@ -464,6 +463,7 @@
                             updateBtn.innerText = "Updated !";
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
+                            document.getElementById('desc').innerHTML = ss;
                             var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket= " + Rocket.value.trim() + "&College= " + college.value.trim() + "&fb= " + fb.value.trim() + "&action=update"
                             fetch(url).then((res) => {
                                 updateBtn.innerText = "Updated Again?";
