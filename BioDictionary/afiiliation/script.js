@@ -98,7 +98,7 @@ function initApp() {
 
                 gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
                 gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
-                gradientStroke.addColorStop(0, 'rgba(29,140,248,0)');
+                gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
 
 
                 var myChart = new Chart(ctx, {
@@ -146,16 +146,17 @@ function initApp() {
 
                             gridLines: {
                                 drawBorder: false,
-                                color: 'rgba(29,140,248,0.1)'
+                                color: 'rgba(29,140,248,0.1)',
+                                zeroLineColor: "transparent",
                             },
                             ticks: {
                                 beginAtZero: true,
+                                padding: 20,
                                 fontColor: "#9e9e9e"
                             }
                         }]
                     }
                 }
-
             }).catch((err => {
                 console.log(err);
             }))
