@@ -33,6 +33,12 @@ function initApp() {
                     if (dashboard.Rocket != "") {
                         Rocket.value = dashboard.Rocket;
                     }
+                    if (dashboard.Remaning_in_Wallet === 0) {
+                        document.getElementById('CashOut').style.display = "none";
+                        document.getElementById('res').innerText = "You don't have enough balance to request for a cash out 😶";
+                    } else {
+                        document.getElementById('CashOut').style.display = "block";
+                    }
                     document.getElementById('aff').value = dashboard.Affiliation_Token;
                     document.getElementById('serial').value = dashboard.Serial;
                 }).catch((err => {
