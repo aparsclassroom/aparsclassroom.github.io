@@ -146,12 +146,10 @@ function initApp() {
 
                             gridLines: {
                                 drawBorder: false,
-                                color: 'rgba(29,140,248,0.1)',
-                                zeroLineColor: "transparent",
+                                color: 'rgba(29,140,248,0.1)'
                             },
                             ticks: {
                                 beginAtZero: true,
-                                padding: 20,
                                 fontColor: "#9e9e9e"
                             }
                         }]
