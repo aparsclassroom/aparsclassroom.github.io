@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/HSC-Full-Course//affiliation/assets/images/Logo-with-Name.png">
+    <link rel="icon" type="image/png" href="/HSC-Full-Course//affiliation/assets/images/Logo-with-Name.png">
+    <title>
+        Profile | ASG Affiliate Program
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="/affiliation/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/affiliation/assets/css/black-dashboard.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="../Assets/js/firebase.js"></script>
+</head>
+
+<body class="white-content">
+    <div class="wrapper">
+        <div class="sidebar" data="blue">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="javascript:void(0)" class="simple-text logo-mini">
+                        <img src="https://aparsclassroom.com/HSC-Full-Course/assets/images/Logo-with-Name.png" alt="" srcset="">
+                    </a>
+                    <a href="javascript:void(0)" class="simple-text logo-normal">
+            Affiliation Program
+          </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="./dashboard.html">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="active ">
+                        <a href="./profile.html">
+                            <i class="tim-icons icon-single-02"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./products.html">
+                            <i class="tim-icons icon-puzzle-10"></i>
+                            <p>Products</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./tutorial.html">
+                            <i class="tim-icons icon-bell-55"></i>
+                            <p>Tutorial</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cashout.html">
+                            <i class="tim-icons"> 💰</i>
+                            <p>Cash Out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle d-inline">
+                            <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+                        </div>
+                        <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="search-bar input-group">
+                                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
+                  <span class="d-lg-none d-md-block">Search</span>
+                </button>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <div class="notification d-none d-lg-block d-xl-block"></div>
+                                    <i class="tim-icons icon-sound-wave"></i>
+                                    <p class="d-lg-none">
+                                        Notifications
+                                    </p>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                                    <li class="nav-link"><a href="#" class="nav-item dropdown-item"><span id="status"></span></a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <div class="photo">
+                                        <img src="https://storymodelearning.com/img/about/baby.jpg" id="profile" alt="Profile Photo">
+                                    </div>
+                                    <b class="caret d-none d-lg-block d-xl-block"></b>
+                                    <p class="d-lg-none">
+                                        Settings
+                                    </p>
+                                </a>
+                                <ul class="dropdown-menu dropdown-navbar">
+                                    <li class="nav-link"><a href="./profile.html" class="nav-item dropdown-item">Profile</a></li>
+                                    <li class="nav-link"><a href="https://www.facebook.com/messages/t/2456849744439298" class="nav-item dropdown-item">Facebook Group</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="nav-link"><a href="javascript:logOut()" class="nav-item dropdown-item">Log out</a></li>
+                                </ul>
+                            </li>
+                            <li class="separator d-lg-none"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+                        </div>
+                        <div id="results-container"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Profile Details</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- <form> -->
+                                <div class="row">
+                                    <div class="col-md-5 pr-md-1">
+                                        <div class="form-group">
+                                            <label>Company</label>
+                                            <input type="text" class="form-control" readonly placeholder="Company" value="Apar's Classroom">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 px-md-1">
+                                        <div class="form-group">
+                                            <label for="Username">Username</label>
+                                            <input type="text" class="form-control" readonly id="Username" placeholder="Username" value="Loading...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 pl-md-1">
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input type="email" id="email" readonly class="form-control" placeholder="Email Address" value="Loading...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 pr-md-1">
+                                        <div class="form-group">
+                                            <label for="nid">National Id / Birth Certificate</label>
+                                            <input type="text" id="nid" class="form-control" readonly placeholder="National Id / Birth Certificate" value="N/A">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pl-md-1">
+                                        <div class="form-group">
+                                            <label>Secret Id</label>
+                                            <input type="text" class="form-control cp" id="uid" readonly data-clipboard-target="#uid" placeholder="Secret Id" value="Loading...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="College">College / University</label>
+                                            <input type="text" class="form-control" id="College" name="College" placeholder="College / University" value="Loading...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 pr-md-1">
+                                        <div class="form-group">
+                                            <label>Primary Contact Number</label>
+                                            <input type="tel" class="form-control" id="Mobile" data-clipboard-target="#Mobile" placeholder="Primary Number" value="Loading...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 px-md-1">
+                                        <div class="form-group">
+                                            <label>Secondary Contact Number</label>
+                                            <input type="text" class="form-control" id="fb" data-clipboard-target="#fb" placeholder="Secondary Number" value="N/A">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 pl-md-1">
+                                        <div class="form-group">
+                                            <label>Affiliation Code</label>
+                                            <input type="text" class="form-control cp" id="aff" data-clipboard-target="#aff" readonly placeholder="Affiliation Code" value="Loading...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 pr-md-1">
+                                        <div class="form-group">
+                                            <label>Bkash Number</label>
+                                            <input type="tel" class="form-control cp" id="Bkash" placeholder="Bkash Number" value="Loading...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 px-md-1">
+                                        <div class="form-group">
+                                            <label>Nagad Number</label>
+                                            <input type="text" class="form-control cp" id="Nagad" placeholder="Nagad Number" value="N/A">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 pl-md-1">
+                                        <div class="form-group">
+                                            <label>Rocket Number</label>
+                                            <input type="text" class="form-control cp" id="Rocket" placeholder="Rocket Number" value="N/A">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>About Me</label>
+                                            <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" id="bio" name="status"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                            <div class="card-footer">
+                                <button id="updateBtn" class="btn btn-fill btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <div class="author">
+                                        <div class="block block-one"></div>
+                                        <div class="block block-two"></div>
+                                        <div class="block block-three"></div>
+                                        <div class="block block-four"></div>
+                                        <a href="javascript:void(0)">
+                                            <img class="avatar" src="https://storymodelearning.com/img/about/baby.jpg" id="avatar" alt="avatar">
+                                            <h5 class="title"><span id="name"></span></h5>
+                                        </a>
+                                        <p class="description">
+                                            Affiliate Partner<br>
+                                            <b>Apar's Classroom</b>
+                                        </p>
+                                    </div>
+                                </p>
+                                <div class="card-description">
+
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="button-container">
+                                    <button id="fbLink" class="btn btn-icon btn-round btn-facebook">
+                    <i class="fab fa-facebook"></i>
+                  </button>
+                                    <button onclick="window.open('https://www.instagram.com/aparsclassroom/')" class="btn btn-icon btn-round">
+                    <i class="fab fa-instagram"></i>
+                  </button>
+                                    <button onclick="window.open('https://www.youtube.com/AparsClassroom')" class="btn btn-icon btn-round">
+                    <i class="fab fa-youtube"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Total Pending</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i><span id="totalPending"></span></h3>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Total Verified Earning</h5>
+                                <h3 class="card-title"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#1f8ef1" class="bi bi-cash" viewBox="0 0 16 16">
+                                    <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                                    <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
+                                  </svg> <span id="totalVerify"></span></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="myChart2" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="./dashboard.html" class="nav-link">
+            Dashboard
+          </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./tutorial.html" class="nav-link">
+            Tutorial
+          </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./cashout.html" class="nav-link">
+            Cash Out
+          </a>
+                        </li>
+                    </ul>
+                    <div class="copyright">
+                        ©
+                        <span id="date"></span>
+                        <script>
+                            document.getElementById('date').innerText = (new Date().getFullYear())
+                        </script> ASG
+                        <a href="https://facebook.com/maheyan.mridul" target="_blank">Research & Development Team</a>.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="/affiliation/assets/js/core/jquery.min.js"></script>
+    <script src="/affiliation/assets/js/core/popper.min.js"></script>
+    <script src="/affiliation/assets/js/core/bootstrap.min.js"></script>
+    <script src="/affiliation/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/affiliation/assets/js/plugins/chartjs.min.js"></script>
+    <script src="/affiliation/assets/js/black-dashboard.min.js"></script>
+    <script>
+        var Mobile = document.getElementById('Mobile');
+        var Bkash = document.getElementById('Bkash');
+        var Nagad = document.getElementById('Nagad');
+        var Rocket = document.getElementById('Rocket');
+        var college = document.getElementById('College');
+        var fb = document.getElementById('fb');
+        var status = document.getElementById('bio');
+        var updateBtn = document.getElementById('updateBtn');
+
+        function logOut() {
+            firebase.auth().signOut();
+            initApp();
+        }
+        var penl1, penl2, penl3, penl4, penl5, verl1, verl2, verl3, verl4, verl5;
+
+        function initApp() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    const script = 'https://script.google.com/macros/s/AKfycbwy7wXJwzFmEObIa-7pMd1OzS7RHR6zAxfVgc_oKheTrt4yWm6UNE57-sfOk9dkY7B1Og/exec';
+                    fetch(script + "?uid=" + uid).then((res) => {
+                        return res.json();
+                    }).then((loadedData) => {
+                        console.log(loadedData)
+
+                        document.getElementById('bio').innerText = loadedData.Status;
+                        document.getElementById('avatar').src = user.photoURL;
+                        document.getElementById('profile').src = user.photoURL;
+                        document.getElementById('Username').value = user.displayName;
+                        document.getElementById('email').value = user.email;
+                        document.getElementById('uid').value = user.uid;
+                        document.getElementById('clg').value = loadedData.College_University;
+                        document.getElementById('Mobile').value = loadedData.Mobile;
+                        document.getElementById('bkash').value = loadedData.Bkash;
+                        if (loadedData.Nagad != "") {
+                            document.getElementById('Nagad').value = loadedData.Nagad;
+                        }
+                        if (loadedData.Rocket != "") {
+                            document.getElementById('Rocket').value = loadedData.Rocket;
+                        }
+                        document.getElementById('aff').value = loadedData.Affiliation_Token;
+                        document.getElementById('name').innerText = user.displayName;
+                        document.getElementById('fbLink').addEventListener('click', () => {
+                            window.open(loadedData.Facebook_Link)
+                        });
+
+
+                        updateBtn.addEventListener('click', () => {
+                            updateBtn.innerText = "Updated !";
+                            var url = script + "?callback=ctrlq&uid=" + uid + "&Status=" + +"&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
+                            fetch(url).then((res) => {
+                                updateBtn.innerText = "Updated Again?";
+                                return res.json();
+                            }).catch((e) => {
+                                updateBtn.innerText = "Can't Update 😶";
+                            })
+                        })
+
+                        const label = ['Link 1', 'Link 2', 'Link 3', 'Link 4', 'Link 5'];
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: label,
+                                datasets: [{
+                                    label: 'Pending Earnings',
+                                    data: [penl1, penl2, penl3, penl4, penl5],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                        var ctx = document.getElementById("myChart2").getContext("2d");
+
+                        var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+                        gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
+                        gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
+                        gradientStroke.addColorStop(0, 'rgba(29,140,248,0)');
+
+
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            responsive: true,
+                            legend: {
+                                display: false
+                            },
+                            data: {
+                                labels: label,
+                                datasets: [{
+                                    label: "Verified Income",
+                                    fill: true,
+                                    backgroundColor: gradientStroke,
+                                    hoverBackgroundColor: gradientStroke,
+                                    borderColor: '#1f8ef1',
+                                    borderWidth: 2,
+                                    borderDash: [],
+                                    borderDashOffset: 0.0,
+                                    data: [verl1, verl2, verl3, verl4, verl5],
+                                }]
+                            },
+                            options: gradientBarChartConfiguration
+                        });
+
+                        var gradientBarChartConfiguration = {
+                            maintainAspectRatio: false,
+                            legend: {
+                                display: false
+                            },
+
+                            tooltips: {
+                                backgroundColor: '#f5f5f5',
+                                titleFontColor: '#333',
+                                bodyFontColor: '#666',
+                                bodySpacing: 4,
+                                xPadding: 12,
+                                mode: "nearest",
+                                intersect: 0,
+                                position: "nearest"
+                            },
+                            responsive: true,
+                            scales: {
+                                yAxes: [{
+
+                                    gridLines: {
+                                        drawBorder: false,
+                                        color: 'rgba(29,140,248,0.1)',
+                                        zeroLineColor: "transparent",
+                                    },
+                                    ticks: {
+                                        beginAtZero: true,
+                                        padding: 20,
+                                        fontColor: "#9e9e9e"
+                                    }
+                                }]
+                            }
+                        }
+                    }).catch((err => {
+                        console.log(err);
+                    }))
+                } else {
+                    // document.location.replace("index.html");
+                }
+            })
+        }
+        window.onload = function() {
+            initApp();
+        };
+
+
+        var clipboard = new ClipboardJS('.cp');
+
+        clipboard.on('success', function(e) {
+            alert(e.text + "\ncopied successfully!!")
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+
+        // updateBtn.addEventListener('click', () => {
+        //     updateBtn.innerText = "Updated !";
+        //     var college = document.getElementById('college');
+        //     var fb = document.getElementById('fb');
+        //     var status = document.getElementById('bio');
+
+        //     // var url = script + "?callback=ctrlq&uid=" + uid + "&Status=" + +"&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
+        //     // fetch(url).then((res) => {
+        //     //     updateBtn.innerText = "Updated Again?";
+        //     //     return res.json();
+        //     // }).catch((e) => {
+        //     //     updateBtn.innerText = "Can't Update 😶";
+        //     // })
+        // })
+    </script>
+    <script src="/affiliation/assets/js/plugins/search.min.js"></script>
+</body>
+
+</html>
