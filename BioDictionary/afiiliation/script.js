@@ -26,6 +26,7 @@ function initApp() {
                 document.getElementById('Username').value = user.displayName;
                 document.getElementById('email').value = user.email;
                 document.getElementById('uid').value = user.uid;
+                document.getElementById('notify').innerText = loadedData.Comment;
                 document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
                 document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
                 document.getElementById('totalEarning').innerText = loadedData.Total_Income;
