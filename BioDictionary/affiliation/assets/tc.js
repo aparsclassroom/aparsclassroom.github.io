@@ -24,7 +24,7 @@ function initApp() {
                     document.getElementById('uid').value = user.uid;
                     document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
                     document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
-                    college.value = loadedData.College_University;
+                    college.value = dashboard.College_University;
                     Bkash.value = dashboard.Bkash;
                     fb.value = dashboard.Facebook_Link;
                     if (dashboard.Nagad != "") {
