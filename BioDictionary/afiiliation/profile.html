@@ -405,6 +405,7 @@
 
                         updateBtn.addEventListener('click', () => {
                             updateBtn.innerText = "Updated !";
+                            console.log(status.value)
                             var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + status.value + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
                             fetch(url).then((res) => {
                                 updateBtn.innerText = "Updated Again?";
