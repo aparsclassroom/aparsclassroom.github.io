@@ -200,7 +200,7 @@
                                     </div>
                                     <div class="col-md-4 px-md-1">
                                         <div class="form-group">
-                                            <label>Secondary Contact Number</label>
+                                            <label>Facebook Id Link</label>
                                             <input type="text" class="form-control" id="fb" data-clipboard-target="#fb" placeholder="Secondary Number" value="N/A">
                                         </div>
                                     </div>
@@ -406,8 +406,9 @@
 
                         updateBtn.addEventListener('click', () => {
                             updateBtn.innerText = "Updated !";
-                            console.log(status.value)
-                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + status.value + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
+                            var Status = document.getElementById('bio')
+                            console.log(Status.value)
+                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + Status.value + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
                             fetch(url).then((res) => {
                                 updateBtn.innerText = "Updated Again?";
                                 return res.json();
