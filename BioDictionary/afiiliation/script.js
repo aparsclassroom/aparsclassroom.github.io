@@ -104,7 +104,6 @@ function initApp() {
                                 'rgba(153, 102, 255, 0.2)'
                             ],
                             borderColor: [
-                                'rgba(255, 206, 86, 1)',
                                 'rgba(75, 192, 192, 1)',
                                 'rgba(153, 102, 255, 1)'
                             ],
