@@ -92,71 +92,36 @@ function initApp() {
                     }
                 });
 
-                var ctx = document.getElementById("myChart2").getContext("2d");
-
-                var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-
-                gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
-                gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
-                gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
-
-
+                var ctx = document.getElementById('myChart2').getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'bar',
-                    responsive: true,
-                    legend: {
-                        display: false
-                    },
                     data: {
                         labels: label,
                         datasets: [{
-                            label: "Verified Income",
-                            fill: true,
-                            backgroundColor: gradientStroke,
-                            hoverBackgroundColor: gradientStroke,
-                            borderColor: '#1f8ef1',
-                            borderWidth: 2,
-                            borderDash: [],
-                            borderDashOffset: 0.0,
+                            label: 'Total Verfied Income',
                             data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income],
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)'
+                            ],
+                            borderWidth: 1
                         }]
                     },
-                    options: gradientBarChartConfiguration
-                });
-
-                var gradientBarChartConfiguration = {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-
-                    tooltips: {
-                        backgroundColor: '#f5f5f5',
-                        titleFontColor: '#333',
-                        bodyFontColor: '#666',
-                        bodySpacing: 4,
-                        xPadding: 12,
-                        mode: "nearest",
-                        intersect: 0,
-                        position: "nearest"
-                    },
-                    responsive: true,
-                    scales: {
-                        yAxes: [{
-
-                            gridLines: {
-                                drawBorder: false,
-                                color: 'rgba(29,140,248,0.1)',
-                                zeroLineColor: "transparent",
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                padding: 20,
-                                fontColor: "#9e9e9e"
-                            }
-                        }]
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
                     }
-                }
+                });
             }).catch((err => {
                 console.log(err);
             }))
