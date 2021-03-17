@@ -19278,6 +19278,10 @@ select {
     color: white;
 }
 
+.blk {
+    color: #000;
+}
+
 option {
     color: black;
 }

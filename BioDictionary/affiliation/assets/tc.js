@@ -1,4 +1,10 @@
-var verl1, verl2, verl3, verl4, verl5;
+var Mobile = document.getElementById('Mobile');
+var Bkash = document.getElementById('Bkash');
+var Nagad = document.getElementById('Nagad');
+var Rocket = document.getElementById('Rocket');
+var college = document.getElementById('College');
+var fb = document.getElementById('fb');
+var status = document.getElementById('bio');
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -9,35 +15,25 @@ function initApp() {
                     return res.json();
                 })
                 .then((dashboard) => {
-                    verl1 = dashboard.Verified_Income_of_Link_1;
-                    verl2 = dashboard.Verified_Income_of_Link_2;
-                    verl3 = dashboard.Verified_Income_of_Link_3;
-                    verl4 = dashboard.Verified_Income_of_Link_4;
-                    verl5 = dashboard.Verified_Income_of_Link_5;
-                    var totalv = verl1 + verl2 + verl3 + verl4 + verl5;
-                    var wallet = (totalv - dashboard.cashOut);
                     document.getElementById('contoller').innerText = dashboard.Controler_Name;
                     document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
                     document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
                     document.getElementById('Username').value = dashboard.Name;
-                    document.getElementById('email').value = dashboard.Email;
-                    document.getElementById('nid').value = dashboard.NID;
+                    document.getElementById('email').value = user.email;
+                    Mobile.value = dashboard.Mobile;
                     document.getElementById('uid').value = user.uid;
-                    document.getElementById('cash').placeholder = "Maximum : " + wallet;
-                    document.getElementById('lmt').innerText = wallet;
-                    document.getElementById('clg').value = dashboard.College_University;
-                    document.getElementById('mbl1').value = dashboard.Mobile_1;
-                    document.getElementById('bkash').value = dashboard.Bkash;
-                    if (dashboard.Mobile_2 != "") {
-                        document.getElementById('mbl2').value = dashboard.Mobile_2;
-                    }
+                    document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
+                    document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
+                    college.value = loadedData.College_University;
+                    Bkash.value = dashboard.Bkash;
+                    fb.value = dashboard.Facebook_Link;
                     if (dashboard.Nagad != "") {
-                        document.getElementById('nagad').value = dashboard.Nagad;
+                        Nagad.value = dashboard.Nagad;
                     }
                     if (dashboard.Rocket != "") {
-                        document.getElementById('rocket').value = dashboard.Rocket;
+                        Rocket.value = dashboard.Rocket;
                     }
-                    document.getElementById('aff').value = dashboard.Id;
+                    document.getElementById('aff').value = dashboard.Affiliation_Token;
                     document.getElementById('serial').value = dashboard.Serial;
                 }).catch((err => {
                     console.log(err);
@@ -58,7 +54,7 @@ $.get('https://json.geoiplookup.io/', function(res) {
 });
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzt6RkjmEmuJhLf4_we4ytGJ2T6qQJrLp2-KtWiJvgQK5er-JYeAsggaOnQkQSZYwrBSQ/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwYRFgEj07KNiCvhAHzaL4c02rk6IAydNU377SwcYhLi3QpdwPceGM6M8grloVHEgNI4w/exec'
 const form = document.forms['CashOut']
 
 form.addEventListener('submit', e => {
