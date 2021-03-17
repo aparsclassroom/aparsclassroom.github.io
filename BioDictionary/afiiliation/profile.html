@@ -375,7 +375,7 @@
         function initApp() {
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
-                    const script = 'https://script.google.com/macros/s/AKfycbwy7wXJwzFmEObIa-7pMd1OzS7RHR6zAxfVgc_oKheTrt4yWm6UNE57-sfOk9dkY7B1Og/exec';
+                    const script = 'https://script.google.com/macros/s/AKfycbxa9Dr3Go_mw9Ly52IsBgIBjJcRjXOqUWyfq_jY79aXZt9JxrRlCdaZ_khL6LAaJil7pg/exec';
                     fetch(script + "?uid=" + user.uid).then((res) => {
                         return res.json();
                     }).then((loadedData) => {
