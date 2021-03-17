@@ -61,39 +61,6 @@ function initApp() {
                         updateBtn.innerText = "Can't Update 😶";
                     })
                 })
-                var gradientBarChartConfiguration = {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-
-                    tooltips: {
-                        backgroundColor: '#f5f5f5',
-                        titleFontColor: '#333',
-                        bodyFontColor: '#666',
-                        bodySpacing: 4,
-                        xPadding: 12,
-                        mode: "nearest",
-                        intersect: 0,
-                        position: "nearest"
-                    },
-                    responsive: true,
-                    scales: {
-                        yAxes: [{
-
-                            gridLines: {
-                                drawBorder: false,
-                                color: 'rgba(29,140,248,0.1)',
-                                zeroLineColor: "transparent",
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                padding: 20,
-                                fontColor: "#9e9e9e"
-                            }
-                        }]
-                    }
-                }
                 var label = ['Direct Income', 'Passive Income'];
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var myChart = new Chart(ctx, {
@@ -135,7 +102,7 @@ function initApp() {
 
 
                 var myChart = new Chart(ctx, {
-                    type: 'pie',
+                    type: 'line',
                     responsive: true,
                     legend: {
                         display: false
