@@ -125,7 +125,7 @@ function initApp() {
                 console.log(err);
             }))
         } else {
-            document.location.replace("index.html");
+            document.location.replace("../index.html");
         }
     })
 }
