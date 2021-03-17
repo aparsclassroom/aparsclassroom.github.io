@@ -1,11 +1,3 @@
-var Mobile = document.getElementById('Mobile');
-var Bkash = document.getElementById('Bkash');
-var Nagad = document.getElementById('Nagad');
-var Rocket = document.getElementById('Rocket');
-var college = document.getElementById('college');
-var fb = document.getElementById('fb');
-var updateBtn = document.getElementById('updateBtn');
-
 var app_firebase = {};
 (function() {
     var firebaseConfig = {
@@ -82,18 +74,6 @@ var mainApp = {};
                     });
                 })
 
-
-
-                updateBtn.addEventListener('click', () => {
-                    updateBtn.innerText = "Updated !";
-                    var url = script + "?callback=ctrlq&uid=" + uid + "&Mobile=" + Mobile.value + "&Bkash=" + Bkash.value + "&Nagad=" + Nagad.value + "&Rocket= " + Rocket.value + "&College= " + college.value + "&fb= " + fb.value + "&action=update"
-                    fetch(url).then((res) => {
-                        updateBtn.innerText = "Updated Again?";
-                        return res.json();
-                    }).catch((e) => {
-                        updateBtn.innerText = "Can't Update 😶";
-                    })
-                })
 
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
 
