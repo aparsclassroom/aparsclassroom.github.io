@@ -195,7 +195,7 @@ function initApp() {
                         }]
                     }
                 }
-                const label = ['Direct Income', 'Passive Income'];
+                var label = ['Direct Income', 'Passive Income'];
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'bar',
