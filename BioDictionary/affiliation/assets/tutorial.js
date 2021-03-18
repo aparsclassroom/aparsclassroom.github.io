@@ -9,7 +9,7 @@ function initApp() {
             free = user.isAnonymous;
             if (free === true) {
                 alert("It is a premium feature");
-                location.replace("index.html");
+                location.replace("../index.html");
                 return;
             } else {
                 const script = 'https://script.google.com/macros/s/AKfycbxhN_haNW6WWO8IykSvK8sTpJPIQ8tdlj2MJZ9V87XCPCzakOpVEUp5ylmXigklBCn1GA/exec?uid='
