@@ -1,0 +1,49 @@
+<!doctype html>
+
+<head>
+    <title>Custom link</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    Long Link :
+
+    <input id="box"><br> Custom text :
+
+    <input id="slashtag"><br><br>
+
+    <button onclick="makelink(document.getElementById('box').value, document.getElementById('slashtag').value);">Genarate link</button>
+
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script>
+        var data;
+
+        function makelink(q, slash) {
+            $.ajax({
+                url: "https://api.rebrandly.com/v1/links/new?apikey=7e550388f4e34160842f6d638293814d&destination=" +
+                    q +
+                    "&slashtag=" +
+                    slash +
+                    "&domain[fullName]=rebrand.ly",
+                success: function(rawdata) {
+                    var rawstring = JSON.stringify(rawdata);
+                    data = JSON.parse(rawstring);
+                    document.getElementById("output").innerHTML =
+                        "<a href='https://" +
+                        data.shortUrl +
+                        "' target='_blank'>" +
+                        data.shortUrl +
+                        "</a>";
+                },
+            });
+        }
+    </script>
+
+</body>
+
+</html>
