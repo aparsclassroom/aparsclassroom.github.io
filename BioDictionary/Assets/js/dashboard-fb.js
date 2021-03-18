@@ -31,20 +31,6 @@ var mainApp = {};
                 location.replace("index.html");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbwy7wXJwzFmEObIa-7pMd1OzS7RHR6zAxfVgc_oKheTrt4yWm6UNE57-sfOk9dkY7B1Og/exec';
-                fetch(script + "?uid=" + uid).then((res) => {
-                    return res.json();
-                }).then((loadedData) => {
-                    Mobile.value = loadedData.Mobile;
-                    Bkash.value = loadedData.Bkash;
-                    Nagad.value = loadedData.Nagad;
-                    Rocket.value = loadedData.Rocket;
-                    college.value = loadedData.College_University;
-                    fb.value = loadedData.Facebook_Link;
-
-                }).catch((e) => {
-                    console.error(e)
-                })
                 document.getElementById('email').innerText = email;
                 document.getElementById("imgs").src = photoUrl;
 

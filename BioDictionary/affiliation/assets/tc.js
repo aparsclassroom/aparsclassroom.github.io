@@ -9,41 +9,48 @@ var status = document.getElementById('bio');
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            const script = 'https://script.google.com/macros/s/AKfycbxhN_haNW6WWO8IykSvK8sTpJPIQ8tdlj2MJZ9V87XCPCzakOpVEUp5ylmXigklBCn1GA/exec?uid='
-            fetch(script + user.uid)
-                .then((res) => {
-                    return res.json();
-                })
-                .then((dashboard) => {
-                    document.getElementById('contoller').innerText = dashboard.Controler_Name;
-                    document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
-                    document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
-                    if (dashboard.Remaning_in_Wallet === 0) {
-                        document.getElementById('CashOut').style.display = "none";
-                        document.getElementById('res').innerText = "You don't have enough balance to request for a cash out 😶";
-                    } else {
-                        document.getElementById('CashOut').style.display = "block";
-                        document.getElementById('Username').value = dashboard.Name;
-                        document.getElementById('email').value = user.email;
-                        Mobile.value = dashboard.Mobile;
-                        document.getElementById('uid').value = user.uid;
-                        document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
-                        document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
-                        college.value = dashboard.College_University;
-                        Bkash.value = dashboard.Bkash;
-                        fb.value = dashboard.Facebook_Link;
-                        if (dashboard.Nagad != "") {
-                            Nagad.value = dashboard.Nagad;
+            free = user.isAnonymous;
+            if (free === true) {
+                alert("It is a premium feature");
+                location.replace("index.html");
+                return;
+            } else {
+                const script = 'https://script.google.com/macros/s/AKfycbxhN_haNW6WWO8IykSvK8sTpJPIQ8tdlj2MJZ9V87XCPCzakOpVEUp5ylmXigklBCn1GA/exec?uid='
+                fetch(script + user.uid)
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((dashboard) => {
+                        document.getElementById('contoller').innerText = dashboard.Controler_Name;
+                        document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
+                        document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
+                        if (dashboard.Remaning_in_Wallet === 0) {
+                            document.getElementById('CashOut').style.display = "none";
+                            document.getElementById('res').innerText = "You don't have enough balance to request for a cash out 😶";
+                        } else {
+                            document.getElementById('CashOut').style.display = "block";
+                            document.getElementById('Username').value = dashboard.Name;
+                            document.getElementById('email').value = user.email;
+                            Mobile.value = dashboard.Mobile;
+                            document.getElementById('uid').value = user.uid;
+                            document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
+                            document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
+                            college.value = dashboard.College_University;
+                            Bkash.value = dashboard.Bkash;
+                            fb.value = dashboard.Facebook_Link;
+                            if (dashboard.Nagad != "") {
+                                Nagad.value = dashboard.Nagad;
+                            }
+                            if (dashboard.Rocket != "") {
+                                Rocket.value = dashboard.Rocket;
+                            }
+                            document.getElementById('aff').value = dashboard.Affiliation_Token;
+                            document.getElementById('serial').value = dashboard.Serial;
                         }
-                        if (dashboard.Rocket != "") {
-                            Rocket.value = dashboard.Rocket;
-                        }
-                        document.getElementById('aff').value = dashboard.Affiliation_Token;
-                        document.getElementById('serial').value = dashboard.Serial;
-                    }
-                }).catch((err => {
-                    console.log(err);
-                }))
+                    }).catch((err => {
+                        console.log(err);
+                    }))
+            }
         } else {
             document.location.replace("index.html");
         }
