@@ -65,36 +65,34 @@ function suc() {
 }
 cpn.addEventListener('click', (e) => {
     e.preventDefault();
-    document.getElementById('cupon').value = "Checking";
-    const pls = 150;
-    const igs = 'QUtmeWNieFZESnF6WXY2bU1tN3lOMnFmTGVWNWJsekQ4QTBaNTRMT1ZJOHZ0TmpjdEkyU0M0NnhMaXJEb0lYM09xd0xJUTF6WWc=';
-    fetch('https://script.google.com/macros/s/' + window.atob(igs) + '/exec')
+    var cupV = document.getElementById('cupon');
+    const pls = 300;
+    const igs = 'QUtmeWNieFJCQXRBQVBmbkIzb0lMR05RXzlOTjctLTJxRkNhX3g1NUhILXhzdnctaWVhcjV2Nl9SaEhuVU0wbVNseW1ua2lx';
+    fetch('https://script.google.com/macros/s/' + window.atob(igs) + '/exec?Cupon=' + cupV)
 
     .then((res) => {
             return res.json();
         })
         .then((loadedData) => {
-            loadedData.find(dashboard => {
-                var ss = dashboard.Cupon
-                var cn = window.atob(ss)
-                var sr = cupon.trim();
-                var str = sr.toUpperCase()
-                if (cn === str) {
-                    document.getElementById('cupon').style.display = "none";
-                    cpn.style.display = "none";
-                    var nes = pls - dashboard.Off;
-                    document.getElementById('price').value = nes;
-                    document.getElementById('prs').value = nes;
-                    document.getElementById('sprice').innerText = nes;
-                    document.getElementById('cupn').value = cupon;
-                    document.getElementById('smp').innerHTML = "<del style='color:red'> 150 ৳ </del> " + nes;
-                    alert('successfully applied!')
-                    return;
-                } else {
-                    document.getElementById('cupon').value = "Code not Valid";
-                    alert('Code not valid')
-                }
-            })
+            var ss = loadedData.Cupon
+            var cn = window.atob(ss)
+            var sr = cupon.trim();
+            var str = sr.toUpperCase()
+            if (cn === str) {
+                document.getElementById('cupon').style.display = "none";
+                cpn.style.display = "none";
+                var nes = pls - loadedData.Off;
+                document.getElementById('price').value = nes;
+                document.getElementById('prs').value = nes;
+                document.getElementById('sprice').innerText = nes;
+                document.getElementById('cupn').value = cupon;
+                document.getElementById('smp').innerHTML = "<del style='color:red'> " + pls + " ৳ </del> " + nes;
+                alert('successfully applied!')
+                return;
+            } else {
+                document.getElementById('cupon').value = "Code not Valid";
+                alert('Code not valid')
+            }
         }).catch((err => {
             console.log(err)
         }))
