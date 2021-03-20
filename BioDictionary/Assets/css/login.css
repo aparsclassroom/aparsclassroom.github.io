@@ -19,7 +19,7 @@ body {
 
 .form-container {
     max-width: 330px;
-    margin: 80px auto;
+    margin: 40px auto;
     padding: 50px;
     text-align: center;
 }
@@ -97,11 +97,15 @@ a:hover {
         margin-right: 0px;
         margin-bottom: 5px;
     }
+    img {
+        height: 150px;
+        width: 150px;
+    }
     #subs {
         display: inline-block;
     }
     .form-container {
-        margin-top: 50px;
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 }
