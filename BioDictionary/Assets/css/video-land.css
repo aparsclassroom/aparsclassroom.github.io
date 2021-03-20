@@ -102,8 +102,15 @@ body {
     box-shadow: 5px 15px 10px rgba(78, 74, 74, 0.644);
 }
 
+.darkmode--activated .footer-ablove .btn {
+    color: white;
+    background-color: #ed4e6e;
+}
+
 .darkmode--activated .footer-ablove .btn:hover {
-    background-color: #dc3545;
+    color: white;
+    background-color: #2c3f52;
+    border: 1px solid #ed4e6e;
 }
 
 .darkmode--activated .navbar-nav li a,
