@@ -12,7 +12,7 @@ function initApp() {
                 location.replace("../index.html");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbw6tMp5LhttMiNzx4vDN00a_Z23IpsUj0tNB7mrFCM2xfRCJrtLkfzFRKK2J56LkB1S4A/exec?uid='
+                const script = 'https://script.google.com/macros/s/AKfycbwrwFfoLyEAzcgWCQVLhH2SPdXMkhTl3wBmNSRmvpQxS7ptk17ACWaFqzeyXA8Z_XEm_A/exec?uid='
                 fetch(script + user.uid)
                     .then((res) => {
                         return res.json();
