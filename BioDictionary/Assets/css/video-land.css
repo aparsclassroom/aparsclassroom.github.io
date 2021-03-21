@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: 'Glacial Indifference';
-    src: url("../fonts/basiersquare-regular-webfont.woff") format("woff2"), url("../fonts/basiersquare-regular-webfont.woff") format("woff");
+    src: url("/HSC-Full-Course/assets/fonts/basiersquare-regular-webfont.woff") format("woff2"), url("/HSC-Full-Course/assets/fonts/basiersquare-regular-webfont.woff") format("woff");
     font-weight: normal;
     font-display: swap;
     font-style: normal;
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'Glacial Indifference bold';
-    src: url("../fonts/GlacialIndifference-Bold.woff") format("woff2"), url("../fonts/GlacialIndifference-Bold.woff") format("woff");
+    src: url("/HSC-Full-Course/assets/fonts/GlacialIndifference-Bold.woff") format("woff2"), url("/HSC-Full-Course/assets/fonts/GlacialIndifference-Bold.woff") format("woff");
     font-weight: bold;
     font-display: swap;
     font-style: normal;
@@ -29,7 +29,7 @@
 
 @font-face {
     font-family: 'title-font';
-    src: url("../fonts/cerebri-sans.woff") format("truetype");
+    src: url("/HSC-Full-Course/assets/fonts/cerebri-sans.woff") format("truetype");
 }
 
 
@@ -1004,18 +1004,8 @@ p {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
-.video-cover .share {
-    margin-bottom: -30px;
-}
-
-.video-cover .share .btn {
-    background-color: hotpink;
-    border: 1px solid hotpink;
-}
-
-.share .sharethis-inline-reaction-buttons {
-    padding: 2px;
-    margin-bottom: 25px;
+.sharethis-inline-reaction-buttons {
+    margin-top: 25px;
 }
 
 @media screen and (max-width: 600px) {
@@ -1028,6 +1018,3 @@ p {
         font-size: 1rem;
     }
 }
-
-
-/*# sourceMappingURL=style.css.map */

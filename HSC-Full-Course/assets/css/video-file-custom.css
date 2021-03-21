@@ -14,3 +14,7 @@
 .contri-bghy .detail h6 {
     font-size: larger;
 }
+
+.embed-responsive::before {
+    display: none;
+}

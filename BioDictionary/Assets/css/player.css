@@ -992,6 +992,7 @@ a.plyr__control::before {
 
 .plyr--video {
     background: #000;
+    border-radius: 15px;
     background: var(--plyr-video-background, var(--plyr-video-background, #000));
     overflow: hidden
 }
