@@ -52,8 +52,11 @@
 
                     var user = firebase.auth().currentUser;
                     // Prompt the user to re-provide their sign-in credentials
+                    var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
-                    user.reauthenticateWithCredential(email, a).then(function() {
+                    // Prompt the user to re-provide their sign-in credentials
+                    return user.reauthenticateWithCredential(credential);
+                    user.reauthenticateWithCredential(credential).then(function() {
                         // User re-authenticated.
                         console.log("success");
                     }).catch(function(error) {
