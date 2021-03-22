@@ -64,6 +64,7 @@ var mainApp = {};
                     });
                 })
                 changePass.addEventListener('click', e => {
+                    e.preventDefault();
                     if (currentPassword.value === "") {
                         alert("Enter the current Password First")
                     } else {
@@ -85,7 +86,9 @@ var mainApp = {};
                         user.reauthenticateWithCredential(credential).then(function() {
                             const b = confirmPassword.value;
                             user.updatePassword(b).then(function() {
-                                alert('Password Changed Successfully!')
+                                document.getElementById('form').reset();
+                                alert('Password Changed Successfully!');
+                                $('passModal').modal('hide');
                             }).catch(function(error) {
                                 alert(error.message);
                             });
