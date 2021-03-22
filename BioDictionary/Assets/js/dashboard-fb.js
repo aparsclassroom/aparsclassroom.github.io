@@ -1,3 +1,6 @@
+const currentPassword = document.getElementById('currentPassword');
+const newPassword = document.getElementById('newPassword');
+const changePass = document.getElementById('changePass');
 var app_firebase = {};
 (function() {
     var firebaseConfig = {
@@ -59,8 +62,23 @@ var mainApp = {};
                         alert(error)
                     });
                 })
+                changePass.addEventListener('click', e => {
+                    const a = currentPassword.value;
 
+                    var user = firebase.auth().currentUser;
+                    var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
+                    user.reauthenticateWithCredential(credential).then(function() {
+                        const b = newPassword.value;
+                        user.updatePassword(b).then(function() {
+                            alert('Password Changed Successfully!')
+                        }).catch(function(error) {
+                            alert(error.message);
+                        });
+                    }).catch(function(error) {
+                        alert(error.message);
+                    });
+                })
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
 
                 function uploadImage() {
