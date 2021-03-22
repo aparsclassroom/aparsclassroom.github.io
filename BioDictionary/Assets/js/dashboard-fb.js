@@ -148,8 +148,15 @@ function ValidateSize(file) {
     }
 }
 
+function cng() {
+    changePass.addEventListener('keyup', function() {
+        changePass.disabled = false;
+    })
+}
+cng()
+
 function na() {
-    document.getElementById('usname').addEventListener('keyup', function() {
+    currentPassword.addEventListener('keyup', function() {
         document.getElementById('namUp').disabled = false;
     })
 }
