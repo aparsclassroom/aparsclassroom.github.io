@@ -65,13 +65,13 @@ var mainApp = {};
                 })
                 changePass.addEventListener('click', e => {
                     e.preventDefault();
-                    const a = confirmPassword.value;
+                    const a = currentPassword.value;
 
                     var user = firebase.auth().currentUser;
                     var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
                     user.reauthenticateWithCredential(credential).then(function() {
-                        const b = newPassword.value;
+                        const b = confirmPassword.value;
                         user.updatePassword(b).then(function() {
                             alert('Password Changed Successfully!')
                         }).catch(function(error) {
@@ -151,7 +151,7 @@ function ValidateSize(file) {
 }
 
 function na() {
-    currentPassword.addEventListener('keyup', function() {
+    document.getElementById('usname').addEventListener('keyup', function() {
         document.getElementById('namUp').disabled = false;
     })
 }
@@ -159,7 +159,7 @@ na()
 
 function chngp() {
     currentPassword.addEventListener('keyup', function() {
-        if (newPassword.value === confirmPassword.value) {
+        if (currentPassword.value === confirmPassword.value) {
             changePass.disabled = false;
         } else {
             changePass.disabled = true;
