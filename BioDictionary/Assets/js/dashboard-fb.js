@@ -1,5 +1,6 @@
 const currentPassword = document.getElementById('currentPassword');
 const newPassword = document.getElementById('newPassword');
+const confirmPassword = document.getElementById('confirmPassword');
 const changePass = document.getElementById('changePass');
 var app_firebase = {};
 (function() {
@@ -63,6 +64,8 @@ var mainApp = {};
                     });
                 })
                 changePass.addEventListener('click', e => {
+                    e.preventDefault();
+                    validateSignupForm();
                     const a = currentPassword.value;
 
                     var user = firebase.auth().currentUser;
@@ -79,6 +82,43 @@ var mainApp = {};
                         alert(error.message);
                     });
                 })
+
+                function validatePassword() {
+                    if (newPassword.value != confirmPassword.value) {
+                        confirmPassword.setCustomValidity("Passwords Don't Match");
+                        return false;
+                    } else {
+                        confirmPassword.setCustomValidity('');
+
+                        return true;
+                    }
+                }
+
+                newPassword.onchange = validatePassword;
+                confirmPassword.onkeyup = validatePassword;
+
+                // function enableSubmitButton() {
+                //     changePass.disabled = false;
+                // }
+
+                // function disableSubmitButton() {
+                //     changePass.disabled = true;
+                // }
+
+                function validateSignupForm() {
+                    var form = document.getElementById('chngPass');
+
+                    for (var i = 0; i < form.elements.length; i++) {
+                        if (form.elements[i].value === '' && form.elements[i].hasAttribute('required')) {
+                            console.log('There are some required fields!');
+                            return false;
+                        }
+                    }
+
+                    if (!validatePassword()) {
+                        return false;
+                    }
+                }
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
 
                 function uploadImage() {
@@ -147,13 +187,6 @@ function ValidateSize(file) {
         return;
     }
 }
-
-function cng() {
-    changePass.addEventListener('keyup', function() {
-        changePass.disabled = false;
-    })
-}
-cng()
 
 function na() {
     currentPassword.addEventListener('keyup', function() {
