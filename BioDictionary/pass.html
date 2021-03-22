@@ -47,7 +47,6 @@
 
                 changePass.addEventListener('click', e => {
                     const a = currentPassword.value;
-                    const b = newPassword.value;
                     console.log(a + "\n" + b);
 
                     var user = firebase.auth().currentUser;
@@ -57,6 +56,7 @@
                     // Prompt the user to re-provide their sign-in credentials
                     return user.reauthenticateWithCredential(credential);
                     user.reauthenticateWithCredential(credential).then(function() {
+                        const b = newPassword.value;
                         user.updatePassword(b).then(function() {
                             // Update successful.
                             alert('Password Changed Successfully!')
