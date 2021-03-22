@@ -159,7 +159,7 @@ na()
 
 function chngp() {
     currentPassword.addEventListener('keyup', function() {
-        if (currentPassword.value === confirmPassword.value) {
+        if (newPassword.value === confirmPassword.value) {
             changePass.disabled = false;
         } else {
             changePass.disabled = true;
