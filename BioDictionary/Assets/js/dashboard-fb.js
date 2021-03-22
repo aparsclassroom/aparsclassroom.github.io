@@ -64,23 +64,30 @@ var mainApp = {};
                     });
                 })
                 changePass.addEventListener('click', e => {
-                    e.preventDefault();
-                    const a = currentPassword.value;
+                    chngp()
+                })
 
-                    var user = firebase.auth().currentUser;
-                    var credential = firebase.auth.EmailAuthProvider.credential(email, a);
+                function chngp() {
+                    if (newPassword.value === confirmPassword.value) {
+                        const a = currentPassword.value;
 
-                    user.reauthenticateWithCredential(credential).then(function() {
-                        const b = confirmPassword.value;
-                        user.updatePassword(b).then(function() {
-                            alert('Password Changed Successfully!')
+                        var user = firebase.auth().currentUser;
+                        var credential = firebase.auth.EmailAuthProvider.credential(email, a);
+
+                        user.reauthenticateWithCredential(credential).then(function() {
+                            const b = confirmPassword.value;
+                            user.updatePassword(b).then(function() {
+                                alert('Password Changed Successfully!')
+                            }).catch(function(error) {
+                                alert(error.message);
+                            });
                         }).catch(function(error) {
                             alert(error.message);
                         });
-                    }).catch(function(error) {
-                        alert(error.message);
-                    });
-                })
+                    } else {
+                        alert("Passwords doesn't Match 😶")
+                    }
+                }
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
 
                 function uploadImage() {
@@ -156,14 +163,3 @@ function na() {
     })
 }
 na()
-
-function chngp() {
-    currentPassword.addEventListener('keyup', function() {
-        if (newPassword.value === confirmPassword.value) {
-            changePass.disabled = false;
-        } else {
-            changePass.disabled = true;
-        }
-    })
-}
-chngp()
