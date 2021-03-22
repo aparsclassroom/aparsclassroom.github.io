@@ -71,6 +71,9 @@ var mainApp = {};
                     user.reauthenticateWithCredential(credential).then(function() {
                         const b = newPassword.value;
                         user.updatePassword(b).then(function() {
+                            a = "";
+                            b = "";
+                            $('#passModal').modal('hide');
                             alert('Password Changed Successfully!')
                         }).catch(function(error) {
                             alert(error.message);
