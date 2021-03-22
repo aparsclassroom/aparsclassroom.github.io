@@ -157,15 +157,13 @@ function na() {
 }
 na()
 
-function validatePassword() {
-    if (newPassword.value != confirmPassword.value) {
-        confirmPassword.setCustomValidity("Passwords Don't Match");
-        return false;
-    } else {
-        confirmPassword.setCustomValidity('');
-        return true;
-    }
+function chngp() {
+    currentPassword.addEventListener('keyup', function() {
+        if (newPassword.value === confirmPassword.value) {
+            changePass.disabled = false;
+        } else {
+            changePass.disabled = true;
+        }
+    })
 }
-
-newPassword.onchange = validatePassword;
-confirmPassword.onkeyup = validatePassword;
+chngp()
