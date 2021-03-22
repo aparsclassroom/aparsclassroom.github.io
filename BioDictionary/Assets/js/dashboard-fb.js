@@ -63,25 +63,8 @@ var mainApp = {};
                         alert(error)
                     });
                 })
-                changePass.addEventListener('click', e => {
-                    e.preventDefault();
-                    validateSignupForm();
-                    const a = currentPassword.value;
-
-                    var user = firebase.auth().currentUser;
-                    var credential = firebase.auth.EmailAuthProvider.credential(email, a);
-
-                    user.reauthenticateWithCredential(credential).then(function() {
-                        const b = newPassword.value;
-                        user.updatePassword(b).then(function() {
-                            alert('Password Changed Successfully!')
-                        }).catch(function(error) {
-                            alert(error.message);
-                        });
-                    }).catch(function(error) {
-                        alert(error.message);
-                    });
-                })
+                newPassword.onchange = validatePassword;
+                confirmPassword.onkeyup = validatePassword;
 
                 function validatePassword() {
                     if (newPassword.value != confirmPassword.value) {
@@ -89,34 +72,24 @@ var mainApp = {};
                         return false;
                     } else {
                         confirmPassword.setCustomValidity('');
+                        changePass.addEventListener('click', e => {
+                            e.preventDefault();
+                            const a = currentPassword.value;
 
-                        return true;
-                    }
-                }
+                            var user = firebase.auth().currentUser;
+                            var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
-                newPassword.onchange = validatePassword;
-                confirmPassword.onkeyup = validatePassword;
-
-                // function enableSubmitButton() {
-                //     changePass.disabled = false;
-                // }
-
-                // function disableSubmitButton() {
-                //     changePass.disabled = true;
-                // }
-
-                function validateSignupForm() {
-                    var form = document.getElementById('chngPass');
-
-                    for (var i = 0; i < form.elements.length; i++) {
-                        if (form.elements[i].value === '' && form.elements[i].hasAttribute('required')) {
-                            console.log('There are some required fields!');
-                            return false;
-                        }
-                    }
-
-                    if (!validatePassword()) {
-                        return false;
+                            user.reauthenticateWithCredential(credential).then(function() {
+                                const b = newPassword.value;
+                                user.updatePassword(b).then(function() {
+                                    alert('Password Changed Successfully!')
+                                }).catch(function(error) {
+                                    alert(error.message);
+                                });
+                            }).catch(function(error) {
+                                alert(error.message);
+                            });
+                        })
                     }
                 }
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
