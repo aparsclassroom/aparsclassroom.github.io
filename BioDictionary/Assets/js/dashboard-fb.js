@@ -64,7 +64,15 @@ var mainApp = {};
                     });
                 })
                 changePass.addEventListener('click', e => {
-                    chngp()
+                    if (currentPassword.value === "") {
+                        alert("Enter the current Password First")
+                    } else {
+                        if (newPassword.value === "") {
+                            alert("Enter a new Password")
+                        } else {
+                            chngp()
+                        }
+                    }
                 })
 
                 function chngp() {
