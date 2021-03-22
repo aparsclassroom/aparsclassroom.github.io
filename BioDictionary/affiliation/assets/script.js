@@ -21,7 +21,7 @@ function initApp() {
                 location.replace("../index.html");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbwrwFfoLyEAzcgWCQVLhH2SPdXMkhTl3wBmNSRmvpQxS7ptk17ACWaFqzeyXA8Z_XEm_A/exec';
+                const script = 'https://script.google.com/macros/s/AKfycbzLQRpi7Hvr57yfc_dg8zZffTQYp9t0qGS4wbI4VWvITiD86jvdp--hcQp8FMoRir-uCg/exec';
                 fetch(script + "?uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
