@@ -63,35 +63,24 @@ var mainApp = {};
                         alert(error)
                     });
                 })
-                newPassword.onchange = validatePassword;
-                confirmPassword.onkeyup = validatePassword;
+                changePass.addEventListener('click', e => {
+                    e.preventDefault();
+                    const a = confirmPassword.value;
 
-                function validatePassword() {
-                    if (newPassword.value != confirmPassword.value) {
-                        confirmPassword.setCustomValidity("Passwords Don't Match");
-                        return false;
-                    } else {
-                        confirmPassword.setCustomValidity('');
-                        changePass.addEventListener('click', e => {
-                            e.preventDefault();
-                            const a = currentPassword.value;
+                    var user = firebase.auth().currentUser;
+                    var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
-                            var user = firebase.auth().currentUser;
-                            var credential = firebase.auth.EmailAuthProvider.credential(email, a);
-
-                            user.reauthenticateWithCredential(credential).then(function() {
-                                const b = newPassword.value;
-                                user.updatePassword(b).then(function() {
-                                    alert('Password Changed Successfully!')
-                                }).catch(function(error) {
-                                    alert(error.message);
-                                });
-                            }).catch(function(error) {
-                                alert(error.message);
-                            });
-                        })
-                    }
-                }
+                    user.reauthenticateWithCredential(credential).then(function() {
+                        const b = newPassword.value;
+                        user.updatePassword(b).then(function() {
+                            alert('Password Changed Successfully!')
+                        }).catch(function(error) {
+                            alert(error.message);
+                        });
+                    }).catch(function(error) {
+                        alert(error.message);
+                    });
+                })
                 document.getElementById('imgbutton').addEventListener('click', uploadImage)
 
                 function uploadImage() {
@@ -167,3 +156,16 @@ function na() {
     })
 }
 na()
+
+function validatePassword() {
+    if (newPassword.value != confirmPassword.value) {
+        confirmPassword.setCustomValidity("Passwords Don't Match");
+        return false;
+    } else {
+        confirmPassword.setCustomValidity('');
+        return true;
+    }
+}
+
+newPassword.onchange = validatePassword;
+confirmPassword.onkeyup = validatePassword;
