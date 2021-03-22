@@ -88,7 +88,7 @@ var mainApp = {};
                             user.updatePassword(b).then(function() {
                                 document.getElementById('form').reset();
                                 alert('Password Changed Successfully!');
-                                $('passModal').modal('hide');
+                                $('#passModal').modal('hide');
                             }).catch(function(error) {
                                 alert(error.message);
                             });
