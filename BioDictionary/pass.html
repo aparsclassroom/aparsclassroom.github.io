@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+</head>
+
+<body>
+    <input type="text" id="currentPassword" placeholder="Current Password">
+    <input type="text" id="newPassword" placeholder="new Password">
+    <button id="changePass">Change Password</button>
+</body>
+<script>
+    const currentPassword = document.getElementById('currentPassword');
+    const newPassword = document.getElementById('newPassword');
+    const changePass = document.getElementById('changePass');
+    var app_firebase = {};
+    (function() {
+        var firebaseConfig = {
+            apiKey: "AIzaSyDpX318g79F8msrHeEEifiSO06e5twwu9w",
+            authDomain: "asg-biodictionary.firebaseapp.com",
+            projectId: "asg-biodictionary",
+            storageBucket: "asg-biodictionary.appspot.com",
+            messagingSenderId: "342222541178",
+            appId: "1:342222541178:web:d3ad1c34fdcdb71ad046c3",
+            measurementId: "G-MQV49ZPHK7"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        app_firebase = firebase;
+        firebase.analytics();
+    })()
+    var mainApp = {};
+    (function() {
+        var firebase = app_firebase;
+        var uid = null;
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                namex = user.displayName;
+                email = user.email;
+
+                changePass.addEventListener('click', e => {
+                    let a = currentPassword.value;
+                    let b = newPassword.value;
+                    console.log(a + "\n" + b);
+                })
+            } else {
+                // window.location.replace("login.html");
+            }
+        });
+
+        function logOut() {
+            firebase.auth().signOut();
+        }
+        mainApp.logOut = logOut;
+    })()
+</script>
+
+</html>
