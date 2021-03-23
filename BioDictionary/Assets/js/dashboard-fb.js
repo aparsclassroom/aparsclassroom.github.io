@@ -93,7 +93,7 @@ var mainApp = {};
                                 alert(error.message);
                             });
                         }).catch(function(error) {
-                            alert(error.message);
+                            alert("Invalid Current Password.\nPlease correct it!");
                         });
                     } else {
                         alert("Passwords doesn't Match 😶")
