@@ -161,9 +161,7 @@
                         updateSignInFormUI();
                     }).catch(function(error) {
                         // Error; SMS not sent
-                        console.error('Error during signInWithPhoneNumber', error);
-                        window.alert('Error during signInWithPhoneNumber:\n\n' +
-                            error.code + '\n\n' + error.message);
+                        window.alert(error.code + '\n\n' + error.message);
                         window.signingIn = false;
                         updateSignInFormUI();
                         updateSignInButtonUI();
@@ -187,10 +185,7 @@
                     window.confirmationResult = null;
                     updateVerificationCodeFormUI();
                 }).catch(function(error) {
-                    // User couldn't sign in (bad verification code?)
-                    console.error('Error while checking the verification code', error);
-                    window.alert('Error while checking the verification code:\n\n' +
-                        error.code + '\n\n' + error.message);
+                    window.alert(error.code + '\n\n' + error.message);
                     window.verifyingCode = false;
                     updateSignInButtonUI();
                     updateVerifyCodeButtonUI();
