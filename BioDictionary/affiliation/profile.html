@@ -17,7 +17,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
-    <script src="../Assets/js/firebase.js"></script>
+    <!-- <script src="../Assets/js/firebase.js"></script> -->
 </head>
 
 <body class="white-content">
@@ -135,7 +135,7 @@
                                     <div class="col-md-5 px-md-1">
                                         <div class="form-group">
                                             <label for="Username">Username</label>
-                                            <input type="text" class="form-control" readonly id="Username" name="Name" placeholder="Username">
+                                            <input type="text" class="form-control" readonly id="Username" name="Name" placeholder="Username" value="Loading...">
                                         </div>
                                     </div>
                                     <div class="col-md-4 pl-md-1">
@@ -272,7 +272,13 @@
                                                         Posters
                                                     </th>
                                                     <th>
-                                                        Incentive
+                                                        Direct Incentive
+                                                    </th>
+                                                    <th>
+                                                        Passive Incentive
+                                                    </th>
+                                                    <th>
+                                                        Passive² Incentive
                                                     </th>
                                                     <th>
                                                         Affiliated Link
@@ -292,6 +298,12 @@
                                                     </td>
                                                     <td>
                                                         <span id="incentive">10%</span>
+                                                    </td>
+                                                    <td>
+                                                        <span id="passincentive">2.5%</span>
+                                                    </td>
+                                                    <td>
+                                                        <span id="pass2incentive">2.5%</span>
                                                     </td>
                                                     <td>
                                                         <span id="afflink" class="cp">Loading...</span>
