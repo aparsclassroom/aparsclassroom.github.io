@@ -32280,3 +32280,9 @@ article a:hover {
 .tooltip-inner {
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff
 }
+
+@media screen and (max-width:400px) {
+    .lonng {
+        width: 100%;
+    }
+}
