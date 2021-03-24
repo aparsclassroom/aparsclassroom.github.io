@@ -65,12 +65,20 @@
                 <h4 style="color:brown">Please Wait for Account Creation</h4>
                         <img src="https://media4.giphy.com/media/PijzuUzUhm7hcWinGn/giphy.gif" width="100%">
                         `;
-                    } else {
+                    } else if (loadedData.Status === "Account Created") {
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
                 <p><b>Click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary</a></b></p>
                         <img src="https://cdn.dribbble.com/users/1785141/screenshots/8998392/media/b9c223e8d6e8b7342eb48193703a79a3.gif" width="100%">
+                        `;
+                    } else {
+                        result.innerHTML = `
+                <h3>Name : ${loadedData.Name}</h3>
+                <h3>Email : ${loadedData.Email}</h3>
+                <h4 style="color:brown">REJECTED 😶</h4>
+                <p><b>If you think this is a mistake please click here : <a href="https://m.me/maheyan.mridul/">Support Team</a></b></p>
+                        <img src="https://media.tenor.com/images/378b3fef95c57b5e5bbe0067cb22a66a/tenor.gif" width="100%">
                         `;
                     }
 
