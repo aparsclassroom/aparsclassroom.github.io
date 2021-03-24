@@ -29,7 +29,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
     <script src="/BioDictionary/Assets/js/firebase.js"></script>
-    <script src="/BioDictionary/Assets/js/Videospage.js"></script>
+    <!-- <script src="/BioDictionary/Assets/js/Videospage.js"></script> -->
 
     <!-- Facebook Comments Plugin -->
     <div id="fb-root"></div>
@@ -37,20 +37,6 @@
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/fb.js"></script>
     <link rel="stylesheet" href="../../../../Assets/css/player.css" />
-    <script>
-        var as = window.location.pathname.toString();
-        const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/" + as.split('/')[6].split('.')[0].substring(0, 16);
-
-        fetch('https://script.google.com/macros/s/AKfycbyvECMXr6thDljo0kmU_HanQbHiP6_Hyp33b2ICf_zRnXFPssol07SJA6OD11GRsbPK/exec?ID=' + ID)
-            .then((res) => {
-                return res.json()
-            })
-            .then((loadedData) => {
-                console.log(loadedData.Video_Id)
-                $('#player').attr("data-plyr-embed-id", loadedData.Video_Id);
-
-            })
-    </script>
     <!-- External API -->
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=analytics' async='async'></script>
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=sop' async='async'></script>
@@ -124,7 +110,7 @@
                             <div id="player" data-plyr-provider="youtube"></div>
                         </div>
                         <!-- ####### Video Description ######## -->
-                        <p>১. অধ্যায় ১ - ভৌতজগত ও পরিমাপ : <strong>রাশি এবং একক</strong></p>
+                        <p id="Video_Description"></p>
 
                         <div class="sharethis-inline-reaction-buttons"></div>
 
@@ -142,7 +128,7 @@
                     <div class="contri-bghy">
                         <a href="./Phy01-Ch-01-C002.html">
                             <div class="image">
-                                <img src="https://i.ytimg.com/vi/9IZrZviH9rY/hqdefault.jpg" class="rounded" alt="Related 1">
+                                <img id="Suggestion_1_Link" class="rounded" alt="Related 1">
                             </div>
                             <div class="detail">
                                 <p>২. অধ্যায় ১ - ভৌতজগত ও পরিমাপ</p>
@@ -202,10 +188,10 @@
                     <div class="collapse" id="collapseExample">
                         <br><br>
                         <div class="card card-body">
-                            <iframe src="https://drive.google.com/file/d/1zt4q4wM36FRcAszeNgejyoI9riC8Qn56/preview" width="100%" height="780"></iframe>
+                            <iframe id="previewP" width="100%" height="780"></iframe>
                         </div>
                         <br>
-                        <button onclick="window.open('https://drive.google.com/u/0/uc?id=1zt4q4wM36FRcAszeNgejyoI9riC8Qn56&export=download')" class="btn btn-md btn-block btn-outline-primary">Download Pdf</button>
+                        <button id="down" class="btn btn-md btn-block btn-outline-primary">Download Pdf</button>
                     </div>
                     <button onclick="window.open('Exam/e1/index.html')" style="margin-top: 8px;" class="btn btn-md btn-block btn-outline-primary">Quick Exam</button>
                 </div>
@@ -265,11 +251,25 @@
     <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/darkmode.js"></script>
-
-
     <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
     <script>
-        const player = new Plyr('#player');
+        var as = window.location.pathname.toString();
+        const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/" + as.split('/')[6].split('.')[0].substring(0, 16);
+        window.addEventListener("load", () => {
+            fetch('https://script.google.com/macros/s/AKfycbyvECMXr6thDljo0kmU_HanQbHiP6_Hyp33b2ICf_zRnXFPssol07SJA6OD11GRsbPK/exec?ID=' + ID)
+                .then((res) => {
+                    return res.json()
+                })
+                .then((loadedData) => {
+                    console.log(loadedData)
+                    document.getElementById('player').setAttribute("data-plyr-embed-id", loadedData.Video_Id);
+                    const player = new Plyr('#player');
+                    document.getElementById('previewP').setAttribute("src", "https://drive.google.com/file/d/" + loadedData.Pdf_Id + "/preview");
+                    document.getElementById('down').setAttribute('onclick', "window.open('https://drive.google.com/u/0/uc?id=" + loadedData.Pdf_Id + "&export=download')");
+                    document.getElementById('Video_Description').innerText = loadedData.Video_Description;
+                    document.getElementById('Suggestion_1_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_1_Link + "/hqdefault.jpg";
+                })
+        });
     </script>
 </body>
 

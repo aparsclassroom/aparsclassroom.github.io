@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker</title>
+</head>
+
+<body>
+    <input type="search" id="search" placeholder="Tranx Id">
+    <button id="searchBtn">Search</button>
+    <div id="result"></div>
+</body>
+<script>
+    var search = document.getElementById('search');
+    var searchBtn = document.getElementById('searchBtn');
+    var result = document.getElementById('result');
+
+    searchBtn.addEventListener('click', () => {
+        result.innerHTML = "Loading..";
+        fetch('https://script.google.com/macros/s/AKfycbw483UHuIBODzJzcc_3mn1_y2L_isBHb-a9cC_ZIDQahEmsGQB82xjqBW_Qk_Txm8ALTA/exec?id=' + search.value)
+            .then((res) => {
+                return res.json()
+            })
+            .then((loadedData) => {
+                if (loadedData.code == 200) {
+                    result.innerHTML = `
+                <h3>Name : ${loadedData.Name}</h3>
+                <h3>Email : ${loadedData.Email}</h3>
+                <h3>Status : ${loadedData.Status}</h3>
+                `;
+                } else {
+                    result.innerHTML = loadedData.Message;
+                }
+
+            }).catch((e) => {
+                console.log(e)
+            })
+    })
+</script>
+
+</html>
