@@ -38,7 +38,7 @@
     var result = document.getElementById('result');
 
     searchBtn.addEventListener('click', () => {
-        result.innerHTML = "Loading..";
+        result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
         fetch('https://script.google.com/macros/s/AKfycbw483UHuIBODzJzcc_3mn1_y2L_isBHb-a9cC_ZIDQahEmsGQB82xjqBW_Qk_Txm8ALTA/exec?id=' + search.value)
             .then((res) => {
                 return res.json()
