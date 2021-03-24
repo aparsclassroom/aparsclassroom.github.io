@@ -56,13 +56,16 @@
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
-                <p>click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary/login</a></p>
+                <h4><b>Click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary</a></b></p>
                         <img src="https://media4.giphy.com/media/PijzuUzUhm7hcWinGn/giphy.gif" width="100%">
                         `;
                     }
 
                 } else {
-                    result.innerHTML = loadedData.Message;
+                    result.innerHTML = `
+                    <img src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif" width="100%">
+                    <h2>${loadedData.Message}</h2>
+                    `;
                 }
 
             }).catch((e) => {
