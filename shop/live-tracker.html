@@ -52,15 +52,15 @@
                 if (loadedData.code == 200) {
                     if (loadedData.Status === "Pending") {
                         result.innerHTML = `
-                <p>Name : ${loadedData.Name}</p>
-                <p>Email : ${loadedData.Email}</p>
+                <h3>Name : ${loadedData.Name}</h3>
+                <h3>Email : ${loadedData.Email}</h3>
                 <br>
                         <img src="https://media2.giphy.com/media/U7CnQe5OZ1xAdvxhSC/giphy-preview.gif" width="100%">
                         `;
                     } else {
                         result.innerHTML = `
-                <p>Name : ${loadedData.Name}</p>
-                <p>Email : ${loadedData.Email}</p>
+                <h3>Name : ${loadedData.Name}</h3>
+                <h3>Email : ${loadedData.Email}</h3>
                 <p><b>Click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary</a></b></p>
                         <img src="https://media4.giphy.com/media/PijzuUzUhm7hcWinGn/giphy.gif" width="100%">
                         `;
