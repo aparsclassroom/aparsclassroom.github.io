@@ -57,8 +57,7 @@
                 <br>
                         <img src="https://media2.giphy.com/media/U7CnQe5OZ1xAdvxhSC/giphy-preview.gif" width="100%">
                         `;
-                    }
-                    if (loadedData.Status === "Payment Verified") {
+                    } else if (loadedData.Status === "Payment Verified") {
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
