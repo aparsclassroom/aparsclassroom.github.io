@@ -41,7 +41,12 @@
             <div class="d-flex justify-content-center">
                 <br> <button id="app" class="btn btn-outline-dark">Do you have any Cupon ?</button>
                 <div id="cup">
-                    <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" placeholder="Discount Cupon">&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-dark" id="cpnCheck" disabled>Apply</button>
+                    <div class="input-group">
+                        <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" class="form-control" placeholder="Discount Cupon">
+                        <div class="input-group-append">
+                            <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <br>

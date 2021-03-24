@@ -6,12 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 450px;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <input type="search" id="search" placeholder="Tranx Id">
-    <button id="searchBtn">Search</button>
-    <div id="result"></div>
+    <div class="container">
+        <h2>ASG Tracker</h2>
+        <div class="input-group">
+            <input type="search" class="form-control" id="search" placeholder="Tranx Id">
+            <div class="input-group-append">
+                <button id="searchBtn" class="btn btn-dark">Search</button>
+            </div>
+        </div>
+        <div id="result"></div>
+    </div>
 </body>
 <script>
     var search = document.getElementById('search');
@@ -26,11 +45,22 @@
             })
             .then((loadedData) => {
                 if (loadedData.code == 200) {
-                    result.innerHTML = `
+                    if (loadedData.Status === "Pending") {
+                        result.innerHTML = `
+                <h4>Name : ${loadedData.Name}</h4>
+                <h4>Email : ${loadedData.Email}</h4>
+                <br>
+                        <img src="https://media2.giphy.com/media/U7CnQe5OZ1xAdvxhSC/giphy-preview.gif" width="100%">
+                        `;
+                    } else {
+                        result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
-                <h3>Status : ${loadedData.Status}</h3>
-                `;
+                <p>click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary/login</a></p>
+                        <img src="https://media4.giphy.com/media/PijzuUzUhm7hcWinGn/giphy.gif" width="100%">
+                        `;
+                    }
+
                 } else {
                     result.innerHTML = loadedData.Message;
                 }
