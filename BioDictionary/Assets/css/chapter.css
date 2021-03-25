@@ -136,6 +136,7 @@ hr {
 }
 
 .bklink {
+    text-align: center;
     text-decoration: none;
     color: black;
 }
