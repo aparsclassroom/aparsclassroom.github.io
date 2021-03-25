@@ -18,7 +18,7 @@ var mainApp = {};
                     })
                     .then((loadedData) => {
                         if (loadedData.code === 200) {
-                            document.title = "BioCast Ep." + epNo + " | " + loadedData.Subject + " | BioDictionary"
+                            document.title = "BioCast | " + loadedData.Subject + " | BioDictionary"
                             document.getElementById('Subject').innerText = loadedData.Subject;
                             document.getElementById('chaplink').href = '/BioDictionary/' + loadedData.Subject + '.html';
                             document.getElementById('Chapter').innerText = loadedData.Chapter;
