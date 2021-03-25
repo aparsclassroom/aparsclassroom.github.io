@@ -22,9 +22,9 @@ var mainApp = {};
                             if (loadedData.Meta != "") {
                                 document.getElementById('advertisement').innerHTML = "<h3 style='text-align:center'>" + loadedData.Meta + "</h3>";
                             }
-                            document.title = "BioCast Ep." + epNo + " | Botany " + loadedData.Subject + " | BioDictionary"
+                            document.title = "BioCast Ep." + epNo + " | " + loadedData.Subject + " | BioDictionary"
                             document.getElementById('Subject').innerText = loadedData.Subject;
-                            document.getElementById('chaplink').href = 'href="../../../' + loadedData.Subject + '.html';
+                            document.getElementById('chaplink').href = '../../../' + loadedData.Subject + '.html';
                             document.getElementById('Chapter').innerText = loadedData.Chapter;
                             document.getElementById('eps').innerText = " Ep. " + epNo;
                             document.getElementById('hed').innerText = "BioCast Episode " + epNo;
