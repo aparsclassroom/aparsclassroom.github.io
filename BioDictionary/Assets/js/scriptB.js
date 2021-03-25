@@ -105,7 +105,7 @@ var mainApp = {};
                         document.getElementById('navB').innerHTML = `
                         <nav class="navbar sticky-top navbar-dark" style="background-color: #2c3f52;">
                         <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="../../../Botany.html">
-                            <img src="/BioDictionary/Assets/images/logo-transparent.png" alt="logo" height="30px" width="30px">&nbsp;BioDictionary</a>
+                            <img src="/BioDictionary/Assets/images/logo/logo-transparent.png" alt="logo" height="30px" width="30px">&nbsp;BioDictionary</a>
                         <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></button>
                     </nav>
                         `;
