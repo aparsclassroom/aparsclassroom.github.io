@@ -23,20 +23,23 @@
     <link rel="stylesheet" href="/BioDictionary/Assets/css/video-land.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/HSC-Full-Course/assets/css/video-file-custom.css">
+    <link rel="stylesheet" href="../../../../Assets/css/player.css">
+
+    <!-- Facebook Comments Plugin -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1152515561798223&autoLogAppEvents=1" nonce="mc4BWDph"></script>
 
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
     <script src="/BioDictionary/Assets/js/firebase.js"></script>
-    <script src="/BioDictionary/Assets/js/Videospage.js"></script>
-
-    <!-- Facebook Comments Plugin -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1152515561798223&autoLogAppEvents=1" nonce="mc4BWDph"></script>
-    <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="/HSC-Full-Course/assets/js/fb.js"></script>
-    <link rel="stylesheet" href="../../../../Assets/css/player.css" />
+    <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/popper.min.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/darkmode.js" defer></script>
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js" defer></script>
+    <script src="/BioDictionary/Assets/js/Videospage.js" defer></script>
 
     <!-- External API -->
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=analytics' async='async'></script>
@@ -108,10 +111,10 @@
                     <div class="row no-margin video-cover">
                         <div class="embed-responsive embed-responsive-16by9">
                             <!-- ####### Main Video ######## -->
-                            <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="5EW1HQjR-GE"></div>
+                            <div id="player" data-plyr-provider="youtube"></div>
                         </div>
                         <!-- ####### Video Description ######## -->
-                        <p>১. অধ্যায় ১ - ভৌতজগত ও পরিমাপ : <strong>রাশি এবং একক</strong></p>
+                        <p id="Video_Description"></p>
 
                         <div class="sharethis-inline-reaction-buttons"></div>
 
@@ -123,39 +126,39 @@
                 <div class="col-sm-4">
                     <div class="row no-margin video-title">
                         <div class="contri-bghy">
-                            <h6 style="margin-left: 30px;"><i class="fas fa-book"></i> Related Classes</h6>
+                            <h6 style="margin-left: 30px;"><i class="fas fa-book"></i> Related Episodes</h6>
                         </div>
                     </div>
                     <div class="contri-bghy">
-                        <a href="./Phy01-Ch-01-C002.html">
+                        <a id="suggest1">
                             <div class="image">
-                                <img src="https://i.ytimg.com/vi/9IZrZviH9rY/hqdefault.jpg" class="rounded" alt="Related 1">
+                                <img id="Suggestion_1_Link" class="rounded" alt="Related 1">
                             </div>
                             <div class="detail">
-                                <p>২. অধ্যায় ১ - ভৌতজগত ও পরিমাপ</p>
-                                <span><strong>ত্রুটি (Error) Part - 1</strong></span>
+                                <p><span id="Suggestion_1_Title">Loading..</span></p>
+                                <span><strong id="Suggestion_1_Description"></strong></span>
                             </div>
                         </a>
                     </div>
                     <div class="contri-bghy">
-                        <a href="./Phy01-Ch-01-C003.html">
+                        <a id="suggest2">
                             <div class="image">
-                                <img src="https://i.ytimg.com/vi/FYJvqCXoCO4/sddefault.jpg" class="rounded" alt=" Related 2">
+                                <img id="Suggestion_2_Link" class="rounded" alt=" Related 2">
                             </div>
                             <div class="detail">
-                                <p>৩. অধ্যায় ১ - ভৌতজগত ও পরিমাপ</p>
-                                <span><strong>ত্রুটি (Error) Part - 2</strong></span>
+                                <p><span id="Suggestion_2_Title">Loading..</span></p>
+                                <span><strong id="Suggestion_2_Description"></strong></span>
                             </div>
                         </a>
                     </div>
                     <div class="contri-bghy">
-                        <a href="../Chapter-2/Phy01-Ch-02-C001.html">
+                        <a id="suggest3">
                             <div class="image">
-                                <img src="https://i.ytimg.com/vi/CNNkrvV_JaM/sddefault.jpg" class="rounded" alt="Related 3">
+                                <img id="Suggestion_3_Link" class="rounded" alt="Related 3">
                             </div>
                             <div class="detail">
-                                <p>৪. অধ্যায় ২ - ভেক্টর</p>
-                                <span><strong>অভিক্ষেপ ও উপাংশ (Projection & Component) part-1</strong></span>
+                                <p><span id="Suggestion_3_Title">Loading..</span></p>
+                                <span><strong id="Suggestion_3_Description"></strong></span>
                             </div>
                         </a>
                     </div>
@@ -189,10 +192,10 @@
                     <div class="collapse" id="collapseExample">
                         <br><br>
                         <div class="card card-body">
-                            <iframe src="https://drive.google.com/file/d/1zt4q4wM36FRcAszeNgejyoI9riC8Qn56/preview" width="100%" height="780"></iframe>
+                            <iframe id="previewP" width="100%" height="780"></iframe>
                         </div>
                         <br>
-                        <button onclick="window.open('https://drive.google.com/u/0/uc?id=1zt4q4wM36FRcAszeNgejyoI9riC8Qn56&export=download')" class="btn btn-md btn-block btn-outline-primary">Download Pdf</button>
+                        <button id="down" class="btn btn-md btn-block btn-outline-primary">Download Pdf</button>
                     </div>
                     <button onclick="window.open('Exam/e1/index.html')" style="margin-top: 8px;" class="btn btn-md btn-block btn-outline-primary">Quick Exam</button>
                 </div>
@@ -249,30 +252,6 @@
             <a href="/">Apar's Classroom &copy; 2021 All Rights Reserved </a>| Developed by <a href="http://storymodelearning.com/Mridul" target="_blank" rel="noopener noreferrer">Developer Team</a>
         </div>
     </div>
-    <!-- Share Modal -->
-    <div class="modal fade" id="share">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Share With Your Friends 🥰</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="my-plugin-share" button-type="round" show-total="false"></div>
-                </div>
-                <div class="modal-footer">
-                    <a type="button" data-dismiss="modal" class="btn btn-inline-block btn-outline-secondary">Later</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Share Modal End-->
-    <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
-    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
-    <script src="/HSC-Full-Course/assets/js/darkmode.js"></script>
-    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
-    <script>
-        const player = new Plyr('#player');
-    </script>
 </body>
 
 </html>
