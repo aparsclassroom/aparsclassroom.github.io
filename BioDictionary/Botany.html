@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botany | BioDictionary</title>
     <link rel="shortcut icon" href="./Assets/images/logo/logo-square.ico">
-    <link rel="stylesheet" href="/BioDictionary/Assets/Vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/BioDictionary/Assets/css/default.css">
     <link rel="stylesheet" href="/BioDictionary/Assets/css/component.css">
+    <script src="https://kit.fontawesome.com/dbb868ec12.js" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js" defer></script>
@@ -44,33 +45,28 @@
         </div>
     </div>
     <div class="all-container">
-        <nav class="navbar sticky-top navbar-dark" style="background-color: #2c3f52;">
-            <a class="navbar-brand" href="index.html">BioDictionary</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #2c3f52;">
+            <a class="navbar-brand" href="#"><img src="/BioDictionary/Assets/images/logo/logo-transparent.png" alt="logo" height="30px" width="30px"> Bio Dictionary</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="affiliation/profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+                          </svg> Affiliation Dashboard <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                  </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        <a class="nav-link" href="https://biodictionary.tawk.help/">BioDictionary Blogs</a>
                     </li>
                 </ul>
+                <button class="btn btn-danger" id="lg" onclick="mainApp.logOut();"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                <a type="button" class="btn btn-outline-light" id="dsh" href="dashboard.html"><i class="fas fa-user-circle" height="30px" width="30px"></i> Profile</a>
             </div>
         </nav>
 

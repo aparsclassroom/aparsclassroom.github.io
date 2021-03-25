@@ -5,7 +5,7 @@ var mainApp = {};
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
-            name = user.displayName;
+            Name = user.displayName;
             email = user.email;
             photoUrl = user.photoURL;
             emailVerified = user.emailVerified;
