@@ -92,7 +92,7 @@ var mainApp = {};
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title">Bookmarks</h4>
-                                    <a type="button" href="/BioDictionary/dashboard.html"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></a>
+                                    <a type="button" href="/BioDictionary/dashboard.html"><img src="/BioDictionary/Assets/images/Icons/profile.png" alt="dp" height="25px" width="25px"></a>
                                 </div>
                                 <div class="modal-body">
                                     <div id="bookmarksResults"></div>
