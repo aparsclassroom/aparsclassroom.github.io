@@ -5,7 +5,7 @@
     <!-- Site Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BioCast Ep.1 | Botany Chapter 1 | BioDictionary</title>
+    <title>BioCast Ep.2 | Botany Chapter 2 | BioDictionary</title>
 
     <!-- SEO Meta -->
     <meta name="keywords" content="HSC, SSC, BioDictionary, ASG, BUET, Medical, Dhaka Univarsity, Story Mode Learning App, Apar's Classroom, Physics, Biology, Maheyan Mridul, Numeri Sattar Apar, 10 Minute School, Ayman Sadiq">
@@ -23,20 +23,24 @@
     <link rel="stylesheet" href="/BioDictionary/Assets/css/video-land.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/HSC-Full-Course/assets/css/video-file-custom.css">
-
-    <!-- Firebase JS -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
-    <script src="/BioDictionary/Assets/js/firebase.js"></script>
-    <!-- <script src="/BioDictionary/Assets/js/Videospage.js"></script> -->
+    <link rel="stylesheet" href="../../../../Assets/css/player.css">
 
     <!-- Facebook Comments Plugin -->
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1152515561798223&autoLogAppEvents=1" nonce="mc4BWDph"></script>
-    <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="/HSC-Full-Course/assets/js/fb.js"></script>
-    <link rel="stylesheet" href="../../../../Assets/css/player.css" />
+
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js" defer></script>
+    <script src="/BioDictionary/Assets/js/firebase.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/popper.min.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js" defer></script>
+    <script src="/HSC-Full-Course/assets/js/darkmode.js" defer></script>
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js" defer></script>
+    <script src="/BioDictionary/Assets/js/Videospage.js" defer></script>
+
     <!-- External API -->
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=analytics' async='async'></script>
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=sop' async='async'></script>
@@ -89,12 +93,12 @@
     <div class="page-nav no-margin row">
         <div class="container">
             <div class="row">
-                <h2>BioCast Episode 1</h2>
+                <h2>BioCast Episode 2</h2>
                 <ul>
                     <li> <a href="../../../index.html"><i class="fas fa-home"></i> Home</a></li>
                     <li> <a href="../../../Botany.html"><i class="fas fa-angle-double-right"></i> Botany</a></li>
                     <li> <a href="../"><i class="fas fa-angle-double-right"></i> Chapter 1</a></li>
-                    <li><i href="#" class="fas fa-angle-double-right"></i> Ep. 1</li>
+                    <li><i href="#" class="fas fa-angle-double-right"></i> Ep. 2</li>
                 </ul>
             </div>
         </div>
@@ -122,39 +126,39 @@
                 <div class="col-sm-4">
                     <div class="row no-margin video-title">
                         <div class="contri-bghy">
-                            <h6 style="margin-left: 30px;"><i class="fas fa-book"></i> Related Classes</h6>
+                            <h6 style="margin-left: 30px;"><i class="fas fa-book"></i> Related Episodes</h6>
                         </div>
                     </div>
                     <div class="contri-bghy">
-                        <a href="./Phy01-Ch-01-C002.html">
+                        <a id="suggest1">
                             <div class="image">
                                 <img id="Suggestion_1_Link" class="rounded" alt="Related 1">
                             </div>
                             <div class="detail">
-                                <p>২. অধ্যায় ১ - ভৌতজগত ও পরিমাপ</p>
-                                <span><strong>ত্রুটি (Error) Part - 1</strong></span>
+                                <p><span id="Suggestion_1_Title">Loading..</span></p>
+                                <span><strong id="Suggestion_1_Description"></strong></span>
                             </div>
                         </a>
                     </div>
                     <div class="contri-bghy">
-                        <a href="./Phy01-Ch-01-C003.html">
+                        <a id="suggest2">
                             <div class="image">
-                                <img src="https://i.ytimg.com/vi/FYJvqCXoCO4/sddefault.jpg" class="rounded" alt=" Related 2">
+                                <img id="Suggestion_2_Link" class="rounded" alt=" Related 2">
                             </div>
                             <div class="detail">
-                                <p>৩. অধ্যায় ১ - ভৌতজগত ও পরিমাপ</p>
-                                <span><strong>ত্রুটি (Error) Part - 2</strong></span>
+                                <p><span id="Suggestion_2_Title">Loading..</span></p>
+                                <span><strong id="Suggestion_2_Description"></strong></span>
                             </div>
                         </a>
                     </div>
                     <div class="contri-bghy">
-                        <a href="../Chapter-2/Phy01-Ch-02-C001.html">
+                        <a id="suggest3">
                             <div class="image">
-                                <img src="https://i.ytimg.com/vi/CNNkrvV_JaM/sddefault.jpg" class="rounded" alt="Related 3">
+                                <img id="Suggestion_3_Link" class="rounded" alt="Related 3">
                             </div>
                             <div class="detail">
-                                <p>৪. অধ্যায় ২ - ভেক্টর</p>
-                                <span><strong>অভিক্ষেপ ও উপাংশ (Projection & Component) part-1</strong></span>
+                                <p><span id="Suggestion_3_Title">Loading..</span></p>
+                                <span><strong id="Suggestion_3_Description"></strong></span>
                             </div>
                         </a>
                     </div>
@@ -248,29 +252,6 @@
             <a href="/">Apar's Classroom &copy; 2021 All Rights Reserved </a>| Developed by <a href="http://storymodelearning.com/Mridul" target="_blank" rel="noopener noreferrer">Developer Team</a>
         </div>
     </div>
-    <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
-    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
-    <script src="/HSC-Full-Course/assets/js/darkmode.js"></script>
-    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
-    <script>
-        var as = window.location.pathname.toString();
-        const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/" + as.split('/')[6].split('.')[0].substring(0, 16);
-        window.addEventListener("load", () => {
-            fetch('https://script.google.com/macros/s/AKfycbyvECMXr6thDljo0kmU_HanQbHiP6_Hyp33b2ICf_zRnXFPssol07SJA6OD11GRsbPK/exec?ID=' + ID)
-                .then((res) => {
-                    return res.json()
-                })
-                .then((loadedData) => {
-                    console.log(loadedData)
-                    document.getElementById('player').setAttribute("data-plyr-embed-id", loadedData.Video_Id);
-                    const player = new Plyr('#player');
-                    document.getElementById('previewP').setAttribute("src", "https://drive.google.com/file/d/" + loadedData.Pdf_Id + "/preview");
-                    document.getElementById('down').setAttribute('onclick', "window.open('https://drive.google.com/u/0/uc?id=" + loadedData.Pdf_Id + "&export=download')");
-                    document.getElementById('Video_Description').innerText = loadedData.Video_Description;
-                    document.getElementById('Suggestion_1_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_1_Link + "/hqdefault.jpg";
-                })
-        });
-    </script>
 </body>
 
 </html>
