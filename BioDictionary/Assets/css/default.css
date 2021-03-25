@@ -67,3 +67,8 @@ a:active {
     -ms-flex-pack: center;
     justify-content: center;
 }
+
+.lock:hover::before {
+    content: "You have to Unlock 🔑";
+    color: white;
+}
