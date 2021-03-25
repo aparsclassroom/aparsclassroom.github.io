@@ -12,12 +12,15 @@ var mainApp = {};
                 var as = window.location.pathname.toString();
                 const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/" + as.split('/')[6].split('.')[0].substring(0, 16);
                 const epNo = as.split('/')[6].split('.')[0].substring(6, 16);
-                fetch('https://script.google.com/macros/s/AKfycbzxpDoKcu96n5fZKYmVgbOFuKUKE-XTQ8PDH8TfFd0Rg9I3eHtCpI_bT4PlPzSMc6_E/exec?ID=' + ID)
+                fetch('https://script.google.com/macros/s/AKfycby0ey9gYfz6LVe03BJubDWYU3ncqXq6-KYjE01A7haBtKlk3VzlutswZCpJjzdlj_Qn/exec?ID=' + ID)
                     .then((res) => {
                         return res.json()
                     })
                     .then((loadedData) => {
                         $('.fb-comments').attr("data-href", document.URL);
+                        if (loadedData.Meta != "") {
+                            document.getElementById('advertisement').innerHTML = "<h3 style='text-align:center'>" + loadedData.Meta + "</h3>";
+                        }
                         document.title = "BioCast Ep." + epNo + " | Botany " + loadedData.Subject + " | BioDictionary"
                         document.getElementById('Subject').innerText = loadedData.Subject;
                         document.getElementById('chaplink').href = 'href="../../../' + loadedData.Subject + '.html"';
