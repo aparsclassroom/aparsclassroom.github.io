@@ -132,7 +132,6 @@ hr {
 
 .card h3:hover {
     color: #ed4e6e;
-    transform: scale(1.025);
     cursor: pointer;
 }
 
