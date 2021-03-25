@@ -23,34 +23,8 @@ var mainApp = {};
                                     <nav class="navbar sticky-top navbar-dark" style="background-color: #2c3f52;">
                                     <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="../../../Botany.html">
                                         <img src="/BioDictionary/Assets/images/logo/logo-transparent.png" alt="logo" height="30px" width="30px">&nbsp;BioDictionary</a>
-                                    <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-bookmark-star-fill" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zM8.16 4.1a.178.178 0 0 0-.32 0l-.634 1.285a.178.178 0 0 1-.134.098l-1.42.206a.178.178 0 0 0-.098.303L6.58 6.993c.042.041.061.1.051.158L6.39 8.565a.178.178 0 0 0 .258.187l1.27-.668a.178.178 0 0 1 .165 0l1.27.668a.178.178 0 0 0 .257-.187L9.368 7.15a.178.178 0 0 1 .05-.158l1.028-1.001a.178.178 0 0 0-.098-.303l-1.42-.206a.178.178 0 0 1-.134-.098L8.16 4.1z"/>
-                                  </svg></button>
                                 </nav>
                                     `;
-                        document.getElementById('moda').innerHTML = `    <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Bookmarks</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div id="bookmarksResults"></div>
-                                                <div class="modal-footer">
-                                                    <button class="btn btn-warning" id="clearBooks">Clear</button>
-                                                    <button class="btn btn-danger" type="button" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>`;
-                        aseKina()
-                        document.getElementById('clearBooks').addEventListener('click', () => {
-                            localStorage.removeItem('bookmarks')
-                            bookmarksResults.innerHTML = 'No Bookmarks left 😶';
-                            document.getElementById('clearBooks').style.display = "none";
-                        })
                         const lin1 = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy8=";
                         const lin2 = "L2V4ZWM=";
                         var ln1 = window.atob(lin1);
@@ -118,7 +92,7 @@ var mainApp = {};
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title">Bookmarks</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <a type="button" href="/BioDictionary/dashboard.html"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></a>
                                 </div>
                                 <div class="modal-body">
                                     <div id="bookmarksResults"></div>
