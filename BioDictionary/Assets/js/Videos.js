@@ -146,4 +146,4 @@ var mainApp = {};
             window.location.replace("/BioDictionary/login.html");
         }
     })
-})
+})()
