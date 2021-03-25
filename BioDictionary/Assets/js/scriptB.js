@@ -23,7 +23,10 @@ var mainApp = {};
                                     <nav class="navbar sticky-top navbar-dark" style="background-color: #2c3f52;">
                                     <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="../../../Botany.html">
                                         <img src="/BioDictionary/Assets/images/logo/logo-transparent.png" alt="logo" height="30px" width="30px">&nbsp;BioDictionary</a>
-                                    <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></button>
+                                    <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal">            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                                    </svg></button>
                                 </nav>
                                     `;
                         document.getElementById('moda').innerHTML = `    <div class="modal fade" id="myModal" role="dialog">
@@ -106,7 +109,10 @@ var mainApp = {};
                         <nav class="navbar sticky-top navbar-dark" style="background-color: #2c3f52;">
                         <a class="navbar-brand" style="text-align:left;font-family: 'Finger Paint', cursive;" href="../../../Botany.html">
                             <img src="/BioDictionary/Assets/images/logo/logo-transparent.png" alt="logo" height="30px" width="30px">&nbsp;BioDictionary</a>
-                        <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal"><img src="/App/Assets/img/person-circle.svg" alt="dp" height="30px" width="30px"></button>
+                        <button type="button" class="btn" id="bk" style="position: right;" data-toggle="modal" data-target="#myModal">            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                        </svg></button>
                     </nav>
                         `;
                         document.getElementById('moda').innerHTML = `    <div class="modal fade" id="myModal" role="dialog">
