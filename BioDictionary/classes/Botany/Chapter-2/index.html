@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BioCast | Botany Chapter 2 | BioDictionary</title>
+    <title>BioCast | BioDictionary</title>
 
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <!-- CSS only -->
@@ -18,7 +18,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
     <script src="/BioDictionary/Assets/js/firebase.js"></script>
-    <script src="/BioDictionary/Assets/js/Videospage.js"></script>
+    <script src="/BioDictionary/Assets/js/Videos.js"></script>
 </head>
 
 <body>
@@ -67,11 +67,11 @@
     <div class="page-nav no-margin row">
         <div class="container">
             <div class="row">
-                <h2>Select Episode</h2>
+                <h2>Select an Episode</h2>
                 <ul>
                     <li> <a href="../../../index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li> <a href="../../../Botany.html"><i class="fas fa-angle-double-right"></i> Botany</a></li>
-                    <li> <a href="#"><i class="fas fa-angle-double-right"></i> Chapter 2</a></li>
+                    <li> <a id="chaplink"><i class="fas fa-angle-double-right"></i> <span id="Subject"></span></a></li>
+                    <li> <a href="#"><i class="fas fa-angle-double-right"></i> <span id="Chapter"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -81,56 +81,13 @@
     <!--####################### Category Starts Here ###################-->
     <section class="sesion-type">
         <div class="container">
-
             <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <a href="./files/video-1.html">
-                        <div class="single-sess">
-                            <img src="https://i.ytimg.com/vi/Lsp_pkWYA0M/sddefault.jpg" alt="Botany 2.1">
-                            <p>BioCast Ep. 1</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="./files/video-2.html">
-                        <div class="single-sess">
-                            <img src="https://i.ytimg.com/vi/9IZrZviH9rY/hqdefault.jpg" alt="Botany 2.2">
-                            <p>BioCast Ep. 2</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="./files/video-3.html">
-                        <div class="single-sess">
-                            <img src="https://i.ytimg.com/vi/FYJvqCXoCO4/sddefault.jpg" alt="Botany 2.3">
-                            <p>BioCast Ep. 3</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="./files/video-4.html">
-                        <div class="single-sess">
-                            <img src="https://i.ytimg.com/vi/Lsp_pkWYA0M/sddefault.jpg" alt="Botany 2.4">
-                            <p>BioCast Ep. 4</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="./files/video-5.html">
-                        <div class="single-sess">
-                            <img src="https://i.ytimg.com/vi/Lsp_pkWYA0M/sddefault.jpg" alt="Botany 2.5">
-                            <p>BioCast Ep. 5</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <a href="./files/video-6.html">
-                        <div class="single-sess">
-                            <img src="https://i.ytimg.com/vi/Lsp_pkWYA0M/sddefault.jpg" alt="Botany 2.6">
-                            <p>BioCast Ep. 6</p>
-                        </div>
-                    </a>
-                </div>
+                <div id="v1" class="col-md-4 col-sm-6"></div>
+                <div id="v2" class="col-md-4 col-sm-6"></div>
+                <div id="v3" class="col-md-4 col-sm-6"></div>
+                <div id="v4" class="col-md-4 col-sm-6"></div>
+                <div id="v5" class="col-md-4 col-sm-6"></div>
+                <div id="v6" class="col-md-4 col-sm-6"></div>
             </div>
     </section>
     <!--####################### Quote Starts Here ###################-->
@@ -191,13 +148,14 @@
     </footer>
     <div class="copy">
         <div class="container">
-            <a href="/">Apar's Classroom 2021 &copy; All Rights Reserved </a>| Developed by <a href="http://storymodelearning.com/Mridul" target="_blank" rel="noopener noreferrer">Developer Team</a>
+            <a href="/">Apar's Classroom  &copy; 2021 All Rights Reserved </a>| Developed by <a href="http://storymodelearning.com/Mridul" target="_blank" rel="noopener noreferrer">Developer Team</a>
         </div>
     </div>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/darkmode.js"></script>
+
 </body>
 
 </html>
