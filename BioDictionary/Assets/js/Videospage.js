@@ -12,7 +12,7 @@ var mainApp = {};
                 var as = window.location.pathname.toString();
                 const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/" + as.split('/')[6].split('.')[0].substring(0, 16);
                 const epNo = as.split('/')[6].split('.')[0].substring(6, 16);
-                fetch('https://script.google.com/macros/s/AKfycbyALC0iB5vYXOAMTZBOk06hODR7NWRebw3fgur3TJwuOXsnolKdk3qRUN4lW55jTAw6/exec?ID=' + ID)
+                fetch('https://script.google.com/macros/s/AKfycbx9NJ97TAd2O7SyL9E4BzXvYUP2MJjUp-fecPR5esSu_bsmFzAGxnJFUBBgRsHEu-FH/exec?ID=' + ID)
                     .then((res) => {
                         return res.json()
                     })
