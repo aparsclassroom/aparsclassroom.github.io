@@ -6,7 +6,7 @@ var mainApp = {};
         if (user) {
             if (user.isAnonymous === true) {
                 alert("This is a Premium Feature!");
-                return;
+                return location.replace("/BioDictionary/index.html");
             } else {
                 uid = user.uid;
                 var as = window.location.pathname.toString();
