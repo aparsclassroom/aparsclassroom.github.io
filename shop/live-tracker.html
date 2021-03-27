@@ -41,7 +41,7 @@
     var search = document.getElementById('search');
     var searchBtn = document.getElementById('searchBtn');
     var result = document.getElementById('result');
-
+    search.value = localStorage.getItem("BioDictionary-tranx");
     searchBtn.addEventListener('click', () => {
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
         fetch('https://script.google.com/macros/s/AKfycbw483UHuIBODzJzcc_3mn1_y2L_isBHb-a9cC_ZIDQahEmsGQB82xjqBW_Qk_Txm8ALTA/exec?id=' + search.value)
