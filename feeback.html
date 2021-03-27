@@ -62,7 +62,7 @@ Nobleman	: I’m really sorry, sir. Please forgive me.
 
 
             if (count >= 1) {
-                $('#display').html('<h3>There are ' + count + ' punctuation error</h3>still missing ' + getDifference(oldName, newName) + '<br><br>' + '<b>Correct Ans</b><br><textarea rows="20">' + correctAns + '</textarea>');
+                $('#display').html('<h3 style="color:red">There are ' + count + ' punctuation error</h3>still missing ' + getDifference(oldName, newName) + '<br><br>' + '<b>Correct Ans</b><br><textarea rows="20">' + correctAns + '</textarea>');
             } else {
                 $('#display').html('All Correct!');
             }
