@@ -38,6 +38,8 @@ function initApp() {
                         document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
                         document.getElementById('totalEarning').innerText = loadedData.Total_Income;
                         document.getElementById('ttsell').innerText = loadedData.Total_Sell;
+                        document.getElementById('totalVerify').innerText = loadedData.Verified_Direct_Income + loadedData.Total_Passive_Income + " ৳";
+                        document.getElementById('totalPending').innerText = loadedData.Pending_Direct_Income + loadedData.Total_Pending_Pasive_Income + " ৳";
                         college.value = loadedData.College_University;
                         document.getElementById('Mobile').value = loadedData.Mobile;
                         Bkash.value = loadedData.Bkash;
@@ -107,7 +109,7 @@ function initApp() {
                             data: {
                                 labels: label,
                                 datasets: [{
-                                    label: 'Total Verfied Income',
+                                    label: 'Verified Earnings',
                                     data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income, loadedData.Verified_Passive_Square_Income],
                                     backgroundColor: [
                                         'rgba(75, 192, 192, 0.2)',
