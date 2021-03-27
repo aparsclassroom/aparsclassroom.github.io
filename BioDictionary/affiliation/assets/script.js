@@ -68,7 +68,7 @@ function initApp() {
                                 updateBtn.innerText = "Can't Update 😶";
                             })
                         })
-                        var label = ['Direct Income', 'Passive Income'];
+                        var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
                         var ctx = document.getElementById('myChart').getContext('2d');
                         var myChart = new Chart(ctx, {
                             type: 'bar',
@@ -76,14 +76,16 @@ function initApp() {
                                 labels: label,
                                 datasets: [{
                                     label: 'Pending Earnings',
-                                    data: [loadedData.Pending_Direct_Income, loadedData.Pending_Passive_Income],
+                                    data: [loadedData.Pending_Direct_Income, loadedData.Pending_Passive_Income, loadedData.Pending_Passive_Square_Income],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)'
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(238, 133, 171, 1)'
                                     ],
                                     borderColor: [
                                         'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)'
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(238, 133, 171, 1)'
                                     ],
                                     borderWidth: 1
                                 }]
@@ -106,14 +108,16 @@ function initApp() {
                                 labels: label,
                                 datasets: [{
                                     label: 'Total Verfied Income',
-                                    data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income],
+                                    data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income, loadedData.Verified_Passive_Square_Income],
                                     backgroundColor: [
                                         'rgba(75, 192, 192, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)'
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 227, 171, 1)'
                                     ],
                                     borderColor: [
                                         'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)'
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 227, 171, 1)'
                                     ],
                                     borderWidth: 1
                                 }]
@@ -130,6 +134,7 @@ function initApp() {
                         });
                     } else {
                         alert(loadedData.message);
+                        return document.location.replace("../index.html");
                     }
                 }).catch((err => {
                     console.log(err);
