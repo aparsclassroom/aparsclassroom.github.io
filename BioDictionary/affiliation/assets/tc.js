@@ -45,8 +45,26 @@ function initApp() {
                                 if (dashboard.Rocket != "") {
                                     Rocket.value = dashboard.Rocket;
                                 }
+                                $.get('https://json.geoiplookup.io/', function(res) {
+                                    var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+                                    document.getElementById("ip-details").value = a;
+                                });
                                 document.getElementById('aff').value = dashboard.Affiliation_Token;
                                 document.getElementById('serial').value = dashboard.Serial;
+                                const scriptURL = 'https://script.google.com/macros/s/AKfycbwYRFgEj07KNiCvhAHzaL4c02rk6IAydNU377SwcYhLi3QpdwPceGM6M8grloVHEgNI4w/exec'
+                                const form = document.forms['CashOut']
+
+                                form.addEventListener('submit', e => {
+                                    e.preventDefault()
+                                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                                        .then(response => {
+                                            alert("Your request of cash out has been successfully saved 🥰 \nPlease wait for 24 hours. If you don't get any response then call the Affiliation Controller.")
+                                            document.getElementById('CashOut').style.display = "none";
+                                            document.getElementById('res').innerText = "You have just Sent a Cash Out Request 💰";
+                                        })
+
+                                    .catch(error => alert('Error!', error.message))
+                                })
                             }
                         } else {
                             alert(dashboard.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
@@ -65,25 +83,3 @@ function initApp() {
 window.onload = function() {
     initApp();
 };
-
-
-$.get('https://json.geoiplookup.io/', function(res) {
-    var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
-    document.getElementById("ip-details").value = a;
-});
-
-
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwYRFgEj07KNiCvhAHzaL4c02rk6IAydNU377SwcYhLi3QpdwPceGM6M8grloVHEgNI4w/exec'
-const form = document.forms['CashOut']
-
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            alert("Your request of cash out has been successfully saved 🥰 \nPlease wait for 24 hours. If you don't get any response then call the Affiliation Controller.")
-            document.getElementById('CashOut').style.display = "none";
-            document.getElementById('res').innerText = "You have just Sent a Cash Out Request 💰";
-        })
-
-    .catch(error => alert('Error!', error.message))
-})
