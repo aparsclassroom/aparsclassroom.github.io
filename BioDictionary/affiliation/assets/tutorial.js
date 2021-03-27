@@ -22,7 +22,7 @@ function initApp() {
                             document.getElementById('status').innerText = dashboard.Comment;
                             document.getElementById('profile').src = user.photoURL;
                         } else {
-                            alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
+                            alert(dashboard.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                             return location.replace("../index.html");
                         }
                     }).catch((err => {
