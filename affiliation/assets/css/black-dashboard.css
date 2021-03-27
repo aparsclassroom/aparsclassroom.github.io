@@ -154,6 +154,10 @@ strong {
     font-weight: bolder;
 }
 
+.text-bold {
+    font-weight: bolder;
+}
+
 small {
     font-size: 80%;
 }
