@@ -135,7 +135,7 @@ function initApp() {
                             }
                         });
                     } else {
-                        alert(loadedData.message);
+                        alert(loadedData.message + "\n\nYou may haven't bought this app and using a gifted account.\nPlease buy this app to use Zombie Mode.");
                         return location.replace("../index.html");
                     }
                 }).catch((err => {
