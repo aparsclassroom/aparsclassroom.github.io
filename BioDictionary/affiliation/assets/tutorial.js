@@ -18,9 +18,13 @@ function initApp() {
                         return res.json();
                     })
                     .then((dashboard) => {
-                        document.getElementById('status').innerText = dashboard.Comment;
-                        document.getElementById('profile').src = user.photoURL;
-
+                        if (dashboard.code === 200) {
+                            document.getElementById('status').innerText = dashboard.Comment;
+                            document.getElementById('profile').src = user.photoURL;
+                        } else {
+                            alert(loadedData.message);
+                            return location.replace("../index.html");
+                        }
                     }).catch((err => {
                         console.log(err);
                     }))

@@ -21,38 +21,44 @@ function initApp() {
                         return res.json();
                     })
                     .then((dashboard) => {
-                        document.getElementById('contoller').innerText = dashboard.Controler_Name;
-                        document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
-                        document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
-                        if (dashboard.Remaning_in_Wallet === 0) {
-                            document.getElementById('CashOut').style.display = "none";
-                            document.getElementById('res').innerText = "You don't have enough balance to request for a cash out 😶";
+                        if (dashboard.code === 200) {
+                            document.getElementById('contoller').innerText = dashboard.Controler_Name;
+                            document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
+                            document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
+                            if (dashboard.Remaning_in_Wallet <= 99) {
+                                document.getElementById('CashOut').style.display = "none";
+                                document.getElementById('res').innerText = "You don't have enough balance to request for a cash out 😶";
+                            } else {
+                                document.getElementById('CashOut').style.display = "block";
+                                document.getElementById('Username').value = dashboard.Name;
+                                document.getElementById('email').value = user.email;
+                                Mobile.value = dashboard.Mobile;
+                                document.getElementById('uid').value = user.uid;
+                                document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
+                                document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
+                                college.value = dashboard.College_University;
+                                Bkash.value = dashboard.Bkash;
+                                fb.value = dashboard.Facebook_Link;
+                                if (dashboard.Nagad != "") {
+                                    Nagad.value = dashboard.Nagad;
+                                }
+                                if (dashboard.Rocket != "") {
+                                    Rocket.value = dashboard.Rocket;
+                                }
+                                document.getElementById('aff').value = dashboard.Affiliation_Token;
+                                document.getElementById('serial').value = dashboard.Serial;
+                            }
                         } else {
-                            document.getElementById('CashOut').style.display = "block";
-                            document.getElementById('Username').value = dashboard.Name;
-                            document.getElementById('email').value = user.email;
-                            Mobile.value = dashboard.Mobile;
-                            document.getElementById('uid').value = user.uid;
-                            document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
-                            document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
-                            college.value = dashboard.College_University;
-                            Bkash.value = dashboard.Bkash;
-                            fb.value = dashboard.Facebook_Link;
-                            if (dashboard.Nagad != "") {
-                                Nagad.value = dashboard.Nagad;
-                            }
-                            if (dashboard.Rocket != "") {
-                                Rocket.value = dashboard.Rocket;
-                            }
-                            document.getElementById('aff').value = dashboard.Affiliation_Token;
-                            document.getElementById('serial').value = dashboard.Serial;
+                            alert(loadedData.message);
+                            return location.replace("../index.html");
                         }
+
                     }).catch((err => {
                         console.log(err);
                     }))
             }
         } else {
-            document.location.replace("../index.html");
+            location.replace("../index.html");
         }
     })
 }
@@ -79,5 +85,5 @@ form.addEventListener('submit', e => {
             document.getElementById('res').innerText = "You have just Sent a Cash Out Request 💰";
         })
 
-    .catch(error => console.error('Error!', error.message))
+    .catch(error => alert('Error!', error.message))
 })

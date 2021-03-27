@@ -136,14 +136,14 @@ function initApp() {
                         });
                     } else {
                         alert(loadedData.message);
-                        return document.location.replace("../index.html");
+                        return location.replace("../index.html");
                     }
                 }).catch((err => {
                     console.log(err);
                 }))
             }
         } else {
-            document.location.replace("../index.html");
+            location.replace("../index.html");
         }
     })
 }
