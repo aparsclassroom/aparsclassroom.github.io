@@ -81,6 +81,6 @@ nav .btn {
 }
 
 .lock:hover::before {
-    content: "You have to Unlock 🔑";
+    content: "You have to Unlock 🔑 🔒";
     color: white;
 }
