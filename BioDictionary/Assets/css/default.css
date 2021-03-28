@@ -68,6 +68,18 @@ a:active {
     justify-content: center;
 }
 
+nav .btn {
+    padding: 5px;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.btn-danger:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid white;
+}
+
 .lock:hover::before {
     content: "You have to Unlock 🔑";
     color: white;
