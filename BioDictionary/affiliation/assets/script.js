@@ -57,6 +57,17 @@ function initApp() {
                         });
 
 
+                        var clipboard = new ClipboardJS('.cp');
+
+                        clipboard.on('success', function(e) {
+                            alert(e.text + " copied successfully!!")
+                            e.clearSelection();
+                        });
+
+                        clipboard.on('error', function(e) {
+                            console.error('Action:', e.action);
+                            console.error('Trigger:', e.trigger);
+                        });
                         updateBtn.addEventListener('click', () => {
                             updateBtn.innerText = "Updated !";
                             var Status = document.getElementById('bio');
@@ -150,16 +161,3 @@ function initApp() {
 window.onload = function() {
     initApp();
 };
-
-
-var clipboard = new ClipboardJS('.cp');
-
-clipboard.on('success', function(e) {
-    alert(e.text + " copied successfully!!")
-    e.clearSelection();
-});
-
-clipboard.on('error', function(e) {
-    console.error('Action:', e.action);
-    console.error('Trigger:', e.trigger);
-});

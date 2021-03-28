@@ -13,7 +13,7 @@ var mainApp = {};
                     x[i].classList.add("lock");
                     x[i].removeAttribute("href");
                 }
-
+                document.getElementById('zombie').style.display = "none";
             } else {
                 document.getElementById('dsh').style.display = "inline-block";
                 document.getElementById('lg').style.display = "none";
