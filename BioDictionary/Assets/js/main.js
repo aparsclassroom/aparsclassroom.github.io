@@ -14,10 +14,9 @@ var mainApp = {};
                 document.getElementById('dsh').style.display = "none";
                 document.getElementById('zombie').style.display = "none";
                 document.getElementById('lg').style.display = "inline-block";
+                document.getElementById('name').innerText = "Welcome 🥰";
             } else {
-                document.getElementById('name').style.display = "block";
                 document.getElementById('name').innerText = "Welcome " + Name;
-                Name;
                 document.getElementById('dsh').style.display = "inline-block";
                 document.getElementById('lg').style.display = "none";
             }
