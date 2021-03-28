@@ -15,7 +15,9 @@ var mainApp = {};
                 document.getElementById('zombie').style.display = "none";
                 document.getElementById('lg').style.display = "inline-block";
             } else {
-                document.getElementById('name').innerText = Name;
+                document.getElementById('name').style.display = "block";
+                document.getElementById('name').innerText = "Welcome " + Name;
+                Name;
                 document.getElementById('dsh').style.display = "inline-block";
                 document.getElementById('lg').style.display = "none";
             }
