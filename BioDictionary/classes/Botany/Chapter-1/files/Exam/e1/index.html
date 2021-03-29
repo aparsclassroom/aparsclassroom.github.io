@@ -22,7 +22,7 @@
         <div id="home" class="flex-center flex-column">
             <img src="/HSC-Full-Course/assets/images/Logo-with-Name.png" style="margin-bottom: 30px;" alt="Logo" height="100px">
             <h1>Quick Exam</h1>
-            <a class="btn" onclick="checkPass()">Start Exam</a>
+            <a class="btn" id="startExam">Start Exam</a>
             <a class="btn" href="highscores.html">High Scores</a>
             <a class="btn" onclick="close_window()">Close</a>
             <p class="cred text-center">Contributor : Maheyan Mridul</p>
@@ -40,7 +40,7 @@
                 if (user) {
                     email = user.email;
 
-                    function checkPass() {
+                    document.getElementById('startExam').addEventListener('click', () => {
                         swal("Write something here:", {
                                 content: "input"
                             })
@@ -65,9 +65,9 @@
                                     alert("Invalid Current Password.\nPlease correct it!");
                                 });
                             });
-                    }
+                    });
                 } else {
-                    location.replace("/BioDictionary/login.html");
+                    // location.replace("/BioDictionary/login.html");
                 }
             });
         })()
