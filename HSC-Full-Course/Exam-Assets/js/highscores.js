@@ -89,7 +89,7 @@ var mainApp = {};
                         divContainer.innerHTML = "";
                         divContainer.appendChild(table);
                     }).catch((e) => {
-                        console.log(e);
+                        divContainer.innerHTML = "No Result Found!";
                     })
 
             }
