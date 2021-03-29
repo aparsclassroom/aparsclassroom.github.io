@@ -1,0 +1,71 @@
+.econtainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 650px;
+    margin: 100px auto;
+    padding: 2rem;
+}
+
+.econtainer>* {
+    width: 100%;
+}
+
+#highScoresList {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 4rem;
+    cursor: pointer;
+}
+
+.high-score {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.high-score:hover {
+    transform: scale(1.025);
+}
+
+.score {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 1.2rem;
+}
+
+@media screen and (max-width:400px) {
+    .score {
+        text-align: center;
+        font-size: 20px;
+        color: green;
+        margin-bottom: 1.2rem;
+    }
+    .btn {
+        margin-bottom: 30px;
+    }
+    #highScoresList {
+        margin-bottom: 30px;
+    }
+}
+
+th,
+td,
+input {
+    font: 14px Verdana;
+}
+
+table,
+th,
+td {
+    border: solid 1px #DDD;
+    border-collapse: collapse;
+    padding: 2px 3px;
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+}
