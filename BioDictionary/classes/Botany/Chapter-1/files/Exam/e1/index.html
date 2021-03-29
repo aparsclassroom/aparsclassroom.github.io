@@ -34,41 +34,43 @@
                 close();
             }
         }
+        var mainApp = {};
+        (function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    email = user.email;
 
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                email = user.email;
+                    function checkPass() {
+                        swal("Write something here:", {
+                                content: "input"
+                            })
+                            .then((value) => {
+                                const a = value;
+                                var user = firebase.auth().currentUser;
+                                var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
-                function checkPass() {
-                    swal("Write something here:", {
-                            content: "input"
-                        })
-                        .then((value) => {
-                            const a = value;
-                            var user = firebase.auth().currentUser;
-                            var credential = firebase.auth.EmailAuthProvider.credential(email, a);
-
-                            user.reauthenticateWithCredential(credential).then(function() {
-                                const b = confirmPassword.value;
-                                user.updatePassword(b).then(function() {
-                                    swal({
-                                        title: "Password Matched!",
-                                        text: "Please wait!",
-                                        icon: "success",
-                                        button: "Click Me!",
+                                user.reauthenticateWithCredential(credential).then(function() {
+                                    const b = confirmPassword.value;
+                                    user.updatePassword(b).then(function() {
+                                        swal({
+                                            title: "Password Matched!",
+                                            text: "Please wait!",
+                                            icon: "success",
+                                            button: "Click Me!",
+                                        });
+                                    }).catch(function(error) {
+                                        alert(error.message);
                                     });
                                 }).catch(function(error) {
-                                    alert(error.message);
+                                    alert("Invalid Current Password.\nPlease correct it!");
                                 });
-                            }).catch(function(error) {
-                                alert("Invalid Current Password.\nPlease correct it!");
                             });
-                        });
+                    }
+                } else {
+                    location.replace("/BioDictionary/login.html");
                 }
-            } else {
-                location.replace("/BioDictionary/login.html");
-            }
-        });
+            });
+        })()
     </script>
 </body>
 
