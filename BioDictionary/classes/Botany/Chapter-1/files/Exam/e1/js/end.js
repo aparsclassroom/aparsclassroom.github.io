@@ -1,4 +1,4 @@
-const usid = document.getElementById('id');
+const usid = document.getElementById('uid');
 const username = document.getElementById('username');
 const score = document.getElementById('score');
 const duration = document.getElementById('duration');
