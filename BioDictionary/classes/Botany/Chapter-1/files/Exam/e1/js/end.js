@@ -21,6 +21,7 @@ var mainApp = {};
             } else {
                 uid = user.uid;
                 usid.value = uid;
+                username.value = user.displayName;
                 finalScore.innerText = mostRecentScore;
                 document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
 
