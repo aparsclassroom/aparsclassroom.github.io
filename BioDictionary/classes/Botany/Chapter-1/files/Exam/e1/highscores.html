@@ -11,18 +11,98 @@
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
-    <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/highscores.css" />
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <style>
+        .econtainer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 650px;
+            margin: 100px auto;
+            padding: 2rem;
+        }
+        
+        .econtainer>* {
+            width: 100%;
+        }
+        
+        @media screen and (max-width:400px) {
+            .econtainer {
+                margin: 30px 50px;
+            }
+        }
+        
+        #highScoresList {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 4rem;
+            cursor: pointer;
+        }
+        
+        .high-score {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .high-score:hover {
+            transform: scale(1.025);
+        }
+        
+        .score {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: green;
+            margin-bottom: 1.2rem;
+        }
+        
+        @media screen and (max-width:400px) {
+            .score {
+                text-align: center;
+                font-size: 20px;
+                color: green;
+                margin-bottom: 1.2rem;
+            }
+            .btn {
+                margin-bottom: 30px;
+            }
+            #highScoresList {
+                margin-bottom: 30px;
+            }
+        }
+        
+        th,
+        td,
+        input {
+            font: 14px Verdana;
+        }
+        
+        table,
+        th,
+        td {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        
+        th {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
     <div class="econtainer">
         <div id="highScores" class="flex-center flex-column">
+            <a class="btn" href="index.html">Go Home</a>
             <p class="score" id="finalScore">Your High Scores</p>
             <ul id="highScoresList"></ul>
-            <a class="btn" href="index.html">Go Home</a>
+            <p id="showPersonalData"></p>
+            <br><br><br>
             <p class="score" id="GlobalfinalScore">Global High Scores</p>
-            <iframe width="100%" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRXDQ0Tw4aRscUxcuyyieD9uwgN8wHg2ZbdqR4NPmEgCN01wLZ1vrlK2NZAxcYHjTlYfPCSMR-eNBTM/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false"></iframe>
-
+            <p id="showData"></p>
         </div>
     </div>
     <script src="/HSC-Full-Course/Exam-Assets/js/highscores.js"></script>
