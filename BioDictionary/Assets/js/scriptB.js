@@ -35,23 +35,19 @@ var mainApp = {};
                                 return res.json();
                             })
                             .then((loadedData) => {
-                                if (loadedData.code === 200) {
-                                    a = loadedData;
-                                    i1 = '<div class="card text-center">',
-                                        m1 = 1;
-                                    $.each(a, function(a, e) {
-                                        (
-                                            i1 += '<div class="col-md-15 well">',
-                                            i1 += "<h3 class='eng'>Word Number : " + e.Number + "</h3>",
-                                            i1 += "<h3>" + e.Word + "</h3>",
-                                            i1 += '<h4>অর্থ: ' + e.Meaning + '</h4>',
-                                            i1 += "<a type='button' class='wh' title='Premium Content'> 🔒 ব্যাখ্যা </a>",
-                                            i1 += "</div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
-                                            m1++)
-                                    }), i1 += "</div>", $("#all").html(i1)
-                                } else {
-                                    alert(loadedData.message);
-                                }
+                                a = loadedData;
+                                i1 = '<div class="card text-center">',
+                                    m1 = 1;
+                                $.each(a, function(a, e) {
+                                    (
+                                        i1 += '<div class="col-md-15 well">',
+                                        i1 += "<h3 class='eng'>Word Number : " + e.Number + "</h3>",
+                                        i1 += "<h3>" + e.Word + "</h3>",
+                                        i1 += '<h4>অর্থ: ' + e.Meaning + '</h4>',
+                                        i1 += "<a type='button' class='wh' title='Premium Content'> 🔒 ব্যাখ্যা </a>",
+                                        i1 += "</div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
+                                        m1++)
+                                }), i1 += "</div>", $("#all").html(i1)
                             })
                             .catch((err) => {
                                 console.error(err);
@@ -126,24 +122,19 @@ var mainApp = {};
                                 return res.json();
                             })
                             .then((loadedData) => {
-                                if (loadedData.code === 200) {
-                                    a = loadedData;
-                                    i1 = '<div class="card text-center">',
-                                        m1 = 1;
-                                    $.each(a, function(a, e) {
-                                        (
-                                            i1 += '<div class="col-md-15 well">',
-                                            i1 += "<h3 class='eng'>Word Number : " + e.Number + "</h3>",
-                                            i1 += "<h3>" + e.Word + "</h3>",
-                                            i1 += '<h4>অর্থ: ' + e.Meaning + '</h4>',
-                                            i1 += "<a type='button' class='links text-center' href=\"" + e.ExplainMe + '">' + "ব্যাখ্যা" + "</a>",
-                                            i1 += "</div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
-                                            m1++)
-                                    }), i1 += "</div>", $("#all").html(i1)
-
-                                } else {
-                                    alert(loadedData.message);
-                                }
+                                a = loadedData;
+                                i1 = '<div class="card text-center">',
+                                    m1 = 1;
+                                $.each(a, function(a, e) {
+                                    (
+                                        i1 += '<div class="col-md-15 well">',
+                                        i1 += "<h3 class='eng'>Word Number : " + e.Number + "</h3>",
+                                        i1 += "<h3>" + e.Word + "</h3>",
+                                        i1 += '<h4>অর্থ: ' + e.Meaning + '</h4>',
+                                        i1 += "<a type='button' class='links text-center' href=\"" + e.ExplainMe + '">' + "ব্যাখ্যা" + "</a>",
+                                        i1 += "</div>&nbsp;", m1 % 2 == 0 && (i1 += '</div><div class="card text-center">'),
+                                        m1++)
+                                }), i1 += "</div>", $("#all").html(i1)
                             })
                             .catch((err) => {
                                 console.error(err);
