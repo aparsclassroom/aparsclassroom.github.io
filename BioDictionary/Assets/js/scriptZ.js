@@ -31,7 +31,7 @@
                             var ln1 = window.atob(lin1);
                             var ln2 = window.atob(lin2);
                             var ln = window.atob(inf);
-                            fetch(ln1 + ln + ln2)
+                            fetch(ln1 + ln + ln2 + "?q=All")
                                 .then((res) => {
                                     return res.json();
                                 })
@@ -119,7 +119,7 @@
                             var ln1 = window.atob(lin1);
                             var ln2 = window.atob(lin2);
                             var ln = window.atob(inf);
-                            fetch(ln1 + ln + ln2)
+                            fetch(ln1 + ln + ln2 + "?q=All")
                                 .then((res) => {
                                     return res.json();
                                 })
