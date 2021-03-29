@@ -56,18 +56,23 @@
                                             title: "Password Matched!",
                                             text: "Please wait!",
                                             icon: "success",
-                                            button: "Click Me!",
+                                            button: "Click Me!"
                                         });
                                     }).catch(function(error) {
                                         alert(error.message);
                                     });
                                 }).catch(function(error) {
-                                    alert("Invalid Current Password.\nPlease correct it!");
+                                    swal({
+                                        title: "Invalid Password.",
+                                        text: "Please correct it!",
+                                        icon: "error",
+                                        button: "Ok"
+                                    });
                                 });
                             });
                     });
                 } else {
-                    // location.replace("/BioDictionary/login.html");
+                    location.replace("/BioDictionary/login.html");
                 }
             });
         })()
