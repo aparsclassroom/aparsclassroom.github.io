@@ -25,6 +25,7 @@ fetch('https://script.google.com/macros/s/AKfycbx2dj1PI7ROIp_8swqHiquG7ZeBriFNIM
             startGame();
         } else {
             alert(loadedQuestions.code + "  " + loadedQuestions.message);
+            return close();
         }
     })
     .catch((err) => {
