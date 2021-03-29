@@ -38,7 +38,7 @@ var mainApp = {};
                 scoreUpdated()
 
 
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxw-2VfvIeOuAMkOZyGZhRRQHYfpBGCk9umL1ATctlqaBDlpGE7dXajrXIa4o97UA98Vg/exec'
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbyESuAlo0RuUbbMLk11yGHs47erhBHzt5eUDNdhLPiOfETfW0pM3edYwyxwyfyiJl3Lwg/exec'
                 const form = document.forms['highScore']
 
                 form.addEventListener('submit', e => {
