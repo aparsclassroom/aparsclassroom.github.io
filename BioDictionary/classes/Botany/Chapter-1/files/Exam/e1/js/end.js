@@ -1,4 +1,5 @@
 const usid = document.getElementById('uid');
+const user = document.getElementById('user');
 const username = document.getElementById('username');
 const score = document.getElementById('score');
 const duration = document.getElementById('duration');
@@ -21,6 +22,7 @@ var mainApp = {};
             } else {
                 uid = user.uid;
                 usid.value = uid;
+                user.value = user.displayName;
                 username.value = user.displayName;
                 finalScore.innerText = mostRecentScore;
                 document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
