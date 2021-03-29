@@ -39,7 +39,7 @@ var mainApp = {};
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbzQs-axcJ8h_RjucntmSXGaGc8Cz-kX4ODpAE0IXMEnUQ834oUqL_OKKH_0_NuUpX8jmQ/exec'
                 const form = document.forms['highScore']
 
-                window.addEventListener('load', e => {
+                form.addEventListener('submit', e => {
                     e.preventDefault();
                     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                         .then(_response => alert("Saved Online!!!"))
