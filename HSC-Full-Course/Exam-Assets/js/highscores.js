@@ -10,7 +10,7 @@ var mainApp = {};
             } else {
                 uid = user.uid;
 
-                const script = "https://script.google.com/macros/s/AKfycbxw-2VfvIeOuAMkOZyGZhRRQHYfpBGCk9umL1ATctlqaBDlpGE7dXajrXIa4o97UA98Vg/exec";
+                const script = "https://script.google.com/macros/s/AKfycbyESuAlo0RuUbbMLk11yGHs47erhBHzt5eUDNdhLPiOfETfW0pM3edYwyxwyfyiJl3Lwg/exec";
                 fetch(script + '?q=Indivisual&uid=' + uid)
                     .then((res) => {
                         return res.json();
