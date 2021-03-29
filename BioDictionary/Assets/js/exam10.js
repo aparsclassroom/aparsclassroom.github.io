@@ -2,7 +2,7 @@ var mainApp = {};
 (function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            if (free === true) {
+            if (user.isAnonymous === true) {
                 alert("It is a premium feature");
                 location.replace("/BioDictionary/index.html");
                 return;
