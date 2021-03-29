@@ -43,14 +43,15 @@ var mainApp = {};
 
                 form.addEventListener('submit', e => {
                     e.preventDefault();
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                        .then(_response => alert("Saved Online!!!"))
-                        .catch(error => console.error('Error!', error.message))
                     document.getElementById("online").innerText = "Please Wait..";
                     document.getElementById("online").disabled = true;
-                    setTimeout(function timer() {
-                        document.getElementById("online").style.display = "none";
-                    }, 2500)
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then(_response => {
+                            alert("Saved Online!!!");
+                            document.getElementById("online").style.display = "none";
+                            location.href = "./highscores.html";
+                        })
+                        .catch(error => alert('Error!', error.message))
                 })
 
             }
