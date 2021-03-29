@@ -57,7 +57,10 @@
                                             text: "Please wait!",
                                             icon: "success",
                                             button: "Click Me!"
-                                        });
+                                        }).then(() => {
+                                            return location.replace('exam.html');
+                                        })
+
                                     }).catch(function(error) {
                                         alert(error.message);
                                     });
