@@ -55,7 +55,8 @@ var mainApp = {};
                         } else {
                             document.getElementById('showPersonalData').innerHTML = loadedData.message;
                         }
-
+                    }).catch((e) => {
+                        document.getElementById('showPersonalData').innerHTML = "No Result Found!";
                     })
                 fetch(script + '?q=All')
                     .then((res) => {
@@ -90,6 +91,7 @@ var mainApp = {};
                         divContainer.appendChild(table);
                     }).catch((e) => {
                         document.getElementById("showData").innerHTML = "No Result Found!";
+                        return location.replace("./index.html");
                     })
 
             }
