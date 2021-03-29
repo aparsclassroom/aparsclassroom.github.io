@@ -20,8 +20,12 @@ fetch('https://script.google.com/macros/s/AKfycbx2dj1PI7ROIp_8swqHiquG7ZeBriFNIM
         return res.json();
     })
     .then((loadedQuestions) => {
-        questions = JSON.parse(loadedQuestions.Exam);
-        startGame();
+        if (loadedQuestions.code === 200) {
+            questions = JSON.parse(loadedQuestions.Exam);
+            startGame();
+        } else {
+            alert(loadedQuestions.code + "  " + loadedQuestions.message);
+        }
     })
     .catch((err) => {
         console.error(err);
