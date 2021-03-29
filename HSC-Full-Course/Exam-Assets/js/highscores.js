@@ -89,7 +89,7 @@ var mainApp = {};
                         divContainer.innerHTML = "";
                         divContainer.appendChild(table);
                     }).catch((e) => {
-                        divContainer.innerHTML = "No Result Found!";
+                        document.getElementById("showData").innerHTML = "No Result Found!";
                     })
 
             }
