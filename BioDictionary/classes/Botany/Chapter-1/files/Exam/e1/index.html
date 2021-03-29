@@ -50,20 +50,14 @@
                                 var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
                                 user.reauthenticateWithCredential(credential).then(function() {
-                                    const b = confirmPassword.value;
-                                    user.updatePassword(b).then(function() {
-                                        swal({
-                                            title: "Password Matched!",
-                                            text: "Please wait!",
-                                            icon: "success",
-                                            button: "Click Me!"
-                                        }).then(() => {
-                                            return location.replace('exam.html');
-                                        })
-
-                                    }).catch(function(error) {
-                                        alert(error.message);
-                                    });
+                                    swal({
+                                        title: "Password Matched!",
+                                        text: "Please wait!",
+                                        icon: "success",
+                                        button: "Click Me!"
+                                    }).then(() => {
+                                        return location.replace('exam.html');
+                                    })
                                 }).catch(function(error) {
                                     swal({
                                         title: "Invalid Password",
