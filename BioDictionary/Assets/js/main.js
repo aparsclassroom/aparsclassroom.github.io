@@ -16,7 +16,11 @@ var mainApp = {};
                 document.getElementById('lg').style.display = "inline-block";
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
-                document.getElementById('name').innerText = "Welcome " + Name;
+                if (Name === null) {
+                    document.getElementById('name').innerHTML = "Welcome 🥰";
+                } else {
+                    document.getElementById('name').innerText = "Welcome " + Name;
+                }
                 document.getElementById('dsh').style.display = "inline-block";
                 document.getElementById('lg').style.display = "none";
             }
