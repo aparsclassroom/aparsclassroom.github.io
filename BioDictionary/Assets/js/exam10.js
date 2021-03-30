@@ -51,12 +51,14 @@ var mainApp = {};
                     score = 0;
                     availableQuesions = [...questions];
                     getNewQuestion();
+                    strt();
+                };
+
+                function strt() {
                     game.classList.remove('hidden');
                     loader.classList.add('hidden');
-                    document.addEventListener('load', () => {
-                        ntimer();
-                    })
-                };
+                    ntimer();
+                }
                 getNewQuestion = () => {
                     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
                         localStorage.setItem('mostRecentScore', score);
