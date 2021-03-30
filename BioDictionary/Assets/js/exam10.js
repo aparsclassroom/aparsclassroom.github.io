@@ -30,16 +30,14 @@ var mainApp = {};
                         return res.json();
                     })
                     .then((loadedQuestions) => {
-                        if (loadedQuestions.code === 200) {
-                            questions = JSON.parse(loadedQuestions.Exam);
+                        // if (loadedQuestions.code === 200) {
 
-                        } else {
-                            alert(loadedQuestions.code + "  " + loadedQuestions.message);
-                            return close();
-                        }
-                        setTimeout(() => {
-                            startGame();
-                        }, 5000);
+                        // } else {
+                        //     alert(loadedQuestions.code + "  " + loadedQuestions.message);
+                        //     return close();
+                        // }
+                        questions = JSON.parse(loadedQuestions.Exam);
+                        startGame();
                     })
                     .catch((err) => {
                         console.error(err);
