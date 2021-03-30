@@ -53,9 +53,7 @@ var mainApp = {};
                     getNewQuestion();
                     game.classList.remove('hidden');
                     loader.classList.add('hidden');
-                    setTimeout(() => {
-                        ntimer();
-                    }, 5000);
+                    ntimer();
                 };
                 getNewQuestion = () => {
                     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
