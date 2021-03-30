@@ -31,9 +31,10 @@ var mainApp = {};
                     .then((loadedQuestions) => {
                         if (loadedQuestions.code === 200) {
                             questions = JSON.parse(loadedQuestions.Exam);
-                            setTimeout(() => {
-                                startGame();
-                            }, 1000);
+                            // setTimeout(() => {
+
+                            // }, 1000);
+                            startGame();
                         } else {
                             alert(loadedQuestions.code + "  " + loadedQuestions.message);
                             return close();
@@ -52,9 +53,9 @@ var mainApp = {};
                     score = 0;
                     availableQuesions = [...questions];
                     getNewQuestion();
-                    ntimer();
                     game.classList.remove('hidden');
                     loader.classList.add('hidden');
+                    ntimer();
                 };
                 getNewQuestion = () => {
                     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
