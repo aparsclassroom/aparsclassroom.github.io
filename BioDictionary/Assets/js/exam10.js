@@ -30,14 +30,13 @@ var mainApp = {};
                         return res.json();
                     })
                     .then((loadedQuestions) => {
-                        // if (loadedQuestions.code === 200) {
-
-                        // } else {
-                        //     alert(loadedQuestions.code + "  " + loadedQuestions.message);
-                        //     return close();
-                        // }
-                        questions = JSON.parse(loadedQuestions.Exam);
-                        startGame();
+                        if (loadedQuestions.code === 200) {
+                            questions = JSON.parse(loadedQuestions.Exam);
+                            startGame();
+                        } else {
+                            alert(loadedQuestions.code + "  " + loadedQuestions.message);
+                            return close();
+                        }
                     })
                     .catch((err) => {
                         console.error(err);
@@ -54,7 +53,9 @@ var mainApp = {};
                     getNewQuestion();
                     game.classList.remove('hidden');
                     loader.classList.add('hidden');
-                    ntimer();
+                    document.addEventListener('load', () => {
+                        ntimer();
+                    })
                 };
                 getNewQuestion = () => {
                     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
