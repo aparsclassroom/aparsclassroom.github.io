@@ -112,12 +112,12 @@ var mainApp = {};
 
                 function ntimer() {
                     setTimeout(function timer() {
+                        clearInterval(mytime);
                         document.getElementById('timer').classList.remove('quiz_timer');
                         document.getElementById('timer').classList.add('finish');
                         document.getElementById('st').classList.remove('time');
                         document.getElementById('st').classList.add('ftime');
                         document.getElementById('st').innerHTML = "Times Up!";
-                        clearInterval(mytime);
                         localStorage.setItem('mostRecentScore', score);
                         localStorage.setItem("minutes", minutes);
                         localStorage.setItem("seconds", seconds);
