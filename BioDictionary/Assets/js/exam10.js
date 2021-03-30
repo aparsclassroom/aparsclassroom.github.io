@@ -32,14 +32,14 @@ var mainApp = {};
                     .then((loadedQuestions) => {
                         if (loadedQuestions.code === 200) {
                             questions = JSON.parse(loadedQuestions.Exam);
-                            setTimeout(() => {
-                                startGame();
-                            }, 5000);
 
                         } else {
                             alert(loadedQuestions.code + "  " + loadedQuestions.message);
                             return close();
                         }
+                        setTimeout(() => {
+                            startGame();
+                        }, 5000);
                     })
                     .catch((err) => {
                         console.error(err);
