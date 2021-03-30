@@ -25,45 +25,25 @@ var mainApp = {};
                 var as = window.location.pathname.toString();
                 const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/video-" + as.split('/')[7].substring(1, 16);
 
-                async function getFile() {
-                    let myPromise = new Promise(function(myResolve, myReject) {
-                        let req = new XMLHttpRequest();
-                        req.open('GET', "https://script.google.com/macros/s/AKfycbx2dj1PI7ROIp_8swqHiquG7ZeBriFNIMudGMvPBTy9o72F2cc07QUAJkDUAtOTxxcK/exec?q=Exam&ID=" + ID);
-                        req.onload = function() {
-                            if (req.status == 200) {
-                                myResolve(req.response);
-                            } else {
-                                myReject("File not Found");
-                            }
-                        };
-                        req.send();
+                fetch('https://script.google.com/macros/s/AKfycbx2dj1PI7ROIp_8swqHiquG7ZeBriFNIMudGMvPBTy9o72F2cc07QUAJkDUAtOTxxcK/exec' + "?q=Exam&ID=" + ID)
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((loadedQuestions) => {
+                        if (loadedQuestions.code === 200) {
+                            questions = JSON.parse(loadedQuestions.Exam);
+                            setTimeout(() => {
+                                startGame();
+                            }, 5000);
+
+                        } else {
+                            alert(loadedQuestions.code + "  " + loadedQuestions.message);
+                            return close();
+                        }
+                    })
+                    .catch((err) => {
+                        console.error(err);
                     });
-                    var a = await myPromise
-                    questions = JSON.parse(a).Exam;
-                    startGame();
-                }
-
-                getFile();
-
-                // fetch('https://script.google.com/macros/s/AKfycbx2dj1PI7ROIp_8swqHiquG7ZeBriFNIMudGMvPBTy9o72F2cc07QUAJkDUAtOTxxcK/exec' + "?q=Exam&ID=" + ID)
-                //     .then((res) => {
-                //         return res.json();
-                //     })
-                //     .then((loadedQuestions) => {
-                //         if (loadedQuestions.code === 200) {
-                //             questions = JSON.parse(loadedQuestions.Exam);
-                //             setTimeout(() => {
-
-                //             }, 1000);
-                //             startGame();
-                //         } else {
-                //             alert(loadedQuestions.code + "  " + loadedQuestions.message);
-                //             return close();
-                //         }
-                //     })
-                //     .catch((err) => {
-                //         console.error(err);
-                //     });
 
                 //CONSTANTS
                 const CORRECT_BONUS = 5;
