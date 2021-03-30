@@ -30,8 +30,8 @@ var mainApp = {};
                     })
                     .then((loadedQuestions) => {
                         if (loadedQuestions.code === 200) {
+                            questions = JSON.parse(loadedQuestions.Exam);
                             setTimeout(() => {
-                                questions = JSON.parse(loadedQuestions.Exam);
                                 startGame();
                             }, 1000);
                         } else {
