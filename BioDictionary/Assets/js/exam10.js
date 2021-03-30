@@ -40,7 +40,7 @@ var mainApp = {};
                         req.send();
                     });
                     var mainQ = await myPromise;
-                    questions = JSON.parse(mainQ.Exam);
+                    questions = mainQ.Exam;
                     startGame();
                 }
                 getFile();
