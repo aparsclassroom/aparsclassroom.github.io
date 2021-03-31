@@ -17,6 +17,7 @@ var mainApp = {};
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
                 function getThings() {
+                    document.getElementById('name').innerText = Name + "'s favorites 🤩";
                     var things = JSON.parse(localStorage.getItem('watched'));
                     if (things === null) {
                         return document.getElementById('suggestion').innerHTML = "";
@@ -29,11 +30,11 @@ var mainApp = {};
                         }
                     }
                 }
-                getThings()
+
                 if (Name === null) {
                     document.getElementById('name').innerHTML = "Welcome 🥰";
                 } else {
-                    document.getElementById('name').innerText = Name + "'s favorites 🤩";
+                    getThings()
                 }
                 document.getElementById('dsh').style.display = "inline-block";
                 document.getElementById('lg').style.display = "none";
