@@ -16,15 +16,16 @@ var mainApp = {};
                 document.getElementById('lg').style.display = "inline-block";
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
-
-
-
-
-                var things = JSON.parse(localStorage.getItem('watched'));
-                var thing = things[Math.floor(Math.random() * things.length)];
-                document.getElementById('suggestion').innerHTML = `<img src="${thing.img}" height="100px" width="100px"><br><a href=${thing.url}>${thing.name}</a>`;
-
-
+                function getThings() {
+                    var things = JSON.parse(localStorage.getItem('watched'));
+                    if (things === null) {
+                        return document.getElementById('suggestion').innerHTML = "";
+                    } else {
+                        var thing = things[Math.floor(Math.random() * things.length)];
+                        document.getElementById('suggestion').innerHTML = `<img src="${thing.img}" height="100px" width="100px"><br><a href=${thing.url}>${thing.name}</a>`;
+                    }
+                }
+                getThings()
                 if (Name === null) {
                     document.getElementById('name').innerHTML = "Welcome 🥰";
                 } else {
