@@ -22,7 +22,11 @@ var mainApp = {};
                         return document.getElementById('suggestion').innerHTML = "";
                     } else {
                         var thing = things[Math.floor(Math.random() * things.length)];
-                        document.getElementById('suggestion').innerHTML = `<img src="${thing.img}" height="100px" width="100px"><br><a href=${thing.url}>${thing.name}</a>`;
+                        if (thing.img == "" || thing.img == "https://gdurl.com") {
+                            document.getElementById('suggestion').innerHTML = `<a href=${thing.url}>${thing.name}</a>`;
+                        } else {
+                            document.getElementById('suggestion').innerHTML = `<img src="${thing.img}" height="100px" width="100px"><br><a href=${thing.url}>${thing.name}</a>`;
+                        }
                     }
                 }
                 getThings()
