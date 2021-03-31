@@ -33,7 +33,7 @@ var mainApp = {};
                 if (Name === null) {
                     document.getElementById('name').innerHTML = "Welcome 🥰";
                 } else {
-                    document.getElementById('name').innerText = "Welcome " + Name + "'s favorites 🤩";
+                    document.getElementById('name').innerText = Name + "'s favorites 🤩";
                 }
                 document.getElementById('dsh').style.display = "inline-block";
                 document.getElementById('lg').style.display = "none";
