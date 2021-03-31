@@ -16,6 +16,15 @@ var mainApp = {};
                 document.getElementById('lg').style.display = "inline-block";
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
+
+
+
+
+                var things = ['Rock', 'Paper', 'Scissor'];
+                var thing = things[Math.floor(Math.random() * things.length)];
+                document.getElementById('suggestion').innerHTML = thing;
+
+
                 if (Name === null) {
                     document.getElementById('name').innerHTML = "Welcome 🥰";
                 } else {
