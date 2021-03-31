@@ -20,9 +20,9 @@ var mainApp = {};
 
 
 
-                var things = ['Rock', 'Paper', 'Scissor'];
+                var things = JSON.parse(localStorage.getItem('watched'));
                 var thing = things[Math.floor(Math.random() * things.length)];
-                document.getElementById('suggestion').innerHTML = thing;
+                document.getElementById('suggestion').innerHTML = JSON.stringify(thing);
 
 
                 if (Name === null) {
