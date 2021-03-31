@@ -22,7 +22,7 @@ var mainApp = {};
 
                 var things = JSON.parse(localStorage.getItem('watched'));
                 var thing = things[Math.floor(Math.random() * things.length)];
-                document.getElementById('suggestion').innerHTML = `<a href=${thing.url}>${thing.name}</a>`;
+                document.getElementById('suggestion').innerHTML = `<img src="${thing.img}" height="100px" width="100px"><br><a href=${thing.url}>${thing.name}</a>`;
 
 
                 if (Name === null) {
