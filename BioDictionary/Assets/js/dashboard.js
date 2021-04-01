@@ -20,7 +20,8 @@ window.addEventListener('load', () => {
     console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px");
     aseKina();
     aseKinaRecent();
-    showchart();
+    var ctx = document.getElementById('chart-area').getContext('2d');
+    window.myPie = new Chart(ctx, config);
     var things = JSON.parse(localStorage.getItem('watched'));
     if (things === null) {
         document.getElementById('tracker').style.display = "none";
@@ -91,39 +92,35 @@ function aseKinaRecent() {
     }
 }
 
-function showchart() {
-    var things = JSON.parse(localStorage.getItem('watched'));
-    const piex = things.length;
-    var ctx = document.getElementById('chart-area').getContext('2d');
-    window.myPie = new Chart(ctx, config);
-    var config = {
-        type: 'pie',
-        data: {
-            datasets: [{
-                data: [
-                    piex,
-                    447
-                ],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(238, 133, 171, 1)'
-                ],
-                label: 'Study Tracker'
-            }],
-            labels: [
-                'Completed Words',
-                'Total Words'
-            ]
-        },
-        options: {
-            legend: {
-                position: 'bottom',
-            },
-            responsive: true
-        }
-    };
-}
+var things = JSON.parse(localStorage.getItem('watched'));
+const piex = things.length;
 
+var config = {
+    type: 'pie',
+    data: {
+        datasets: [{
+            data: [
+                piex,
+                447
+            ],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(238, 133, 171, 1)'
+            ],
+            label: 'Study Tracker'
+        }],
+        labels: [
+            'Completed Words',
+            'Total Words'
+        ]
+    },
+    options: {
+        legend: {
+            position: 'bottom',
+        },
+        responsive: true
+    }
+};
 document.getElementById('clearToday').addEventListener('click', () => {
     sessionStorage.removeItem('todayWatched')
     document.getElementById('today').innerHTML = "Nothing Left";
