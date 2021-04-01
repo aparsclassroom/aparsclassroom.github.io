@@ -14,13 +14,15 @@ $(function() {
 document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
-const things = JSON.parse(localStorage.getItem('watched'));
+
 
 window.addEventListener('load', () => {
     console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px");
     aseKina();
     aseKinaRecent();
+    const things = JSON.parse(localStorage.getItem('watched'));
     if (things != null) {
+        document.getElementById('tracker').style.display = "block";
         const piex = things.length;
         var ctx = document.getElementById('chart-area').getContext('2d');
         window.myPie = new Chart(ctx, config);
