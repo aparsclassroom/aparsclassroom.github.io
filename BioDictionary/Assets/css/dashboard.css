@@ -122,8 +122,7 @@ svg:hover,
 }
 
 .fa-chart-pie:hover {
-    color: rgba(54, 162, 235, 0.2);
-    box-shadow: 0px 0px 10px rgba(238, 133, 171, 0.452);
+    color: rgba(54, 163, 235, 0.466);
 }
 
 .fa-clipboard-check {
