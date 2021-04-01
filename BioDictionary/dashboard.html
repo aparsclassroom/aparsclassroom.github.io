@@ -130,7 +130,7 @@
                     </div>
                     <div class="py-4">
                         <h5 class="mb-0" id="allT"><i class="fas fa-paperclip"></i> Stats </h5>
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                        <canvas id="chart-area" width="400" height="400"></canvas>
                     </div>
                 </div>
             </div>
@@ -218,38 +218,31 @@
     var things = JSON.parse(localStorage.getItem('watched'));
 
     var piex = things.length;
-
-
-    var label = ['Completed Words', 'Total Words'];
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    var ctx = document.getElementById('chart-area').getContext('2d');
+    window.myPie = new Chart(ctx, config);
+    var config = {
         type: 'pie',
         data: {
-            labels: label,
             datasets: [{
-                label: 'Completed Words',
-                data: [piex, 500],
+                data: [
+                    piex,
+                    100
+                ],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
+                    window.chartColors.red,
+                    window.chartColors.green
                 ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1
-            }]
+                label: 'Dataset 1'
+            }],
+            labels: [
+                'Read',
+                'Unread'
+            ]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
+            responsive: true
         }
-    });
+    };
 </script>
 
 </html>
