@@ -91,36 +91,39 @@ function aseKinaRecent() {
         getToday()
     }
 }
-
 var things = JSON.parse(localStorage.getItem('watched'));
-const piex = things.length;
+if (things != null) {
+    const piex = things.length;
 
-var config = {
-    type: 'pie',
-    data: {
-        datasets: [{
-            data: [
-                piex,
-                447
-            ],
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(238, 133, 171, 1)'
-            ],
-            label: 'Study Tracker'
-        }],
-        labels: [
-            'Completed Words',
-            'Total Words'
-        ]
-    },
-    options: {
-        legend: {
-            position: 'bottom',
+    var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    piex,
+                    447
+                ],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(238, 133, 171, 1)'
+                ],
+                label: 'Study Tracker'
+            }],
+            labels: [
+                'Completed Words',
+                'Total Words'
+            ]
         },
-        responsive: true
-    }
-};
+        options: {
+            legend: {
+                position: 'bottom',
+            },
+            responsive: true
+        }
+    };
+}
+
+
 document.getElementById('clearToday').addEventListener('click', () => {
     sessionStorage.removeItem('todayWatched')
     document.getElementById('today').innerHTML = "Nothing Left";
