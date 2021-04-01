@@ -109,7 +109,7 @@ var config = {
     data: {
         datasets: [{
             data: [
-                piex,
+                things.length,
                 447
             ],
             backgroundColor: [
