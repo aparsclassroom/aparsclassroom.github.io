@@ -15,12 +15,13 @@ document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
 const things = JSON.parse(localStorage.getItem('watched'));
-const piex = things.length;
+
 window.addEventListener('load', () => {
     console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
     aseKina()
     aseKinaRecent()
     if (things != null) {
+        var piex = things.length;
         if (piex < 1) {
             document.getElementById('tracker').style.display = "none";
         } else {
