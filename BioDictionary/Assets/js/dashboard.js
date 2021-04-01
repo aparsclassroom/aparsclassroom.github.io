@@ -92,7 +92,7 @@ function aseKinaRecent() {
     }
 }
 
-function showChart() {
+function showchart() {
     const piex = things.length;
     var ctx = document.getElementById('chart-area').getContext('2d');
     window.myPie = new Chart(ctx, config);
