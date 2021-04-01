@@ -218,8 +218,12 @@
     var things = JSON.parse(localStorage.getItem('watched'));
 
     var piex = things.length;
-    var ctx = document.getElementById('chart-area').getContext('2d');
-    window.myPie = new Chart(ctx, config);
+
+    window.onload = function() {
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+
     var config = {
         type: 'pie',
         data: {
