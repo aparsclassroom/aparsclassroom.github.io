@@ -17,11 +17,12 @@ var mainApp = {};
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
                 function getThings() {
-                    document.getElementById('name').innerText = Name + "'s favorites 🤩";
                     var things = JSON.parse(localStorage.getItem('watched'));
                     if (things === null) {
+                        document.getElementById('name').innerText = "Welcome 🥰";
                         return document.getElementById('suggestion').innerHTML = "";
                     } else {
+                        document.getElementById('name').innerText = Name + "'s favorites 🤩";
                         var thing = things[Math.floor(Math.random() * things.length)];
                         if (thing.img == "" || thing.img == "https://gdurl.com") {
                             document.getElementById('suggestion').innerHTML = `<a href=${thing.url}>${thing.name}</a>`;
