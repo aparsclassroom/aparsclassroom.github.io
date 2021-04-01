@@ -109,7 +109,7 @@ a:hover {
 }
 
 svg:hover,
-.fa-clipboard-check:hover,
+.fa-history:hover,
 .fa-chart-pie:hover,
 .fa-check-circle:hover,
 .fa-question-circle:hover {
@@ -125,7 +125,7 @@ svg:hover,
     color: rgba(54, 163, 235, 0.466);
 }
 
-.fa-clipboard-check {
+.fa-history {
     color: orange;
     font-size: 22px;
 }

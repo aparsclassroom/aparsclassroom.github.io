@@ -123,7 +123,12 @@ if (things != null) {
     };
 }
 
-
+var resetCh = document.getElementById('resetCh');
+resetCh.addEventListener('click', () => {
+    localStorage.removeItem('watched');
+    resetCh.style.display = "none";
+    document.getElementById('tracker').style.display = "none";
+})
 document.getElementById('clearToday').addEventListener('click', () => {
     sessionStorage.removeItem('todayWatched')
     document.getElementById('today').innerHTML = "Nothing Left";
