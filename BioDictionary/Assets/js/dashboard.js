@@ -11,6 +11,9 @@ $(function() {
         });
     });
 }(jQuery));
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
 window.addEventListener('load', () => {
     console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
     aseKina()
