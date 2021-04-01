@@ -205,7 +205,7 @@ function getBook() {
         sl = bookmarks[i].sl;
         time = bookmarks[i].time;
         bookmarksResults.innerHTML += '<div class="card">' +
-            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span> Bookmarked : ' + time + '</span> </a><hr></div>';
+            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span class="bangla"> সময় : ' + time + '</span> </a><hr></div>';
     }
 
 }
