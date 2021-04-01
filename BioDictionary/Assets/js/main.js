@@ -1,3 +1,17 @@
+$(function() {
+    "use strict";
+    $(window).on("load", function() {
+        $(".loader").fadeOut();
+        $("#preloader").delay(350).fadeOut("slow");
+        $("body").delay(350).css({
+            "overflow": "visible"
+        });
+        $(".all-container").css({
+            "opacity": "1"
+        });
+    });
+}(jQuery));
+
 var mainApp = {};
 (function() {
     var firebase = app_firebase;
