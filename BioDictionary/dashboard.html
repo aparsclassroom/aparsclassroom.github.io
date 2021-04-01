@@ -212,11 +212,44 @@
 <script src="Assets/js/dashboard-fb.js"></script>
 <script src="/BioDictionary/Assets/Vendor/js/bootstrap.js"></script>
 <script src="Assets/js/dashboard.js"></script>
+<script src="/affiliation/assets/js/plugins/chartjs.min.js"></script>
 <script>
     const pie = document.getElementById('pie');
     var things = JSON.parse(localStorage.getItem('watched'));
 
-    pie.innerHTML = "total watched" + things.length;
+    var piex = things.length;
+
+
+    var label = ['Completed Words', 'Total Words'];
+    var ctx = pie.getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: label,
+            datasets: [{
+                label: 'Completed Words',
+                data: [piex, 500],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
 </script>
 
 </html>
