@@ -26,6 +26,7 @@ window.addEventListener('load', () => {
             document.getElementById('tracker').style.display = "none";
         } else {
             var ctx = document.getElementById('chart-area').getContext('2d');
+            var piex = things.length;
             window.myPie = new Chart(ctx, config);
         }
     }
