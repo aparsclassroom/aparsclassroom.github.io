@@ -17,43 +17,41 @@ document.addEventListener("contextmenu", function(e) {
 const things = JSON.parse(localStorage.getItem('watched'));
 
 window.addEventListener('load', () => {
-    console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
-    aseKina()
-    aseKinaRecent()
+    console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px");
+    aseKina();
+    aseKinaRecent();
     if (things != null) {
         const piex = things.length;
-        if (piex < 1) {
-            document.getElementById('tracker').style.display = "none";
-        } else {
-            var ctx = document.getElementById('chart-area').getContext('2d');
-            window.myPie = new Chart(ctx, config);
-            var config = {
-                type: 'pie',
-                data: {
-                    datasets: [{
-                        data: [
-                            things.length,
-                            447
-                        ],
-                        backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(238, 133, 171, 1)'
-                        ],
-                        label: 'Study Tracker'
-                    }],
-                    labels: [
-                        'Completed Words',
-                        'Total Words'
-                    ]
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+        var config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        piex,
+                        447
+                    ],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(238, 133, 171, 1)'
+                    ],
+                    label: 'Study Tracker'
+                }],
+                labels: [
+                    'Completed Words',
+                    'Total Words'
+                ]
+            },
+            options: {
+                legend: {
+                    position: 'bottom',
                 },
-                options: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    responsive: true
-                }
-            };
-        }
+                responsive: true
+            }
+        };
+    } else {
+        document.getElementById('tracker').style.display = "none";
     }
 })
 
