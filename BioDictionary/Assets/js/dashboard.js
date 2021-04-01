@@ -27,6 +27,32 @@ window.addEventListener('load', () => {
         } else {
             var ctx = document.getElementById('chart-area').getContext('2d');
             window.myPie = new Chart(ctx, config);
+            var config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            things.length,
+                            447
+                        ],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(238, 133, 171, 1)'
+                        ],
+                        label: 'Study Tracker'
+                    }],
+                    labels: [
+                        'Completed Words',
+                        'Total Words'
+                    ]
+                },
+                options: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    responsive: true
+                }
+            };
         }
     }
 })
@@ -102,31 +128,3 @@ document.getElementById('clearToday').addEventListener('click', () => {
     document.getElementById('clearToday').style.display = "none";
     document.getElementById('showR').style.display = "none";
 })
-
-
-var config = {
-    type: 'pie',
-    data: {
-        datasets: [{
-            data: [
-                things.length,
-                447
-            ],
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(238, 133, 171, 1)'
-            ],
-            label: 'Study Tracker'
-        }],
-        labels: [
-            'Completed Words',
-            'Total Words'
-        ]
-    },
-    options: {
-        legend: {
-            position: 'bottom',
-        },
-        responsive: true
-    }
-};
