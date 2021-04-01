@@ -113,41 +113,26 @@ function initApp() {
                                 }
                             }
                         });
-
                         var ctx = document.getElementById('myChart2').getContext('2d');
                         var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
                                 labels: label,
-                                datasets:
-
-                                    [{
-                                        label: 'Direct Income',
-                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                        borderColor: 'rgba(75, 192, 192, 0.2)',
-                                        borderWidth: 1,
-                                        data: [
-                                            loadedData.Verified_Direct_Income
-                                        ]
-                                    }, {
-                                        label: 'Passive Income',
-                                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                                        borderColor: 'rgba(153, 102, 255, 0.2)',
-                                        borderWidth: 1,
-                                        data: [
-                                            loadedData.Verified_Passive_Income
-                                        ]
-                                    },
-                                    {
-                                        label: 'Passive Square Income',
-                                        backgroundColor: 'rgba(255, 227, 171, 1)',
-                                        borderColor: 'rgba(255, 227, 171, 1)',
-                                        borderWidth: 1,
-                                        data: [
-                                            loadedData.Verified_Passive_Square_Income
-                                        ]
-                                    }
-                                ]
+                                datasets: [{
+                                    label: 'Verified Earnings',
+                                    data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income, loadedData.Verified_Passive_Square_Income],
+                                    backgroundColor: [
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 227, 171, 1)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 227, 171, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
                             },
                             options: {
                                 scales: {
