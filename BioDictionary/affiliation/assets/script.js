@@ -157,7 +157,7 @@ function initApp() {
                                 //         }
                                 //     }]
                                 // }
-                                responsive: true
+                                responsive: false
                             }
                         });
                     } else {
