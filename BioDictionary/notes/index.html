@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notes | Apar's Classroom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="../Assets/images/logo/logo-square.ico">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="return">
+                <a href="../dashboard.html">
+                    <i class="fa fa-home"></i>
+                </a>
+            </div>
+            <div class="clear">
+                <i class="fa fa-refresh"></i>
+            </div>
+            <div id="date"></div>
+        </div>
+        <div class="content">
+            <ul id="list">
+            </ul>
+        </div>
+        <div class="add-to-do">
+            <a type="button" id="addNote">
+                <i class="fa fa-plus-circle"></i>
+            </a>
+            <input type="text" id="input" placeholder="Add a Note">
+        </div>
+    </div>
+
+</body>
+
+</html>
