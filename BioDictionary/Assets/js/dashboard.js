@@ -20,12 +20,13 @@ window.addEventListener('load', () => {
     console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
     aseKina()
     aseKinaRecent()
-
-    if (piex < 1) {
-        document.getElementById('tracker').style.display = "none";
-    } else {
-        var ctx = document.getElementById('chart-area').getContext('2d');
-        window.myPie = new Chart(ctx, config);
+    if (things != null) {
+        if (piex < 1) {
+            document.getElementById('tracker').style.display = "none";
+        } else {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+        }
     }
 })
 
