@@ -150,14 +150,13 @@ function initApp() {
                                 ]
                             },
                             options: {
-                                // scales: {
-                                //     yAxes: [{
-                                //         ticks: {
-                                //             beginAtZero: true
-                                //         }
-                                //     }]
-                                // }
-                                responsive: false
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
                             }
                         });
                     } else {
