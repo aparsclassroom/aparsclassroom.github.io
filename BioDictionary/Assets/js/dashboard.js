@@ -14,12 +14,19 @@ $(function() {
 document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
+const things = JSON.parse(localStorage.getItem('watched'));
+const piex = things.length;
 window.addEventListener('load', () => {
     console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
     aseKina()
     aseKinaRecent()
-    var ctx = document.getElementById('chart-area').getContext('2d');
-    window.myPie = new Chart(ctx, config);
+
+    if (piex < 1) {
+        document.getElementById('tracker').style.display = "none";
+    } else {
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    }
 })
 
 function getToday() {
@@ -94,9 +101,6 @@ document.getElementById('clearToday').addEventListener('click', () => {
     document.getElementById('showR').style.display = "none";
 })
 
-var things = JSON.parse(localStorage.getItem('watched'));
-
-var piex = things.length;
 
 var config = {
     type: 'pie',
