@@ -19,7 +19,7 @@ var mainApp = {};
                 function getThings() {
                     var things = JSON.parse(localStorage.getItem('watched'));
                     if (things === null) {
-                        document.getElementById('name').innerText = "Welcome 🥰";
+                        document.getElementById('name').innerText = "Welcome " + Name;
                         return document.getElementById('suggestion').innerHTML = "";
                     } else {
                         document.getElementById('name').innerText = Name + "'s favorites 🤩";
