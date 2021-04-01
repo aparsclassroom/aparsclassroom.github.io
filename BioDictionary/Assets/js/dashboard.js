@@ -104,7 +104,7 @@ var config = {
         datasets: [{
             data: [
                 piex,
-                100
+                447
             ],
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)',
