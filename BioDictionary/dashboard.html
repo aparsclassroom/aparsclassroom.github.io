@@ -130,7 +130,7 @@
                     </div>
                     <div class="py-4">
                         <h5 class="mb-0" id="allT"><i class="fas fa-paperclip"></i> Stats </h5>
-                        <canvas id="pie" width="400" height="400"></canvas>
+                        <canvas id="myChart" width="400" height="400"></canvas>
                     </div>
                 </div>
             </div>
@@ -221,8 +221,8 @@
 
 
     var label = ['Completed Words', 'Total Words'];
-    var ctx = document.getElementById('pie').getContext('2d');
-    var pie = new Chart(ctx, {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: label,
