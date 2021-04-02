@@ -39,12 +39,14 @@ var mainApp = {};
                         document.getElementById("ip-details").value = a;
                     });
                 }
+                online.disabled = true;
                 scoreUpdated()
                 fetch(scriptURL + '?q=Indivisual&uid=' + uid)
                     .then((res) => {
                         return res.json();
                     }).then((loadedData) => {
                         if (loadedData.code === 404) {
+                            online.disabled = false;
                             online.innerText = "Save Result 🔥";
                             const form = document.forms['highScore']
                             form.addEventListener('submit', e => {
