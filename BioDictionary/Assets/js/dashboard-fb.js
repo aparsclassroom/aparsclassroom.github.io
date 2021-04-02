@@ -48,7 +48,6 @@ var mainApp = {};
                 } else {
                     document.getElementById('nam').innerHTML = namex + ` <i class="fas fa-check-circle" title="Verified"></i>`;
                 }
-                document.getElementById('license').innerHTML = "<b>License : </b>" + uid;
                 document.getElementById('created').innerHTML = "<b>Enrolled : </b>" + user.metadata.creationTime;
                 document.getElementById('namUp').addEventListener('click', () => {
                     var usname = document.getElementById('usname').value;
