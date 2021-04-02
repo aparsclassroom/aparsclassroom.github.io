@@ -26,75 +26,75 @@ var mainApp = {};
                                     if (loadedQuestions.code === 200) {
                                         var exam = JSON.parse(loadedQuestions.Exam);
                                         document.getElementById('solve').innerHTML = `
-                                        <h3>${exam[0].question}</h3>
+                                        <h3>প্রশ্ন ১. ${exam[0].question}</h3>
                                         <p>${exam[0].choice1}</p>
                                         <p>${exam[0].choice2}</p>
                                         <p>${exam[0].choice3}</p>
                                         <p>${exam[0].choice4}</p>
-                                        <p>${exam[0].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[0].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[1].question}</h3>
+                                        <h3>প্রশ্ন ২. ${exam[1].question}</h3>
                                         <p>${exam[1].choice1}</p>
                                         <p>${exam[1].choice2}</p>
                                         <p>${exam[1].choice3}</p>
                                         <p>${exam[1].choice4}</p>
-                                        <p>${exam[1].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[1].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[2].question}</h3>
+                                        <h3>প্রশ্ন ৩. ${exam[2].question}</h3>
                                         <p>${exam[2].choice1}</p>
                                         <p>${exam[2].choice2}</p>
                                         <p>${exam[2].choice3}</p>
                                         <p>${exam[2].choice4}</p>
-                                        <p>${exam[2].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[2].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[3].question}</h3>
+                                        <h3>প্রশ্ন ৪. ${exam[3].question}</h3>
                                         <p>${exam[3].choice1}</p>
                                         <p>${exam[3].choice2}</p>
                                         <p>${exam[3].choice3}</p>
                                         <p>${exam[3].choice4}</p>
-                                        <p>${exam[3].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[3].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[4].question}</h3>
+                                        <h3>প্রশ্ন ৫. ${exam[4].question}</h3>
                                         <p>${exam[4].choice1}</p>
                                         <p>${exam[4].choice2}</p>
                                         <p>${exam[4].choice3}</p>
                                         <p>${exam[4].choice4}</p>
-                                        <p>${exam[4].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[4].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[5].question}</h3>
+                                        <h3>প্রশ্ন ৬. ${exam[5].question}</h3>
                                         <p>${exam[5].choice1}</p>
                                         <p>${exam[5].choice2}</p>
                                         <p>${exam[5].choice3}</p>
                                         <p>${exam[5].choice4}</p>
-                                        <p>${exam[5].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[5].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[6].question}</h3>
+                                        <h3>প্রশ্ন ৭. ${exam[6].question}</h3>
                                         <p>${exam[6].choice1}</p>
                                         <p>${exam[6].choice2}</p>
                                         <p>${exam[6].choice3}</p>
                                         <p>${exam[6].choice4}</p>
-                                        <p>${exam[6].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[6].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[7].question}</h3>
+                                        <h3>প্রশ্ন ৮. ${exam[7].question}</h3>
                                         <p>${exam[7].choice1}</p>
                                         <p>${exam[7].choice2}</p>
                                         <p>${exam[7].choice3}</p>
                                         <p>${exam[7].choice4}</p>
-                                        <p>${exam[7].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[7].answer}</strong?</p>
                                         <hr>
-                                        <h3>${exam[8].question}</h3>
+                                        <h3>প্রশ্ন ৯. ${exam[8].question}</h3>
                                         <p>${exam[8].choice1}</p>
                                         <p>${exam[8].choice2}</p>
                                         <p>${exam[8].choice3}</p>
                                         <p>${exam[8].choice4}</p>
-                                        <p>${exam[8].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[8].answer}</strong></p>
                                         <hr>
-                                        <h3>${exam[9].question}</h3>
+                                        <h3>প্রশ্ন ১০. ${exam[9].question}</h3>
                                         <p>${exam[9].choice1}</p>
                                         <p>${exam[9].choice2}</p>
                                         <p>${exam[9].choice3}</p>
                                         <p>${exam[9].choice4}</p>
-                                        <p>${exam[9].answer}</p>
+                                        <p><strong>সঠিক উত্তর : ${exam[9].answer}</strong></p>
                                         `;
                                     } else {
                                         alert(loadedQuestions.code + "  " + loadedQuestions.message);
