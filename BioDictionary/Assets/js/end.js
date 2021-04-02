@@ -56,7 +56,7 @@ var mainApp = {};
                                 online.disabled = true;
                                 fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                                     .then(_response => {
-                                        alert("Saved Online!!!");
+                                        alert("Saved Online!!!\nand also Solution 🔓 Unlocked!");
                                         online.style.display = "none";
                                         solve.style.display = "block";
                                         solve.href = "./solution.html";
