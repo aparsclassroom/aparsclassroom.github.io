@@ -8,6 +8,7 @@ const mostRecentScore = localStorage.getItem('mostRecentScore');
 const online = document.getElementById("online");
 const user_min = localStorage.getItem("minutes");
 const user_sec = localStorage.getItem("seconds");
+const solve = document.getElementById('solve');
 
 function close_window() {
     if (confirm("Close Quick Exam?")) {
@@ -64,6 +65,8 @@ var mainApp = {};
                         } else {
                             online.innerText = "Already Saved";
                             online.disabled = true;
+                            solve.style.display = "block";
+                            solve.href = "./solution.html";
                         }
                     })
             }

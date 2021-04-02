@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution</title>
+    <script src="../../../../../../Assets/video/p1/C1/Ep1/script.js"></script>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Solution</h2>
+    <div id="solve"></div>
+</body>
+<script>
+    fetch(scriptURL + '?q=Indivisual&uid=' + uid)
+        .then((res) => {
+            return res.json();
+        }).then((loadedData) => {
+            if (loadedData.code === 200) {
+
+                var as = window.location.pathname.toString();
+                const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/video-" + as.split('/')[7].substring(1, 16);
+
+                fetch('https://script.google.com/macros/s/AKfycbx2dj1PI7ROIp_8swqHiquG7ZeBriFNIMudGMvPBTy9o72F2cc07QUAJkDUAtOTxxcK/exec' + "?q=Exam&ID=" + ID)
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((loadedQuestions) => {
+                        if (loadedQuestions.code === 200) {
+                            questions = JSON.parse(loadedQuestions.Exam);
+                            document.getElementById('solve').innerHTML = questions;
+                        } else {
+                            alert(loadedQuestions.code + "  " + loadedQuestions.message);
+                            return close();
+                        }
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                    });
+            }
+        })
+</script>
+
+</html>
