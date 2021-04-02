@@ -99,6 +99,7 @@ var mainApp = {};
                                         <p>Option 3 : ${exam[9].choice3}</p>
                                         <p>Option 4 : ${exam[9].choice4}</p>
                                         <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[9].answer}</strong></h3>
+                                        <hr>
                                         `;
                                     } else {
                                         alert(loadedQuestions.code + "  " + loadedQuestions.message);
