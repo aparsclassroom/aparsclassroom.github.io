@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/kalpurush.ttf');
+}
+
+body {
+    font-family: Kalpurush;
+    text-align: center;
+    background: url('/BioDictionary/Assets/images/Background/bg.webp');
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-color: #fdfdfd;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container {
+    margin-top: 50px;
+    max-width: 700px;
+    margin-bottom: 100px;
+}
