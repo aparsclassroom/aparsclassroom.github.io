@@ -29,46 +29,51 @@ var mainApp = {};
                 usid.value = uid;
                 usern.value = user.displayName;
                 username.value = user.displayName;
-                finalScore.innerText = mostRecentScore;
-                document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
+                if (mostRecentScore < 1) {
+                    alert("please try again 🤨");
+                    return location.replace('./');
+                } else {
+                    finalScore.innerText = mostRecentScore;
+                    document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
 
-                function scoreUpdated() {
-                    score.value = mostRecentScore;
-                    duration.value = user_min + " : " + user_sec;
-                    $.get('https://json.geoiplookup.io/', function(res) {
-                        var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
-                        document.getElementById("ip-details").value = a;
-                    });
+                    function scoreUpdated() {
+                        score.value = mostRecentScore;
+                        duration.value = user_min + " : " + user_sec;
+                        $.get('https://json.geoiplookup.io/', function(res) {
+                            var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+                            document.getElementById("ip-details").value = a;
+                        });
+                    }
+                    online.disabled = true;
+                    scoreUpdated()
+                    fetch(scriptURL + '?q=Indivisual&uid=' + uid)
+                        .then((res) => {
+                            return res.json();
+                        }).then((loadedData) => {
+                            if (loadedData.code === 404) {
+                                online.disabled = false;
+                                online.innerText = "Unlock Solution 🔑🔒";
+                                const form = document.forms['highScore']
+                                form.addEventListener('submit', e => {
+                                    e.preventDefault();
+                                    online.innerText = "Unlocking...";
+                                    online.disabled = true;
+                                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                                        .then(_response => {
+                                            alert("Solution 🔓 Unlocked!");
+                                            online.style.display = "none";
+                                            solve.style.display = "block";
+                                            solve.href = "./solution.html";
+                                        })
+                                        .catch(error => alert('Error!', error.message))
+                                })
+                            } else {
+                                online.style.display = "none";
+                                solve.style.display = "block";
+                                solve.href = "./solution.html";
+                            }
+                        })
                 }
-                online.disabled = true;
-                scoreUpdated()
-                fetch(scriptURL + '?q=Indivisual&uid=' + uid)
-                    .then((res) => {
-                        return res.json();
-                    }).then((loadedData) => {
-                        if (loadedData.code === 404) {
-                            online.disabled = false;
-                            online.innerText = "Unlock Solution 🔑🔒";
-                            const form = document.forms['highScore']
-                            form.addEventListener('submit', e => {
-                                e.preventDefault();
-                                online.innerText = "Unlocking...";
-                                online.disabled = true;
-                                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                                    .then(_response => {
-                                        alert("Solution 🔓 Unlocked!");
-                                        online.style.display = "none";
-                                        solve.style.display = "block";
-                                        solve.href = "./solution.html";
-                                    })
-                                    .catch(error => alert('Error!', error.message))
-                            })
-                        } else {
-                            online.style.display = "none";
-                            solve.style.display = "block";
-                            solve.href = "./solution.html";
-                        }
-                    })
             }
         } else {
             window.location.replace("/BioDictionary/login.html");
