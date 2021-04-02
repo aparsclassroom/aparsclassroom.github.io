@@ -56,7 +56,7 @@ var mainApp = {};
                     }).catch((e) => {
                         document.getElementById('showPersonalData').innerHTML = "No Result Found!";
                     })
-                fetch(script + '?q=All')
+                fetch(scriptURL + '?q=All')
                     .then((res) => {
                         return res.json();
                     }).then((loadedData) => {
