@@ -48,15 +48,15 @@ var mainApp = {};
                     }).then((loadedData) => {
                         if (loadedData.code === 404) {
                             online.disabled = false;
-                            online.innerText = "Save Result 🔥";
+                            online.innerText = "Unlock Solution 🔑🔒";
                             const form = document.forms['highScore']
                             form.addEventListener('submit', e => {
                                 e.preventDefault();
-                                online.innerText = "Please Wait..";
+                                online.innerText = "Unlocking...";
                                 online.disabled = true;
                                 fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                                     .then(_response => {
-                                        alert("Saved Online!!!\nand also Solution 🔓 Unlocked!");
+                                        alert("Solution 🔓 Unlocked!");
                                         online.style.display = "none";
                                         solve.style.display = "block";
                                         solve.href = "./solution.html";
@@ -64,8 +64,7 @@ var mainApp = {};
                                     .catch(error => alert('Error!', error.message))
                             })
                         } else {
-                            online.innerText = "Already Saved";
-                            online.disabled = true;
+                            online.style.display = "none";
                             solve.style.display = "block";
                             solve.href = "./solution.html";
                         }
