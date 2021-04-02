@@ -84,7 +84,7 @@ var mainApp = {};
                                         <p>Option 2 : ${exam[7].choice2}</p>
                                         <p>Option 3 : ${exam[7].choice3}</p>
                                         <p>Option 4 : ${exam[7].choice4}</p>
-                                        <p style="color:green"><strong>সঠিক উত্তর : ${exam[7].answer}</strong?</p>
+                                        <p style="color:green"><strong>সঠিক উত্তর : ${exam[7].answer}</strong></p>
                                         <hr>
                                         <h3>প্রশ্ন ৯. ${exam[8].question}</h3>
                                         <p>Option 1 : ${exam[8].choice1}</p>
