@@ -25,11 +25,6 @@ var mainApp = {};
                                 .then((loadedQuestions) => {
                                     if (loadedQuestions.code === 200) {
                                         var exam = JSON.parse(loadedQuestions.Exam);
-                                        for (let i = 0; i < loadedQuestions.Exam.length; i++) {
-                                            const element = loadedQuestions.Exam[i].question;
-                                            console.log(element);
-
-                                        }
                                         var ans1 = "exam[0].choice" + exam[0].answer;
                                         console.log(JSON.parse(ans1));
                                         document.getElementById('solve').innerHTML = `
