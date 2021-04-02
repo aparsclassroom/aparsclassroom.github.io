@@ -29,7 +29,6 @@ var mainApp = {};
                                         var asvs = exam[0].answer;
                                         var news = ans1 + asvs;
                                         console.log(JSON.stringify(news));
-                                        console.log(JSON.parse(news));
                                         document.getElementById('solve').innerHTML = `
                                         <h3>প্রশ্ন ১. ${exam[0].question}</h3>
                                         <p><strong>সঠিক উত্তর : ${news}</strong></p>
