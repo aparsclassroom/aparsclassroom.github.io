@@ -24,7 +24,11 @@ var mainApp = {};
                                 })
                                 .then((loadedQuestions) => {
                                     if (loadedQuestions.code === 200) {
-                                        document.getElementById('solve').innerHTML = loadedQuestions.Exam;
+                                        var exam = JSON.parse(loadedQuestions.Exam);
+                                        document.getElementById('solve').innerHTML = `
+                                        <h3>${exam[0].question}</h3>
+                                        <p>${exam[0].answer}</p>
+                                        `;
                                     } else {
                                         alert(loadedQuestions.code + "  " + loadedQuestions.message);
                                         return close();
@@ -33,6 +37,9 @@ var mainApp = {};
                                 .catch((err) => {
                                     console.error(err);
                                 });
+                        } else {
+                            alert("Please Don't try to Cheat 💔");
+                            return location.replace("./");
                         }
                     })
             }
