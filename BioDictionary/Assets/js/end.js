@@ -45,7 +45,7 @@ var mainApp = {};
                         return res.json();
                     }).then((loadedData) => {
                         if (loadedData.code === 404) {
-                            online.outerHTML = "Save Result 🔥";
+                            online.innerText = "Save Result 🔥";
                             const form = document.forms['highScore']
                             form.addEventListener('submit', e => {
                                 e.preventDefault();
@@ -60,7 +60,7 @@ var mainApp = {};
                                     .catch(error => alert('Error!', error.message))
                             })
                         } else {
-                            online.outerHTML = "Already Saved";
+                            online.innerText = "Already Saved";
                             online.disabled = true;
                         }
                     })
