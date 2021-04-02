@@ -1,1 +1,1 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbxhGoXH3RORPdNdF2CTBmBK9YI-vVotSRluCypDfLdJTWQW-t9bi0mB88c5KPPzbX2lKw/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzvsGfppkTWAocfNsUKrTtym0wBJVKervQz8AwaHxwL4NkTSlRk5eUx9SeAMT4clVCsVQ/exec";
