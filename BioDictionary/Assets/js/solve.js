@@ -26,7 +26,7 @@ var mainApp = {};
                                     if (loadedQuestions.code === 200) {
                                         var exam = JSON.parse(loadedQuestions.Exam);
                                         for (let i = 0; i < loadedQuestions.Exam.length; i++) {
-                                            const element = loadedQuestions.Exam[i];
+                                            const element = loadedQuestions.Exam[i].question;
                                             console.log(element);
 
                                         }
