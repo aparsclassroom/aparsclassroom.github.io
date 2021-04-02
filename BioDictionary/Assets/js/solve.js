@@ -24,7 +24,7 @@ var mainApp = {};
                                 })
                                 .then((loadedQuestions) => {
                                     if (loadedQuestions.code === 200) {
-                                        var exam = JSON.parse(loadedQuestions.Exam);
+                                        var exam = JSON.parse(...loadedQuestions.Exam);
                                         var ans1 = "exam[0].choice" + exam[0].answer;
                                         console.log(...exam[0]);
                                         document.getElementById('solve').innerHTML = `
