@@ -25,10 +25,9 @@ var mainApp = {};
                                 .then((loadedQuestions) => {
                                     if (loadedQuestions.code === 200) {
                                         var exam = JSON.parse(loadedQuestions.Exam);
-                                        var ans1 = "{exam[0].choice}"
-                                        var asvd = JSON.parse(ans1)
+                                        var ans1 = "exam[0].choice"
                                         var asvs = exam[0].answer;
-                                        var news = asvd + asvs;
+                                        var news = ans1 + asvs;
                                         console.log(JSON.stringify(news));
                                         document.getElementById('solve').innerHTML = `
                                         <h3>প্রশ্ন ১. ${exam[0].question}</h3>
