@@ -9,7 +9,11 @@ const online = document.getElementById("online");
 const user_min = localStorage.getItem("minutes");
 const user_sec = localStorage.getItem("seconds");
 
-
+function close_window() {
+    if (confirm("Close Quick Exam?")) {
+        close();
+    }
+}
 var mainApp = {};
 (function() {
     var firebase = app_firebase;
@@ -36,24 +40,30 @@ var mainApp = {};
                     });
                 }
                 scoreUpdated()
-
-
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbz2C1ggwYQkaCNdcM5fdVIvbkU4vX2Jdp-2XTEZGUbIVPX1cchzdVOUDRZVdX66nQupVw/exec'
-                const form = document.forms['highScore']
-
-                form.addEventListener('submit', e => {
-                    e.preventDefault();
-                    document.getElementById("online").innerText = "Please Wait..";
-                    document.getElementById("online").disabled = true;
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                        .then(_response => {
-                            alert("Saved Online!!!");
-                            document.getElementById("online").style.display = "none";
-                            location.href = "./highscores.html";
-                        })
-                        .catch(error => alert('Error!', error.message))
-                })
-
+                fetch(scriptURL + '?q=Indivisual&uid=' + uid)
+                    .then((res) => {
+                        return res.json();
+                    }).then((loadedData) => {
+                        if (loadedData.code === 404) {
+                            online.outerHTML = "Save Result 🔥";
+                            const form = document.forms['highScore']
+                            form.addEventListener('submit', e => {
+                                e.preventDefault();
+                                online.innerText = "Please Wait..";
+                                online.disabled = true;
+                                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                                    .then(_response => {
+                                        alert("Saved Online!!!");
+                                        online.style.display = "none";
+                                        location.href = "./highscores.html";
+                                    })
+                                    .catch(error => alert('Error!', error.message))
+                            })
+                        } else {
+                            online.outerHTML = "Already Saved";
+                            online.disabled = true;
+                        }
+                    })
             }
         } else {
             window.location.replace("/BioDictionary/login.html");

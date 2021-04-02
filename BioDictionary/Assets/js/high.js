@@ -9,9 +9,7 @@ var mainApp = {};
                 return location.replace("/BioDictionary/index.html");
             } else {
                 uid = user.uid;
-
-                const script = "https://script.google.com/macros/s/AKfycbz2C1ggwYQkaCNdcM5fdVIvbkU4vX2Jdp-2XTEZGUbIVPX1cchzdVOUDRZVdX66nQupVw/exec";
-                fetch(script + '?q=Indivisual&uid=' + uid)
+                fetch(scriptURL + '?q=Indivisual&uid=' + uid)
                     .then((res) => {
                         return res.json();
                     }).then((loadedData) => {
