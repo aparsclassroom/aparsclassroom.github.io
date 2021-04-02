@@ -58,7 +58,8 @@ var mainApp = {};
                                     .then(_response => {
                                         alert("Saved Online!!!");
                                         online.style.display = "none";
-                                        location.href = "./highscores.html";
+                                        solve.style.display = "block";
+                                        solve.href = "./solution.html";
                                     })
                                     .catch(error => alert('Error!', error.message))
                             })
