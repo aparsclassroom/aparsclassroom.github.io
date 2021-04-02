@@ -27,8 +27,7 @@ var mainApp = {};
                                         var exam = JSON.parse(loadedQuestions.Exam);
                                         var ans1 = "exam[0].choice"
                                         var asvs = exam[0].answer;
-                                        var news = ans1 + asvs;
-                                        console.log(JSON.stringify(news));
+                                        var news = JSON.parse(JSON.stringify(ans1 + asvs));
                                         document.getElementById('solve').innerHTML = `
                                         <h3>প্রশ্ন ১. ${exam[0].question}</h3>
                                         <p><strong>সঠিক উত্তর : ${news}</strong></p>
