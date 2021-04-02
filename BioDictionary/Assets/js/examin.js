@@ -19,7 +19,7 @@ var mainApp = {};
                     }).then((loadedData) => {
                         if (loadedData.code === 200) {
                             document.getElementById('startExam').innerText = "Retake ?";
-                            document.getElementById('solve').href = "./exam.html";
+                            document.getElementById('startExam').href = "./exam.html";
                             document.getElementById('solve').style.display = "block";
                             document.getElementById('solve').href = "./solution.html";
                         } else {
