@@ -17,7 +17,7 @@ var mainApp = {};
                             const userin = document.getElementById('userin');
                             userin.innerHTML = `
                             <h2 style="text-align: center;">${loadedData.username}</h2>
-                            <p>Your Score : ${loadedData.score}<br>Exam Duration : ${loadedData.duration}<br>Exam Timestamp : ${loadedData.timestamp}</p>                         
+                            <p>Your Score : ${loadedData.score}<br>Exam Duration : ${loadedData.duration}<br>Timestamp : ${loadedData.timestamp}</p>                         
                             `;
                             var as = window.location.pathname.toString();
                             const ID = as.split('/')[3] + "/" + as.split('/')[4] + "/video-" + as.split('/')[7].substring(1, 16);
