@@ -6,18 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Quiz | Apar's Classroom</title>
-    <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/app.css" />
-    <!-- Site Icons -->
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/app.css" />
     <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/exam.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js" defer></script>
+    <script src="/BioDictionary/Assets/js/firebase.js" defer></script>
+    <script src="/BioDictionary/Assets/js/exam10.js" defer></script>
+
 </head>
 
 <body>
     <div class="container">
         <div id="loader"></div>
         <div id="game" class="justify-center flex-column hidden">
+            <nav>
+                <div id="timer" class="quiz_timer">
+                    <span id="st" class="time">00:00</span>
+                </div>
+            </nav>
             <div id="hud">
                 <div id="hud-item">
                     <p id="progressText" class="hud-prefix">
@@ -55,7 +65,7 @@
             </div>
         </div>
     </div>
-    <script src="/BioDictionary/Assets/js/exam10.js"></script>
+
 </body>
 
 </html>
