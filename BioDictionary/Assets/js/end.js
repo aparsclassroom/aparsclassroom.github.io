@@ -61,6 +61,9 @@ var mainApp = {};
                                     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                                         .then(_response => {
                                             alert("Solution 🔓 Unlocked!");
+                                            localStorage.removeItem('mostRecentScore');
+                                            localStorage.removeItem("minutes");
+                                            localStorage.removeItem("seconds");
                                             online.style.display = "none";
                                             solve.style.display = "block";
                                             solve.href = "./solution.html";
