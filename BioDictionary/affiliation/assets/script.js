@@ -28,8 +28,10 @@ function initApp() {
                     if (loadedData.code === 200) {
                         document.getElementById('desc').innerHTML = loadedData.Status;
                         document.getElementById('bio').innerText = loadedData.Status;
-                        document.getElementById('avatar').src = user.photoURL;
-                        document.getElementById('profile').src = user.photoURL;
+                        if (user.photoURL != null) {
+                            document.getElementById('avatar').src = user.photoURL;
+                            document.getElementById('profile').src = user.photoURL;
+                        }
                         document.getElementById('Username').value = user.displayName;
                         document.getElementById('email').value = user.email;
                         document.getElementById('uid').value = user.uid;
