@@ -22,6 +22,9 @@ var mainApp = {};
                             document.getElementById('startExam').href = "./exam.html";
                             document.getElementById('solve').style.display = "block";
                             document.getElementById('solve').href = "./solution.html";
+                            document.getElementById('startExam').addEventListener('click', () => {
+                                sessionStorage.setItem("stat", "OK");
+                            })
                         } else {
                             document.getElementById('startExam').innerText = "Start Exam";
                             email = user.email;
@@ -35,6 +38,7 @@ var mainApp = {};
                                         var credential = firebase.auth.EmailAuthProvider.credential(email, a);
 
                                         user.reauthenticateWithCredential(credential).then(function() {
+                                            sessionStorage.setItem("stat", "OK");
                                             swal({
                                                 title: "Password Matched!",
                                                 icon: "success",
