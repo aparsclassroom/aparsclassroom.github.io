@@ -56,7 +56,6 @@ var mainApp = {};
                         game.classList.remove('hidden');
                         loader.classList.add('hidden');
                         ntimer();
-                        sessionStorage.removeItem("stat");
                     };
                     getNewQuestion = () => {
                         if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
@@ -64,6 +63,7 @@ var mainApp = {};
                             localStorage.setItem("minutes", minutes);
                             localStorage.setItem("seconds", seconds);
                             clearInterval(mytime);
+                            sessionStorage.removeItem("stat");
                             return window.location.assign('end.html');
                         }
                         questionCounter++;
