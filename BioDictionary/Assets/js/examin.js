@@ -7,6 +7,9 @@ var mainApp = {};
 (function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            localStorage.removeItem('mostRecentScore', score);
+            localStorage.removeItem("minutes", minutes);
+            localStorage.removeItem("seconds", seconds);
             if (user.isAnonymous === true) {
                 alert("It is a premium feature");
                 location.replace("/BioDictionary/index.html");
