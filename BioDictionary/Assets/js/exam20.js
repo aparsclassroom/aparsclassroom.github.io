@@ -35,6 +35,7 @@ var mainApp = {};
                             if (loadedQuestions.code === 200) {
                                 var decrypted = CryptoJS.AES.decrypt(loadedQuestions.Exam, "123");
                                 questions = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)).Exam;
+                                console.log(questions);
                                 startGame();
                             } else {
                                 alert(loadedQuestions.code + "  " + loadedQuestions.message);
