@@ -54,6 +54,7 @@ var mainApp = {};
                         questionCounter = 0;
                         score = 0;
                         availableQuesions = [...questions];
+                        console.log(availableQuesions);
                         getNewQuestion();
                         game.classList.remove('hidden');
                         loader.classList.add('hidden');
