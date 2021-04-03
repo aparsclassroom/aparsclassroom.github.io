@@ -33,9 +33,7 @@ var mainApp = {};
                         })
                         .then((loadedQuestions) => {
                             if (loadedQuestions.code === 200) {
-                                var decrypted = CryptoJS.AES.decrypt(loadedQuestions.Exam, "123");
-                                questions = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)).Exam;
-                                console.log(questions);
+                                questions = JSON.parse(loadedQuestions.Exam);
                                 startGame();
                             } else {
                                 alert(loadedQuestions.code + "  " + loadedQuestions.message);
@@ -54,7 +52,6 @@ var mainApp = {};
                         questionCounter = 0;
                         score = 0;
                         availableQuesions = [...questions];
-                        console.log(availableQuesions);
                         getNewQuestion();
                         game.classList.remove('hidden');
                         loader.classList.add('hidden');
