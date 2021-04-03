@@ -32,7 +32,11 @@ function initApp() {
                             document.getElementById('avatar').src = user.photoURL;
                             document.getElementById('profile').src = user.photoURL;
                         }
-                        document.getElementById('Username').value = user.displayName;
+                        if (user.displayName === "") {
+                            document.getElementById('Username').value = "Please Verfiy your Account"
+                        } else {
+                            document.getElementById('Username').value = user.displayName;
+                        }
                         document.getElementById('email').value = user.email;
                         document.getElementById('uid').value = user.uid;
                         document.getElementById('notify').innerText = loadedData.Comment;
