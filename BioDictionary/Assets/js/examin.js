@@ -47,7 +47,7 @@ var mainApp = {};
                                                 icon: "success",
                                                 button: "Start Exam!"
                                             }).then(() => {
-                                                return location.replace('exam.html');
+                                                return location.replace('./exam.html');
                                             })
                                         }).catch(function(error) {
                                             swal({
