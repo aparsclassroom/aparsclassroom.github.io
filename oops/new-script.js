@@ -1,8 +1,20 @@
 var script_url = "https://script.google.com/macros/s/AKfycbxvonGetWrIzbxbQ21MiMYyblDrC0gFY26rK8mZlnZ7PWjChK486oV-cQvLg9n1E9YifQ/exec";
 
-
+function err() {
+    fetch(script_url + "?action=read")
+        .then((res) => {
+            load()
+        })
+        .catch(() => {
+            document.getElementById("loader").style.visibility = "hidden";
+            $("#re").css("visibility", "visible");
+            document.getElementById('showData').innerHTML = "Please enter your first Video 🥰";
+        })
+}
+err()
 
 function load() {
+
     var url = script_url + "?action=read";
 
     $.getJSON(url, function(json) {
@@ -67,8 +79,7 @@ function load() {
     });
 }
 
-
-function insert_value() {
+document.getElementById('addU').addEventListener('click', () => {
     $('#insertMD').modal('hide')
     $("#re").css("visibility", "hidden");
     document.getElementById("loader").style.visibility = "visible";
@@ -80,9 +91,7 @@ function insert_value() {
     var row6 = $("#Description").val();
     var row7 = $("#Pdf").val();
     var row8 = $("#Instructor").val();
-
     var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Paper=" + row2 + "&Chapter=" + row3 + "&Episode=" + row4 + "&Video_Link=" + row5 + "&Description=" + row6 + "&Pdf=" + row7 + "&Instructor=" + row8 + "&action=insert";
-
     var request = jQuery.ajax({
 
         crossDomain: true,
@@ -90,10 +99,8 @@ function insert_value() {
         method: "GET",
         dataType: "jsonp"
     });
-    document.getElementById('insrt').reset();
-}
 
-load()
+})
 
 
 
@@ -103,9 +110,9 @@ function update_value() {
     $("#re").css("visibility", "hidden");
     document.getElementById("loader").style.visibility = "visible";
 
-    var row2 = $("#Paper").val();
-    var row3 = $("#Chapter").val();
-    var row4 = $("#Episode").val();
+    var row2 = $("#uPaper").val();
+    var row3 = $("#uChapter").val();
+    var row4 = $("#uEpisode").val();
     var row5 = $("#Final").val();
 
     var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Final_Video=" + row5 + "&action=update";
@@ -123,9 +130,9 @@ function delete_value() {
     $("#re").css("visibility", "hidden");
     document.getElementById("loader").style.visibility = "visible";
     $('#mySpinner').addClass('spinner');
-    var row1 = $("#Paper").val();
-    var row2 = $("#Chapter").val();
-    var row3 = $("#Episode").val();
+    var row1 = $("#dPaper").val();
+    var row2 = $("#dChapter").val();
+    var row3 = $("#dEpisode").val();
     var url = script_url + "?callback=ctrlq&ID=" + row1 + "/" + row2 + "/" + row3 + "&action=delete";
 
 
@@ -149,7 +156,7 @@ function ctrlq(e) {
 
 
 function read_value() {
-
+    err()
     $("#re").css("visibility", "hidden");
 
     document.getElementById("loader").style.visibility = "visible";

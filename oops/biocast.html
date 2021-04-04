@@ -5,18 +5,74 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="new-script.js" defer></script>
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        
+        .container.csc {
+            max-width: 700px;
+        }
+        
+        .container {
+            margin-left: 0;
+        }
+        
+        table,
+        th,
+        td {
+            margin: 10px 0;
+            border: solid 1px #333;
+            padding: 2px 4px;
+            font: 15px Verdana;
+            text-align: center;
+        }
+        
+        th {
+            font-weight: bold;
+        }
+        
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid blue;
+            border-bottom: 16px solid blue;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            visibility: hidden;
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container csc">
-
+    <div class="csc">
         <h1 class="text-center">BioCast Admin Dashboard</h1>
-
     </div>
-    <div class="container">
+    <div class="text-center">
         <div align="center">
             <div id="loader"></div>
 
@@ -25,7 +81,7 @@
                 Add Video
               </button>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMD">
-                Add Edited Video
+                Add Edited Video Link
               </button>
 
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteMD">
@@ -50,15 +106,15 @@
                 <div class="modal-body">
                     <form id="dlte">
                         <div class="form-group">
-                            <label for="Paper"> Paper : </label>
-                            <select id="Paper" name="Paper" class="form-control">
+                            <label for="dPaper"> Paper : </label>
+                            <select id="dPaper" name="dPaper" class="form-control">
                     <option value="Botany">Botany</option>
                     <option value="Zoology">Zoology</option>
                     </select>
                         </div>
                         <div class="form-group">
-                            <label for="Chapter"> Chapter : </label>
-                            <select id="Chapter" name="Chapter" class="form-control">
+                            <label for="dChapter"> Chapter : </label>
+                            <select id="dChapter" name="dChapter" class="form-control">
                     <option value="Chapter-1">Chapter-1</option>
                     <option value="Chapter-2">Chapter-2</option>
                     <option value="Chapter-3">Chapter-3</option>
@@ -74,8 +130,8 @@
                     </select>
                         </div>
                         <div class="form-group">
-                            <label for="Episode"> Episode : </label>
-                            <select id="Episode" name="Episode" class="form-control">
+                            <label for="dEpisode"> Episode : </label>
+                            <select id="dEpisode" name="dEpisode" class="form-control">
                     <option value="Episode-1">Episode-1</option>
                     <option value="Episode-2">Episode-2</option>
                     <option value="Episode-3">Episode-3</option>
@@ -107,15 +163,15 @@
                 <div class="modal-body">
                     <form id="updt">
                         <div class="form-group">
-                            <label for="Paper"> Paper : </label>
-                            <select id="Paper" name="Paper" class="form-control">
+                            <label for="uPaper"> Paper : </label>
+                            <select id="uPaper" name="uPaper" class="form-control">
                     <option value="Botany">Botany</option>
                     <option value="Zoology">Zoology</option>
                     </select>
                         </div>
                         <div class="form-group">
-                            <label for="Chapter"> Chapter : </label>
-                            <select id="Chapter" name="Chapter" class="form-control">
+                            <label for="uChapter"> Chapter : </label>
+                            <select id="uChapter" name="uChapter" class="form-control">
                     <option value="Chapter-1">Chapter-1</option>
                     <option value="Chapter-2">Chapter-2</option>
                     <option value="Chapter-3">Chapter-3</option>
@@ -131,8 +187,8 @@
                     </select>
                         </div>
                         <div class="form-group">
-                            <label for="Episode"> Episode : </label>
-                            <select id="Episode" name="Episode" class="form-control">
+                            <label for="uEpisode"> Episode : </label>
+                            <select id="uEpisode" name="uEpisode" class="form-control">
                     <option value="Episode-1">Episode-1</option>
                     <option value="Episode-2">Episode-2</option>
                     <option value="Episode-3">Episode-3</option>
@@ -163,7 +219,7 @@
           </button>
                 </div>
                 <div class="modal-body">
-                    <form id="insrt">
+                    <form id="insertF">
                         <div class="form-group">
                             <label for="Paper"> Paper : </label>
                             <select id="Paper" name="Paper" class="form-control">
@@ -220,7 +276,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="button" class="btn btn-primary" onClick="insert_value()" id="addU" value="Add Video"></input>
+                    <input type="button" class="btn btn-primary" id="addU" value="Add Video"></input>
                 </div>
             </div>
         </div>
