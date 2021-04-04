@@ -2,7 +2,7 @@ var script_url = "https://script.google.com/macros/s/AKfycbxvonGetWrIzbxbQ21MiMY
 
 function err() {
     fetch(script_url + "?action=read")
-        .then((res) => {
+        .then(() => {
             load()
         })
         .catch(() => {
@@ -99,7 +99,7 @@ document.getElementById('addU').addEventListener('click', () => {
         method: "GET",
         dataType: "jsonp"
     });
-
+    document.getElementById('insertF').reset()
 })
 
 
@@ -124,6 +124,7 @@ function update_value() {
         dataType: "jsonp"
     });
     $('#updateMD').modal('hide')
+    document.getElementById('updt').reset()
 }
 
 function delete_value() {
