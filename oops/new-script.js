@@ -1,0 +1,219 @@
+var script_url = "https://script.google.com/macros/s/AKfycbxvonGetWrIzbxbQ21MiMYyblDrC0gFY26rK8mZlnZ7PWjChK486oV-cQvLg9n1E9YifQ/exec";
+
+
+
+function load() {
+    var url = script_url + "?action=read";
+
+    $.getJSON(url, function(json) {
+
+        var table = document.createElement("table");
+
+        var header = table.createTHead();
+        var row = header.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        var cell9 = row.insertCell(8);
+        cell1.innerHTML = "<b>Time stamp</b>";
+        cell2.innerHTML = "<b>Paper</b>";
+        cell3.innerHTML = "<b>Chapter</b>";
+        cell4.innerHTML = "<b>Episode</b>";
+        cell5.innerHTML = "<b>Video Link</b>";
+        cell6.innerHTML = "<b>Description</b>";
+        cell7.innerHTML = "<b>Pdf</b>";
+        cell8.innerHTML = "<b>Instructor</b>";
+        cell9.innerHTML = "<b>Final Edited Video</b>";
+        for (var i = 0; i < json.records.length; i++) {
+            tr = table.insertRow(-1);
+
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].timestamp;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Paper;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Chapter;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Episode;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Video_Link;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Description;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Pdf;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Instructor;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Final_Video;
+        }
+
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    });
+}
+
+
+function insert_value() {
+    $('#insertMD').modal('hide')
+    $("#re").css("visibility", "hidden");
+    document.getElementById("loader").style.visibility = "visible";
+    $('#mySpinner').addClass('spinner');
+    var row2 = $("#Paper").val();
+    var row3 = $("#Chapter").val();
+    var row4 = $("#Episode").val();
+    var row5 = $("#Video_Link").val();
+    var row6 = $("#Description").val();
+    var row7 = $("#Pdf").val();
+    var row8 = $("#Instructor").val();
+
+    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Paper=" + row2 + "&Chapter=" + row3 + "&Episode=" + row4 + "&Video_Link=" + row5 + "&Description=" + row6 + "&Pdf=" + row7 + "&Instructor=" + row8 + "&action=insert";
+
+    var request = jQuery.ajax({
+
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+    });
+    document.getElementById('insrt').reset();
+}
+
+load()
+
+
+
+
+
+function update_value() {
+    $("#re").css("visibility", "hidden");
+    document.getElementById("loader").style.visibility = "visible";
+
+    var row2 = $("#Paper").val();
+    var row3 = $("#Chapter").val();
+    var row4 = $("#Episode").val();
+    var row5 = $("#Final").val();
+
+    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Final_Video=" + row5 + "&action=update";
+
+    var request = jQuery.ajax({
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+    });
+    $('#updateMD').modal('hide')
+}
+
+function delete_value() {
+    $("#re").css("visibility", "hidden");
+    document.getElementById("loader").style.visibility = "visible";
+    $('#mySpinner').addClass('spinner');
+    var row1 = $("#Paper").val();
+    var row2 = $("#Chapter").val();
+    var row3 = $("#Episode").val();
+    var url = script_url + "?callback=ctrlq&ID=" + row1 + "/" + row2 + "/" + row3 + "&action=delete";
+
+
+    var request = jQuery.ajax({
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+    });
+    document.getElementById('dlte').reset();
+    $('#deleteMD').modal('hide');
+}
+
+function ctrlq(e) {
+    $("#re").html(e.result);
+    $("#re").css("visibility", "visible");
+    read_value();
+}
+
+
+
+
+function read_value() {
+
+    $("#re").css("visibility", "hidden");
+
+    document.getElementById("loader").style.visibility = "visible";
+    var url = script_url + "?action=read";
+
+    $.getJSON(url, function(json) {
+
+        var table = document.createElement("table");
+
+        var header = table.createTHead();
+        var row = header.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        var cell9 = row.insertCell(8);
+        cell1.innerHTML = "<b>Time stamp</b>";
+        cell2.innerHTML = "<b>Paper</b>";
+        cell3.innerHTML = "<b>Chapter</b>";
+        cell4.innerHTML = "<b>Episode</b>";
+        cell5.innerHTML = "<b>Video Link</b>";
+        cell6.innerHTML = "<b>Description</b>";
+        cell7.innerHTML = "<b>Pdf</b>";
+        cell8.innerHTML = "<b>Instructor</b>";
+        cell9.innerHTML = "<b>Final Edited Video</b>";
+        for (var i = 0; i < json.records.length; i++) {
+            tr = table.insertRow(-1);
+
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].timestamp;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Paper;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Chapter;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Episode;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Video_Link;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Description;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Pdf;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Instructor;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Final_Video;
+        }
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+        document.getElementById("loader").style.visibility = "hidden";
+        $("#re").css("visibility", "visible");
+    });
+}

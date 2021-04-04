@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container ">
+
+    </div>
+    <div class="container ">
+        <!-- Table structure here -->
+        <table class="table table-dark" id="our-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>First</th>
+                    <th>Last</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container ">
+        <div id="pagination-wrapper"></div>
+    </div>
+
+</body>
+<script>
+    fetch("https://script.google.com/macros/s/AKfycbxt7da3ruQ5NBsR9TeTq1XhXJhNawrqLsROb4y78bKXT1VZz8PJYXPWmal52UGTMY3y/exec?q=All")
+        .then(response => response.json())
+        .then(result => result = tableData)
+        .catch(error => console.log('error', error));
+
+    var tableData;
+
+    var state = {
+        'querySet': tableData,
+
+        'page': 1,
+        'rows': 5,
+        'window': 5,
+    }
+
+    buildTable()
+
+    function pagination(querySet, page, rows) {
+
+        var trimStart = (page - 1) * rows
+        var trimEnd = trimStart + rows
+
+        var trimmedData = querySet.slice(trimStart, trimEnd)
+
+        var pages = Math.round(querySet.length / rows);
+
+        return {
+            'querySet': trimmedData,
+            'pages': pages,
+        }
+    }
+
+    function pageButtons(pages) {
+        var wrapper = document.getElementById('pagination-wrapper')
+
+        wrapper.innerHTML = ``
+        console.log('Pages:', pages)
+
+        var maxLeft = (state.page - Math.floor(state.window / 2))
+        var maxRight = (state.page + Math.floor(state.window / 2))
+
+        if (maxLeft < 1) {
+            maxLeft = 1
+            maxRight = state.window
+        }
+
+        if (maxRight > pages) {
+            maxLeft = pages - (state.window - 1)
+
+            if (maxLeft < 1) {
+                maxLeft = 1
+            }
+            maxRight = pages
+        }
+
+
+
+        for (var page = maxLeft; page <= maxRight; page++) {
+            wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info">${page}</button>`
+        }
+
+        if (state.page != 1) {
+            wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info">&#171; First</button>` + wrapper.innerHTML
+        }
+
+        if (state.page != pages) {
+            wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info">Last &#187;</button>`
+        }
+
+        $('.page').on('click', function() {
+            $('#table-body').empty()
+
+            state.page = Number($(this).val())
+
+            buildTable()
+        })
+
+    }
+
+
+    function buildTable() {
+        var table = $('#table-body')
+
+        var data = pagination(state.querySet, state.page, state.rows)
+        var myList = data.querySet
+
+        for (var i = 1 in myList) {
+            //Keep in mind we are using "Template Litterals to create rows"
+            var row = `<tr>
+                  <td>${myList[i].Position}</td>
+                  <td>${myList[i].Name}</td>
+                  `
+            table.append(row)
+        }
+
+        pageButtons(data.pages)
+    }
+</script>
+
+</html>
