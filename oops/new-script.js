@@ -57,7 +57,7 @@ function load() {
             tabCell.innerHTML = json.records[i].Episode;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Video_Link;
+            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">${json.records[i].Video_Link}</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Description;
@@ -69,7 +69,7 @@ function load() {
             tabCell.innerHTML = json.records[i].Instructor;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Final_Video;
+            tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">${json.records[i].Final_Video}</a>`;
         }
 
 
@@ -202,7 +202,7 @@ function read_value() {
             tabCell.innerHTML = json.records[i].Episode;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Video_Link;
+            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">${json.records[i].Video_Link}</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Description;
@@ -214,7 +214,7 @@ function read_value() {
             tabCell.innerHTML = json.records[i].Instructor;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Final_Video;
+            tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">${json.records[i].Final_Video}</a>`;
         }
 
         var divContainer = document.getElementById("showData");
