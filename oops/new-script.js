@@ -63,7 +63,7 @@ function load() {
             tabCell.innerHTML = json.records[i].Description;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Pdf;
+            tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">${json.records[i].Pdf}</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Instructor;
@@ -209,7 +209,7 @@ function read_value() {
             tabCell.innerHTML = json.records[i].Description;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Pdf;
+            tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">${json.records[i].Pdf}</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Instructor;
