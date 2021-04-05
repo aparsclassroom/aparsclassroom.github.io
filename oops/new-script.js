@@ -57,19 +57,19 @@ function load() {
             tabCell.innerHTML = json.records[i].Episode;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">${json.records[i].Video_Link}</a>`;
+            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Description;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">${json.records[i].Pdf}</a>`;
+            tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">click here</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Instructor;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">${json.records[i].Final_Video}</a>`;
+            tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">click here</a>`;
         }
 
 
@@ -203,19 +203,19 @@ function read_value() {
             tabCell.innerHTML = json.records[i].Episode;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">${json.records[i].Video_Link}</a>`;
+            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Description;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">${json.records[i].Pdf}</a>`;
+            tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">click here</a>`;
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Instructor;
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">${json.records[i].Final_Video}</a>`;
+            tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">click here</a>`;
         }
 
         var divContainer = document.getElementById("showData");
