@@ -101,6 +101,11 @@
 <script>
     const player = new Plyr('#player');
     document.getElementById('player').setAttribute("data-plyr-embed-id", "XyJhP7GyfI4");
+
+    $('#exampleModalCenter').on('hidden.bs.modal', function() {
+        player.currentTime = 0
+        player.pause();
+    })
 </script>
 
 </html>
