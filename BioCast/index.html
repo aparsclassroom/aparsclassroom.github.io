@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioCast</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .btn {
+            padding: 10px;
+            font-size: 20px;
+            background-color: rosybrown;
+            text-decoration: none;
+            color: white;
+            border-radius: 10px;
+            border: 1px solid rosybrown;
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            margin-bottom: 15px;
+        }
+        
+        .btn:hover {
+            color: rosybrown;
+            background-color: white;
+            border: 1px solid rosybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Select MCQ Numbers</h1>
+        <a type="button" class="btn" href="mcq10.html">10 MCQ</a>
+        <a type="button" href="mcq15.html" class="btn">15 MCQ</a>
+        <a type="button" href="mcq20.html" class="btn">20 MCQ</a>
+    </div>
+</body>
+
+</html>
