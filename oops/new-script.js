@@ -282,6 +282,14 @@ function read_value() {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">click here</a>`;
             }
+
+            if (json.records[i].Status === "") {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<b style="color:red;">Pending...</b>`;
+            } else {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<b style="color:green;">${json.records[i].Status}</b>`;
+            }
         }
 
         var divContainer = document.getElementById("showData");
