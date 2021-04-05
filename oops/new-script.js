@@ -56,8 +56,13 @@ function load() {
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Episode;
 
-            tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
+            if (json.records[i].Video_Link === "") {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<b style="color:Red;">Blank 💔</b>`;
+            } else {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
+            }
             if (json.records[i].Pdf === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
@@ -214,9 +219,14 @@ function read_value() {
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Episode;
+            if (json.records[i].Video_Link === "") {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<b style="color:Red;">Blank 💔</b>`;
+            } else {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
+            }
 
-            tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
             if (json.records[i].Pdf === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
