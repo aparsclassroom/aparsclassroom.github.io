@@ -83,7 +83,9 @@
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMD">
                 Add Edited Video Link
               </button>
-
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#StatusMD">
+                Update Status
+              </button>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteMD">
                 Delete Video
               </button>
@@ -150,6 +152,71 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="StatusMD" tabindex="-1" role="dialog" aria-labelledby="StatusMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="StatusMDLabel">Update Upload Status (Mridul Only)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updt">
+                        <div class="form-group">
+                            <label for="cPaper"> Paper : </label>
+                            <select id="cPaper" name="cPaper" class="form-control">
+                    <option value="Botany">Botany</option>
+                    <option value="Zoology">Zoology</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cChapter"> Chapter : </label>
+                            <select id="cChapter" name="cChapter" class="form-control">
+                    <option value="Chapter-1">Chapter-1</option>
+                    <option value="Chapter-2">Chapter-2</option>
+                    <option value="Chapter-3">Chapter-3</option>
+                    <option value="Chapter-4">Chapter-4</option>
+                    <option value="Chapter-5">Chapter-5</option>
+                    <option value="Chapter-6">Chapter-6</option>
+                    <option value="Chapter-7">Chapter-7</option>
+                    <option value="Chapter-8">Chapter-8</option>
+                    <option value="Chapter-9">Chapter-9</option>
+                    <option value="Chapter-10">Chapter-10</option>
+                    <option value="Chapter-11">Chapter-11</option>
+                    <option value="Chapter-12">Chapter-12</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cEpisode"> Episode : </label>
+                            <select id="cEpisode" name="cEpisode" class="form-control">
+                    <option value="Episode-1">Episode-1</option>
+                    <option value="Episode-2">Episode-2</option>
+                    <option value="Episode-3">Episode-3</option>
+                    <option value="Episode-4">Episode-4</option>
+                    <option value="Episode-5">Episode-5</option>
+                    <option value="Episode-6">Episode-6</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Status"> Status : </label>
+                            <select id="Status" name="Status" class="form-control">
+                    <option value="✔">Done ✔</option>
+                    <option value="❌">Declined ❌</option>
+                    </select>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="button" class="btn btn-success" onclick="status()" value="Update Status" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="modal fade" id="updateMD" tabindex="-1" role="dialog" aria-labelledby="updateMDLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

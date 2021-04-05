@@ -1,4 +1,4 @@
-var script_url = "https://script.google.com/macros/s/AKfycbxvonGetWrIzbxbQ21MiMYyblDrC0gFY26rK8mZlnZ7PWjChK486oV-cQvLg9n1E9YifQ/exec";
+var script_url = "https://script.google.com/macros/s/AKfycbzCx8ImpJbMsFzmW4KCSHzndg7Q4s91_14Sajks2dApzA0VJc4t7H3N891uAfiCp0smWw/exec";
 
 function err() {
     fetch(script_url + "?action=read")
@@ -32,6 +32,7 @@ function load() {
         var cell7 = row.insertCell(6);
         var cell8 = row.insertCell(7);
         var cell9 = row.insertCell(8);
+        var cell10 = row.insertCell(9);
         cell1.innerHTML = "<b>Time stamp</b>";
         cell2.innerHTML = "<b>Paper</b>";
         cell3.innerHTML = "<b>Chapter</b>";
@@ -41,6 +42,7 @@ function load() {
         cell7.innerHTML = "<b>Pdf</b>";
         cell8.innerHTML = "<b>Instructor</b>";
         cell9.innerHTML = "<b>Final Edited Video</b>";
+        cell10.innerHTML = "<b>Status</b>";
         for (var i = 0; i < json.records.length; i++) {
             tr = table.insertRow(-1);
 
@@ -88,6 +90,15 @@ function load() {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">click here</a>`;
             }
+
+
+            if (json.records[i].Status === "") {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<b style="color:red;">Pending...</b>`;
+            } else {
+                tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = `<b style="color:green;">${json.records[i].Status}</b>`;
+            }
         }
 
 
@@ -121,7 +132,26 @@ document.getElementById('addU').addEventListener('click', () => {
 })
 
 
+function status() {
+    $("#re").css("visibility", "hidden");
+    document.getElementById("loader").style.visibility = "visible";
 
+    var row2 = $("#cPaper").val();
+    var row3 = $("#cChapter").val();
+    var row4 = $("#cEpisode").val();
+    var row5 = $("#Status").val();
+
+    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Status=" + row5 + "&action=status";
+
+    var request = jQuery.ajax({
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+    });
+    $('#StatusMD').modal('hide')
+    document.getElementById('updt').reset()
+}
 
 
 function update_value() {
