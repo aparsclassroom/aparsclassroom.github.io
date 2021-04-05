@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioCast</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/BioDictionary/Assets/css/player.css">
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
     <style>
         .container {
             display: flex;
@@ -47,19 +50,57 @@
             color: slateblue;
             border: 1px solid slateblue;
         }
+        
+        .embed-responsive::before {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>BioCast Exam CMS</h1>
+        <button type="button" class="btn blue" data-toggle="modal" data-target="#exampleModalCenter">
+            Tutorial
+          </button>
         <h2>Select MCQ Numbers</h2>
         <a type="button" class="btn" href="mcq10.html">10 MCQ</a>
         <a type="button" href="mcq15.html" class="btn">15 MCQ</a>
         <a type="button" href="mcq20.html" class="btn">20 MCQ</a>
         <h2>Upload & Database Section</h2>
         <a type="button" href="./dashboard.html" class="btn blue">Dashboard</a>
+
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tutorial</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div id="player" data-plyr-provider="youtube"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn blue" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    const player = new Plyr('#player');
+    document.getElementById('player').setAttribute("data-plyr-embed-id", "XyJhP7GyfI4");
+</script>
 
 </html>
