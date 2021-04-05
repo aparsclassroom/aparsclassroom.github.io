@@ -65,7 +65,7 @@ function load() {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
             }
-            if (json.records[i].Pdf === "") {
+            if (json.records[i].Description === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
             } else {
