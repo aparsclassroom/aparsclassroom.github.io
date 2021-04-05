@@ -1,4 +1,4 @@
-var script_url = "https://script.google.com/macros/s/AKfycbxvonGetWrIzbxbQ21MiMYyblDrC0gFY26rK8mZlnZ7PWjChK486oV-cQvLg9n1E9YifQ/exec";
+var script_url = "https://script.google.com/macros/s/AKfycbxE6x0w5FZ605PQgeKxq-vGXN8fQ92YCwb967N-hwUheWyJjEaCCE3cCVO06-HA-JRq/exec";
 
 function err() {
     fetch(script_url + "?action=read")
@@ -8,7 +8,7 @@ function err() {
         .catch(() => {
             document.getElementById("loader").style.visibility = "hidden";
             $("#re").css("visibility", "visible");
-            document.getElementById('showData').innerHTML = "Please enter your first Video 🥰";
+            document.getElementById('showData').innerHTML = "Please enter your first Exam Questions 🥰";
         })
 }
 err()
@@ -32,15 +32,19 @@ function load() {
         var cell7 = row.insertCell(6);
         var cell8 = row.insertCell(7);
         var cell9 = row.insertCell(8);
+        var cell10 = row.insertCell(9);
+        var cell11 = row.insertCell(10);
         cell1.innerHTML = "<b>Time stamp</b>";
         cell2.innerHTML = "<b>Paper</b>";
         cell3.innerHTML = "<b>Chapter</b>";
         cell4.innerHTML = "<b>Episode</b>";
-        cell5.innerHTML = "<b>Video Link</b>";
-        cell6.innerHTML = "<b>Description</b>";
-        cell7.innerHTML = "<b>Pdf</b>";
-        cell8.innerHTML = "<b>Instructor</b>";
-        cell9.innerHTML = "<b>Final Edited Video</b>";
+        cell5.innerHTML = "<b>MCQ</b>";
+        cell6.innerHTML = "<b>Total Questions</b>";
+        cell7.innerHTML = "<b>Note</b>";
+        cell8.innerHTML = "<b>Modified</b>";
+        cell9.innerHTML = "<b>Modified Total Questions</b>";
+        cell10.innerHTML = "<b>Volunteer</b>";
+        cell11.innerHTML = "<b>Status</b>";
         for (var i = 0; i < json.records.length; i++) {
             tr = table.insertRow(-1);
 
@@ -56,37 +60,41 @@ function load() {
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Episode;
 
-            if (json.records[i].Video_Link === "") {
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].MCQ;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Quantity;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Note;
+
+            if (json.records[i].Modified === "") {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<b style="color:Red;">Blank 💔</b>`;
+                tabCell.innerHTML = `<b style="color:grey;">N/A</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
-            }
-            if (json.records[i].Pdf === "") {
-                tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
-            } else {
-                tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = json.records[i].Description;
+                tabCell.innerHTML = json.records[i].Modified;
             }
 
-            if (json.records[i].Pdf === "") {
+            if (json.records[i].Modified_Quantity === "") {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
+                tabCell.innerHTML = `<b style="color:grey;">N/A</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">click here</a>`;
+                tabCell.innerHTML = json.records[i].Modified_Quantity;
             }
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Instructor;
-            if (json.records[i].Final_Video === "") {
+            tabCell.innerHTML = json.records[i].Volunteer;
+
+
+            if (json.records[i].Status === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:red;">Pending...</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">click here</a>`;
+                tabCell.innerHTML = `<b style="color:green;">${json.records[i].Status}</b>`;
             }
         }
 
@@ -105,11 +113,11 @@ document.getElementById('addU').addEventListener('click', () => {
     var row2 = $("#Paper").val();
     var row3 = $("#Chapter").val();
     var row4 = $("#Episode").val();
-    var row5 = $("#Video_Link").val();
-    var row6 = $("#Description").val();
-    var row7 = $("#Pdf").val();
-    var row8 = $("#Instructor").val();
-    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Paper=" + row2 + "&Chapter=" + row3 + "&Episode=" + row4 + "&Video_Link=" + row5 + "&Description=" + row6 + "&Pdf=" + row7 + "&Instructor=" + row8 + "&action=insert";
+    var row5 = $("#MCQ").val();
+    var row6 = $("#Quantity").val();
+    var row7 = $("#Note").val();
+    var row8 = $("#Volunteer").val();
+    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Paper=" + row2 + "&Chapter=" + row3 + "&Episode=" + row4 + "&MCQ=" + row5 + "&Quantity=" + row6 + "&Note=" + row7 + "&Volunteer=" + row8 + "&action=insert";
     var request = jQuery.ajax({
 
         crossDomain: true,
@@ -121,19 +129,39 @@ document.getElementById('addU').addEventListener('click', () => {
 })
 
 
-
-
-
 function update_value() {
+    $("#re").css("visibility", "hidden");
+    document.getElementById("loader").style.visibility = "visible";
+
+    var row2 = $("#cPaper").val();
+    var row3 = $("#cChapter").val();
+    var row4 = $("#cEpisode").val();
+    var row5 = $("#Status").val();
+
+    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Status=" + row5 + "&action=update";
+
+    var request = jQuery.ajax({
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+    });
+    $('#changeMD').modal('hide')
+    document.getElementById('chgte').reset()
+}
+
+
+function change_value() {
     $("#re").css("visibility", "hidden");
     document.getElementById("loader").style.visibility = "visible";
 
     var row2 = $("#uPaper").val();
     var row3 = $("#uChapter").val();
     var row4 = $("#uEpisode").val();
-    var row5 = $("#Final").val();
+    var row5 = $("#Modified").val();
+    var row6 = $("#Modified_Quantity").val();
 
-    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Final_Video=" + row5 + "&action=update";
+    var url = script_url + "?callback=ctrlq&ID=" + row2 + "/" + row3 + "/" + row4 + "&Modified=" + row5 + "&Modified_Quantity=" + row6 + "&action=change";
 
     var request = jQuery.ajax({
         crossDomain: true,
@@ -196,15 +224,19 @@ function read_value() {
         var cell7 = row.insertCell(6);
         var cell8 = row.insertCell(7);
         var cell9 = row.insertCell(8);
+        var cell10 = row.insertCell(9);
+        var cell11 = row.insertCell(10);
         cell1.innerHTML = "<b>Time stamp</b>";
         cell2.innerHTML = "<b>Paper</b>";
         cell3.innerHTML = "<b>Chapter</b>";
         cell4.innerHTML = "<b>Episode</b>";
-        cell5.innerHTML = "<b>Video Link</b>";
-        cell6.innerHTML = "<b>Description</b>";
-        cell7.innerHTML = "<b>Pdf</b>";
-        cell8.innerHTML = "<b>Instructor</b>";
-        cell9.innerHTML = "<b>Final Edited Video</b>";
+        cell5.innerHTML = "<b>MCQ</b>";
+        cell6.innerHTML = "<b>Quantity</b>";
+        cell7.innerHTML = "<b>Note</b>";
+        cell8.innerHTML = "<b>Modified</b>";
+        cell9.innerHTML = "<b>Modified Quantity</b>";
+        cell10.innerHTML = "<b>Volunteer</b>";
+        cell11.innerHTML = "<b>Status</b>";
         for (var i = 0; i < json.records.length; i++) {
             tr = table.insertRow(-1);
 
@@ -219,38 +251,42 @@ function read_value() {
 
             tabCell = tr.insertCell(-1);
             tabCell.innerHTML = json.records[i].Episode;
-            if (json.records[i].Video_Link === "") {
-                tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<b style="color:Red;">Blank 💔</b>`;
-            } else {
-                tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<a href="${json.records[i].Video_Link}" target="_blank">click here</a>`;
-            }
 
-            if (json.records[i].Description === "") {
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].MCQ;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Quantity;
+
+            tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = json.records[i].Note;
+
+            if (json.records[i].Modified === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = json.records[i].Description;
+                tabCell.innerHTML = json.records[i].Modified;
             }
 
-            if (json.records[i].Pdf === "") {
+            if (json.records[i].Modified_Quantity === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:grey;">Blank</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<a href="${json.records[i].Pdf}" target="_blank">click here</a>`;
+                tabCell.innerHTML = json.records[i].Modified_Quantity;
             }
 
             tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = json.records[i].Instructor;
-            if (json.records[i].Final_Video === "") {
+            tabCell.innerHTML = json.records[i].Volunteer;
+
+
+            if (json.records[i].Status === "") {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<b style="color:red;">Pending...</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">click here</a>`;
+                tabCell.innerHTML = `<b style="color:green;">${json.records[i].Status}</b>`;
             }
         }
 

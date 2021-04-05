@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+    <title>Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -78,14 +78,16 @@
 
             <p id="re"></p>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertMD">
-                Add Video
+                Add Exam
               </button>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMD">
-                Add Edited Video Link
+                Add Correction
               </button>
-
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#changeMD">
+                Change Status
+              </button>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteMD">
-                Delete Video
+                Delete Exam
               </button>
             <input type="button" class="btn btn-warning" onclick="read_value()" value="Refresh" />
             <br><br><br>
@@ -98,7 +100,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteMDLabel">Delete Video (Mridul Only)</h5>
+                    <h5 class="modal-title" id="deleteMDLabel">Delete Exam (Mridul Only)</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -145,17 +147,84 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="button" class="btn btn-danger" onclick="delete_value()" value="Delete Video" />
+                    <input type="button" class="btn btn-danger" onclick="delete_value()" value="Delete Exam" />
                 </div>
             </div>
         </div>
     </div>
 
+
+
+    <div class="modal fade" id="changeMD" tabindex="-1" role="dialog" aria-labelledby="changeMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeMDLabel">Change Exam Status (Mridul Only)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="chgte">
+                        <div class="form-group">
+                            <label for="cPaper"> Paper : </label>
+                            <select id="cPaper" name="cPaper" class="form-control">
+                    <option value="Botany">Botany</option>
+                    <option value="Zoology">Zoology</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cChapter"> Chapter : </label>
+                            <select id="cChapter" name="cChapter" class="form-control">
+                    <option value="Chapter-1">Chapter-1</option>
+                    <option value="Chapter-2">Chapter-2</option>
+                    <option value="Chapter-3">Chapter-3</option>
+                    <option value="Chapter-4">Chapter-4</option>
+                    <option value="Chapter-5">Chapter-5</option>
+                    <option value="Chapter-6">Chapter-6</option>
+                    <option value="Chapter-7">Chapter-7</option>
+                    <option value="Chapter-8">Chapter-8</option>
+                    <option value="Chapter-9">Chapter-9</option>
+                    <option value="Chapter-10">Chapter-10</option>
+                    <option value="Chapter-11">Chapter-11</option>
+                    <option value="Chapter-12">Chapter-12</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cEpisode"> Episode : </label>
+                            <select id="cEpisode" name="cEpisode" class="form-control">
+                    <option value="Episode-1">Episode-1</option>
+                    <option value="Episode-2">Episode-2</option>
+                    <option value="Episode-3">Episode-3</option>
+                    <option value="Episode-4">Episode-4</option>
+                    <option value="Episode-5">Episode-5</option>
+                    <option value="Episode-6">Episode-6</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Status"> Status : </label>
+                            <select id="Status" name="Status" class="form-control">
+                    <option value="✔">Done ✔</option>
+                    <option value="❌">Declined ❌</option>
+                    </select>
+                        </div>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-danger" onclick="update_value()" value="Change Status" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal fade" id="updateMD" tabindex="-1" role="dialog" aria-labelledby="updateMDLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateMDLabel">Add Edited Video (Rafayet Only)</h5>
+                    <h5 class="modal-title" id="updateMDLabel">Add Correction</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -198,12 +267,20 @@
                     </select>
                         </div>
                         <div class="form-group">
-                            <label for="Final"> Edited Final Video Link : </label> <input class="form-control" placeholder="https://drive.google.com/Final_Video" type="text" name="Final" id="Final">
+                            <label for="Modified">Modified MCQ Exam </label> <textarea class="form-control" type="text" name="Modified" id="Modified"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Modified_Quantity"> Total Questions : </label>
+                            <select id="Modified_Quantity" name="Modified_Quantity" class="form-control">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    </select>
                         </div>
                     </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="button" class="btn btn-success" onclick="update_value()" value="Add Final Video Link" />
+                        <input type="button" class="btn btn-success" onclick="change_value()" value="Add Correction" />
                     </div>
                 </div>
             </div>
@@ -214,7 +291,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="insertMDLabel">Add a new Video</h5>
+                    <h5 class="modal-title" id="insertMDLabel">Add a new Exam</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -257,19 +334,31 @@
                     </select>
                         </div>
                         <div class="form-group">
-                            <label for="Video_Link"> Video_Link : </label> <input class="form-control" placeholder="https://drive.google.com/video_Link" type="text" name="Video_Link" id="Video_Link">
+                            <label for="MCQ">Exam MCQ : (Paste Here) </label> <textarea class="form-control" type="text" name="MCQ" id="MCQ"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="Description">Video Description (Syllabus / Extra Information Regarding Video) : </label> <textarea class="form-control" type="text" name="Description" id="Description"></textarea>
+                            <label for="Quantity"> Total Questions : </label>
+                            <select id="Quantity" name="Quantity" class="form-control">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    </select>
                         </div>
                         <div class="form-group">
-                            <label for="Pdf"> Pdf Link : </label> <input class="form-control" placeholder="https://drive.google.com/pdf_Link" type="text" name="Pdf" id="Pdf">
+                            <label for="Note"> Note (If any) : </label> <input class="form-control" placeholder="যেকোনো কিছু বলার থাকলে লেখতে পারো" type="text" name="Note" id="Note">
                         </div>
                         <div class="form-group">
-                            <label for="Instructor"> Instructor : </label>
-                            <select id="Instructor" name="Instructor" class="form-control">
-                    <option value="Maisha Fairuz Nuha">Maisha Fairuz Nuha</option>
-                    <option value="Tanvir Taswar">Tanvir Taswar</option>
+                            <label for="Volunteer"> Volunteer : </label>
+                            <select id="Volunteer" name="Volunteer" class="form-control">
+                                <option value="Nafisa Tabassum">Nafisa Tabassum</option>
+                                <option value="Sadia Afrin">Sadia Afrin</option>
+                                <option value="ফাইরুজ">ফাইরুজ</option>
+                                <option value="Kazi Asmatul Jannat">Kazi Asmatul Jannat</option>
+                                <option value="উমামা">উমামা</option>
+                                <option value="নূর এ জান্নাত শুচি">নূর এ জান্নাত শুচি</option>
+                                <option value="Nawshin">Nawshin</option>
+                                <option value="মোঃ কাওছার আহমেদ পায়েল">মোঃ কাওছার আহমেদ পায়েল</option>
+                                <option value="Abrar Nowshad">Abrar Nowshad</option>
                     </select>
                         </div>
                         <button type="reset" class="btn btn-outline-dark">Reset</button>
@@ -277,7 +366,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="button" class="btn btn-primary" id="addU" value="Add Video"></input>
+                    <input type="button" class="btn btn-primary" id="addU" value="Add Exam"></input>
                 </div>
             </div>
         </div>
