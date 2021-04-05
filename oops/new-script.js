@@ -1,4 +1,4 @@
-var script_url = "https://script.google.com/macros/s/AKfycbzCx8ImpJbMsFzmW4KCSHzndg7Q4s91_14Sajks2dApzA0VJc4t7H3N891uAfiCp0smWw/exec";
+var script_url = "https://script.google.com/macros/s/AKfycbw_JO_v6uJPQiwcm4DeKuidQdLP1OrfRudulsjo__HrcdyyHVAZUwMlaEh0-0tu29VW0Q/exec";
 
 function err() {
     fetch(script_url + "?action=read")
