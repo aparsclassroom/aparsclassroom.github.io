@@ -83,7 +83,7 @@ function load() {
             tabCell.innerHTML = json.records[i].Instructor;
             if (json.records[i].Final_Video === "") {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<b style="color:red;">Waiting...</b>`;
+                tabCell.innerHTML = `<b style="color:red;">Pending...</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">${json.records[i].Final_Video}</a>`;
@@ -247,7 +247,7 @@ function read_value() {
             tabCell.innerHTML = json.records[i].Instructor;
             if (json.records[i].Final_Video === "") {
                 tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = `<b style="color:red;">Waiting...</b>`;
+                tabCell.innerHTML = `<b style="color:red;">Pending...</b>`;
             } else {
                 tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = `<a href="${json.records[i].Final_Video}" target="_blank">${json.records[i].Final_Video}</a>`;
