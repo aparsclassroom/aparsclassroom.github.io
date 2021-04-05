@@ -33,8 +33,13 @@ var mainApp = {};
                         })
                         .then((loadedQuestions) => {
                             if (loadedQuestions.code === 200) {
-                                questions = JSON.parse(loadedQuestions.Exam);
-                                startGame();
+                                if (loadedQuestions.Exam != "") {
+                                    questions = JSON.parse(loadedQuestions.Exam);
+                                    startGame();
+                                } else {
+                                    alert("No Exam found 💔");
+                                    return location.replace('./');
+                                }
                             } else {
                                 alert(loadedQuestions.code + "  " + loadedQuestions.message);
                                 return close();
