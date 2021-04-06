@@ -101,7 +101,7 @@ if (things != null) {
             datasets: [{
                 data: [
                     piex,
-                    447
+                    466
                 ],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)',
