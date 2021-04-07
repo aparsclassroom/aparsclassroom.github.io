@@ -32292,6 +32292,7 @@ article a:hover {
 
 #image {
     transition: .5s;
+    cursor: pointer;
 }
 
 #image:hover {
