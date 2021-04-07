@@ -609,6 +609,13 @@ ul {
     background-image: linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
 }
 
+.green {
+    background-color: #2fce37;
+    background-image: -webkit-linear-gradient(top, #2fce37 58%, #1db124 0%);
+    background-image: -moz-linear-gradient(top, #2fce37 58%, #1db124 0%);
+    background-image: linear-gradient(top, #2fce37 58%, #1db124 0%);
+}
+
 .blue {
     background-color: #3498db;
     background-image: -webkit-linear-gradient(top, #3498db 58%, #2a90d4 0%);
