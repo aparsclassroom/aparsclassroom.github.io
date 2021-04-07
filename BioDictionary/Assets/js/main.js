@@ -30,6 +30,8 @@ var mainApp = {};
                 document.getElementById('lg').style.display = "inline-block";
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
+                document.getElementById('join').style.display = "inline-block";
+
                 function getThings() {
                     var things = JSON.parse(localStorage.getItem('watched'));
                     if (things === null) {
