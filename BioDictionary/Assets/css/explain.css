@@ -32285,3 +32285,11 @@ article a:hover {
         width: 100%;
     }
 }
+
+#image {
+    transition: .5s;
+}
+
+#image:hover {
+    transform: scale(1.025);
+}
