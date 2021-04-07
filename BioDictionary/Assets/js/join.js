@@ -54,9 +54,9 @@ function initApp() {
                                     })
                                     .then(() => {
                                         swal({
-                                            title: "Submitted!",
+                                            title: "Submitted! 🥰",
                                             icon: "success",
-                                            text: "Thank You 🥰 \nYou request has been successfully submitted 🔥",
+                                            text: "Your request has been successfully submitted 🔥",
                                             button: "Close"
                                         }).then(() => {
                                             form.reset();
@@ -68,7 +68,7 @@ function initApp() {
                                     swal({
                                         title: "Oh No 💔",
                                         icon: "error",
-                                        text: "You application didn't Submit!\nPlease try again (later) 😶",
+                                        text: "Your application didn't Submit!\nPlease try again (later) 😶",
                                         button: "Okay ☹"
                                     })
                                 })
