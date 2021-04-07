@@ -129,6 +129,10 @@ ul {
     vertical-align: top;
 }
 
+#sug {
+    transition: .8s;
+}
+
 #sug:hover {
     transform: rotate(360deg);
 }
