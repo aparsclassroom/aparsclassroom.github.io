@@ -134,7 +134,7 @@ ul {
 }
 
 #sug:hover {
-    transform: scale(1.025);
+    transform: scale(1.5);
 }
 
 .book {
