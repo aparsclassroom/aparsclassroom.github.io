@@ -130,11 +130,11 @@ ul {
 }
 
 #sug {
-    transition: .8s;
+    transition: .5s;
 }
 
 #sug:hover {
-    transform: rotate(360deg);
+    transform: scale(1.025);
 }
 
 .book {
