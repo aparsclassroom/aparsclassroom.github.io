@@ -74,24 +74,26 @@ function initApp() {
                                 })
                             })
                         } else {
-                            swal({
-                                title: "Already Submitted!",
-                                icon: "info",
-                                text: dashboard.message,
-                                button: "Close"
-                            }).then(() => {
-                                form.reset();
-                                return location.replace('./');
-                            })
+                            alert(dashboard.message);
+                            // swal({
+                            //     title: "Already Submitted!",
+                            //     icon: "info",
+                            //     text: dashboard.message,
+                            //     button: "Close"
+                            // }).then(() => {
+                            //     form.reset();
+                            //     return location.replace('./');
+                            // })
                         }
 
                     }).catch((err => {
-                        swal({
-                            title: "Oh No 💔",
-                            icon: "error",
-                            text: err,
-                            button: "Okay ☹"
-                        })
+                        alert(err);
+                        // swal({
+                        //     title: "Oh No 💔",
+                        //     icon: "error",
+                        //     text: err,
+                        //     button: "Okay ☹"
+                        // })
                     }))
             }
         } else {
