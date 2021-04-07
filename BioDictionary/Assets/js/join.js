@@ -32,6 +32,7 @@ function initApp() {
                     .then((dashboard) => {
                         if (dashboard.code != 200) {
                             document.getElementById('uid').value = user.uid;
+                            document.getElementById('email').value = user.email;
                             fetch('https://json.geoiplookup.io/')
                                 .then((r) => {
                                     return r.json();
