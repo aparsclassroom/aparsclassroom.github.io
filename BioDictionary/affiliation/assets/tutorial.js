@@ -23,6 +23,8 @@ function initApp() {
                                 document.getElementById('profile').src = user.photoURL;
                             }
                             document.getElementById('status').innerText = dashboard.Comment;
+                            document.getElementById('con').innerText = loadedData.Controler_Name;
+                            document.getElementById('cont').href = "tel:" + loadedData.Controler_Info;
                         } else {
                             alert(dashboard.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                             return location.replace("../index.html");

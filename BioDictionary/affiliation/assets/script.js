@@ -32,6 +32,8 @@ function initApp() {
                             document.getElementById('avatar').src = user.photoURL;
                             document.getElementById('profile').src = user.photoURL;
                         }
+                        document.getElementById('con').innerText = loadedData.Controler_Name;
+                        document.getElementById('cont').href = "tel:" + loadedData.Controler_Info;
                         document.getElementById('Username').value = loadedData.Name;
                         document.getElementById('email').value = user.email;
                         document.getElementById('uid').value = user.uid;
