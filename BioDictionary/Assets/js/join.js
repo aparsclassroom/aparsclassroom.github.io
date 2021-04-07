@@ -77,7 +77,7 @@ function initApp() {
                             swal({
                                 title: "Already Submitted!",
                                 icon: "info",
-                                text: "You have already submitted ✔\nYour Submission Serial :" + dashboard.message.Serial + "\nName :" + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
+                                text: "You have already submitted ✔\nYour Submission Serial : " + dashboard.message.Serial + "\nName : " + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
                                 button: "Close"
                             }).then(() => {
                                 return location.replace('./');
