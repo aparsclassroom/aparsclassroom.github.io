@@ -25,7 +25,7 @@ function initApp() {
                 return;
             } else {
                 const scriptURL = 'https://script.google.com/macros/s/AKfycby6lDg1_HGVrkaiQ6pupxt23tdQH7_ciZe9JvNTHK0hMkvIa0hAaj0lUPuusMlgPdAsjQ/exec';
-                fetch(scriptURL + "?Indivisual&uid=" + user.uid)
+                fetch(scriptURL + "?q=Indivisual&uid=" + user.uid)
                     .then((res) => {
                         return res.json();
                     })
