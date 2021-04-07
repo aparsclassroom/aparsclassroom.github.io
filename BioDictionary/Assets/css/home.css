@@ -136,29 +136,9 @@ ul {
     vertical-align: top;
 }
 
-
-/* ///////////////////////////////////////////////////
-
-HARDCOVER
-Table of Contents
-
-1. container
-2. background & color
-3. opening cover, back cover and pages
-4. position, transform y transition
-5. events
-6. Bonus
-	- Cover design
-	- Ribbon
-	- Figcaption
-7. mini-reset
-
-/////////////////////////////////////////////////////*/
-
-
-/*
-	1. container
-*/
+#sug:hover {
+    transform: rotate(360deg);
+}
 
 .book {
     position: relative;

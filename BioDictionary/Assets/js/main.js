@@ -43,7 +43,7 @@ var mainApp = {};
                         if (thing.img == "" || thing.img == "https://gdurl.com") {
                             document.getElementById('suggestion').innerHTML = `<a href=${thing.url}>${thing.name}</a>`;
                         } else {
-                            document.getElementById('suggestion').innerHTML = `<a href=${thing.url}><img src="${thing.img}" height="100px" style="max-width:100%;"><br>${thing.name}</a>`;
+                            document.getElementById('suggestion').innerHTML = `<a href=${thing.url}><img src="${thing.img}" id="sug" height="100px" style="max-width:100%;"><br>${thing.name}</a>`;
                         }
                     }
                 }
