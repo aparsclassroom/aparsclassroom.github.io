@@ -32286,6 +32286,10 @@ article a:hover {
     }
 }
 
+.flu {
+    width: 100%;
+}
+
 #image {
     transition: .5s;
 }
