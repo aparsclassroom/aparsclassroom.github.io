@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm222-mind-16_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=1c53e59a7b21c1ffee85bc36a3837392);
+    background-size: cover;
+    background-repeat: repeat;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/ASG_TARIQ.TTF');
+}
+
+.cust {
+    font-family: Kalpurush;
+}
+
+.bangla {
+    font-family: Kalpurush;
+    font-size: 18px;
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.btn:hover {
+    color: #007bff;
+    background-color: transparent;
+    border-color: #007bff;
+}
