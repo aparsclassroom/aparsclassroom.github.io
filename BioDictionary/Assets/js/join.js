@@ -74,26 +74,24 @@ function initApp() {
                                 })
                             })
                         } else {
-                            alert(dashboard.message);
-                            // swal({
-                            //     title: "Already Submitted!",
-                            //     icon: "info",
-                            //     text: dashboard.message,
-                            //     button: "Close"
-                            // }).then(() => {
-                            //     form.reset();
-                            //     return location.replace('./');
-                            // })
+                            swal({
+                                title: "Already Submitted!",
+                                icon: "info",
+                                text: "You have already submitted ✔\nYour Submission Serial :" + dashboard.message.Serial + "\nName :" + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
+                                button: "Close"
+                            }).then(() => {
+                                form.reset();
+                                return location.replace('./');
+                            })
                         }
 
                     }).catch((err => {
-                        alert(err);
-                        // swal({
-                        //     title: "Oh No 💔",
-                        //     icon: "error",
-                        //     text: err,
-                        //     button: "Okay ☹"
-                        // })
+                        swal({
+                            title: "Oh No 💔",
+                            icon: "error",
+                            text: err,
+                            button: "Okay ☹"
+                        })
                     }))
             }
         } else {
