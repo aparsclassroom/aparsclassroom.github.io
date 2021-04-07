@@ -24,7 +24,7 @@ function initApp() {
                 location.replace("./");
                 return;
             } else {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycby6lDg1_HGVrkaiQ6pupxt23tdQH7_ciZe9JvNTHK0hMkvIa0hAaj0lUPuusMlgPdAsjQ/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzB3guHEtsQeS3jNx45Y-sEZIrVsq-Rca3ABCCr8UvruRKv3-CH2CRuTwHDyGz-9ziGqg/exec';
                 fetch(scriptURL + "?q=Indivisual&uid=" + user.uid)
                     .then((res) => {
                         return res.json();
