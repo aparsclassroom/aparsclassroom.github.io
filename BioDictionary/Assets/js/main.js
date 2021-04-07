@@ -27,10 +27,10 @@ var mainApp = {};
             if (ann === true) {
                 document.getElementById('dsh').style.display = "none";
                 document.getElementById('zombie').style.display = "none";
+                document.getElementById('join').style.display = "none";
                 document.getElementById('lg').style.display = "inline-block";
                 document.getElementById('name').innerText = "Welcome 🥰";
             } else {
-                document.getElementById('join').style.display = "inline-block";
 
                 function getThings() {
                     var things = JSON.parse(localStorage.getItem('watched'));
