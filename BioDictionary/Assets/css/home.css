@@ -603,17 +603,24 @@ ul {
 }
 
 .yellow {
-    background-color: #f1c40f;
+    background-color: #dbbc0c;
     background-image: -webkit-linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
     background-image: -moz-linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
     background-image: linear-gradient(top, #f1c40f 58%, #e7ba07 0%);
 }
 
+.orange {
+    background-color: #db690c;
+    background-image: -webkit-linear-gradient(top, #db690c 58%, #ca5b27 0%);
+    background-image: -moz-linear-gradient(top, #db690c 58%, #ca5b27 0%);
+    background-image: linear-gradient(top, #db690c 58%, #ca5b27 0%);
+}
+
 .green {
-    background-color: #2fce37;
-    background-image: -webkit-linear-gradient(top, #2fce37 58%, #1db124 0%);
-    background-image: -moz-linear-gradient(top, #2fce37 58%, #1db124 0%);
-    background-image: linear-gradient(top, #2fce37 58%, #1db124 0%);
+    background-color: #0c9112;
+    background-image: -webkit-linear-gradient(top, #0c9112 58%, #0b7911 0%);
+    background-image: -moz-linear-gradient(top, #0c9112 58%, #0b7911 0%);
+    background-image: linear-gradient(top, #0c9112 58%, #0b7911 0%);
 }
 
 .blue {
