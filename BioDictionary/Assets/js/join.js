@@ -80,7 +80,6 @@ function initApp() {
                                 text: "You have already submitted ✔\nYour Submission Serial :" + dashboard.message.Serial + "\nName :" + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
                                 button: "Close"
                             }).then(() => {
-                                form.reset();
                                 return location.replace('./');
                             })
                         }
@@ -89,7 +88,7 @@ function initApp() {
                         swal({
                             title: "Oh No 💔",
                             icon: "error",
-                            text: err,
+                            text: JSON.stringify(err),
                             button: "Okay ☹"
                         })
                     }))
