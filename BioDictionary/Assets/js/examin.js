@@ -58,7 +58,7 @@ var mainApp = {};
                                             }).then(() => {
                                                 return location.replace('./exam.html');
                                             })
-                                        }).catch(function(error) {
+                                        }).catch(() => {
                                             swal({
                                                 title: "Invalid Password",
                                                 text: "Please correct it!",

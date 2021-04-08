@@ -87,7 +87,7 @@ var mainApp = {};
                                                     title: "Boom 🔥",
                                                     icon: "success",
                                                     text: "Solution 🔓 Unlocked!",
-                                                    button: "Close"
+                                                    button: "Ok"
                                                 })
                                                 localStorage.removeItem('mostRecentScore');
                                                 localStorage.removeItem("minutes");
