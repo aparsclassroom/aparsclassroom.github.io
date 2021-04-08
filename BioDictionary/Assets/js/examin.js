@@ -1,7 +1,15 @@
 function close_window() {
-    if (confirm("Close Quick Exam?")) {
-        close();
-    }
+    swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: ["No, wait", true],
+            dangerMode: true
+        })
+        .then((off) => {
+            if (off) {
+                close();
+            }
+        });
 }
 var mainApp = {};
 (function() {
