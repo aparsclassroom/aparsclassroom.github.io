@@ -31,8 +31,8 @@ var mainApp = {};
                 usid.value = uid;
                 usern.value = user.displayName;
                 username.value = user.displayName;
-                if (mostRecentScore < 1) {
-                    alert("please try again 🤨");
+                if (mostRecentScore < 0) {
+                    alert("Not Enough Score 💔\nplease try again 🤨");
                     return location.replace('./');
                 } else {
                     finalScore.innerText = mostRecentScore;
