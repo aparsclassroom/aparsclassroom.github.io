@@ -144,3 +144,23 @@
     color: white;
     font-size: 22px;
 }
+
+#pass {
+    width: 75px;
+    margin-left: 10px;
+    background-color: rgb(255, 123, 0);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid rgb(255, 123, 0);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#pass:hover {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(255, 123, 0);
+    border: 1px solid rgb(255, 123, 0);
+}
