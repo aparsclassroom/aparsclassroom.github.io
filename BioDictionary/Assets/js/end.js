@@ -9,6 +9,7 @@ const online = document.getElementById("online");
 const user_min = localStorage.getItem("minutes");
 const user_sec = localStorage.getItem("seconds");
 const solve = document.getElementById('solve');
+const highs = document.getElementById('highs');
 
 function close_window() {
     if (confirm("Close Quick Exam?")) {
@@ -66,6 +67,8 @@ var mainApp = {};
                                             localStorage.removeItem("seconds");
                                             online.style.display = "none";
                                             solve.style.display = "block";
+                                            highs.style.display = "block";
+                                            highs.href = "./highscores.html";
                                             solve.href = "./solution.html";
                                         })
                                         .catch(error => alert('Error!', error.message))
