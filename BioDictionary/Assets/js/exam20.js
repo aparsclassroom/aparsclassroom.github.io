@@ -73,6 +73,7 @@ var mainApp = {};
                             localStorage.setItem('mostRecentScore', score);
                             localStorage.setItem("minutes", minutes);
                             localStorage.setItem("seconds", seconds);
+                            sessionStorage.setItem("stat", "done");
                             clearInterval(mytime);
                             return window.location.assign('end.html');
                         }
@@ -132,6 +133,7 @@ var mainApp = {};
                             localStorage.setItem('mostRecentScore', score);
                             localStorage.setItem("minutes", minutes);
                             localStorage.setItem("seconds", seconds);
+                            sessionStorage.setItem("stat", "done");
                             setTimeout(() => {
                                 window.location.assign('end.html');
                             }, 1000);
