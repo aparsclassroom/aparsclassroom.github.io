@@ -166,6 +166,7 @@ var mainApp = {};
                         scoreText.innerText = score;
                     };
                 } else {
+                    sessionStorage.removeItem("stat");
                     alert("You are not permitted to perform this action ❌");
                     return location.replace("./");
                 }
