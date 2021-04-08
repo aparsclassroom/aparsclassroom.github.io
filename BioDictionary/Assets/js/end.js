@@ -53,6 +53,11 @@ var mainApp = {};
                     } else {
                         finalScore.innerText = mostRecentScore;
                         document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
+                        ret.style.display = "block";
+                        ret.addEventListener('click', () => {
+                            sessionStorage.setItem("stat", "OK");
+                            location.replace('./exam.html');
+                        })
 
                         function scoreUpdated() {
                             score.value = mostRecentScore;
@@ -99,11 +104,6 @@ var mainApp = {};
                                     online.style.display = "none";
                                     solve.style.display = "block";
                                     solve.href = "./solution.html";
-                                    ret.style.display = "block";
-                                    ret.addEventListener('click', () => {
-                                        sessionStorage.setItem("stat", "OK");
-                                        location.replace('./exam.html');
-                                    })
                                 }
                             })
                     }
