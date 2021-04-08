@@ -92,9 +92,6 @@ var mainApp = {};
                                                 highs.style.display = "block";
                                                 highs.href = "./highscores.html";
                                                 solve.href = "./solution.html";
-                                                ret.addEventListener('click', () => {
-                                                    sessionStorage.setItem("stat", "OK");
-                                                })
                                             })
                                             .catch(error => alert('Error!', error.message))
                                     })
@@ -102,6 +99,11 @@ var mainApp = {};
                                     online.style.display = "none";
                                     solve.style.display = "block";
                                     solve.href = "./solution.html";
+                                    ret.style.display = "block";
+                                    ret.addEventListener('click', () => {
+                                        sessionStorage.setItem("stat", "OK");
+                                        location.replace('./exam.html');
+                                    })
                                 }
                             })
                     }
