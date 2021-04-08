@@ -102,6 +102,41 @@ var mainApp = {};
                                         <p>Option 4 : ${exam[9].choice4}</p>
                                         <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[9].answer}</strong></h3>
                                         <hr>
+                                        <h3>প্রশ্ন ১১. ${exam[10].question}</h3>
+                                        <p>Option 1 : ${exam[10].choice1}</p>
+                                        <p>Option 2 : ${exam[10].choice2}</p>
+                                        <p>Option 3 : ${exam[10].choice3}</p>
+                                        <p>Option 4 : ${exam[10].choice4}</p>
+                                        <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[10].answer}</strong></h3>
+                                        <hr>
+                                        <h3>প্রশ্ন ১২. ${exam[11].question}</h3>
+                                        <p>Option 1 : ${exam[11].choice1}</p>
+                                        <p>Option 2 : ${exam[11].choice2}</p>
+                                        <p>Option 3 : ${exam[11].choice3}</p>
+                                        <p>Option 4 : ${exam[11].choice4}</p>
+                                        <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[11].answer}</strong></h3>
+                                        <hr>
+                                        <h3>প্রশ্ন ১৩. ${exam[12].question}</h3>
+                                        <p>Option 1 : ${exam[12].choice1}</p>
+                                        <p>Option 2 : ${exam[12].choice2}</p>
+                                        <p>Option 3 : ${exam[12].choice3}</p>
+                                        <p>Option 4 : ${exam[12].choice4}</p>
+                                        <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[12].answer}</strong></h3>
+                                        <hr>
+                                        <h3>প্রশ্ন ১৪. ${exam[13].question}</h3>
+                                        <p>Option 1 : ${exam[13].choice1}</p>
+                                        <p>Option 2 : ${exam[13].choice2}</p>
+                                        <p>Option 3 : ${exam[13].choice3}</p>
+                                        <p>Option 4 : ${exam[13].choice4}</p>
+                                        <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[13].answer}</strong></h3>
+                                        <hr>
+                                        <h3>প্রশ্ন ১৫. ${exam[14].question}</h3>
+                                        <p>Option 1 : ${exam[14].choice1}</p>
+                                        <p>Option 2 : ${exam[14].choice2}</p>
+                                        <p>Option 3 : ${exam[14].choice3}</p>
+                                        <p>Option 4 : ${exam[14].choice4}</p>
+                                        <h3 style="color:green"><strong>সঠিক উত্তর : ${exam[14].answer}</strong></h3>
+                                        <hr>
                                         `;
                                     } else {
                                         alert(loadedQuestions.code + "  " + loadedQuestions.message);

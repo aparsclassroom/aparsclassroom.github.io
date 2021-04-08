@@ -1,3 +1,4 @@
+const stat = sessionStorage.getItem("stat");
 var mainApp = {};
 (function() {
     var firebase = app_firebase;
@@ -8,6 +9,7 @@ var mainApp = {};
                 alert("This is a Premium Feature!");
                 return location.replace("/BioDictionary/index.html");
             } else {
+                sessionStorage.removeItem("stat");
                 uid = user.uid;
                 fetch(scriptURL + '?q=Indivisual&uid=' + uid)
                     .then((res) => {
