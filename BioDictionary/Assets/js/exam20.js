@@ -52,7 +52,7 @@ var mainApp = {};
                     //CONSTANTS
                     const CORRECT_BONUS = 1;
                     const INCORRECT_BONUS = -0.25;
-                    var MAX_QUESTIONS = questions.length;
+                    const MAX_QUESTIONS = 20;
 
                     startGame = () => {
                         questionCounter = 0;
