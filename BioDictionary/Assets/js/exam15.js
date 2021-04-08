@@ -35,6 +35,7 @@ var mainApp = {};
                             if (loadedQuestions.code === 200) {
                                 if (loadedQuestions.Exam != "") {
                                     questions = JSON.parse(loadedQuestions.Exam);
+                                    console.log(questions.length);
                                     startGame();
                                 } else {
                                     alert("No Exam found 💔");
@@ -72,6 +73,7 @@ var mainApp = {};
                             localStorage.setItem('mostRecentScore', score);
                             localStorage.setItem("minutes", minutes);
                             localStorage.setItem("seconds", seconds);
+                            sessionStorage.setItem("stat", "done");
                             clearInterval(mytime);
                             return window.location.assign('end.html');
                         }
@@ -131,6 +133,7 @@ var mainApp = {};
                             localStorage.setItem('mostRecentScore', score);
                             localStorage.setItem("minutes", minutes);
                             localStorage.setItem("seconds", seconds);
+                            sessionStorage.setItem("stat", "done");
                             setTimeout(() => {
                                 window.location.assign('end.html');
                             }, 1000);
