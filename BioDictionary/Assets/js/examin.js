@@ -15,6 +15,7 @@ var mainApp = {};
 (function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            sessionStorage.removeItem("stat");
             localStorage.removeItem('mostRecentScore');
             localStorage.removeItem("minutes");
             localStorage.removeItem("seconds");
