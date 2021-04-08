@@ -18,7 +18,7 @@ function close_window() {
             icon: "warning",
             buttons: true,
         })
-        .then((close) => {
+        .then(() => {
             close();
         });
 }
@@ -74,7 +74,7 @@ var mainApp = {};
                                     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                                         .then(_response => {
                                             swal({
-                                                title: "Yoo... 🔥",
+                                                title: "Boom 🔥",
                                                 icon: "success",
                                                 text: "Solution 🔓 Unlocked!",
                                                 button: "Close"
