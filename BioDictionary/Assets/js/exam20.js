@@ -35,7 +35,6 @@ var mainApp = {};
                             if (loadedQuestions.code === 200) {
                                 if (loadedQuestions.Exam != "") {
                                     questions = JSON.parse(loadedQuestions.Exam);
-                                    console.log(questions.length);
                                     startGame();
                                 } else {
                                     alert("No Exam found 💔");
@@ -53,7 +52,7 @@ var mainApp = {};
                     //CONSTANTS
                     const CORRECT_BONUS = 1;
                     const INCORRECT_BONUS = -0.25;
-                    const MAX_QUESTIONS = 20;
+                    var MAX_QUESTIONS = questions.length;
 
                     startGame = () => {
                         questionCounter = 0;
