@@ -64,6 +64,9 @@ var mainApp = {};
                         ntimer();
                         sessionStorage.removeItem("stat");
                     };
+                    document.getElementById('pass').addEventListener('click', () => {
+                        getNewQuestion();
+                    })
                     getNewQuestion = () => {
                         if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
                             localStorage.setItem('mostRecentScore', score);

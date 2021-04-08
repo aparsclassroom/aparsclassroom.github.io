@@ -13,9 +13,14 @@ const highs = document.getElementById('highs');
 const ret = document.getElementById('ret');
 
 function close_window() {
-    if (confirm("Close Quick Exam?")) {
-        close();
-    }
+    swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+        })
+        .then((close) => {
+            close();
+        });
 }
 var mainApp = {};
 (function() {
@@ -32,8 +37,14 @@ var mainApp = {};
                 usern.value = user.displayName;
                 username.value = user.displayName;
                 if (mostRecentScore < 0) {
-                    alert("Not Enough Score 💔\nplease try again 🤨");
-                    return location.replace('./');
+                    swal({
+                        title: "Not Enough Score 💔",
+                        icon: "error",
+                        text: "Please try again 🤨",
+                        button: "Ok"
+                    }).then(() => {
+                        return location.replace('./');
+                    })
                 } else {
                     finalScore.innerText = mostRecentScore;
                     document.querySelector("span.time_taken").innerHTML = user_min + " min " + user_sec + " sec";
@@ -62,7 +73,12 @@ var mainApp = {};
                                     online.disabled = true;
                                     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                                         .then(_response => {
-                                            alert("Solution 🔓 Unlocked!");
+                                            swal({
+                                                title: "Yoo... 🔥",
+                                                icon: "success",
+                                                text: "Solution 🔓 Unlocked!",
+                                                button: "Close"
+                                            })
                                             localStorage.removeItem('mostRecentScore');
                                             localStorage.removeItem("minutes");
                                             localStorage.removeItem("seconds");
