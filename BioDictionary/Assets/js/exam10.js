@@ -50,7 +50,8 @@ var mainApp = {};
                         });
 
                     //CONSTANTS
-                    const CORRECT_BONUS = 5;
+                    const CORRECT_BONUS = 1;
+                    const INCORRECT_BONUS = -0.25;
                     const MAX_QUESTIONS = 10;
 
                     startGame = () => {
@@ -102,8 +103,9 @@ var mainApp = {};
 
                             if (classToApply === 'correct') {
                                 incrementScore(CORRECT_BONUS);
+                            } else if (classToApply === 'incorrect') {
+                                incrementScore(INCORRECT_BONUS);
                             }
-
                             selectedChoice.parentElement.classList.add(classToApply);
 
                             setTimeout(() => {

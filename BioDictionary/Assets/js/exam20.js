@@ -35,6 +35,7 @@ var mainApp = {};
                             if (loadedQuestions.code === 200) {
                                 if (loadedQuestions.Exam != "") {
                                     questions = JSON.parse(loadedQuestions.Exam);
+                                    console.log(questions.length);
                                     startGame();
                                 } else {
                                     alert("No Exam found 💔");
@@ -50,7 +51,8 @@ var mainApp = {};
                         });
 
                     //CONSTANTS
-                    const CORRECT_BONUS = 5;
+                    const CORRECT_BONUS = 1;
+                    const INCORRECT_BONUS = -0.25;
                     const MAX_QUESTIONS = 20;
 
                     startGame = () => {
@@ -102,6 +104,8 @@ var mainApp = {};
 
                             if (classToApply === 'correct') {
                                 incrementScore(CORRECT_BONUS);
+                            } else if (classToApply === 'incorrect') {
+                                incrementScore(INCORRECT_BONUS);
                             }
 
                             selectedChoice.parentElement.classList.add(classToApply);
