@@ -17,6 +17,7 @@ function close_window() {
             title: "Are you sure?",
             icon: "warning",
             buttons: true,
+            dangerMode: true
         })
         .then(() => {
             close();
