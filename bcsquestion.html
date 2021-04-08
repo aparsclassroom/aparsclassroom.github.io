@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>বিজয়ের পথে - Apar's Classroom</title>
+    <title>BCS Question Pdf</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -20,9 +20,9 @@
 
 
     <!-- Facebook Metas -->
-    <meta property="og:title" content="বিজয় দিবসের উপহার">
-    <meta property="og:site_name" content="Apar's বিজয়ের পথে">
-    <meta property="og:description" content="বিজয়ের পথে">
+    <meta property="og:title" content="BCS Question Pdf">
+    <meta property="og:site_name" content="BCS Question Pdf">
+    <meta property="og:description" content="BCS Question Pdf">
     <meta property="og:image" content="https://media.discordapp.net/attachments/794878789451776021/828939263114346516/mrridul.png?width=1283&height=670">
     <meta property="og:image:secure_url" content="https://media.discordapp.net/attachments/794878789451776021/828939263114346516/mrridul.png?width=1283&height=670">
     <meta property="og:image:type" content="image/jpg">
@@ -45,6 +45,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/util.css">
     <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/main.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <style>
         @font-face {
@@ -140,25 +141,26 @@
                 </span>
                 <label class="label-input100" for="name">আপনার নাম লিখুন (ইংরেজি) *</label>
                 <div class="wrap-input100 wrap-input100">
-                    <input id="name" class="input100" type="text" name="name" placeholder="Naimul Islam" required>
+                    <input id="name" class="input100" type="text" name="Name" placeholder="Naimul Islam" required>
                     <span class="focus-input100"></span>
                 </div>
                 <label class="label-input100" for="email">আপনার ইমেইল এড্রেস লিখুন *</label>
                 <div class="wrap-input100">
-                    <input id="email" class="input100" type="email" onkeyup="validate()" name="email" placeholder="example@email.com" required>
+                    <input id="email" class="input100" type="email" onkeyup="validate()" name="Email" placeholder="example@email.com" required>
                     <span class="focus-input100"></span>
                     <span class="indicator"></span>
                 </div>
                 <label class="label-input100" for="phone">আপনার সচল মোবাইল নম্বর লিখুন *</label>
                 <div class="wrap-input100">
-                    <input id="phone" class="input100" type="number" name="phone" placeholder="01X 0000 0000" required>
+                    <input id="phone" class="input100" type="number" name="Phone" placeholder="01X 0000 0000" required>
                     <span class="focus-input100"></span>
                 </div>
-                <label class="label-input100" for="hsc">লিঙ্গ *</label>
+                <label class="label-input100" for="gender">লিঙ্গ *</label>
                 <div class="wrap-input100">
-                    <select id="hsc" name="hsc">
-        <option value="পুরুষ">পুরুষ</option>
-        <option value="নারী">নারী</option>
+                    <select id="gender" name="Gender">
+                        <option value="">--নির্বাচন করুন--</option>
+        <option value="Male">পুরুষ</option>
+        <option value="Femal">নারী</option>
         </select>
                 </div>
                 <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit' data-action='submit'></button>
@@ -233,9 +235,6 @@ Apar's Classroom<br>
                 <div class="modal-body">
                     <img src="https://media.discordapp.net/attachments/794878789451776021/828939263114346516/mrridul.png?width=1283&height=670" alt="Victoy Day Poster" width="100%">
                 </div>
-                <div class="modal-footer">
-                    <p><a href="https://www.facebook.com/AparsClassroom" target="_blank">Apar's Classroom </a> পরিবারের পক্ষ হতে সবাইকে বিজয় দিবসের শুভেচ্ছা</p>
-                </div>
             </div>
         </div>
     </div>
@@ -283,7 +282,7 @@ Apar's Classroom<br>
                 form.classList.remove('invalid')
             }
         }
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzj4QnPV7mUNmo8CnUPLZCTc93dMDxWrNXjEgXl52YFtqXZ-1__TEKs/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxlkFJMCyyo7VpeaAGxPmxTGa-NAr7piGpYMwfdJ6GAiiEf9Mbg1io0eTXQmr8ZdnsP/exec'
         const form = document.forms['VictoryForm']
 
         form.addEventListener('submit', e => {
@@ -293,8 +292,17 @@ Apar's Classroom<br>
                     body: new FormData(form)
                 })
                 .then(response => {
-                    alert("ধন্যবাদ 🥰 \nডাউনলোড শুরু করতে OK বাটনে ক্লিক করুন");
-                    window.location.replace("https://gdurl.com/G5Qp/download");
+                    return response.json();
+                })
+                .then((res) => {
+                    swal({
+                        title: "Success!",
+                        icon: "success",
+                        text: res.message,
+                        button: "OK"
+                    }).then(() => {
+                        return location.replace(res.link);
+                    })
                 })
 
             .catch(error => console.error('Error!', error.message))
