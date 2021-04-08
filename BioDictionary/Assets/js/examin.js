@@ -2,7 +2,7 @@ function close_window() {
     swal({
             title: "Are you sure?",
             icon: "warning",
-            buttons: ["No, wait", true],
+            buttons: ["No, wait", "Yes, Close"],
             dangerMode: true
         })
         .then((off) => {
