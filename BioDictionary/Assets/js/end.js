@@ -40,7 +40,7 @@ var mainApp = {};
                     uid = user.uid;
                     usid.value = uid;
                     if (user.displayName === null) {
-                        usern.value = "ASGIAN_" + uid.substring((a.length / 2), 20);
+                        usern.value = "ASGIAN_" + uid.substring((uid.length / 2), 20);
                     } else {
                         usern.value = user.displayName;
                     }
