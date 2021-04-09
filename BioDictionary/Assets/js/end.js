@@ -39,7 +39,11 @@ var mainApp = {};
                 if (stat === "done") {
                     uid = user.uid;
                     usid.value = uid;
-                    usern.value = user.displayName;
+                    if (user.displayName === null) {
+                        usern.value = "ASGIAN_" + uid.substring((a.length / 2), 20);
+                    } else {
+                        usern.value = user.displayName;
+                    }
                     username.value = user.displayName;
                     if (mostRecentScore < 0) {
                         swal({
