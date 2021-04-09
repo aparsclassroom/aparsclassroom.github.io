@@ -59,6 +59,8 @@ var mainApp = {};
                 </div>
             </a>
                 `;
+                            } else {
+                                document.getElementById('v2').innerHTML = "";
                             }
                             if (loadedData.Video_3 != "") {
                                 document.getElementById('v3').innerHTML = `
