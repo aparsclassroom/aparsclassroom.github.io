@@ -172,7 +172,7 @@ function update_value() {
         dataType: "jsonp"
     });
     $('#updateMD').modal('hide')
-    document.getElementById('updt').reset()
+    document.getElementById('updts').reset()
 }
 
 function delete_value() {
