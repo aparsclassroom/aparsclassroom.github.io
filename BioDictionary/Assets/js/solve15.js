@@ -32,11 +32,12 @@ var mainApp = {};
                                     if (loadedQuestions.code === 200) {
                                         var ep = loadedQuestions.Episode;
                                         var epNo = ep.split('-')[1].substring(0, 16);
+                                        var ch = loadedQuestions.Chapter;
+                                        var chNo = ch.split('-')[1].substring(0, 16);
                                         var exam = JSON.parse(loadedQuestions.Exam);
                                         document.getElementById('solve').innerHTML = `
-                                        <h2>Exam Details</h2>
                                         <h3>Subject : ${loadedQuestions.Subject}</h3>
-                                        <h3>Chapter : ${loadedQuestions.Chapter}</h3>
+                                        <h3>Chapter : ${chNo}</h3>
                                         <h3>Episode : ${epNo}</h3>
                                         <hr>
                                         <h3>প্রশ্ন ১. ${exam[0].question}</h3>
