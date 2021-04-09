@@ -35,23 +35,35 @@ var mainApp = {};
                             document.getElementById('Video_Description').innerText = loadedData.Video_Description;
                             document.getElementById('Suggestion_1_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_1_Link + "/hqdefault.jpg";
                             document.getElementById('Suggestion_2_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_2_Link + "/hqdefault.jpg";
-                            document.getElementById('Suggestion_3_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_3_Link + "/hqdefault.jpg";
                             document.getElementById('suggest1').href = "./" + loadedData.Suggestion_1 + ".html";
                             document.getElementById('suggest2').href = "./" + loadedData.Suggestion_2 + ".html";
-                            document.getElementById('suggest3').href = "./" + loadedData.Suggestion_3 + ".html";
                             document.getElementById('Suggestion_1_Title').innerText = loadedData.Suggestion_1_Title;
                             document.getElementById('Suggestion_2_Title').innerText = loadedData.Suggestion_2_Title;
-                            document.getElementById('Suggestion_3_Title').innerText = loadedData.Suggestion_3_Title;
+
+                            var s3l = "./" + loadedData.Suggestion_3 + ".html";
+                            var s3i = "https://i.ytimg.com/vi/" + loadedData.Suggestion_3_Link + "/hqdefault.jpg";
+                            if (loadedData.Suggestion_3 != "") {
+                                document.getElementById('suggest3').innerHTML = `
+                                <a href="${s3l}">
+                                <div class="image">
+                                    <img src=${s3i} class="rounded" alt="Related 3">
+                                </div>
+                                <div class="detail">
+                                    <p><span>${loadedData.Suggestion_3_Title}</span></p>
+                                    <span><strong>${loadedData.Suggestion_3_Description}</strong></span>
+                                </div>
+                            </a>
+                                `;
+                            }
                             document.getElementById('Suggestion_1_Description').innerText = loadedData.Suggestion_1_Description;
                             document.getElementById('Suggestion_2_Description').innerText = loadedData.Suggestion_2_Description;
-                            document.getElementById('Suggestion_3_Description').innerText = loadedData.Suggestion_3_Description;
                             document.getElementById('Instructor_Dp').src = loadedData.Instructor_Dp;
                             document.getElementById('Instructor_Name').innerText = loadedData.Instructor_Name;
                             document.getElementById('Instructor_Subject').innerText = loadedData.Instructor_Subject;
                             document.getElementById('Instructor_Institute').innerText = loadedData.Instructor_Institute;
                         } else {
                             window.alert(loadedData.message);
-                            window.location.replace('../../../../index.html');
+                            window.location.replace('../../../../');
                         }
                     })
             }
