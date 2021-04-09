@@ -33,13 +33,37 @@ var mainApp = {};
                             document.getElementById('previewP').setAttribute("src", "https://drive.google.com/file/d/" + loadedData.Pdf_Id + "/preview");
                             document.getElementById('down').setAttribute('onclick', "window.open('https://drive.google.com/u/0/uc?id=" + loadedData.Pdf_Id + "&export=download')");
                             document.getElementById('Video_Description').innerText = loadedData.Video_Description;
-                            document.getElementById('Suggestion_1_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_1_Link + "/hqdefault.jpg";
-                            document.getElementById('Suggestion_2_Link').src = "https://i.ytimg.com/vi/" + loadedData.Suggestion_2_Link + "/hqdefault.jpg";
-                            document.getElementById('suggest1').href = "./" + loadedData.Suggestion_1 + ".html";
-                            document.getElementById('suggest2').href = "./" + loadedData.Suggestion_2 + ".html";
-                            document.getElementById('Suggestion_1_Title').innerText = loadedData.Suggestion_1_Title;
-                            document.getElementById('Suggestion_2_Title').innerText = loadedData.Suggestion_2_Title;
+                            var s1l = "./" + loadedData.Suggestion_1 + ".html";
+                            var s1i = "https://i.ytimg.com/vi/" + loadedData.Suggestion_1_Link + "/hqdefault.jpg";
+                            if (loadedData.Suggestion_1 != "") {
+                                document.getElementById('suggest1').innerHTML = `
+                                <a href="${s1l}">
+                                <div class="image">
+                                    <img src=${s1i} class="rounded" alt="Related 1">
+                                </div>
+                                <div class="detail">
+                                    <p><span>${loadedData.Suggestion_1_Title}</span></p>
+                                    <span><strong>${loadedData.Suggestion_1_Description}</strong></span>
+                                </div>
+                            </a>
+                                `;
+                            }
 
+                            var s2l = "./" + loadedData.Suggestion_2 + ".html";
+                            var s2i = "https://i.ytimg.com/vi/" + loadedData.Suggestion_2_Link + "/hqdefault.jpg";
+                            if (loadedData.Suggestion_2 != "") {
+                                document.getElementById('suggest2').innerHTML = `
+                                <a href="${s2l}">
+                                <div class="image">
+                                    <img src=${s2i} class="rounded" alt="Related 2">
+                                </div>
+                                <div class="detail">
+                                    <p><span>${loadedData.Suggestion_2_Title}</span></p>
+                                    <span><strong>${loadedData.Suggestion_2_Description}</strong></span>
+                                </div>
+                            </a>
+                                `;
+                            }
                             var s3l = "./" + loadedData.Suggestion_3 + ".html";
                             var s3i = "https://i.ytimg.com/vi/" + loadedData.Suggestion_3_Link + "/hqdefault.jpg";
                             if (loadedData.Suggestion_3 != "") {
@@ -55,8 +79,6 @@ var mainApp = {};
                             </a>
                                 `;
                             }
-                            document.getElementById('Suggestion_1_Description').innerText = loadedData.Suggestion_1_Description;
-                            document.getElementById('Suggestion_2_Description').innerText = loadedData.Suggestion_2_Description;
                             document.getElementById('Instructor_Dp').src = loadedData.Instructor_Dp;
                             document.getElementById('Instructor_Name').innerText = loadedData.Instructor_Name;
                             document.getElementById('Instructor_Subject').innerText = loadedData.Instructor_Subject;
