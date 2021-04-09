@@ -59,7 +59,7 @@ var mainApp = {};
                 </div>
             </a>
                 `;
-                            } else {
+                            } else if (loadedData.Video_2_Status === "") {
                                 document.getElementById('v2').innerHTML = "";
                             }
                             if (loadedData.Video_3 != "") {
