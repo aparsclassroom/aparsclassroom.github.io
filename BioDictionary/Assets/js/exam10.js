@@ -35,7 +35,6 @@ var mainApp = {};
                             if (loadedQuestions.code === 200) {
                                 if (loadedQuestions.Exam != "") {
                                     questions = JSON.parse(loadedQuestions.Exam);
-                                    console.log(questions.length);
                                     startGame();
                                 } else {
                                     alert("No Exam found 💔");
