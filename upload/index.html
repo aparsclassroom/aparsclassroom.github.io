@@ -1,120 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Volunteer Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Tracker</title>
     <style>
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
+        body {
+            font-size: 18px;
         }
         
-        h3 {
-            text-align: center;
+        .res {
+            margin-top: 150px;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <h3>Volunteer Form</h3>
-
-        <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbxPAi08OJd8B0b66kUcfP2WTDhb3EK9mo8jtS5Bn6C_idosef50cVs/exec" method="POST">
-            <div class="form-group">
-                <input type="hidden" name="fileContent" id="fileContent">
-                <input type="hidden" name="filename" id="filename">
-
-                <label> Name : </label><input class="form-control" required type="text" name="name" id="name"><br>
-                <label> Email : </label> <input class="form-control" required type="email" name="email" id="email"><br>
-                <label> Contact : </label><input class="form-control" required type="number" name="contact" id="contact"><br>
-                <label> Skills : </label> <input class="form-control" type="text" name="skills" id="skills"><br>
-                <label> Facebook Id : </label><input class="form-control" type="url" name="facebookUrl" id="facebookUrl"><br>
-
-                <label> Image : </label><input class="form-control" id="attach" name="attach" type="file"><br>
-                <input value="Submit" id="sub" type="button" class="btn btn-block btn-outline-dark" onclick="UploadFile();">
-            </div>
-        </form>
-    </div>
-    <script>
-        function UploadFile() {
-            var reader = new FileReader();
-            var file = document.getElementById('attach').files[0];
-            reader.onload = function() {
-                document.getElementById('fileContent').value = reader.result;
-                document.getElementById('filename').value = file.name;
-                document.getElementById('sub').value = "please wait....";
-                document.getElementById('uploadForm').submit();
-            }
-            reader.readAsDataURL(file);
-        }
-    </script>
+<body align="center">
+    <H1 class="res">Custom Link Tracker</H1>
+    <div id="res">Loading...</div>
 </body>
-<!-- modify this form HTML and place wherever you want your form -->
+<script>
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkQ2MDA1NzIzQUIzNUZCRUQyNTAyN0RFOTdBOTBGQzZCOEE0NzFCQjUiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIxZ0JYSTZzMS0tMGxBbjNwZXBEOGE0cEhHN1UifQ.eyJuYmYiOjE2MTgwNTA1NzMsImV4cCI6MTYxODEzNjk3MywiaXNzIjoiaHR0cHM6Ly9vYXV0aC5yZWJyYW5kbHkuY29tIiwiYXVkIjpbImh0dHBzOi8vb2F1dGgucmVicmFuZGx5LmNvbS9yZXNvdXJjZXMiLCJyYmFwaSIsInJiYXBpa2V5cyIsInJiaW52aXRlcyIsInJiZG93bmdyYWRlIl0sImNsaWVudF9pZCI6IjFGRUIzRERELThBQzctNEY4My1BMkIzLUVENEVCNTU4REZBMiIsInN1YiI6IjkzYjM2Nzk5LWRhYjctNDEzNi04MjEwLWIzYzY4OTRmOWMwMiIsImF1dGhfdGltZSI6MTYxNzE5NzcxNiwiaWRwIjoiR29vZ2xlIiwibmFtZSI6ImFwYXJzY2xhc3Nyb29tQGdtYWlsLmNvbSIsInByZWZlcnJlZF91c2VybmFtZSI6ImFwYXJzY2xhc3Nyb29tQGdtYWlsLmNvbSIsImVtYWlsIjoiYXBhcnNjbGFzc3Jvb21AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImp0aSI6IjY0YTIzMDE4NWQyOGI0YzUzNDQ0YzNhOWVmMGM5Yjc4Iiwic2NvcGUiOlsicmJhcGkiLCJyYmFwaWtleXMiLCJyYmludml0ZXMiLCJyYmRvd25ncmFkZSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJleHRlcm5hbCJdfQ.PZqei59P9I9qcmqsbNaMZ5BJ9kGSYozrPEWjrFuYmpD_QnXcjHR-2Iz3Iv8JuT0fo4iT6nsmqExV2J5_6CylY2Bsfh3ewY0CBaNS_MwAiC1I2mQLAalgUO1US96E35FY022HecWWsZz9nmepwR4ltPJti3pIkt_iDo4kipFvrURCJRQGAJXq_NDqQY47LVA-gdpQJOQyTvmFUeTB_opMxtp30skj7JX1kkxPv4nWbVqhcGW1Ik1HQf-9GYL4yBK94wLIOQjq6sXK1Jwo7hrCjJuhDmAcWoMpBUhOaa91rV3tU59563Bio4l4I70Uq4MbZ7BaWsAh65GBneVnDDzZ8A");
 
-<!-- <form id="my-form"
-  action="https://formspree.io/f/maylrnrr"
-  method="POST"
->
-  <label>Email:</label>
-  <input type="email" name="email" />
-  <label>Message:</label>
-  <input type="text" name="message" />
-  <button id="my-form-button">Submit</button>
-  <p id="my-form-status"></p>
-</form> -->
-
-<!-- Place this script at the end of the body tag -->
-
-<!-- <script>
-  window.addEventListener("DOMContentLoaded", function() {
-
-    // get the form elements defined in your form HTML above
-    
-    var form = document.getElementById("my-form");
-    var button = document.getElementById("my-form-button");
-    var status = document.getElementById("my-form-status");
-
-    // Success and Error functions for after the form is submitted
-    
-    function success() {
-      form.reset();
-      button.style = "display: none ";
-      status.innerHTML = "Thanks!";
-    }
-
-    function error() {
-      status.innerHTML = "Oops! There was a problem.";
-    }
-
-    // handle the form submission event
-
-    form.addEventListener("submit", function(ev) {
-      ev.preventDefault();
-      var data = new FormData(form);
-      ajax(form.method, form.action, data, success, error);
-    });
-  });
-  
-  // helper function for sending an AJAX request
-
-  function ajax(method, url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        success(xhr.response, xhr.responseType);
-      } else {
-        error(xhr.status, xhr.response, xhr.responseType);
-      }
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
     };
-    xhr.send(data);
-  }
-</script> -->
+
+    fetch("https://api.rebrandly.com/v1/links?limit=20&orderBy=createdAt&orderDir=desc", requestOptions)
+        .then(response => {
+            return response.json();
+        })
+        .then(result => {
+            var a = result[0];
+            document.getElementById('res').innerHTML = `
+            <h3>Link Title : ${a.title}</h3>
+            Short Link : <a href="https://${a.shortUrl}" target="_blank">https://${a.shortUrl}</a><br>
+            Original Link : <a href="${a.destination}" target="_blank">${a.destination}</a><br>
+            <h3>Clicks : ${a.clicks}</h3>
+            Domain : ${a.domainName}<br>
+            Created At : ${a.createdAt}
+            `;
+        })
+        .catch(error => document.getElementById('res').innerHTML = ('error', error));
+</script>
 
 </html>
