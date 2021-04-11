@@ -164,8 +164,9 @@
 
 #pass:hover {
     background-color: white;
+    background-image: none;
     padding: 10px;
     border-radius: 10px;
-    color: white;
+    color: #fc575e;
     border: 1px solid rgb(255, 123, 0);
 }
