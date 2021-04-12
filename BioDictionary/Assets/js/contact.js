@@ -42,6 +42,7 @@ function initApp() {
 
                 form.addEventListener('submit', e => {
                     document.getElementById('send').innerText = "Please Wait...";
+                    document.getElementById('send').disabled = true;
                     e.preventDefault()
                     fetch(scriptURL, {
                             method: 'POST',
