@@ -24,7 +24,7 @@ function initApp() {
                 location.replace("./");
                 return;
             } else {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbz1J2Ms8uNSUrcUpFqEXgH4h4SHxDtWGx0-ef4YB_YRSzMUzurUcImRrryuLnNtQNs_jw/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbyq85t3C8zoXhjOzUDbFT-P6krjeOOwhWiv2OF7oPWXWZYNSCYNQ4wfOAioZmK13U7Enw/exec';
                 document.getElementById('uid').value = user.uid;
                 document.getElementById('email').value = user.email;
                 fetch('https://json.geoiplookup.io/')
