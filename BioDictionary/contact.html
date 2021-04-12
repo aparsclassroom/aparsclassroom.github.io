@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | BioDictionary</title>
+    <link rel="stylesheet" href="./Assets/images/illustration/animate/animate.css">
+    <link rel="stylesheet" href="./Assets/images/illustration/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./Assets/Vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="./Assets/images/illustration/mobster.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+    <script src="./Assets/Vendor/js/jquery.js" defer></script>
+    <script src="./Assets/images/illustration/owl-carousel/js/owl.carousel.min.js" defer></script>
+    <script src="./Assets/images/illustration/wow.min.js" defer></script>
+    <script src="./Assets/images/illustration/mobster.js" defer></script>
+    <script src="./Assets/js/contact.js" defer></script>
+</head>
+
+<body>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 py-3 mb-5 mb-lg-0">
+                    <div class="img-place w-lg-75 wow zoomIn">
+                        <img src="./Assets/images/illustration/illustration_contact.svg" alt="contact">
+                    </div>
+                </div>
+                <div class="col-lg-5 py-3">
+                    <h1 class="wow fadeInUp">Contact Us</h1>
+
+                    <form method="POST" class="mt-5" name="contact">
+                        <div class="form-group wow fadeInUp">
+                            <label for="name" class="fw-medium fg-grey">Fullname</label>
+                            <input type="text" class="form-control" id="name" name="Name" required>
+                        </div>
+                        <input type="text" style="display: none;" id="uid" name="uid">
+                        <input type="text" style="display: none;" id="ip-details" name="Ip Details">
+                        <input type="email" class="form-control" id="email" name="Email">
+                        <div class="form-group wow fadeInUp">
+                            <label for="email" class="fw-medium fg-grey">Topic</label>
+                            <input type="text" class="form-control" id="email" name="Topic" required>
+                        </div>
+
+                        <div class="form-group wow fadeInUp">
+                            <label for="message" class="fw-medium fg-grey">Message</label>
+                            <textarea rows="6" class="form-control" id="message" name="Message"></textarea>
+                        </div>
+
+                        <div class="form-group mt-4 wow fadeInUp">
+                            <button type="submit" id="send" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
