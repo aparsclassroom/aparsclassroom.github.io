@@ -65,7 +65,6 @@ var mainApp = {};
                     }).then((loadedData) => {
 
                         var table = new Tabulator("#showData", {
-                            // height: "311px",
                             pagination: "local",
                             paginationSize: 10,
                             paginationSizeSelector: [10, 20, 30, 40],
@@ -79,19 +78,19 @@ var mainApp = {};
                                 { column: "Serial", dir: "asc" }, //then sort by this second
                             ]
                         });
-
+                        const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
                         //trigger download of data.xlsx file
                         document.getElementById("download-xlsx").addEventListener("click", function() {
-                            table.download("xlsx", "data.xlsx", {
-                                sheetName: "My Data"
+                            table.download("xlsx", "BioExam-global-result-BioDictionary.xlsx", {
+                                sheetName: Title
                             });
                         });
 
                         //trigger download of data.pdf file
                         document.getElementById("download-pdf").addEventListener("click", function() {
-                            table.download("pdf", "data.pdf", {
+                            table.download("pdf", "BioExam-global-result-BioDictionary.pdf", {
                                 orientation: "portrait", //set page orientation to portrait
-                                title: "Example Report", //add title to report
+                                title: Title, //add title to report
                             });
                         });
 
