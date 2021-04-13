@@ -36,7 +36,7 @@ var mainApp = {};
                             pagination: "local",
                             paginationSize: 10,
                             paginationSizeSelector: [10, 20, 30, 40],
-                            layout: "fitColumns",
+                            layout: "fitDataStretch",
                             data: loadedData,
                             autoColumns: true,
                             initialSort: [{
