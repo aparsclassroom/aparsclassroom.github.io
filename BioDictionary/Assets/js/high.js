@@ -41,7 +41,7 @@ var mainApp = {};
                             autoColumns: true,
                             initialSort: [{
                                 column: "score",
-                                dir: "asc"
+                                dir: "desc"
                             }]
                         });
                         const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
