@@ -35,7 +35,7 @@ var mainApp = {};
                         var table = new Tabulator("#showData", {
                             pagination: "local",
                             paginationSize: 10,
-                            paginationSizeSelector: [10, 20, 30, 40],
+                            paginationSizeSelector: [10, 20, 30, 40, 50],
                             layout: "fitDataStretch",
                             data: loadedData,
                             autoColumns: true,
@@ -47,7 +47,17 @@ var mainApp = {};
                         const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
                         document.getElementById("download-xlsx").addEventListener("click", function() {
                             table.download("xlsx", "BioExam-global-result-BioDictionary.xlsx", {
-                                sheetName: "Leaderboard - " + new Date().toDateString()
+                                // sheetName: "Leaderboard - " + new Date().toDateString()
+                                documentProcessing: function(workbook) {
+
+                                    workbook.Props = {
+                                        Title: "BioExam Global Leaderboard",
+                                        Subject: "Leaderboard",
+                                        CreatedDate: new Date().toDateString()
+                                    };
+
+                                    return workbook;
+                                }
                             });
                         });
                         document.getElementById("download-pdf").addEventListener("click", function() {
