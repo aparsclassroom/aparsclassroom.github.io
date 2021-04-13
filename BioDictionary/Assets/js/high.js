@@ -1,4 +1,4 @@
-const stat = sessionStorage.getItem("stat");
+const stat = sessionStorage.removeItem("stat");
 
 var mainApp = {};
 (function() {
@@ -23,7 +23,7 @@ var mainApp = {};
                             `;
 
                         } else {
-                            document.getElementById('showPersonalData').innerHTML = loadedData.message;
+                            document.getElementById('showPersonalData').innerHTML = `<h3>${loadedData.message}</h3>`;
                         }
                     }).catch((e) => {
                         document.getElementById('showPersonalData').innerHTML = "No Result Found!";
@@ -44,22 +44,12 @@ var mainApp = {};
                                 dir: "desc"
                             }]
                         });
-                        const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
                         document.getElementById("download-xlsx").addEventListener("click", function() {
                             table.download("xlsx", "BioExam-global-result-BioDictionary.xlsx", {
-                                // sheetName: "Leaderboard - " + new Date().toDateString()
-                                documentProcessing: function(workbook) {
-
-                                    workbook.Props = {
-                                        Title: "BioExam Global Leaderboard",
-                                        Subject: "Leaderboard",
-                                        CreatedDate: new Date().toDateString()
-                                    };
-
-                                    return workbook;
-                                }
+                                sheetName: "Leaderboard - " + new Date().toDateString()
                             });
                         });
+                        const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
                         document.getElementById("download-pdf").addEventListener("click", function() {
                             table.download("pdf", "BioExam-global-result-BioDictionary.pdf", {
                                 orientation: "portrait",
