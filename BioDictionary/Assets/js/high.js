@@ -73,9 +73,9 @@ var mainApp = {};
                             autoColumns: true,
                             initialSort: [{
                                     column: "score",
-                                    dir: "desc"
+                                    dir: "asc"
                                 }, //sort by this first
-                                { column: "Serial", dir: "asc" }, //then sort by this second
+                                { column: "Serial", dir: "desc" }, //then sort by this second
                             ]
                         });
                         const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
