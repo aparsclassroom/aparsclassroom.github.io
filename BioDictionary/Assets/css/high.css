@@ -34,7 +34,7 @@ p:hover {
 @media screen and (max-width:400px) {
     .score {
         text-align: center;
-        font-size: 20px;
+        font-size: 30px;
         color: green;
         margin-bottom: 1.2rem;
     }
