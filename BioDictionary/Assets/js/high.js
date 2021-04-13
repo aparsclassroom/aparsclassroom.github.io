@@ -18,8 +18,8 @@ var mainApp = {};
                     }).then((loadedData) => {
                         if (loadedData.code === 200) {
                             document.getElementById('showPersonalData').innerHTML = `
-                            <h2 style="text-align: center;">${loadedData.username}</h2>
-                            <p>Your Score : ${loadedData.score}<br>Exam Duration : ${loadedData.duration}<br>Your Submission Serial : ${loadedData.Serial}<br>Timestamp : ${loadedData.timestamp}</p>                         
+                            <h3 style="text-align: center;">${loadedData.username}</h3>
+                            <p style="font-size:17px;">Your Score : ${loadedData.score}<br>Exam Duration : ${loadedData.duration}<br>Your Submission Serial : ${loadedData.Serial}<br>Timestamp : ${loadedData.timestamp}</p>                         
                             `;
 
                         } else {
@@ -41,7 +41,7 @@ var mainApp = {};
                             autoColumns: true,
                             initialSort: [{
                                     column: "score",
-                                    dir: "asc"
+                                    dir: "desc"
                                 },
                                 { column: "Serial", dir: "asc" },
                             ]
