@@ -18,7 +18,7 @@ var mainApp = {};
                     })
                     .then((loadedData) => {
                         if (loadedData.code === 200) {
-                            $('.fb-comments').attr("data-href", document.URL);
+                            $('.fb-comments').attr("data-href", document.location.origin + document.location.pathname);
                             if (loadedData.Meta != "") {
                                 document.getElementById('advertisement').innerHTML = "<h3 style='text-align:center'>" + loadedData.Meta + "</h3>";
                             }
