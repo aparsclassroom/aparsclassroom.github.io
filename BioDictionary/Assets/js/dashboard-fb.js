@@ -141,7 +141,7 @@ var mainApp = {};
         swal({
                 title: "Are you sure?",
                 icon: "warning",
-                buttons: ["No, wait", "Yes, Sign Out"],
+                buttons: ["No, wait", "Yes, Logout"],
                 dangerMode: true
             })
             .then((out) => {
