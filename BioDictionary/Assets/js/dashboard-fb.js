@@ -66,7 +66,7 @@ var mainApp = {};
                 changePass.addEventListener('click', e => {
                     e.preventDefault();
                     if (currentPassword.value === "") {
-                        alert("Enter the current Password First")
+                        alert("Please enter the current Password")
                     } else {
                         if (newPassword.value === "") {
                             alert("Enter a new Password")
@@ -138,7 +138,18 @@ var mainApp = {};
     });
 
     function logOut() {
-        firebase.auth().signOut();
+        swal({
+                title: "Are you sure?",
+                icon: "warning",
+                buttons: ["No, wait", "Yes, Sign Out"],
+                dangerMode: true
+            })
+            .then((out) => {
+                if (out) {
+                    firebase.auth().signOut();
+                }
+
+            });
     }
     mainApp.logOut = logOut;
 })()
