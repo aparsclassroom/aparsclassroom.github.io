@@ -68,7 +68,7 @@ var mainApp = {};
                             pagination: "local",
                             paginationSize: 10,
                             paginationSizeSelector: [10, 20, 30, 40],
-                            movableColumns: true,
+                            // movableColumns: true,
                             data: loadedData,
                             autoColumns: true,
                             initialSort: [{
