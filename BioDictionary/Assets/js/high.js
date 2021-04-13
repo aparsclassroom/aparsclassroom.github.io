@@ -40,11 +40,9 @@ var mainApp = {};
                             data: loadedData,
                             autoColumns: true,
                             initialSort: [{
-                                    column: "score",
-                                    dir: "desc"
-                                },
-                                { column: "Serial", dir: "asc" },
-                            ]
+                                column: "score",
+                                dir: "desc"
+                            }]
                         });
                         const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
                         document.getElementById("download-xlsx").addEventListener("click", function() {
