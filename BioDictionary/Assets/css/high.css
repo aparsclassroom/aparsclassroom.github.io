@@ -17,7 +17,8 @@
     margin-bottom: 0.5rem;
 }
 
-.high-score:hover {
+h3:hover,
+p:hover {
     transform: scale(1.025);
 }
 
@@ -35,11 +36,5 @@
         font-size: 20px;
         color: green;
         margin-bottom: 1.2rem;
-    }
-    .btn {
-        margin-bottom: 30px;
-    }
-    #highScoresList {
-        margin-bottom: 30px;
     }
 }
