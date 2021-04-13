@@ -82,7 +82,7 @@ var mainApp = {};
                         //trigger download of data.xlsx file
                         document.getElementById("download-xlsx").addEventListener("click", function() {
                             table.download("xlsx", "BioExam-global-result-BioDictionary.xlsx", {
-                                sheetName: Title
+                                sheetName: new Date().toLocaleString("en-US")
                             });
                         });
 
