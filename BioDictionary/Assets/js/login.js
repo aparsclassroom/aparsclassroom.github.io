@@ -20,35 +20,31 @@ function freeTrial() {
 }
 
 function toggleSignIn(e) {
-    if (firebase.auth().currentUser) {
-        firebase.auth().signOut();
-    } else {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        if (email.length < 4) {
-            alert('Please enter an email address.');
-            return;
-        }
-        if (password.length < 4) {
-            alert('Please enter a password.');
-            return;
-        }
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(function() {
-                document.getElementById('access').value = "Please wait...";
-            }).catch(function(error) {
-                var errorCode = error.code;
-                if (errorCode === 'auth/wrong-password') {
-                    alert('Wrong password.');
-                    document.getElementById("forgotPass").style.display = "inline-block";
-                } else {
-                    alert('You don\'t have Access. To get access, Please Buy our subscription');
-                    window.location.replace("https://aparsclassroom.com/shop/BioDictionary?aff-AAA");
-                }
-            });
-    }
-    document.getElementById('access').disabled = false;
+    document.getElementById('access').value = "Please wait...";
     e.preventDefault();
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+    }
+    if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+    }
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(function() {
+            document.getElementById('access').value = "Please wait...";
+        }).catch(function(error) {
+            var errorCode = error.code;
+            if (errorCode === 'auth/wrong-password') {
+                alert('Wrong password.');
+                document.getElementById("forgotPass").style.display = "inline-block";
+            } else {
+                alert('You don\'t have Access. To get access, Please Buy our subscription');
+                window.location.replace("https://aparsclassroom.com/shop/BioDictionary?aff-AAA");
+            }
+        });
 }
 
 function sendPasswordReset() {
