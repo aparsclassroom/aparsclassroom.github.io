@@ -9,7 +9,6 @@ function freeTrial() {
             })
             .catch(function(error) {
                 var errorCode = error.code;
-                var errorMessage = error.message;
                 if (errorCode = 'auth/operation-not-allowed') {
                     alert('Free Trial Offer has been Ended.\nPlease Buy a premium license.');
                 } else {
