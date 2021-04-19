@@ -48,6 +48,15 @@ var mainApp = {};
                 } else {
                     document.getElementById('nam').innerHTML = namex + ` <i class="fas fa-check-circle" title="Verified"></i>`;
                 }
+
+                document.getElementById('phone').innerHTML = "<b>Mobile No. </b> N/A";
+                var user = firebase.auth().currentUser;
+                if (user != null) {
+                    user.providerData.forEach(function(profile) {
+                        document.getElementById('phone').innerHTML = "<b>Mobile No. </b> <a href='tel:" + profile.uid + "'>" + profile.uid + "</a>";
+                    });
+                }
+
                 document.getElementById('license').innerHTML = "<b>License : </b>" + uid;
                 document.getElementById('created').innerHTML = "<b>Enrolled : </b>" + user.metadata.creationTime;
                 document.getElementById('namUp').addEventListener('click', () => {
