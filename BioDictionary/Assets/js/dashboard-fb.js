@@ -48,8 +48,12 @@ var mainApp = {};
                 } else {
                     document.getElementById('nam').innerHTML = namex + ` <i class="fas fa-check-circle" title="Verified"></i>`;
                 }
+                if (user.phoneNumber != null) {
+                    document.getElementById('phone').innerHTML = "<b>Mobile No. </b> <a href='tel:" + user.phoneNumber + "'>" + user.phoneNumber + "</a>";
+                } else {
+                    document.getElementById('phone').innerHTML = "<b>Mobile No. </b> N/A";
+                }
 
-                document.getElementById('phone').innerHTML = "<b>Mobile No. </b> <a href='tel:" + user.phoneNumber + "'>" + user.phoneNumber + "</a>";
                 document.getElementById('license').innerHTML = "<b>License : </b>" + uid;
                 document.getElementById('created').innerHTML = "<b>Enrolled : </b>" + user.metadata.creationTime;
                 document.getElementById('namUp').addEventListener('click', () => {
