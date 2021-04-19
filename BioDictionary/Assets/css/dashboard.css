@@ -113,6 +113,12 @@ a:hover {
     color: darkgreen;
 }
 
+.mob:hover {
+    text-decoration: none;
+    color: darkgreen;
+    font-weight: bold;
+}
+
 svg:hover,
 .fa-history:hover,
 .fa-chart-pie:hover,
