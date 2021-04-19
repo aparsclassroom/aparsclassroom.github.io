@@ -1,22 +1,16 @@
 function freeTrial() {
-
-    if (firebase.auth().currentUser) {
-        firebase.auth().signOut();
-    } else {
-        firebase.auth().signInAnonymously()
-            .then(function() {
-                document.getElementById('free').value = "Please wait...";
-            })
-            .catch(function(error) {
-                var errorCode = error.code;
-                if (errorCode = 'auth/operation-not-allowed') {
-                    alert('Free Trial Offer has been Ended.\nPlease Buy a premium license.');
-                } else {
-                    console.error(error);
-                }
-            });
-    }
-    document.getElementById('free').disabled = true;
+    firebase.auth().signInAnonymously()
+        .then(function() {
+            document.getElementById('free').value = "Success";
+        })
+        .catch(function(error) {
+            var errorCode = error.code;
+            if (errorCode = 'auth/operation-not-allowed') {
+                alert('Free Trial Offer has been Ended.\nPlease Buy a premium license.');
+            } else {
+                console.error(error);
+            }
+        });
 }
 
 function toggleSignIn(e) {
@@ -34,7 +28,7 @@ function toggleSignIn(e) {
     }
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function() {
-            document.getElementById('access').value = "Please wait...";
+            document.getElementById('access').value = "Success";
         }).catch(function(error) {
             var errorCode = error.code;
             if (errorCode === 'auth/wrong-password') {
