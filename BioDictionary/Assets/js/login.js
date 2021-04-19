@@ -1,7 +1,3 @@
-function onSubmit(token) {
-    document.getElementById("form").submit();
-}
-
 function freeTrial() {
 
     if (firebase.auth().currentUser) {
@@ -48,7 +44,7 @@ function toggleSignIn(e) {
                     document.getElementById("forgotPass").style.display = "inline-block";
                 } else {
                     alert('You don\'t have Access. To get access, Please Buy our subscription');
-                    window.location.replace("/shop/BioDictionary?aff=107");
+                    window.location.replace("https://aparsclassroom.com/shop/BioDictionary?aff-AAA");
                 }
             });
     }
@@ -67,7 +63,7 @@ function sendPasswordReset() {
             alert("Please Check your Email Address 🤔 \n\nIt is in wrong format 🙃");
         } else if (errorCode == 'auth/user-not-found') {
             alert('You haven\'t purchased our premium subscription yet 😶');
-            window.location.replace("Buy-Subcription/Hasib.html");
+            window.location.replace("https://aparsclassroom.com/shop/BioDictionary?aff-AAA");
         }
     });
 }
@@ -75,7 +71,7 @@ function sendPasswordReset() {
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            window.location.replace("index.html");
+            window.location.replace("./");
         } else {
             console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
         }
