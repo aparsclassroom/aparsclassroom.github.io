@@ -108,6 +108,11 @@ a:hover {
     margin-right: 50px;
 }
 
+.mob {
+    text-decoration: none;
+    color: darkgreen;
+}
+
 svg:hover,
 .fa-history:hover,
 .fa-chart-pie:hover,

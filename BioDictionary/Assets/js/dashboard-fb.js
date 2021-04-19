@@ -49,7 +49,7 @@ var mainApp = {};
                     document.getElementById('nam').innerHTML = namex + ` <i class="fas fa-check-circle" title="Verified"></i>`;
                 }
                 if (user.phoneNumber != null) {
-                    document.getElementById('phone').innerHTML = "<b>Mobile No. </b> <a href='tel:" + user.phoneNumber + "'>" + user.phoneNumber + "</a>";
+                    document.getElementById('phone').innerHTML = "<b>Mobile No. </b> <a class='mob' href='tel:" + user.phoneNumber + "'>" + user.phoneNumber + "</a>";
                 } else {
                     document.getElementById('phone').innerHTML = "<b>Mobile No. </b> N/A";
                 }
