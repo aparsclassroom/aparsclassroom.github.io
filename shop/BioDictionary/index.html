@@ -70,7 +70,7 @@
           </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" id="form" name="BioDictionary">
+                    <form id="form">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>
@@ -100,49 +100,29 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="Bkash">Your Bkash Number <span style="color: red;">***</span></label>
-                                <input type="text" name="User Bkash" required class="form-control" placeholder="01XX XXX XXXX" id="Bkash">
+                                <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
+                                <input type="text" name="User Phone" required class="form-control" placeholder="01XX XXX XXXX" id="phone">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="Gateway">Payment Gateway</label>
-                                <select id="Gateway" name="Payment Gateway" required class="form-control">
-                                        <option value="">--Choose any--</option>
-                              <option value="01999503881 (BKash 1)">01999503881 (BKash 1)</option>
-                              <option value="01552307424 (BKash 2)">01552307424 (BKash 2)</option>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="price">Product Price</label>
                                 <input type="number" value="500" disabled class="form-control" id="price">
                                 <input type="number" value="500" style="display: none;" id="prs" name="Price">
                             </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="Tranx">Bkash Transaction Id. <span style="color: red;">***</span></label>
-                                <input type="text" class="form-control" name="Tranx Id" id="Tranx" required placeholder="9vdvd3csvs">
-                            </div>
                         </div>
                         <div class="form-row"><label style="color: red;">You have to Send Money <span id="sprice">500</span> ৳ </label></div>
-                        <textarea id="ip-details" style="display: none;" name="IP Details"></textarea>
-                        <input id="Contact-Number" style="display: none;" name="Verified Number" type="text">
                         <input name="Affiliation Code" style="display: none;" id="aff" type="text">
-                        <input name="Source" style="display: none;" id="href">
-                        <input type="text" id="cupn" style="display: none;" value="Mridul" name="Cupon">
-                        <input type="text" id="productCode" style="display: none;" value="asgp=1" name="Product Code">
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" required type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
-                              All the informations are correct &amp; I have sent the money 🥰
+                              All the informations are correct &amp; I agree all the terms and conditions 🥰
                             </label>
                             </div>
                         </div>
                 </div>
                 <div class="modal-footer">
                     <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Tranx id will be your email and password for the App.</span>
-                    <button type="submit" class="btn btn-success">Confirm</button>
+                    <button id="buy" type="submit" class="btn btn-success">Confirm</button>
                     </form>
                 </div>
             </div>
