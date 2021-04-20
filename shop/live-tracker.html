@@ -43,7 +43,7 @@
     var result = document.getElementById('result');
     searchBtn.addEventListener('click', () => {
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch('https://script.google.com/macros/s/AKfycbzdkhRyoT_Aa2_7oQ3EjILjuaYjgKSjEA5OUPDazDwLGYt64cyXvHRKgqCeXYM1RZGGVg/exec?id=' + search.value)
+        fetch('https://script.google.com/macros/s/AKfycbzdkhRyoT_Aa2_7oQ3EjILjuaYjgKSjEA5OUPDazDwLGYt64cyXvHRKgqCeXYM1RZGGVg/exec?mail=' + search.value)
             .then((res) => {
                 return res.json()
             })
