@@ -1,295 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-    <title>Developers | SSLCOMMERZ</title>
-
-    <meta name="description" content="I">
-    <link rel="shortcut icon" href="https://developer.sslcommerz.com/favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://dummypay.publicdemo.xyz/assets/css/style.css">
-    <link rel="stylesheet" href="https://dummypay.publicdemo.xyz/assets/css/custom.css">
-    <style>
-        .lock-center {
-            display: none !important;
-        }
-        
-        .tingle-modal {
-            background: none !important;
-        }
-        
-        #sslczPayBtn {
-            background: #295cab!important;
-            width: 100%!important;
-            padding: 8px 20px 8px 30px!important;
-            height: auto!important;
-        }
-        
-        #sslczPayBtn:before,
-        #sslczPayBtn:after {
-            display: none!important;
-        }
-    </style>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
-<body class="" data-spy="scroll" data-target=".js-scrollspy">
-
-    <header class="site-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-
-                    <a href="index.html" class="site-header__logo">
-                        <img src="https://dummypay.publicdemo.xyz/assets/img/dummy_logo.png" alt="" width="220">
-                    </a>
-
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </header>
-    <!-- /.site-header -->
-
-
-    <div class="hero-subheader cart_subheader">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="align-container" data-mh>
-                        <div class="align-inner">
-
-                            <h1 class="hero-subheader__title">Ecommerce Cart</h1>
-                        </div>
-                        <!-- /.align-inner -->
-                    </div>
-                    <!-- /.align-container -->
-                </div>
-                <!-- /.col -->
-
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </div>
-    <!-- /.hero-subheader -->
-    <div class="section home_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p> </p>
-                    <div class="content">
-                        <div class="table-responsive">
-                            <table class="table cart_table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Thumb</th>
-                                        <th>Product</th>
-                                        <th>Available</th>
-                                        <th class="text-center">Quantity</th>
-                                        <th class="text-right">Price</th>
-                                        <th class="text-right">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><img src="https://placehold.it/50x50/55595c/fff"> </td>
-                                        <td>Product Name XYZ</td>
-                                        <td>In stock</td>
-                                        <td class="text-center">
-                                            <input class="" type="text" value="1">
-                                        </td>
-                                        <td class="text-right">
-                                            <span><span class="single_amount">100 </span> Taka</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <button class="btn btn-sm btn-danger">
-                                        <i class="icon-trash icons"></i> </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center"><img src="https://placehold.it/50x50/55595c/fff"> </td>
-                                        <td>Product Name XYZ</td>
-                                        <td>In stock</td>
-                                        <td class="text-center">
-                                            <input class="" type="text" value="1">
-                                        </td>
-                                        <td class="text-right">
-                                            <span><span class="single_amount">50 </span> Taka</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <button class="btn btn-sm btn-danger">
-                                        <i class="icon-trash icons"></i> </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center"><img src="https://placehold.it/50x50/55595c/fff"> </td>
-                                        <td>Product Name XYZ</td>
-                                        <td>In stock</td>
-                                        <td class="text-center">
-                                            <input class="" type="text" value="1">
-                                        </td>
-                                        <td class="text-right">
-                                            <span><span class="single_amount">30 </span>Taka</span>
-                                        </td>
-                                        <td class="text-right">
-                                            <button class="btn btn-sm btn-danger">
-                                        <i class="icon-trash icons"></i> </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-7">
-                            </div>
-                            <div class="col-md-5">
-                                <div class="table-responsive">
-                                    <table class="table table-borderless">
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-left">Subtotal</td>
-                                                <td class="text-right">
-                                                    <span class="single_amount "><span class="sub_total">180</span> Taka</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">Shipping</td>
-                                                <td class="text-right">
-                                                    <span class="single_amount">20 Taka</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    <strong>Total</strong>
-                                                </td>
-                                                <td class="text-right grand_total">
-                                                    <input type="hidden" class="total_amount" value="200" />
-                                                    <span class="single_amount "><span class="total_amount1">200</span> Taka</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control cus_phone" name="" value="" placeholder="Mobile Number">
-                                </div>
-                                <button type="button" id="sslczPayBtn" order="6077d41b9e983" postdata="" endpoint="https://dummypay.publicdemo.xyz/server.php" actionurl="https://dummypay.publicdemo.xyz/action.php" class="btn btn-block btn--dark btn--rounded btn--w-icon" name="button">
-                                <i class="icon icon--arrow-right"></i>
-                                Pay With  SSLCOMMERZ
-                            </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.content -->
-                </div>
-                <!-- /.col -->
-                <div class="col-md-4">
-                </div>
-                <!-- /.col -->
-
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </div>
-    <!-- /.section -->
-
-    <div class="js-footer-area">
-
-
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="site-footer__copyright">© 2020 SSLCOMMERZ. All rights reserved.</p>
-
-                    </div>
-                    <!-- /.col -->
-
-                    <div class="col-sm-6 align-right">
-                    </div>
-                    <!-- /.col -->
-
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </footer>
-        <!-- /.site-footer -->
-
-
-    </div>
-    <!-- /.js-footer-area -->
-    <script src="https://dummypay.publicdemo.xyz/assets/js/vendor/jquery.min.js"></script>
-    <script type="text/javascript" src="https://dummypay.publicdemo.xyz/assets/js/vendor/bootstrap/affix.min.js"></script>
-    <script type="text/javascript" src="https://dummypay.publicdemo.xyz/assets/js/vendor/bootstrap/scrollspy.min.js"></script>
-    <script type="text/javascript" src="https://dummypay.publicdemo.xyz/assets/js/vendor/matchHeight.min.js"></script>
-    <script type="text/javascript" src="https://dummypay.publicdemo.xyz/assets/js/scripts.min.js"></script>
-    <script>
-        $('.btn-danger').on('click', function() {
-            if ($('.btn-danger').length > 1) {
-                changeAmount($(this));
-                $(this).parents('tr').remove();
-            } else {
-                alert('not to remove');
-            }
-
-        });
-
-        function changeAmount(obj) {
-            var value = obj.parents('tr').find('.single_amount').text();
-
-            var total_amount = $('.total_amount1').text() - value;
-            var sub_total = $('.sub_total').text() - value;
-            $('.sub_total').text(sub_total);
-            $('.total_amount1').text('');
-            $('.total_amount1').text(total_amount);
-            $('.total_amount').val(total_amount);
-            changeObj();
-        }
-
-        changeObj();
-
-        function changeObj() {
-            var obj = {};
-            if ($('.cus_phone').val()) {
-                obj.cus_phone = $('.cus_phone').val();
-            }
-            if ($('.total_amount').val()) {
-                $('.total_amount').val($('.total_amount1').text());
-                obj.amount = '';
-                obj.amount = $('.total_amount').val();
-            }
-            /*if($('.cus_phone').val()) {
-                var obj = {  "amount": $('.total_amount').val(),"cus_phone":$('.cus_phone').val() };
-            } else {
-                var obj = {  "amount": $('.total_amount').val() };
-            }*/
-
-            $('#sslczPayBtn').prop('postdata', obj);
-        }
-
-        $(".cus_phone").on('change', function() {
-            changeObj();
-        });
-
-        (function(window, document) {
-            var loader = function() {
-                var script = document.createElement("script"),
-                    tag = document.getElementsByTagName("script")[0];
-                script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
-                tag.parentNode.insertBefore(script, tag);
-            };
-
-            window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-        })(window, document);
-    </script>
+<body>
+    <h3 id="pr"></h3>
+    <form name="CashOut" id="CashOut" method="POST">
+        Amount : <input type="number" name="total_amount" value="500" disabled id="total_amount" required><br> Name : <input type="text" name="cus_name" id="cus_name" required><br> Email : <input type="email" name="email" id="email" required><br> College
+        :
+        <input type="text" name="college" id="college" required><br> hsc :
+        <input type="text" name="hsc" id="hsc" required><br> Phone : <input type="tel" name="phone" id="phone" required><br> Affiliation : <input type="text" name="aff" id="aff" required><br>
+        <button id="buy" type="submit">Submit</button>
+    </form>
 </body>
+<script>
+    const product = "BioDictionay"
+    document.getElementById('pr').innerText = product + " Purchase";
+    var str = window.location.search;
+    var res = str.substring(1, 16);
+    if (localStorage.getItem(product) === "") {
+        localStorage.setItem(product, res);
+    }
+    if (res === "") {
+        document.getElementById('aff').value = localStorage.getItem(product)
+
+    } else {
+        document.getElementById('aff').value = res
+        localStorage.setItem(product, res);
+
+    }
+    document.getElementById('buy').addEventListener('click', (e) => {
+        e.preventDefault();
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "total_amount": 500,
+            "product": product,
+            "cus_name": document.getElementById('cus_name').value,
+            "email": document.getElementById('email').value,
+            "college": document.getElementById('college').value,
+            "hsc": document.getElementById('hsc').value,
+            "phone": document.getElementById('phone').value,
+            "aff": "aff-AAA"
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://asg-shop.herokuapp.com/init", requestOptions)
+            .then(response => {
+                return response.json()
+            })
+            .then(result => {
+                location.href = result.GatewayPageURL
+            })
+            .catch(error => console.log('error', error));
+    })
+</script>
 
 </html>
