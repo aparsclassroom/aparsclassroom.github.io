@@ -36,6 +36,7 @@
     }
     document.getElementById('buy').addEventListener('click', (e) => {
         e.preventDefault();
+        document.getElementById('buy').innerText = "Please wait...."
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -57,7 +58,7 @@
             redirect: 'follow'
         };
 
-        fetch("http://asg-shop.herokuapp.com/init", requestOptions)
+        fetch("https://asg-shop.herokuapp.com/init", requestOptions)
             .then(response => {
                 return response.json()
             })
