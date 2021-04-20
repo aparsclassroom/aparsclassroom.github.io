@@ -22,7 +22,7 @@
     const product = "BioDictionay"
     document.getElementById('pr').innerText = product + " Purchase";
     var str = window.location.search;
-    var res = str.substring(1, 16);
+    var res = str.split("&")[0].substring(1, 16);
     if (localStorage.getItem(product) === "") {
         localStorage.setItem(product, res);
     }
