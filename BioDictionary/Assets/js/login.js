@@ -99,6 +99,9 @@ function sendPasswordReset() {
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            localStorage.removeItem('BioTranx');
+            localStorage.removeItem('BioMail');
+            localStorage.removeItem('BioDictionary');
             window.location.replace("./");
         } else {
             console.log("%cDon't YOU Ever Try To STEAL the SOURCE CODE 🤬", "color:red;Background-Color:white;padding:100px;font-size:50px")
