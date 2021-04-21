@@ -29,7 +29,7 @@
     <div class="container">
         <h2>ASG Order Tracker</h2>
         <div class="input-group">
-            <input type="search" class="form-control" id="search" placeholder="Email Address">
+            <input type="search" class="form-control" id="search" placeholder="Tranx ID">
             <div class="input-group-append">
                 <button id="searchBtn" class="btn btn-dark">Search</button>
             </div>
@@ -41,9 +41,11 @@
     var search = document.getElementById('search');
     var searchBtn = document.getElementById('searchBtn');
     var result = document.getElementById('result');
+    const tr = localStorage.getItem('BioTranx');
+    search.value = tr;
     searchBtn.addEventListener('click', () => {
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch('https://script.google.com/macros/s/AKfycbzdkhRyoT_Aa2_7oQ3EjILjuaYjgKSjEA5OUPDazDwLGYt64cyXvHRKgqCeXYM1RZGGVg/exec?mail=' + search.value)
+        fetch('https://script.google.com/macros/s/AKfycbxE3s5cbJoSJ7-xL6z0Vh1_vQ3VQbi2ZlnmK4m0Q_aKJ9ej7-pP_lrr5GReHuI30L5Z1w/exec?id=' + search.value)
             .then((res) => {
                 return res.json()
             })
@@ -53,7 +55,6 @@
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
-                <h3>Tranx Id : ${loadedData.id}</h3>
                 <h4 style="color:brown">Purchase Request Submitted! <br>Please Wait for Payment Verification</h4>
                 <br>
                         <img src="https://media2.giphy.com/media/U7CnQe5OZ1xAdvxhSC/giphy-preview.gif" width="100%">
@@ -62,7 +63,6 @@
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
-                <h3>Tranx Id : ${loadedData.id}</h3>
                 <h4 style="color:brown">Please Wait for Account Creation</h4>
                         <img src="https://media4.giphy.com/media/PijzuUzUhm7hcWinGn/giphy.gif" width="100%">
                         `;
@@ -70,7 +70,7 @@
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
-                <h3>Tranx Id : ${loadedData.id}</h3>
+                <h3>Password : ${loadedData.id}</h3>
                 <p><b>Click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary</a></b></p>
                         <img src="https://cdn.dribbble.com/users/1785141/screenshots/8998392/media/b9c223e8d6e8b7342eb48193703a79a3.gif" width="100%">
                         `;
@@ -78,7 +78,6 @@
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
                 <h3>Email : ${loadedData.Email}</h3>
-                <h3>Tranx Id : ${loadedData.id}</h3>
                 <h2 style="color:brown">Purchase REJECTED 😶</h2>
                         <img src="https://media.tenor.com/images/378b3fef95c57b5e5bbe0067cb22a66a/tenor.gif" width="100%">
                         <p><b>If you think this is a mistake, please Contact : <a href="https://m.me/maheyan.mridul/">Support Team</a></b></p>
