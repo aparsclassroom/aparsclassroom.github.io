@@ -45,9 +45,19 @@ body {
     padding: 10px;
     color: #555;
     border: 0;
-    border-radius: 0 5px 5px 0;
     font-size: inherit;
     font-family: 'Roboto';
+}
+
+#eye {
+    color: #2c3f52;
+    padding: 0px 25px 0px 0px;
+    float: right;
+    position: relative;
+    right: -50%;
+    top: -.2%;
+    z-index: 5;
+    cursor: pointer;
 }
 
 .btn {

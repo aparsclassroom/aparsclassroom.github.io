@@ -1,3 +1,42 @@
+var eye = document.getElementById("eye");
+var m = document.getElementById('email');
+var p = document.getElementById('password');
+const tr = localStorage.getItem('BioTranx');
+const ml = localStorage.getItem('BioMail');
+if (tr != null) {
+    p.value = tr;
+    m.value = ml;
+}
+
+function show() {
+    p.setAttribute('type', 'text');
+    eye.classList.remove('fas');
+    eye.classList.remove('fa-eye-slash');
+    eye.classList.add('fa');
+    eye.classList.add('fa-eye');
+    eye.style.cssText = "margin-left: -20px;padding: 0px 30px 0px 0px;";
+}
+
+function hide() {
+    p.setAttribute('type', 'password');
+    eye.classList.remove('fa');
+    eye.classList.remove('fa-eye');
+    eye.classList.add('fas');
+    eye.classList.add('fa-eye-slash');
+    eye.style.cssText = "margin-left: 0px;padding: 0px 25px 0px 0px;";
+}
+var pwShown = 0;
+
+eye.addEventListener("click", function() {
+    if (pwShown == 0) {
+        pwShown = 1;
+        show();
+    } else {
+        pwShown = 0;
+        hide();
+    }
+}, true);
+
 function freeTrial() {
     firebase.auth().signInAnonymously()
         .then(function() {
