@@ -54,8 +54,6 @@ var mainApp = {};
                                             `;
 
                                             document.getElementById('solve').innerHTML += content;
-
-                                            ex.innerHTML += content;
                                         });
                                     } else {
                                         alert(loadedQuestions.code + "  " + loadedQuestions.message);
