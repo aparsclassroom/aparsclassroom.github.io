@@ -54,9 +54,9 @@ var mainApp = {};
 
                                     function getNewQuestion() {
                                         if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-                                            localStorage.setItem('mostRecentScore', score);
-                                            localStorage.setItem("minutes", minutes);
-                                            localStorage.setItem("seconds", seconds);
+                                            sessionStorage.setItem('mostRecentScore', score);
+                                            sessionStorage.setItem("minutes", minutes);
+                                            sessionStorage.setItem("seconds", seconds);
                                             sessionStorage.setItem("stat", "done");
                                             clearInterval(mytime);
                                             return window.location.assign('end.html');
@@ -112,9 +112,9 @@ var mainApp = {};
                                         document.getElementById('st').classList.remove('time');
                                         document.getElementById('st').classList.add('ftime');
                                         document.getElementById('st').innerHTML = "Times Up!";
-                                        localStorage.setItem('mostRecentScore', score);
-                                        localStorage.setItem("minutes", minutes);
-                                        localStorage.setItem("seconds", seconds);
+                                        sessionStorage.setItem('mostRecentScore', score);
+                                        sessionStorage.setItem("minutes", minutes);
+                                        sessionStorage.setItem("seconds", seconds);
                                         sessionStorage.setItem("stat", "done");
                                         setTimeout(() => {
                                             window.location.assign('end.html');

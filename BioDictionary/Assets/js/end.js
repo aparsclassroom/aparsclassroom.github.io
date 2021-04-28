@@ -4,10 +4,10 @@ const username = document.getElementById('username');
 const score = document.getElementById('score');
 const duration = document.getElementById('duration');
 const finalScore = document.getElementById('finalScore');
-const mostRecentScore = localStorage.getItem('mostRecentScore');
+const mostRecentScore = sessionStorage.getItem('mostRecentScore');
 const online = document.getElementById("online");
-const user_min = localStorage.getItem("minutes");
-const user_sec = localStorage.getItem("seconds");
+const user_min = sessionStorage.getItem("minutes");
+const user_sec = sessionStorage.getItem("seconds");
 const solve = document.getElementById('solve');
 const highs = document.getElementById('highs');
 const ret = document.getElementById('ret');
@@ -45,6 +45,7 @@ var mainApp = {};
                         usern.value = user.displayName;
                     }
                     username.value = user.displayName;
+                    sessionStorage.removeItem("stat");
                     if (mostRecentScore < 0) {
                         swal({
                             title: "Not Enough Score 💔",
