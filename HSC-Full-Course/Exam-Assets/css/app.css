@@ -33,19 +33,19 @@ h1 {
 }
 
 h1>span {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-weight: 500;
 }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     margin-bottom: 4rem;
     font-weight: 700;
 }
 
 @media screen and (max-width:400px) {
     #question {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
         margin-bottom: 2rem;
     }
 }
