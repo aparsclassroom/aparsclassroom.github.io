@@ -14,7 +14,7 @@
 
 <body>
 
-    <div id="stat">loading...</div>
+    <div id="stat"><span id="title">loading...</span></div>
 
 
     <script>
@@ -35,8 +35,23 @@
 
                 fetch("https://asg-shop.herokuapp.com/logs", requestOptions)
                     .then(response => response.json())
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
+                    .then((loadedData) => {
+                        var data = loadedData.data
+                        var prn = "Product Name";
+                        document.getElementById('title').innerHTML = "Payment History";
+                        data.forEach((element, idx) => {
+                            idx++
+                            const content = `
+                        <div>
+                           Invoice No. ${element.Invoice} <br>
+                           Product Name : ${element.prn} <br>
+                           Tranx Id : ${element.tran_id}
+                        </div><hr>
+                        `;
+                            document.getElementById('stat').innerHTML += content;
+                        });
+
+                    }).catch(error => console.log('error', error));
             } else {
                 document.getElementById('stat').innerHTML = "not logged in";
             }
