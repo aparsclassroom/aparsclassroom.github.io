@@ -52,7 +52,7 @@
                             document.getElementById('stat').innerHTML += content;
                         });
 
-                    }).catch(error => console.log('error', error));
+                    }).catch(error => document.getElementById('title').innerHTML = "Payment History not found !");
             } else {
                 document.getElementById('stat').innerHTML = "not logged in";
             }
