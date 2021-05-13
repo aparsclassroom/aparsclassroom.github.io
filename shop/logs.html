@@ -14,7 +14,9 @@
 
 <body>
 
-    <div id="stat"><span id="title">loading...</span></div>
+    <div id="stat">
+        <h3 style="text-align: center;" id="title">loading...</h3><br><br>
+    </div>
 
 
     <script>
@@ -36,15 +38,14 @@
                 fetch("https://asg-shop.herokuapp.com/logs", requestOptions)
                     .then(response => response.json())
                     .then((loadedData) => {
-                        var data = loadedData.data
-                        var prn = "Product Name";
+                        var data = loadedData.data;
                         document.getElementById('title').innerHTML = "Payment History";
                         data.forEach((element, idx) => {
                             idx++
                             const content = `
                         <div>
                            Invoice No. ${element.Invoice} <br>
-                           Product Name : ${element.prn} <br>
+                           Product Name : ${element.ProductName} <br>
                            Tranx Id : ${element.tran_id}
                         </div><hr>
                         `;
