@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     <h3>Purchase Information</h3>
                     Invoice : ${data.Invoice}<br>
                     Product : ${data.ProductName}<br>
-                    Paid Amount : ${currency_amount} ৳ <br>
+                    Paid Amount : ${data.currency_amount} ৳ <br>
                     Username : ${data.CustomerName}<br>
                     Transaction Id : ${data.tran_id}<br>
                     Email : ${data.value_b}<br>
