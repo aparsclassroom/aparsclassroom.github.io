@@ -111,8 +111,8 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         document.getElementById('phone').value = t, document.getElementById('phone').value = t, document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
     } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
-        document.getElementById('moda').addEventListener('click', () => location.href = "../")
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../" });
+        document.getElementById('moda').addEventListener('click', () => location.href = "../login")
+}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../login" });
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
