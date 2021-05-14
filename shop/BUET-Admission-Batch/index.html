@@ -2,42 +2,57 @@
 <html lang="en">
 
 <head>
+    <!-- Site Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>ASG Shop</title>
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
+    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+
+    <!-- loader -->
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+
+    <!-- Style sheets -->
     <link rel="stylesheet" href="../assets/minimal.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/print.css" media="print">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
-    <script src="../assets/js/script.js"></script>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
+    <script src="../assets/js/script.js" defer></script>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
+
+    <!-- Shop Scripts -->
     <script src="assets/ss.min.js" defer></script>
-    <script>
-        const product = "BUET Admission Batch'21";
-    </script>
-    <title>BUET Admission Batch'21 | ASG Shop</title>
-    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
-    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
-    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+
+    <!-- Custom Scripts -->
+    <script src="../assets/js/shop.js" defer></script>
 </head>
 
 <body>
     <div class="container flex-column">
         <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
-        <h3 class="text-center">Course : BUET Admission Batch'21</h3>
+        <h3 class="text-center">Product : <span id="prod"></span></h3>
         <br>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3Gx8Ml5iFA0?modestbranding=0&controls=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&enablejsapi=1&autoplay=" id="vid"></iframe>
         </div>
         <br>
         <div class="cove">
-            <h3 class="text-center">Price : <span id="smp"><del style="color: red;">5000৳</del> <span style="color: rgb(26, 185, 66);">3000৳</span></span>
+            <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span id="prevP"></span>৳</del> <span id="nop" style="color: rgb(26, 185, 66);"></span></span>
             </h3>
 
             <div class="d-flex justify-content-center">
@@ -99,31 +114,19 @@
                             </select>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="Country">Country</label>
-                                <input type="text" name="Country" id="Country" class="form-control" value="Bangladesh" disabled>
-                            </div>
-                            <!-- <div class="form-group col-md-6">
-                                <label for="Tranx-ID">Tranx ID</label>
-                                <input type="text" name="Tranx ID" id="Tranx_ID" class="form-control" disabled>
-                            </div> -->
-                        </div>
                         <input type="text" name="disC" id="disC" class="form-control" style="display: none;" value="N/A">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
-                                <input type="text" name="User Phone" disabled class="form-control" placeholder="01XX XXX XXXX" id="phones">
-                                <input type="text" style="display: none;" id="phone">
+                                <input type="text" name="User Phone" readonly class="form-control" placeholder="01XX XXX XXXX" id="phone">
+                                <input type="text" style="display: none;" id="uid" name="uid">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="price">Product Price</label>
-                                <input type="number" value="3000" disabled class="form-control" id="price">
-                                <input type="number" value="3000" style="display: none;" id="prs" name="Price">
-                                <input type="text" style="display: none;" id="uid" name="uid">
+                                <input type="number" disabled class="form-control" id="price">
                             </div>
                         </div>
-                        <div class="form-row"><label style="color: red;">You have to pay <span id="sprice">3000</span> ৳ </label></div>
+                        <div class="form-row"><label style="color: red;">You have to pay <span id="sprice"></span> ৳ </label></div>
                         <input name="Affiliation Code" style="display: none;" id="aff" type="text">
                         <div class="form-group">
                             <div class="form-check">
@@ -135,7 +138,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <span style="text-align: left;"> <span style="color: red;">Note: </span> you will receive an Email from Apar's Classroom after successful purchase.</span>
+                    <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Tranx Id will be your email and password for the App.</span>
                     <button id="buy" type="submit" class="btn btn-success">Start Payment</button>
                     </form>
                 </div>
