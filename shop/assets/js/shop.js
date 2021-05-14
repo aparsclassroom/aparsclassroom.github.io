@@ -48,9 +48,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: result.message,
                         icon: "success",
-                        button: "OK"
+                        button: "View Informations"
                     }).then(() => {
-                        return location.replace("../logs")
+                        return location.replace("./purchased")
                     })
                 } else {
                     const form = document.forms['purchase']
