@@ -2,7 +2,6 @@ setTimeout(() => {
     $("#vid")[0].src += "1";
     $("#vid")[0].src;
 }, 1000)
-
 var str = window.location.search;
 var res = str.split("&")[0].substring(1, 16);
 if (localStorage.getItem(product) === "") {
@@ -16,6 +15,12 @@ if (res === "") {
     localStorage.setItem(product, res);
 
 }
+document.title = product + "| ASG Shop";
+document.getElementById('prod').innerText = product;
+document.getElementById('prevP').innerText = fix;
+document.getElementById('nop').innerText = pls;
+document.getElementById('sprice').innerText = pls;
+document.getElementById('price').value = pls;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var t = e.phoneNumber;
@@ -76,7 +81,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch("https://asg-shop.herokuapp.com/112/init", requestOptions)
+                        fetch(purl, requestOptions)
                             .then(response => {
                                 return response.json()
                             })
@@ -133,8 +138,6 @@ cpn.addEventListener('click', (e) => {
     cupV.value = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    const fix = 5000;
-    const pls = 3000;
     fetch('https://script.google.com/macros/s/AKfycby6Np9IWtfgY2dvO2gJPHh38TS7JKrWZQWJuiNWZRlOJEOD6hhSlRfrFKx1gd5OwHgJ/exec?Cupon=' + cpnCode.toUpperCase() + '&Product=' + product)
         .then((res) => {
             return res.json();
