@@ -33,7 +33,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                     HSC : ${data.HSC}<br>
                     Timestamp : ${data.Timestamp}
                     `;
-                    console.log(result)
                 } else {
                     location.replace("./");
                 }
