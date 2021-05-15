@@ -33,7 +33,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Phone No. ${data.value_c}<br>
                     College : ${data.College}<br>
                     HSC : ${data.HSC}<br>
-                    Timestamp : ${data.Timestamp}
+                    Timestamp : ${data.Timestamp}<br><br>
+                    App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     `;
                 } else {
                     location.replace("./");
