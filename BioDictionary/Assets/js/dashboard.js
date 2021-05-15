@@ -42,7 +42,7 @@ function getToday() {
         sl = wrds[i].sl;
         time = wrds[i].time;
         wrdsResults.innerHTML += '<div class="card text-center">' +
-            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span class="bangla"> সময় : ' + time + '</span> </a><hr></div>';
+            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span class="bangla"> সময় : ' + time + '</span> </a></div>';
     }
 
 }
@@ -61,7 +61,7 @@ function getBook() {
         sl = bookmarks[i].sl;
         time = bookmarks[i].time;
         bookmarksResults.innerHTML += '<div class="card">' +
-            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span class="bangla"> বুকমার্ক : ' + time + '</span> </a><hr></div>';
+            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span class="bangla"> বুকমার্ক : ' + time + '</span> </a></div>';
     }
 
 }
