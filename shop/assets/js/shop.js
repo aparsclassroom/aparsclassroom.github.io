@@ -113,15 +113,15 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
-            document.getElementById('phone').setAttribute("readonly");
+            document.getElementById('phone').setAttribute("readonly", true);
         }
         if (namex != null) {
             document.getElementById('name').value = namex;
-            document.getElementById('name').setAttribute("readonly");
+            document.getElementById('name').setAttribute("readonly", true);
         }
         if (mail != null) {
             document.getElementById('email').value = mail
-            document.getElementById('email').setAttribute("readonly");
+            document.getElementById('email').setAttribute("readonly", true);
         }
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
     } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
