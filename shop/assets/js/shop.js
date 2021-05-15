@@ -24,6 +24,8 @@ document.getElementById('price').value = pls;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var t = e.phoneNumber;
+        var namex = e.displayName;
+        var mail = e.email;
         document.getElementById('uid').value = e.uid;
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -109,10 +111,22 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
-        document.getElementById('phone').value = t, document.getElementById('phone').value = t, document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
+        if (t && t != "") {
+            document.getElementById('phone').value = t
+            document.getElementById('phone').readonly = true;
+        }
+        if (namex && namex != "") {
+            document.getElementById('name').value = t
+            document.getElementById('name').readonly = true;
+        }
+        if (mail && mail != "") {
+            document.getElementById('email').value = t
+            document.getElementById('email').readonly = true;
+        }
+        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
     } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
-        document.getElementById('moda').addEventListener('click', () => location.href = "../login")
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../login" });
+        document.getElementById('moda').addEventListener('click', () => location.href = "../dashboard/login")
+}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login" });
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
