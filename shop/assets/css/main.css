@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url(/Ambassador/assets/fonts/ASG_TARIQ.TTF);
+}
+
+.bangla {
+    font-family: Kalpurush;
+}
+
+.navbar-brand img {
+    height: 35px;
+}
+
+#prof {
+    font-size: 20px;
+    color: darkslategray;
+}

@@ -1,62 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
-    <script defer src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
-    <script defer src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://demo.themesberg.com/neumorphism-ui-pro/css/neumorphism.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <title>Shop | Apar's Classroom</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">ASG Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home
-                  <span class="visually-hidden">(current)</span>
+    <header class="header-global">
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-light shadow-soft navbar-theme-primary mb-4">
+            <div class="container position-relative">
+                <a class="navbar-brand mr-lg-5" href="/">
+                    <span style="font-size: 22px;color: green;font-weight: bolder;">
+                    <img class="navbar-brand-light mr-2" src="/HSC-Full-Course/assets/images/Logo-with-Name.png" alt="Shop logo">ASG Shop</span>
                 </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
+                <div class="d-flex align-items-center">
+                    <a href="./logs.html" id="prof" class="nav-link-inner-text"><i class="fas fa-user-circle"></i> Dashboard</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="Carousel" class="carousel slide shadow-soft border border-light p-4 rounded" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#Carousel" data-slide-to="1"></li>
+                <li data-target="#Carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner rounded">
+                <div class="carousel-item overlay-primary active">
+                    <a href="./BioDictionary/">
+                        <img class="d-block w-100" src="http://images.shiksha.com/mediadata/images/articles/1538985491phpKctLgx.jpeg" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                            <h3 class="h1">BioDictionary</h3>
                         </div>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                    </a>
+                </div>
+                <div class="carousel-item overlay-primary">
+                    <a href="./BUET-Admission-Batch/">
+                        <img class="d-block w-100" src="https://wherewomenwork.s3-eu-west-1.amazonaws.com/insight/engineering-2-23.jpg" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                            <h3 class="h1">BUET Admission Batch'21</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="row mb-3 mt-3">
+            <div class="col-12 mb-3">
+                <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="row align-items-center">
+                        <aside class="col-md-3">
+                            <a href="./BUET-Admission-Batch/">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/da/BUET_LOGO.svg/1200px-BUET_LOGO.svg.png" alt="premium watch">
+                            </a>
+                        </aside>
+                        <div class="col-md-6">
+                            <div class="info-main">
+                                <a href="./BUET-Admission-Batch/" class="h5 title"> BUET Admission Batch'21 </a>
+                                <div class="d-flex my-3">
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning"></span>
+                                </div>
+                                <p>Some Caption</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="d-flex align-items-center">
+                                <span class="h5 mb-0 text-danger bangla text-through mr-2">
+                                ৫,০০০৳
+                            </span>
+                                <span class="h2 mb-0 text-success bangla">৩,০০০৳</span>
+                            </div>
+                            <div class="mt-4">
+                                <a class="btn btn-primary btn-sm btn-block mb-3" href="#" target="_blank"><i class="fas fa-info-circle mr-1"></i>
+                                Details
+                            </a>
+                                <a href="./BUET-Admission-Batch/" class="btn btn-primary btn-sm btn-block"><span class="fas fa-shopping-cart mr-1"></span>
+                                Enroll Now
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="row align-items-center">
+                        <aside class="col-md-3">
+                            <a href="./BioDictionary/">
+                                <img src="/BioDictionary/Assets/images/logo/logo-square.jpg" alt="premium watch">
+                            </a>
+                        </aside>
+                        <div class="col-md-6">
+                            <div class="info-main">
+                                <a href="./BioDictionary/" class="h2 title text-success"> BioDictionary </a>
+                                <div class="d-flex my-3">
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning mr-1"></span>
+                                    <span class="star fas fa-star text-warning"></span>
+                                </div>
+                                <p>Some Caption</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="d-flex align-items-center">
+                                <span class="h5 mb-0 text-danger bangla text-through mr-3">
+                                ৮০০৳
+                            </span>
+                                <span class="h2 mb-0 text-success bangla">৫০০৳</span>
+                            </div>
+                            <div class="mt-4">
+                                <a class="btn btn-primary btn-sm btn-block mb-3" href="./BioDictionary/" target="_blank"><i class="fas fa-info-circle mr-1"></i>
+                                Details
+                            </a>
+                                <a href="./BioDictionary/" class="btn btn-primary btn-sm btn-block"><span class="fas fa-shopping-cart mr-1"></span>
+                                Enroll Now
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container">
-        <h1 class="text-center">ASG Shop</h1>
+        <div class="autoplay-carousel owl-carousel owl-theme">
+            <div class="item p-3">
+                <div class="card bg-primary shadow-soft border-light">
+                    <img src="http://images.shiksha.com/mediadata/images/articles/1538985491phpKctLgx.jpeg" class="card-img-top rounded-xl p-2" alt="Bonnie portrait">
+                    <div class="card-body">
+                        <h2 class="h2 card-title text-center mb-2">BioDictionary</h2>
+                        <span class="card-subtitle text-gray font-weight-normal">For MAT aspirants !</span>
+                        <p class="card-text my-3">Key Features : <br>
+                            <ul>
+                                <li>Complete Biology Classes for HSC &amp; Medical Admission Test</li>
+                                <li>A complete Dictionary Based on HSC Biology (both papers)</li>
+                            </ul>
+                        </p>
+                        <a href="./BioDictionary/" class="btn btn-block"><i class="fas fa-shopping-cart mr-2"></i>Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item p-3">
+                <div class="card bg-primary shadow-soft border-light">
+                    <img src="https://wherewomenwork.s3-eu-west-1.amazonaws.com/insight/engineering-2-23.jpg" class="card-img-top rounded-xl p-2" alt="Neil portrait">
+                    <div class="card-body">
+                        <h2 class="h2 card-title text-center mb-2">BUET Admission Batch'21</h2>
+                        <p class="card-subtitle text-gray text-center font-weight-normal">For BUET aspirants !</p>
+                        <p class="card-text my-3">Teachers : <br>
+                            <ul>
+                                <li>Numeri Sattar Apar</li>
+                                <li>Chinmoy</li>
+                            </ul>
+                        </p>
+                        <a href="./BUET-Admission-Batch/" class="btn btn-block"><i class="fas fa-shopping-cart mr-2"></i>Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    <footer class="d-flex pb-5 pt-6 pt-md-7 border-top border-light bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <p><strong>ASG Shop</strong> is a online shop of a popular Online Platform named Apar's Classrom. Currently more than 110K+ students of Bangladesh are learning and developing their skills using this online education platform.</p>
+                    <ul class="d-flex list-unstyled mb-5 mb-lg-0">
+                        <li class="mr-2">
+                            <a href="https://www.facebook.com/aparsclassroom/" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="facebook social link" data-toggle="tooltip" data-placement="top" title="Like @aparsclassroom on Facebook"><span aria-hidden="true" class="fab fa-facebook"></span></a>
+                        </li>
+                        <li class="mr-2">
+                            <a href="https://instagram.com/aparsclassroom" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="instagram social link" data-toggle="tooltip" data-placement="top" title="Follow @aparsclassroom on insta"><span aria-hidden="true" class="fab fa-instagram"></span></a>
+                        </li>
+                        <li><a href="https://youtube.com/aparsclassroom" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title="Subscribe our Channel"><span aria-hidden="true" class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-4 mb-5 mb-lg-0">
+                    <h5>Learn More</h5>
+                    <ul class="footer-links list-unstyled mt-2">
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/registration.html">Story Mode Learning App</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/teachers.html">Teachers</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="https://storymodelearing.com/about.html">About Us</a></li>
+                        <li><a class="p-2" target="_blank" href="/">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+                    <h5>Disclaimer</h5>
+                    <p class="text-gray font-small m-0">All the products are listed for sale in the shop, are owned by the Company. Anyone can buy personal license for the products. But Reselling are Strictly prohibited. Learn more about our <a class="text-danger" href="#">Privacy Policy</a>                        &amp; <a class="text-danger" href="#">Terms and Conditions</a></p>
+                </div>
+            </div>
+            <hr class="my-5">
+            <div class="row">
+                <div class="col">
+                    <a href="/" target="_blank" class="d-flex justify-content-center"><img src="/HSC-Full-Course/assets/images/Logo-with-Name.png" height="50" class="mb-3" alt="Apar's Classroom Logo"></a>
+                    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                        <p class="font-weight-normal font-small mb-0">Copyright © Apar's Classroom <span class="current-year">2021</span>. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://demo.themesberg.com/neumorphism-ui/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="https://demo.themesberg.com/neumorphism-ui/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://themesberg.com/docs/neumorphism-ui/assets/vendor/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="https://demo.themesberg.com/neumorphism-ui/vendor/headroom.js/dist/headroom.min.js"></script>
+<script src="https://demo.themesberg.com/neumorphism-ui/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="https://demo.themesberg.com/neumorphism-ui/vendor/jarallax/dist/jarallax.min.js"></script>
+<script src="./assets/js/main.js"></script>
 
 </html>
