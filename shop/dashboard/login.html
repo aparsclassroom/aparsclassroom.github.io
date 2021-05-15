@@ -58,75 +58,7 @@
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
-    <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyD4WuQA56koZ-qWV56rDXDTtczaCVnGft8",
-            authDomain: "asg-shop.firebaseapp.com",
-            projectId: "asg-shop",
-            storageBucket: "asg-shop.appspot.com",
-            messagingSenderId: "374714320984",
-            appId: "1:374714320984:web:d2d308f1ea2a9f46bbe22d",
-            measurementId: "G-P18HXDWK2Y"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        firebase.auth();
-
-        (function() {
-            var ui = new firebaseui.auth.AuthUI(firebase.auth());
-            var uiConfig = {
-                callbacks: {
-                    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-
-                        return true;
-                    },
-                    uiShown: function() {
-                        document.getElementById('loader').style.display = 'none';
-                    }
-                },
-                signInFlow: 'popup',
-                signInSuccessUrl: "javascript:void()",
-                signInOptions: [
-                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                    firebase.auth.FacebookAuthProvider.PROVIDER_ID, {
-                        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                        recaptchaParameters: {
-                            type: 'image',
-                            size: 'invisible',
-                            badge: 'bottomleft'
-                        },
-                        defaultCountry: 'BD',
-                        whitelistedCountries: ['BD', '+880', 'IN', '+91']
-                    }
-                ],
-                tosUrl: '/BioDictionary/terms.html',
-                privacyPolicyUrl: '/BioDictionary/privacy.html'
-            };
-            ui.start('#firebaseui-auth-container', uiConfig);
-        })()
-
-        function onSubmit(token) {
-            document.getElementById("form").submit();
-        }
-        var user = firebase.auth().currentUser;
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                window.history.back();
-            } else {
-                nmodal()
-            }
-        });
-
-        function nmodal() {
-            $('#loginModal').modal();
-        }
-        $('#loginModal').modal({
-            backdrop: 'static',
-            keyboard: false
-        })
-        nmodal()
-    </script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
