@@ -114,6 +114,8 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
+        } else {
+            document.getElementById('phone').value = "+880";
         }
         if (namex != null) {
             document.getElementById('name').value = namex;
