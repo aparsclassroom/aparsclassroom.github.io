@@ -37,15 +37,6 @@
                 var name = user.displayName;
                 var mail = user.email;
                 var num = user.phoneNumber;
-                if (name != null) {
-                    document.getElementById('name').innerText = "Student Name : " + name;
-                }
-                if (mail != null) {
-                    document.getElementById('email').innerText = "Email Address : " + mail;
-                }
-                if (num != null) {
-                    document.getElementById('num').innerText = "Phone Number : " + num;
-                }
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -68,6 +59,21 @@
                             document.getElementById('title').innerHTML = "Payment History";
                             document.getElementById('HSC').innerText = "Batch : " + data[0].HSC;
                             document.getElementById('College').innerText = "College : " + data[0].College;
+                            if (name != null) {
+                                document.getElementById('name').innerText = "Student Name : " + data[0].CustomerName;
+                            } else {
+                                document.getElementById('name').innerText = "Student Name : " + name;
+                            }
+                            if (mail === null) {
+                                document.getElementById('email').innerText = "Email Address : " + data[0].value_b;
+                            } else {
+                                document.getElementById('email').innerText = "Email Address : " + mail;
+                            }
+                            if (num === null) {
+                                document.getElementById('num').innerText = "Phone Number : " + data[0].value_c;
+                            } else {
+                                document.getElementById('num').innerText = "Phone Number : " + num;
+                            }
                             data.forEach((element, idx) => {
                                 idx++
                                 const content = `
