@@ -111,17 +111,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
-        if (t && t != "") {
-            document.getElementById('phone').value = t
-            document.getElementById('phone').readonly = true;
+        if (t != null) {
+            document.getElementById('phone').value = t;
+            document.getElementById('phone').setAttribute("readonly");
         }
-        if (namex && namex != "") {
-            document.getElementById('name').value = t
-            document.getElementById('name').readonly = true;
+        if (namex != null) {
+            document.getElementById('name').value = namex;
+            document.getElementById('name').setAttribute("readonly");
         }
-        if (mail && mail != "") {
-            document.getElementById('email').value = t
-            document.getElementById('email').readonly = true;
+        if (mail != null) {
+            document.getElementById('email').value = mail
+            document.getElementById('email').setAttribute("readonly");
         }
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
     } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
