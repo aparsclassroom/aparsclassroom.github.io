@@ -40,9 +40,8 @@ function getToday() {
         var name = wrds[i].name;
         url = wrds[i].url;
         sl = wrds[i].sl;
-        time = wrds[i].time;
         wrdsResults.innerHTML += '<div class="card text-center">' +
-            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p> <span class="bangla"> সময় : ' + time + '</span> </a></div>';
+            '<a class="bklink" href="' + url + '"><h3 class="bangla">' + name + '</h3> <p class="bangla"> Id : ' + sl + '</p></div>';
     }
 
 }
