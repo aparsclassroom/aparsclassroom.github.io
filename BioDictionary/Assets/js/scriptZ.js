@@ -89,7 +89,7 @@
                         </nav>
                             `;
                             document.getElementById('moda').innerHTML = `    <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title">Bookmarks</h4>
