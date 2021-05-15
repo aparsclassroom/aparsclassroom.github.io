@@ -1,12 +1,6 @@
 var eye = document.getElementById("eye");
 var m = document.getElementById('email');
 var p = document.getElementById('password');
-const tr = localStorage.getItem('BioTranx');
-const ml = localStorage.getItem('BioMail');
-if (tr != null) {
-    p.value = tr;
-    m.value = ml;
-}
 
 function show() {
     p.setAttribute('type', 'text');
