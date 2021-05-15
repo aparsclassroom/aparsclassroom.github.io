@@ -66,8 +66,8 @@
                         if (loadedData.code === 200) {
                             var data = loadedData.data;
                             document.getElementById('title').innerHTML = "Payment History";
-                            document.getElementById('HSC').innerText = data[0].hsc;
-                            document.getElementById('Collge').innerText = data[0].college;
+                            document.getElementById('HSC').innerText = data[0].HSC;
+                            document.getElementById('Collge').innerText = data[0].College;
                             data.forEach((element, idx) => {
                                 idx++
                                 const content = `
