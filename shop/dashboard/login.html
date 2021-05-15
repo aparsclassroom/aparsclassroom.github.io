@@ -112,7 +112,7 @@
         var user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                window.location.replace("./");
+                window.location.replace("../");
             } else {
                 nmodal()
             }
