@@ -70,10 +70,10 @@
                 fetch("https://script.google.com/macros/s/AKfycbyPQDAJHLUFYtmDmm4opWYhYN9pgPrVm8yyyNUpqfUBg21TnjAy3tnsFDqwn5Bl8L41Bg/exec?q=stat&uid=" + loadedData.data.phone + "&product=" + product)
                     .then(response => {
                         return response.json()
-                    }).then(result => {
-                        if (result.code === 200) {
+                    }).then(resp => {
+                        if (resp.code === 200) {
                             swal({
-                                title: result.message,
+                                title: resp.message,
                                 icon: "warning",
                                 button: "View Informations"
                             }).then(() => {
