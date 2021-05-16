@@ -55,8 +55,6 @@
     var search = document.getElementById('search');
     var searchBtn = document.getElementById('searchBtn');
     var result = document.getElementById('result');
-    const tr = localStorage.getItem('BioTranx');
-    search.value = tr;
     searchBtn.addEventListener('click', () => {
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
         fetch('https://script.google.com/macros/s/AKfycbz7qQhd5CdsI8bBjtaeY4USxhcS5oLmTaIJYEHcF9vJrOGYhfaa3-SlgApR2o0nY4Tr7Q/exec?id=' + search.value)
