@@ -1,0 +1,29 @@
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 450px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.images {
+    margin-top: 50px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+p {
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
