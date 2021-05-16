@@ -86,35 +86,37 @@
                                     button: "Start Payment"
                                 })
                                 .then(() => {
+
                                     var myHeaders = new Headers();
-                                    myHeaders.append("Content-Type", "application/json");
-                                    var raw = JSON.stringify({
-                                        "cus_name": loadedData.data.Name,
-                                        "email": loadedData.data.Email,
-                                        "college": loadedData.data.College,
-                                        "phone": loadedData.data.phone,
-                                        "ranking": loadedData.data.Ranking
-                                    });
+                                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                    var urlencoded = new URLSearchParams();
+                                    urlencoded.append("cus_name", loadedData.data.Name);
+                                    urlencoded.append("email", loadedData.data.Email);
+                                    urlencoded.append("phone", loadedData.data.College);
+                                    urlencoded.append("college", loadedData.data.phone);
+                                    urlencoded.append("ranking", loadedData.data.Ranking);
+
                                     var requestOptions = {
                                         method: 'POST',
                                         headers: myHeaders,
-                                        body: raw,
+                                        body: urlencoded,
                                         redirect: 'follow'
                                     };
-                                    fetch(purl, requestOptions).then(response => {
-                                        return response.json()
-                                    }).then(result => {
-                                        location.href = result
-                                    }).catch(() => {
-                                        swal({
-                                            title: "Error",
-                                            icon: "error",
-                                            text: "Server Busy 😶\nPlease Try Again later",
-                                            button: "Ok"
-                                        }).then(() => {
-                                            location.reload()
-                                        })
-                                    });
+
+                                    fetch("https://asg-shop.herokuapp.com/112/init", requestOptions)
+                                        .then(response => response.text())
+                                        .then(result => location.href = result)
+                                        .catch(() => {
+                                            swal({
+                                                title: "Error",
+                                                icon: "error",
+                                                text: "Server Busy 😶\nPlease Try Again later",
+                                                button: "Ok"
+                                            }).then(() => {
+                                                location.reload()
+                                            })
+                                        });
                                 })
                         }
                     }).catch(() => {
