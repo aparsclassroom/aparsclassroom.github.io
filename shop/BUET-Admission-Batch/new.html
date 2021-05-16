@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUET Admission Batch'21</title>
+    <title>Apar-Chinmoy Admission Program</title>
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
@@ -38,7 +38,7 @@
 
 <body>
     <div class="container">
-        <h2>BUET Admission Batch'21</h2>
+        <h2>Apar-Chinmoy Admission Program</h2>
         <div class="input-group">
             <input type="search" class="form-control" id="search" placeholder="Phone Number">
             <div class="input-group-append">
@@ -86,7 +86,7 @@
                     Paid Amount : ${data.currency_amount} ৳ <br>
                     Username : ${data.CustomerName}<br>
                     <br>
-                    Joining ID : ${data.tran_id}<br>
+                    <strong>Joining ID : ${data.tran_id}</strong>
                     
                     <br>
                     Email : ${data.value_b}<br>
@@ -152,23 +152,29 @@
                         icon: "warning",
                         button: "OK"
                     }).then(() => {
-                        var data = resp.data;
-                        result.innerHTML = `
+                        fetch("https://script.google.com/macros/s/AKfycbyPQDAJHLUFYtmDmm4opWYhYN9pgPrVm8yyyNUpqfUBg21TnjAy3tnsFDqwn5Bl8L41Bg/exec?q=stat&uid=" + loadedData.data.phone + "&product=" + product)
+                            .then(response => {
+                                return response.json()
+                            }).then(resp => {
+
+                                var data = resp.data;
+                                result.innerHTML = `
                     <h3>Purchase Information</h3>
-                    Invoice : ${data.Invoice}<br>
-                    Product : ${data.ProductName}<br>
+                    Invoice No. : ${data.Invoice}<br>
+                    Course Name : ${data.ProductName}<br>
                     <br>
                     Paid Amount : ${data.currency_amount} ৳ <br>
                     Username : ${data.CustomerName}<br>
                     <br>
-                    Joining ID : ${data.tran_id}<br>
+                    <strong>Joining ID : ${data.tran_id}</strong><br>
                     
                     <br>
                     Email : ${data.value_b}<br>
                     Phone No. ${data.value_c}<br>
                     Timestamp : ${data.Timestamp}<br><br>
-                    Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                    App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     `;
+                            })
                     })
                 }
 
@@ -177,7 +183,7 @@
                 swal({
                     title: "Oh no..",
                     icon: "error",
-                    text: "You are not eligible for this course 😥",
+                    text: "তোমার নাম আমাদের কোর্সে পাওয়া যায়নি! 😥<br>নিচের বাটনে ক্লিক করে এক্সাম দিয়ে কোর্সে এনরোল করে ফেলো 😍",
                     button: "Start Exam"
                 }).then(() => {
                     return location.replace('https://rebrand.ly/PhyAdmission');
