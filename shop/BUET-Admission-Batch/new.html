@@ -66,19 +66,19 @@
                 return res.json()
             })
             .then((loadedData) => {
-
-                fetch("https://script.google.com/macros/s/AKfycbyPQDAJHLUFYtmDmm4opWYhYN9pgPrVm8yyyNUpqfUBg21TnjAy3tnsFDqwn5Bl8L41Bg/exec?q=stat&uid=" + loadedData.data.phone + "&product=" + product)
-                    .then(response => {
-                        return response.json()
-                    }).then(resp => {
-                        if (resp.code === 200) {
-                            swal({
-                                title: resp.message,
-                                icon: "warning",
-                                button: "View Informations"
-                            }).then(() => {
-                                var data = result.data;
-                                result.innerHTML = `
+                if (loadedData.data.Status != "enrolled") {
+                    fetch("https://script.google.com/macros/s/AKfycbyPQDAJHLUFYtmDmm4opWYhYN9pgPrVm8yyyNUpqfUBg21TnjAy3tnsFDqwn5Bl8L41Bg/exec?q=stat&uid=" + loadedData.data.phone + "&product=" + product)
+                        .then(response => {
+                            return response.json()
+                        }).then(resp => {
+                            if (resp.code === 200) {
+                                swal({
+                                    title: resp.message,
+                                    icon: "warning",
+                                    button: "View Informations"
+                                }).then(() => {
+                                    var data = result.data;
+                                    result.innerHTML = `
                     <h3>Purchase Information</h3>
                     Invoice : ${data.Invoice}<br>
                     Product : ${data.ProductName}<br>
@@ -93,58 +93,67 @@
                     Timestamp : ${data.Timestamp}<br><br>
                     App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     `;
-                            })
-                        } else {
+                                })
+                            } else {
+                                swal({
+                                        title: "Congratulations !!!",
+                                        icon: "success",
+                                        text: "You have been Qualified for this special admission Course",
+                                        button: "Start Payment"
+                                    })
+                                    .then(() => {
+
+                                        var myHeaders = new Headers();
+                                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                        var urlencoded = new URLSearchParams();
+                                        urlencoded.append("cus_name", loadedData.data.Name);
+                                        urlencoded.append("email", loadedData.data.Email);
+                                        urlencoded.append("phone", loadedData.data.phone);
+                                        urlencoded.append("college", loadedData.data.College);
+                                        urlencoded.append("ranking", loadedData.data.Ranking);
+
+                                        var requestOptions = {
+                                            method: 'POST',
+                                            headers: myHeaders,
+                                            body: urlencoded,
+                                            redirect: 'follow'
+                                        };
+
+                                        fetch("https://asg-shop.herokuapp.com/112/init", requestOptions)
+                                            .then(response => response.text())
+                                            .then(result => location.href = result)
+                                            .catch(() => {
+                                                swal({
+                                                    title: "Error",
+                                                    icon: "error",
+                                                    text: "Server Busy 😶\nPlease Try Again later",
+                                                    button: "Ok"
+                                                }).then(() => {
+                                                    location.reload()
+                                                })
+                                            });
+                                    })
+                            }
+                        }).catch(() => {
                             swal({
-                                    title: "Congratulations !!!",
-                                    icon: "success",
-                                    text: "You have been Qualified for this special admission Course",
-                                    button: "Start Payment"
-                                })
-                                .then(() => {
-
-                                    var myHeaders = new Headers();
-                                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-                                    var urlencoded = new URLSearchParams();
-                                    urlencoded.append("cus_name", loadedData.data.Name);
-                                    urlencoded.append("email", loadedData.data.Email);
-                                    urlencoded.append("phone", loadedData.data.phone);
-                                    urlencoded.append("college", loadedData.data.College);
-                                    urlencoded.append("ranking", loadedData.data.Ranking);
-
-                                    var requestOptions = {
-                                        method: 'POST',
-                                        headers: myHeaders,
-                                        body: urlencoded,
-                                        redirect: 'follow'
-                                    };
-
-                                    fetch("https://asg-shop.herokuapp.com/112/init", requestOptions)
-                                        .then(response => response.text())
-                                        .then(result => location.href = result)
-                                        .catch(() => {
-                                            swal({
-                                                title: "Error",
-                                                icon: "error",
-                                                text: "Server Busy 😶\nPlease Try Again later",
-                                                button: "Ok"
-                                            }).then(() => {
-                                                location.reload()
-                                            })
-                                        });
-                                })
-                        }
-                    }).catch(() => {
-                        swal({
-                            title: "Error",
-                            icon: "error",
-                            text: "Server Busy 😶\nPlease Try Again later",
-                            button: "Ok"
-                        }).then(() => {
-                            return location.reload()
+                                title: "Error",
+                                icon: "error",
+                                text: "Server Busy 😶\nPlease Try Again later",
+                                button: "Ok"
+                            }).then(() => {
+                                return location.reload()
+                            })
                         })
+                } else {
+                    swal({
+                        title: "Already Enrolled !",
+                        icon: "warning",
+                        button: "OK"
+                    }).then(() => {
+                        return location.reload()
                     })
+                }
 
             })
             .catch(() => {
