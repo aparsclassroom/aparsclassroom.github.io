@@ -53,7 +53,7 @@
 </body>
 <script>
     const product = "BUET Admission Batch'21";
-    const purl = "https://asg-shop.herokuapp.com/112/init"
+    const purl = "https://asg-shop.herokuapp.com/112/init";
     var search = document.getElementById('search');
     var searchBtn = document.getElementById('searchBtn');
     var result = document.getElementById('result');
@@ -65,19 +65,7 @@
             })
             .then((loadedData) => {
 
-                var myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/json");
-                var raw = JSON.stringify({
-                    "product": product,
-                    'phone': loadedData.data.phone
-                })
-                var requestOptions = {
-                    method: 'POST',
-                    headers: myHeaders,
-                    body: raw,
-                    redirect: 'follow'
-                };
-                fetch("https:asg-shop.herokuapp.com/purchase", requestOptions)
+                fetch("https://script.google.com/macros/s/AKfycbyPQDAJHLUFYtmDmm4opWYhYN9pgPrVm8yyyNUpqfUBg21TnjAy3tnsFDqwn5Bl8L41Bg/exec?q=stat&uid=" + loadedData.data.phone + "&product=" + product)
                     .then(response => {
                         return response.json()
                     }).then(result => {
@@ -93,11 +81,11 @@
                             var myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/json");
                             var raw = JSON.stringify({
-                                "cus_name": loadedData.data.name,
-                                "email": loadedData.data.email,
-                                "college": loadedData.data.college,
+                                "cus_name": loadedData.data.Name,
+                                "email": loadedData.data.Email,
+                                "college": loadedData.data.College,
                                 "phone": loadedData.data.phone,
-                                "ranking": loadedData.data.ranking
+                                "ranking": loadedData.data.Ranking
                             });
                             var requestOptions = {
                                 method: 'POST',
