@@ -10,6 +10,7 @@
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="../assets/minimal.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
@@ -72,49 +73,70 @@
                         if (result.code === 200) {
                             swal({
                                 title: result.message,
-                                icon: "success",
+                                icon: "warning",
                                 button: "View Informations"
                             }).then(() => {
                                 return location.replace("./purchased.html")
                             })
                         } else {
-                            var myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/json");
-                            var raw = JSON.stringify({
-                                "cus_name": loadedData.data.Name,
-                                "email": loadedData.data.Email,
-                                "college": loadedData.data.College,
-                                "phone": loadedData.data.phone,
-                                "ranking": loadedData.data.Ranking
-                            });
-                            var requestOptions = {
-                                method: 'POST',
-                                headers: myHeaders,
-                                body: raw,
-                                redirect: 'follow'
-                            };
-                            fetch(purl, requestOptions).then(response => {
-                                return response.json()
-                            }).then(result => {
-                                location.href = result
-                            }).catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: "Server Busy 😶\nPlease Try Again later",
-                                    button: "Ok"
+                            swal({
+                                    title: "Congratulations !!!",
+                                    icon: "success",
+                                    text: "You have been Qualified for this special admission Course",
+                                    button: "Start Payment"
                                 })
-                            });
-
-
+                                .then(() => {
+                                    var myHeaders = new Headers();
+                                    myHeaders.append("Content-Type", "application/json");
+                                    var raw = JSON.stringify({
+                                        "cus_name": loadedData.data.Name,
+                                        "email": loadedData.data.Email,
+                                        "college": loadedData.data.College,
+                                        "phone": loadedData.data.phone,
+                                        "ranking": loadedData.data.Ranking
+                                    });
+                                    var requestOptions = {
+                                        method: 'POST',
+                                        headers: myHeaders,
+                                        body: raw,
+                                        redirect: 'follow'
+                                    };
+                                    fetch(purl, requestOptions).then(response => {
+                                        return response.json()
+                                    }).then(result => {
+                                        location.href = result
+                                    }).catch(() => {
+                                        swal({
+                                            title: "Error",
+                                            icon: "error",
+                                            text: "Server Busy 😶\nPlease Try Again later",
+                                            button: "Ok"
+                                        }).then(() => {
+                                            location.reload()
+                                        })
+                                    });
+                                })
                         }
-                    }).catch((e) => {
-                        console.log(e)
+                    }).catch(() => {
+                        swal({
+                            title: "Error",
+                            icon: "error",
+                            text: "Server Busy 😶\nPlease Try Again later",
+                            button: "Ok"
+                        }).then(() => {
+                            location.reload()
+                        })
                     })
 
             })
-            .catch((err) => {
-                console.log(err)
+            .catch(() => {
+                swal({
+                    title: "Oh no..",
+                    icon: "error",
+                    text: "You are not eligible for this course 😥",
+                    button: "Ok"
+                })
+
             })
 
     })
