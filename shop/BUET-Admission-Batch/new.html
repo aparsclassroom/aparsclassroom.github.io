@@ -61,7 +61,7 @@
     var result = document.getElementById('result');
     searchBtn.addEventListener('click', () => {
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch('https://script.google.com/macros/s/AKfycbxJzjaPmWtGGz5DsxQs2wgTaETLRpN3xvUIvhmg746VQ4j_5qKUCju9RsxW54M6QzFIKQ/exec?phone=' + search.value.trim())
+        fetch('https://script.google.com/macros/s/AKfycbwvF8jbq4w7f9smhmISRNgGsm94YUeibeXEYd9zDiuYYPrNHZ28_SHw_jh9xbmJ4Z7QyQ/exec?phone=' + search.value.trim())
             .then((res) => {
                 return res.json()
             })
@@ -82,14 +82,15 @@
                     <h3>Purchase Information</h3>
                     Invoice : ${data.Invoice}<br>
                     Product : ${data.ProductName}<br>
-                    Discount Cupon : ${data.DiscountCupon}<br>
+                    <br>
                     Paid Amount : ${data.currency_amount} ৳ <br>
                     Username : ${data.CustomerName}<br>
-                    Transaction Id : ${data.tran_id}<br>
+                    <br>
+                    Joining ID : ${data.tran_id}<br>
+                    
+                    <br>
                     Email : ${data.value_b}<br>
                     Phone No. ${data.value_c}<br>
-                    College : ${data.College}<br>
-                    HSC : ${data.HSC}<br>
                     Timestamp : ${data.Timestamp}<br><br>
                     App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     `;
@@ -110,7 +111,7 @@
                                         urlencoded.append("cus_name", loadedData.data.Name);
                                         urlencoded.append("email", loadedData.data.Email);
                                         urlencoded.append("phone", loadedData.data.phone);
-                                        urlencoded.append("college", loadedData.data.College);
+                                        urlencoded.append("fb", loadedData.data.facebook);
                                         urlencoded.append("ranking", loadedData.data.Ranking);
 
                                         var requestOptions = {
@@ -151,7 +152,23 @@
                         icon: "warning",
                         button: "OK"
                     }).then(() => {
-                        return location.reload()
+                        var data = resp.data;
+                        result.innerHTML = `
+                    <h3>Purchase Information</h3>
+                    Invoice : ${data.Invoice}<br>
+                    Product : ${data.ProductName}<br>
+                    <br>
+                    Paid Amount : ${data.currency_amount} ৳ <br>
+                    Username : ${data.CustomerName}<br>
+                    <br>
+                    Joining ID : ${data.tran_id}<br>
+                    
+                    <br>
+                    Email : ${data.value_b}<br>
+                    Phone No. ${data.value_c}<br>
+                    Timestamp : ${data.Timestamp}<br><br>
+                    App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                    `;
                     })
                 }
 
@@ -161,9 +178,9 @@
                     title: "Oh no..",
                     icon: "error",
                     text: "You are not eligible for this course 😥",
-                    button: "Ok"
+                    button: "Start Exam"
                 }).then(() => {
-                    return location.reload()
+                    return location.replace('https://rebrand.ly/PhyAdmission');
                 })
             })
 
