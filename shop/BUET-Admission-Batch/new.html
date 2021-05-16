@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUET Admission Batch'21</title>
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
+    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="../assets/minimal.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 450px;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .images {
+            margin-top: 50px;
+            max-height: 200px;
+            max-width: 100%;
+        }
+        
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>BUET Admission Batch'21</h2>
+        <div class="input-group">
+            <input type="search" class="form-control" id="search" placeholder="Phone Number">
+            <div class="input-group-append">
+                <button id="searchBtn" class="btn btn-dark">Get Information</button>
+            </div>
+        </div>
+        <div id="result">
+            <img src="https://img.icons8.com/metro/452/search.png" alt="Search Here" class="images rounded mx-auto d-block">
+            <br>
+            <p>Enter your Phone Number. Use this Format "018XXXXXXXXX" 📑</p>
+        </div>
+    </div>
+</body>
+<script>
+    const product = "BUET Admission Batch'21";
+    const purl = "https://asg-shop.herokuapp.com/112/init"
+    var search = document.getElementById('search');
+    var searchBtn = document.getElementById('searchBtn');
+    var result = document.getElementById('result');
+    searchBtn.addEventListener('click', () => {
+        result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
+        fetch('https://script.google.com/macros/s/AKfycbxJzjaPmWtGGz5DsxQs2wgTaETLRpN3xvUIvhmg746VQ4j_5qKUCju9RsxW54M6QzFIKQ/exec?phone=' + search.value.trim())
+            .then((res) => {
+                return res.json()
+            })
+            .then((loadedData) => {
+
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+                var raw = JSON.stringify({
+                    "product": product,
+                    'phone': loadedData.data.phone
+                })
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+                fetch("https:asg-shop.herokuapp.com/purchase", requestOptions)
+                    .then(response => {
+                        return response.json()
+                    }).then(result => {
+                        if (result.code === 200) {
+                            swal({
+                                title: result.message,
+                                icon: "success",
+                                button: "View Informations"
+                            }).then(() => {
+                                return location.replace("./purchased")
+                            })
+                        } else {
+                            var myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/json");
+                            var raw = JSON.stringify({
+                                "cus_name": loadedData.data.name,
+                                "email": loadedData.data.email,
+                                "college": loadedData.data.college,
+                                "phone": loadedData.data.phone,
+                                "ranking": loadedData.data.ranking
+                            });
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: raw,
+                                redirect: 'follow'
+                            };
+                            fetch(purl, requestOptions).then(response => {
+                                return response.json()
+                            }).then(result => {
+                                location.href = result
+                            }).catch(() => {
+                                swal({
+                                    title: "Error",
+                                    icon: "error",
+                                    text: "Server Busy 😶\nPlease Try Again later",
+                                    button: "Ok"
+                                })
+                            });
+
+
+                        }
+                    }).catch((e) => {
+                        console.log(e)
+                    })
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    })
+</script>
+
+</html>
