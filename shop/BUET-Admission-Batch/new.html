@@ -76,7 +76,22 @@
                                 icon: "warning",
                                 button: "View Informations"
                             }).then(() => {
-                                return location.replace("./purchased.html")
+                                var data = result.data;
+                                result.innerHTML = `
+                    <h3>Purchase Information</h3>
+                    Invoice : ${data.Invoice}<br>
+                    Product : ${data.ProductName}<br>
+                    Discount Cupon : ${data.DiscountCupon}<br>
+                    Paid Amount : ${data.currency_amount} ৳ <br>
+                    Username : ${data.CustomerName}<br>
+                    Transaction Id : ${data.tran_id}<br>
+                    Email : ${data.value_b}<br>
+                    Phone No. ${data.value_c}<br>
+                    College : ${data.College}<br>
+                    HSC : ${data.HSC}<br>
+                    Timestamp : ${data.Timestamp}<br><br>
+                    App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                    `;
                             })
                         } else {
                             swal({
@@ -93,8 +108,8 @@
                                     var urlencoded = new URLSearchParams();
                                     urlencoded.append("cus_name", loadedData.data.Name);
                                     urlencoded.append("email", loadedData.data.Email);
-                                    urlencoded.append("phone", loadedData.data.College);
-                                    urlencoded.append("college", loadedData.data.phone);
+                                    urlencoded.append("phone", loadedData.data.phone);
+                                    urlencoded.append("college", loadedData.data.College);
                                     urlencoded.append("ranking", loadedData.data.Ranking);
 
                                     var requestOptions = {
