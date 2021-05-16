@@ -124,7 +124,7 @@
                             text: "Server Busy 😶\nPlease Try Again later",
                             button: "Ok"
                         }).then(() => {
-                            location.reload()
+                            return location.reload()
                         })
                     })
 
@@ -135,8 +135,9 @@
                     icon: "error",
                     text: "You are not eligible for this course 😥",
                     button: "Ok"
+                }).then(() => {
+                    return location.reload()
                 })
-
             })
 
     })
