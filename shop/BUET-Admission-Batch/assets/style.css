@@ -22,6 +22,10 @@ h2 {
     max-width: 100%;
 }
 
+.roun {
+    border-radius: 50%;
+}
+
 p {
     text-align: center;
 }
