@@ -21,13 +21,13 @@
     <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Apar-Chinmoy Admission Program">
-    <meta name="theme-color" content="#57ff00">
+    <meta name="theme-color" content="#13f97e">
 
     <!-- iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Apar-Chinmoy Admission Program">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#57ff00">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#13f97e">
 
     <!-- Site Icon -->
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="./assets/style.css">
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" defer></script>
     <script src="./assets/ss.min.js" defer></script>
@@ -67,14 +67,14 @@
         </div>
         <hr><br>
         <div class="input-group">
-            <input type="number" class="form-control" id="search" placeholder="Phone Number">
+            <input type="tel" class="form-control" id="search" placeholder="Phone Number">
             <div class="input-group-append">
                 <button id="searchBtn" class="btn btn-dark">Get Information</button>
             </div>
         </div>
         <div id="met">
             <br>
-            <p><strong>উপরের বক্সে তোমার মোবাইল নম্বর দিয়ে Get Information বাটনে ক্লিক করো এবং পেমেন্ট অপশনে যাও।</strong><br><span class="text-danger"> Format "018XXXXXXXXX" 📑</span></p>
+            <p><strong>উপরের বক্সে তোমার মোবাইল নম্বর দিয়ে Get Information বাটনে ক্লিক করো এবং পেমেন্ট অপশনে যাও।</strong><br><span class="text-success" style="font-weight:bold">Correct Format : 018XXXXXXXXX ✔</span><br><span class="text-danger">Wrong Format : +88018XXXXXXXXX ❌</span></p>
             <!-- <img src="https://img.icons8.com/metro/452/search.png" alt="Search Here" class="images rounded mx-auto d-block">-->
         </div>
     </div>
