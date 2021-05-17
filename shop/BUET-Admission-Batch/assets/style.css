@@ -1,3 +1,11 @@
+.blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
 .container {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -16,4 +24,8 @@ h2 {
 
 p {
     text-align: center;
+}
+
+#search {
+    background-color: transparent;
 }
