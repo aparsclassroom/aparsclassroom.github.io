@@ -30,6 +30,7 @@ function initApp() {
                             document.getElementById('uid').value = user.uid;
                             document.getElementById('cash').placeholder = "Maximum : " + data.Remaning_in_Wallet;
                             document.getElementById('lmt').innerText = data.Remaning_in_Wallet;
+                            document.getElementById('cash').setAttribute("max", data.Remaning_in_Wallet);
                             Bkash.value = data.Bkash;
                             if (data.Nagad != "") {
                                 Nagad.value = data.Nagad;
