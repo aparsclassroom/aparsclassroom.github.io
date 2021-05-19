@@ -39,9 +39,11 @@ function initApp() {
                         document.getElementById('uid').value = user.uid;
                         document.getElementById('notify').innerText = loadedData.Comment;
                         document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
-                        // document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
-                        // document.getElementById('totalEarning').innerText = loadedData.Total_Income;
+                        document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
+                        document.getElementById('totalEarning').innerText = loadedData.Total_Income;
                         document.getElementById('ttsell').innerText = loadedData.Total_Sell;
+                        document.getElementById('totalVerify').innerText = loadedData.Verified_Direct_Income + loadedData.Total_Passive_Income + " ৳";
+                        document.getElementById('totalPending').innerText = loadedData.Pending_Direct_Income + loadedData.Total_Pending_Pasive_Income + " ৳";
                         college.value = loadedData.College_University;
                         document.getElementById('Mobile').value = loadedData.Mobile;
                         Bkash.value = loadedData.Bkash;
@@ -72,7 +74,7 @@ function initApp() {
                             console.error('Trigger:', e.trigger);
                         });
                         updateBtn.addEventListener('click', () => {
-                            blackDashboard.showSidebarMessage("Updated !");
+                            updateBtn.innerText = "Updated !";
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
                             document.getElementById('desc').innerHTML = ss;
@@ -84,12 +86,75 @@ function initApp() {
                                 updateBtn.innerText = "Can't Update 😶";
                             })
                         })
+                        var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: label,
+                                datasets: [{
+                                    label: 'Pending Earnings',
+                                    data: [loadedData.Pending_Direct_Income, loadedData.Pending_Passive_Income, loadedData.Pending_Passive_Square_Income],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(238, 133, 171, 1)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(238, 133, 171, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                        var ctx = document.getElementById('myChart2').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: label,
+                                datasets: [{
+                                    label: 'Verified Earnings',
+                                    data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income, loadedData.Verified_Passive_Square_Income],
+                                    backgroundColor: [
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 227, 171, 1)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 227, 171, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                         return location.replace("../index.html");
                     }
                 }).catch((err => {
-                    blackDashboard.showSidebarMessage(err);
+                    console.log(err);
                 }))
             }
         } else {
