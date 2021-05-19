@@ -28,9 +28,9 @@ function initApp() {
                             document.getElementById('email').value = user.email;
                             Mobile.value = data.Mobile;
                             document.getElementById('uid').value = user.uid;
-                            document.getElementById('cash').placeholder = "Maximum : " + data.Remaning_in_Wallet;
+                            document.getElementById('cash').value = "Maximum : " + data.Remaning_in_Wallet;
                             document.getElementById('lmt').innerText = data.Remaning_in_Wallet;
-                            document.getElementById('cash').setAttribute("max", data.Remaning_in_Wallet);
+                            document.getElementById('cash').readonly = true;
                             Bkash.value = data.Bkash;
                             if (data.Nagad != "") {
                                 Nagad.value = data.Nagad;
