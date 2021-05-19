@@ -12,7 +12,7 @@ searchBtn.addEventListener('click', () => {
         })
         .then((loadedData) => {
             if (loadedData.data.Status != "enrolled") {
-                fetch("https://script.google.com/macros/s/AKfycbz9tegRw4NaADs3wxFSSmVdHEW5EJ35R9PDrv4DWYGcqtQxM8UV0KPfd3nWrZNcAWBCeQ/exec?phone=" + loadedData.data.phone + "&Rank=" + loadedData.data.Ranking)
+                fetch("https://script.google.com/macros/s/AKfycbx8SdZ0cNTKMN7VQN4rbz4sK6aTgCJlt3tsNi0Vm3Dq3GGB9wKlInFY9fzgLn4olkcY2A/exec?phone=" + loadedData.data.phone + "&Rank=" + loadedData.data.Ranking)
                     .then(response => {
                         return response.json()
                     }).then(resp => {
@@ -96,7 +96,7 @@ searchBtn.addEventListener('click', () => {
                                     redirect: 'follow'
                                 };
 
-                                fetch("https://script.google.com/macros/s/AKfycbz9tegRw4NaADs3wxFSSmVdHEW5EJ35R9PDrv4DWYGcqtQxM8UV0KPfd3nWrZNcAWBCeQ/exec", requestOptions)
+                                fetch("https://script.google.com/macros/s/AKfycbx8SdZ0cNTKMN7VQN4rbz4sK6aTgCJlt3tsNi0Vm3Dq3GGB9wKlInFY9fzgLn4olkcY2A/exec", requestOptions)
                                     .then(response => response.json())
                                     .then(result => {
                                         swal({
@@ -128,7 +128,7 @@ searchBtn.addEventListener('click', () => {
                     icon: "info",
                     button: "OK"
                 }).then(() => {
-                    fetch("https://script.google.com/macros/s/AKfycbz9tegRw4NaADs3wxFSSmVdHEW5EJ35R9PDrv4DWYGcqtQxM8UV0KPfd3nWrZNcAWBCeQ/exec?phone=" + loadedData.data.phone + "&Rank=" + loadedData.data.Ranking)
+                    fetch("https://script.google.com/macros/s/AKfycbx8SdZ0cNTKMN7VQN4rbz4sK6aTgCJlt3tsNi0Vm3Dq3GGB9wKlInFY9fzgLn4olkcY2A/exec?phone=" + loadedData.data.phone + "&Rank=" + loadedData.data.Ranking)
                         .then(response => {
                             return response.json()
                         }).then(resp => {
