@@ -21,41 +21,42 @@ function initApp() {
                 location.replace("../index.html");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbyuNPvS8KpkFFPTBUUU0hGZdgbPDM51MhLip3EuIb-IcI_6C0DkAiiT_tL1om-hATi1qA/exec';
-                fetch(script + "?uid=" + user.uid).then((res) => {
+                const script = 'https://script.google.com/macros/s/AKfycbzTFLX8iAMQD4L4GRprwUY5xNN2Q99SU-l5bPITtR0HDUIAyYPqUfrH-tpL2d6JplfAiA/exec';
+                fetch(script + "?q=profile&uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
-                        document.getElementById('desc').innerHTML = loadedData.Status;
-                        document.getElementById('bio').innerText = loadedData.Status;
+                        let data = loadedData.data;
+                        document.getElementById('desc').innerHTML = data.Status;
+                        document.getElementById('bio').innerText = data.Status;
                         if (user.photoURL != null) {
                             document.getElementById('avatar').src = user.photoURL;
                             document.getElementById('profile').src = user.photoURL;
                         }
-                        document.getElementById('con').innerText = loadedData.Controler_Name;
-                        document.getElementById('cont').href = "tel:" + loadedData.Controler_Info;
-                        document.getElementById('Username').value = loadedData.Name;
+                        document.getElementById('con').innerText = data.Controler_Name;
+                        document.getElementById('cont').href = "tel:" + data.Controler_Info;
+                        document.getElementById('Username').value = data.Name;
                         document.getElementById('email').value = user.email;
                         document.getElementById('uid').value = user.uid;
-                        document.getElementById('notify').innerText = loadedData.Comment;
-                        document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
-                        // document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
-                        // document.getElementById('totalEarning').innerText = loadedData.Total_Income;
-                        // document.getElementById('ttsell').innerText = loadedData.Total_Sell;
-                        college.value = loadedData.College_University;
-                        document.getElementById('Mobile').value = loadedData.Mobile;
-                        Bkash.value = loadedData.Bkash;
-                        fb.value = loadedData.Facebook_Link;
-                        if (loadedData.Nagad != "") {
-                            Nagad.value = loadedData.Nagad;
+                        document.getElementById('notify').innerText = data.Comment;
+                        document.getElementById('afflink').innerText = data.Affiliation_Link;
+                        // document.getElementById('inWallet').innerText = data.Remaning_in_Wallet;
+                        // document.getElementById('totalEarning').innerText = data.Total_Income;
+                        // document.getElementById('ttsell').innerText = data.Total_Sell;
+                        college.value = data.College_University;
+                        document.getElementById('Mobile').value = data.Mobile;
+                        Bkash.value = data.Bkash;
+                        fb.value = data.Facebook_Link;
+                        if (data.Nagad != "") {
+                            Nagad.value = data.Nagad;
                         }
-                        if (loadedData.Rocket != "") {
-                            Rocket.value = loadedData.Rocket;
+                        if (data.Rocket != "") {
+                            Rocket.value = data.Rocket;
                         }
-                        document.getElementById('aff').value = loadedData.Affiliation_Token;
+                        document.getElementById('aff').value = data.Affiliation_Token;
                         document.getElementById('name').innerText = user.displayName;
                         document.getElementById('fbLink').addEventListener('click', () => {
-                            window.open(loadedData.Facebook_Link)
+                            window.open(data.Facebook_Link)
                         });
 
 
