@@ -63,7 +63,7 @@ function initApp() {
 
                         clipboard.on('success', function(e) {
                             // alert(e.text + " copied successfully!!")
-                            blackDashboard.showSidebarMessage(e.text + " copied successfully!!");
+                            blackDashboard.showSidebarMessage("Copied successfully!!");
                             e.clearSelection();
                         });
 
