@@ -19,29 +19,30 @@ function initApp() {
                     })
                     .then((dashboard) => {
                         if (dashboard.code === 200) {
-                            document.getElementById('contoller').innerText = dashboard.Controler_Name;
-                            document.getElementById('contollerInfo').innerText = dashboard.Controler_Info;
-                            document.getElementById('info').href = "tel:" + dashboard.Controler_Info;
+                            let data = dashboard.data;
+                            document.getElementById('contoller').innerText = data.Controler_Name;
+                            document.getElementById('contollerInfo').innerText = data.Controler_Info;
+                            document.getElementById('info').href = "tel:" + data.Controler_Info;
                             document.getElementById('CashOut').style.display = "block";
-                            document.getElementById('Username').value = dashboard.Name;
+                            document.getElementById('Username').value = data.Name;
                             document.getElementById('email').value = user.email;
-                            Mobile.value = dashboard.Mobile;
+                            Mobile.value = data.Mobile;
                             document.getElementById('uid').value = user.uid;
-                            document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
-                            document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
-                            Bkash.value = dashboard.Bkash;
-                            if (dashboard.Nagad != "") {
-                                Nagad.value = dashboard.Nagad;
+                            document.getElementById('cash').placeholder = "Maximum : " + data.Remaning_in_Wallet;
+                            document.getElementById('lmt').innerText = data.Remaning_in_Wallet;
+                            Bkash.value = data.Bkash;
+                            if (data.Nagad != "") {
+                                Nagad.value = data.Nagad;
                             }
-                            if (dashboard.Rocket != "") {
-                                Rocket.value = dashboard.Rocket;
+                            if (data.Rocket != "") {
+                                Rocket.value = data.Rocket;
                             }
                             $.get('https://json.geoiplookup.io/', function(res) {
                                 var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
                                 document.getElementById("ip-details").value = a;
                             });
-                            document.getElementById('aff').value = dashboard.Affiliation_Token;
-                            document.getElementById('serial').value = dashboard.Serial;
+                            document.getElementById('aff').value = data.Affiliation_Token;
+                            document.getElementById('serial').value = data.Serial;
                             const scriptURL = 'https://script.google.com/macros/s/AKfycbwYRFgEj07KNiCvhAHzaL4c02rk6IAydNU377SwcYhLi3QpdwPceGM6M8grloVHEgNI4w/exec'
                             const form = document.forms['CashOut']
 
