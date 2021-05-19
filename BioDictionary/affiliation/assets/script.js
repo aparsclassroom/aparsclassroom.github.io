@@ -41,7 +41,7 @@ function initApp() {
                         document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
                         // document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
                         // document.getElementById('totalEarning').innerText = loadedData.Total_Income;
-                        document.getElementById('ttsell').innerText = loadedData.Total_Sell;
+                        // document.getElementById('ttsell').innerText = loadedData.Total_Sell;
                         college.value = loadedData.College_University;
                         document.getElementById('Mobile').value = loadedData.Mobile;
                         Bkash.value = loadedData.Bkash;
