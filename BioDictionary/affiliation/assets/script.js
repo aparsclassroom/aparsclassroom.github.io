@@ -63,16 +63,38 @@ function initApp() {
 
                         clipboard.on('success', function(e) {
                             // alert(e.text + " copied successfully!!")
-                            blackDashboard.showSidebarMessage("Copied successfully!!");
+                            $.notify({
+                                icon: "tim-icons icon-bell-55",
+                                message: "Copied successfully!!"
+
+                            }, {
+
+                                timer: 8000,
+                                placement: {
+                                    from: "bottom",
+                                    align: "center"
+                                }
+                            });
                             e.clearSelection();
                         });
 
                         clipboard.on('error', function(e) {
-                            console.error('Action:', e.action);
-                            console.error('Trigger:', e.trigger);
+                            alert('Action:', e.action);
+                            alert('Trigger:', e.trigger);
                         });
                         updateBtn.addEventListener('click', () => {
-                            blackDashboard.showSidebarMessage("Updated !");
+                            $.notify({
+                                icon: "tim-icons icon-bell-55",
+                                message: "Updated !"
+
+                            }, {
+
+                                timer: 8000,
+                                placement: {
+                                    from: "bottom",
+                                    align: "center"
+                                }
+                            });
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
                             document.getElementById('desc').innerHTML = ss;
