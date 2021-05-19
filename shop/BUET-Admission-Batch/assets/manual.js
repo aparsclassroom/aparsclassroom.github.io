@@ -1,6 +1,6 @@
 const product = "BUET Admission Batch'21";
 const purl = "https://asg-shop.herokuapp.com/112/init";
-const appl = "https://facebook.com/aparsclassroom";
+const appl = "https://www.facebook.com/groups/aparchinmoyadmission21/";
 var search = document.getElementById('search');
 var searchBtn = document.getElementById('searchBtn');
 var result = document.getElementById('result');
