@@ -2,9 +2,6 @@ var Mobile = document.getElementById('Mobile');
 var Bkash = document.getElementById('bkash');
 var Nagad = document.getElementById('nagad');
 var Rocket = document.getElementById('rocket');
-var college = document.getElementById('College');
-var fb = document.getElementById('fb');
-var status = document.getElementById('bio');
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -32,9 +29,7 @@ function initApp() {
                             document.getElementById('uid').value = user.uid;
                             document.getElementById('cash').placeholder = "Maximum : " + dashboard.Remaning_in_Wallet;
                             document.getElementById('lmt').innerText = dashboard.Remaning_in_Wallet;
-                            college.value = dashboard.College_University;
                             Bkash.value = dashboard.Bkash;
-                            fb.value = dashboard.Facebook_Link;
                             if (dashboard.Nagad != "") {
                                 Nagad.value = dashboard.Nagad;
                             }
