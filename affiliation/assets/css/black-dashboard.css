@@ -18191,13 +18191,36 @@ textarea.form-control:active {
     }
 }
 
+input.swi {
+    display: none;
+}
 
-/*!
-Animate.css - http://daneden.me/animate
-Licensed under the MIT license - http://opensource.org/licenses/MIT
+.oa {
+    display: inline-block;
+    background-color: navy;
+    padding: 2px 2px;
+    border: 3px inset #000;
+    margin-left: 25px;
+    border-radius: 50px;
+    width: 60px;
+    height: 28px;
+    z-index: 1;
+    cursor: pointer;
+    outline: none;
+}
 
-Copyright (c) 2015 Daniel Eden
-*/
+.ob {
+    display: block;
+    position: relative;
+    float: left;
+    background-color: white;
+    padding: 1px 1px;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 18px;
+    z-index: 2;
+}
 
 .animated {
     -webkit-animation-duration: 1s;

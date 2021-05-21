@@ -10,7 +10,7 @@
         Profile | ASG Affiliation Program
     </title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link href="/affiliation/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="/affiliation/assets/css/black-dashboard.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
@@ -20,7 +20,7 @@
     <script src="../Assets/js/firebase.js"></script>
 </head>
 
-<body class="white-content">
+<body id="bioT" class="white-content">
     <div class="wrapper">
         <div class="sidebar" data="blue">
             <div class="sidebar-wrapper">
@@ -35,29 +35,46 @@
                 <ul class="nav">
                     <li>
                         <a href="../dashboard.html">
-                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <i class="tim-icons icon-double-left"></i>
                             <p>Return to BioDictionary</p>
                         </a>
                     </li>
                     <li class="active">
+                        <a href="./dashboard.html">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Analytics Dashbard</p>
+                        </a>
+                    </li>
+                    <li>
                         <a href="./profile.html">
                             <i class="tim-icons icon-single-02"></i>
                             <p>User Profile</p>
                         </a>
                     </li>
                     <li>
-                        <li>
-                            <a href="./tutorial.html">
-                                <i class="tim-icons icon-sound-wave"></i>
-                                <p>Tutorial</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./cashout.html">
-                                <i class="tim-icons"> 💰</i>
-                                <p>Cash Out</p>
-                            </a>
-                        </li>
+                        <a href="./payments.html">
+                            <i class="tim-icons icon-notes"></i>
+                            <p>Payment History</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./controller.html">
+                            <i class="fas fa-user-shield"></i>
+                            <p>Affiliation Controller</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./terms.html">
+                            <i class="fas fa-handshake"></i>
+                            <p>Affiliation Terms</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./tutorial.html">
+                            <i class="tim-icons icon-bulb-63"></i>
+                            <p>Tutorial</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -73,7 +90,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+                        <a class="navbar-brand" href="javascript:void(0)"><i class="tim-icons icon-chart-pie-36"></i> Analytics Dashboard</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -106,7 +123,12 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
                                     <li class="nav-link"><a href="./profile.html" class="nav-item dropdown-item">Profile</a></li>
-                                    <li class="nav-link"><a id="cont" class="nav-item dropdown-item"><span id="con">Controller Info</span></a></li>
+                                    <li class="nav-link"><a href="./controller.html" class="nav-item dropdown-item">Controller Info</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <input type="checkbox" id="sid" class="swi">
+                                    <div class="oa" id="oai" onclick="javascript:toggleSwitch();">
+                                        <span class="ob" id="obi"></span>
+                                    </div>
                                     <li class="dropdown-divider"></li>
                                     <li class="nav-link"><a href="javascript:logOut()" class="nav-item dropdown-item">Log out</a></li>
                                 </ul>
@@ -211,6 +233,7 @@
             </div>
         </div>
         <!--   Core JS Files   -->
+        <script src="/affiliation/assets/js/pref.js"></script>
         <script src="/affiliation/assets/js/core/jquery.min.js"></script>
         <script src="/affiliation/assets/js/core/popper.min.js"></script>
         <script src="/affiliation/assets/js/core/bootstrap.min.js"></script>

@@ -21,7 +21,7 @@ function initApp() {
                 location.replace("../index.html");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbz3HR1jUMIQP_FkLqL7XXaPg-ur8gq1k79RR5xexy7RBfOq4KHOrs6OtmRZ_MM50ymiTg/exec';
+                const script = 'https://script.google.com/macros/s/AKfycbzRjhYbSJHKVNSgmRcEj1wz3rJ-c2PFTh2q9W_R4aglX9yEJKtRGbKwBHOnwTm3e2kyvQ/exec';
                 fetch(script + "?q=profile&uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
@@ -116,7 +116,7 @@ function initApp() {
                 }))
             }
         } else {
-            location.replace("../index.html");
+            // location.replace("../index.html");
         }
     })
 }
