@@ -73,6 +73,8 @@ searchBtn.addEventListener('click', () => {
                             $('#myModal').modal('toggle');
 
                             document.getElementById('form').addEventListener('submit', (e) => {
+                                document.getElementById('purchaseBtn').disabled = true;
+                                document.getElementById('purchaseBtn').innerText = "Please Wait...";
                                 e.preventDefault()
                                 let bkash = document.getElementById('bkash');
                                 let gateway = document.getElementById('gateway');
@@ -102,7 +104,7 @@ searchBtn.addEventListener('click', () => {
                                         swal({
                                             title: result.title,
                                             icon: result.code,
-                                            text: result.message,
+                                            text: result.message + "\nCome back later and recheck your payment verification Status",
                                             button: "OK"
                                         }).then(() => {
                                             return location.reload()
