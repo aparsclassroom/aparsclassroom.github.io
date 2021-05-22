@@ -18,10 +18,10 @@ function initApp() {
             free = user.isAnonymous;
             if (free === true) {
                 alert("It is a premium feature");
-                location.replace("../index.html");
+                location.replace("../");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbzRjhYbSJHKVNSgmRcEj1wz3rJ-c2PFTh2q9W_R4aglX9yEJKtRGbKwBHOnwTm3e2kyvQ/exec';
+                const script = 'https://script.google.com/macros/s/AKfycbyVNGnb3e3HhVjpQQ0MzDMerPJPdSLrOXMt-Ky8d3jtT4Kg9ufDq1Cf_0WTkF5IE8ju0g/exec';
                 fetch(script + "?q=profile&uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
@@ -33,8 +33,6 @@ function initApp() {
                             document.getElementById('avatar').src = user.photoURL;
                             document.getElementById('profile').src = user.photoURL;
                         }
-                        document.getElementById('con').innerText = data.Controler_Name;
-                        document.getElementById('cont').href = "tel:" + data.Controler_Info;
                         document.getElementById('Username').value = data.Name;
                         document.getElementById('email').value = user.email;
                         document.getElementById('uid').value = user.uid;
@@ -109,14 +107,14 @@ function initApp() {
                         })
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
-                        return location.replace("../index.html");
+                        return location.replace("../");
                     }
                 }).catch((err => {
                     blackDashboard.showSidebarMessage(err);
                 }))
             }
         } else {
-            // location.replace("../index.html");
+            // location.replace("../");
         }
     })
 }

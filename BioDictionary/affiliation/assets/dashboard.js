@@ -18,7 +18,7 @@ function initApp() {
             free = user.isAnonymous;
             if (free === true) {
                 alert("It is a premium feature");
-                location.replace("../index.html");
+                location.replace("../");
                 return;
             } else {
                 const script = 'https://script.google.com/macros/s/AKfycbyuNPvS8KpkFFPTBUUU0hGZdgbPDM51MhLip3EuIb-IcI_6C0DkAiiT_tL1om-hATi1qA/exec';
@@ -26,17 +26,9 @@ function initApp() {
                     return res.json();
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
-                        document.getElementById('desc').innerHTML = loadedData.Status;
-                        document.getElementById('bio').innerText = loadedData.Status;
                         if (user.photoURL != null) {
-                            document.getElementById('avatar').src = user.photoURL;
                             document.getElementById('profile').src = user.photoURL;
                         }
-                        document.getElementById('con').innerText = loadedData.Controler_Name;
-                        document.getElementById('cont').href = "tel:" + loadedData.Controler_Info;
-                        document.getElementById('Username').value = loadedData.Name;
-                        document.getElementById('email').value = user.email;
-                        document.getElementById('uid').value = user.uid;
                         document.getElementById('notify').innerText = loadedData.Comment;
                         document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
                         document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
@@ -44,48 +36,7 @@ function initApp() {
                         document.getElementById('ttsell').innerText = loadedData.Total_Sell;
                         document.getElementById('totalVerify').innerText = loadedData.Verified_Direct_Income + loadedData.Total_Passive_Income + " ৳";
                         document.getElementById('totalPending').innerText = loadedData.Pending_Direct_Income + loadedData.Total_Pending_Pasive_Income + " ৳";
-                        college.value = loadedData.College_University;
-                        document.getElementById('Mobile').value = loadedData.Mobile;
-                        Bkash.value = loadedData.Bkash;
-                        fb.value = loadedData.Facebook_Link;
-                        if (loadedData.Nagad != "") {
-                            Nagad.value = loadedData.Nagad;
-                        }
-                        if (loadedData.Rocket != "") {
-                            Rocket.value = loadedData.Rocket;
-                        }
-                        document.getElementById('aff').value = loadedData.Affiliation_Token;
-                        document.getElementById('name').innerText = user.displayName;
-                        document.getElementById('fbLink').addEventListener('click', () => {
-                            window.open(loadedData.Facebook_Link)
-                        });
 
-
-                        var clipboard = new ClipboardJS('.cp');
-
-                        clipboard.on('success', function(e) {
-                            // alert(e.text + " copied successfully!!")
-                            blackDashboard.showSidebarMessage(e.text + " copied successfully!!");
-                            e.clearSelection();
-                        });
-
-                        clipboard.on('error', function(e) {
-                            console.error('Action:', e.action);
-                            console.error('Trigger:', e.trigger);
-                        });
-                        updateBtn.addEventListener('click', () => {
-                            updateBtn.innerText = "Updated !";
-                            var Status = document.getElementById('bio');
-                            var ss = Status.value;
-                            document.getElementById('desc').innerHTML = ss;
-                            var url = script + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket=" + Rocket.value.trim() + "&College=" + college.value.trim() + "&fb=" + fb.value.trim() + "&action=update"
-                            fetch(url).then((res) => {
-                                updateBtn.innerText = "Update Again?";
-                                return res.json();
-                            }).catch((e) => {
-                                updateBtn.innerText = "Can't Update 😶";
-                            })
-                        })
                         var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
                         var ctx = document.getElementById('myChart').getContext('2d');
                         var myChart = new Chart(ctx, {
@@ -151,14 +102,14 @@ function initApp() {
                         });
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
-                        return location.replace("../index.html");
+                        // return location.replace("../index.html");
                     }
                 }).catch((err => {
                     console.log(err);
                 }))
             }
         } else {
-            location.replace("../index.html");
+            // location.replace("../index.html");
         }
     })
 }
