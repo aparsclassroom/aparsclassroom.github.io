@@ -109,7 +109,7 @@ function initApp() {
                 }))
             }
         } else {
-            // location.replace("../");
+            location.replace("../");
         }
     })
 }

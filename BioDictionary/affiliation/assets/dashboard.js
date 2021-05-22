@@ -92,14 +92,14 @@ function initApp() {
                         });
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
-                        // return location.replace("../");
+                        return location.replace("../");
                     }
                 }).catch((err => {
-                    console.log(err);
+                    alert(err);
                 }))
             }
         } else {
-            // location.replace("../");
+            location.replace("../");
         }
     })
 }

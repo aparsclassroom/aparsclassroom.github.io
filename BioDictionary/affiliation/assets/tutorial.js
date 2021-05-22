@@ -27,11 +27,11 @@ function initApp() {
                             return location.replace("../");
                         }
                     }).catch((err => {
-                        console.log(err);
+                        alert(err);
                     }))
             }
         } else {
-            // window.location.replace("../");
+            window.location.replace("../");
         }
 
     })
