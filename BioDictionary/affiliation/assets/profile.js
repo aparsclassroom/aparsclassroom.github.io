@@ -81,29 +81,25 @@ function initApp() {
                             alert('Trigger:', e.trigger);
                         });
                         updateBtn.addEventListener('click', () => {
-                            updateBtn.innerText = "Updating...";
-                            updateBtn.disabled = true;
+                            updateBtn.innerText = "Update";
+                            $.notify({
+                                icon: "tim-icons icon-bell-55",
+                                message: "Changes Saved !"
+
+                            }, {
+                                timer: 8000,
+                                placement: {
+                                    from: "bottom",
+                                    align: "center"
+                                }
+                            });
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
                             document.getElementById('desc').innerHTML = ss;
                             var url = api + "?uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket=" + Rocket.value.trim() + "&College=" + college.value.trim() + "&fb=" + fb.value.trim() + "&action=update"
                             fetch(url)
-                                .then((res) => {
-                                    return res.json();
-                                })
-                                .then((data) => {
-                                    updateBtn.innerText = "Update";
-                                    $.notify({
-                                        icon: "tim-icons icon-bell-55",
-                                        message: data.message
-
-                                    }, {
-                                        timer: 8000,
-                                        placement: {
-                                            from: "bottom",
-                                            align: "center"
-                                        }
-                                    });
+                                .then(() => {
+                                    updateBtn.innerText = "Update Again ?";
                                 }).catch(() => {
                                     updateBtn.innerText = "Can't Update 😶";
                                 })
