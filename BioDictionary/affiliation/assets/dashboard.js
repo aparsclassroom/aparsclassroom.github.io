@@ -16,15 +16,16 @@ function initApp() {
                     return res.json();
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
+                        let data = loadedData.data;
                         if (user.photoURL != null) {
                             document.getElementById('profile').src = user.photoURL;
                         }
-                        document.getElementById('notify').innerText = loadedData.Comment;
-                        document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
-                        document.getElementById('totalEarning').innerText = loadedData.Total_Income;
-                        document.getElementById('ttsell').innerText = loadedData.Total_Sell;
-                        document.getElementById('totalVerify').innerText = loadedData.Verified_Direct_Income + loadedData.Total_Passive_Income + " ৳";
-                        document.getElementById('totalPending').innerText = loadedData.Pending_Direct_Income + loadedData.Total_Pending_Pasive_Income + " ৳";
+                        document.getElementById('notify').innerText = data.Comment;
+                        document.getElementById('inWallet').innerText = data.Remaning_in_Wallet;
+                        document.getElementById('totalEarning').innerText = data.Total_Income;
+                        document.getElementById('ttsell').innerText = data.Total_Sell;
+                        document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + data.Total_Passive_Income + " ৳";
+                        document.getElementById('totalPending').innerText = data.Pending_Direct_Income + data.Total_Pending_Pasive_Income + " ৳";
 
                         var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
                         var ctx = document.getElementById('myChart').getContext('2d');
@@ -34,7 +35,7 @@ function initApp() {
                                 labels: label,
                                 datasets: [{
                                     label: 'Pending Earnings',
-                                    data: [loadedData.Pending_Direct_Income, loadedData.Pending_Passive_Income, loadedData.Pending_Passive_Square_Income],
+                                    data: [data.Pending_Direct_Income, data.Pending_Passive_Income, data.Pending_Passive_Square_Income],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(54, 162, 235, 0.2)',
@@ -65,7 +66,7 @@ function initApp() {
                                 labels: label,
                                 datasets: [{
                                     label: 'Verified Earnings',
-                                    data: [loadedData.Verified_Direct_Income, loadedData.Verified_Passive_Income, loadedData.Verified_Passive_Square_Income],
+                                    data: [data.Verified_Direct_Income, data.Verified_Passive_Income, data.Verified_Passive_Square_Income],
                                     backgroundColor: [
                                         'rgba(75, 192, 192, 0.2)',
                                         'rgba(153, 102, 255, 0.2)',
