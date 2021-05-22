@@ -81,28 +81,32 @@ function initApp() {
                             alert('Trigger:', e.trigger);
                         });
                         updateBtn.addEventListener('click', () => {
-                            $.notify({
-                                icon: "tim-icons icon-bell-55",
-                                message: "Updated !"
-
-                            }, {
-
-                                timer: 8000,
-                                placement: {
-                                    from: "bottom",
-                                    align: "center"
-                                }
-                            });
+                            updateBtn.innerText = "Updating...";
+                            updateBtn.disabled = true;
                             var Status = document.getElementById('bio');
                             var ss = Status.value;
                             document.getElementById('desc').innerHTML = ss;
-                            var url = api + "?callback=ctrlq&uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket=" + Rocket.value.trim() + "&College=" + college.value.trim() + "&fb=" + fb.value.trim() + "&action=update"
-                            fetch(url).then((res) => {
-                                updateBtn.innerText = "Update Again?";
-                                return res.json();
-                            }).catch((e) => {
-                                updateBtn.innerText = "Can't Update 😶";
-                            })
+                            var url = api + "?uid=" + user.uid + "&Status=" + ss.trim() + "&Mobile=" + Mobile.value.trim() + "&Bkash=" + Bkash.value.trim() + "&Nagad=" + Nagad.value.trim() + "&Rocket=" + Rocket.value.trim() + "&College=" + college.value.trim() + "&fb=" + fb.value.trim() + "&action=update"
+                            fetch(url)
+                                .then((res) => {
+                                    return res.json();
+                                })
+                                .then((data) => {
+                                    updateBtn.innerText = "Update";
+                                    $.notify({
+                                        icon: "tim-icons icon-bell-55",
+                                        message: data.message
+
+                                    }, {
+                                        timer: 8000,
+                                        placement: {
+                                            from: "bottom",
+                                            align: "center"
+                                        }
+                                    });
+                                }).catch(() => {
+                                    updateBtn.innerText = "Can't Update 😶";
+                                })
                         })
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
