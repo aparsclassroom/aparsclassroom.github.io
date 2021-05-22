@@ -24,4 +24,4 @@ function toggleSwitch() {
 }
 
 
-const api = "https://script.google.com/macros/s/AKfycby187iIvEpfPoixzvzoxAbKI5qHqvK9owYq4L-mYGE2kt2yo0TnNRCIkyOmd1QxbAz8Qw/exec";
+const api = "https://script.google.com/macros/s/AKfycbwM3zTmAIX9AH4P-7-qG9GMI4aRUXZxEDAIOHEjO6Ln1xaTVJ3DTw62q4GMJ8dCqCg3Hw/exec";
