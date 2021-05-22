@@ -1,12 +1,3 @@
-var Mobile = document.getElementById('Mobile');
-var Bkash = document.getElementById('Bkash');
-var Nagad = document.getElementById('Nagad');
-var Rocket = document.getElementById('Rocket');
-var college = document.getElementById('College');
-var fb = document.getElementById('fb');
-var status = document.getElementById('bio');
-var updateBtn = document.getElementById('updateBtn');
-
 function logOut() {
     firebase.auth().signOut();
     initApp();
