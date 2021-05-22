@@ -37,9 +37,6 @@ function initApp() {
                         document.getElementById('uid').value = user.uid;
                         document.getElementById('notify').innerText = data.Comment;
                         document.getElementById('afflink').innerText = data.Affiliation_Link;
-                        // document.getElementById('inWallet').innerText = data.Remaning_in_Wallet;
-                        // document.getElementById('totalEarning').innerText = data.Total_Income;
-                        // document.getElementById('ttsell').innerText = data.Total_Sell;
                         college.value = data.College_University;
                         document.getElementById('Mobile').value = data.Mobile;
                         Bkash.value = data.Bkash;
@@ -50,7 +47,7 @@ function initApp() {
                         if (data.Rocket != "") {
                             Rocket.value = data.Rocket;
                         }
-                        document.getElementById('aff').value = data.Affiliation_Token;
+                        document.getElementById('aff').value = "aff-" + data.Affiliation_Token;
                         document.getElementById('name').innerText = user.displayName;
                         document.getElementById('fbLink').addEventListener('click', () => {
                             window.open(data.Facebook_Link)
@@ -60,7 +57,6 @@ function initApp() {
                         var clipboard = new ClipboardJS('.cp');
 
                         clipboard.on('success', function(e) {
-                            // alert(e.text + " copied successfully!!")
                             $.notify({
                                 icon: "tim-icons icon-bell-55",
                                 message: "Copied successfully!!"
