@@ -29,7 +29,6 @@ function initApp() {
                             document.getElementById('profile').src = user.photoURL;
                         }
                         document.getElementById('notify').innerText = loadedData.Comment;
-                        document.getElementById('afflink').innerText = loadedData.Affiliation_Link;
                         document.getElementById('inWallet').innerText = loadedData.Remaning_in_Wallet;
                         document.getElementById('totalEarning').innerText = loadedData.Total_Income;
                         document.getElementById('ttsell').innerText = loadedData.Total_Sell;
