@@ -21,7 +21,7 @@ function initApp() {
                             if (user.photoURL != null) {
                                 document.getElementById('profile').src = user.photoURL;
                             }
-                            document.getElementById('status').innerText = dashboard.data.Comment;
+                            document.getElementById('status').innerText = dashboard.data.comment;
                         } else {
                             alert(dashboard.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                             return location.replace("../");
