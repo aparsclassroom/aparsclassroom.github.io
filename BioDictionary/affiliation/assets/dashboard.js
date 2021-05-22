@@ -21,8 +21,7 @@ function initApp() {
                 location.replace("../");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbyuNPvS8KpkFFPTBUUU0hGZdgbPDM51MhLip3EuIb-IcI_6C0DkAiiT_tL1om-hATi1qA/exec';
-                fetch(script + "?uid=" + user.uid).then((res) => {
+                fetch(api + "?q=analytics&uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
@@ -102,14 +101,14 @@ function initApp() {
                         });
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
-                        // return location.replace("../index.html");
+                        // return location.replace("../");
                     }
                 }).catch((err => {
                     console.log(err);
                 }))
             }
         } else {
-            // location.replace("../index.html");
+            // location.replace("../");
         }
     })
 }

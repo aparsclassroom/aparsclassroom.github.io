@@ -22,3 +22,6 @@ function toggleSwitch() {
         bg.classList.remove("white-content");
     }
 }
+
+
+const api = "https://script.google.com/macros/s/AKfycby187iIvEpfPoixzvzoxAbKI5qHqvK9owYq4L-mYGE2kt2yo0TnNRCIkyOmd1QxbAz8Qw/exec";

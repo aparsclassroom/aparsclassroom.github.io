@@ -21,8 +21,7 @@ function initApp() {
                 location.replace("../");
                 return;
             } else {
-                const script = 'https://script.google.com/macros/s/AKfycbyVNGnb3e3HhVjpQQ0MzDMerPJPdSLrOXMt-Ky8d3jtT4Kg9ufDq1Cf_0WTkF5IE8ju0g/exec';
-                fetch(script + "?q=profile&uid=" + user.uid).then((res) => {
+                fetch(api + "?q=profile&uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {

@@ -16,14 +16,14 @@ function initApp() {
             free = user.isAnonymous;
             if (free === true) {
                 alert("It is a premium feature");
-                location.replace("../index.html");
+                location.replace("../");
                 return;
             } else {
                 var curM = new Date().getMonth() + 1
                 console.log(curM)
             }
         } else {
-            // location.replace("../index.html");
+            // location.replace("../");
         }
     })
 }
