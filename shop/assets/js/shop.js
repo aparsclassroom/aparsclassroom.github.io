@@ -3,7 +3,7 @@ setTimeout(() => {
     $("#vid")[0].src;
 }, 1000)
 var str = window.location.search;
-var res = str.split("=&")[0].substring(1, 16);
+var res = str.split("&")[0].substring(1, 16);
 if (localStorage.getItem(product) === "") {
     localStorage.setItem(product, res);
 }
@@ -73,12 +73,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "phone": document.getElementById('phone').value.trim(),
                             "aff": document.getElementById('aff').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': document.getElementById('uid').value,
-                            'utm_source': window.location.search.split("&")[1].split("=")[1],
-                            'utm_medium': window.location.search.split("&")[2].split("=")[1],
-                            'utm_campaign': window.location.search.split("&")[3].split("=")[1],
-                            'utm_term': window.location.search.split("&")[4].split("=")[1],
-                            'utm_content': window.location.search.split("&")[5].split("=")[1]
+                            'uid': document.getElementById('uid').value
                         });
 
                         var requestOptions = {
