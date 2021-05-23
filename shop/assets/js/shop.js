@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch("https://asg-shop.herokuapp.com/purchase", requestOptions)
+        fetch(`https://${shopName}.herokuapp.com/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -83,7 +83,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(purl, requestOptions)
+                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                             .then(response => {
                                 return response.json()
                             })
@@ -154,7 +154,7 @@ cpn.addEventListener('click', (e) => {
     cupV.value = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch('https://script.google.com/macros/s/AKfycby6Np9IWtfgY2dvO2gJPHh38TS7JKrWZQWJuiNWZRlOJEOD6hhSlRfrFKx1gd5OwHgJ/exec?Cupon=' + cpnCode.toUpperCase() + '&Product=' + product)
+    fetch(cuponApi + '?Cupon=' + cpnCode.toUpperCase() + '&Product=' + product)
         .then((res) => {
             return res.json();
         })
