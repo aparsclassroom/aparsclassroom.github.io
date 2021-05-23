@@ -74,7 +74,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "aff": document.getElementById('aff').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': document.getElementById('uid').value,
-                            'utm-source': window.location.search.split("&")[1].split("=")[1],
+                            'utm_source': window.location.search.split("&")[1].split("=")[1],
                             'utm_medium': window.location.search.split("&")[2].split("=")[1],
                             'utm_campaign': window.location.search.split("&")[3].split("=")[1],
                             'utm_term': window.location.search.split("&")[4].split("=")[1],
