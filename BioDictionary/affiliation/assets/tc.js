@@ -28,7 +28,7 @@ function initApp() {
                 return;
             } else {
 
-                fetch(api + "?q=payments&uid=123")
+                fetch(api + "?q=payments&uid=" + user.uid)
                     .then((res) => {
                         return res.json();
                     })
