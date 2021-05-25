@@ -26,9 +26,9 @@ function initApp() {
                             alert(dashboard.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                             return location.replace("../");
                         }
-                    }).catch((err => {
-                        alert(err);
-                    }))
+                    }).catch((err) => {
+                        console.log(err);
+                    })
             }
         } else {
             window.location.replace("../");
