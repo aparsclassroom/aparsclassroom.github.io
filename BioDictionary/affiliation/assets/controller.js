@@ -5,7 +5,7 @@ if (theme == "true") {
 } else {
     bg.classList.add("white-content");
 }
-const api = "https://script.google.com/macros/s/AKfycbyo363CPuW6GGcvgiCNeK5c2UCmakPPTD74dKtXGgkmPw0Hn1TngDbdGCvD0deqmDvjdQ/exec";
+const api = "https://script.google.com/macros/s/AKfycbwag9VHK7MWnS0CgoNDS7GxHH7agk3JSKQ6umvqh4aOWa2FGBn9YqfmC1OByJNiyOzRZQ/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
