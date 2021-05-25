@@ -12,7 +12,7 @@ function initApp() {
                 location.replace("../");
                 return;
             } else {
-                fetch(api + "?q=analytics&uid=" + user.uid).then((res) => {
+                fetch(api + "?q=controller&uid=" + user.uid).then((res) => {
                     return res.json();
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
