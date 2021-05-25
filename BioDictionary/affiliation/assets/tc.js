@@ -56,8 +56,6 @@ function initApp() {
             
                             `;
                             });
-
-
                         } else {
                             document.getElementById('token').innerHTML = loadedData.message;
                         }
