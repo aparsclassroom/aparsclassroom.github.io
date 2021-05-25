@@ -66,7 +66,7 @@ function initApp() {
 
 
                         } else {
-                            alert(loadedData.meassage)
+                            document.getElementById('token').innerHTML = loadedData.meassage;
                         }
                     })
 
