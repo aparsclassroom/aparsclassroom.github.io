@@ -63,7 +63,7 @@ function initApp() {
                         }
                     })
                     .catch((e) => {
-                        document.getElementById('token').innerHTML = e.message;
+                        document.getElementById('token').innerHTML = "Server Error <br>" + e.message;
                     })
             }
         } else {
