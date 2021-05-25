@@ -3,6 +3,7 @@ function logOut() {
     initApp();
 }
 const theme = localStorage.getItem('biotheme');
+const bg = document.getElementById('bioT');
 if (theme == "true") {
     bg.classList.remove("white-content");
 } else {
