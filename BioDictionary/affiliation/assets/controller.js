@@ -1,7 +1,3 @@
-function logOut() {
-    firebase.auth().signOut();
-    initApp();
-}
 const theme = localStorage.getItem('biotheme');
 const bg = document.getElementById('bioT');
 if (theme == "true") {
