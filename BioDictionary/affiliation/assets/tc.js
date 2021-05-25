@@ -2,13 +2,6 @@ var Mobile = document.getElementById('Mobile');
 var Bkash = document.getElementById('bkash');
 var Nagad = document.getElementById('nagad');
 var Rocket = document.getElementById('rocket');
-
-const curM = new Date().getMonth() + 1;
-const curMontL = new Date().toLocaleDateString('en-IN', { month: 'long' });
-var con = []
-con.push(curM, curMontL)
-console.log(con)
-
 const theme = localStorage.getItem('biotheme');
 const bg = document.getElementById('bioT');
 if (theme == "true") {
@@ -69,7 +62,9 @@ function initApp() {
                             document.getElementById('token').innerHTML = loadedData.meassage;
                         }
                     })
-
+                    .catch((e) => {
+                        document.getElementById('token').innerHTML = e.meassage;
+                    })
             }
         } else {
             location.replace("../");
