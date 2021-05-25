@@ -59,11 +59,11 @@ function initApp() {
 
 
                         } else {
-                            document.getElementById('token').innerHTML = loadedData.meassage;
+                            document.getElementById('token').innerHTML = loadedData.message;
                         }
                     })
                     .catch((e) => {
-                        document.getElementById('token').innerHTML = e.meassage;
+                        document.getElementById('token').innerHTML = e.message;
                     })
             }
         } else {
