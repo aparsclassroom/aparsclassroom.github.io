@@ -23,7 +23,3 @@ function toggleSwitch() {
         bg.classList.remove("white-content");
     }
 }
-
-
-
-const api = "https://script.google.com/macros/s/AKfycbwM3zTmAIX9AH4P-7-qG9GMI4aRUXZxEDAIOHEjO6Ln1xaTVJ3DTw62q4GMJ8dCqCg3Hw/exec";

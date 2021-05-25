@@ -18,48 +18,6 @@ if (theme == "true") {
 }
 const api = "https://script.google.com/macros/s/AKfycbzO1yH2WpIRspklxuWocyOryzf3qQopsfRY_OO97nqc40XjU9PV8joKdkOm28qNOHxoYg/exec";
 
-fetch(api + "?q=payments&uid=123")
-    .then((res) => {
-        return res.json();
-    })
-    .then((loadedData) => {
-        if (loadedData.code === 200) {
-            let data = loadedData.data;
-            document.getElementById('token').innerHTML = `
-            Your Username : ${data[0].Name}<br>
-            Your Email Address : ${data[0].Email}<br>
-            Your Affiliate Token : ${data[0].token}
-            `;
-            var news = data.sort(function(a, b) { return b.Invoice - a.Invoice })
-            news.forEach(element => {
-                document.getElementById('pay').innerHTML += `
-                <div class="row">
-                <div class="col-md-6 ml-auto mr-auto">
-                  <div class="card">
-                    <div class="card-body text-center">
-                    <img src="/shop/assets/images/mobile-payment.svg" height="100px"><h3 style="margin-bottom:10px" class="mt-2 text-center">Invoice : ${element.Invoice}</h3>
-                    <h4 class="text-primary">Amount : ${element.Amount} ৳</h4>
-                    Affiliate Bkash Number : ${element.Bkash}<br>
-                    Month : ${element.Month} - ${element.Year}<br>
-                    <strong class="text-danger">Status : ${element.Status}</strong> 
-                    </div>
-                    <div class="card-footer text-center">
-                    Issued By : ${element.Issuer}<br>
-                    ${element.Timestamp}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-                `;
-            });
-
-
-        } else {
-            console.log(loadedData.meassage)
-        }
-    })
-
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -69,23 +27,52 @@ function initApp() {
                 location.replace("../");
                 return;
             } else {
-                // fetch(api + "?q=payments&uid=123")
-                //     .then((res) => {
-                //         return res.json();
-                //     })
-                //     .then((loadedData) => {
-                //         if (loadedData.code === 200) {
-                //             let data = loadedData.data;
-                //             data.forEach(element, idx => {
-                //                 console.log(element)
-                //             });
-                //         } else {
-                //             console.log(loadedData.meassage)
-                //         }
-                //     })
+
+                fetch(api + "?q=payments&uid=123")
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((loadedData) => {
+                        if (loadedData.code === 200) {
+                            let data = loadedData.data;
+                            document.getElementById('token').innerHTML = `
+                        Your Username : ${data[0].Name}<br>
+                        Your Email Address : ${data[0].Email}<br>
+                        Your Affiliate Token : ${data[0].token}
+                        `;
+                            var news = data.sort(function(a, b) { return b.Invoice - a.Invoice })
+                            news.forEach(element => {
+                                document.getElementById('pay').innerHTML += `
+                            <div class="row">
+                            <div class="col-md-6 ml-auto mr-auto">
+                              <div class="card">
+                                <div class="card-body text-center">
+                                <img src="/shop/assets/images/mobile-payment.svg" height="100px"><h3 style="margin-bottom:10px" class="mt-2 text-center">Invoice : ${element.Invoice}</h3>
+                                <h4 class="text-primary">Amount : ${element.Amount} ৳</h4>
+                                Affiliate Bkash Number : ${element.Bkash}<br>
+                                Month : ${element.Month} - ${element.Year}<br>
+                                <strong class="text-danger">Status : ${element.Status}</strong> 
+                                </div>
+                                <div class="card-footer text-center">
+                                Issued By : ${element.Issuer}<br>
+                                ${element.Timestamp}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+            
+                            `;
+                            });
+
+
+                        } else {
+                            alert(loadedData.meassage)
+                        }
+                    })
+
             }
         } else {
-            // location.replace("../");
+            location.replace("../");
         }
     })
 }
