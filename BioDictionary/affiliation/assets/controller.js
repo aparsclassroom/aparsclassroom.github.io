@@ -26,7 +26,7 @@ function initApp() {
                     if (loadedData.code === 200) {
                         let data = loadedData.data;
                         document.getElementById('contoller').innerHTML = data.cont;
-                        document.getElementById('info').innerHTML = "<a class='text-primary' href='tel:" + data.contInf + "'>+ 📞" + data.contInf + "</a>";
+                        document.getElementById('info').innerHTML = "<a class='text-danger' href='tel:" + data.contInf + "'>📞 " + data.contInf + "</a>";
                     } else {
                         alert(loadedData.message + "\n\nYou are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                         return location.replace("../");
