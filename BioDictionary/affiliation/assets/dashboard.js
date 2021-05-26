@@ -94,7 +94,7 @@ function initApp() {
                         });
 
                         $('#datatable').DataTable({
-                            "ajax": "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec?q=transactions&token=" + data.Affiliation_Token,
+                            "ajax": "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec?q=transactions&token=aff-" + data.Affiliation_Token,
                             "columns": [{
                                 "data": "customer"
                             }, {
