@@ -2,7 +2,7 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-const api = "https://script.google.com/macros/s/AKfycby8GHDgbMu3CFlsw66AmnsAciUqGgRnqNEzC12Wtk7TtIk-kC3huf7lWLHkAi7L7fXqwQ/exec";
+const api = "https://script.google.com/macros/s/AKfycby0pJjKWiQaGHWrlQc-08nlDaEp0H9Gj3sg_nILgVxE12y8rxUrdXZ3-K19hzvHR86xpA/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
