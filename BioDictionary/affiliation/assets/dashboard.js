@@ -72,12 +72,12 @@ function initApp() {
                                     backgroundColor: [
                                         'rgba(75, 192, 192, 0.2)',
                                         'rgba(153, 102, 255, 0.2)',
-                                        'rgba(48, 80, 80, 0.349)'
+                                        'rgba(237, 255, 6, 0.3)'
                                     ],
                                     borderColor: [
                                         'rgba(75, 192, 192, 1)',
                                         'rgba(153, 102, 255, 1)',
-                                        'rgb(48, 80, 80)'
+                                        'rgba(225, 242, 0, 1)'
                                     ],
                                     borderWidth: 1
                                 }]
