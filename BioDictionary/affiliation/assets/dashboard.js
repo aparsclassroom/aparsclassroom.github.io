@@ -32,7 +32,7 @@ function initApp() {
                         var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
                         var ctx = document.getElementById('myChart').getContext('2d');
                         var myChart = new Chart(ctx, {
-                            type: 'line',
+                            type: 'pie',
                             data: {
                                 labels: ['Direct Sell', 'Passive Sell', 'Passive² Sell'],
                                 datasets: [{
