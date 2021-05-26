@@ -3,6 +3,7 @@ function logOut() {
     initApp();
 }
 const api = "https://script.google.com/macros/s/AKfycby0pJjKWiQaGHWrlQc-08nlDaEp0H9Gj3sg_nILgVxE12y8rxUrdXZ3-K19hzvHR86xpA/exec";
+const tranApi = "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -26,7 +27,7 @@ function initApp() {
                         document.getElementById('totalEarning').innerText = data.Total_Income;
                         document.getElementById('ttsell').innerText = data.Total_Sell;
                         document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + data.Total_Passive_Income + " ৳";
-                        document.getElementById('totalPending').innerText = data.Pending_Direct_Income + data.Total_Pending_Pasive_Income + " ৳";
+                        document.getElementById('totalPending').innerText = data.Total_Sell + data.Passive_Sell + data.Passive_Square_Sell + " ৳";
 
                         var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
                         var ctx = document.getElementById('myChart').getContext('2d');
@@ -36,7 +37,7 @@ function initApp() {
                                 labels: label,
                                 datasets: [{
                                     label: 'Pending Earnings',
-                                    data: [data.Pending_Direct_Income, data.Pending_Passive_Income, data.Pending_Passive_Square_Income],
+                                    data: [data.Total_Sell, data.Passive_Sell, data.Passive_Square_Sell],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(54, 162, 235, 0.2)',
@@ -91,6 +92,25 @@ function initApp() {
                                 }
                             }
                         });
+
+                        fetch(tranApi + "?q=transactions&token=aff-" + data.Affiliation_Token)
+                            .then((res) => {
+                                return res.json()
+                            })
+                            .then((load) => {
+                                if (load.code === 200) {
+                                    let tr = load.data;
+                                    tr.forEach(element => {
+                                        console.log(element)
+                                    });
+                                } else {
+                                    console.log(load.message)
+                                }
+                            }).catch((err) => {
+                                console.log(err.message)
+                            })
+
+
                     } else {
                         alert(loadedData.message + "\n\nIf You are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                         return location.replace("../");
