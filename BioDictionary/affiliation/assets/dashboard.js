@@ -93,23 +93,32 @@ function initApp() {
                             }
                         });
 
-                        fetch(tranApi + "?q=transactions&token=aff-" + data.Affiliation_Token)
-                            .then((res) => {
-                                return res.json()
-                            })
-                            .then((load) => {
-                                if (load.code === 200) {
-                                    let tr = load.data;
-                                    tr.forEach(element => {
-                                        console.log(element)
-                                    });
-                                } else {
-                                    console.log(load.message)
-                                }
-                            }).catch((err) => {
-                                console.log(err.message)
-                            })
+                        $('#datatable').DataTable({
+                            "ajax": "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec?q=transactions&token=" + data.Affiliation_Token,
+                            "columns": [{
+                                "data": "customer"
+                            }, {
+                                "data": "amount"
+                            }, {
+                                "data": "cupon"
+                            }, {
+                                "data": "time"
+                            }, {
+                                "data": "invoice"
+                            }],
+                            "pagingType": "full_numbers",
+                            "lengthMenu": [
+                                [10, 25, 50, -1],
+                                [10, 25, 50, "All"]
+                            ],
+                            responsive: true,
+                            language: {
+                                search: "_INPUT_",
+                                searchPlaceholder: "Search records",
+                            }
 
+                        });
+                        $('#datatable').DataTable();
 
                     } else {
                         alert(loadedData.message + "\n\nIf You are using a gifted account.\nPlease buy this app to use Zombie Mode.");
