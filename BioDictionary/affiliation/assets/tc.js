@@ -60,8 +60,8 @@ function initApp() {
                             document.getElementById('token').innerHTML = loadedData.message;
                         }
                     })
-                    .catch((e) => {
-                        document.getElementById('token').innerHTML = "Server Error <br>" + e.message;
+                    .catch(() => {
+                        document.getElementById('token').innerHTML = "Your received payments Will appear Here...";
                     })
             }
         } else {
