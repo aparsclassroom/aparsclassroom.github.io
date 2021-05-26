@@ -41,12 +41,12 @@ function initApp() {
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(54, 162, 235, 0.2)',
-                                        'rgba(238, 133, 171, 0.2)'
+                                        'rgba(255, 136, 0, 0.39)'
                                     ],
                                     borderColor: [
                                         'rgba(255, 99, 132, 1)',
                                         'rgba(54, 162, 235, 1)',
-                                        'rgba(238, 133, 171, 1)'
+                                        'rgb(255, 136, 0)'
                                     ],
                                     borderWidth: 1
                                 }]
