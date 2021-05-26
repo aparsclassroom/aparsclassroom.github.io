@@ -27,16 +27,16 @@ function initApp() {
                         document.getElementById('totalEarning').innerText = data.Total_Income;
                         document.getElementById('ttsell').innerText = data.Total_Sell;
                         document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + data.Total_Passive_Income + " ৳";
-                        document.getElementById('totalPending').innerText = data.Total_Sell + data.Passive_Sell + data.Passive_Square_Sell + " ৳";
+                        document.getElementById('totaltranx').innerText = data.Total_Sell + data.Passive_Sell + data.Passive_Square_Sell;
 
                         var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
                         var ctx = document.getElementById('myChart').getContext('2d');
                         var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: label,
+                                labels: ['Direct Sell', 'Passive Sell', 'Passive² Sell'],
                                 datasets: [{
-                                    label: 'Pending Earnings',
+                                    label: 'Transactions Occured',
                                     data: [data.Total_Sell, data.Passive_Sell, data.Passive_Square_Sell],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
