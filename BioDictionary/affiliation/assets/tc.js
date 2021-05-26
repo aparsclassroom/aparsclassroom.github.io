@@ -61,7 +61,7 @@ function initApp() {
                         }
                     })
                     .catch(() => {
-                        document.getElementById('token').innerHTML = "Your received payments Will appear Here...";
+                        document.getElementById('token').innerHTML = "Your received payments Will appear Here 🥰";
                     })
             }
         } else {
