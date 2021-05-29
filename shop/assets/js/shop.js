@@ -16,17 +16,16 @@ if (res != "") {
         .then((report) => {
             if (report) {
                 var myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/json");
-                var raw = JSON.stringify({
-                    "Product": product,
-                    'UID': res,
-                    'Affiliate Code': res
-                });
+                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                var urlencoded = new URLSearchParams();
+                urlencoded.append("Product", product);
+                urlencoded.append("Affiliate Code", res);
+                urlencoded.append("UID", e.uid);
 
                 var requestOptions = {
                     method: 'POST',
                     headers: myHeaders,
-                    body: raw,
+                    body: urlencoded,
                     redirect: 'follow'
                 };
                 fetch('https://script.google.com/macros/s/AKfycbzyon9PyuCQe1UVfUS2cE0GocqPd_3jxuBp3rLwqwRNlJf_WTGwAPRruHDbJsrgaLa8Sw/exec', requestOptions)
@@ -66,6 +65,7 @@ document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
+var e;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var t = e.phoneNumber;
