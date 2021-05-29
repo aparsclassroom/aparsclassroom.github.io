@@ -2,72 +2,74 @@ setTimeout(() => {
     $("#vid")[0].src += "1";
     $("#vid")[0].src;
 }, 1000)
-var str = window.location.search;
-var res = str.split("&")[0].substring(1, 16);
-if (res != "") {
-    swal({
-            title: "Are you satisfied ?",
-            icon: "warning",
-            text: "If you want to buy with this affiliation link please click OK",
-            closeOnClickOutside: false,
-            dangerMode: true,
-            buttons: ["I'm Cool 😍", "Not Satisfied 😡"]
-        })
-        .then((report) => {
-            if (report) {
-                var myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                var urlencoded = new URLSearchParams();
-                urlencoded.append("Product", product);
-                urlencoded.append("Affiliate Code", res);
-                urlencoded.append("UID", e.uid);
 
-                var requestOptions = {
-                    method: 'POST',
-                    headers: myHeaders,
-                    body: urlencoded,
-                    redirect: 'follow'
-                };
-                fetch('https://script.google.com/macros/s/AKfycbzyon9PyuCQe1UVfUS2cE0GocqPd_3jxuBp3rLwqwRNlJf_WTGwAPRruHDbJsrgaLa8Sw/exec', requestOptions)
-                    .then(response => {
-                        return response.json()
-                    })
-                    .then((res) => {
-                        swal(res.message, {
-                            icon: res.icon,
-                        }).then(() => {
-                            let ne = "aff-AAA";
-                            document.getElementById('aff').value = ne
-                            localStorage.setItem(product, ne);
-                        })
-                    }).catch((err) => {
-                        swal({
-                            title: "Error",
-                            icon: "error",
-                            text: err.message,
-                            button: "Ok"
-                        }).then(() => {
-                            location.reload()
-                        })
-                    })
-            } else {
-                localStorage.setItem(product, res);
-            }
-        });
-} else {
-    let ne = "aff-AAA";
-    document.getElementById('aff').value = ne
-    localStorage.setItem(product, ne);
-}
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
-var e;
+
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
+        var str = window.location.search;
+        var res = str.split("&")[0].substring(1, 16);
+        if (res != "") {
+            swal({
+                    title: "Are you satisfied ?",
+                    icon: "warning",
+                    text: "If you want to buy with this affiliation link please click OK",
+                    closeOnClickOutside: false,
+                    dangerMode: true,
+                    buttons: ["I'm Cool 😍", "Not Satisfied 😡"]
+                })
+                .then((report) => {
+                    if (report) {
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                        var urlencoded = new URLSearchParams();
+                        urlencoded.append("Product", product);
+                        urlencoded.append("Affiliate Code", res);
+                        urlencoded.append("UID", e.uid);
+
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: 'follow'
+                        };
+                        fetch('https://script.google.com/macros/s/AKfycbzyon9PyuCQe1UVfUS2cE0GocqPd_3jxuBp3rLwqwRNlJf_WTGwAPRruHDbJsrgaLa8Sw/exec', requestOptions)
+                            .then(response => {
+                                return response.json()
+                            })
+                            .then((res) => {
+                                swal(res.message, {
+                                    icon: res.icon,
+                                }).then(() => {
+                                    let ne = "aff-AAA";
+                                    document.getElementById('aff').value = ne
+                                    localStorage.setItem(product, ne);
+                                })
+                            }).catch((err) => {
+                                swal({
+                                    title: "Error",
+                                    icon: "error",
+                                    text: err.message,
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.reload()
+                                })
+                            })
+                    } else {
+                        localStorage.setItem(product, res);
+                    }
+                });
+        } else {
+            let ne = "aff-AAA";
+            document.getElementById('aff').value = ne
+            localStorage.setItem(product, ne);
+        }
+
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
