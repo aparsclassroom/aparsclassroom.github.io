@@ -4,16 +4,61 @@ setTimeout(() => {
 }, 1000)
 var str = window.location.search;
 var res = str.split("&")[0].substring(1, 16);
-if (localStorage.getItem(product) === "") {
-    localStorage.setItem(product, res);
-}
-if (res === "") {
-    document.getElementById('aff').value = localStorage.getItem(product)
+if (res != "") {
+    swal({
+            title: "Are you satisfied ?",
+            icon: "warning",
+            text: "If you want to buy with this affiliation link please click OK",
+            closeOnClickOutside: false,
+            dangerMode: true,
+            buttons: ["I'm Cool 😍", "Not Satisfied 😡"]
+        })
+        .then((report) => {
+            if (report) {
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+                var raw = JSON.stringify({
+                    "Product": product,
+                    'UID': res,
+                    'Affiliate Code': res
+                });
 
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+                fetch('https://script.google.com/macros/s/AKfycbzyon9PyuCQe1UVfUS2cE0GocqPd_3jxuBp3rLwqwRNlJf_WTGwAPRruHDbJsrgaLa8Sw/exec', requestOptions)
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then((res) => {
+                        swal(res.message, {
+                            icon: res.icon,
+                        }).then(() => {
+                            let ne = "aff-AAA";
+                            document.getElementById('aff').value = ne
+                            localStorage.setItem(product, ne);
+                        })
+                    }).catch((err) => {
+                        swal({
+                            title: "Error",
+                            icon: "error",
+                            text: err.message,
+                            button: "Ok"
+                        }).then(() => {
+                            location.reload()
+                        })
+                    })
+            } else {
+                localStorage.setItem(product, res);
+            }
+        });
 } else {
-    document.getElementById('aff').value = res
-    localStorage.setItem(product, res);
-
+    let ne = "aff-AAA";
+    document.getElementById('aff').value = ne
+    localStorage.setItem(product, ne);
 }
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
