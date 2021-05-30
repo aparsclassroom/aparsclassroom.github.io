@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     type: 'danger',
                                     placement: {
                                         from: "top",
-                                        align: 'right'
+                                        align: 'center'
                                     }
                                 });
                             }).catch((err) => {
