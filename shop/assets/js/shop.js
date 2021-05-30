@@ -9,9 +9,9 @@ var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
     if (!OK) {
-        console.error(phoneNumberChk.value + ' isn\'t a phone number with area code!');
+        document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Not a valid Number</span>';
     } else {
-        console.log('Thanks, your phone number is ' + OK[0]);
+        document.getElementById('buy').disabled = false;
     }
 }
 
