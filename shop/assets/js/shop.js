@@ -135,9 +135,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "college": document.getElementById('college').value.trim(),
                             "hsc": document.getElementById('hscBatch').value.trim(),
                             "phone": document.getElementById('phone').value.trim(),
-                            "aff": document.getElementById('aff').value.trim(),
+                            "aff": localStorage.getItem(product).trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': document.getElementById('uid').value
+                            'uid': e.uid
                         });
 
                         var requestOptions = {
