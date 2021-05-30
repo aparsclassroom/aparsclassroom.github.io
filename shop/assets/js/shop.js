@@ -86,7 +86,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                 });
         } else {
             let ne = "aff-AAA";
-            document.getElementById('aff').value = ne
             localStorage.setItem(product, ne);
         }
 
@@ -114,6 +113,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.code === 200) {
+                    localStorage.removeItem(product)
                     swal({
                         title: result.message,
                         icon: "success",
