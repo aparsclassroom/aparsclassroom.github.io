@@ -48,7 +48,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     message: res.message
                                 }, {
                                     // settings
-                                    type: 'danger'
+                                    type: 'danger',
+                                    placement: {
+                                        from: "bottom"
+                                    }
                                 });
                                 // swal(res.message, {
                                 //     icon: res.icon,
