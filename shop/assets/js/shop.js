@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             swal({
                     title: "Are you satisfied ?",
                     icon: "warning",
-                    text: "If you want to report this link please click 'Not Satisfied' button",
+                    text: "If you want to report this link please click 'Not Satisfied'",
                     closeOnClickOutside: false,
                     dangerMode: true,
                     buttons: ["I'm Cool 😍", "Not Satisfied 😡"]
