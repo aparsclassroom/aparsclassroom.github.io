@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             body: urlencoded,
                             redirect: 'follow'
                         };
-                        fetch(report, requestOptions)
+                        fetch(reportApi, requestOptions)
                             .then(response => {
                                 return response.json()
                             })
