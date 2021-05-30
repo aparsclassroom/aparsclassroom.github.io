@@ -12,7 +12,7 @@ function testInfo(phoneNumberChk) {
         document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Please Enter a Valid phone Number. <br>ex. +8801XXXXXXXXX</span>';
         document.getElementById('buy').disabled = true;
     } else {
-        document.getElementById('valid-feedback').innerHTML = '<span class="text-success">Valid Phone Number !</span>';
+        document.getElementById('valid-feedback').innerHTML = '<span class="text-success">✔ Valid Phone Number !</span>';
         document.getElementById('buy').disabled = false;
     }
 }
