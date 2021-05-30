@@ -43,13 +43,20 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.json()
                             })
                             .then((res) => {
-                                swal(res.message, {
-                                    icon: res.icon,
-                                }).then(() => {
-                                    let ne = "aff-AAA";
-                                    document.getElementById('aff').value = ne
-                                    localStorage.setItem(product, ne);
-                                })
+                                $.notify({
+                                    // options
+                                    message: res.message
+                                }, {
+                                    // settings
+                                    type: 'danger'
+                                });
+                                // swal(res.message, {
+                                //     icon: res.icon,
+                                // }).then(() => {
+                                //     let ne = "aff-AAA";
+                                //     document.getElementById('aff').value = ne
+                                //     localStorage.setItem(product, ne);
+                                // })
                             }).catch((err) => {
                                 swal({
                                     title: "Error",
