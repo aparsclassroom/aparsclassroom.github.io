@@ -3,6 +3,9 @@ setTimeout(() => {
     $("#vid")[0].src;
 }, 1000)
 
+let regSc = "^(?:\+?88)?01[13-9]\d{8}$";
+
+
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
 document.getElementById('prevP').innerText = fix;
