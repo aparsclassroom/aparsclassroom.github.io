@@ -5,7 +5,6 @@ setTimeout(() => {
 
 
 var re = /^(?:\+?88)?01[13-9]\d{8}$/;
-const phoneNumberChk = document.getElementById('phone');
 
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
