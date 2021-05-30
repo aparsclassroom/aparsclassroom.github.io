@@ -9,7 +9,7 @@ var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
     if (!OK) {
-        document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Please Enter a Valid phone Number. ex. +8801XXXXXXXXX</span>';
+        document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Please Enter a Valid phone Number. <br>ex. +8801XXXXXXXXX</span>';
         document.getElementById('buy').disabled = true;
     } else {
         document.getElementById('valid-feedback').innerHTML = '<span class="text-success">Valid Phone Number !</span>';
