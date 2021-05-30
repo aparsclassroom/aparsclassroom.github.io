@@ -9,7 +9,8 @@ var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
     if (!OK) {
-        document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Not a valid Number</span>';
+        document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Please Enter a Valid phone Number. ex. +8801XXXXXXXXX</span>';
+        document.getElementById('buy').disabled = true;
     } else {
         document.getElementById('buy').disabled = false;
     }
@@ -176,6 +177,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
+            document.getElementById('buy').disabled = false;
         } else {
             document.getElementById('phone').value = "+880";
         }
