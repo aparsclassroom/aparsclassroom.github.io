@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             body: urlencoded,
                             redirect: 'follow'
                         };
-                        fetch('https://script.google.com/macros/s/AKfycbzyon9PyuCQe1UVfUS2cE0GocqPd_3jxuBp3rLwqwRNlJf_WTGwAPRruHDbJsrgaLa8Sw/exec', requestOptions)
+                        fetch('https://script.google.com/macros/s/AKfycbzRmo0SxhgT7c9Wyqxtnkkzp9qVeY4bZppHic2Y4cGhma6f7HUEZYCgtVAT0ITpi5WulA/exec', requestOptions)
                             .then(response => {
                                 return response.json()
                             })
