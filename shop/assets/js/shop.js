@@ -41,7 +41,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                 .then((report) => {
                     if (report) {
                         let ne = "aff-AAA";
-                        document.getElementById('aff').value = ne
                         localStorage.setItem(product, ne);
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
