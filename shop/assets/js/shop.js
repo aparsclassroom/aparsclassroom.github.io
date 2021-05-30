@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                         exit: 'animated flipOutX'
                                     },
                                     placement: {
-                                        from: "bottom",
+                                        from: "top",
                                         align: 'center'
                                     }
                                 });
