@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             body: urlencoded,
                             redirect: 'follow'
                         };
-                        fetch('https://script.google.com/macros/s/AKfycbzRmo0SxhgT7c9Wyqxtnkkzp9qVeY4bZppHic2Y4cGhma6f7HUEZYCgtVAT0ITpi5WulA/exec', requestOptions)
+                        fetch(report, requestOptions)
                             .then(response => {
                                 return response.json()
                             })
@@ -47,10 +47,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     message: res.message
                                 }, {
                                     type: 'danger',
-                                    animate: {
-                                        enter: 'animated flipInY',
-                                        exit: 'animated flipOutX'
-                                    },
                                     placement: {
                                         from: "top",
                                         align: 'center'
