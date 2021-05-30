@@ -3,7 +3,18 @@ setTimeout(() => {
     $("#vid")[0].src;
 }, 1000)
 
-let regSc = "^(?:\+?88)?01[13-9]\d{8}$";
+
+var re = /^(?:\+?88)?01[13-9]\d{8}$/;
+const phoneNumberChk = document.getElementById('phone');
+
+function testInfo(phoneNumberChk) {
+    var OK = re.exec(phoneNumberChk.value);
+    if (!OK) {
+        console.error(phoneNumberChk.value + ' isn\'t a phone number with area code!');
+    } else {
+        console.log('Thanks, your phone number is ' + OK[0]);
+    }
+}
 
 
 document.title = product + " | ASG Shop";
