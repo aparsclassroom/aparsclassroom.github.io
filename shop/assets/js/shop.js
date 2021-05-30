@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         var res = str.split("&")[0].substring(1, 16);
-        if (res != "") {
+        if (res != "" && res != "aff-AAA") {
             swal({
                     title: "Are you satisfied ?",
                     icon: "warning",
