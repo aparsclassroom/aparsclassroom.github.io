@@ -40,6 +40,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
                 .then((report) => {
                     if (report) {
+                        let ne = "aff-AAA";
+                        document.getElementById('aff').value = ne
+                        localStorage.setItem(product, ne);
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
                         var urlencoded = new URLSearchParams();
@@ -120,8 +123,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     })
                 } else {
                     const form = document.forms['purchase']
-                    form.addEventListener('submit', e => {
-                        e.preventDefault();
+                    form.addEventListener('submit', em => {
+                        em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
