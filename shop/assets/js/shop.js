@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     text: "If you want to report this link please click 'Not Satisfied'",
                     closeOnClickOutside: false,
                     dangerMode: true,
-                    buttons: ["I'm Cool 😍", "Not Satisfied 😡"]
+                    buttons: ["I'm Satisfied 😍", "Not Satisfied 😡"]
                 })
                 .then((report) => {
                     if (report) {
