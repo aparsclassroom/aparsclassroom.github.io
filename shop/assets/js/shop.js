@@ -44,22 +44,18 @@ firebase.auth().onAuthStateChanged(function(e) {
                             })
                             .then((res) => {
                                 $.notify({
-                                    // options
                                     message: res.message
                                 }, {
-                                    // settings
                                     type: 'danger',
+                                    animate: {
+                                        enter: 'animated flipInY',
+                                        exit: 'animated flipOutX'
+                                    },
                                     placement: {
-                                        from: "bottom"
+                                        from: "bottom",
+                                        align: 'center'
                                     }
                                 });
-                                // swal(res.message, {
-                                //     icon: res.icon,
-                                // }).then(() => {
-                                //     let ne = "aff-AAA";
-                                //     document.getElementById('aff').value = ne
-                                //     localStorage.setItem(product, ne);
-                                // })
                             }).catch((err) => {
                                 swal({
                                     title: "Error",
