@@ -120,8 +120,20 @@ function initApp() {
                                 searchPlaceholder: "Search records",
                             },
                             dom: 'Bfrtip',
-                            buttons: [
-                                'excelHtml5', 'pdfHtml5'
+                            buttons: [{
+                                    extend: 'excelHtml5',
+                                    text: 'Save current page',
+                                    exportOptions: {
+                                        modifier: {
+                                            page: 'current'
+                                        }
+                                    }
+                                },
+                                {
+                                    extend: 'pdfHtml5',
+                                    text: 'Save current page',
+                                    filename: 'Transactions'
+                                }
                             ]
                         });
                     } else {
