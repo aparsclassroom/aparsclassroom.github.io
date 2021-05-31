@@ -96,7 +96,7 @@ function initApp() {
                         const month = new Date().getMonth() + 1;
                         const year = new Date().getFullYear();
                         var table = $('#datatable').DataTable({
-                            "ajax": "https://script.google.com/macros/s/AKfycbxwDP-ayt-sQtV-hHxVe6YKgPwigkXZppc_rTWg_D81OjNdO3sUEqENVW2_MZ9aTUvg/exec?q=transactions&token=aff-" + data.Affiliation_Token,
+                            "ajax": "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=aff-" + data.Affiliation_Token,
                             "columns": [{
                                 "data": "customer"
                             }, {
@@ -118,7 +118,7 @@ function initApp() {
                                 [10, 25, 50, "All"]
                             ],
                             "order": [
-                                [3, "desc"]
+                                [6, "desc"]
                             ],
                             responsive: true,
                             language: {
