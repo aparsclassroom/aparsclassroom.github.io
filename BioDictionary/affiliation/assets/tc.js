@@ -57,7 +57,7 @@ function initApp() {
                             `;
                             });
                         } else {
-                            document.getElementById('token').innerHTML = loadedData.message;
+                            document.getElementById('token').innerHTML = loadedData.message + "<br><br>Please Contact Admin !";
                         }
                     })
                     .catch(() => {

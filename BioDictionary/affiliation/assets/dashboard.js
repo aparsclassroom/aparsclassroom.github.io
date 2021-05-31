@@ -2,7 +2,7 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-const api = "https://script.google.com/macros/s/AKfycby0pJjKWiQaGHWrlQc-08nlDaEp0H9Gj3sg_nILgVxE12y8rxUrdXZ3-K19hzvHR86xpA/exec";
+const api = "https://script.google.com/macros/s/AKfycby83h_PICclotX5FsjkzqPfLL7eu5w24bTRjEuuMrrQpbCW4HhoW1vGkfmXewnXmjwVNw/exec";
 const tranApi = "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec";
 
 function initApp() {
@@ -139,7 +139,7 @@ function initApp() {
                             ]
                         });
                     } else {
-                        alert(loadedData.message + "\n\nIf You are using a gifted account.\nPlease buy this app to use Zombie Mode.");
+                        alert(loadedData.message + "\n\nPlease Contact Admin !");
                         return location.replace("../");
                     }
                 }).catch((err) => {
