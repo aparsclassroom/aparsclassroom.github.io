@@ -122,17 +122,14 @@ function initApp() {
                             dom: 'Bfrtip',
                             buttons: [{
                                     extend: 'excelHtml5',
-                                    text: 'Save current page',
-                                    exportOptions: {
-                                        modifier: {
-                                            page: 'current'
-                                        }
-                                    }
+                                    text: 'Excel',
+                                    filename: 'Transactions ' + new Date().toLocaleString('en-IN')
                                 },
                                 {
                                     extend: 'pdfHtml5',
-                                    text: 'Save current page',
-                                    filename: 'Transactions'
+                                    text: 'PDF',
+                                    filename: 'Transactions ' + new Date().toLocaleString('en-IN'),
+                                    message: 'Sales of' + data.Affiliation_Token
                                 }
                             ]
                         });
