@@ -93,7 +93,7 @@ function initApp() {
                             }
                         });
 
-                        $('#datatable').DataTable({
+                        var table = $('#datatable').DataTable({
                             "ajax": "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec?q=transactions&token=aff-" + data.Affiliation_Token,
                             "columns": [{
                                 "data": "customer"
@@ -121,7 +121,7 @@ function initApp() {
                             }
 
                         });
-                        $('#datatable').DataTable();
+                        // $('#datatable').DataTable();
                         $('#download-pdf').on('click', function() {
                             $("#datatable").tableHTMLExport({ type: 'pdf', filename: 'sample.pdf' });
                         })
