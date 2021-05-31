@@ -14,6 +14,3 @@ var app_firebase = {};
     app_firebase = firebase;
     firebase.analytics();
 })()
-document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-});
