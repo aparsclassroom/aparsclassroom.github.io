@@ -118,21 +118,33 @@ function initApp() {
                             language: {
                                 search: "_INPUT_",
                                 searchPlaceholder: "Search records",
-                            }
-
+                            },
+                            dom: 'Bfrtip',
+                            buttons: [
+                                'copy', 'csv', 'excel', 'pdf', 'print'
+                            ]
                         });
                         document.getElementById("download-xlsx").addEventListener("click", function() {
                             table.download("xlsx", "Sales of " + data.Affiliation_Token + " - " + new Date().toLocaleString("en-IN") + ".xlsx", {
                                 sheetName: "Sales - " + new Date().toLocaleString("en-IN")
                             });
                         });
+
                         const Title = "Total Sales - " + data.Affiliation_Token + " - " + new Date().toLocaleString("en-IN");
                         document.getElementById("download-pdf").addEventListener("click", function() {
-                            table.download("pdf", "BioExam-global-result-BioDictionary.pdf", {
+                            table.download("pdf", "Sales of " + data.Affiliation_Token + " - " + new Date().toLocaleString("en-IN") + "pdf", {
                                 orientation: "portrait",
                                 title: Title,
                             });
                         });
+                        // $(document).ready(function() {
+                        //     $('#datatable').DataTable( {
+                        //         dom: 'Bfrtip',
+                        //         buttons: [
+                        //             'copy', 'csv', 'excel', 'pdf', 'print'
+                        //         ]
+                        //     } );
+                        // } );
                     } else {
                         alert(loadedData.message + "\n\nIf You are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                         return location.replace("../");
