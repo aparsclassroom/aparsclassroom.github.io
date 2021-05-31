@@ -121,19 +121,10 @@ function initApp() {
                             }
 
                         });
-                        var table = $('#datatable').DataTable();
-                        document.getElementById("download-xlsx").addEventListener("click", function() {
-                            table.download("xlsx", "BioExam-global-result-BioDictionary.xlsx", {
-                                sheetName: "Leaderboard - " + new Date().toDateString()
-                            });
-                        });
-                        const Title = "BioExam Global Leaderboard - " + new Date().toLocaleString("en-US");
-                        document.getElementById("download-pdf").addEventListener("click", function() {
-                            table.download("pdf", "BioExam-global-result-BioDictionary.pdf", {
-                                orientation: "portrait",
-                                title: Title,
-                            });
-                        });
+                        $('#datatable').DataTable();
+                        $('#download-pdf').on('click', function() {
+                            $("#datatable").tableHTMLExport({ type: 'pdf', filename: 'sample.pdf' });
+                        })
                     } else {
                         alert(loadedData.message + "\n\nIf You are using a gifted account.\nPlease buy this app to use Zombie Mode.");
                         return location.replace("../");
