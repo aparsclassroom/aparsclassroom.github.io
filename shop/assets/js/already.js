@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Discount Coupon : ${data.DiscountCupon}<br>
                     Paid Amount : ${data.currency_amount} ৳ <br>
                     Username : ${data.CustomerName}<br>
-                    Transaction Id : ${data.tran_id}<br>
+                    Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
                     Email : ${data.value_b}<br>
                     Phone No. ${data.value_c}<br>
                     College : ${data.College}<br>
@@ -36,6 +36,16 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Timestamp : ${data.Timestamp}<br><br>
                     App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     `;
+                    var clipboard = new ClipboardJS('.cp');
+                    clipboard.on('success', function(e) {
+                        alert("Copied successfully!!")
+                        document.getElementById('cpBtn').innerText = "Copied !";
+                        e.clearSelection();
+                    });
+
+                    clipboard.on('error', function(e) {
+                        alert('Action:', e.action);
+                    });
                 } else {
                     location.replace("./");
                 }
