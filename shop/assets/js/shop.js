@@ -31,12 +31,12 @@ firebase.auth().onAuthStateChanged(function(e) {
         var res = str.split("&")[0].substring(1, 16);
         if (res != "" && res != "aff-AAA") {
             swal({
-                    title: "Are you satisfied ?",
+                    title: "আসসালালু আলাইকুম ❤",
                     icon: "warning",
-                    text: "If you want to report this link please click 'Not Satisfied'",
+                    text: "তুমি যার কাছ থেকে লিংকটি পেয়েছো সে কী কমেন্টে স্প্যামিং করেছে কিনা ?",
                     closeOnClickOutside: false,
                     dangerMode: true,
-                    buttons: ["I'm Satisfied 😍", "Not Satisfied 😡"]
+                    buttons: ["না 😍", "হ্যাঁ"]
                 })
                 .then((report) => {
                     if (report) {
