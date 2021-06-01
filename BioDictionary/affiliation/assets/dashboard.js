@@ -133,13 +133,13 @@ function initApp() {
                                     text: 'Excel',
                                     filename: 'Transactions of ' + date + '-' + month + '-' + year,
                                     sheetName: date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Analytics of Aff-' + data.Affiliation_Token,
+                                    title: 'BioDictionary Sales Analytics of Aff-' + tok,
                                 },
                                 {
                                     extend: 'pdfHtml5',
                                     text: 'PDF',
                                     filename: 'Transactions of ' + date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Analytics of Aff-' + data.Affiliation_Token,
+                                    title: 'BioDictionary Sales Analytics of Aff-' + tok,
                                     message: 'Exported : ' + new Date().toLocaleString('en-IN')
                                 }
                             ]
