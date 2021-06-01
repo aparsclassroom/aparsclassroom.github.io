@@ -31,20 +31,20 @@ eye.addEventListener("click", function() {
     }
 }, true);
 
-function freeTrial() {
-    firebase.auth().signInAnonymously()
-        .then(function() {
-            document.getElementById('free').value = "Success";
-        })
-        .catch(function(error) {
-            var errorCode = error.code;
-            if (errorCode = 'auth/operation-not-allowed') {
-                alert('Free Trial Offer has been Ended.\nPlease Buy a premium license.');
-            } else {
-                console.error(error);
-            }
-        });
-}
+// function freeTrial() {
+//     firebase.auth().signInAnonymously()
+//         .then(function() {
+//             document.getElementById('free').value = "Success";
+//         })
+//         .catch(function(error) {
+//             var errorCode = error.code;
+//             if (errorCode = 'auth/operation-not-allowed') {
+//                 alert('Free Trial Offer has been Ended.\nPlease Buy a premium license.');
+//             } else {
+//                 console.error(error);
+//             }
+//         });
+// }
 
 function toggleSignIn(e) {
     document.getElementById('access').value = "Please wait...";
@@ -103,7 +103,7 @@ function initApp() {
     });
     document.getElementById('access').addEventListener('click', toggleSignIn, false);
     document.getElementById('forgotPass').addEventListener('click', sendPasswordReset, false);
-    document.getElementById('free').addEventListener('click', freeTrial, false);
+    // document.getElementById('free').addEventListener('click', freeTrial, false);
 
 }
 window.onload = function() {
