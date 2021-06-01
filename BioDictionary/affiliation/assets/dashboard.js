@@ -2,7 +2,7 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-const api = "https://script.google.com/macros/s/AKfycbzUgoVOKF9OuWDSPNCsp0gNeLnrFR5x2vSEK-ZkCcwXEMsdsYuboRs8AeNWeM_SEFG5Kw/exec";
+const api = "https://script.google.com/macros/s/AKfycbwt7hdbMt8KjZldUVC11kfTiknZtVjyU7jVxosm1Y3t5xq8bIXzHGwDY4tWp90UagHjcw/exec";
 const tranApi = "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec";
 
 function initApp() {
@@ -95,8 +95,10 @@ function initApp() {
                         const date = new Date().getDate();
                         const month = new Date().getMonth() + 1;
                         const year = new Date().getFullYear();
-                        var table = $('#datatable').DataTable({
-                            "ajax": "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=aff-" + data.Affiliation_Token,
+                        var m = data.Affiliation_Token;
+                        var tok = m.split("?")[1].substring(0, 16);
+                        $('#datatable').DataTable({
+                            "ajax": "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=" + tok,
                             "columns": [{
                                 "data": "customer"
                             }, {
