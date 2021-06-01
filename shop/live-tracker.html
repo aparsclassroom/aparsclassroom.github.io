@@ -81,10 +81,10 @@
                         `;
                     } else if (loadedData.Status === "Account Created") {
                         result.innerHTML = `
-                <h3>Hello ${loadedData.Name}</h3>
+                <h3 style="text-align='center'">Hello ${loadedData.Name}</h3>
                 <h5>Your Login Email : ${loadedData.Email}</h5>
                 <h5>and your Password : <span id="pass">${loadedData.id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button></h3>
-                <p>
+                <p><br>
                     <b>Click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary</a></b></p>
                         <img src="https://cdn.dribbble.com/users/1785141/screenshots/8998392/media/b9c223e8d6e8b7342eb48193703a79a3.gif" width="100%">
                         `;
