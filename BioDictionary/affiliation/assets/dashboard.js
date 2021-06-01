@@ -133,7 +133,7 @@ function initApp() {
                                     text: 'Excel',
                                     filename: 'Transactions of ' + date + '-' + month + '-' + year,
                                     sheetName: date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Analytics of Aff-' + tok,
+                                    title: 'BioDictionary Sales Analytics of ' + tok,
                                 },
                                 {
                                     extend: 'pdfHtml5',
