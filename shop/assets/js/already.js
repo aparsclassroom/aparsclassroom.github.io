@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     <h3>Purchase Information</h3>
                     Invoice : ${data.Invoice}<br>
                     Product : ${data.ProductName}<br>
-                    Discount Cupon : ${data.DiscountCupon}<br>
+                    Discount Coupon : ${data.DiscountCupon}<br>
                     Paid Amount : ${data.currency_amount} ৳ <br>
                     Username : ${data.CustomerName}<br>
                     Transaction Id : ${data.tran_id}<br>
