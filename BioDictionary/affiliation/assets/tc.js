@@ -9,7 +9,7 @@ if (theme == "true") {
 } else {
     bg.classList.add("white-content");
 }
-const api = "https://script.google.com/macros/s/AKfycbzO1yH2WpIRspklxuWocyOryzf3qQopsfRY_OO97nqc40XjU9PV8joKdkOm28qNOHxoYg/exec";
+const api = "https://script.google.com/macros/s/AKfycbzsaxq92jjK4zjH1Ryo02bC-YbTNGVVMW91QvH9EDh9oIjEcxyXvJn3pbvtPFZODBIJRA/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -28,10 +28,12 @@ function initApp() {
                     .then((loadedData) => {
                         if (loadedData.code === 200) {
                             let data = loadedData.data;
+                            var m = data[0].token;
+                            var tok = m.split("?")[1].substring(0, 16);
                             document.getElementById('token').innerHTML = `
                         Your Username : ${data[0].Name}<br>
                         Your Email Address : ${data[0].Email}<br>
-                        Your Affiliate Token : ${data[0].token}
+                        Your Affiliate Token : ${tok}
                         `;
                             var news = data.sort(function(a, b) { return b.Invoice - a.Invoice })
                             news.forEach(element => {
