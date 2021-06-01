@@ -48,7 +48,7 @@ function initApp() {
                         if (data.Rocket != "") {
                             Rocket.value = data.Rocket;
                         }
-                        document.getElementById('aff').value = "aff-" + data.Affiliation_Token;
+                        document.getElementById('aff').value = data.Affiliation_Token;
                         document.getElementById('name').innerText = user.displayName;
                         document.getElementById('fbLink').addEventListener('click', () => {
                             window.open(data.Facebook_Link)
