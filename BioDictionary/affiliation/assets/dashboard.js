@@ -139,7 +139,7 @@ function initApp() {
                                     extend: 'pdfHtml5',
                                     text: 'PDF',
                                     filename: 'Transactions of ' + date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Analytics of Aff-' + tok,
+                                    title: 'BioDictionary Sales Analytics of ' + tok,
                                     message: 'Exported : ' + new Date().toLocaleString('en-IN')
                                 }
                             ]
