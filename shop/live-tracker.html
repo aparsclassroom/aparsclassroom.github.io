@@ -88,6 +88,17 @@
                     <b>Click here : <a href="https://aparsclassroom.com/BioDictionary/login">https://aparsclassroom.com/BioDictionary</a></b></p>
                         <img src="https://cdn.dribbble.com/users/1785141/screenshots/8998392/media/b9c223e8d6e8b7342eb48193703a79a3.gif" width="100%">
                         `;
+                        var clipboard = new ClipboardJS('.cp');
+
+                        clipboard.on('success', function(e) {
+                            alert("Copied successfully!!")
+                            document.getElementById('cpBtn').innerText = "Copied !";
+                            e.clearSelection();
+                        });
+
+                        clipboard.on('error', function(e) {
+                            alert('Action:', e.action);
+                        });
                     } else {
                         result.innerHTML = `
                 <h3>Name : ${loadedData.Name}</h3>
