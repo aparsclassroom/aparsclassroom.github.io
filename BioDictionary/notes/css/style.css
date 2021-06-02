@@ -55,7 +55,7 @@ body {
 .header {
     width: 100%;
     height: 200px;
-    background-image: url('https://fintechzoom.com/wp-content/uploads/2020/08/disney-apresenta-planos-de-reabertura-dos-parques-01.jpg');
+    background-image: url('../../Assets/images/illustration/dis.jpg');
     border-radius: 15px 15px 0 0;
     position: relative;
 }
