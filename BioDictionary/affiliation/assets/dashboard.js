@@ -127,7 +127,7 @@ function initApp() {
                                 search: "_INPUT_",
                                 searchPlaceholder: "Search records",
                             },
-                            dom: 'Bfrtip',
+                            dom: 'Blfrtip',
                             buttons: [{
                                     extend: 'excelHtml5',
                                     text: 'Excel',
