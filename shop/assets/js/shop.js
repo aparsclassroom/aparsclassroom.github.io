@@ -186,7 +186,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         }
         if (namex != null) {
             document.getElementById('name').value = namex;
-            document.getElementById('name').setAttribute("readonly", true);
+            // document.getElementById('name').setAttribute("readonly", true);
         }
         if (mail != null) {
             document.getElementById('email').value = mail
