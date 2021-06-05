@@ -68,7 +68,14 @@ searchBtn.addEventListener('click', () => {
                             }
 
                         } else {
-                            return window.replace('./');
+                            swal({
+                                title: 'Hello ' + data.Name,
+                                icon: "info",
+                                text: 'Click Proceed Payment button to redirect to the automatic payment page.',
+                                button: "Proceed Payment"
+                            }).then(() => {
+                                return location.replace('./');
+                            })
                         }
                     })
             } else {
