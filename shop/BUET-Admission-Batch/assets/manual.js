@@ -87,7 +87,7 @@ searchBtn.addEventListener('click', () => {
 
                         } else {
                             swal({
-                                title: 'Hello ' + data.Name,
+                                title: 'Hello ' + resp.data.Name,
                                 icon: "info",
                                 text: 'Click Proceed Payment button to redirect to the automatic payment page.',
                                 button: "Proceed Payment"
