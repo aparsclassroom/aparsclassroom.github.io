@@ -3,24 +3,6 @@ const appl = "https://www.facebook.com/groups/aparchinmoyadmission21/";
 var search = document.getElementById('search');
 var searchBtn = document.getElementById('searchBtn');
 var result = document.getElementById('result');
-var chatbox = document.getElementById('fb-customer-chat');
-chatbox.setAttribute("page_id", "109191567987688");
-chatbox.setAttribute("attribution", "biz_inbox");
-window.fbAsyncInit = function() {
-    FB.init({
-        xfbml: true,
-        version: 'v10.0'
-    });
-};
-
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 searchBtn.addEventListener('click', () => {
     result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' class='roun' width='100%'>";
     fetch('https://script.google.com/macros/s/AKfycbwvF8jbq4w7f9smhmISRNgGsm94YUeibeXEYd9zDiuYYPrNHZ28_SHw_jh9xbmJ4Z7QyQ/exec?phone=' + search.value.trim())
@@ -86,9 +68,8 @@ searchBtn.addEventListener('click', () => {
                             }
 
                         } else {
-                            console.log(resp)
                             swal({
-                                title: 'Hello ' + resp.data.Name,
+                                title: 'Hello ' + loadedData.data.Name,
                                 icon: "info",
                                 text: 'Click Proceed Payment button to redirect to the automatic payment page.',
                                 button: "Proceed Payment"
