@@ -68,59 +68,7 @@ searchBtn.addEventListener('click', () => {
                             }
 
                         } else {
-                            document.getElementById('welc').innerHTML = "Hello " + loadedData.data.Name + " & Your Rank #" + loadedData.data.Ranking;
-                            $('#myModal').modal('toggle');
-
-                            document.getElementById('form').addEventListener('submit', (e) => {
-                                document.getElementById('purchaseBtn').disabled = true;
-                                document.getElementById('purchaseBtn').innerText = "Please Wait...";
-                                e.preventDefault()
-                                let bkash = document.getElementById('bkash');
-                                let gateway = document.getElementById('gateway');
-                                let tranx = document.getElementById('tranx');
-                                var myHeaders = new Headers();
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-                                var urlencoded = new URLSearchParams();
-                                urlencoded.append("Name", loadedData.data.Name);
-                                urlencoded.append("Email", loadedData.data.Email);
-                                urlencoded.append("Phone Number", loadedData.data.phone);
-                                urlencoded.append("Tranx ID", tranx.value.trim());
-                                urlencoded.append("Rank", loadedData.data.Ranking);
-                                urlencoded.append("User Bkash", bkash.value.trim());
-                                urlencoded.append("Gateway", gateway.value.trim());
-
-                                var requestOptions = {
-                                    method: 'POST',
-                                    headers: myHeaders,
-                                    body: urlencoded,
-                                    redirect: 'follow'
-                                };
-
-                                fetch("https://script.google.com/macros/s/AKfycbx8SdZ0cNTKMN7VQN4rbz4sK6aTgCJlt3tsNi0Vm3Dq3GGB9wKlInFY9fzgLn4olkcY2A/exec", requestOptions)
-                                    .then(response => response.json())
-                                    .then(result => {
-                                        swal({
-                                            title: result.title,
-                                            icon: result.code,
-                                            text: result.message + "\nCome back later and recheck your payment verification Status",
-                                            button: "OK"
-                                        }).then(() => {
-                                            return location.reload()
-                                        })
-                                    })
-                                    .catch(error => {
-                                        swal({
-                                            title: error.title,
-                                            icon: error.code,
-                                            text: error.message,
-                                            button: "OK"
-                                        }).then(() => {
-                                            return location.reload()
-                                        })
-                                    });
-                            })
-
+                            return window.replace('./');
                         }
                     })
             } else {
