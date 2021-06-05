@@ -86,6 +86,7 @@ searchBtn.addEventListener('click', () => {
                             }
 
                         } else {
+                            console.log(resp)
                             swal({
                                 title: 'Hello ' + resp.data.Name,
                                 icon: "info",
