@@ -68,19 +68,21 @@ firebase.auth().onAuthStateChanged(function(e) {
                                         align: 'center'
                                     }
                                 });
-                                swal({
-                                        title: "স্ক্রীনশট দিন",
-                                        icon: "warning",
-                                        text: "স্প্যামারের কমেন্টগুলোর স্ক্রীনশট তুলে আমাদের পাঠান",
-                                        closeOnClickOutside: false,
-                                        dangerMode: true,
-                                        buttons: ["না ঠিক আছে", "দিচ্ছি"]
-                                    })
-                                    .then((ss) => {
-                                        if (ss) {
-                                            window.open('https://driveuploader.com/upload/ps8kwbgUin/')
-                                        }
-                                    })
+                                if (res.code != 400) {
+                                    swal({
+                                            title: "স্ক্রীনশট দিন",
+                                            icon: "warning",
+                                            text: "স্প্যামারের কমেন্টগুলোর স্ক্রীনশট তুলে আমাদের পাঠান",
+                                            closeOnClickOutside: false,
+                                            dangerMode: true,
+                                            buttons: ["না ঠিক আছে", "দিচ্ছি"]
+                                        })
+                                        .then((ss) => {
+                                            if (ss) {
+                                                window.open('https://driveuploader.com/upload/ps8kwbgUin/')
+                                            }
+                                        })
+                                }
                             }).catch((err) => {
                                 swal({
                                     title: "Error",
