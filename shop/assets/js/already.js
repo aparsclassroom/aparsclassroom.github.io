@@ -33,8 +33,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Phone No. ${data.value_c}<br>
                     College : ${data.College}<br>
                     HSC : ${data.HSC}<br>
-                    Timestamp : ${data.Timestamp}<br><br>
+                    Purchased at : ${data.Timestamp}<br><br>
                     App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                    <br><br>
+                    <h3>Your App / Course should be available in 24 hours.<br> so please have patience.</h3>
+
+                    If you have  bought BioDictionary then use this link to track :<br>
+                    <a href="../live-tracker.html">BioTracker</a>
                     `;
                     var clipboard = new ClipboardJS('.cp');
                     clipboard.on('success', function(e) {
