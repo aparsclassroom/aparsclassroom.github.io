@@ -39,7 +39,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     <h3>Your App / Course should be available in 24 hours.<br> so please have patience.</h3>
 
                     If you have  bought BioDictionary then use this link to track :<br>
-                    <a href="../live-tracker.html">BioTracker</a>
+                    <a href="../live-tracker.html">BioDictionary Tracker</a>
                     `;
                     var clipboard = new ClipboardJS('.cp');
                     clipboard.on('success', function(e) {
