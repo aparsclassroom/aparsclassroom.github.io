@@ -79,7 +79,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                         })
                                         .then((ss) => {
                                             if (ss) {
-                                                window.open('https://driveuploader.com/upload/ps8kwbgUin/')
+                                                window.open('mailto:feedback@aparsclassroom.com')
                                             }
                                         })
                                 }
