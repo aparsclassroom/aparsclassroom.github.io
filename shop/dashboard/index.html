@@ -87,7 +87,7 @@
                                 idx++
                                 const content = `
                         <div class="col-lg-4 mb-4">
-                            <a class="card lift lift-sm h-100 cp" data-clipboard-target="#ps${idx}">
+                            <div class="card lift lift-sm h-100 cp" data-clipboard-target="#ps${idx}">
                                 <div class="card-body py-5">
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${element.Invoice}
@@ -99,7 +99,7 @@
                                 <div class="card-footer">
                                     <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         `;
                                 results.innerHTML += content;
