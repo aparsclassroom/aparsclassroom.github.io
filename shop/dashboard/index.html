@@ -110,6 +110,18 @@
                                 results.innerHTML += content;
                                 var clipboard = new ClipboardJS('.cp');
                                 clipboard.on('success', function(e) {
+                                    $.notify({
+                                        icon: "tim-icons icon-bell-55",
+                                        message: "Copied successfully!!"
+
+                                    }, {
+
+                                        timer: 8000,
+                                        placement: {
+                                            from: "bottom",
+                                            align: "center"
+                                        }
+                                    });
                                     e.clearSelection();
                                 });
 
