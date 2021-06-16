@@ -126,6 +126,7 @@ function initApp() {
                             language: {
                                 search: "_INPUT_",
                                 searchPlaceholder: "Search records",
+                                emptyTable: "Opps! Nothing found."
                             },
                             dom: 'Blfrtip',
                             buttons: [{
