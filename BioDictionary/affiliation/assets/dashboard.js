@@ -125,8 +125,7 @@ function initApp() {
                             responsive: true,
                             language: {
                                 search: "_INPUT_",
-                                searchPlaceholder: "Search records",
-                                emptyTable: "Opps! Nothing found."
+                                searchPlaceholder: "Search records"
                             },
                             dom: 'Blfrtip',
                             buttons: [{
