@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apar's Classroom</title>
+    <meta name="keywords" content="Apar's Classroom by Numeri Sattar Apar">
+    <meta name="description" content="Best online Classroom in Bangladesh">
+    <meta name="author" content="Maheyan Mridul">
+
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="Apars Classroom">
+    <meta property="og:site_name" content="Apar's Classroom">
+    <meta property="og:description" content="Welcome to Apar's Army 🔥🔥🔥">
+    <meta property="og:image" content="https://aparsclassroom.com/images/poster.jpg">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/images/poster.jpg">
+    <meta property="og:image:type" content="image/jpg">
+
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7R4CMSFEBN');
+    </script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
+    <script src="/shop/assets/js/script.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+    <script src="./assets/js/join.js" defer></script>
+    <script data-ad-client="ca-pub-5685113668105843" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" style="background-image: linear-gradient(to left, rgb(71, 115, 90), rgb(49, 80, 61), rgb(28, 50, 39));">
+        <a class="navbar-brand" href="/">
+            <img src="/HSC-Full-Course/assets/images/Logo-with-Name.png" height="30px" width="30px"> Apar's Classroom</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/shop">ASG Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about-us.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/podcast/join/">Podcast</a>
+                </li>
+            </ul>
+            <a id="logST" class="btn btn-warning">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="col-md-6 offset-md-3 mt-5 container">
+            <h3 class="text-center"><img src="/HSC-Full-Course/assets/images/Logo-with-Name.png" alt="Apar's Classroom" height="100px"><br>Apar's Podcast</span>
+            </h3>
+            <form id="uploadForm" name="uploadForm">
+                <div class="form-group">
+                    <label for="Name"> Name : </label>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Ex. Numeri Sattar Apar" required>
+                </div>
+                <div class="form-group">
+                    <label for="Email"> Email Address : </label>
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex. admin@aparsclassroom.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="Phone"> Phone Number : </label>
+                    <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Ex. 012345678910" required>
+                </div>
+                <div class="form-group">
+                    <label for="Institute"> Institute Name : </label>
+                    <input type="text" class="form-control" id="Institute" name="Institute" placeholder="Ex. BUET" required>
+                </div>
+                <textarea name="Ip Details" id="ip-details" style="display: none;"></textarea>
+                <div class="form-group">
+                    <label for="HSC"> HSC Batch : </label>
+                    <select class="form-control" required name="HSC" id="HSC">
+                        <option value="">--Select Any--</option>
+                        <option value="HSC'21">HSC'21</option>
+                        <option value="HSC'22">HSC'22</option>
+                        <option value="HSC'23">HSC'23</option>
+                        <option value="HSC'24">HSC'24</option>
+                        <option value="HSC'20">HSC'20</option>
+                        <option value="HSC'19">HSC'19</option>
+                        <option value="HSC'18">HSC'18</option>
+                        <option value="HSC'17">HSC'17</option>
+                        <option value="HSC'16">HSC'16</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Story"> Write your Story which you want to share with us : </label>
+                    <textarea type="text" class="form-control" id="Story" rows="10" name="Story" placeholder="Ex. আমার জীবনগল্পটা অন্য সবার...." required></textarea>
+                </div>
+                <button id="sub" type="submit" class="btn btn-block btn-outline-dark">Submit your Story</button>
+            </form>
+        </div>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img class="mb-2" src="/HSC-Full-Course/assets/images/Logo-with-Name.png" alt="Apar's Classroom" width="50px" height="50px">
+                    <small class="d-block mb-3 text-muted">&copy; 2020-2021<br>Apar's Classroom</small>
+                    <address>4/A, Indira Road, Tejgaon, Dhaka</address>
+                    <a href="tel:01873307425">01873307425</a><br>
+                    <a href="support@aparsclassroom.com">support@aparsclassroom.com</a>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Our Products</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://aparsclassroom.com/shop/BioDictionary/?aff-AAA">BioDictionary</a></li>
+                        <li><a class="text-muted" href="/shop/BUET-Admission-Batch/">BUET Admission Batch</a></li>
+                        <li><a class="text-muted" href="/bcsquestion.html">বিজয়ের পথে</a></li>
+                        <li><a class="text-muted" href="/registration.html">Story Mode Learning App</a></li>
+                        <li><a class="text-muted" href="/Photon/january-download.html">Photon Magazine</a></li>
+                        <li><a class="text-muted" href="/shuchipotro-download.html">Digital Interractive Pdf</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Find Us At</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://www.facebook.com/aparsclassroom/" target="_blank">Facebook Page</a></li>
+                        <li><a class="text-muted" href="https://www.facebook.com/groups/aparsclassroom/" target="_blank">Facebook Group</a></li>
+                        <li><a class="text-muted" href="https://instagram.com/aparsclassroom" target="_blank">Instagram Account</a></li>
+                        <li><a class="text-muted" href="https://youtube.com/aparsclassroom">Youtube Channel</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="/about-us.html">Team</a></li>
+                        <li><a class="text-muted" href="https://goo.gl/maps/n2z2HRGN5MJPE6ZB6" target="_blank">Location</a></li>
+                        <li><a class="text-muted" href="/privacy.html">Privacy</a></li>
+                        <li><a class="text-muted" href="/terms.html">Terms</a></li>
+                        <li><a class="text-muted" href="/return-and-refund-policy.html">Return and Refund Policy</a></li>
+                        <li><a class="text-muted" href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
