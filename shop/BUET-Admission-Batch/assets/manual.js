@@ -123,6 +123,9 @@ searchBtn.addEventListener('click', () => {
                             Timestamp : ${data.Timestamp}<br><br>
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                             `;
+                        }).catch(() => {
+                            alert("You've might paid using SSL Gateway !")
+                            return location.replace('./');
                         })
                 })
             }
