@@ -43,7 +43,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         } else {
                             document.getElementById('info').innerHTML = `
                                 <h3>Purchase Information</h3>
-                                Invoice : ${data[0].invoice}<br>
+                                1<sup>st</sup> Invoice : ${data[0].invoice}<br>
+                                2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
                                 Product : ${data[0].ProductName}<br>
                                 Total Paid Amount : ${sum2} ৳ <br>
                                 Username : ${data[0].Name}<br>
