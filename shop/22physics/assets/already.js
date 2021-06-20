@@ -35,7 +35,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Phone No. ${data[0].phone}<br>
                         College : ${data[0].College}<br>
                         HSC : ${data[0].HSC}<br>
-                        Purchased at : ${data.time}<br><br>
+                        Date : ${data[0].time}<br><br>
                         Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                         <br><br>
                         <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
@@ -53,7 +53,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
                                 HSC : ${data[0].HSC}<br>
-                                Purchased at : ${data.time}<br><br>
+                                1<sup>st</sup> Payment : ${data[0].time}<br>
+                                2<sup>nd</sup> Payment : ${data[1].time}<br><br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 <br><br>
                                 <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
@@ -71,7 +72,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Phone No. ${data[0].phone}<br>
                         College : ${data[0].College}<br>
                         HSC : ${data[0].HSC}<br>
-                        Purchased at : ${data.time}<br><br>
+                        Payment Date : ${data[0].time}<br>
+                        <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
                         Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                         <br><br>
                         <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
