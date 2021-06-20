@@ -128,7 +128,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     localStorage.removeItem(product)
                     let data = result.data;
                     const sum = data.map(element => element.access).reduce((a, b) => a + b, 0);
-                    if (sum > 5) {
+                    if (sum > 0.5) {
                         swal({
                             title: "100% Payment Completed !",
                             icon: "success",
