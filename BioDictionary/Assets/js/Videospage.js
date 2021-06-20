@@ -31,7 +31,7 @@ var mainApp = {};
                             document.getElementById('player').setAttribute("data-plyr-embed-id", loadedData.Video_Id);
                             const player = new Plyr('#player');
                             document.getElementById('forward').addEventListener('click', e => {
-                                e.detail.plyr
+                                console.log(e.detail.plyr)
                             })
                             document.getElementById('previewP').setAttribute("src", "https://drive.google.com/file/d/" + loadedData.Pdf_Id + "/preview");
                             document.getElementById('down').setAttribute('onclick', "window.open('https://drive.google.com/u/0/uc?id=" + loadedData.Pdf_Id + "&export=download')");
