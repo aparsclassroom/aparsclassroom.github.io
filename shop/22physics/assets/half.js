@@ -127,13 +127,25 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then(result => {
                 if (result.code === 200) {
                     localStorage.removeItem(product)
-                    swal({
-                        title: result.message,
-                        icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace("./purchased")
-                    })
+                    let data = result.data;
+                    const sum = data.map(element => element.access).reduce((a, b) => a + b, 0);
+                    if (sum == 1) {
+                        swal({
+                            title: result.message,
+                            icon: "success",
+                            button: "View Informations"
+                        }).then(() => {
+                            return location.replace("./purchased")
+                        })
+                    } else {
+                        swal({
+                            title: "Your 50% payment Remaining !",
+                            icon: "info",
+                            button: "OK"
+                        }).then(() => {
+                            return location.replace("./half")
+                        })
+                    }
                 } else {
                     const form = document.forms['purchase']
                     form.addEventListener('submit', em => {
