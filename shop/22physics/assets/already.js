@@ -31,8 +31,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Total Paid Amount : ${sum2} ৳ <br>
                         Username : ${data[0].Name}<br>
                         Joining ID : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
-                        Email : ${data[0].value_b}<br>
-                        Phone No. ${data[0].value_c}<br>
+                        Email : ${data[0].data[0].email}<br>
+                        Phone No. ${data[0].phone}<br>
                         College : ${data[0].College}<br>
                         HSC : ${data[0].HSC}<br>
                         Purchased at : ${data.time}<br><br>
@@ -49,8 +49,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Username : ${data[0].Name}<br>
                                 Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br>
                                 Joining ID (2nd Half) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
-                                Email : ${data[0].value_b}<br>
-                                Phone No. ${data[0].value_c}<br>
+                                Email : ${data[0].data[0].email}<br>
+                                Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
                                 HSC : ${data[0].HSC}<br>
                                 Purchased at : ${data.time}<br><br>
@@ -67,8 +67,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Total Paid Amount : ${sum2} ৳ <br>
                         Username : ${data[0].Name}<br>
                         Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
-                        Email : ${data[0].value_b}<br>
-                        Phone No. ${data[0].value_c}<br>
+                        Email : ${data[0].data[0].email}<br>
+                        Phone No. ${data[0].phone}<br>
                         College : ${data[0].College}<br>
                         HSC : ${data[0].HSC}<br>
                         Purchased at : ${data.time}<br><br>
