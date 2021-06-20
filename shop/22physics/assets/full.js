@@ -201,6 +201,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     })
                 }
             })
+            .catch(() => {
+                console.log('data not found !')
+            })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
