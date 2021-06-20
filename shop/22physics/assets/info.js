@@ -43,18 +43,18 @@ firebase.auth().onAuthStateChanged(function(e) {
                 } else {
                     document.getElementById('meta').innerHTML = "তোমার পেমেন্ট সিস্টেম সিলেক্ট করো। তুমি চাইলে এককালীন ৫০০০ টাকা দিতে পারো।<br> আবার ৩০০০ টাকা দিয়ে ভর্তি হতে পারো। তবে ২ মাসের মধ্যে তোমাকে আরও ৩০০০ টাকা দিতে হবে।";
                     document.getElementById('full').href = "./full";
-                    document.getElementById('full').href = "./half";
+                    document.getElementById('half').href = "./half";
                 }
             })
             .catch(() => {
                 document.getElementById('meta').innerHTML = "তোমার পেমেন্ট সিস্টেম সিলেক্ট করো। তুমি চাইলে এককালীন ৫০০০ টাকা দিতে পারো।<br> আবার ৩০০০ টাকা দিয়ে ভর্তি হতে পারো। তবে ২ মাসের মধ্যে তোমাকে আরও ৩০০০ টাকা দিতে হবে।";
                 document.getElementById('full').href = "./full";
-                document.getElementById('full').href = "./half";
+                document.getElementById('half').href = "./half";
             })
 
     } else {
         document.getElementById('meta').innerHTML = "Please Login First !"
         document.getElementById('full').href = "../dashboard/login";
-        document.getElementById('full').href = "../dashboard/login";
+        document.getElementById('half').href = "../dashboard/login";
     }
 })
