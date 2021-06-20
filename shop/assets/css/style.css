@@ -1,5 +1,5 @@
 body {
-    background: url('/BioDictionary/Assets/images/Background/bg.webp');
+    background: url('https://img.freepik.com/free-vector/hand-drawn-colorful-science-education-wallpaper_23-2148489183.jpg?size=626&ext=jpg');
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -42,4 +42,5 @@ iframe {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 5px gray;
+    background: rgba(253, 253, 253, 0.733);
 }
