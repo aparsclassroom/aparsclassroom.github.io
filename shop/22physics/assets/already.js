@@ -82,7 +82,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var clipboard = new ClipboardJS('.cp');
                     clipboard.on('success', function(e) {
                         alert("Copied successfully!!")
-                        document.getElementById('cpBtn').innerText = "Copied !";
                         e.clearSelection();
                     });
 
