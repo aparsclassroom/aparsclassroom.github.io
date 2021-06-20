@@ -95,9 +95,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
             })
             .catch(() => {
-                location.replace("./");
+                // location.replace("./");
             })
     } else {
-        location.replace("./");
+        // location.replace("./");
     }
 })
