@@ -139,11 +139,56 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                     } else {
                         swal({
-                            title: "Your 50% payment Remaining !",
+                            title: "Your Final 50% payment Remaining !",
                             icon: "info",
-                            button: "OK"
+                            button: "Proceed Payment"
                         }).then(() => {
-                            return location.replace("./half")
+                            var myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/json");
+                            var raw = JSON.stringify({
+                                "dicount_amount": 0,
+                                "product": product,
+                                "cus_name": data[0].Name,
+                                "email": data[0].email,
+                                "college": data[0].College,
+                                "hsc": data[0].HSC,
+                                "phone": data[0].phone,
+                                "aff": data[0].access,
+                                "Cupon": "",
+                                'uid': e.uid
+                            });
+
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: raw,
+                                redirect: 'follow'
+                            };
+
+                            fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                                .then(response => {
+                                    return response.json()
+                                })
+                                .then(result => {
+                                    if (result.status != 420) {
+                                        location.href = result.GatewayPageURL
+                                    } else {
+                                        swal({
+                                            title: result.message,
+                                            icon: "error"
+                                        }).then(() => {
+                                            location.href = result.GatewayPageURL
+                                        })
+                                    }
+                                })
+                                .catch(() => {
+                                    swal({
+                                        title: "Error",
+                                        icon: "error",
+                                        text: "Server Busy 😶\nPlease Try Again later",
+                                        button: "Ok"
+                                    })
+                                });
                         })
                     }
                 } else {
