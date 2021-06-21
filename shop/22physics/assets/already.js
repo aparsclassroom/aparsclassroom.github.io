@@ -24,61 +24,121 @@ firebase.auth().onAuthStateChanged(function(e) {
                     const sum2 = data.map(el => el.amount).reduce((c, d) => c + d, 0);
                     if (sum > 0.5) {
                         if (data.length == 1) {
-                            document.getElementById('info').innerHTML = `
-                        <h3>Purchase Information</h3>
-                        Invoice : ${data[0].invoice}<br>
-                        Product : ${data[0].ProductName}<br>
-                        Total Paid Amount : ${sum2} ৳ <br>
-                        Username : ${data[0].Name}<br>
-                        Joining ID : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
-                        Email : ${data[0].email}<br>
-                        Phone No. ${data[0].phone}<br>
-                        College : ${data[0].College}<br>
-                        HSC : ${data[0].HSC}<br>
-                        Date : ${data[0].time}<br><br>
-                        Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
-                        <br><br>
-                        <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
-                        `;
-                        } else {
-                            document.getElementById('info').innerHTML = `
-                                <h3>Purchase Information</h3>
-                                1<sup>st</sup> Invoice : ${data[0].invoice}<br>
-                                2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
+                            if (data[0].enrollment != "") {
+                                document.getElementById('info').innerHTML = `
+                                <h3>Enrollment Information</h3>
+                                Invoice : ${data[0].invoice}<br>
                                 Product : ${data[0].ProductName}<br>
                                 Total Paid Amount : ${sum2} ৳ <br>
                                 Username : ${data[0].Name}<br>
-                                Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
-                                Joining ID (2nd Half) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
+                                Joining ID : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
                                 Email : ${data[0].email}<br>
                                 Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
                                 HSC : ${data[0].HSC}<br>
-                                1<sup>st</sup> Payment : ${data[0].time}<br>
-                                2<sup>nd</sup> Payment : ${data[1].time}<br><br>
+                                Date : ${data[0].time}<br><br>
+                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                                `;
+                            } else {
+                                document.getElementById('info').innerHTML = `
+                                <h3>Purchase Information</h3>
+                                Invoice : ${data[0].invoice}<br>
+                                Product : ${data[0].ProductName}<br>
+                                Total Paid Amount : ${sum2} ৳ <br>
+                                Username : ${data[0].Name}<br>
+                                Joining ID : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
+                                Email : ${data[0].email}<br>
+                                Phone No. ${data[0].phone}<br>
+                                College : ${data[0].College}<br>
+                                HSC : ${data[0].HSC}<br>
+                                Date : ${data[0].time}<br><br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 <br><br>
                                 <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
                                 `;
+                            }
+                        } else {
+                            if (data[0].enrollment != "" && data[1].enrollment != "") {
+                                document.getElementById('info').innerHTML = `
+                                <h3>Enrollment Information</h3>
+                                <hr>
+                                Username : ${data[0].Name}<br>
+                                Email : ${data[0].email}<br>
+                                Phone No. ${data[0].phone}<br>
+                                College : ${data[0].College}<br>
+                                HSC : ${data[0].HSC}<br><br>
+                                Product : ${data[0].ProductName}<br>
+                                Total Paid Amount : ${sum2} ৳ <br>
+                                1<sup>st</sup> Invoice : ${data[0].invoice}<br>
+                                1<sup>st</sup> Payment : ${data[0].time}<br>
+                                Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
+                                2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
+                                2<sup>nd</sup> Payment : ${data[1].time}<br><br>
+                                Joining ID (2nd Half) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
+                                <br>
+                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                                `;
+                            } else if (data[0].enrollment != "") {
+                                document.getElementById('info').innerHTML = `
+                                <h3>Purchase Information</h3>
+                                <hr>
+                                Username : ${data[0].Name}<br>
+                                Email : ${data[0].email}<br>
+                                Phone No. ${data[0].phone}<br>
+                                College : ${data[0].College}<br>
+                                HSC : ${data[0].HSC}<br><br>
+                                Product : ${data[0].ProductName}<br>
+                                Total Paid Amount : ${sum2} ৳ <br>
+                                1<sup>st</sup> Invoice : ${data[0].invoice}<br>
+                                1<sup>st</sup> Payment : ${data[0].time}<br>
+                                Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
+                                2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
+                                2<sup>nd</sup> Payment : ${data[1].time}<br><br>
+                                Joining ID (2nd Half) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
+                                <br>
+                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                                <br><br>
+                                <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
+                                `;
+                            }
                         }
                     } else {
-                        document.getElementById('info').innerHTML = `
-                        <h3>Purchase Information</h3>
-                        Invoice : ${data[0].invoice}<br>
-                        Product : ${data[0].ProductName}<br>
-                        Total Paid Amount : ${sum2} ৳ <br>
-                        Username : ${data[0].Name}<br>
-                        Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
-                        Email : ${data[0].email}<br>
-                        Phone No. ${data[0].phone}<br>
-                        College : ${data[0].College}<br>
-                        HSC : ${data[0].HSC}<br>
-                        Payment Date : ${data[0].time}<br>
-                        <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
-                        Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
-                        <br><br>
-                        <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
-                        `;
+                        if (data[0].enrollment != "") {
+                            document.getElementById('info').innerHTML = `
+                            <h3>Enrollment Information</h3>
+                            Invoice : ${data[0].invoice}<br>
+                            Product : ${data[0].ProductName}<br>
+                            Total Paid Amount : ${sum2} ৳ <br>
+                            Username : ${data[0].Name}<br>
+                            Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
+                            Email : ${data[0].email}<br>
+                            Phone No. ${data[0].phone}<br>
+                            College : ${data[0].College}<br>
+                            HSC : ${data[0].HSC}<br>
+                            Payment Date : ${data[0].time}<br>
+                            <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
+                            Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                            `;
+                        } else {
+                            document.getElementById('info').innerHTML = `
+                            <h3>Purchase Information</h3>
+                            Invoice : ${data[0].invoice}<br>
+                            Product : ${data[0].ProductName}<br>
+                            Total Paid Amount : ${sum2} ৳ <br>
+                            Username : ${data[0].Name}<br>
+                            Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
+                            Email : ${data[0].email}<br>
+                            Phone No. ${data[0].phone}<br>
+                            College : ${data[0].College}<br>
+                            HSC : ${data[0].HSC}<br>
+                            Payment Date : ${data[0].time}<br>
+                            <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
+                            Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                            <br><br>
+                            <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
+                            `;
+                        }
+
                     }
 
 
