@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             icon: "info",
                             button: "OK"
                         }).then(() => {
-                            document.getElementById('meta').innerHTML = "তোমার ৩০০০ টাকা বকেয়া রয়েছে। নিচের ১ম বাটনে ক্লিক করে তুমি তোমার ১ম পেমেন্ট সংক্রান্ত তথ্য পেয়ে যাবে। ২য় বাটনে ক্লিক করে ২য় পেমেন্টের টাকা পরিশোধ করতে পারবে।"
+                            document.getElementById('meta').innerHTML = "<strong>তোমার ৩০০০ টাকা বকেয়া রয়েছে।</strong> নিচের ১ম বাটনে ক্লিক করে তুমি তোমার ১ম পেমেন্ট সংক্রান্ত তথ্য পেয়ে যাবে। <br>২য় বাটনে ক্লিক করে ২য় পেমেন্টের টাকা পরিশোধ করতে পারবে।"
                             document.getElementById('full').href = "./purchased";
                             document.getElementById('full').innerText = "Payment Information";
                             document.getElementById('half').innerText = "২য় কিস্তির টাকা পরিশোধ করব";
