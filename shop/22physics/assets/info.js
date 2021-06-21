@@ -37,7 +37,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                             icon: "info",
                             button: "OK"
                         }).then(() => {
-                            return location.replace("./half")
+                            document.getElementById('full').href = "./purchased";
+                            document.getElementById('full').innerText = "Payment Information";
                         })
                     }
                 } else {
