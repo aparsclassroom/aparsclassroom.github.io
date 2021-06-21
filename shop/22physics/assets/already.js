@@ -35,7 +35,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Email : ${data[0].email}<br>
                                 Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
-                                HSC : ${data[0].HSC}<br>
+                                Batch : ${data[0].HSC}<br>
                                 Date : ${data[0].time}<br><br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 `;
@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Email : ${data[0].email}<br>
                                 Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
-                                HSC : ${data[0].HSC}<br>
+                                Batch : ${data[0].HSC}<br>
                                 Date : ${data[0].time}<br><br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 <br><br>
@@ -66,7 +66,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Email : ${data[0].email}<br>
                                 Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
-                                HSC : ${data[0].HSC}<br><br>
+                                Batch : ${data[0].HSC}<br><br>
                                 Product : ${data[0].ProductName}<br>
                                 Total Paid Amount : ${sum2} ৳ <br>
                                 1<sup>st</sup> Invoice : ${data[0].invoice}<br>
@@ -86,7 +86,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Email : ${data[0].email}<br>
                                 Phone No. ${data[0].phone}<br>
                                 College : ${data[0].College}<br>
-                                HSC : ${data[0].HSC}<br><br>
+                                Batch : ${data[0].HSC}<br><br>
                                 Product : ${data[0].ProductName}<br>
                                 Total Paid Amount : <strong>${sum2} ৳</strong> <br><br>
                                 1<sup>st</sup> Invoice : ${data[0].invoice}<br>
@@ -114,7 +114,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Email : ${data[0].email}<br>
                             Phone No. ${data[0].phone}<br>
                             College : ${data[0].College}<br>
-                            HSC : ${data[0].HSC}<br>
+                            Batch : ${data[0].HSC}<br>
                             Payment Date : ${data[0].time}<br>
                             <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
@@ -130,7 +130,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Email : ${data[0].email}<br>
                             Phone No. ${data[0].phone}<br>
                             College : ${data[0].College}<br>
-                            HSC : ${data[0].HSC}<br>
+                            Batch : ${data[0].HSC}<br>
                             Payment Date : ${data[0].time}<br>
                             <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
