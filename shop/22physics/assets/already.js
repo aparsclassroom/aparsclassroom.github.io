@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     const sum2 = data.map(el => el.amount).reduce((c, d) => c + d, 0);
                     if (sum > 0.5) {
                         if (data.length == 1) {
-                            if (data[0].enrollment != "") {
+                            if (data[0].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
                                 <h3>Enrollment Information</h3>
                                 Invoice : ${data[0].invoice}<br>
@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 `;
                             }
                         } else {
-                            if (data[0].enrollment != "" && data[1].enrollment != "") {
+                            if (data[0].Enrollment != "" && data[1].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
                                 <h3>Enrollment Information</h3>
                                 <hr>
@@ -78,7 +78,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 <br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 `;
-                            } else if (data[0].enrollment != "") {
+                            } else if (data[0].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
                                 <h3>Purchase Information</h3>
                                 <hr>
@@ -103,7 +103,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             }
                         }
                     } else {
-                        if (data[0].enrollment != "") {
+                        if (data[0].Enrollment != "") {
                             document.getElementById('info').innerHTML = `
                             <h3>Enrollment Information</h3>
                             Invoice : ${data[0].invoice}<br>
