@@ -88,7 +88,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 College : ${data[0].College}<br>
                                 HSC : ${data[0].HSC}<br><br>
                                 Product : ${data[0].ProductName}<br>
-                                Total Paid Amount : ${sum2} ৳ <br>
+                                Total Paid Amount : <strong>${sum2} ৳</strong> <br><br>
                                 1<sup>st</sup> Invoice : ${data[0].invoice}<br>
                                 1<sup>st</sup> Payment : ${data[0].time}<br>
                                 Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
