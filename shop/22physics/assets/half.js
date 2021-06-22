@@ -141,7 +141,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         swal({
                             title: "Your Final 50% payment Remaining !",
                             icon: "info",
-                            button: "Proceed Payment"
+                            button: "OK"
                         }).then(() => {
                             document.getElementById('name').value = data[0].Name;
                             document.getElementById('name').disabled = true;
@@ -149,7 +149,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             document.getElementById('college').disabled = true;
                             document.getElementById('hscBatch').value = data[0].HSC;
                             document.getElementById('hscBatch').disabled = true;
-                            document.getElementById('phone').value = data[0].phone;
+                            document.getElementById('phone').value = "+880" + data[0].phone;
                             document.getElementById('phone').disabled = true;
                             document.getElementById('email').value = data[0].email;
                             document.getElementById('email').disabled = true;
@@ -166,7 +166,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     "email": data[0].email,
                                     "college": data[0].College,
                                     "hsc": data[0].HSC,
-                                    "phone": data[0].phone,
+                                    "phone": "+880" + data[0].phone,
                                     "Cupon": document.getElementById('disC').value.trim(),
                                     'uid': data[0].uid
                                 });
