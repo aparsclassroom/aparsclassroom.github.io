@@ -153,6 +153,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                             document.getElementById('phone').disabled = true;
                             document.getElementById('email').value = data[0].email;
                             document.getElementById('email').disabled = true;
+                            document.getElementById('valid-feedback').innerHTML = '<span class="text-success">✔ Valid Phone Number !</span>';
+                            document.getElementById('buy').disabled = false;
                             form.addEventListener('submit', em => {
                                 em.preventDefault();
                                 document.getElementById('buy').innerText = "Please wait...."
