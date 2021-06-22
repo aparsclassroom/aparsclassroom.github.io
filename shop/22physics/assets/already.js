@@ -37,7 +37,11 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 College : ${data[0].College}<br>
                                 Batch : ${data[0].HSC}<br>
                                 Date : ${data[0].time}<br><br>
-                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
+                                <h3>WebApp Credentials</h3>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
+                                Email : ${data[0].email}<br>
+                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                                 `;
                             } else {
                                 document.getElementById('info').innerHTML = `
@@ -55,6 +59,11 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 <br><br>
                                 <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
+                                <hr>
+                                <h3>WebApp Credentials</h3>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
+                                Email : ${data[0].email}<br>
+                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                                 `;
                             }
                         } else {
@@ -71,12 +80,16 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Total Paid Amount : ${sum2} ৳ <br>
                                 1<sup>st</sup> Invoice : ${data[0].invoice}<br>
                                 1<sup>st</sup> Payment : ${data[0].time}<br>
-                                Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
+                                Tranx ID (1st Payment) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
                                 2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
                                 2<sup>nd</sup> Payment : ${data[1].time}<br><br>
-                                Joining ID (2nd Half) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
+                                Tranx ID (2nd Payment)  :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
                                 <br>
-                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
+                                <h3>WebApp Credentials</h3>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
+                                Email : ${data[0].email}<br>
+                                Password : <span id="pass3">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn3" class="cp btn btn-success d-print-none" data-clipboard-target="#pass3">Copy Password</button><br>
                                 `;
                             } else if (data[0].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
@@ -91,14 +104,19 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Total Paid Amount : <strong>${sum2} ৳</strong> <br><br>
                                 1<sup>st</sup> Invoice : ${data[0].invoice}<br>
                                 1<sup>st</sup> Payment : ${data[0].time}<br>
-                                Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
+                                Tranx ID (1st Payment) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
                                 2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
                                 2<sup>nd</sup> Payment : ${data[1].time}<br><br>
-                                Joining ID (2nd Half) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
+                                Tranx ID (2nd Payment) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
                                 <br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 <br><br>
                                 <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
+                                <hr>
+                                <h3>WebApp Credentials</h3>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
+                                Email : ${data[0].email}<br>
+                                Password : <span id="pass3">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass3">Copy Password</button><br>
                                 `;
                             }
                         }
@@ -110,14 +128,18 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Product : ${data[0].ProductName}<br>
                             Total Paid Amount : ${sum2} ৳ <br>
                             Username : ${data[0].Name}<br>
-                            Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
+                            Tranx ID (1st Payment)  : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
                             Email : ${data[0].email}<br>
                             Phone No. ${data[0].phone}<br>
                             College : ${data[0].College}<br>
                             Batch : ${data[0].HSC}<br>
                             Payment Date : ${data[0].time}<br>
                             <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
-                            Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                            Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
+                                <h3>WebApp Credentials</h3>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
+                                Email : ${data[0].email}<br>
+                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                             `;
                         } else {
                             document.getElementById('info').innerHTML = `
@@ -126,7 +148,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Product : ${data[0].ProductName}<br>
                             Total Paid Amount : ${sum2} ৳ <br>
                             Username : ${data[0].Name}<br>
-                            Joining ID (1st Half) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
+                            Tranx ID (1st Payment)  : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
                             Email : ${data[0].email}<br>
                             Phone No. ${data[0].phone}<br>
                             College : ${data[0].College}<br>
@@ -136,6 +158,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                             <br><br>
                             <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
+                                <h3>WebApp Credentials</h3>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
+                                Email : ${data[0].email}<br>
+                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                             `;
                         }
 
