@@ -138,7 +138,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                     } else {
                         swal({
-                            title: "Your 50% payment Remaining !",
+                            title: "Your 50% payment Remaining ! You don't need to pay the full payment",
                             icon: "info",
                             button: "OK"
                         }).then(() => {
