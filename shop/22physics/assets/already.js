@@ -157,7 +157,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                             <br><br>
-                            <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
+                            <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3><hr>
                                 <h3>WebApp Credentials</h3>
                                 WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
                                 Email : ${data[0].email}<br>
