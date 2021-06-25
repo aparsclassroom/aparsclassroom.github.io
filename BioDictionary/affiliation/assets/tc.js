@@ -9,7 +9,7 @@ if (theme == "true") {
 } else {
     bg.classList.add("white-content");
 }
-const api = "https://script.google.com/macros/s/AKfycbzsaxq92jjK4zjH1Ryo02bC-YbTNGVVMW91QvH9EDh9oIjEcxyXvJn3pbvtPFZODBIJRA/exec";
+const api = "https://script.google.com/macros/s/AKfycbxCOwzDCSd9OqaCSPcyvAn1jsSoeXX1TqA0Pv9i_BuvpKnWfj4Irsg2uzfX6GuGfM6x/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
