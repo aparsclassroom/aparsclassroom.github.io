@@ -1,2 +1,2 @@
-const shopName = "backup2-asg-shop";
+const shopName = "backup3-asg-shop";
 const cuponApi = "https://script.google.com/macros/s/AKfycbxMaZT0KTzKL-MomGP5vdc1krnFVfnD91K7O92TwR2MjOKVXPSN_q36VcEsC0HguACX/exec";
