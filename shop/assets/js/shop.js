@@ -185,6 +185,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     icon: "error",
                                     text: "Server Busy 😶\nPlease Try Again later",
                                     button: "Ok"
+                                }).then(() => {
+                                    location.href = result.GatewayPageURL
                                 })
                             });
                     })
