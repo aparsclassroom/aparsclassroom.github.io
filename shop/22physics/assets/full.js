@@ -87,7 +87,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
                         var coup = sessionStorage.getItem(product + ' Coupon')
-                        if (coup != "") {
+                        if (coup != null) {
                             var myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/json");
                             var raw = JSON.stringify({
@@ -98,7 +98,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 "college": document.getElementById('college').value.trim(),
                                 "hsc": document.getElementById('hscBatch').value.trim(),
                                 "phone": document.getElementById('phone').value.trim(),
-                                "Cupon": document.getElementById('disC').value.trim(),
+                                "Cupon": coup,
                                 'uid': e.uid
                             });
 
@@ -191,51 +191,100 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var mail = document.getElementById('email').value.toLowerCase().trim();
                     document.getElementById('buy').innerText = "Please wait...."
                     document.getElementById("buy").disabled = true;
-                    var myHeaders = new Headers();
-                    myHeaders.append("Content-Type", "application/json");
-                    var raw = JSON.stringify({
-                        "dicount_amount": disOFF,
-                        "product": product,
-                        "cus_name": document.getElementById('name').value.trim(),
-                        "email": mail,
-                        "college": document.getElementById('college').value.trim(),
-                        "hsc": document.getElementById('hscBatch').value.trim(),
-                        "phone": document.getElementById('phone').value.trim(),
-                        "Cupon": document.getElementById('disC').value.trim(),
-                        'uid': e.uid
-                    });
-
-                    var requestOptions = {
-                        method: 'POST',
-                        headers: myHeaders,
-                        body: raw,
-                        redirect: 'follow'
-                    };
-
-                    fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
-                        .then(response => {
-                            return response.json()
-                        })
-                        .then(result => {
-                            if (result.status != 420) {
-                                location.href = result.GatewayPageURL
-                            } else {
-                                swal({
-                                    title: result.message,
-                                    icon: "error"
-                                }).then(() => {
-                                    location.href = result.GatewayPageURL
-                                })
-                            }
-                        })
-                        .catch(() => {
-                            swal({
-                                title: "Error",
-                                icon: "error",
-                                text: "Server Busy 😶\nPlease Try Again later",
-                                button: "Ok"
-                            })
+                    var coup = sessionStorage.getItem(product + ' Coupon')
+                    if (coup != null) {
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+                        var raw = JSON.stringify({
+                            "dicount_amount": disOFF,
+                            "product": product,
+                            "cus_name": document.getElementById('name').value.trim(),
+                            "email": mail,
+                            "college": document.getElementById('college').value.trim(),
+                            "hsc": document.getElementById('hscBatch').value.trim(),
+                            "phone": document.getElementById('phone').value.trim(),
+                            "Cupon": document.getElementById('disC').value.trim(),
+                            'uid': e.uid
                         });
+
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: raw,
+                            redirect: 'follow'
+                        };
+
+                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
+                            .then(response => {
+                                return response.json()
+                            })
+                            .then(result => {
+                                if (result.status != 420) {
+                                    location.href = result.GatewayPageURL
+                                } else {
+                                    swal({
+                                        title: result.message,
+                                        icon: "error"
+                                    }).then(() => {
+                                        location.href = result.GatewayPageURL
+                                    })
+                                }
+                            })
+                            .catch(() => {
+                                swal({
+                                    title: "Error",
+                                    icon: "error",
+                                    text: "Server Busy 😶\nPlease Try Again later",
+                                    button: "Ok"
+                                })
+                            });
+                    } else {
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+                        var raw = JSON.stringify({
+                            "dicount_amount": disOFF,
+                            "product": product,
+                            "cus_name": document.getElementById('name').value.trim(),
+                            "email": mail,
+                            "college": document.getElementById('college').value.trim(),
+                            "hsc": document.getElementById('hscBatch').value.trim(),
+                            "phone": document.getElementById('phone').value.trim(),
+                            "Cupon": sessionStorage.getItem(product),
+                            'uid': e.uid
+                        });
+
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: raw,
+                            redirect: 'follow'
+                        };
+
+                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
+                            .then(response => {
+                                return response.json()
+                            })
+                            .then(result => {
+                                if (result.status != 420) {
+                                    location.href = result.GatewayPageURL
+                                } else {
+                                    swal({
+                                        title: result.message,
+                                        icon: "error"
+                                    }).then(() => {
+                                        location.href = result.GatewayPageURL
+                                    })
+                                }
+                            })
+                            .catch(() => {
+                                swal({
+                                    title: "Error",
+                                    icon: "error",
+                                    text: "Server Busy 😶\nPlease Try Again later",
+                                    button: "Ok"
+                                })
+                            });
+                    }
                 })
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
