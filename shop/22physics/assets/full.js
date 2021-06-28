@@ -28,7 +28,13 @@ document.getElementById('price').value = pls;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
-        var aff = str.split("&")[0].substring(1, 16);
+        var res = str.split("&")[0].substring(1, 16);
+        if (res != "") {
+            sessionStorage.setItem(product, res);
+        } else {
+            let ne = "aff-Mridul";
+            sessionStorage.setItem(product, ne);
+        }
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -138,7 +144,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 "college": document.getElementById('college').value.trim(),
                                 "hsc": document.getElementById('hscBatch').value.trim(),
                                 "phone": document.getElementById('phone').value.trim(),
-                                "Cupon": aff,
+                                "Cupon": sessionStorage.getItem(product),
                                 'uid': e.uid
                             });
 
