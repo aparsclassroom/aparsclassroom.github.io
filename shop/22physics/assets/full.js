@@ -32,7 +32,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (res != "") {
             sessionStorage.setItem(product, res);
         } else {
-            let ne = "aff-Mridul";
+            let ne = "utm=Mridul";
             sessionStorage.setItem(product, ne);
         }
         var t = e.phoneNumber;
