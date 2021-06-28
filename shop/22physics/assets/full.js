@@ -28,80 +28,7 @@ document.getElementById('price').value = pls;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
-        var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign") {
-            swal({
-                    title: "আসসালালু আলাইকুম ❤",
-                    icon: "warning",
-                    text: "তুমি যার কাছ থেকে লিংকটি পেয়েছো সে কমেন্টে স্প্যামিং করেছে কিনা ?",
-                    closeOnClickOutside: false,
-                    dangerMode: true,
-                    buttons: ["না 😍", "হ্যাঁ 😠"]
-                })
-                .then((report) => {
-                    if (report) {
-                        let ne = "aff-AAA";
-                        localStorage.setItem(product, ne);
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                        var urlencoded = new URLSearchParams();
-                        urlencoded.append("Product", product);
-                        urlencoded.append("Affiliate Code", res);
-                        urlencoded.append("UID", e.uid);
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: urlencoded,
-                            redirect: 'follow'
-                        };
-                        fetch(reportApi, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then((res) => {
-                                $.notify({
-                                    message: res.message
-                                }, {
-                                    type: 'danger',
-                                    placement: {
-                                        from: "top",
-                                        align: 'center'
-                                    }
-                                });
-                                if (res.code != 400) {
-                                    swal({
-                                            title: "স্ক্রীনশট দিন",
-                                            icon: "warning",
-                                            text: "স্প্যামারের কমেন্টগুলোর স্ক্রীনশট তুলে আমাদের পাঠান",
-                                            closeOnClickOutside: false,
-                                            dangerMode: true,
-                                            buttons: ["না ঠিক আছে", "দিচ্ছি"]
-                                        })
-                                        .then((ss) => {
-                                            if (ss) {
-                                                window.open('mailto:feedback@aparsclassroom.com')
-                                            }
-                                        })
-                                }
-                            }).catch((err) => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: err.message,
-                                    button: "Ok"
-                                }).then(() => {
-                                    location.reload()
-                                })
-                            })
-                    } else {
-                        localStorage.setItem(product, res);
-                    }
-                });
-        } else {
-            let ne = "aff-AAA";
-            localStorage.setItem(product, ne);
-        }
-
+        var aff = str.split("&")[0].substring(1, 16);
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -153,51 +80,101 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid
-                        });
-
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
-
-                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then(result => {
-                                if (result.status != 420) {
-                                    location.href = result.GatewayPageURL
-                                } else {
-                                    swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
-                                }
-                            })
-                            .catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: "Server Busy 😶\nPlease Try Again later",
-                                    button: "Ok"
-                                })
+                        var coup = sessionStorage.getItem(product + ' Coupon')
+                        if (coup != "") {
+                            var myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/json");
+                            var raw = JSON.stringify({
+                                "dicount_amount": disOFF,
+                                "product": product,
+                                "cus_name": document.getElementById('name').value.trim(),
+                                "email": mail,
+                                "college": document.getElementById('college').value.trim(),
+                                "hsc": document.getElementById('hscBatch').value.trim(),
+                                "phone": document.getElementById('phone').value.trim(),
+                                "Cupon": document.getElementById('disC').value.trim(),
+                                'uid': e.uid
                             });
+
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: raw,
+                                redirect: 'follow'
+                            };
+
+                            fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
+                                .then(response => {
+                                    return response.json()
+                                })
+                                .then(result => {
+                                    if (result.status != 420) {
+                                        location.href = result.GatewayPageURL
+                                    } else {
+                                        swal({
+                                            title: result.message,
+                                            icon: "error"
+                                        }).then(() => {
+                                            location.href = result.GatewayPageURL
+                                        })
+                                    }
+                                })
+                                .catch(() => {
+                                    swal({
+                                        title: "Error",
+                                        icon: "error",
+                                        text: "Server Busy 😶\nPlease Try Again later",
+                                        button: "Ok"
+                                    })
+                                });
+                        } else {
+                            var myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/json");
+                            var raw = JSON.stringify({
+                                "dicount_amount": disOFF,
+                                "product": product,
+                                "cus_name": document.getElementById('name').value.trim(),
+                                "email": mail,
+                                "college": document.getElementById('college').value.trim(),
+                                "hsc": document.getElementById('hscBatch').value.trim(),
+                                "phone": document.getElementById('phone').value.trim(),
+                                "Cupon": aff,
+                                'uid': e.uid
+                            });
+
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: raw,
+                                redirect: 'follow'
+                            };
+
+                            fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
+                                .then(response => {
+                                    return response.json()
+                                })
+                                .then(result => {
+                                    if (result.status != 420) {
+                                        location.href = result.GatewayPageURL
+                                    } else {
+                                        swal({
+                                            title: result.message,
+                                            icon: "error"
+                                        }).then(() => {
+                                            location.href = result.GatewayPageURL
+                                        })
+                                    }
+                                })
+                                .catch(() => {
+                                    swal({
+                                        title: "Error",
+                                        icon: "error",
+                                        text: "Server Busy 😶\nPlease Try Again later",
+                                        button: "Ok"
+                                    })
+                                });
+                        }
+
                     })
                 }
             })
@@ -218,7 +195,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "college": document.getElementById('college').value.trim(),
                         "hsc": document.getElementById('hscBatch').value.trim(),
                         "phone": document.getElementById('phone').value.trim(),
-                        "aff": localStorage.getItem(product).trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid
                     });
@@ -314,6 +290,7 @@ cpn.addEventListener('click', (e) => {
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
                 document.getElementById('disC').value = loadedData.Cupon;
+                sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
                 cpn.disabled = true;
