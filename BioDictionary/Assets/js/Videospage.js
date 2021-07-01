@@ -29,7 +29,26 @@ var mainApp = {};
                             document.getElementById('eps').innerText = " Ep. " + epNo;
                             document.getElementById('hed').innerText = "BioCast Episode " + epNo;
                             document.getElementById('player').setAttribute("data-plyr-embed-id", loadedData.Video_Id);
-                            const player = new Plyr('#player');
+                            const player = new Plyr('#player', {
+                                keyboard: {
+                                    global: true,
+                                },
+                                controls: [
+                                    'play-large',
+                                    'rewind',
+                                    'play',
+                                    'fast-forward',
+                                    'progress',
+                                    'current-time',
+                                    'duration',
+                                    'mute',
+                                    'volume',
+                                    'settings',
+                                    'pip',
+                                    'airplay',
+                                    'fullscreen',
+                                ],
+                            });
                             document.getElementById('previewP').setAttribute("src", "https://drive.google.com/file/d/" + loadedData.Pdf_Id + "/preview");
                             document.getElementById('down').setAttribute('onclick', "window.open('https://drive.google.com/u/0/uc?id=" + loadedData.Pdf_Id + "&export=download')");
                             document.getElementById('Video_Description').innerText = loadedData.Video_Description;
