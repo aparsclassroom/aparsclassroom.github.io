@@ -12,11 +12,12 @@
     <body>
 
         <div class="g-ytsubscribe" data-channelid="UCKCSOxlsALUnUib9-oUVzlg" data-layout="full" data-count="default"></div>
-
+        <div id="data"></div>
     </body>
     <script>
         var result = bowser.getParser(window.navigator.userAgent);
         console.log(result);
+        document.getElementById('data').innerHTML = JSON.stringify(result)
         document.write("You are using " + result.parsedResult.browser.name +
             " v" + result.parsedResult.browser.version +
             " on " + result.parsedResult.os.name);
