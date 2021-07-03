@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html>
-<link rel="shortcut icon" href="../App/Assets/Logo/Asset 2[190].svg" type="image/x-icon">
-<link rel="apple-touch-icon" href="../App/Assets/Logo/Asset 2[190].svg">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QnA Realtime Result</title>
-<!-- Facebook Metas -->
-<meta property="og:title" content="Realtime Result">
-<meta property="og:site_name" content="Realtime Result">
-<meta property="og:description" content="Realtime Result">
-<meta property="og:image" content="https://aparsclassroom.com/QnA/assets/poster.png">
-<meta property="og:image:secure_url" content="https://aparsclassroom.com/QnA/assets/poster.png">
-<meta property="og:image:type" content="image/png">
-<script src="https://apis.google.com/js/platform.js"></script>
+<html lang="en">
 
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
 
-    <div class="g-ytsubscribe" data-channelid="UCKCSOxlsALUnUib9-oUVzlg" data-layout="full" data-count="default"></div>
-</body>
+    <body>
+
+        <div class="g-ytsubscribe" data-channelid="UCKCSOxlsALUnUib9-oUVzlg" data-layout="full" data-count="default"></div>
+
+    </body>
+    <script>
+        var result = bowser.getParser(window.navigator.userAgent);
+        console.log(result);
+        document.write("You are using " + result.parsedResult.browser.name +
+            " v" + result.parsedResult.browser.version +
+            " on " + result.parsedResult.os.name);
+    </script>
 
 </html>
