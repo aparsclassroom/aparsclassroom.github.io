@@ -72,7 +72,7 @@
                     redirect: 'follow'
                 };
 
-                fetch(`https://backup3-${shopName}.herokuapp.com/logs`, requestOptions)
+                fetch(`https://${shopName}.herokuapp.com/logs`, requestOptions)
                     .then(response => response.json())
 
                 .then((loadedData) => {
