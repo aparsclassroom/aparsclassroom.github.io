@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script src="https://demos.creative-tim.com/marketplace/black-dashboard-pro/assets/js/plugins/bootstrap-notify.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/key.js"></script>
     <!-- Site Icons -->
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
@@ -71,7 +72,7 @@
                     redirect: 'follow'
                 };
 
-                fetch("https://backup3-asg-shop.herokuapp.com/logs", requestOptions)
+                fetch(`https://${shopName}.herokuapp.com/logs`, requestOptions)
                     .then(response => response.json())
 
                 .then((loadedData) => {
