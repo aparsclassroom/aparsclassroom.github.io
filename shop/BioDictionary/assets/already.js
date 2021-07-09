@@ -34,9 +34,12 @@ firebase.auth().onAuthStateChanged(function(e) {
                     College : ${data.College}<br>
                     HSC : ${data.HSC}<br>
                     Purchased at : ${data.Timestamp}<br><br>
-                    App / Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                    App Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     <br><br>
-                    <h3>Your App / Course should be available in 24 hours.<br> so please have patience.</h3>
+                    <h3>Your App should be available in 24 hours.<br> so please have patience.</h3>
+
+                    Use this link to track Status :<br>
+                    <a href="../live-tracker.html">BioDictionary Tracker</a>
                     `;
                     var clipboard = new ClipboardJS('.cp');
                     clipboard.on('success', function(e) {

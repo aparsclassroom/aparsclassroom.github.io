@@ -39,8 +39,8 @@
                         whitelistedCountries: ['BD', '+880', 'IN', '+91']
                     }
                 ],
-                tosUrl: '/BioDictionary/terms.html',
-                privacyPolicyUrl: '/BioDictionary/privacy.html'
+                tosUrl: '/terms.html',
+                privacyPolicyUrl: '/privacy.html'
             };
             ui.start('#firebaseui-auth-container', uiConfig);
         })()
