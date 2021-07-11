@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign" && res.indexOf("aff") > -1) {
+        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign" && res.indexOf("aff") > -1 && localStorage.getItem(product) != res) {
             swal({
                     title: "আসসালালু আলাইকুম ❤",
                     icon: "warning",
