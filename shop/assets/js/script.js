@@ -9,5 +9,3 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-const appCheck = firebase.appCheck();
-appCheck.activate('6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v');
