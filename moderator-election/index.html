@@ -88,6 +88,9 @@
             <input id="Email" name="Email" type="email" placeholder="xyz@email.com" required>
             <p style="font-size: 20px;">Facebook ID Link *</p>
             <input id="FB-Link" name="Facebook Link" type="url" placeholder="https://facebook.com/xyz" required>
+
+            <p style="font-size: 20px;">ইশতেহারের পোস্ট Link *</p>
+            <input id="Post-Link" name="Post Link" type="url" placeholder="https://facebook.com/xyz" required>
             <br><br>
             <div class="container">
                 <p style="font-size: 20px;">Which device do you use? *</p>
@@ -118,17 +121,17 @@
         <section>
             <h1>Co-curricular Information</h1>
 
-            <p style="font-size: 20px;">Leadership Experience *</p>
+            <p style="font-size: 20px;">Leadership Experience</p>
             <p class="bangla">পূর্বে তোমার কোনো লিডারশিপের অভিজ্ঞতা থাকলে লিখ?</p>
-            <textarea id="leadershipExperience" rows="7" class="bangla" name="Leadership Experience" type="text" placeholder="write here" required></textarea>
+            <textarea id="leadershipExperience" rows="7" class="bangla" name="Leadership Experience" type="text" placeholder="write here"></textarea>
             <br><br>
-            <p style="font-size: 20px;">Notable Achievements *</p>
+            <p style="font-size: 20px;">Notable Achievements </p>
             <p class="bangla">তোমার কোনো গুরুত্বপূর্ণ অর্জন থাকলে তা এখানে লিখবে।</p>
-            <textarea id="Achievements" rows="7" class="bangla" name="Achievements" type="text" placeholder="Got an award, 10MS Certificate..." required></textarea>
+            <textarea id="Achievements" rows="7" class="bangla" name="Achievements" type="text" placeholder="Got an award, 10MS Certificate..."></textarea>
             <br><br>
-            <p style="font-size: 20px;">Previous success story *</p>
+            <p style="font-size: 20px;">Previous success story </p>
             <p class="bangla">পূর্বে তোমার কোনো সাফল্যের গল্প থাকলে তা এখানে লিখবে।</p>
-            <textarea id="Success-Story" rows="7" class="bangla" name="Success Story" type="text" placeholder="write here" required></textarea>
+            <textarea id="Success-Story" rows="7" class="bangla" name="Success Story" type="text" placeholder="write here"></textarea>
             <br><br>
             <p style="font-size: 20px;">Previous Results *</p>
             <p class="bangla">তোমার JSC, SSC এর ফলাফল কিংবা কোনো বৃত্তি, সকল কিছু এখানে লিখবে।</p>
@@ -147,10 +150,10 @@
                 <input id="CreativeWork" name="Creative Work" class="bangla" type="text" placeholder="Got an award, 10MS Certificate...">
                 <br><br>
                 <p style="font-size: 20px;font-family: Kalpurush;">👉 তুমি কি পরিমাণ মিশুক? * (Out of 1 to 10) </p>
-                <input id="Friendly" name="Friendly" type="Number" class="bangla" placeholder="ie. 8" required>
+                <input id="Friendly" name="Friendly" type="number" class="bangla" placeholder="ie. 8" required>
                 <br><br>
                 <p style="font-size: 20px;font-family: Kalpurush;">👉 তুমি কতদিন পূর্বে ASG তে যুক্ত হয়েছ? *</p>
-                <input id="Joined" name="Joined" type="Number" class="bangla" placeholder="50 days (Number Only)" required>
+                <input id="Joined" name="Joined" type="number" class="bangla" placeholder="50 days (Number Only)" required>
                 <br><br>
                 <p class="bangla">👉 তুমি কি আমাদের সকল প্রকার মিটিং এ টাইমলি থাকতে পারবে? *</p>
                 <input type="radio" id="zoomYes" name="Zoom Meeting" value="হ্যাঁ" required>
@@ -184,15 +187,9 @@
 
             <textarea name="IP Details" style="display: none;" id="ip-details"></textarea>
         </section>
-
-
-        <div id="confirmation" class="button" role="alert">
-            <strong>Success!</strong> Please Wait...
-            </button>
-        </div>
         <div class="button" id="prev">&larr; Previous</div>
         <div class="button" id="next">Next &rarr;</div>
-        <button class="button" type="submit" id="submit" name="submit">Agree and send application</button>
+        <button class="button" type="submit" id="submit" name="submit">Send Application</button>
         <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit' data-action='submit'></button>
     </form>
 
@@ -203,34 +200,8 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./savestorage.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="script.js"></script>
-
-    <script>
-        $.get('https://json.geoiplookup.io/', function(res) {
-            var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
-            document.getElementById("ip-details").value = a;
-        });
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwA3jqdCN2pXPdAsB_mTX0tXVzK685LTbaKdcinLHfpEMOWkBwr6gGxv3HpgRH-4caKgA/exec'
-        const form = document.forms['ModApplication']
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => alert("You've been successfully Applied for ASG Moderator Election 🥰 \n Plz Wait for further Notice"))
-                .then(response => window.location.replace("https://facebook.com/maheyan.mridul"))
-
-            .catch(error => console.error('Error!', error.message))
-            document.querySelector('#confirmation').style.display = 'block';
-            document.querySelector('#prev').style.display = 'none';
-            document.querySelector('#next').style.display = 'none';
-            document.querySelector('#submit').style.display = 'none';
-            form.reset();
-        })
-    </script>
 </body>
 
 </html>
