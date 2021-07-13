@@ -4,7 +4,8 @@ setTimeout(() => {
 }, 1000)
 
 
-var re = /^(?:\+?88)?01[13-9]\d{8}$/;
+// var re = /^(?:\+?88)?01[13-9]\d{8}$/;
+var re = /^(?:\+8801)?[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
