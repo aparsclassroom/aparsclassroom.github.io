@@ -74,7 +74,7 @@
             redirect: 'follow'
         };
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch(`https://${shopName}/transaction`, requestOptions)
+        fetch(`https://${shopName}.herokuapp.com/transaction`, requestOptions)
             .then((res) => {
                 return res.json()
             })
