@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactional Tracker | CRM ASG</title>
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
+    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="/shop/assets/minimal.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 550px;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        .images {
+            margin-top: 50px;
+            max-height: 200px;
+            max-width: 100%;
+        }
+        
+        p {
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script data-ad-client="ca-pub-5685113668105843" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="/shop/assets/js/key.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>SHOP TRACKER</h2>
+        <div class="input-group">
+            <input type="search" class="form-control" id="search" placeholder="Tranx ID">
+            <div class="input-group-append">
+                <button id="searchBtn" class="btn btn-dark">Search</button>
+            </div>
+        </div>
+        <div id="result">
+            <img src="https://img.icons8.com/metro/452/search.png" alt="Search Here" class="images rounded mx-auto d-block">
+            <br>
+            <p>Search here using your Tranx Id.📑</p>
+        </div>
+    </div>
+</body>
+<script>
+    var search = document.getElementById('search');
+    var searchBtn = document.getElementById('searchBtn');
+    var result = document.getElementById('result');
+
+
+
+    searchBtn.addEventListener('click', () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("tran_id", search.value);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+        result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
+        fetch(`https://${shopName}/transaction`, requestOptions)
+            .then((res) => {
+                return res.json()
+            })
+            .then((loadedData) => {
+                if (loadedData.APIConnect === "DONE") {
+                    let data = loadedData.element
+                    console.log(data)
+                    data.forEach(element => {
+                        var a = element.value_d;
+                        var m = a.split("*,*");
+                        var product = m[1];
+                        var cusN = m[0];
+                        var coll = m[2];
+                        var hsc = m[3];
+                        var cupon = m[4];
+                        var uid = m[5];
+                        result.innerHTML = `
+                        <h3 class="text-center mt-3">Basic Information</h3>
+                        <b>Name :</b> ${cusN}<br>
+                        <b>HSC :</b> ${hsc}<br>
+                        <b>College / FB :</b> ${coll}<br>
+                        <b>Coupon :</b> ${cupon}<br>
+                        <b>Phone Number : </b> ${element.value_c}<br>
+                        <b>Email :</b> ${element.value_b}<br>
+                        <b>Transaction ID / Password / Joining ID :</b> ${element.tran_id}<br>
+                        <b>Product :</b> ${product}<br>
+                        <b>Access / Affiliation / Ranking :</b> ${element.value_a}<br><br>
+                        <h3 class="text-center">Advanced Information</h3><hr>
+                        <b>UID in shop :</b> ${uid}<br>
+                        <b>bank Gateway :</b> ${element.bank_gw}<br>
+                        <b>Validation Date :</b> ${element.validated_on}<br>
+                        <b>Validation Id :</b> ${element.val_id}<br>
+                        <b>Paid :</b> ${element.amount}৳<br>
+                        <b>Recieved Amount :</b> ${element.store_amount}৳<br>
+                        <b>Bank Tranx ID :</b> ${element.bank_tran_id}<br>
+                        <b>Timestamp :</b> ${element.tran_date}<br> 
+                        `;
+                    });
+                } else {
+                    alert("Connection Error !")
+                    return location.reload()
+                }
+
+            })
+            .catch(() => {
+                alert("not Found")
+                return location.reload()
+            })
+    })
+</script>
+
+</html>
