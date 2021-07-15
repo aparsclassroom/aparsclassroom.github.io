@@ -111,11 +111,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                             fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                                 .then(response => {
-                                    return response.json()
+                                    return response.text()
                                 })
                                 .then(result => {
                                     if (result.status != 420) {
-                                        location.href = result.GatewayPageURL
+                                        location.href = result
                                     } else {
                                         swal({
                                             title: result.message,
@@ -157,11 +157,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                             fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                                 .then(response => {
-                                    return response.json()
+                                    return response.text()
                                 })
                                 .then(result => {
                                     if (result.status != 420) {
-                                        location.href = result.GatewayPageURL
+                                        location.href = result
                                     } else {
                                         swal({
                                             title: result.message,
@@ -216,11 +216,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.json()
+                                return response.text()
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result.GatewayPageURL
+                                    location.href = result
                                 } else {
                                     swal({
                                         title: result.message,
@@ -262,11 +262,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.json()
+                                return response.text()
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result.GatewayPageURL
+                                    location.href = result
                                 } else {
                                     swal({
                                         title: result.message,
