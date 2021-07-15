@@ -160,15 +160,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     return response.json()
                                 })
                                 .then(result => {
-                                    if (result.status != 420) {
-                                        location.href = result
-                                    } else {
+                                    if (result.status == 420) {
                                         swal({
                                             title: result.message,
                                             icon: "error"
                                         }).then(() => {
                                             location.href = result.GatewayPageURL
                                         })
+                                    } else {
+                                        location.href = result
                                     }
                                 })
                                 .catch(() => {
@@ -219,15 +219,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.json()
                             })
                             .then(result => {
-                                if (result.status != 420) {
-                                    location.href = result
-                                } else {
+                                if (result.status == 420) {
                                     swal({
                                         title: result.message,
                                         icon: "error"
                                     }).then(() => {
                                         location.href = result.GatewayPageURL
                                     })
+                                } else {
+                                    location.href = result
                                 }
                             })
                             .catch(() => {
@@ -265,15 +265,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.json()
                             })
                             .then(result => {
-                                if (result.status != 420) {
-                                    location.href = result
-                                } else {
+                                if (result.status == 420) {
                                     swal({
                                         title: result.message,
                                         icon: "error"
                                     }).then(() => {
                                         location.href = result.GatewayPageURL
                                     })
+                                } else {
+                                    location.href = result
                                 }
                             })
                             .catch(() => {
