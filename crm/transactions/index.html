@@ -80,8 +80,7 @@
             })
             .then((loadedData) => {
                 if (loadedData.APIConnect === "DONE") {
-                    let data = loadedData.element
-                    console.log(data)
+                    let data = loadedData.element;
                     data.forEach(element => {
                         var a = element.value_d;
                         var m = a.split("*,*");
