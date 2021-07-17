@@ -41,6 +41,7 @@ const form = document.forms['teacher']
 
 form.addEventListener('submit', e => {
     e.preventDefault();
+    document.getElementById('submit').disabled = true;
     document.getElementById('submit').innerText = "Please Wait...";
     fetch(scriptURL + '?q=' + subj, {
             method: 'POST',
