@@ -36,7 +36,7 @@ $.get('https://json.geoiplookup.io/', function(res) {
     var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
     document.getElementById("ip-details").value = a;
 });
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyJU_FWpsDF8J9F03WojO8Wl0BUSMNNJVrBHdVKrIYQMROnWg5bikqZ1DGvRqD_rQfa/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxV9Fbz0CH9Oc_iR--cDgFeWAsn8h-40CIn_wqCO_ia_f8b780aRL-1a34iR38S0I99/exec'
 const form = document.forms['teacher']
 
 form.addEventListener('submit', e => {
