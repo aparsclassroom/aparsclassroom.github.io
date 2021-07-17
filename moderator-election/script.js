@@ -102,12 +102,13 @@ $.get('https://json.geoiplookup.io/', function(res) {
     var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
     document.getElementById("ip-details").value = a;
 });
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzACsUIcJj3cZUkt2UOtqQ18yHbZs9IikjknLstQQwd76mqauRlKdzQT-UZwPdMwK8Xbw/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw4Ni8ra9vnK6pcTHf6jBV5VY_PcR8GPT9hjjfdNi2Lx9ax4SzUj7hP0-HMxg91BteZFA/exec'
 const form = document.forms['ModApplication']
 
 form.addEventListener('submit', e => {
     e.preventDefault()
-    document.getElementById('submit').innerText = "Please Wait..."
+    document.getElementById('prev').style.display = "none";
+    document.getElementById('submit').innerText = "Please Wait...";
     fetch(scriptURL, {
             method: 'POST',
             body: new FormData(form)
@@ -115,15 +116,26 @@ form.addEventListener('submit', e => {
         .then((res) => {
             return res.json()
         })
-        .then(() => {
-            swal({
-                title: "Submitted!",
-                icon: "success",
-                text: "You've been successfully Applied for ASG Moderator Election 🥰 \n Plz Wait for further Notice",
-                button: "Close"
-            }).then(() => {
-                return location.replace('/shop');
-            })
+        .then((b) => {
+            if (b.code === 200) {
+                swal({
+                    title: "Submitted!",
+                    icon: "success",
+                    text: "You've been successfully Applied for ASG Moderator Election 🥰 \n Plz Wait for further Notice",
+                    button: "Close"
+                }).then(() => {
+                    return location.replace('/shop');
+                })
+            } else {
+                swal({
+                    title: "Error",
+                    icon: "error",
+                    text: "Couldn't Submit! Please Try Again later.",
+                    button: "Okay ☹"
+                }).then(() => {
+                    return location.reload();
+                })
+            }
         })
 
     .catch(() => {
