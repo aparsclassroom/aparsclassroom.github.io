@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/css/bootstrap-multiselect.css">
+    <script src="//code.jquery.com/jquery-latest.min.js" defer></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js" defer></script>
+    <script src="https://www.jqueryscript.net/demo/Cascading-Dependent-Dropdown-Chained-Selects/jquery.chained.selects.js?v2" defer></script>
+    <!-- <script src="../assets/select.js" defer></script> -->
+    <script src="../assets/script.js" defer></script>
+</head>
+
+<body>
+    <form name="teacher" method="post">
+        <label for="Subject" class="fw-medium fg-grey">Subject</label>
+        <select name="Subject" id="Subject" required class="form-control">
+            <option value="">--Select Any--</option>
+            <option value="Physics (1st Paper)">Physics (1st Paper)</option>
+            <option value="Physics (2nd Paper)">Physics (2nd Paper)</option>
+            <option value="Chemistry (1st Paper)">Chemistry (1st Paper)</option>
+            <option value="Chemistry (2nd Paper)">Chemistry (2nd Paper)</option> 
+            <option value="Biology (1st Paper)">Biology (1st Paper)</option>
+            <option value="Biology (2nd Paper)">Biology (2nd Paper)</option>
+            <option value="Math (1st Paper)">Math (1st Paper)</option>
+            <option value="Math (2nd Paper)">Math (2nd Paper)</option>
+            <option value="Bangla (1st Paper)">Bangla (1st Paper)</option>
+            <option value="ICT">ICT</option>
+            <option value="Others">Others</option>
+        </select>
+        </div>
+        <div class="form-group wow fadeInUp">
+            <label for="Chapter" class="fw-medium fg-grey">Chapter</label>
+            <select name="Chapter" class="form-control" multiple required id="Chapter">
+    </select>
+        </div>
+        <br><br><br><br><br><br>
+        <textarea name="ch" id="ch" cols="30" rows="10"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
