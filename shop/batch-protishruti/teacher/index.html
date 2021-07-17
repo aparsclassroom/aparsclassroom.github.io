@@ -5,43 +5,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://www.jqueryscript.net/demo/jQuery-Multiple-Select-Plugin-For-Bootstrap-Bootstrap-Multiselect/css/bootstrap-multiselect.css">
-    <script src="//code.jquery.com/jquery-latest.min.js" defer></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js" defer></script>
-    <script src="https://www.jqueryscript.net/demo/Cascading-Dependent-Dropdown-Chained-Selects/jquery.chained.selects.js?v2" defer></script>
-    <!-- <script src="../assets/select.js" defer></script> -->
-    <script src="../assets/script.js" defer></script>
+    <title>শিক্ষক নিবন্ধন । ব্যাচ প্রতিশ্রুতি</title>
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
+    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <!-- Site Icon -->
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
+    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+
+
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="../assets/minimal.css">
+    <style>
+        @font-face {
+            font-family: 'Gilroy-ExtraBold';
+            src: url("/CrashCourse/fonts/Futura_Bold.otf")
+        }
+        
+        @font-face {
+            font-family: 'Kalpurush';
+            src: url("/Ambassador/assets/fonts/kalpurush.ttf")
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            width: 100%;
+            margin-bottom: 25px;
+            object-fit: contain;
+        }
+        
+        .logo>image {
+            align-self: center !important;
+        }
+        
+        .buttonContainer {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        a {
+            padding: 15px;
+            text-align: center;
+            align-self: center !important;
+            background: rgb(0, 128, 100);
+            outline: none;
+            border: 1px solid rgb(0, 128, 100);
+            margin: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            font-family: Gilroy-ExtraBold;
+            width: 300px;
+        }
+        
+        a:hover {
+            border: 1px solid rgb(0, 128, 100);
+            background-color: white;
+            color: rgb(0, 128, 100);
+            cursor: pointer;
+        }
+        
+        p {
+            text-align: center;
+            font-family: Kalpurush;
+            font-size: 18px;
+        }
+    </style>
 </head>
 
 <body>
-    <form name="teacher" method="post">
-        <label for="Subject" class="fw-medium fg-grey">Subject</label>
-        <select name="Subject" id="Subject" required class="form-control">
-            <option value="">--Select Any--</option>
-            <option value="Physics (1st Paper)">Physics (1st Paper)</option>
-            <option value="Physics (2nd Paper)">Physics (2nd Paper)</option>
-            <option value="Chemistry (1st Paper)">Chemistry (1st Paper)</option>
-            <option value="Chemistry (2nd Paper)">Chemistry (2nd Paper)</option> 
-            <option value="Biology (1st Paper)">Biology (1st Paper)</option>
-            <option value="Biology (2nd Paper)">Biology (2nd Paper)</option>
-            <option value="Math (1st Paper)">Math (1st Paper)</option>
-            <option value="Math (2nd Paper)">Math (2nd Paper)</option>
-            <option value="Bangla (1st Paper)">Bangla (1st Paper)</option>
-            <option value="ICT">ICT</option>
-            <option value="Others">Others</option>
-        </select>
-        </div>
-        <div class="form-group wow fadeInUp">
-            <label for="Chapter" class="fw-medium fg-grey">Chapter</label>
-            <select name="Chapter" class="form-control" multiple required id="Chapter">
-    </select>
-        </div>
-        <br><br><br><br><br><br>
-        <textarea name="ch" id="ch" cols="30" rows="10"></textarea>
 
-        <button type="submit">Submit</button>
-    </form>
+    <body>
+        <div class="container">
+            <div>
+                <div class="logo">
+                    <img src="/HSC-Full-Course/assets/images/Logo-with-Name.png" height="80px" alt="ব্যাচ প্রতিশ্রুতি"></div>
+                <p id="meta">আপনি ব্যাচ-প্রতিশ্রতিতে কোন বিষয়ের ক্লাস নিতে চান?</p>
+            </div>
+            <div class="buttonContainer">
+                <a type="button" href="./subjects/physics.html">পদার্থবিজ্ঞান</a>
+                <a type="button" href="./subjects/maths.html">গণিত</a>
+                <a type="button" href="./subjects/chemistry.html">রসায়ন</a>
+                <a type="button" href="./subjects/biology.html">জীববিজ্ঞান</a>
+            </div>
+        </div>
+    </body>
 </body>
 
 </html>
