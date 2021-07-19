@@ -6,7 +6,7 @@ var college = document.getElementById('College');
 var fb = document.getElementById('fb');
 var status = document.getElementById('bio');
 var updateBtn = document.getElementById('updateBtn');
-const api = "https://script.google.com/macros/s/AKfycbwt7hdbMt8KjZldUVC11kfTiknZtVjyU7jVxosm1Y3t5xq8bIXzHGwDY4tWp90UagHjcw/exec";
+const api = "https://script.google.com/macros/s/AKfycbzcqmEXudKWgvPJnfCtbZVxOR7iJ68iopaf3s6dqKURCUT3C9dfpY3Buiz4e_eqwNkh/exec";
 
 function logOut() {
     firebase.auth().signOut();

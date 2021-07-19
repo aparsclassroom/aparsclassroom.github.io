@@ -2,7 +2,7 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-const api = "https://script.google.com/macros/s/AKfycbwt7hdbMt8KjZldUVC11kfTiknZtVjyU7jVxosm1Y3t5xq8bIXzHGwDY4tWp90UagHjcw/exec";
+const api = "https://script.google.com/macros/s/AKfycbzcqmEXudKWgvPJnfCtbZVxOR7iJ68iopaf3s6dqKURCUT3C9dfpY3Buiz4e_eqwNkh/exec";
 const tranApi = "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec";
 
 function initApp() {
@@ -133,13 +133,13 @@ function initApp() {
                                     text: 'Excel',
                                     filename: 'Transactions of ' + date + '-' + month + '-' + year,
                                     sheetName: date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Analytics of ' + tok,
+                                    title: 'BioDictionary Sales Report of ' + tok,
                                 },
                                 {
                                     extend: 'pdfHtml5',
                                     text: 'PDF',
                                     filename: 'Transactions of ' + date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Analytics of ' + tok,
+                                    title: 'BioDictionary Sales Report of ' + tok,
                                     message: 'Exported : ' + new Date().toLocaleString('en-IN')
                                 }
                             ]
