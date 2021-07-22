@@ -1,0 +1,86 @@
+body {
+    background: url('https://img.freepik.com/free-vector/hand-drawn-colorful-science-education-wallpaper_23-2148489183.jpg?size=626&ext=jpg');
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+    background-attachment: fixed;
+    background-color: #fdfdfd;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Kalpurush;
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.col-md-8.first {
+    width: 100%;
+}
+
+.flex-column {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.flex-column>* {
+    max-width: 650px;
+}
+
+iframe {
+    border-radius: 15px;
+}
+
+.cove {
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 5px gray;
+    background: rgba(253, 253, 253, 0.733);
+}
+
+.shopcontainer {
+    max-width: 1225px;
+}
+
+.row .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .shopcontainer {
+        padding: 20px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #teachers {
+        order: 2;
+    }
+    #content {
+        order: 3;
+    }
+    #video {
+        order: 1;
+    }
+}

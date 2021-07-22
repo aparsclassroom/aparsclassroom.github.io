@@ -28,9 +28,9 @@
 
     <!-- Style sheets -->
     <link rel="stylesheet" href="../assets/minimal.css">
-    <link rel="stylesheet" href="/assets/css/shop.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="/shuchipotro-assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/print.css" media="print">
 
     <!-- Firebase Scripts -->
@@ -54,39 +54,125 @@
 </head>
 
 <body>
-    <div class="container flex-column">
-        <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
-        <h3 class="text-center">Product : <span id="prod"></span></h3>
-        <br>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3Gx8Ml5iFA0?modestbranding=0&controls=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&enablejsapi=1&autoplay=" id="vid"></iframe>
-        </div>
-        <br>
-        <div class="cove">
-            <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span id="prevP"></span>৳</del> <span id="nop" style="color: rgb(26, 185, 66);"></span></span>
-            </h3>
+    <div class="main">
+        <div class="shopcontainer container-fluid">
+            <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
+            <h3 class="text-center">Product : <span id="prod"></span></h3>
+            <div class="row">
+                <div id="teachers" class="col-md-7 first">
 
-            <div class="d-flex justify-content-center">
-                <br> <button id="app" class="btn btn-outline-dark">Do you have any Coupon ?</button>
-                <div id="cup">
-                    <div class="input-group">
-                        <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" class="form-control" placeholder="Discount Coupon">
-                        <div class="input-group-append">
-                            <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <h2>Teachers :</h2>
+                            <ol>
+                                <li>Numeri Sattar Apar</li>
+                                <li>Chinmoy Saha</li>
+                            </ol>
+
+
                         </div>
                     </div>
-                    <p class="text-center" id="how" style="display: none;"></p>
+
+                    <div class="row">
+                        <div id="content" class="col-md-6">
+
+                            <h2>Course Content :</h2>
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            Collapsible Group Item #1
+                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                   👇
+                                  </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">"কোর্সটি কিনুন" বাটনে ক্লিক করুন।</span></li>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">আপনি যেই ফোন নম্বর বা ইমেইল দিয়ে কোর্সটি কিনতে চান সেটি প্রদান করে “এগিয়ে যান” বাটনে ক্লিক করুন।</span></li>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">“প্রশ্ন-চিহ্ন” আইকনে ক্লিক করে পেমেন্ট করার নিয়মটি জেনে নিন।</span></li>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">আপনার মোবাইল নাম্বার বা ইমেইল দিয়ে “কোর্সটি কিনুন” অপশনে ক্লিক করুন।&nbsp;</span></li>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">পেমেন্ট মেথড নির্বাচন করুন।</span></li>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">আপনাকে পেমেন্ট সেকশনে নিয়ে যাওয়া হবে যেখানে আপনার পেমেন্ট করতে পারবেন।</span></li>
+                                                <li style="font-weight: 400;"><span style="font-weight: 400;">পেমেন্ট সম্পন্ন করার পর আপনার একাউন্টে “আপনার কোর্সসমূহ” সেকশনে কোর্সটি চলে আসবে।</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Collapsible Group Item #2
+                                  </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                                            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Collapsible Group Item #3
+                                  </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                                            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center">
-                <!-- Button trigger modal -->
-                <button type="button" style="margin-top: 10px;" id="moda" class="btn btn-primary" data-toggle="modal">
+                <div id="video" class="col-md-5 flex-column">
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3Gx8Ml5iFA0?modestbranding=0&controls=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&enablejsapi=1&autoplay=" id="vid"></iframe>
+                    </div>
+                    <br>
+                    <div class="cove">
+                        <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span id="prevP"></span>৳</del> <span id="nop" style="color: rgb(26, 185, 66);"></span></span>
+                        </h3>
+
+                        <div class="d-flex justify-content-center">
+                            <br> <button id="app" class="btn btn-outline-dark">Do you have any Coupon ?</button>
+                            <div id="cup">
+                                <div class="input-group">
+                                    <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" class="form-control" placeholder="Discount Coupon">
+                                    <div class="input-group-append">
+                                        <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
+                                    </div>
+                                </div>
+                                <p class="text-center" id="how" style="display: none;"></p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <!-- Button trigger modal -->
+                            <button type="button" style="margin-top: 10px;" id="moda" class="btn btn-primary" data-toggle="modal">
         Purchase Form
       </button>
+                        </div>
+                    </div>
+                </div>
+                <a target="_blank" href="https://www.sslcommerz.com/" title="SSLCommerz" alt="SSLCommerz"><img style="width:100%;height:auto;" src="https://securepay.sslcommerz.com/public/image/SSLCommerz-Pay-With-logo-All-Size-01.png" /></a>
             </div>
         </div>
     </div>
-    <a target="_blank" href="https://www.sslcommerz.com/" title="SSLCommerz" alt="SSLCommerz"><img style="width:100%;height:auto;" src="https://securepay.sslcommerz.com/public/image/SSLCommerz-Pay-With-logo-All-Size-01.png" /></a>
     <!-- Modal -->
     <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel" data-backdrop="static" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
