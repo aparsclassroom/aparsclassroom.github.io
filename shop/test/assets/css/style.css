@@ -54,7 +54,7 @@ iframe {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 5px gray;
-    background: rgba(253, 253, 253, 0.733);
+    background: rgb(253, 253, 253);
 }
 
 .shopcontainer {
@@ -92,5 +92,5 @@ iframe {
     padding: 30px;
     border-radius: 0 0 15px 15px;
     box-shadow: 0px 0px 10px 5px gray;
-    background: rgba(253, 253, 253, 0.733);
+    background: rgb(253, 253, 253);
 }
