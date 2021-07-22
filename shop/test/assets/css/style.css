@@ -45,7 +45,8 @@ body {
 }
 
 iframe {
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 10px 15px 0 0 gray;
 }
 
 .cove {
@@ -83,4 +84,13 @@ iframe {
     #video {
         order: 1;
     }
+}
+
+.contmeta {
+    background-color: #fff;
+    width: 100%;
+    padding: 30px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0px 0px 10px 5px gray;
+    background: rgba(253, 253, 253, 0.733);
 }
