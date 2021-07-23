@@ -94,3 +94,7 @@ iframe {
     box-shadow: 0px 0px 10px 5px gray;
     background: rgb(253, 253, 253);
 }
+
+.form-check-input {
+    margin-left: 0px;
+}
