@@ -98,3 +98,17 @@ iframe {
 .form-check-input {
     margin-left: 0px;
 }
+
+ol {
+    padding-inline-start: 0;
+}
+
+.metaCont {
+    max-height: 13em;
+    overflow: auto;
+    box-shadow: 0 -2px 0 0 rgba(0, 0, 0, .08);
+}
+
+.disabled {
+    cursor: not-allowed;
+}
