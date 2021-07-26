@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             })
                             .then((val) => {
                                 swal({
-                                    title: "Submitted! 🥰",
+                                    title: "Successfully Enrolled 🥰",
                                     icon: "success",
                                     text: "Your Roll Number : " + val.roll,
                                     button: "Join Facebook Group"
@@ -78,7 +78,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                     })
                 } else {
-                    document.getElementById('enrolled').innerHTML = `0 জন`;
                     swal({
                         title: "Already Submitted!",
                         icon: "info",
@@ -90,6 +89,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
 
             }).catch((err => {
+                document.getElementById('enrolled').innerHTML = `0 জন`;
                 swal({
                     title: "Welcome",
                     icon: "info",
