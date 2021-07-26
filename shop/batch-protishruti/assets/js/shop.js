@@ -90,10 +90,9 @@ firebase.auth().onAuthStateChanged(function(e) {
 
             }).catch((err => {
                 swal({
-                    title: "Oh No 💔",
-                    icon: "error",
-                    text: "Try Again Later !",
-                    button: "Okay ☹"
+                    title: "Welcome",
+                    icon: "info",
+                    button: "Thanks 😃"
                 })
             }))
 
@@ -108,7 +107,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         }
         if (namex != null) {
             document.getElementById('name').value = namex;
-            // document.getElementById('name').setAttribute("readonly", true);
         }
         if (mail != null) {
             document.getElementById('email').value = mail
