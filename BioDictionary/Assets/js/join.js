@@ -24,12 +24,14 @@ function initApp() {
                 location.replace("./");
                 return;
             } else {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbzB3guHEtsQeS3jNx45Y-sEZIrVsq-Rca3ABCCr8UvruRKv3-CH2CRuTwHDyGz-9ziGqg/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxT6p5kibFS-1X1PGsC0Pf0V693dGBEPgPkoQ9aNI5rrZd4MR_OpZ-V8z_xeegeINGi/exec';
+
                 fetch(scriptURL + "?q=Indivisual&uid=" + user.uid)
                     .then((res) => {
                         return res.json();
                     })
                     .then((dashboard) => {
+                        document.getElementById('enrolled').innerHTML = `${dashboard.enrolled} জন`;
                         if (dashboard.code != 200) {
                             document.getElementById('uid').value = user.uid;
                             document.getElementById('email').value = user.email;

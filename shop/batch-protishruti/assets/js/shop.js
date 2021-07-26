@@ -2,9 +2,11 @@ setTimeout(() => {
     $("#vid")[0].src += "1";
     $("#vid")[0].src;
 }, 1000)
+$.get('https://json.geoiplookup.io/', function(res) {
+    var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+    document.getElementById("ip-details").value = a;
+});
 
-
-// var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 var re = /^(?:\+8801)?[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
@@ -31,92 +33,67 @@ firebase.auth().onAuthStateChanged(function(e) {
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-            "product": product,
-            'uid': e.uid
-        });
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch(`https://${shopName}.herokuapp.com/${productCode}/purchase`, requestOptions)
-            .then(response => {
-                return response.json()
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzOaWGkJDynrSeviovHFPerrndsMhMDUhOLEmOAFDvExruH0anAy0eAXPSy18LneoOW/exec';
+        fetch(scriptURL + "?q=Indivisual&uid=" + user.uid)
+            .then((res) => {
+                return res.json();
             })
-            .then(result => {
-                if (result.code === 200) {
-                    localStorage.removeItem(product)
-                    swal({
-                        title: result.message,
-                        icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace("./purchased")
+            .then((dashboard) => {
+                if (dashboard.code != 200) {
+                    const form = document.forms['purchase']
+
+                    form.addEventListener('submit', e => {
+                        document.getElementById('buy').innerText = "Please Wait...";
+                        e.preventDefault()
+                        fetch(scriptURL, {
+                                method: 'POST',
+                                body: new FormData(form)
+                            })
+                            .then((res) => {
+                                return res.json();
+                            })
+                            .then((val) => {
+                                swal({
+                                    title: "Submitted! 🥰",
+                                    icon: "success",
+                                    text: "Your Roll Number : " + val.roll,
+                                    button: "Close"
+                                }).then(() => {
+                                    form.reset();
+                                    return location.replace('https://www.facebook.com/groups/batch.protishruti');
+                                })
+                            })
+
+                        .catch(() => {
+                            swal({
+                                title: "Oh No 💔",
+                                icon: "error",
+                                text: "Your application didn't Submit!\nPlease try again (later) 😶",
+                                button: "Okay ☹"
+                            })
+                        })
                     })
                 } else {
-                    const form = document.forms['purchase']
-                    form.addEventListener('submit', em => {
-                        em.preventDefault();
-                        var mail = document.getElementById('email').value.toLowerCase().trim();
-                        document.getElementById('buy').innerText = "Please wait...."
-                        document.getElementById("buy").disabled = true;
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "aff": localStorage.getItem(product).trim(),
-                            "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid
-                        });
-
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
-
-                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
-                            .then(response => {
-                                return response.text()
-                            })
-                            .then(result => {
-                                if (result.status != 420) {
-                                    location.href = result
-                                } else {
-                                    swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
-                                }
-                            })
-                            .catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: "Server Busy 😶\nPlease Try Again later",
-                                    button: "Ok"
-                                }).then(() => {
-                                    location.href = result.GatewayPageURL
-                                })
-                            });
+                    swal({
+                        title: "Already Submitted!",
+                        icon: "info",
+                        text: "You have already submitted ✔\nYour Roll Number : " + dashboard.message.Serial + "\nName : " + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
+                        button: "Close"
+                    }).then(() => {
+                        return location.replace('https://www.facebook.com/groups/batch.protishruti');
                     })
                 }
-            })
+
+            }).catch((err => {
+                swal({
+                    title: "Oh No 💔",
+                    icon: "error",
+                    text: JSON.stringify(err),
+                    button: "Okay ☹"
+                })
+            }))
+
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         document.getElementById('moda').innerText = "Purchase Form";
         if (t != null) {
