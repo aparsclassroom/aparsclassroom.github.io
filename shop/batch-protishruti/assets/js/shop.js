@@ -92,7 +92,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 swal({
                     title: "Oh No 💔",
                     icon: "error",
-                    text: JSON.stringify(err),
+                    text: "Try Again Later !",
                     button: "Okay ☹"
                 })
             }))
