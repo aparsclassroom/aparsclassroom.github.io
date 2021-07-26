@@ -40,7 +40,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return res.json();
             })
             .then((dashboard) => {
+                document.getElementById('enrolled').innerHTML = `${dashboard.enrolled} জন`;
+
                 if (dashboard.code != 200) {
+
                     const form = document.forms['purchase']
 
                     form.addEventListener('submit', e => {
