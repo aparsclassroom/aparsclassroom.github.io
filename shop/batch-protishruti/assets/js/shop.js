@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     button: "Join Facebook Group"
                                 }).then(() => {
                                     form.reset();
-                                    return location.replace('https://www.facebook.com/groups/batch.protishruti');
+                                    return location.replace('https://www.facebook.com/groups/batch.protishruti.ac');
                                 })
                             })
 
@@ -83,7 +83,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         text: "You have already Enrolled ✔\nYour Roll Number : " + dashboard.message.Serial + "\nName : " + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
                         button: "Visit Facebook Group"
                     }).then(() => {
-                        return location.replace('https://www.facebook.com/groups/batch.protishruti');
+                        return location.replace('https://www.facebook.com/groups/batch.protishruti.ac');
                     })
                 }
 
