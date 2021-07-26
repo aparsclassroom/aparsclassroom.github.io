@@ -81,7 +81,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         title: "Already Submitted!",
                         icon: "info",
                         text: "You have already submitted ✔\nYour Roll Number : " + dashboard.message.Serial + "\nName : " + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
-                        button: "Close"
+                        button: "Visit Facebook Group"
                     }).then(() => {
                         return location.replace('https://www.facebook.com/groups/batch.protishruti');
                     })
