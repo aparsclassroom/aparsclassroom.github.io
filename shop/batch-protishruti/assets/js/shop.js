@@ -34,13 +34,13 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzOaWGkJDynrSeviovHFPerrndsMhMDUhOLEmOAFDvExruH0anAy0eAXPSy18LneoOW/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwh7Pkvn7t_W-u0kuuEss9f3e_t52YkoeH9OgvuB3kpBEvDndAZHumBRxAFhwC3c_A/exec';
         fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
             })
             .then((dashboard) => {
-                document.getElementById('enrolled').innerHTML = `${dashboard.enrolled} জন`;
+                document.getElementById('enrolled').innerHTML = `${dashboard.enrolled.enrolled} জন`;
 
                 if (dashboard.code != 200) {
 
