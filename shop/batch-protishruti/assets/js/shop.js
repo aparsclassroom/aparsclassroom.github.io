@@ -61,7 +61,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     title: "Submitted! 🥰",
                                     icon: "success",
                                     text: "Your Roll Number : " + val.roll,
-                                    button: "Close"
+                                    button: "Join Facebook Group"
                                 }).then(() => {
                                     form.reset();
                                     return location.replace('https://www.facebook.com/groups/batch.protishruti');
