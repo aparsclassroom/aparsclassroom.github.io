@@ -35,7 +35,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('uid').value = e.uid;
 
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzOaWGkJDynrSeviovHFPerrndsMhMDUhOLEmOAFDvExruH0anAy0eAXPSy18LneoOW/exec';
-        fetch(scriptURL + "?q=Indivisual&uid=" + user.uid)
+        fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
             })
