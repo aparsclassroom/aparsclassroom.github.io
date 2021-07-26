@@ -78,6 +78,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                     })
                 } else {
+                    document.getElementById('enrolled').innerHTML = `0 জন`;
                     swal({
                         title: "Already Submitted!",
                         icon: "info",
