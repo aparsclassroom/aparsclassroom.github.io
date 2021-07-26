@@ -113,3 +113,58 @@ ol {
 .disabled {
     cursor: not-allowed;
 }
+
+[data-toggle="collapse"] .fa:before {
+    content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+    content: "\f13a";
+}
+
+.tag {
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 290486px;
+    display: inline-flex;
+    height: 2em;
+    justify-content: center;
+    line-height: 1.5;
+    padding-left: .75em;
+    padding-right: .75em;
+    white-space: nowrap;
+    margin-bottom: .8rem;
+    margin-right: .25rem;
+    margin-left: .25rem;
+}
+
+.tag .fa-youtube {
+    color: #ff0000;
+}
+
+.flt {
+    display: flex;
+    flex-direction: column;
+}
+
+.met {
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc(1.5rem - .75rem);
+}
+
+.met .tag {
+    border-radius: 0;
+    background-color: inherit;
+}
+
+.teachers {
+    display: flex;
+}
+
+.teachers img {
+    height: 64px;
+    width: 64px;
+    margin-left: 40px;
+    border-radius: 55em;
+}
