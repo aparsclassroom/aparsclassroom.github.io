@@ -112,7 +112,8 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
-        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
-    } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
+    } else {
         document.getElementById('moda').addEventListener('click', () => location.href = "../dashboard/login.html")
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login.html" });
+    }
+
+});
