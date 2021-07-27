@@ -2,17 +2,7 @@ setTimeout(() => {
     $("#vid")[0].src += "1";
     $("#vid")[0].src;
 }, 1000)
-fetch('https://ipapi.co/8.8.8.8/json/')
-    .then((r) => {
-        return r.json();
-    })
-    .then((res) => {
-        var a = JSON.stringify(res);
-        document.getElementById("ip-details").value = a;
-    })
-    .catch(() => {
-        document.getElementById("ip-details").value = "No Ip Address Found 💔";
-    });
+
 var re = /^(?:\+8801)?[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
