@@ -41,7 +41,7 @@ function initApp() {
                         gradientStroke.addColorStop(1, 'rgba(253,93,147,0.8)');
 
                         var gradientStroke2 = sales.createLinearGradient(0, 230, 0, 50);
-                        gradientStroke2.addColorStop(0, 'rgba(253,93,147,0)');
+                        gradientStroke2.addColorStop(1, 'rgba(253,93,147,0)');
 
                         async function getdata() {
                             var d = await fetch(tranApi + '?q=transactions&token=' + tok);
