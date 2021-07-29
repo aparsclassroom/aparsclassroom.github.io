@@ -32,8 +32,8 @@ function initApp() {
                         document.getElementById('inWallet').innerText = data.Remaning_in_Wallet;
                         document.getElementById('totalEarning').innerText = data.Total_Income;
                         document.getElementById('ttsell').innerText = data.Total_Sell;
-                        document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + data.Total_Passive_Income + " ৳";
-                        document.getElementById('totaltranx').innerText = data.Total_Sell + data.Passive_Sell + data.Passive_Square_Sell;
+                        document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + " ৳";
+                        document.getElementById('totaltranx').innerText = data.Total_Sell;
 
 
                         var trans = document.getElementById('myChart');
