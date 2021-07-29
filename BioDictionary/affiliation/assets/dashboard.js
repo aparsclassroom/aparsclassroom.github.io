@@ -61,7 +61,7 @@ function initApp() {
 
                             }
                             var transChart = new Chart(trans, {
-                                type: 'line',
+                                type: 'bar',
                                 data: {
                                     labels: date,
                                     datasets: [{
@@ -87,9 +87,7 @@ function initApp() {
                                     datasets: [{
                                         label: 'Total Earning',
                                         data: salesData,
-                                        backgroundColor: [
-                                            'rgb(242, 145, 145)'
-                                        ]
+                                        backgroundColor: 'rgb(242, 145, 145)'
                                     }]
                                 },
                                 options: {
