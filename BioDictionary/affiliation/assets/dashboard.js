@@ -68,7 +68,7 @@ function initApp() {
                                         label: 'Number of Transaction(s)',
                                         data: transData,
                                         backgroundColor: [
-                                            'rgb(242, 145, 145)'
+                                            'rgba(255, 0,0, 1)'
                                         ]
                                     }]
                                 },
@@ -86,7 +86,7 @@ function initApp() {
                                 data: {
                                     labels: date,
                                     datasets: [{
-                                        label: 'Sales',
+                                        label: 'Total Earning',
                                         data: salesData,
                                         backgroundColor: [
                                             'rgb(242, 145, 145)'
