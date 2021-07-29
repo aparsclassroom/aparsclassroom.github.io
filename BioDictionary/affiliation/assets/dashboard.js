@@ -36,8 +36,8 @@ function initApp() {
                         document.getElementById('totaltranx').innerText = data.Total_Sell + data.Passive_Sell + data.Passive_Square_Sell;
 
 
-                        var trans = document.getElementById('myChart2').getContext('2d');
-                        var sales = document.getElementById('myChart').getContext('2d');
+                        var trans = document.getElementById('myChart');
+                        var sales = document.getElementById('myChart2');
 
                         async function getdata() {
                             var d = await fetch('https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=' + tok);
@@ -46,7 +46,6 @@ function initApp() {
                         }
 
                         getdata().then(res => {
-                            console.log(res);
                             var date = [];
                             var transData = []
                             var salesData = []
@@ -74,7 +73,7 @@ function initApp() {
                                         label: 'Number of Transaction(s)',
                                         data: transData,
                                         backgroundColor: [
-                                            'rgba(153, 102, 255, 0.2)'
+                                            'rgb(242, 145, 145)'
                                         ]
                                     }]
                                 },
@@ -95,7 +94,7 @@ function initApp() {
                                         label: 'Sales',
                                         data: salesData,
                                         backgroundColor: [
-                                            'rgba(153, 102, 255, 0.2)'
+                                            'rgb(242, 145, 145)'
                                         ]
                                     }]
                                 },
@@ -108,55 +107,60 @@ function initApp() {
                                 }
                             });
 
+
+
+                            $('#datatable').DataTable({
+                                "data": res,
+                                "columns": [{
+                                    "data": "customer"
+                                }, {
+                                    "data": "cupon"
+                                }, {
+                                    "data": "amount"
+                                }, {
+                                    "data": "commision",
+                                }, {
+                                    "data": "earning",
+                                }, {
+                                    "data": "time"
+                                }, {
+                                    "data": "invoice"
+                                }],
+                                "pagingType": "full_numbers",
+                                "lengthMenu": [
+                                    [10, 25, 50, -1],
+                                    [10, 25, 50, "All"]
+                                ],
+                                "order": [
+                                    [6, "desc"]
+                                ],
+                                responsive: true,
+                                language: {
+                                    search: "_INPUT_",
+                                    searchPlaceholder: "Search records"
+                                },
+                                dom: 'Blfrtip',
+                                buttons: [{
+                                        extend: 'excelHtml5',
+                                        text: 'Excel',
+                                        filename: 'Transactions of ' + date + '-' + month + '-' + year,
+                                        sheetName: date + '-' + month + '-' + year,
+                                        title: 'BioDictionary Sales Report of ' + tok,
+                                    },
+                                    {
+                                        extend: 'pdfHtml5',
+                                        text: 'PDF',
+                                        filename: 'Transactions of ' + date + '-' + month + '-' + year,
+                                        title: 'BioDictionary Sales Report of ' + tok,
+                                        message: 'Exported : ' + new Date().toLocaleString('en-IN')
+                                    }
+                                ]
+                            });
+
+
                         })
 
-                        $('#datatable').DataTable({
-                            "ajax": "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=" + tok,
-                            "columns": [{
-                                "data": "customer"
-                            }, {
-                                "data": "cupon"
-                            }, {
-                                "data": "amount"
-                            }, {
-                                "data": "commision",
-                            }, {
-                                "data": "earning",
-                            }, {
-                                "data": "time"
-                            }, {
-                                "data": "invoice"
-                            }],
-                            "pagingType": "full_numbers",
-                            "lengthMenu": [
-                                [10, 25, 50, -1],
-                                [10, 25, 50, "All"]
-                            ],
-                            "order": [
-                                [6, "desc"]
-                            ],
-                            responsive: true,
-                            language: {
-                                search: "_INPUT_",
-                                searchPlaceholder: "Search records"
-                            },
-                            dom: 'Blfrtip',
-                            buttons: [{
-                                    extend: 'excelHtml5',
-                                    text: 'Excel',
-                                    filename: 'Transactions of ' + date + '-' + month + '-' + year,
-                                    sheetName: date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Report of ' + tok,
-                                },
-                                {
-                                    extend: 'pdfHtml5',
-                                    text: 'PDF',
-                                    filename: 'Transactions of ' + date + '-' + month + '-' + year,
-                                    title: 'BioDictionary Sales Report of ' + tok,
-                                    message: 'Exported : ' + new Date().toLocaleString('en-IN')
-                                }
-                            ]
-                        });
+
                     } else {
                         alert(loadedData.message + "\n\nPlease Contact Admin !");
                         return location.replace("../");
