@@ -32,8 +32,14 @@ function initApp() {
                         document.getElementById('totaltranx').innerText = data.Total_Sell;
 
 
-                        var trans = document.getElementById('myChart');
-                        var sales = document.getElementById('myChart2');
+                        var trans = document.getElementById('myChart').getContext("2d");
+                        var sales = document.getElementById('myChart2').getContext("2d");
+
+
+                        var gradientStroke = trans.createLinearGradient(0, 230, 0, 50);
+
+                        gradientStroke.addColorStop(1, 'rgba(253,93,147,0.8)');
+                        gradientStroke.addColorStop(0, 'rgba(253,93,147,0)'); //blue colors
 
                         async function getdata() {
                             var d = await fetch(tranApi + '?q=transactions&token=' + tok);
@@ -67,12 +73,13 @@ function initApp() {
                                     datasets: [{
                                         label: 'Number of Transaction(s)',
                                         data: transData,
-                                        backgroundColor: '#ff8a76',
-                                        hoverBackgroundColor: ' #ff8a76',
-                                        borderColor: '#ff8a76',
+                                        fill: true,
+                                        backgroundColor: gradientStroke,
+                                        hoverBackgroundColor: gradientStroke,
+                                        borderColor: '#ff5991',
                                         borderWidth: 2,
                                         borderDash: [],
-                                        borderDashOffset: 0.0,
+                                        borderDashOffset: 0.0
                                     }]
                                 },
                                 options: {
