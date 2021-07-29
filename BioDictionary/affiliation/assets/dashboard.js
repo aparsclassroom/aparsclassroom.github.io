@@ -61,7 +61,7 @@ function initApp() {
 
                             }
                             var transChart = new Chart(trans, {
-                                type: 'bar',
+                                type: 'line',
                                 data: {
                                     labels: date,
                                     datasets: [{
