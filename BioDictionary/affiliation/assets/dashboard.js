@@ -19,6 +19,12 @@ function initApp() {
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
                         let data = loadedData.data;
+                        const date = new Date().getDate();
+                        const month = new Date().getMonth() + 1;
+                        const year = new Date().getFullYear();
+                        var m = data.Affiliation_Token;
+                        var tok = m.split("?")[1].substring(0, 16);
+
                         if (user.photoURL != null) {
                             document.getElementById('profile').src = user.photoURL;
                         }
@@ -29,74 +35,81 @@ function initApp() {
                         document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + data.Total_Passive_Income + " ৳";
                         document.getElementById('totaltranx').innerText = data.Total_Sell + data.Passive_Sell + data.Passive_Square_Sell;
 
-                        var label = ['Direct Income', 'Passive Income', 'Passive² Income'];
-                        var ctx = document.getElementById('myChart').getContext('2d');
-                        var myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ['Direct Sell', 'Passive Sell', 'Passive² Sell'],
-                                datasets: [{
-                                    label: 'Transactions Occured',
-                                    data: [data.Total_Sell, data.Passive_Sell, data.Passive_Square_Sell],
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(255, 136, 0, 0.39)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgb(255, 136, 0)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
+
+                        var trans = document.getElementById('myChart2').getContext('2d');
+                        var sales = document.getElementById('myChart').getContext('2d');
+
+                        async function getdata() {
+                            var d = await fetch('https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=' + tok);
+                            var data = await d.json();
+                            return data.data;
+                        }
+
+                        getdata().then(res => {
+                            console.log(res);
+                            var date = [];
+                            var transData = []
+                            var salesData = []
+                                //seperateing date and datas
+                            for (var i = 0; i < res.length; i++) {
+                                var inDate = false;
+                                for (var j = 0; j < date.length; j++)
+                                    if (date[j] == res[i].time.split(',')[0]) {
+                                        inDate = true;
+                                        transData[j] += 1;
+                                        salesData[j] += parseInt(res[i].amount.split('/')[0]);
+                                    }
+                                if (!inDate) {
+                                    date.push(res[i].time.split(',')[0])
+                                    transData.push(1);
+                                    salesData.push(parseInt(res[i].amount.split('/')[0]));
+                                }
+
+                            }
+                            var transChart = new Chart(trans, {
+                                type: 'bar',
+                                data: {
+                                    labels: date,
+                                    datasets: [{
+                                        label: 'Number of Transaction(s)',
+                                        data: transData,
+                                        backgroundColor: [
+                                            'rgba(153, 102, 255, 0.2)'
+                                        ]
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
                                             beginAtZero: true
                                         }
-                                    }]
+                                    }
                                 }
-                            }
-                        });
-                        var ctx = document.getElementById('myChart2').getContext('2d');
-                        var myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: label,
-                                datasets: [{
-                                    label: 'Verified Earnings',
-                                    data: [data.Verified_Direct_Income, data.Verified_Passive_Income, data.Verified_Passive_Square_Income],
-                                    backgroundColor: [
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(237, 255, 6, 0.3)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(225, 242, 0, 1)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
+                            });
+
+                            var salesChart = new Chart(sales, {
+                                type: 'bar',
+                                data: {
+                                    labels: date,
+                                    datasets: [{
+                                        label: 'Sales',
+                                        data: salesData,
+                                        backgroundColor: [
+                                            'rgba(153, 102, 255, 0.2)'
+                                        ]
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
                                             beginAtZero: true
                                         }
-                                    }]
+                                    }
                                 }
-                            }
-                        });
-                        const date = new Date().getDate();
-                        const month = new Date().getMonth() + 1;
-                        const year = new Date().getFullYear();
-                        var m = data.Affiliation_Token;
-                        var tok = m.split("?")[1].substring(0, 16);
+                            });
+
+                        })
+
                         $('#datatable').DataTable({
                             "ajax": "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=" + tok,
                             "columns": [{
