@@ -39,7 +39,9 @@ function initApp() {
                         var gradientStroke = trans.createLinearGradient(0, 230, 0, 50);
 
                         gradientStroke.addColorStop(1, 'rgba(253,93,147,0.8)');
-                        gradientStroke.addColorStop(0, 'rgba(253,93,147,0)'); //blue colors
+
+                        var gradientStroke2 = sales.createLinearGradient(0, 230, 0, 50);
+                        gradientStroke2.addColorStop(0, 'rgba(253,93,147,0)');
 
                         async function getdata() {
                             var d = await fetch(tranApi + '?q=transactions&token=' + tok);
@@ -98,7 +100,12 @@ function initApp() {
                                     datasets: [{
                                         label: 'Total Earning',
                                         data: salesData,
-                                        backgroundColor: 'rgb(242, 145, 145)'
+                                        backgroundColor: gradientStroke2,
+                                        hoverBackgroundColor: gradientStroke2,
+                                        borderColor: 'rgba(253,93,147,0)',
+                                        borderWidth: 2,
+                                        borderDash: [],
+                                        borderDashOffset: 0.0
                                     }]
                                 },
                                 options: {
