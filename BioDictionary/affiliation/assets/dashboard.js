@@ -2,8 +2,8 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-const api = "https://script.google.com/macros/s/AKfycbzcqmEXudKWgvPJnfCtbZVxOR7iJ68iopaf3s6dqKURCUT3C9dfpY3Buiz4e_eqwNkh/exec";
-const tranApi = "https://script.google.com/macros/s/AKfycbxBDO2bBcOIDDMKiNMIisa3j84TEzM2FbsaiuWEzkVae4xRF-Fe27uP8ZuxaQ9OxVeM/exec";
+const api = "https://script.google.com/macros/s/AKfycbwhX1LG9NfBiod-_tP1owj6Ggf0OtssmmTqbiX_Eyxt7HoYb5jIOYqTUTjFH3cITdYj/exec";
+const tranApi = "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -40,7 +40,7 @@ function initApp() {
                         var sales = document.getElementById('myChart2');
 
                         async function getdata() {
-                            var d = await fetch('https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec?q=transactions&token=' + tok);
+                            var d = await fetch(tranApi + '?q=transactions&token=' + tok);
                             var data = await d.json();
                             return data.data;
                         }
