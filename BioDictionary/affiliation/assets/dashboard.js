@@ -102,7 +102,7 @@ function initApp() {
                                 }
                             });
 
-                            const date = new Date().getDate();
+                            const tdate = new Date().getDate();
                             const month = new Date().getMonth() + 1;
                             const year = new Date().getFullYear();
 
@@ -140,14 +140,14 @@ function initApp() {
                                 buttons: [{
                                         extend: 'excelHtml5',
                                         text: 'Excel',
-                                        filename: 'Transactions of ' + date + '-' + month + '-' + year,
-                                        sheetName: date + '-' + month + '-' + year,
+                                        filename: 'Transactions of ' + tdate + '-' + month + '-' + year,
+                                        sheetName: tdate + '-' + month + '-' + year,
                                         title: 'BioDictionary Sales Report of ' + tok,
                                     },
                                     {
                                         extend: 'pdfHtml5',
                                         text: 'PDF',
-                                        filename: 'Transactions of ' + date + '-' + month + '-' + year,
+                                        filename: 'Transactions of ' + tdate + '-' + month + '-' + year,
                                         title: 'BioDictionary Sales Report of ' + tok,
                                         message: 'Exported : ' + new Date().toLocaleString('en-IN')
                                     }
