@@ -19,12 +19,8 @@ function initApp() {
                 }).then((loadedData) => {
                     if (loadedData.code === 200) {
                         let data = loadedData.data;
-                        const date = new Date().getDate();
-                        const month = new Date().getMonth() + 1;
-                        const year = new Date().getFullYear();
                         var m = data.Affiliation_Token;
                         var tok = m.split("?")[1].substring(0, 16);
-
                         if (user.photoURL != null) {
                             document.getElementById('profile').src = user.photoURL;
                         }
@@ -49,7 +45,6 @@ function initApp() {
                             var date = [];
                             var transData = []
                             var salesData = []
-                                //seperateing date and datas
                             for (var i = 0; i < res.length; i++) {
                                 var inDate = false;
                                 for (var j = 0; j < date.length; j++)
@@ -107,7 +102,9 @@ function initApp() {
                                 }
                             });
 
-
+                            const date = new Date().getDate();
+                            const month = new Date().getMonth() + 1;
+                            const year = new Date().getFullYear();
 
                             $('#datatable').DataTable({
                                 "data": res,
