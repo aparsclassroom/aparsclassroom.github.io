@@ -67,9 +67,8 @@ function initApp() {
                                     datasets: [{
                                         label: 'Number of Transaction(s)',
                                         data: transData,
-                                        backgroundColor: [
-                                            'rgba(255, 0,0, 1)'
-                                        ]
+                                        fill: true,
+                                        backgroundColor: 'rgba(255, 0,0, 1)'
                                     }]
                                 },
                                 options: {
