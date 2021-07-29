@@ -31,20 +31,8 @@ function initApp() {
                         document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + " ৳";
                         document.getElementById('totaltranx').innerText = data.Total_Sell;
 
-
                         var trans = document.getElementById('myChart').getContext("2d");
                         var sales = document.getElementById('myChart2').getContext("2d");
-
-
-                        var gradientStroke = trans.createLinearGradient(0, 230, 0, 50);
-
-                        gradientStroke.addColorStop(1, 'rgba(253,93,147,0.8)');
-                        gradientStroke.addColorStop(0, 'rgba(253,93,147,0)');
-
-                        var gradientStroke2 = sales.createLinearGradient(0, 230, 0, 50);
-
-                        gradientStroke.addColorStop(1, 'rgba(254, 241, 96, 1)');
-                        gradientStroke.addColorStop(0, 'rgba(253,93,147,0)');
 
                         async function getdata() {
                             var d = await fetch(tranApi + '?q=transactions&token=' + tok);
@@ -79,8 +67,8 @@ function initApp() {
                                         label: 'Number of Transaction(s)',
                                         data: transData,
                                         fill: true,
-                                        backgroundColor: gradientStroke,
-                                        hoverBackgroundColor: gradientStroke,
+                                        backgroundColor: 'rgba(253,93,147,0.8)',
+                                        hoverBackgroundColor: 'rgba(253,93,147,0.8)',
                                         borderColor: '#ff5991',
                                         borderWidth: 2,
                                         borderDash: [],
@@ -104,8 +92,8 @@ function initApp() {
                                         label: 'Total Earning',
                                         data: salesData,
                                         fill: true,
-                                        backgroundColor: gradientStroke2,
-                                        hoverBackgroundColor: gradientStroke2,
+                                        backgroundColor: 'rgba(254, 241, 96, 1)',
+                                        hoverBackgroundColor: 'rgba(254, 241, 96, 1)',
                                         borderColor: 'rgba(247, 202, 24, 1)',
                                         borderWidth: 2,
                                         borderDash: [],
