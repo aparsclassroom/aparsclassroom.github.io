@@ -67,8 +67,12 @@ function initApp() {
                                     datasets: [{
                                         label: 'Number of Transaction(s)',
                                         data: transData,
-                                        fill: true,
-                                        backgroundColor: 'rgba(255, 0,0, 1)'
+                                        backgroundColor: '#ff8a76',
+                                        hoverBackgroundColor: ' #ff8a76',
+                                        borderColor: '#ff8a76',
+                                        borderWidth: 2,
+                                        borderDash: [],
+                                        borderDashOffset: 0.0,
                                     }]
                                 },
                                 options: {
