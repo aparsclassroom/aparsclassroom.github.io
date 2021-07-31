@@ -111,7 +111,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                             fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                                 .then(response => {
-                                    return response.text()
+                                    return response.json()
                                 })
                                 .then(result => {
                                     if (result.status != 420) {
@@ -157,7 +157,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                             fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                                 .then(response => {
-                                    return response.text()
+                                    return response.json()
                                 })
                                 .then(result => {
                                     if (result.status != 420) {
@@ -216,11 +216,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.text()
+                                return response.json()
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result
+                                    location.href = result.url
                                 } else {
                                     swal({
                                         title: result.message,
@@ -262,11 +262,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.text()
+                                return response.json()
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result
+                                    location.href = result.url
                                 } else {
                                     swal({
                                         title: result.message,
