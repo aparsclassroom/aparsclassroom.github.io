@@ -2,7 +2,7 @@ function logOut() {
     firebase.auth().signOut();
     initApp();
 }
-const api = "https://script.google.com/macros/s/AKfycbwhX1LG9NfBiod-_tP1owj6Ggf0OtssmmTqbiX_Eyxt7HoYb5jIOYqTUTjFH3cITdYj/exec";
+const api = "https://script.google.com/macros/s/AKfycby-COx47O7aEruch79rWMFXUIrSe1im7dBqkndvJEfBvlytlpwxP9lF7rElSVxBCAYY/exec";
 const tranApi = "https://script.google.com/macros/s/AKfycbypsi551paklNBU2NBbezBR9PX7urGvV46ftSeVHDd5nixpt7fHPbmn_HIwJb6BwlpB/exec";
 
 function initApp() {
@@ -28,7 +28,7 @@ function initApp() {
                         document.getElementById('inWallet').innerText = data.Remaning_in_Wallet;
                         document.getElementById('totalEarning').innerText = data.Total_Income;
                         document.getElementById('ttsell').innerText = data.Total_Sell;
-                        document.getElementById('totalVerify').innerText = data.Verified_Direct_Income + " ৳";
+                        document.getElementById('totalVerify').innerText = data.Total_Income + " ৳";
                         document.getElementById('totaltranx').innerText = data.Total_Sell;
 
                         var trans = document.getElementById('myChart').getContext("2d");
