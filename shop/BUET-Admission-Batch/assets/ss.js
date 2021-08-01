@@ -1,5 +1,6 @@
 const product = "BUET Admission Batch'21";
 const appl = "https://www.facebook.com/groups/aparchinmoyadmission21/";
+const WebApp = "https://buet-physics.herokuapp.com/login";
 const productCode = "113";
 const fix = 7000;
 const pls = 4000;
