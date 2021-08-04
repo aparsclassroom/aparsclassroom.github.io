@@ -1,4 +1,4 @@
-const product = "Apar-Chinmoy Physics Program 2022";
+const product = "Apar-Chinmoy Course Program 2021 (Cluster)";
 const productCode = "117";
 const fix = 1000;
 const pls = 750;
