@@ -3,6 +3,15 @@ const productCode = "117";
 const fix = 1000;
 const pls = 750;
 
+const vidD = document.getElementById('video');
+const clprc = document.getElementById('clprc');
+if (screen.width <= 600) {
+    clprc.classList.add('fixed-bottom');
+} else {
+    clprc.classList.remove('fixed-bottom');
+    vidD.style.position = 'sticky';
+}
+
 
 fetch(`https://script.google.com/macros/s/AKfycbwmtDlRKGUlP4PFfV3JbxfvSE8OyWjTvSOb8YV_wOULdgWn3lNjdiq7DfmGtnJHLWZs5A/exec?productCode=${productCode}`)
     .then((res) => {
