@@ -22,6 +22,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     localStorage.removeItem(product)
                     let data = result.data
                     const sum = data.map(element => element.access);
+                    document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
+
                     if (sum.includes('cluster 1')) {
                         document.getElementById('c1').innerHTML = "ক্লাস্টার ১ (Enrolled)";
                         document.getElementById('c1').href = "./purchased.html";
