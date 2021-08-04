@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     College : ${data[0].College}<br>
                     Batch : ${data[0].HSC}<br>
                     Date : ${data[0].time}<br><br><hr>
-                    <h3>WebApp Credentials</h3>
+                    <h3>WebApp Credentials</h3><br>
                     WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
                     Email : <span id="email">${data[0].email}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-danger d-print-none" data-clipboard-target="#email">Copy Email</button><br><br>
                     Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br><hr>
