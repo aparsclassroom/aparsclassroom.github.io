@@ -20,10 +20,10 @@ function testInfo(phoneNumberChk) {
 
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
-document.getElementById('prevP').innerText = fix2;
-document.getElementById('nop').innerText = pls2 + "৳";
-document.getElementById('sprice').innerText = pls2;
-document.getElementById('price').value = pls2;
+document.getElementById('prevP').innerText = fix;
+document.getElementById('nop').innerText = pls + "৳";
+document.getElementById('sprice').innerText = pls;
+document.getElementById('price').value = pls;
 const form = document.forms['purchase'];
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
@@ -362,7 +362,7 @@ cpn.addEventListener('click', (e) => {
         })
         .then((loadedData) => {
             if (loadedData.status === "success") {
-                var nes = pls2 - loadedData.Off;
+                var nes = pls - loadedData.Off;
                 disOFF = loadedData.Off;
                 document.getElementById('price').value = nes;
                 document.getElementById('sprice').innerText = nes;
@@ -372,10 +372,10 @@ cpn.addEventListener('click', (e) => {
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
                 cpn.disabled = true;
-                var percent = Math.round(((parseInt(loadedData.Off) + (fix2 - pls2)) / fix2) * 100);
+                var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-                document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix2 + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
+                document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
                 swal({
                     title: "Alhamdulillah ❤",
                     icon: "success",
