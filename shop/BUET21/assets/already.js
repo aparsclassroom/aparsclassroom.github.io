@@ -29,7 +29,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Product : ${data[0].ProductName}<br>
                     Total Paid Amount : ${sum2} ৳ <br>
                     Username : ${data[0].Name}<br>
-                    Joining ID : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID</button><br>
                     Email : ${data[0].email}<br>
                     Phone No. ${data[0].phone}<br>
                     College : ${data[0].College}<br>
@@ -38,11 +37,12 @@ firebase.auth().onAuthStateChanged(function(e) {
                     <h3>WebApp Credentials</h3>
                     WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
                     Email : ${data[0].email}<br>
-                    Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
+                    Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br><hr>
+                    <h3>Enrolled Clusters</h3>
                     `;
                     sum.forEach((element, idx) => {
                         idx++
-                        document.getElementById('all').innerHTML += `<br>${idx}. ${element}`;
+                        document.getElementById('all').innerHTML += `${idx}. ${element}<br>`;
                     });
 
                     var clipboard = new ClipboardJS('.cp');
