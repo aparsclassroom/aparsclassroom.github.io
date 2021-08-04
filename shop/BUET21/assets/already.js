@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Date : ${data[0].time}<br><br><hr>
                     <h3>WebApp Credentials</h3>
                     WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                    Email : ${data[0].email}<br>
+                    Email : <span id="email">${data[0].email}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#email">Copy Email</button><br>
                     Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br><hr>
                     <h3>Enrolled Clusters</h3>
                     `;
