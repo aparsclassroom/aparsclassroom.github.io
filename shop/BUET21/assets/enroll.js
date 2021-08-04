@@ -136,7 +136,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             icon: "success",
                             button: "View Informations"
                         }).then(() => {
-                            return location.replace("./purchased")
+                            return location.replace("../purchased")
                         })
                     } else {
                         document.getElementById('name').value = data[0].Name;
