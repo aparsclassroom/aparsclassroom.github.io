@@ -20,21 +20,88 @@ function testInfo(phoneNumberChk) {
 
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
-document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls + "৳";
-document.getElementById('sprice').innerText = pls;
-document.getElementById('price').value = pls;
-
+document.getElementById('prevP').innerText = fix2;
+document.getElementById('nop').innerText = pls2 + "৳";
+document.getElementById('sprice').innerText = pls2;
+document.getElementById('price').value = pls2;
+const form = document.forms['purchase'];
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         var res = str.split("&")[0].substring(1, 16);
-        if (res != "") {
-            sessionStorage.setItem(product, res);
+        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign") {
+            swal({
+                    title: "আসসালালু আলাইকুম ❤",
+                    icon: "warning",
+                    text: "তুমি যার কাছ থেকে লিংকটি পেয়েছো সে কমেন্টে স্প্যামিং করেছে কিনা ?",
+                    closeOnClickOutside: false,
+                    dangerMode: true,
+                    buttons: ["না 😍", "হ্যাঁ 😠"]
+                })
+                .then((report) => {
+                    if (report) {
+                        let ne = "aff-AAA";
+                        localStorage.setItem(product, ne);
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                        var urlencoded = new URLSearchParams();
+                        urlencoded.append("Product", product);
+                        urlencoded.append("Affiliate Code", res);
+                        urlencoded.append("UID", e.uid);
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: 'follow'
+                        };
+                        fetch(reportApi, requestOptions)
+                            .then(response => {
+                                return response.json()
+                            })
+                            .then((res) => {
+                                $.notify({
+                                    message: res.message
+                                }, {
+                                    type: 'danger',
+                                    placement: {
+                                        from: "top",
+                                        align: 'center'
+                                    }
+                                });
+                                if (res.code != 400) {
+                                    swal({
+                                            title: "স্ক্রীনশট দিন",
+                                            icon: "warning",
+                                            text: "স্প্যামারের কমেন্টগুলোর স্ক্রীনশট তুলে আমাদের পাঠান",
+                                            closeOnClickOutside: false,
+                                            dangerMode: true,
+                                            buttons: ["না ঠিক আছে", "দিচ্ছি"]
+                                        })
+                                        .then((ss) => {
+                                            if (ss) {
+                                                window.open('mailto:feedback@aparsclassroom.com')
+                                            }
+                                        })
+                                }
+                            }).catch((err) => {
+                                swal({
+                                    title: "Error",
+                                    icon: "error",
+                                    text: err.message,
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.reload()
+                                })
+                            })
+                    } else {
+                        localStorage.setItem(product, res);
+                    }
+                });
         } else {
-            let ne = "utm=Mridul";
-            sessionStorage.setItem(product, ne);
+            let ne = "aff-AAA";
+            localStorage.setItem(product, ne);
         }
+
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -42,6 +109,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
+            "product": product,
             'uid': e.uid
         });
 
@@ -52,7 +120,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}.herokuapp.com/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}.herokuapp.com/${productCode2}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -60,139 +128,86 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (result.code === 200) {
                     localStorage.removeItem(product)
                     let data = result.data;
-                    const sum = data.map(element => element.access).reduce((a, b) => a + b, 0);
-                    if (sum > 0.5) {
+                    const sum = data.map(element => element.access);
+                    if (sum.includes(clust)) {
                         swal({
-                            title: "100% Payment Completed !",
+                            title: "You have Enrolled This Cluster !",
                             icon: "success",
                             button: "View Informations"
                         }).then(() => {
                             return location.replace("./purchased")
                         })
                     } else {
-                        swal({
-                            title: "Your 50% payment Remaining ! You don't need to pay the full payment",
-                            icon: "info",
-                            button: "OK"
-                        }).then(() => {
-                            return location.replace("./half")
+                        document.getElementById('name').value = data[0].Name;
+                        document.getElementById('name').disabled = true;
+                        document.getElementById('college').value = data[0].College;
+                        document.getElementById('college').disabled = true;
+                        document.getElementById('hscBatch').value = data[0].HSC;
+                        document.getElementById('hscBatch').disabled = true;
+                        document.getElementById('phone').value = data[0].phone;
+                        document.getElementById('phone').disabled = true;
+                        document.getElementById('email').value = data[0].email;
+                        document.getElementById('email').disabled = true;
+                        document.getElementById('valid-feedback').innerHTML = '<span class="text-success">✔ Valid Phone Number !</span>';
+                        document.getElementById('buy').disabled = false;
+                        form.addEventListener('submit', em => {
+                            em.preventDefault();
+                            document.getElementById('buy').innerText = "Please wait...."
+                            document.getElementById("buy").disabled = true;
+                            var myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/json");
+                            var raw = JSON.stringify({
+                                "dicount_amount": disOFF,
+                                "product": data[0].ProductName,
+                                "cus_name": data[0].Name,
+                                "email": data[0].email,
+                                "college": data[0].College,
+                                "hsc": data[0].HSC,
+                                "phone": data[0].phone,
+                                "Cupon": document.getElementById('disC').value.trim(),
+                                'uid': data[0].uid
+                            });
+
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: raw,
+                                redirect: 'follow'
+                            };
+
+                            fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                                .then(response => {
+                                    return response.json()
+                                })
+                                .then(result => {
+                                    if (result.status != 420) {
+                                        location.href = result.url
+                                    } else {
+                                        swal({
+                                            title: result.message,
+                                            icon: "error"
+                                        }).then(() => {
+                                            location.href = result.GatewayPageURL
+                                        })
+                                    }
+                                })
+                                .catch(() => {
+                                    swal({
+                                        title: "Error",
+                                        icon: "error",
+                                        text: "Server Busy 😶\nPlease Try Again later",
+                                        button: "Ok"
+                                    })
+                                });
                         })
                     }
-
                 } else {
-                    const form = document.forms['purchase']
+
                     form.addEventListener('submit', em => {
                         em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
-                        var coup = sessionStorage.getItem(product + ' Coupon')
-                        if (coup != null) {
-                            var myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/json");
-                            var raw = JSON.stringify({
-                                "dicount_amount": disOFF,
-                                "product": product,
-                                "cus_name": document.getElementById('name').value.trim(),
-                                "email": mail,
-                                "college": document.getElementById('college').value.trim(),
-                                "hsc": document.getElementById('hscBatch').value.trim(),
-                                "phone": document.getElementById('phone').value.trim(),
-                                "Cupon": coup,
-                                'uid': e.uid
-                            });
-
-                            var requestOptions = {
-                                method: 'POST',
-                                headers: myHeaders,
-                                body: raw,
-                                redirect: 'follow'
-                            };
-
-                            fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
-                                .then(response => {
-                                    return response.json()
-                                })
-                                .then(result => {
-                                    if (result.status != 420) {
-                                        location.href = result.url
-                                    } else {
-                                        swal({
-                                            title: result.message,
-                                            icon: "error"
-                                        }).then(() => {
-                                            location.href = result.GatewayPageURL
-                                        })
-                                    }
-                                })
-                                .catch(() => {
-                                    swal({
-                                        title: "Error",
-                                        icon: "error",
-                                        text: "Server Busy 😶\nPlease Try Again later",
-                                        button: "Ok"
-                                    })
-                                });
-                        } else {
-                            var myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/json");
-                            var raw = JSON.stringify({
-                                "dicount_amount": disOFF,
-                                "product": product,
-                                "cus_name": document.getElementById('name').value.trim(),
-                                "email": mail,
-                                "college": document.getElementById('college').value.trim(),
-                                "hsc": document.getElementById('hscBatch').value.trim(),
-                                "phone": document.getElementById('phone').value.trim(),
-                                "Cupon": sessionStorage.getItem(product),
-                                'uid': e.uid
-                            });
-
-                            var requestOptions = {
-                                method: 'POST',
-                                headers: myHeaders,
-                                body: raw,
-                                redirect: 'follow'
-                            };
-
-                            fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
-                                .then(response => {
-                                    return response.json()
-                                })
-                                .then(result => {
-                                    if (result.status != 420) {
-                                        location.href = result.url
-                                    } else {
-                                        swal({
-                                            title: result.message,
-                                            icon: "error"
-                                        }).then(() => {
-                                            location.href = result.GatewayPageURL
-                                        })
-                                    }
-                                })
-                                .catch(() => {
-                                    swal({
-                                        title: "Error",
-                                        icon: "error",
-                                        text: "Server Busy 😶\nPlease Try Again later",
-                                        button: "Ok"
-                                    })
-                                });
-                        }
-
-                    })
-                }
-            })
-            .catch(() => {
-                const mform = document.forms['purchase']
-                mform.addEventListener('submit', em => {
-                    em.preventDefault();
-                    var mail = document.getElementById('email').value.toLowerCase().trim();
-                    document.getElementById('buy').innerText = "Please wait...."
-                    document.getElementById("buy").disabled = true;
-                    var coup = sessionStorage.getItem(product + ' Coupon')
-                    if (coup != null) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
@@ -214,7 +229,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
                             .then(response => {
                                 return response.json()
                             })
@@ -238,53 +253,61 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     button: "Ok"
                                 })
                             });
-                    } else {
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "Cupon": sessionStorage.getItem(product),
-                            'uid': e.uid
+                    })
+                }
+            })
+            .catch(() => {
+                const mform = document.forms['purchase']
+                mform.addEventListener('submit', em => {
+                    em.preventDefault();
+                    var mail = document.getElementById('email').value.toLowerCase().trim();
+                    document.getElementById('buy').innerText = "Please wait...."
+                    document.getElementById("buy").disabled = true;
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    var raw = JSON.stringify({
+                        "dicount_amount": disOFF,
+                        "product": product,
+                        "cus_name": document.getElementById('name').value.trim(),
+                        "email": mail,
+                        "college": document.getElementById('college').value.trim(),
+                        "hsc": document.getElementById('hscBatch').value.trim(),
+                        "phone": document.getElementById('phone').value.trim(),
+                        "Cupon": document.getElementById('disC').value.trim(),
+                        'uid': e.uid
+                    });
+
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
+
+                    fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(result => {
+                            if (result.status != 420) {
+                                location.href = result.url
+                            } else {
+                                swal({
+                                    title: result.message,
+                                    icon: "error"
+                                }).then(() => {
+                                    location.href = result.GatewayPageURL
+                                })
+                            }
+                        })
+                        .catch(() => {
+                            swal({
+                                title: "Error",
+                                icon: "error",
+                                text: "Server Busy 😶\nPlease Try Again later",
+                                button: "Ok"
+                            })
                         });
-
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
-
-                        fetch(`https://${shopName}.herokuapp.com/${productCode}/init`, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then(result => {
-                                if (result.status != 420) {
-                                    location.href = result.url
-                                } else {
-                                    swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
-                                }
-                            })
-                            .catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: "Server Busy 😶\nPlease Try Again later",
-                                    button: "Ok"
-                                })
-                            });
-                    }
                 })
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
@@ -339,21 +362,20 @@ cpn.addEventListener('click', (e) => {
         })
         .then((loadedData) => {
             if (loadedData.status === "success") {
-                var nes = pls - loadedData.Off;
+                var nes = pls2 - loadedData.Off;
                 disOFF = loadedData.Off;
                 document.getElementById('price').value = nes;
                 document.getElementById('sprice').innerText = nes;
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
                 document.getElementById('disC').value = loadedData.Cupon;
-                sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
                 cpn.disabled = true;
-                var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
+                var percent = Math.round(((parseInt(loadedData.Off) + (fix2 - pls2)) / fix2) * 100);
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-                document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
+                document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix2 + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
                 swal({
                     title: "Alhamdulillah ❤",
                     icon: "success",

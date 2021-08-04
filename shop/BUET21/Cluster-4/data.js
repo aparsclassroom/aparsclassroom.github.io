@@ -2,7 +2,7 @@ const product = "Apar-Chinmoy Course Program 2021 (Cluster-4)";
 const productCode = "120";
 const fix = 1000;
 const pls = 750;
-
+const clust = "cluster 4";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
