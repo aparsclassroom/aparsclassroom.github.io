@@ -60,7 +60,6 @@ firebase.auth().onAuthStateChanged(function(e) {
 
             })
             .catch((err) => {
-                alert(err)
                 return location.replace("./");
             })
     } else {
