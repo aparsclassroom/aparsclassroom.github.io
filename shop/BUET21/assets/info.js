@@ -64,13 +64,21 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .catch(() => {
                 document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
-                document.getElementById('full').href = "./full";
-                document.getElementById('half').href = "./half";
+                document.getElementById('c1').href = "./Cluster-1/";
+                document.getElementById('c2').href = "./Cluster-2/";
+                document.getElementById('c3').href = "./Cluster-3/";
+                document.getElementById('c4').href = "./Cluster-4/";
+                document.getElementById('c5').href = "./Cluster-5/";
+                document.getElementById('c6').href = "./Cluster-6/";
             })
 
     } else {
         document.getElementById('meta').innerHTML = "Please Login First !"
-        document.getElementById('full').href = "../dashboard/login";
-        document.getElementById('half').href = "../dashboard/login";
+        document.getElementById('c1').href = "../dashboard/login";
+        document.getElementById('c2').href = "../dashboard/login";
+        document.getElementById('c3').href = "../dashboard/login";
+        document.getElementById('c4').href = "../dashboard/login";
+        document.getElementById('c5').href = "../dashboard/login";
+        document.getElementById('c6').href = "../dashboard/login";
     }
 })

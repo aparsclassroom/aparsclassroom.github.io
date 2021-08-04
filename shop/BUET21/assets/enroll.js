@@ -16,6 +16,7 @@ function testInfo(phoneNumberChk) {
         document.getElementById('buy').disabled = false;
     }
 }
+const reportApi = "https://script.google.com/macros/s/AKfycbyJSRY2-aaiERJfxdSsvhHMQgTmCFEJUvZx7zW4WZa95qP0VKKo42jLvjdnLKdrpGkZvQ/exec";
 
 
 document.title = product + " | ASG Shop";
