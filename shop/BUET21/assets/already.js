@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var data = result.data;
 
                     const sum = data.map(element => element.access);
-
+                    const sum2 = data.map(el => el.amount).reduce((c, d) => c + d, 0);
                     document.getElementById('info').innerHTML = `
                     <h3>Enrollment Information</h3>
                     Invoice : ${data[0].invoice}<br>
