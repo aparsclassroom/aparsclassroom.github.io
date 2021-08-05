@@ -61,6 +61,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     } else {
                         document.getElementById('c6').href = "./Cluster-6/";
                     }
+                } else {
+                    document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
                 }
             })
             .catch(() => {
