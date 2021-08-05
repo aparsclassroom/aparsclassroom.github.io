@@ -362,6 +362,7 @@ cpn.addEventListener('click', (e) => {
                 })
                 return;
             } else {
+                cpn.innerText = "Apply";
                 cupV.disabled = false;
                 cpn.disabled = false;
                 document.getElementById('cupon').value = "";
