@@ -61,7 +61,6 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.code === 200) {
-                    localStorage.removeItem(product)
                     let data = result.data;
                     const sum = data.map(element => element.access);
                     if (sum.includes(clust)) {
@@ -94,6 +93,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 em.preventDefault();
                                 document.getElementById('buy').innerText = "Please wait...."
                                 document.getElementById("buy").disabled = true;
+                                var coup = sessionStorage.getItem(product + ' Coupon')
                                 var myHeaders = new Headers();
                                 myHeaders.append("Content-Type", "application/json");
                                 var raw = JSON.stringify({
@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     "college": data[0].College,
                                     "hsc": data[0].HSC,
                                     "phone": data[0].phone,
-                                    "Cupon": document.getElementById('disC').value.trim(),
+                                    "Cupon": coup,
                                     'uid': data[0].uid
                                 });
 
@@ -159,7 +159,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "college": document.getElementById('college').value.trim(),
                             "hsc": document.getElementById('hscBatch').value.trim(),
                             "phone": document.getElementById('phone').value.trim(),
-                            "Cupon": document.getElementById('disC').value.trim(),
+                            "Cupon": sessionStorage.getItem(product),
                             'uid': e.uid
                         });
 
@@ -214,7 +214,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "college": document.getElementById('college').value.trim(),
                         "hsc": document.getElementById('hscBatch').value.trim(),
                         "phone": document.getElementById('phone').value.trim(),
-                        "Cupon": document.getElementById('disC').value.trim(),
+                        "Cupon": sessionStorage.getItem(product),
                         'uid': e.uid
                     });
 
