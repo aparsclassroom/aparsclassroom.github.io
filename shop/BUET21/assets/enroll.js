@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res.indexOf("aff") > -1 && sessionStorage.getItem(product) != res) {
+        if (res != "" && res.indexOf("aff") > -1 && res.indexOf("utm") > -1 && sessionStorage.getItem(product) != res) {
             sessionStorage.setItem(product, res);
         } else {
             let ne = "utm=Mridul";
