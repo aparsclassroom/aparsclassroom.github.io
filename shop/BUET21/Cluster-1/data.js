@@ -1,4 +1,4 @@
-const product = "APAR-CHINMOY ENGINEERING ADMISSION PROGRAM 2021 (Cluster-1)";
+const product = "Apar-Chinmoy Engineering Admission Program 2021 (Cluster-1)";
 const productCode = "117";
 const fix = 1000;
 const pls = 750;
