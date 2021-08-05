@@ -19,7 +19,6 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.code === 200) {
-                    localStorage.removeItem(product)
                     let data = result.data
                     const sum = data.map(element => element.access);
                     document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
