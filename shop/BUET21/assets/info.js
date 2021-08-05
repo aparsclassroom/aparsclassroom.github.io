@@ -23,8 +23,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     let data = result.data
                     const sum = data.map(element => element.access);
                     document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
-
+                    console.log(sum)
                     if (sum.includes('cluster 1')) {
+                        console.log("enrolled 1")
                         document.getElementById('c1').innerHTML = "ক্লাস্টার ১ (Enrolled)";
                         document.getElementById('c1').href = "./purchased.html";
                     } else {
