@@ -93,7 +93,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 em.preventDefault();
                                 document.getElementById('buy').innerText = "Please wait...."
                                 document.getElementById("buy").disabled = true;
-                                var coup = sessionStorage.getItem(product + ' Coupon')
+                                var coup = sessionStorage.getItem(product)
                                 var myHeaders = new Headers();
                                 myHeaders.append("Content-Type", "application/json");
                                 var raw = JSON.stringify({
@@ -309,7 +309,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('sprice').innerText = nes;
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
-                sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
+                sessionStorage.setItem(product, loadedData.Cupon);
                 document.getElementById('disC').value = loadedData.Cupon;
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
