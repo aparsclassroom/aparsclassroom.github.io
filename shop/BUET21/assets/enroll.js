@@ -309,6 +309,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('sprice').innerText = nes;
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
+                sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
                 document.getElementById('disC').value = loadedData.Cupon;
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
