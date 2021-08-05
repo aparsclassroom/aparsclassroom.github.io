@@ -30,77 +30,11 @@ firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign") {
-            swal({
-                    title: "আসসালালু আলাইকুম ❤",
-                    icon: "warning",
-                    text: "তুমি যার কাছ থেকে লিংকটি পেয়েছো সে কমেন্টে স্প্যামিং করেছে কিনা ?",
-                    closeOnClickOutside: false,
-                    dangerMode: true,
-                    buttons: ["না 😍", "হ্যাঁ 😠"]
-                })
-                .then((report) => {
-                    if (report) {
-                        let ne = "aff-AAA";
-                        localStorage.setItem(product, ne);
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                        var urlencoded = new URLSearchParams();
-                        urlencoded.append("Product", product);
-                        urlencoded.append("Affiliate Code", res);
-                        urlencoded.append("UID", e.uid);
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: urlencoded,
-                            redirect: 'follow'
-                        };
-                        fetch(reportApi, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then((res) => {
-                                $.notify({
-                                    message: res.message
-                                }, {
-                                    type: 'danger',
-                                    placement: {
-                                        from: "top",
-                                        align: 'center'
-                                    }
-                                });
-                                if (res.code != 400) {
-                                    swal({
-                                            title: "স্ক্রীনশট দিন",
-                                            icon: "warning",
-                                            text: "স্প্যামারের কমেন্টগুলোর স্ক্রীনশট তুলে আমাদের পাঠান",
-                                            closeOnClickOutside: false,
-                                            dangerMode: true,
-                                            buttons: ["না ঠিক আছে", "দিচ্ছি"]
-                                        })
-                                        .then((ss) => {
-                                            if (ss) {
-                                                window.open('mailto:feedback@aparsclassroom.com')
-                                            }
-                                        })
-                                }
-                            }).catch((err) => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: err.message,
-                                    button: "Ok"
-                                }).then(() => {
-                                    location.reload()
-                                })
-                            })
-                    } else {
-                        localStorage.setItem(product, res);
-                    }
-                });
+        if (res != "") {
+            sessionStorage.setItem(product, res);
         } else {
-            let ne = "aff-AAA";
-            localStorage.setItem(product, ne);
+            let ne = "utm=Mridul";
+            sessionStorage.setItem(product, ne);
         }
 
         var t = e.phoneNumber;
