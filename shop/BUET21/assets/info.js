@@ -61,21 +61,21 @@ firebase.auth().onAuthStateChanged(function(e) {
                 } else {
                     document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
                     document.getElementById('c1').href = "./Cluster-1/";
-                    document.getElementById('c2').href = "./Cluster-2/";
-                    document.getElementById('c3').href = "./Cluster-3/";
-                    document.getElementById('c4').href = "./Cluster-4/";
-                    document.getElementById('c5').href = "./Cluster-5/";
-                    document.getElementById('c6').href = "./Cluster-6/";
+                    // document.getElementById('c2').href = "./Cluster-2/";
+                    // document.getElementById('c3').href = "./Cluster-3/";
+                    // document.getElementById('c4').href = "./Cluster-4/";
+                    // document.getElementById('c5').href = "./Cluster-5/";
+                    // document.getElementById('c6').href = "./Cluster-6/";
                 }
             })
             .catch(() => {
                 document.getElementById('meta').innerHTML = "যে ক্লাস্টারে এনরোল হতে চাও সিলেক্ট করো।";
                 document.getElementById('c1').href = "./Cluster-1/";
-                document.getElementById('c2').href = "./Cluster-2/";
-                document.getElementById('c3').href = "./Cluster-3/";
-                document.getElementById('c4').href = "./Cluster-4/";
-                document.getElementById('c5').href = "./Cluster-5/";
-                document.getElementById('c6').href = "./Cluster-6/";
+                // document.getElementById('c2').href = "./Cluster-2/";
+                // document.getElementById('c3').href = "./Cluster-3/";
+                // document.getElementById('c4').href = "./Cluster-4/";
+                // document.getElementById('c5').href = "./Cluster-5/";
+                // document.getElementById('c6').href = "./Cluster-6/";
             })
 
     } else {
