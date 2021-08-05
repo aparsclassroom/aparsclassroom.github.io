@@ -186,7 +186,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                         return response.json()
                                     })
                                     .then(result => {
-                                        if (result.status != 420) {
+                                        if (result.status == 200) {
                                             location.href = result.url
                                         } else {
                                             swal({
