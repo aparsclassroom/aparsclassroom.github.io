@@ -164,7 +164,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 myHeaders.append("Content-Type", "application/json");
                                 var raw = JSON.stringify({
                                     "dicount_amount": disOFF,
-                                    "product": data[0].ProductName,
+                                    "product": product,
                                     "cus_name": data[0].Name,
                                     "email": data[0].email,
                                     "college": data[0].College,
