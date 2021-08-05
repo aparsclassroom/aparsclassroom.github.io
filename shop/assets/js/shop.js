@@ -236,7 +236,7 @@ cpn.addEventListener('click', (e) => {
     e.preventDefault();
     const cupV = document.getElementById('cupon');
     const cpnCode = cupV.value;
-    cupV.value = "Checking..";
+    cpn.value = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
     fetch(cuponApi + '?Cupon=' + cpnCode.toUpperCase() + '&Product=' + product)
