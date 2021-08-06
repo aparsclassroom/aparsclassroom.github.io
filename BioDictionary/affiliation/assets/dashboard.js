@@ -50,12 +50,12 @@ function initApp() {
                                     if (date[j] == res[i].time.split(',')[0]) {
                                         inDate = true;
                                         transData[j] += 1;
-                                        salesData[j] += parseInt(res[i].sell.split('/')[0]);
+                                        salesData[j] += parseInt(res[i].earning.split('/')[0]);
                                     }
                                 if (!inDate) {
                                     date.push(res[i].time.split(',')[0])
                                     transData.push(1);
-                                    salesData.push(parseInt(res[i].sell.split('/')[0]));
+                                    salesData.push(parseInt(res[i].earning.split('/')[0]));
                                 }
 
                             }
