@@ -38,10 +38,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Batch : ${data[0].HSC}<br>
                                 Date : ${data[0].time}<br><br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
-                                <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Email : ${data[0].email}<br>
-                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                                 `;
                             } else {
                                 document.getElementById('info').innerHTML = `
@@ -59,11 +55,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                                 <br><br>
                                 <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
-                                <hr>
-                                <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Email : ${data[0].email}<br>
-                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                                 `;
                             }
                         } else {
@@ -86,10 +77,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 Tranx ID (2nd Payment)  :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
                                 <br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
-                                <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Email : ${data[0].email}<br>
-                                Password : <span id="pass3">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn3" class="cp btn btn-success d-print-none" data-clipboard-target="#pass3">Copy Password</button><br>
                                 `;
                             } else if (data[0].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
@@ -113,10 +100,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 <br><br>
                                 <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
                                 <hr>
-                                <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Email : ${data[0].email}<br>
-                                Password : <span id="pass3">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass3">Copy Password</button><br>
                                 `;
                             }
                         }
@@ -136,10 +119,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Payment Date : ${data[0].time}<br>
                             <strong>You must pay the 2<sup>nd</sup> Installment in 2 months !</strong><br><br>
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
-                                <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Email : ${data[0].email}<br>
-                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                             `;
                         } else {
                             document.getElementById('info').innerHTML = `
@@ -158,10 +137,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                             Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                             <br><br>
                             <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3><hr>
-                                <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Email : ${data[0].email}<br>
-                                Password : <span id="pass2">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Password</button><br>
                             `;
                         }
 
