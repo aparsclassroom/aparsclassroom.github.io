@@ -1,3 +1,4 @@
+const appl = "https://www.facebook.com/groups/biologyfull22.rakibsir/";
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var myHeaders = new Headers();
@@ -13,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}.herokuapp.com/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}.herokuapp.com/123/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
