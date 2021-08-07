@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
                         var urlencoded = new URLSearchParams();
-                        urlencoded.append("Product2", product2);
+                        urlencoded.append("Product", product2);
                         urlencoded.append("Affiliate Code", res);
                         urlencoded.append("UID", e.uid);
                         var requestOptions = {
@@ -163,7 +163,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 myHeaders.append("Content-Type", "application/json");
                                 var raw = JSON.stringify({
                                     "dicount_amount": disOFF,
-                                    "product2": data[0].Product2Name,
+                                    "product": data[0].ProductName,
                                     "cus_name": data[0].Name,
                                     "email": data[0].email,
                                     "college": data[0].College,
@@ -218,7 +218,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
                             "dicount_amount": disOFF,
-                            "product2": product2,
+                            "product": product2,
                             "cus_name": document.getElementById('name').value.trim(),
                             "email": mail,
                             "college": document.getElementById('college').value.trim(),
@@ -273,7 +273,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     myHeaders.append("Content-Type", "application/json");
                     var raw = JSON.stringify({
                         "dicount_amount": disOFF,
-                        "product2": product2,
+                        "product": product2,
                         "cus_name": document.getElementById('name').value.trim(),
                         "email": mail,
                         "college": document.getElementById('college').value.trim(),
@@ -362,7 +362,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '?Cupon=' + cpnCode.toUpperCase() + '&Product2=' + product2)
+    fetch(cuponApi + '?Cupon=' + cpnCode.toUpperCase() + '&Product=' + product2)
         .then((res) => {
             return res.json();
         })
