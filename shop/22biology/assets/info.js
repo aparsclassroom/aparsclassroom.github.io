@@ -12,8 +12,8 @@ firebase.auth().onAuthStateChanged(function(e) {
             body: raw,
             redirect: 'follow'
         };
-
-        fetch(`https://${shopName}.herokuapp.com/${productCode2}/purchase`, requestOptions)
+        const productCode = "123";
+        fetch(`https://${shopName}.herokuapp.com/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
