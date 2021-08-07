@@ -19,7 +19,6 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.code === 200) {
-                    localStorage.removeItem(product)
                     let data = result.data;
                     const sum = data.map(element => element.access).reduce((a, b) => a + b, 0);
                     if (sum > 0.5) {
