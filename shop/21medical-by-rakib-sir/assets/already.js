@@ -1,4 +1,4 @@
-const appl = "https://www.facebook.com/groups/biologyfull22.rakibsir/";
+const appl = "https://www.facebook.com/groups/medical.gateway";
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var myHeaders = new Headers();
