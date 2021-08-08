@@ -25,7 +25,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                     const sum2 = data.map(el => el.amount).reduce((c, d) => c + d, 0);
                     if (sum > 0.5) {
                         if (data.length == 1) {
-                            console.log(data)
                             if (data[0].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
                                 <h3>Enrollment Information</h3>
