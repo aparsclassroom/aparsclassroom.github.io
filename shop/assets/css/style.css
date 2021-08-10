@@ -34,11 +34,16 @@ body {
 
 .flex-column {
     width: 100vw;
-    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     padding: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .flex-column {
+        display: flex;
+    }
 }
 
 .flex-column>* {
@@ -167,4 +172,8 @@ ol {
     width: 64px;
     margin-left: 40px;
     border-radius: 55em;
+}
+
+star-rating {
+    min-height: 0rem!important;
 }
