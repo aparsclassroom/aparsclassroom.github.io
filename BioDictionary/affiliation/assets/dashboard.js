@@ -3,7 +3,7 @@ function logOut() {
     initApp();
 }
 const api = "https://script.google.com/macros/s/AKfycby-COx47O7aEruch79rWMFXUIrSe1im7dBqkndvJEfBvlytlpwxP9lF7rElSVxBCAYY/exec";
-const tranApi = "https://script.google.com/macros/s/AKfycbyahR_pXRUdgpjhpy7k8jib-UZtSEzrYvRVi-2FaSkcfH8du0S7WD7dw1jhsEs1uSpb/exec";
+const tranApi = "https://script.google.com/macros/s/AKfycbzf2-euIFiYqsQVSqa8X-4HBKupKk8pPTrR-P_cpRu35esjKvwA_dlUq_hbM_LPiiVG/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
