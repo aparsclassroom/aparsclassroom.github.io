@@ -180,7 +180,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     redirect: 'follow'
                                 };
 
-                                fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                                fetch(`https://${shopName}.herokuapp.com/${productCode2}/2ndpay/init`, requestOptions)
                                     .then(response => {
                                         return response.json()
                                     })
