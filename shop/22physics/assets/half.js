@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign") {
+        if (res != "" && res != "utm=Website" && res != "utm=Page" && res != "utm=Campaign" && res.indexOf("aff") > -1 && localStorage.getItem(product) != res) {
             swal({
                     title: "আসসালালু আলাইকুম ❤",
                     icon: "warning",
@@ -40,7 +40,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
                 .then((report) => {
                     if (report) {
-                        let ne = "aff-AAA";
+                        let ne = "utm=Website";
                         localStorage.setItem(product, ne);
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -98,7 +98,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     }
                 });
         } else {
-            let ne = "aff-AAA";
+            let ne = "utm=Website";
             localStorage.setItem(product, ne);
         }
 
