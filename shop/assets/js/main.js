@@ -219,7 +219,7 @@ $(document).ready(function() {
 });
 
 
-function trailer(video) {
+function trailer() {
     $('#exampleModal').modal('toggle')
 }
 
