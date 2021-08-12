@@ -217,3 +217,12 @@ $(document).ready(function() {
     $('.current-year').text(new Date().getFullYear());
 
 });
+
+
+function trailer(video) {
+    $('#exampleModal').modal('toggle')
+}
+
+$('#exampleModal').on('hidden.bs.modal', function(e) {
+    $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+})

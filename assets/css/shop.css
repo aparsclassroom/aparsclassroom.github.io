@@ -9543,16 +9543,39 @@ a.close.disabled {
     opacity: 1
 }
 
-.carousel-caption {
+.carousel-caption1 {
     position: absolute;
-    right: 15%;
-    bottom: 20px;
-    left: 15%;
+    right: 12%;
+    bottom: 0px;
     z-index: 10;
     padding-top: 20px;
     padding-bottom: 20px;
     color: #ecf0f3;
-    text-align: center
+    text-align: center;
+}
+
+.carousel-caption2 {
+    position: absolute;
+    bottom: 0px;
+    left: 8%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #ecf0f3;
+    text-align: center;
+}
+
+.btn-deepBlue {
+    background-color: #053742;
+    color: #fff;
+}
+
+.btn-deepBlue:hover {
+    color: #053742;
+    font-weight: bold;
+    background-color: #fff;
+    border: 1px solid #053742;
+    transform: scale(1.5);
 }
 
 @keyframes spinner-border {
@@ -16124,8 +16147,8 @@ a.text-slack:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }
