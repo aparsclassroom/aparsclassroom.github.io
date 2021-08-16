@@ -35,7 +35,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             icon: "info",
                             button: "OK"
                         }).then(() => {
-                            document.getElementById('meta').innerHTML = "<strong>তোমার ৪৫০০ টাকা বকেয়া রয়েছে।</strong><br>নিচের ১ম বাটনে ক্লিক করে তুমি তোমার ১ম পেমেন্ট সংক্রান্ত তথ্য পেয়ে যাবে। <br>২য় বাটনে ক্লিক করে ২য় পেমেন্টের টাকা পরিশোধ করতে পারবে।"
+                            document.getElementById('meta').innerHTML = "<strong>তোমার ৪০০০ টাকা বকেয়া রয়েছে।</strong><br>নিচের ১ম বাটনে ক্লিক করে তুমি তোমার ১ম পেমেন্ট সংক্রান্ত তথ্য পেয়ে যাবে। <br>২য় বাটনে ক্লিক করে ২য় পেমেন্টের টাকা পরিশোধ করতে পারবে।"
                             document.getElementById('full').href = "./purchased";
                             document.getElementById('full').innerText = "Payment Information";
                             document.getElementById('half').href = "./half";
@@ -43,13 +43,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                     }
                 } else {
-                    document.getElementById('meta').innerHTML = "তোমার পেমেন্ট সিস্টেম সিলেক্ট করো। তুমি চাইলে এককালীন ৮০০০ টাকা দিতে পারো।<br> আবার ৪৫০০ টাকা দিয়ে ভর্তি হতে পারো। তবে ২ মাসের মধ্যে তোমাকে আরও ৪৫০০ টাকা দিতে হবে।";
+                    document.getElementById('meta').innerHTML = "তোমার পেমেন্ট সিস্টেম সিলেক্ট করো। তুমি চাইলে এককালীন ৮০০০ টাকা দিতে পারো।<br> আবার ৪০০০ টাকা দিয়ে ভর্তি হতে পারো। তবে ২ মাসের মধ্যে তোমাকে আরও ৪০০০ টাকা দিতে হবে।";
                     document.getElementById('full').href = "./full";
                     document.getElementById('half').href = "./half";
                 }
             })
             .catch(() => {
-                document.getElementById('meta').innerHTML = "তোমার পেমেন্ট সিস্টেম সিলেক্ট করো। তুমি চাইলে এককালীন ৮০০০ টাকা দিতে পারো।<br> আবার ৪৫০০ টাকা দিয়ে ভর্তি হতে পারো। তবে ২ মাসের মধ্যে তোমাকে আরও ৪৫০০ টাকা দিতে হবে।";
+                document.getElementById('meta').innerHTML = "তোমার পেমেন্ট সিস্টেম সিলেক্ট করো। তুমি চাইলে এককালীন ৮০০০ টাকা দিতে পারো।<br> আবার ৪০০০ টাকা দিয়ে ভর্তি হতে পারো। তবে ২ মাসের মধ্যে তোমাকে আরও ৪০০০ টাকা দিতে হবে।";
                 document.getElementById('full').href = "./full";
                 document.getElementById('half').href = "./half";
             })
