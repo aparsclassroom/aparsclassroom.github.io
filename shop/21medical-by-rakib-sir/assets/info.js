@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     const sum = data.map(element => element.access).reduce((a, b) => a + b, 0);
                     if (sum > 0.5) {
                         swal({
-                            title: "100% Payement Completed !",
+                            title: "100% Payment Completed !",
                             icon: "success",
                             button: "View Informations"
                         }).then(() => {
