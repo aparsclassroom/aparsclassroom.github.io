@@ -59,7 +59,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 `;
                             }
                         } else {
-                            if (data[0].Enrollment != "" && data[1].Enrollment != "") {
                                 document.getElementById('info').innerHTML = `
                                 <h3>Enrollment Information</h3>
                                 <hr>
@@ -79,30 +78,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 <br>
                                 Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><hr>
                                 `;
-                            } else if (data[0].Enrollment != "") {
-                                document.getElementById('info').innerHTML = `
-                                <h3>Purchase Information</h3>
-                                <hr>
-                                Username : ${data[0].Name}<br>
-                                Email : ${data[0].email}<br>
-                                Phone No. ${data[0].phone}<br>
-                                College : ${data[0].College}<br>
-                                Batch : ${data[0].HSC}<br><br>
-                                Product : ${data[0].ProductName}<br>
-                                Total Paid Amount : <strong>${sum2} ৳</strong> <br><br>
-                                1<sup>st</sup> Invoice : ${data[0].invoice}<br>
-                                1<sup>st</sup> Payment : ${data[0].time}<br>
-                                Tranx ID (1st Payment) : <span id="pass">${data[0].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ID1</button><br><hr>
-                                2<sup>nd</sup> Invoice : ${data[1].invoice}<br>
-                                2<sup>nd</sup> Payment : ${data[1].time}<br><br>
-                                Tranx ID (2nd Payment) :  <span id="pass2">${data[1].tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ID2</button><br>
-                                <br>
-                                Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
-                                <br><br>
-                                <h3>Group Join Request should be approved in 24 hours.<br> so please have patience.</h3>
-                                <hr>
-                                `;
-                            }
                         }
                     } else {
                         if (data[0].Enrollment != "") {
