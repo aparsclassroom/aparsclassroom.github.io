@@ -3693,12 +3693,12 @@ input[type="button"].btn-block {
     background-color: #f6f9fc;
 }
 
-.dropdown-item.active,
+/* .dropdown-item.active,
 .dropdown-item:active {
     color: #ffffff;
     text-decoration: none;
     background-color: #e14eca;
-}
+} */
 
 .dropdown-item.disabled,
 .dropdown-item:disabled {
