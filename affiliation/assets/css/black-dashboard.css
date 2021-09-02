@@ -2442,6 +2442,9 @@ textarea.form-control.is-invalid {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.dataTables_wrapper.dt-bootstrap4.no-footer .btn {
+    padding: 11px 30px;
+}
 @media (prefers-reduced-motion: reduce) {
     .btn {
         transition: none;
@@ -11747,7 +11750,6 @@ a.text-darker:focus {
     box-shadow: none;
     color: #ffffff;
 }
-
 .btn.animation-on-hover:hover,
 .navbar .navbar-nav>a.btn.animation-on-hover:hover {
     background-position: bottom left;
