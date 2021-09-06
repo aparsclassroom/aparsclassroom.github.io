@@ -19333,3 +19333,11 @@ textarea {
 .white-content .tm {
     color: black;
 }
+
+.ranges li {
+    color: navy !important;
+}
+
+.ranges li.active {
+    color: #fff !important;
+}
