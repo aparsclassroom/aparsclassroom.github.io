@@ -332,7 +332,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '?Cupon=' + cpnCode.toUpperCase() + '&Product=' + product)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product)
         .then((res) => {
             return res.json();
         })
