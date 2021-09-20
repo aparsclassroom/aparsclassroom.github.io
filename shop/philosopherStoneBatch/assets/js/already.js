@@ -1,3 +1,7 @@
+const product = "ASG Philosopher's Stone Batch";
+const productCode = "129";
+const appl = "https://www.facebook.com/groups/stonebatch/";
+
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var myHeaders = new Headers();
