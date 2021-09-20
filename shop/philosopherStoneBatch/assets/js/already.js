@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.code === 200) {
-                    var data = result.data;
+                    var data = result.data[0];
                     if (data.Enrollment != "enrolled") {
                         document.getElementById('info').innerHTML = `
                         <h3>Purchase Information</h3>
