@@ -1,10 +1,8 @@
 const product = "ASG Philosopher's Stone Batch";
-const appl = "https://www.facebook.com/groups/aparchinmoyadmission21/";
-const WebApp = "https://buet-physics.herokuapp.com/login";
 const productCode = "129";
 const fix = 2000;
 const pls = 500;
-
+const appl = "https://www.facebook.com/groups/stonebatch/";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
