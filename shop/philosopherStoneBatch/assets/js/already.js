@@ -30,8 +30,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         <h3>Purchase Information</h3>
                         Invoice : ${data.invoice}<br>
                         Product : ${data.ProductName}<br>
-                        Discount Coupon : ${data.DiscountCupon}<br>
-                        Paid Amount : ${data.currency_amount} ৳ <br>
+                        Paid Amount : ${data.amount} ৳ <br>
                         Username : ${data.Name}<br>
                         Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
                         Email : ${data.email}<br>
@@ -49,8 +48,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         <h3>Enrollment Information</h3>
                         Invoice : ${data.invoice}<br>
                         Product : ${data.ProductName}<br>
-                        Discount Coupon : ${data.DiscountCupon}<br>
-                        Paid Amount : ${data.currency_amount} ৳ <br>
+                        Paid Amount : ${data.amount} ৳ <br>
                         Username : ${data.Name}<br>
                         Joining ID : <span id="pass">${data.tran_id}</span><br>
                         Email : ${data.email}<br>
