@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>Sibling Offer Registration । BioDictionary | Apar's Classroom</title>
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
+    <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fff;
+            background-attachment: fixed;
+            background-color: #fdfdfd;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .container {
+            margin-top: 30px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        
+        @media screen and (max-width:600px) {
+            .form-check-label {
+                color: rgb(112, 32, 32) !important;
+            }
+        }
+        
+        .slidecontainer {
+            width: 100%;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        
+        .slider:hover {
+            opacity: 1;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js" defer></script>
+    <script src="https://www.jqueryscript.net/demo/dynamic-forms-fields/js/dynamic-form.js" defer></script>
+    <script src="../../assets/Subjects/biology/select.js" defer></script>
+    <script src="../../assets/script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="text-center">BioDictionary - Parent Sibling Registration</h3>
+        <form autocomplete="off" name="teacher" id="teacher" method="post">
+            <h3 class="text-center">Personal Informations</h3>
+            <div class="form-group">
+                <label for="name">Full Name : </label>
+                <input type="text" class="form-control" required placeholder="Write Your full name" name="Name" id="name"><br>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address :</label>
+                <input type="email" class="form-control" required name="Email Address" placeholder="যেমন : mridul@gmail.com" id="email"><br>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number :</label>
+                <input type="tel" class="form-control" required name="Mobile Number" placeholder="যেমন : 01873307425" id="phone"><br>
+            </div>
+            <textarea name="Ip Details" style="display: none;" id="ip-details" cols="30" rows="10"></textarea>
+            <br>
+            <hr>
+            <br>
+            <h3 class="text-center">Class Time Information</h3>
+            <br>
+            <div class="form-group">
+                <label for="range">আপনি কোর্সে কত তারিখ হতে কত তারিখ ক্লাস নিতে পারবেন? (ক্লিক করে রেঞ্জ সিলেক্ট করুন)</label>
+                <input type="text" autocomplete="off" required class="form-control" id="range" placeholder="click here" name="Date Range" value="">
+            </div><br>
+            <div class="form-group">
+                <label for="time">আপনি দিনের কোন সময়ে ক্লাস নিতে আগ্রহী?</label>
+                <input type="time" name="Time Range" required class="form-control" id="time">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="duration">আপনি প্রতিটি ক্লাস কতক্ষণ (মিনিটে) নিতে আগ্রহী? (নিচের স্লাইডারটি ব্যবহার করুন)</label>
+                <input type="range" name="DurationSlider" min="30" max="180" value="60" class="slider" id="duration">
+                <input type="number" name="Duration" readonly class="form-control" id="output">
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h3 class="text-center">Class Chapter Information</h3>
+            <br>
+            <div id="ch">
+                <div class="form-group">
+                    <label for="Chapter">আপনি জীববিজ্ঞানের কোন Chapter নিতে আগ্রহী?</label>
+                    <select name="Chapter" class="form-control" required id="Chapter">
+                        <option value="">--Select Any--</option>
+                        <option value="1st Paper - Chapter 1">1st Paper Chapter 1: কোষ ও এর গঠন</option>
+                        <option value="1st Paper - Chapter 2">1st Paper Chapter 2: কোষ বিভাজন</option>
+                        <option value="1st Paper - Chapter 3">1st Paper Chapter 3: কোষ রসায়ন</option>
+                        <option value="1st Paper - Chapter 4">1st Paper Chapter 4: অণুজীব</option>
+                        <option value="1st Paper - Chapter 5">1st Paper Chapter 5: শৈবাল ও ছত্রাক</option>
+                        <option value="1st Paper - Chapter 6">1st Paper Chapter 6: ব্রায়োফাইটা ও টেরেডোফাইটা</option>
+                        <option value="1st Paper - Chapter 7">1st Paper Chapter 7: নগ্নবীজী ও আবৃতবীজী উদ্ভিদ</option>
+                        <option value="1st Paper - Chapter 8">1st Paper Chapter 8: টিস্যু ও টিস্যুতন্ত্র</option>
+                        <option value="1st Paper - Chapter 9:">1st Paper Chapter 9 : উদ্ভিদ শারীরতত্ত্ব</option>
+                        <option value="1st Paper - Chapter 10">1st Paper Chapter 10: উদ্ভিদ প্রজনন</option>
+                        <option value="1st Paper - Chapter 11">1st Paper Chapter 11: জীবপ্রযুক্তি</option>
+                        <option value="1st Paper - Chapter 12">1st Paper Chapter 12: জীবের পরিবেশ, বিস্তার ও সংরক্ষণ</option>
+                        <option value="2nd Paper - Chapter 1">2nd Paper Chapter 1: প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস</option>
+                        <option value="2nd Paper - Chapter 2">2nd Paper Chapter 2: প্রাণীর পরিচিতি</option>
+                        <option value="2nd Paper - Chapter 3">2nd Paper Chapter 3: পরিপাক ও শোষণ</option>
+                        <option value="2nd Paper - Chapter 4">2nd Paper Chapter 4: রক্ত ও সংবহন</option>
+                        <option value="2nd Paper - Chapter 5">2nd Paper Chapter 5 : শ্বসন ও শ্বাসক্রিয়া</option>
+                        <option value="2nd Paper - Chapter 6">2nd Paper Chapter 6: বর্জ্য ও নিষ্কাশন</option>
+                        <option value="2nd Paper - Chapter 7">2nd Paper Chapter 7: চলন ও অঙগচালনা</option>
+                        <option value="2nd Paper - Chapter 8">2nd Paper Chapter 8: সমন্বয় ও নিয়ন্ত্রণ</option>
+                        <option value="2nd Paper - Chapter 9:">2nd Paper Chapter 9:  মানব জীবনের ধারাবাহিকতা</option>
+                        <option value="2nd Paper - Chapter 10">2nd Paper Chapter 10: মানবদেহের প্রতিরক্ষা</option>
+                        <option value="2nd Paper - Chapter 11">2nd Paper Chapter 11: জিনতত্ত্ব  ও বিবর্তন</option>
+                        <option value="2nd Paper - Chapter 12">2nd Paper Chapter 12: প্রাণীর আচরণ</option>
+            </select>
+                </div><br>
+                <div class="form-group">
+                    <label for="class">আপনি কতটি ক্লাসে Chapter টি নিতে আগ্রহী?</label>
+                    <input type="number" class="form-control" name="Class" required placeholder="10" id="class"></input>
+                </div><br>
+                <div class="form-group">
+                    <textarea cols="2" rows="2" class="form-control" name="Comments" placeholder="এই অধ্যায়ে ক্লাস নেওয়ার বিষয়ে আপনার কিছু বলার থাকলে এখানে লিখুন।..." id="comments"></textarea>
+                </div><br>
+                <div class="button-group">
+                    <a href="javascript:void(0)" class="btn btn-primary" id="plus5">আরো অধ্যায় Add করুন</a>
+                    <a href="javascript:void(0)" class="btn btn-danger" id="minus5">এই অধ্যায়টি Remove করুন</a>
+                </div><br>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" required type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck" style="color: rgb(11, 34, 10);">
+                  এই ফরমের সকল পূরণকৃত তথ্য সঠিক এবং আমি ক্লাস নিতে সম্মতি জানাচ্ছি।</a> 🥰
+                </label>
+                </div>
+            </div> <br>
+            <button type="submit" class="btn btn-block btn-success" style="width: 100%;" id="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
