@@ -29,31 +29,8 @@ var mainApp = {};
                             document.getElementById('eps').innerText = " Ep. " + epNo;
                             document.getElementById('hed').innerText = "BioCast Episode " + epNo;
                             const strt = "https://www.youtube.com/embed/";
-
                             const ext = "?modestbranding=1&loop=0&controls=1&autoplay=1&mute=0&rel=0&color=red&vq=hd1080";
-                            var id = loadedData.Video_Id;
-                            $('iframe').attr("src", strt + id + ext);
-                            // document.getElementById('player').setAttribute("data-plyr-embed-id", loadedData.Video_Id);
-                            // const player = new Plyr('#player', {
-                            //     keyboard: {
-                            //         global: true,
-                            //     },
-                            //     controls: [
-                            //         'play-large',
-                            //         'rewind',
-                            //         'play',
-                            //         'fast-forward',
-                            //         'progress',
-                            //         'current-time',
-                            //         'duration',
-                            //         'mute',
-                            //         'volume',
-                            //         'settings',
-                            //         'pip',
-                            //         'airplay',
-                            //         'fullscreen',
-                            //     ],
-                            // });
+                            $('.embed-responsive-item').attr("src", strt + loadedData.Video_Id + ext);
                             document.getElementById('previewP').setAttribute("src", "https://drive.google.com/file/d/" + loadedData.Pdf_Id + "/preview");
                             document.getElementById('down').setAttribute('onclick', "window.open('https://drive.google.com/u/0/uc?id=" + loadedData.Pdf_Id + "&export=download')");
                             document.getElementById('Video_Description').innerText = loadedData.Video_Description;
