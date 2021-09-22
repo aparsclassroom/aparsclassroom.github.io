@@ -18,6 +18,10 @@ var mainApp = {};
     var uid = null;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            if (user.isAnonymous === true) {
+                firebase.auth().signOut();
+                return window.location.replace("login.html");
+            }
             // User is signed in.
             Name = user.displayName;
             email = user.email;
