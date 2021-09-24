@@ -165,7 +165,7 @@ function initApp() {
 
 
                     } else {
-                        alert(loadedData.message + "\n\nPlease Contact Admin !");
+                        alert("ফ্রী অফার শেষ হলে এফিলিয়েশন সিস্টেম খুব শীঘ্রই চালু করা হবে। ততক্ষণ পর্যন্ত আমাদের সাথেই থাকুন।");
                         return location.replace("../");
                     }
                 }).catch((err) => {
