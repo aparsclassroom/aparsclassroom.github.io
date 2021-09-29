@@ -77,7 +77,7 @@
         <div id="stats" style="display: none;">
             <h4>Total Transactions : <span id="totaltranx" class="text-primary">0</span></h4>
             <h4>Total Sales : <span id="totalSales">0</span> ৳</h4>
-            <h4>Total Earning (8% Incentive) : <span id="totalEarning" class="text-success">0</span> ৳</h4>
+            <h4>Total Earning (10% Incentive) : <span id="totalEarning" class="text-success">0</span> ৳</h4>
         </div>
     </div>
 </body>
@@ -166,7 +166,7 @@
         document.getElementById('stats').style.display = "none";
         search.value = aff;
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch('https://script.google.com/macros/s/AKfycbxpT8UC5R6PIy9Q3wpfJqpvngspe3CQydDQQ3jD5pMv7PzST9Xm6wepeGm_9rX65K_-/exec?q=affiliate&id=utm=' + aff)
+        fetch('https://script.google.com/macros/s/AKfycbxEJBOaiYISSxxycXhhb6XCqO62wroETq-qoxbbUouhihz-fVV8AsqePkN_U6hiL5sZ/exec?q=affiliate&id=utm=' + aff)
             .then((res) => {
                 return res.json()
             })
@@ -223,7 +223,7 @@
         searchBtn.addEventListener('click', () => {
             document.getElementById('stats').style.display = "none";
             result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-            fetch('https://script.google.com/macros/s/AKfycbxpT8UC5R6PIy9Q3wpfJqpvngspe3CQydDQQ3jD5pMv7PzST9Xm6wepeGm_9rX65K_-/exec?q=affiliate&id=utm=' + search.value)
+            fetch('https://script.google.com/macros/s/AKfycbxEJBOaiYISSxxycXhhb6XCqO62wroETq-qoxbbUouhihz-fVV8AsqePkN_U6hiL5sZ/exec?q=affiliate&id=utm=' + search.value)
                 .then((res) => {
                     return res.json()
                 })
@@ -281,7 +281,7 @@
         searchBtn.addEventListener('click', () => {
             document.getElementById('stats').style.display = "none";
             result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-            fetch('https://script.google.com/macros/s/AKfycbxpT8UC5R6PIy9Q3wpfJqpvngspe3CQydDQQ3jD5pMv7PzST9Xm6wepeGm_9rX65K_-/exec?q=affiliate&id=utm=' + search.value)
+            fetch('https://script.google.com/macros/s/AKfycbxEJBOaiYISSxxycXhhb6XCqO62wroETq-qoxbbUouhihz-fVV8AsqePkN_U6hiL5sZ/exec?q=affiliate&id=utm=' + search.value)
                 .then((res) => {
                     return res.json()
                 })
