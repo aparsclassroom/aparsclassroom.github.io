@@ -3,7 +3,7 @@ function logOut() {
     initApp();
 }
 const api = "https://script.google.com/macros/s/AKfycby-COx47O7aEruch79rWMFXUIrSe1im7dBqkndvJEfBvlytlpwxP9lF7rElSVxBCAYY/exec";
-const tranApi = "https://script.google.com/macros/s/AKfycbzf2-euIFiYqsQVSqa8X-4HBKupKk8pPTrR-P_cpRu35esjKvwA_dlUq_hbM_LPiiVG/exec";
+const tranApi = "https://script.google.com/macros/s/AKfycbwQ7O57it_ci_H_HR1egSFVdK15dF1BG-Hm6hwPg4h3vGDB25j661GDr99mX2NElcIo/exec";
 
 function initApp() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -165,7 +165,7 @@ function initApp() {
 
 
                     } else {
-                        alert("ফ্রী অফার শেষ হলে এফিলিয়েশন সিস্টেম খুব শীঘ্রই চালু করা হবে। ততক্ষণ পর্যন্ত আমাদের সাথেই থাকুন।");
+                        alert("ফ্রী লাইসেন্সড একাউন্টদের এফিলিয়েশনে যুক্ত করার কাজ চলছে সঙ্গেই থাকুন !");
                         return location.replace("../");
                     }
                 }).catch((err) => {
