@@ -202,8 +202,8 @@ firebase.auth().onAuthStateChanged(function(e) {
         }
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
     } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
-        document.getElementById('moda').addEventListener('click', () => location.href = "../../dashboard/login.html")
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../../dashboard/login.html" });
+        document.getElementById('moda').addEventListener('click', () => location.href = "/shop/dashboard/login.html")
+}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login.html" });
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
