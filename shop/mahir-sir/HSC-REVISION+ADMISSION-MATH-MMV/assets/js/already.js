@@ -1,4 +1,4 @@
-const product = "HSC REVISION & ADMISSION MATH MMV";
+const product = "HSC REVISION AND ADMISSION MATH MMV";
 const productCode = "134";
 const appl = "https://www.facebook.com/groups/363660372025897";
 

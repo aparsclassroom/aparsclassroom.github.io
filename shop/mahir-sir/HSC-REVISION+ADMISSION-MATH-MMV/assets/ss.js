@@ -1,4 +1,4 @@
-const product = "HSC REVISION & ADMISSION MATH MMV";
+const product = "HSC REVISION AND ADMISSION MATH MMV";
 const productCode = "134";
 const fix = 3000;
 const pls = 2500;

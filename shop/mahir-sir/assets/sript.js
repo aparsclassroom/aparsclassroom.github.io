@@ -32,7 +32,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (res != "" && res.indexOf("utm") > -1) {
             sessionStorage.setItem(product, res);
         } else {
-            let ne = "utm=Mridul";
+            let ne = "utm=Organic";
             sessionStorage.setItem(product, ne);
         }
 
