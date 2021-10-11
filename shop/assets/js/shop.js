@@ -18,7 +18,7 @@ function testInfo(phoneNumberChk) {
     }
 }
 var domains = ['gmail.com', 'outlook.com'];
-var topLevelDomains = ["com", "net", "org"];
+var topLevelDomains = ["com", "net", "org", "edu.bd"];
 $('#email').on('blur', function(event) {
     $(this).mailcheck({
         domains: domains,
