@@ -18,6 +18,14 @@ function testInfo(phoneNumberChk) {
     }
 }
 
+$('#email').on('blur', function(event) {
+    $(this).mailcheck({
+        suggested: function(element, suggestion) {
+            $('.invalid-feedback').html("Did you mean <b><i>" + suggestion.full + "</b></i>?");
+        }
+    });
+});
+
 
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;

@@ -75,8 +75,9 @@
     <script src="../assets/js/key.js" defer></script>
     <script src="assets/ss.js" defer></script>
     <script src="../assets/js/bootstrap-notify.min.js" defer></script>
+    <script src="/assets/js/mail-check.js" defer></script>
     <!-- Custom Scripts -->
-    <script src="./assets/new.js" defer></script>
+    <script src="/shop/assets/js/shop.js" defer></script>
 </head>
 
 <body>
@@ -508,9 +509,10 @@
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" required id="name" name="Name" placeholder="Your Name">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 has-validation">
                                 <label for="email">Email <span style="color: red;">***</span></label>
                                 <input type="email" class="form-control" id="email" required name="Email" placeholder="xyz@gmail.com">
+                                <div class="invalid-feedback"></div>
                             </div>
                         </div>
                         <div class="form-row">
