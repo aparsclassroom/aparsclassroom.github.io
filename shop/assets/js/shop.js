@@ -17,9 +17,12 @@ function testInfo(phoneNumberChk) {
         document.getElementById('buy').disabled = false;
     }
 }
-
+var domains = ['gmail.com', 'outlook.com'];
+var topLevelDomains = ["com", "net", "org"];
 $('#email').on('blur', function(event) {
     $(this).mailcheck({
+        domains: domains,
+        topLevelDomains: topLevelDomains,
         suggested: function(element, suggestion) {
             $('.check').html("Did you mean <b><i>" + suggestion.full + "</b></i>?");
         }
