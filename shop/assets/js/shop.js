@@ -3,8 +3,6 @@ setTimeout(() => {
     $("#vid")[0].src;
 }, 1000)
 
-
-// var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 var re = /^(?:\+8801)?[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
@@ -17,18 +15,6 @@ function testInfo(phoneNumberChk) {
         document.getElementById('buy').disabled = false;
     }
 }
-var domains = ['gmail.com', 'outlook.com'];
-var topLevelDomains = ["com", "net", "org", "edu.bd"];
-$('#email').on('blur', function(event) {
-    $(this).mailcheck({
-        domains: domains,
-        topLevelDomains: topLevelDomains,
-        suggested: function(element, suggestion) {
-            $('.check').html("Did you mean <b><i>" + suggestion.full + "</b></i>?");
-        }
-    });
-});
-
 
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
