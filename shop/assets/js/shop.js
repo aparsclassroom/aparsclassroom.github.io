@@ -21,7 +21,7 @@ function testInfo(phoneNumberChk) {
 $('#email').on('blur', function(event) {
     $(this).mailcheck({
         suggested: function(element, suggestion) {
-            $('.invalid-feedback').html("Did you mean <b><i>" + suggestion.full + "</b></i>?");
+            $('.check').html("Did you mean <b><i>" + suggestion.full + "</b></i>?");
         }
     });
 });
