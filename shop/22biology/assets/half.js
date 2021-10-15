@@ -120,7 +120,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}.herokuapp.com/${productCode2}/purchase`, requestOptions)
+        fetch(`https://${shopName}/${productCode2}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -180,7 +180,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     redirect: 'follow'
                                 };
 
-                                fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                                fetch(`https://${shopName}/${productCode2}/init`, requestOptions)
                                     .then(response => {
                                         return response.json()
                                     })
@@ -235,7 +235,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                        fetch(`https://${shopName}/${productCode2}/init`, requestOptions)
                             .then(response => {
                                 return response.json()
                             })
@@ -290,7 +290,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName}.herokuapp.com/${productCode2}/init`, requestOptions)
+                    fetch(`https://${shopName}/${productCode2}/init`, requestOptions)
                         .then(response => {
                             return response.json()
                         })

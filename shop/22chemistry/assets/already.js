@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}.herokuapp.com/124/purchase`, requestOptions)
+        fetch(`https://${shopName}/124/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })

@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
         const productCode = "127";
-        fetch(`https://${shopName}.herokuapp.com/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })

@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}.herokuapp.com/127/purchase`, requestOptions)
+        fetch(`https://${shopName}/127/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -59,7 +59,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 `;
                             }
                         } else {
-                                document.getElementById('info').innerHTML = `
+                            document.getElementById('info').innerHTML = `
                                 <h3>Enrollment Information</h3>
                                 <hr>
                                 Username : ${data[0].Name}<br>

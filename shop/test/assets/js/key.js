@@ -1,2 +1,2 @@
-const shopName = "asg-shop";
-const cuponApi = "https://asg-shop.herokuapp.com/Coupon";
+const shopName = "api.apars.shop";
+const cuponApi = "https://api.apars.shop/Coupon";
