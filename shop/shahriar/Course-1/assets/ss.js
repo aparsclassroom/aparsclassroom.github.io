@@ -1,7 +1,7 @@
 const product = "Shahriar Sir Course 1";
 const productCode = "135";
-const fix = 2000;
-const pls = 500;
+const fix = 100000;
+const pls = 50000;
 const appl = "https://www.facebook.com/groups/stonebatch/";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
