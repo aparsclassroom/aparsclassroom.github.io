@@ -27,9 +27,9 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('duration').innerHTML = `${types[4].TotalClasses} মাস`;
         document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Webapp`;
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
-        document.getElementById('loading2').innerHTML = "No Content Available";
-        document.getElementById('pra22').innerHTML = "No Content Available";
-        document.getElementById('exloading22').innerHTML = "No Content Available";
+        document.getElementById('loading2').innerHTML = "";
+        document.getElementById('pra22').innerHTML = "";
+        document.getElementById('exloading22').innerHTML = "";
 
         let classes = data.classes;
         var as2 = classes.filter((all) => {
@@ -38,7 +38,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
 
         let domC2 = document.getElementById('Classes2');
         as2.forEach(element => {
-            document.getElementById('loading2').innerHTML = "";
             if (element.Playlist != "") {
                 domC2.innerHTML += `
                 <li>
@@ -54,7 +53,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
 
         let prac22 = document.getElementById('prac2');
         as2.forEach(element => {
-            document.getElementById('prac2').innerHTML = "";
             prac22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.PracticeSheet} Sheet(s)
@@ -62,7 +60,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
         });
         let ex22 = document.getElementById('ex2');
         as2.forEach(element => {
-            document.getElementById('ex2').innerHTML = "";
             ex22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
