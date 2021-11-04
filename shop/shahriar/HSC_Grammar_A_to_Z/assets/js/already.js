@@ -1,6 +1,6 @@
-const product = "Shahriar Sir Course 1";
+const product = "HSC Grammar A to Z";
 const productCode = "135";
-const appl = "https://www.facebook.com/groups/stonebatch/";
+const appl = "https://www.facebook.com/groups/hscgrammarA2Z.byshahriarsir/";
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
