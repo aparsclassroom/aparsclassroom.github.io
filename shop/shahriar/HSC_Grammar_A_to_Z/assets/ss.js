@@ -1,7 +1,7 @@
 const product = "HSC Grammar A to Z";
 const productCode = "135";
 const fix = 1600;
-const pls = 800;
+const pls = 999;
 const appl = "https://www.facebook.com/groups/hscgrammarA2Z.byshahriarsir/";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
