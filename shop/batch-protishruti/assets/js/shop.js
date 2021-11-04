@@ -48,7 +48,15 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((dashboard) => {
 
                 if (dashboard.code != 200) {
-                    document.getElementById('enrolled').innerHTML = `${dashboard.enrolled.enrolled} জন`;
+                    document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
+                    if (document.getElementById('enrolled')) {
+                        const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+                        if (!countUp.error) {
+                            countUp.start();
+                        } else {
+                            console.error(countUp.error);
+                        }
+                    }
                     const form = document.forms['purchase']
 
                     form.addEventListener('submit', e => {

@@ -25,7 +25,15 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('enrolled').innerHTML = `${types[6].TotalClasses} জন`;
+        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
         document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";
