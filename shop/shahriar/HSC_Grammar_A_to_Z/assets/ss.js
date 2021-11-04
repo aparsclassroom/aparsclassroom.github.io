@@ -23,8 +23,8 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
         document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
         document.getElementById('con3').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
-        document.getElementById('enrolled').innerHTML = `${types[4].TotalClasses} জন`;
-        document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
+        document.getElementById('enrolled').innerHTML = `${types[3].TotalClasses} জন`;
+        document.getElementById('duration').innerHTML = `${types[4].TotalClasses} মাস`;
         document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Webapp`;
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
         document.getElementById('loading2').innerHTML = "No Content Available";
