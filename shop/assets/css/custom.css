@@ -10,3 +10,26 @@ a:hover {
 .bangla {
     font-family: Kalpurush;
 }
+
+#module {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#module #collapseExample.collapse:not(.show) {
+    display: block;
+    height: 3rem;
+    overflow: hidden;
+}
+
+#module #collapseExample.collapsing {
+    height: 3rem;
+}
+
+#module a.collapsed::after {
+    content: '+ আরো পড়ুন';
+}
+
+#module a:not(.collapsed)::after {
+    content: '- সংক্ষিপ্ত করুন';
+}
