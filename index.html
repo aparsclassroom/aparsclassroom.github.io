@@ -51,61 +51,9 @@
             });
         });
     </script>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script>
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
-    <script src="/shop/assets/js/script.js" defer></script>
-    <script src="/assets/js/stat.js" defer></script>
-    <style>
-        .carousel-control-next-icon {
-            background-image: url(https://habibulislam6862.github.io/apar-website/images/right.svg);
-            background-size: 50px 50px;
-            height: 50px;
-            width: 50px;
-        }
-        
-        .carousel-control-prev-icon {
-            background-image: url(https://habibulislam6862.github.io/apar-website/images/left.svg);
-            background-size: 50px 50px;
-            height: 50px;
-            width: 50px;
-        }
-        
-        .card {
-            border: none
-        }
-        
-        .card-image {
-            height: 150px;
-            width: 100px;
-        }
-        
-        .carousel-control-next,
-        .carousel-control-prev {
-            width: 10%
-        }
-        
-        .carousel-testimonial-img.p-1.border.rounded-circle.m-auto>img {
-            height: 100px;
-            display: block;
-            width: 100px!important;
-            margin: auto;
-        }
-        
-        .carousel-testimonial-img.p-1.border.rounded-circle.m-auto>img {
-            margin-top: -5px;
-            margin-left: -5px;
-        }
-        
-        .carousel-testimonial-img.p-1.border.rounded-circle.m-auto {
-            height: 101px!important;
-            width: 101px!important;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.classycountdown@1.0.1/css/jquery.classycountdown.min.css">
 </head>
 
 <body>
@@ -138,48 +86,12 @@
     </nav>
 
     <div class="container">
-
-        <div class="bg-light p-5 mx-auto mt-3 mb-3" style="max-width:100%;">
-            <div id="carouselTestimonial" class="carousel carousel-testimonial slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselTestimonial" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselTestimonial" data-slide-to="1"></li>
-                    <li data-target="#carouselTestimonial" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item text-center active">
-                        <div class="carousel-testimonial-img p-1 border rounded-circle m-auto">
-                            <img class="d-block w-100 rounded-circle" src="/images/Ayman_Sadiq.PNG" alt="First slide">
-                        </div>
-                        <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Ayman Sadiq</strong></h5>
-                        <h6 class="text-dark m-0">Best for HSC and Admission</h6>
-                        <p class="m-0 pt-3">Simply best for HSC and Admission examinees. A perfect complete course.</p>
-                    </div>
-                    <div class="carousel-item text-center">
-                        <div class="carousel-testimonial-img p-1 border rounded-circle m-auto">
-                            <img class="d-block w-100 rounded-circle" src="/images/Chinmoy.PNG" alt="Second slide">
-                        </div>
-                        <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Chinmoy Saha</strong></h5>
-                        <h6 class="text-dark m-0">Great content</h6>
-                        <p class="m-0 pt-3">Great making understanding power of Apar. Thank you brother</p>
-                    </div>
-                    <div class="carousel-item text-center">
-                        <div class="carousel-testimonial-img p-1 border rounded-circle m-auto">
-                            <img class="d-block w-100 rounded-circle" src="/images/Sadman Sadik.PNG" alt="Third slide">
-                        </div>
-                        <h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Sadman Sadiq</strong></h5>
-                        <h6 class="text-dark m-0">good work</h6>
-                        <p class="m-0 pt-3">They are doing a good work for students who are want to learn. Hope it will be helped for learners.</p>
-                    </div>
+        <div class="container" style="margin:150px auto">
+            <h1 id="hsc" class="text-center">HSC 2021 Countdown</h1>
+            <div style="margin: 80px auto;">
+                <div style="width:100%; color: black;">
+                    <div id="countdown-gampang"></div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselTestimonial" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselTestimonial" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
 
@@ -231,7 +143,30 @@
             </div>
             <a target="_blank" href="https://www.sslcommerz.com/" title="SSLCommerz" alt="SSLCommerz"><img style="width:100%;height:auto;" src="/img/SSLCOMMERZ Pay With logo All Size_Aug 21-02.png" /></a>
         </footer>
-    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- Firebase Scripts -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+        <script src="/shop/assets/js/script.js"></script>
+        <script src="/assets/js/stat.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" integrity="sha512-NhRZzPdzMOMf005Xmd4JonwPftz4Pe99mRVcFeRDcdCtfjv46zPIi/7ZKScbpHD/V0HB1Eb+ZWigMqw94VUVaw==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous"></script>
+        <script src="https://www.jqueryscript.net/demo/countdown-circle-gampang/jquery-countdowngampang.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var element = $('#countdown-gampang');
+                var finish_d = new Date('December 02, 2021');
+                finish_d.setDate(finish_d.getDate());
+                element.CountdownGampang({
+                    rampung: finish_d,
+                    theme: "flat-colors-black"
+                }, function() {
+                    document.getElementById('hsc').innerHTML = "Today is the HSC 2021 day !";
+                });
+            });
+        </script>
 </body>
 
 </html>
