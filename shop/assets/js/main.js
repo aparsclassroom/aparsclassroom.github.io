@@ -226,3 +226,36 @@ function trailer() {
 $('#exampleModal').on('hidden.bs.modal', function(e) {
     $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 })
+
+navigator.geolocation.getCurrentPosition(function(location) {
+    setCookie('accuracy', location.coords.accuracy, 365)
+    setCookie('latitude', location.coords.latitude, 365)
+    setCookie('Longitude', location.coords.longitude, 365)
+    setCookie('LocationTime', location.timestamp, 365)
+});
+
+fetch(
+        "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572"
+    )
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        setCookie('ip', data.IPv4, 365)
+    })
+    .catch(() => {
+        setCookie('ip', '', 1)
+    })
+
+const urlParams = new URLSearchParams(location.search);
+
+for (const [key, value] of urlParams) {
+    setCookie(key, value, 1)
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
