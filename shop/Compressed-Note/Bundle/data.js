@@ -2,6 +2,7 @@ const product = "Compressed Note বান্ডল ( Part 1 + জ্ঞান �
 const fix = 120;
 const pls = 59;
 const clust = "বান্ডল";
+const productCode = "139";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {

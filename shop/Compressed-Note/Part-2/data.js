@@ -2,6 +2,7 @@ const product = "Compressed Note Part 2";
 const fix = 1000000;
 const pls = 100000;
 const clust = "Part 2";
+const productCode = "137";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
