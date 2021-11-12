@@ -91,7 +91,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 em.preventDefault();
                                 document.getElementById('buy').innerText = "Please wait...."
                                 document.getElementById("buy").disabled = true;
-                                var coup = sessionStorage.getItem(product)
+                                var aff = sessionStorage.getItem(product)
                                 var myHeaders = new Headers();
                                 myHeaders.append("Content-Type", "application/json");
                                 var raw = JSON.stringify({
@@ -102,7 +102,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     "college": data[0].College,
                                     "hsc": data[0].HSC,
                                     "phone": data[0].phone,
-                                    "Cupon": coup,
+                                    "aff": aff,
+                                    "Cupon": document.getElementById('disC').value.trim(),
                                     'uid': data[0].uid
                                 });
 
@@ -157,7 +158,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "college": document.getElementById('college').value.trim(),
                             "hsc": document.getElementById('hscBatch').value.trim(),
                             "phone": document.getElementById('phone').value.trim(),
-                            "Cupon": sessionStorage.getItem(product),
+                            "aff": sessionStorage.getItem(product),
+                            "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid
                         });
 
@@ -212,7 +214,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "college": document.getElementById('college').value.trim(),
                         "hsc": document.getElementById('hscBatch').value.trim(),
                         "phone": document.getElementById('phone').value.trim(),
-                        "Cupon": sessionStorage.getItem(product),
+                        "aff": sessionStorage.getItem(product),
+                        "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid
                     });
 
