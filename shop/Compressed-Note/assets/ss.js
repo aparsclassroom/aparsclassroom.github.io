@@ -1,1 +1,0 @@
-const productCode = "136";
