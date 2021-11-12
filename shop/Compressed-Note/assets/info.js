@@ -34,14 +34,14 @@ firebase.auth().onAuthStateChanged(function(e) {
                     } else {
                         document.getElementById('c2').href = "./Part-2/";
                     }
-                    if (sum.includes('জ্ঞান অনুধাবন')) {
+                    if (sum.includes('AB')) {
                         document.getElementById('c3').innerHTML = "জ্ঞান অনুধাবন (Purchased)";
                         document.getElementById('c3').href = "./purchased.html";
                     } else {
                         document.getElementById('c3').href = "./A-B/";
                     }
-                    if (sum.includes('বান্ডল')) {
-                        document.getElementById('c4').innerHTML = "বান্ডল ( Part 1 + জ্ঞান অনুধাবন ) (Purchased)";
+                    if (sum.includes('Bundle')) {
+                        document.getElementById('c4').innerHTML = "Bundle ( Part 1 + জ্ঞান অনুধাবন ) (Purchased)";
                         document.getElementById('c4').href = "./purchased.html";
                     } else {
                         document.getElementById('c4').href = "./Bundle/";

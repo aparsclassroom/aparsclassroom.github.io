@@ -1,7 +1,7 @@
-const product = "Compressed Note জ্ঞান অনুধাবন";
+const product = "Compressed Note AB";
 const fix = 99;
 const pls = 45;
-const clust = "জ্ঞান অনুধাবন";
+const clust = "AB";
 const productCode = "138";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');

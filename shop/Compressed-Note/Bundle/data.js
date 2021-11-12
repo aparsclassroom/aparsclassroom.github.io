@@ -1,7 +1,7 @@
-const product = "Compressed Note বান্ডল ( Part 1 + জ্ঞান অনুধাবন )";
+const product = "Compressed Note Bundle ( Part 1 + AB )";
 const fix = 120;
 const pls = 59;
-const clust = "বান্ডল";
+const clust = "Bundle";
 const productCode = "139";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
