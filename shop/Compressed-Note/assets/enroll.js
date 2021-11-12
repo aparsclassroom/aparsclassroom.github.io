@@ -118,7 +118,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                         return response.json()
                                     })
                                     .then(result => {
-                                        if (result.status == 200) {
+                                        if (result.status != 420) {
                                             location.href = result.url
                                         } else {
                                             swal({
@@ -173,7 +173,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.json()
                             })
                             .then(result => {
-                                if (result.status == 200) {
+                                if (result.status != 420) {
                                     location.href = result.url
                                 } else {
                                     swal({
@@ -228,7 +228,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             return response.json()
                         })
                         .then(result => {
-                            if (result.status == 200) {
+                            if (result.status != 420) {
                                 location.href = result.url
                             } else {
                                 swal({

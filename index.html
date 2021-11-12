@@ -51,9 +51,42 @@
             });
         });
     </script>
+    <title>jQuery downtime-timer Plugin Demo</title>
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/segment7" type="text/css" />
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.classycountdown@1.0.1/css/jquery.classycountdown.min.css">
+    <style>
+        .timer {
+            font-family: "Segment7Standard";
+            font-size: 60px;
+            display: inline-block;
+            vertical-align: top;
+            color: brown;
+        }
+        
+        .clock {
+            margin-top: 30px;
+        }
+        
+        .clock .column {
+            display: inline-block;
+        }
+        
+        .days {
+            display: none;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .wrapper {
+                width: 100%;
+                padding: 0 20px;
+            }
+            .timer {
+                font-size: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -86,11 +119,27 @@
     </nav>
 
     <div class="container">
-        <div class="container" style="margin:150px auto">
-            <h1 id="hsc" class="text-center">HSC 2021 Countdown</h1>
-            <div style="margin: 80px auto;">
-                <div style="width:100%; color: black;">
-                    <div id="countdown-gampang"></div>
+        <div class="container text-center" style="margin:150px auto">
+            <h1 id="hsc">HSC 2021 Countdown</h1>
+            <div class="clock">
+                <div class="column days">
+                    <div class="timer" id="days"></div>
+                    <div class="text">DAYS</div>
+                </div>
+                <div class="timer days">:</div>
+                <div class="column">
+                    <div class="timer" id="hours"></div>
+                    <div class="text">HOURS</div>
+                </div>
+                <div class="timer">:</div>
+                <div class="column">
+                    <div class="timer" id="minutes"></div>
+                    <div class="text">MINUTES</div>
+                </div>
+                <div class="timer">:</div>
+                <div class="column">
+                    <div class="timer" id="seconds"></div>
+                    <div class="text">SECONDS</div>
                 </div>
             </div>
         </div>
@@ -151,20 +200,65 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
         <script src="/shop/assets/js/script.js"></script>
         <script src="/assets/js/stat.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js" integrity="sha512-NhRZzPdzMOMf005Xmd4JonwPftz4Pe99mRVcFeRDcdCtfjv46zPIi/7ZKScbpHD/V0HB1Eb+ZWigMqw94VUVaw==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous"></script>
-        <script src="https://www.jqueryscript.net/demo/countdown-circle-gampang/jquery-countdowngampang.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone-with-data.js"></script>
         <script>
-            $(document).ready(function() {
-                var element = $('#countdown-gampang');
-                var finish_d = new Date('December 02, 2021');
-                finish_d.setDate(finish_d.getDate());
-                element.CountdownGampang({
-                    rampung: finish_d,
-                    theme: "flat-colors-black"
-                }, function() {
-                    document.getElementById('hsc').innerHTML = "Today is the HSC 2021 day !";
-                });
+            $(function() {
+                function timer(settings) {
+                    var config = {
+                        endDate: '2021-12-02 10:00',
+                        timeZone: 'Asia/Dhaka',
+                        hours: $('#hours'),
+                        minutes: $('#minutes'),
+                        seconds: $('#seconds'),
+                    };
+
+                    function prependZero(number) {
+                        return number < 10 ? '0' + number : number;
+                    }
+                    $.extend(true, config, settings || {});
+                    var currentTime = moment();
+                    var endDate = moment.tz(config.endDate, config.timeZone);
+                    var diffTime = endDate.valueOf() - currentTime.valueOf();
+                    var duration = moment.duration(diffTime, 'milliseconds');
+                    var days = duration.days();
+                    var interval = 1000;
+                    var subMessage = $('.sub-message');
+                    var clock = $('.clock');
+                    if (diffTime < 0) {
+                        endEvent(subMessage, config.newSubMessage, clock);
+                        return;
+                    }
+                    if (days > 0) {
+                        $('#days').text(prependZero(days));
+                        $('.days').css('display', 'inline-block');
+                    }
+                    var intervalID = setInterval(function() {
+                        duration = moment.duration(duration - interval, 'milliseconds');
+                        var hours = duration.hours(),
+                            minutes = duration.minutes(),
+                            seconds = duration.seconds();
+                        days = duration.days();
+                        if (hours <= 0 && minutes <= 0 && seconds <= 0 && days <= 0) {
+                            clearInterval(intervalID);
+                            endEvent(subMessage, config.newSubMessage, clock);
+                            window.location.reload();
+                        }
+                        if (days === 0) {
+                            $('.days').hide();
+                        }
+                        $('#days').text(prependZero(days));
+                        config.hours.text(prependZero(hours));
+                        config.minutes.text(prependZero(minutes));
+                        config.seconds.text(prependZero(seconds));
+                    }, interval);
+                }
+
+                function endEvent($el, newText, hideEl) {
+                    $el.text(newText);
+                    hideEl.hide();
+                }
+                timer();
             });
         </script>
 </body>
