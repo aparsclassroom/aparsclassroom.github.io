@@ -33,3 +33,12 @@ a:hover {
 #module a:not(.collapsed)::after {
     content: '- সংক্ষিপ্ত করুন';
 }
+
+.image-loaded {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .8;
+    width: 100%;
+}
