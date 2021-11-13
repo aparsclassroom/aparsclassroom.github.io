@@ -1,9 +1,3 @@
-setTimeout(() => {
-    $("#vid")[0].src += "1";
-    $("#vid")[0].src;
-}, 1000)
-
-
 var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
