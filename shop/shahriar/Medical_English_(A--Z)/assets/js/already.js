@@ -1,4 +1,4 @@
-const product = "𝐌𝐞𝐝𝐢𝐜𝐚𝐥 𝐄𝐧𝐠𝐥𝐢𝐬𝐡 (𝐀--𝐙)";
+const product = "Medical English (A--Z)";
 const productCode = "137";
 const appl = "https://www.facebook.com/groups/hscgrammarA2Z.byshahriarsir/";
 
