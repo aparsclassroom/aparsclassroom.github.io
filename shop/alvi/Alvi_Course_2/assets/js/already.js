@@ -1,6 +1,6 @@
-const product = "Medical English (A--Z)";
-const productCode = "137";
-const appl = "https://www.facebook.com/groups/2942510376000217";
+const product = "Alvi Course 2";
+const productCode = "138";
+const appl = "https://www.facebook.com/groups/447145750106648";
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
