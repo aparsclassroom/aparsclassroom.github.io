@@ -1,6 +1,6 @@
 const product = "Medical English (A--Z)";
 const productCode = "137";
-const appl = "https://www.facebook.com/groups/hscgrammarA2Z.byshahriarsir/";
+const appl = "https://www.facebook.com/groups/2942510376000217";
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
