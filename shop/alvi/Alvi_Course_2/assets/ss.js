@@ -1,8 +1,8 @@
-const product = "Alvi Course 1";
-const productCode = "136";
-const fix = 1200;
-const pls = 500;
-const appl = "https://www.facebook.com/groups/alvi.xyz/";
+const product = "Alvi Course 2";
+const productCode = "138";
+const fix = 2500;
+const pls = 1500;
+const appl = "https://www.facebook.com/groups/2942510376000217";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -22,7 +22,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: '6_AKjt2oPjM',
+        videoId: 'ocCwwG3CQrk',
         playerVars: { 'autoplay': 1, 'playsinline': 1 },
         events: {
             'onReady': onPlayerReady
@@ -35,6 +35,7 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+
 fetch(`${courseContent}?productCode=${productCode}`)
     .then((res) => {
         return res.json()
