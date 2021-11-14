@@ -1,7 +1,7 @@
 const product = "Medical English (A--Z)";
 const productCode = "137";
-const fix = 2100;
-const pls = 1100;
+const fix = 3100;
+const pls = 2100;
 const appl = "https://www.facebook.com/groups/hscgrammarA2Z.byshahriarsir/";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -22,7 +22,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: 'Fn6YVnk-St4',
+        videoId: '9ehCFVi0KZo',
         playerVars: { 'autoplay': 1, 'playsinline': 1 },
         events: {
             'onReady': onPlayerReady
