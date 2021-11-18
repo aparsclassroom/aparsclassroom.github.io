@@ -30,7 +30,8 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
-fetch(`https://${shopName}/${productCode}/contents`)
+
+fetch(`${courseContent}?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
@@ -42,8 +43,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('con6').innerHTML = `<i class="fas fa-user-graduate"></i>&nbsp;${types[5].TotalClasses} ${types[5].ContType} `;
-        document.getElementById('duration').innerHTML = `${types[6].TotalClasses} মাস`;
         document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
@@ -53,15 +52,9 @@ fetch(`https://${shopName}/${productCode}/contents`)
                 console.error(countUp.error);
             }
         }
-        document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-        document.getElementById('con8').innerHTML = `<i class="fab fa-discord"></i>&nbsp; Discord Server`;
-        document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
+        document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";
-        document.getElementById('loading11').innerHTML = "";
-        document.getElementById('loading22').innerHTML = "";
-        document.getElementById('ws11').innerHTML = "";
-        document.getElementById('ws22').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
         document.getElementById('pra22').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
@@ -70,11 +63,11 @@ fetch(`https://${shopName}/${productCode}/contents`)
         let classes = data.classes;
 
         var as = classes.filter((all) => {
-            return all.SubAndPaper == 'Chemistry 1st Paper'
+            return all.SubAndPaper == 'Chemistry'
         })
 
         var as2 = classes.filter((all) => {
-            return all.SubAndPaper == 'Chemistry 2nd Paper'
+            return all.SubAndPaper == 'Biology'
         })
 
         let domC = document.getElementById('Classes1');
@@ -106,56 +99,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
                 🔒 ${element.Chapter} - ${element.LiveClass} Classes
                 </li>`
             }
-        });
-
-
-        let domC1 = document.getElementById('notes1');
-        as.forEach(element => {
-            if (element.Notes != "") {
-                domC1.innerHTML += `
-                <li>
-                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
-
-        let domC22 = document.getElementById('notes2');
-        as2.forEach(element => {
-            if (element.Notes != "") {
-                domC22.innerHTML += `
-                <li>
-                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
-
-
-
-        let qna1 = document.getElementById('qna1');
-        as.forEach(element => {
-            qna1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-
-        });
-
-        let qna22 = document.getElementById('qna2');
-        as2.forEach(element => {
-            qna22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
         });
 
         let prac1 = document.getElementById('prac1');
@@ -191,6 +134,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
                 </li>`
         });
+
     })
     .catch((err) => {
         console.log(err)
