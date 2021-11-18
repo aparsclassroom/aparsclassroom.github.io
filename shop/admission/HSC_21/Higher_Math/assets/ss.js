@@ -66,7 +66,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('pra22').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
         document.getElementById('exloading22').innerHTML = "";
-        document.getElementById('gload').innerHTML = "";
 
         let classes = data.classes;
 
