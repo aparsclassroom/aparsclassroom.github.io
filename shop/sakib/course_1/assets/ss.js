@@ -31,7 +31,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-fetch(`${courseContent}?productCode=${productCode}`)
+fetch(`https://${shopName}/${productCode}/contents`)
     .then((res) => {
         return res.json()
     })
