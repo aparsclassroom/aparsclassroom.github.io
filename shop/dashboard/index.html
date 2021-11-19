@@ -124,24 +124,7 @@
                         </div>
                         `;
                                 results.innerHTML += content;
-                                var clipboard = new ClipboardJS('.cp');
-                                clipboard.on('success', function(e) {
-                                    $.notify({
-                                        icon: "tim-icons icon-bell-55",
-                                        message: "Copied successfully!!"
-                                    }, {
-                                        timer: 8000,
-                                        placement: {
-                                            from: "bottom",
-                                            align: "center"
-                                        }
-                                    });
-                                    e.clearSelection();
-                                });
 
-                                clipboard.on('error', function(e) {
-                                    alert('Action:', e.action);
-                                });
                             });
                         } else {
                             document.getElementById('title').innerText = "Oops 🙃";
@@ -165,6 +148,25 @@
                 location.replace('./login');
             }
         })
+
+        var clipboard = new ClipboardJS('.cp');
+        clipboard.on('success', function(e) {
+            $.notify({
+                icon: "tim-icons icon-bell-55",
+                message: "Copied successfully!!"
+            }, {
+                timer: 8000,
+                placement: {
+                    from: "bottom",
+                    align: "center"
+                }
+            });
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            alert('Action:', e.action);
+        });
     </script>
 </body>
 
