@@ -54,86 +54,47 @@ fetch(`https://${shopName}/${productCode}/contents`)
         }
         document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
-        document.getElementById('loading2').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
-        document.getElementById('pra22').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
-        document.getElementById('exloading22').innerHTML = "";
 
         let classes = data.classes;
 
-        var as = classes.filter((all) => {
-            return all.SubAndPaper == 'Chemistry'
-        })
-
-        var as2 = classes.filter((all) => {
-            return all.SubAndPaper == 'Biology'
-        })
 
         let domC = document.getElementById('Classes1');
-        as.forEach(element => {
+        classes.forEach(element => {
             if (element.Playlist != "") {
                 domC.innerHTML += `
                 <li>
-                <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
+                <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.SubAndPaper} - ${element.LiveClass} Classes</a>
                 </li>`
             } else {
                 domC.innerHTML += `
                 <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LiveClass} Classes
+                🔒 ${element.SubAndPaper} - ${element.LiveClass} Classes
                 </li>`
             }
 
-        });
-
-        let domC2 = document.getElementById('Classes2');
-        as2.forEach(element => {
-            if (element.Playlist != "") {
-                domC2.innerHTML += `
-                <li>
-                <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
-                </li>`
-            } else {
-                domC2.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LiveClass} Classes
-                </li>`
-            }
         });
 
         let prac1 = document.getElementById('prac1');
-        as.forEach(element => {
+        classes.forEach(element => {
             prac1.innerHTML += `
                 <li class="disabled">
-                🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
+                🔒 ${element.SubAndPaper} - ${element.PracticeSheet} Sheets
                 </li>`
 
         });
 
-        let prac22 = document.getElementById('prac2');
-        as2.forEach(element => {
-            prac22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
-                </li>`
-        });
 
         let ex1 = document.getElementById('ex1');
-        as.forEach(element => {
+        classes.forEach(element => {
             ex1.innerHTML += `
                 <li class="disabled">
-                🔒 ${element.Chapter} - ${element.Exam} Exam(s)
+                🔒 ${element.SubAndPaper} - ${element.Exam} Exam(s)
                 </li>`
 
         });
 
-        let ex22 = document.getElementById('ex2');
-        as2.forEach(element => {
-            ex22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.Exam} Exam(s)
-                </li>`
-        });
 
     })
     .catch((err) => {
