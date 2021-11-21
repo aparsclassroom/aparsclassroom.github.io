@@ -1,8 +1,7 @@
 $('.slider').slick({
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    lazyLoad: 'ondemand',
+    slidesToScroll: 1
 });
 
 const vidD = document.getElementById('video');
