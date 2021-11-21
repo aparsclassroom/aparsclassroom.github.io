@@ -1,3 +1,10 @@
+$('.slider').slick({
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    lazyLoad: 'ondemand',
+});
+
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
