@@ -34,9 +34,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                         HSC : ${data.HSC}<br>
                         Purchased at : ${data.time}<br><br>
                         Group Link 1 : <br><a href="${appl}" target="_blank">${appl}</a><br>
-                        Group Link 2 : <br><a href="${appl1}" target="_blank">${appl1}</a><br>
-                        Group Link 3 : <br><a href="${appl2}" target="_blank">${appl2}</a><br>
-                        Group Link 4 : <br><a href="${appl3}" target="_blank">${appl3}</a>
+                        Group Link 2 : <br><a href="${appl2}" target="_blank">${appl2}</a><br>
+                        Group Link 3 : <br><a href="${appl3}" target="_blank">${appl3}</a><br>
+                        Group Link 4 : <br><a href="${appl4}" target="_blank">${appl4}</a>
                         <br><br>
                         `;
                 } else {
