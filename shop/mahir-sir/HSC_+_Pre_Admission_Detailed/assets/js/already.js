@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Product : ${data.ProductName}<br>
                         Paid Amount : ${data.amount} ৳ <br>
                         Username : ${data.Name}<br>
-                        Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Id</button><br>
+                        Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-deepBlue d-print-none" data-clipboard-target="#pass">Copy Id</button><br>
                         Email : ${data.email}<br>
                         Phone No. ${data.phone}<br>
                         College : ${data.College}<br>
