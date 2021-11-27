@@ -288,3 +288,29 @@ cpn.addEventListener('click', (e) => {
             })
         })
 })
+
+fetch(
+        "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572"
+    )
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        setCookie('ip', data.IPv4, 365)
+    })
+    .catch(() => {
+        setCookie('ip', '', 1)
+    })
+
+const urlParams = new URLSearchParams(location.search);
+
+for (const [key, value] of urlParams) {
+    setCookie(key, value, 1)
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
+}
