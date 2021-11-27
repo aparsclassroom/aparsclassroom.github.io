@@ -226,6 +226,7 @@ cpn.addEventListener('click', (e) => {
     fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
             method: 'GET',
             credentials: 'include',
+            mode: 'no-cors'
         })
         .then((res) => {
             return res.json();
