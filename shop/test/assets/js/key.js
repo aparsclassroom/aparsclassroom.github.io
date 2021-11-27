@@ -1,2 +1,2 @@
-const shopName = "secure.apars.shop";
-const cuponApi = "https://secure.apars.shop/Coupon";
+const shopName = "shop.aparsclassroom.com";
+const cuponApi = "https://shop.aparsclassroom.com/Coupon";

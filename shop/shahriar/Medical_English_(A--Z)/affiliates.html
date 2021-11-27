@@ -166,7 +166,7 @@
         document.getElementById('stats').style.display = "none";
         search.value = aff;
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch('https://secure.apars.shop/' + productCode + '/affliate?aff=' + aff)
+        fetch('https://shop.aparsclassroom.com/' + productCode + '/affliate?aff=' + aff)
             .then((res) => {
                 return res.json()
             })
@@ -223,7 +223,7 @@
         searchBtn.addEventListener('click', () => {
             document.getElementById('stats').style.display = "none";
             result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-            fetch('https://secure.apars.shop/' + productCode + '/affliate?aff=' + search.value)
+            fetch('https://shop.aparsclassroom.com/' + productCode + '/affliate?aff=' + search.value)
                 .then((res) => {
                     return res.json()
                 })
@@ -281,7 +281,7 @@
         searchBtn.addEventListener('click', () => {
             document.getElementById('stats').style.display = "none";
             result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-            fetch('https://secure.apars.shop/' + productCode + '/affliate?aff=' + search.value)
+            fetch('https://shop.aparsclassroom.com/' + productCode + '/affliate?aff=' + search.value)
                 .then((res) => {
                     return res.json()
                 })
