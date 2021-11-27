@@ -257,5 +257,5 @@ function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";domain=shop.aparsclassroom.shop;" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
 }
