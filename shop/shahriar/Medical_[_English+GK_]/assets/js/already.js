@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     document.getElementById('info').innerHTML = `
                         <h3>Purchase Information</h3>
                         Invoice : ${data.invoice}<br>
-                        Product : ${data.ProductName}<br>
+                        Product : Medical [ English+GK ]<br>
                         Paid Amount : ${data.amount} ৳ <br>
                         Username : ${data.Name}<br>
                         Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
