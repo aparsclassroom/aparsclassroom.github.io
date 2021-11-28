@@ -320,64 +320,66 @@ var disOFF = 0;
 
 function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
 cpn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const cupV = document.getElementById('cupon');
-    const cpnCode = cupV.value;
-    cpn.innerText = "Checking..";
+e.preventDefault();
+const cupV = document.getElementById('cupon');
+const cpnCode = cupV.value;
+cpn.innerText = "Checking..";
+cupV.disabled = true;
+cpn.disabled = true;
+fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
+        method: 'GET',
+        credentials: 'include',
+        mode: 'cors'
+    })
+    .then((res) => {
+        return res.json();
+    })
+if (loadedData.status === "success") {
+    var nes = pls - loadedData.Off;
+    disOFF = loadedData.Off;
+    document.getElementById('price').value = nes;
+    document.getElementById('sprice').innerText = nes;
+    cpn.style.cursor = "not-allowed";
+    cupV.value = loadedData.Cupon;
+    document.getElementById('disC').value = loadedData.Cupon;
+    sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
     cupV.disabled = true;
+    cpn.innerText = "Applied ✔"
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
-            method: 'GET',
-            credentials: 'include',
-            mode: 'cors'
-        })
-        .then((loadedData) => {
-            if (loadedData.status === "success") {
-                var nes = pls - loadedData.Off;
-                disOFF = loadedData.Off;
-                document.getElementById('price').value = nes;
-                document.getElementById('sprice').innerText = nes;
-                cpn.style.cursor = "not-allowed";
-                cupV.value = loadedData.Cupon;
-                document.getElementById('disC').value = loadedData.Cupon;
-                sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
-                cupV.disabled = true;
-                cpn.innerText = "Applied ✔"
-                cpn.disabled = true;
-                var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
-                document.getElementById('how').style.display = "block";
-                document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-                document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-                swal({
-                    title: "Alhamdulillah ❤",
-                    icon: "success",
-                    text: "Successfully applied!",
-                    button: "Ok"
-                })
-                return;
-            } else {
-                cpn.innerText = "Apply";
-                cupV.disabled = false;
-                cpn.disabled = false;
-                document.getElementById('cupon').value = "";
-                swal({
-                    title: "Code not valid",
-                    icon: "error",
-                    button: "Ok"
-                }).then(() => {
-                    return notdis()
-                })
-            }
-        }).catch(() => {
-            document.getElementById('cupon').value = "";
-            swal({
-                title: "Cupon can't be Empty 😶",
-                icon: "error",
-                button: "Ok"
-            }).then(() => {
-                return notdis()
-            })
-        })
+    var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
+    document.getElementById('how').style.display = "block";
+    document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
+    document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
+    swal({
+        title: "Alhamdulillah ❤",
+        icon: "success",
+        text: "Successfully applied!",
+        button: "Ok"
+    })
+    return;
+} else {
+    cpn.innerText = "Apply";
+    cupV.disabled = false;
+    cpn.disabled = false;
+    document.getElementById('cupon').value = "";
+    swal({
+        title: "Code not valid",
+        icon: "error",
+        button: "Ok"
+    }).then(() => {
+        return notdis()
+    })
+}
+}).catch(() => {
+document.getElementById('cupon').value = "";
+swal({
+    title: "Cupon can't be Empty 😶",
+    icon: "error",
+    button: "Ok"
+}).then(() => {
+    return notdis()
+})
+})
 })
 
 fetch(

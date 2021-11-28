@@ -228,6 +228,9 @@ cpn.addEventListener('click', (e) => {
             credentials: 'include',
             mode: 'cors'
         })
+        .then((res) => {
+            return res.json();
+        })
         .then((loadedData) => {
             if (loadedData.status === "success") {
                 var nes = pls - loadedData.Off;

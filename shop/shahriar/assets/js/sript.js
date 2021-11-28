@@ -223,7 +223,14 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
+            method: 'GET',
+            credentials: 'include',
+            mode: 'cors'
+        })
+        .then((res) => {
+            return res.json();
+        })
         .then((loadedData) => {
             if (loadedData.status === "success") {
                 var nes = pls - loadedData.Off;
