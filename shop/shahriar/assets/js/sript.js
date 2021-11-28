@@ -229,7 +229,7 @@ cpn.addEventListener('click', (e) => {
             mode: 'cors'
         })
         .then((loadedData) => {
-            if (loadedData.status === "success") {
+            if (loadedData.status == "success") {
                 var nes = pls - loadedData.Off;
                 disOFF = loadedData.Off;
                 document.getElementById('price').value = nes;
