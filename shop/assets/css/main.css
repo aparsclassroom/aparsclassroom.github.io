@@ -3,8 +3,18 @@
     src: url(/Ambassador/assets/fonts/ASG_TARIQ.TTF);
 }
 
+@font-face {
+    font-family: 'Gilroy-ExtraBold';
+    src: url(/CrashCourse/fonts/Futura_Bold.otf)
+}
+
 .bangla {
     font-family: Kalpurush;
+}
+
+#hsc,
+.ClassyCountdown-value {
+    font-family: Gilroy-ExtraBold!important;
 }
 
 .navbar-brand img {

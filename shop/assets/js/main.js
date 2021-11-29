@@ -259,3 +259,14 @@ function setCookie(cname, cvalue, exdays) {
     let expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
 }
+
+var element = $('#countdown-gampang');
+var finish_d = new Date('December 02, 2021');
+finish_d.setDate(finish_d.getDate());
+element.CountdownGampang({
+    rampung: finish_d,
+    theme: "flat-colors-black"
+}, function() {
+    document.getElementById('hsc').innerHTML = "Today is the HSC 2021 Physics 1<sup>st</sup> Exam !<br><strong>Good Luck</strong>";
+
+});
