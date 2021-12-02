@@ -227,13 +227,6 @@ $('#exampleModal').on('hidden.bs.modal', function(e) {
     $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 })
 
-navigator.geolocation.getCurrentPosition(function(location) {
-    setCookie('accuracy', location.coords.accuracy, 365)
-    setCookie('latitude', location.coords.latitude, 365)
-    setCookie('Longitude', location.coords.longitude, 365)
-    setCookie('LocationTime', location.timestamp, 365)
-});
-
 fetch(
         "https://api.ipify.org/?format=json"
     )
