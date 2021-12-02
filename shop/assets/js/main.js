@@ -235,13 +235,13 @@ navigator.geolocation.getCurrentPosition(function(location) {
 });
 
 fetch(
-        "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572"
+        "https://api.ipify.org/?format=json"
     )
     .then((response) => {
         return response.json()
     })
     .then((data) => {
-        setCookie('ip', data.IPv4, 365)
+        setCookie('ip', data.ip, 365)
     })
     .catch(() => {
         setCookie('ip', '', 1)
@@ -267,6 +267,6 @@ element.CountdownGampang({
     rampung: finish_d,
     theme: "flat-colors-black"
 }, function() {
-    document.getElementById('hsc').innerHTML = "Today is the HSC 2021 Physics 2<sup>nd</sup> Exam !<br><strong>Good Luck</strong>";
+    document.getElementById('hsc').innerHTML = "Today is the HSC 2021 Physics 2<sup>nd</sup> Exam !<br><strong>Good Luck ❤️</strong>";
 
 });
