@@ -12,7 +12,7 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = product + " | ASG Shop";
+//document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
