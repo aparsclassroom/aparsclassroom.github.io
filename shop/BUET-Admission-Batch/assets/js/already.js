@@ -54,10 +54,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                         alert('Action:', e.action);
                     });
                 } else {
-                    location.replace("./");
+                    location.replace("./new");
                 }
             })
     } else {
-        location.replace("./");
+        location.replace("./new");
     }
 })
