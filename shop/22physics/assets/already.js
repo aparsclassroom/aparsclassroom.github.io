@@ -185,6 +185,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                 location.replace("./");
             })
     } else {
-        location.replace("./");
+        location.replace("/shop/dashboard/login.html");
     }
 })

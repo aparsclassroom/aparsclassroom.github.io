@@ -56,6 +56,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
             })
     } else {
-        location.replace("./");
+        location.replace("/shop/dashboard/login.html");
     }
 })
