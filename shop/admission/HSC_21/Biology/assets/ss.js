@@ -58,10 +58,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";
-        document.getElementById('loading11').innerHTML = "";
-        document.getElementById('loading22').innerHTML = "";
-        document.getElementById('ws11').innerHTML = "";
-        document.getElementById('ws22').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
         document.getElementById('pra22').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";

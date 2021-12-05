@@ -60,10 +60,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('loading2').innerHTML = "";
         document.getElementById('loading11').innerHTML = "";
         document.getElementById('loading22').innerHTML = "";
-        document.getElementById('ws11').innerHTML = "";
-        document.getElementById('ws22').innerHTML = "";
-        document.getElementById('pra11').innerHTML = "";
-        document.getElementById('pra22').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
         document.getElementById('exloading22').innerHTML = "";
 
