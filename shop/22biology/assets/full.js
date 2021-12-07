@@ -304,12 +304,15 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
         document.getElementById("cup").style.display = "none"
-    } else document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
-        document.getElementById('moda').addEventListener('click', () => {
-            sessionStorage.setItem(product + '_potential', 'true');
-            location.href = "../dashboard/login"
-        })
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login" });
+    } else {
+        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
+            document.getElementById('moda').addEventListener('click', () => {
+                sessionStorage.setItem(product + '_potential', 'true');
+                location.href = "../dashboard/login"
+            })
+        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login" });
+    }
+})
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
