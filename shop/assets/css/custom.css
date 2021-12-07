@@ -92,3 +92,10 @@ a:hover {
 .fa-clipboard {
     color: #f47721;
 }
+
+#app:hover {
+    background-color: transparent;
+    color: black;
+    border: #fff 1px solid;
+    transform: scale(1.1);
+}
