@@ -274,7 +274,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
-
+        document.getElementById("cup").style.display = "none"
     } else document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
         document.getElementById('moda').addEventListener('click', () => {
             sessionStorage.setItem(product + '_potential', 'true');
