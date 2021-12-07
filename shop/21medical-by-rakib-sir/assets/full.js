@@ -354,7 +354,7 @@ cpn.addEventListener('click', (e) => {
                 sessionStorage.setItem(product + ' Coupon', loadedData.Cupon);
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
-                document.getElementById('cup').style.display = "none";
+                document.getElementById('coupnbosh').style.display = "none";
                 cpn.disabled = true;
                 var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
                 document.getElementById('how').style.display = "block";
