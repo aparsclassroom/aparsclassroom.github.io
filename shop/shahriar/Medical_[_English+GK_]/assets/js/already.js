@@ -31,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Product : Medical [ English+GK ]<br>
                         Paid Amount : ${data.amount} ৳ <br>
                         Username : ${data.Name}<br>
-                        Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
+                        Group Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Id</button><br>
                         Email : ${data.email}<br>
                         Phone No. ${data.phone}<br>
                         College : ${data.College}<br>
