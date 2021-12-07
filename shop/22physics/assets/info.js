@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
     } else {
         document.getElementById('meta').innerHTML = "Please Login First !"
-        document.getElementById('full').href = "../dashboard/login";
-        document.getElementById('half').href = "../dashboard/login";
+        document.getElementById('full').href = "/shop/dashboard/login";
+        document.getElementById('half').href = "/shop/dashboard/login";
     }
 })

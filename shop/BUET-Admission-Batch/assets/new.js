@@ -148,9 +148,9 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');
-                location.href = "../dashboard/login"
+                location.href = "/shop/dashboard/login"
             })
-        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login" });
+        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login" });
     }
 })
 var cupon, cpn = document.getElementById("cpnCheck");

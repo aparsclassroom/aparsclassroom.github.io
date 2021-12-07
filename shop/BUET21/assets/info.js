@@ -80,12 +80,12 @@ firebase.auth().onAuthStateChanged(function(e) {
 
     } else {
         document.getElementById('meta').innerHTML = "Please Login First !"
-        document.getElementById('c1').href = "../dashboard/login";
-        document.getElementById('c2').href = "../dashboard/login";
-        document.getElementById('c3').href = "../dashboard/login";
-        document.getElementById('c4').href = "../dashboard/login";
-        document.getElementById('c5').href = "../dashboard/login";
-        document.getElementById('c6').href = "../dashboard/login";
+        document.getElementById('c1').href = "/shop/dashboard/login";
+        document.getElementById('c2').href = "/shop/dashboard/login";
+        document.getElementById('c3').href = "/shop/dashboard/login";
+        document.getElementById('c4').href = "/shop/dashboard/login";
+        document.getElementById('c5').href = "/shop/dashboard/login";
+        document.getElementById('c6').href = "/shop/dashboard/login";
     }
 })
 

@@ -127,7 +127,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').setAttribute("readonly", true);
         }
     } else {
-        document.getElementById('moda').addEventListener('click', () => location.href = "../dashboard/login.html")
+        document.getElementById('moda').addEventListener('click', () => location.href = "/shop/dashboard/login.html")
     }
 
 });
