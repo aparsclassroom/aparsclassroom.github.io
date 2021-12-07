@@ -49,3 +49,11 @@ a:hover {
     background-color: #45c881;
     border-color: #45c881;
 }
+
+#pass:focus {
+    outline: 0px;
+}
+
+.btn-success-mod:hover {
+    color: #fff;
+}
