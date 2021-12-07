@@ -43,3 +43,9 @@ a:hover {
     width: 100%;
     border-radius: 15px 15px 0px 0px;
 }
+
+.btn-success-mod {
+    color: #fff;
+    background-color: #45c881;
+    border-color: #45c881;
+}
