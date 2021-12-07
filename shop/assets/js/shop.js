@@ -207,10 +207,16 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
-        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
-    } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
-        document.getElementById('moda').addEventListener('click', () => location.href = "../dashboard/login.html")
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login.html" });
+        document.getElementById("app").addEventListener('click', () => {
+            document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
+        })
+
+    } else document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
+        document.getElementById('moda').addEventListener('click', () => {
+            sessionStorage.setItem(product + '_potential', 'true');
+            location.href = "../dashboard/login"
+        })
+}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login" });
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {

@@ -29,6 +29,9 @@ const form = document.forms['purchase'];
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
+        if (sessionStorage.getItem(product + '_potential') == 'true') {
+            $('#purchaseFrm').modal('show')
+        }
         var res = str.split("&")[0].substring(1, 16);
         if (res != "" && res.indexOf("utm") > -1) {
             sessionStorage.setItem(product, res);
@@ -268,10 +271,16 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
-        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
-    } else document.getElementById("app").style.display = "block", document.getElementById("cup").style.display = "none",
-        document.getElementById('moda').addEventListener('click', () => location.href = "../dashboard/login.html")
-}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login.html" });
+        document.getElementById("app").addEventListener('click', () => {
+            document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
+        })
+
+    } else document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
+        document.getElementById('moda').addEventListener('click', () => {
+            sessionStorage.setItem(product + '_potential', 'true');
+            location.href = "../dashboard/login"
+        })
+}), document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "../dashboard/login" });
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
@@ -291,66 +300,65 @@ var disOFF = 0;
 
 function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
 cpn.addEventListener('click', (e) => {
-e.preventDefault();
-const cupV = document.getElementById('cupon');
-const cpnCode = cupV.value;
-cpn.innerText = "Checking..";
-cupV.disabled = true;
-cpn.disabled = true;
-fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
-        method: 'GET',
-        credentials: 'include',
-        mode: 'cors'
-    })
-    .then((res) => {
-        return res.json();
-    })
-if (loadedData.status === "success") {
-    var nes = pls - loadedData.Off;
-    disOFF = loadedData.Off;
-    document.getElementById('price').value = nes;
-    document.getElementById('sprice').innerText = nes;
-    cpn.style.cursor = "not-allowed";
-    cupV.value = loadedData.Cupon;
-    sessionStorage.setItem(product, loadedData.Cupon);
-    document.getElementById('disC').value = loadedData.Cupon;
+    e.preventDefault();
+    const cupV = document.getElementById('cupon');
+    const cpnCode = cupV.value;
+    cpn.innerText = "Checking..";
     cupV.disabled = true;
-    cpn.innerText = "Applied ✔"
     cpn.disabled = true;
-    var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
-    document.getElementById('how').style.display = "block";
-    document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-    document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-    swal({
-        title: "Alhamdulillah ❤",
-        icon: "success",
-        text: "Successfully applied!",
-        button: "Ok"
-    })
-    return;
-} else {
-    cpn.innerText = "Apply";
-    cupV.disabled = false;
-    cpn.disabled = false;
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
+            method: 'GET',
+            credentials: 'include',
+            mode: 'cors'
+        })
+        .then((res) => {
+            return res.json();
+        })
+    if (loadedData.status === "success") {
+        var nes = pls - loadedData.Off;
+        disOFF = loadedData.Off;
+        document.getElementById('price').value = nes;
+        document.getElementById('sprice').innerText = nes;
+        cpn.style.cursor = "not-allowed";
+        cupV.value = loadedData.Cupon;
+        sessionStorage.setItem(product, loadedData.Cupon);
+        document.getElementById('disC').value = loadedData.Cupon;
+        cupV.disabled = true;
+        cpn.innerText = "Applied ✔"
+        cpn.disabled = true;
+        var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
+        document.getElementById('how').style.display = "block";
+        document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
+        document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
+        swal({
+            title: "Alhamdulillah ❤",
+            icon: "success",
+            text: "Successfully applied!",
+            button: "Ok"
+        })
+        return;
+    } else {
+        cpn.innerText = "Apply";
+        cupV.disabled = false;
+        cpn.disabled = false;
+        document.getElementById('cupon').value = "";
+        swal({
+            title: "Code not valid",
+            icon: "error",
+            button: "Ok"
+        }).then(() => {
+            return notdis()
+        })
+    }
+}).catch(() => {
     document.getElementById('cupon').value = "";
     swal({
-        title: "Code not valid",
+        title: "Cupon can't be Empty 😶",
         icon: "error",
         button: "Ok"
     }).then(() => {
         return notdis()
     })
-}
-}).catch(() => {
-document.getElementById('cupon').value = "";
-swal({
-    title: "Cupon can't be Empty 😶",
-    icon: "error",
-    button: "Ok"
-}).then(() => {
-    return notdis()
-})
-})
 })
 
 fetch(
