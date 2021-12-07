@@ -253,6 +253,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('disC').value = loadedData.Cupon;
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
+                document.getElementById('cup').style.display = "none";
                 cpn.disabled = true;
                 var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
                 document.getElementById('how').style.display = "block";
