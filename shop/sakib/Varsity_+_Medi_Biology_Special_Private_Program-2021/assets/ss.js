@@ -37,7 +37,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-fetch(`https://${shopName}/${productCode}/contents`)
+fetch(`https://script.google.com/macros/s/AKfycbyzmc9PIPtS-jUU153RL8hBClSiVmbN_DufBumKEZ2ePZXPTGUF7UEGfG8z2Y94pyP6/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
