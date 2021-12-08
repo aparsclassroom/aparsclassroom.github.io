@@ -11,30 +11,30 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
-var tag = document.createElement('script');
+// var tag = document.createElement('script');
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
+// tag.src = "https://www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// var player;
 
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: '9ehCFVi0KZo',
-        playerVars: { 'autoplay': 1, 'playsinline': 1 },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
+// function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('player', {
+//         height: '390',
+//         width: '640',
+//         videoId: '9ehCFVi0KZo',
+//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
+//         events: {
+//             'onReady': onPlayerReady
+//         }
+//     });
+// }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
 
 fetch(`${courseContent}?productCode=${productCode}`)
     .then((res) => {
