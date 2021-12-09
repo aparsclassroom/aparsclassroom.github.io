@@ -1,5 +1,5 @@
-const product = "Admission Chemistry Course";
-const productCode = "139";
-const fix = 3999;
-const pls = 2000;
-const appl = "https://www.facebook.com/groups/aparchinmoy.chemistry21";
+const product = "Engineering Admission Course 2021 (Bundle)";
+const productCode = "148";
+const fix = 6600;
+const pls = 5000;
+const appl = "https://www.facebook.com/groups/engineering.admission2021";

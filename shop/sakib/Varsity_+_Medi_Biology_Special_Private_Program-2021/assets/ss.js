@@ -46,7 +46,6 @@ fetch(`https://script.google.com/macros/s/AKfycbyzmc9PIPtS-jUU153RL8hBClSiVmbN_D
 
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
         document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
-        document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
         document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
@@ -86,7 +85,7 @@ fetch(`https://script.google.com/macros/s/AKfycbyzmc9PIPtS-jUU153RL8hBClSiVmbN_D
         classes.forEach(element => {
             prac1.innerHTML += `
                 <li class="disabled">
-                🔒 ${element.SubAndPaper} - ${element.PracticeSheet} Sheets
+                🔒 ${element.SubAndPaper} - ${element.LectureSheet} Sheets
                 </li>`
 
         });

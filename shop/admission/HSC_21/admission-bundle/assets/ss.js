@@ -1,6 +1,6 @@
 $('.slider').slick({
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1
 });
 
@@ -66,21 +66,37 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('loading2').innerHTML = "";
         document.getElementById('loading11').innerHTML = "";
         document.getElementById('loading22').innerHTML = "";
+        document.getElementById('loading33').innerHTML = "";
+        document.getElementById('loading44').innerHTML = "";
         document.getElementById('ws11').innerHTML = "";
         document.getElementById('ws22').innerHTML = "";
+        document.getElementById('ws33').innerHTML = "";
+        document.getElementById('ws44').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
         document.getElementById('pra22').innerHTML = "";
+        document.getElementById('pra33').innerHTML = "";
+        document.getElementById('pra44').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
         document.getElementById('exloading22').innerHTML = "";
+        document.getElementById('exloading33').innerHTML = "";
+        document.getElementById('exloading44').innerHTML = "";
 
         let classes = data.classes;
 
         var as = classes.filter((all) => {
-            return all.SubAndPaper == 'Chemistry 1st Paper'
+            return all.SubAndPaper == 'Physics'
         })
 
         var as2 = classes.filter((all) => {
-            return all.SubAndPaper == 'Chemistry 2nd Paper'
+            return all.SubAndPaper == 'Chemistry'
+        })
+
+        var as3 = classes.filter((all) => {
+            return all.SubAndPaper == 'Higher Math'
+        })
+
+        var as4 = classes.filter((all) => {
+            return all.SubAndPaper == 'Biology'
         })
 
         let domC = document.getElementById('Classes1');
@@ -114,6 +130,35 @@ fetch(`https://${shopName}/${productCode}/contents`)
             }
         });
 
+        let domC3 = document.getElementById('Classes3');
+        as3.forEach(element => {
+            if (element.Playlist != "") {
+                domC3.innerHTML += `
+                <li>
+                <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
+                </li>`
+            } else {
+                domC3.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.LiveClass} Classes
+                </li>`
+            }
+        });
+
+        let domC4 = document.getElementById('Classes4');
+        as2.forEach(element => {
+            if (element.Playlist != "") {
+                domC4.innerHTML += `
+                <li>
+                <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
+                </li>`
+            } else {
+                domC4.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.LiveClass} Classes
+                </li>`
+            }
+        });
 
         let domC1 = document.getElementById('notes1');
         as.forEach(element => {
@@ -145,7 +190,35 @@ fetch(`https://${shopName}/${productCode}/contents`)
             }
         });
 
+        let domC33 = document.getElementById('notes3');
+        as3.forEach(element => {
+            if (element.Notes != "") {
+                domC33.innerHTML += `
+                <li>
+                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
+                </li>`
+            } else {
+                domC33.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
+                </li>`
+            }
+        });
 
+        let domC44 = document.getElementById('notes4');
+        as2.forEach(element => {
+            if (element.Notes != "") {
+                domC44.innerHTML += `
+                <li>
+                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
+                </li>`
+            } else {
+                domC44.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
+                </li>`
+            }
+        });
 
         let qna1 = document.getElementById('qna1');
         as.forEach(element => {
@@ -159,6 +232,22 @@ fetch(`https://${shopName}/${productCode}/contents`)
         let qna22 = document.getElementById('qna2');
         as2.forEach(element => {
             qna22.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.QnAClass} Classes
+                </li>`
+        });
+
+        let qna33 = document.getElementById('qna3');
+        as3.forEach(element => {
+            qna33.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.QnAClass} Classes
+                </li>`
+        });
+
+        let qna44 = document.getElementById('qna4');
+        as2.forEach(element => {
+            qna44.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.QnAClass} Classes
                 </li>`
@@ -181,6 +270,23 @@ fetch(`https://${shopName}/${productCode}/contents`)
                 </li>`
         });
 
+        let prac33 = document.getElementById('prac3');
+        as2.forEach(element => {
+            prac33.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
+                </li>`
+        });
+
+        let prac44 = document.getElementById('prac4');
+        as2.forEach(element => {
+            prac44.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
+                </li>`
+        });
+
+
         let ex1 = document.getElementById('ex1');
         as.forEach(element => {
             ex1.innerHTML += `
@@ -193,6 +299,22 @@ fetch(`https://${shopName}/${productCode}/contents`)
         let ex22 = document.getElementById('ex2');
         as2.forEach(element => {
             ex22.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.Exam} Exam(s)
+                </li>`
+        });
+
+        let ex33 = document.getElementById('ex3');
+        as3.forEach(element => {
+            ex33.innerHTML += `
+                <li class="disabled">
+                🔒 ${element.Chapter} - ${element.Exam} Exam(s)
+                </li>`
+        });
+
+        let ex44 = document.getElementById('ex4');
+        as4.forEach(element => {
+            ex44.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
                 </li>`
