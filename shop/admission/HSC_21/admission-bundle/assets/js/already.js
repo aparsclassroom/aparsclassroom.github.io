@@ -36,6 +36,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Purchased at : ${data.time}<br><br>
                         Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                         <br><br>
+
+                        Physics Webapp Link : <br><a href="https://buet21.aparsclassroom.com/login" target="_blank">https://buet21.aparsclassroom.com/</a>
                         `;
 
                 } else {
