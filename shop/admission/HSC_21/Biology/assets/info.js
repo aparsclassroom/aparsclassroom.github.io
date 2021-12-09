@@ -1,4 +1,4 @@
-const product = "Admission Biology Course";
+const product = "Hasnat's Medi-Biology (Private Program)";
 const productCode = "141";
 const fix = 3999;
 const pls = 2000;
