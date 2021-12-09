@@ -1,4 +1,4 @@
-const product = "Admission Math Course";
+const product = "Engineering Admission Math Course";
 const productCode = "140";
 const fix = 3999;
 const pls = 2000;
