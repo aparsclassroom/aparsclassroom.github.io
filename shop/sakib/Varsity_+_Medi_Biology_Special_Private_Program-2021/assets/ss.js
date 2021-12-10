@@ -1,7 +1,14 @@
-$('.slider').slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 50,
+    freeMode: true,
+    loop: true,
+    autoplay: {
+        delay: 5000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next'
+    },
 });
 
 const vidD = document.getElementById('video');

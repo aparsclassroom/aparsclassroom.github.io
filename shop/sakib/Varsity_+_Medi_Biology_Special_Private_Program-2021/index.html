@@ -82,8 +82,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/shop/assets/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="https://kenwheeler.github.io/slick/slick/slick-theme.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/shop/assets/css/print.css" media="print">
 
     <!-- Firebase Scripts -->
@@ -97,8 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 
     <style>
         @media only screen and (max-width: 600px) {
@@ -134,21 +132,49 @@
                         <div class="col-md-6">
                             <h2>Teachers :</h2>
                             <div class="teachers">
-                                <div class="slider">
-                                    <div>
-                                        <img src="https://i.postimg.cc/Dwr2tRtw/Screenshot-2021-11-19-013504.png" alt="Md Nazmus Sakib"><span style="display: flex;text-align: center;">Sakib<br>Chemistry</span>
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide text-center"> <img src="https://i.postimg.cc/Dwr2tRtw/Screenshot-2021-11-19-013504.png" alt="Md Nazmus Sakib">
+                                            <h5 class="title.is-5 ">Md Nazmus Sakib</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                Dept, Chemistry <br>Dhaka University<br><strong>Instructor : Chemistry</strong>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center"> <img src="https://i.postimg.cc/DychPq8r/Screenshot-2021-09-20-174533.png" alt="Hasnat Shuvro">
+                                            <h5 class="title.is-5 ">Hasnat Shuvro</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                Shaheed Suhrawardy Medical College<br><strong>Instructor : Biology</strong>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center"><img src="https://i.postimg.cc/vZ8gVLvK/Screenshot-2021-12-11-012602.png" alt="Sumon hossen">
+                                            <h5 class="title.is-5 ">Sumon hossen</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                Writer, ASPECT Physics (শেকৃবি)<br><strong>Instructor : Physics</strong>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center"> <img src="https://i.postimg.cc/sXKTy129/Screenshot-2021-11-21-183442.png" alt="Konok Shrabon">
+                                            <h5 class="title.is-5 ">Konok Shrabon</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                EEE, BUET <br><strong>Instructor : H. Maths</strong>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="https://i.postimg.cc/SRLt7Wwb/Screenshot-2021-10-02-214544.png" class="image is-64x64 media-left" alt="Mahir Asif">
+                                            <h5 class="title.is-5 ">Mahir Asif</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                Former Lecturer, UDVASH <br>BUTEX<br><strong>Instructor : H. Maths</strong>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center"> <img src="https://i.postimg.cc/D09LKK1P/Screenshot-2021-11-21-183824.png" alt="Shoaib Alam Uchhash">
+                                            <h5 class="title.is-5 ">Shoaib Alam Uchhash</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                CSE, AUST <br><strong>Instructor : Physics</strong>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <img src="https://i.postimg.cc/DychPq8r/Screenshot-2021-09-20-174533.png" alt="Hasnat Shuvro"><span style="padding-left: 15px;display: flex;text-align: center;">Shuvro<br>Biology</span>
-                                    </div>
-                                    <div>
-                                        <img src="https://i.postimg.cc/D09LKK1P/Screenshot-2021-11-21-183824.png" alt="Shoaib Alam Uchhash"><span style="padding-left: 15px;display: flex;text-align: center;">Uchhash<br>Physics</span>
-                                    </div>
-                                    <div>
-                                        <img src="https://i.postimg.cc/sXKTy129/Screenshot-2021-11-21-183442.png" alt="Konok Shrabon"><span style="padding-left: 15px;display: flex;text-align: center;">Shrabon<br>Maths</span>
-                                    </div>
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-next"></div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
