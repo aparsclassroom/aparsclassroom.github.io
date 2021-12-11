@@ -25,14 +25,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (sessionStorage.getItem(product + '_potential') == 'true') {
             $('#purchaseFrm').modal('show')
         }
-        var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res.indexOf("utm") > -1) {
-            sessionStorage.setItem(product, res);
-        } else {
-            let ne = "utm=Organic";
-            sessionStorage.setItem(product, ne);
-        }
-
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -82,7 +74,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "college": document.getElementById('college').value.trim(),
                             "hsc": document.getElementById('hscBatch').value.trim(),
                             "phone": document.getElementById('phone').value.trim(),
-                            "aff": sessionStorage.getItem(product),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
                             "affiliate": getCookie("affiliate"),
@@ -101,6 +92,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var requestOptions = {
                             method: 'POST',
                             headers: myHeaders,
+                            credentials: 'include',
+                            mode: 'cors',
                             body: raw,
                             redirect: 'follow'
                         };
