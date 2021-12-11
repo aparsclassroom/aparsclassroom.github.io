@@ -91,8 +91,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var requestOptions = {
                             method: 'POST',
                             headers: myHeaders,
-                            credentials: 'include',
-                            mode: 'cors',
                             body: raw,
                             redirect: 'follow'
                         };
@@ -161,8 +159,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var requestOptions = {
                         method: 'POST',
                         headers: myHeaders,
-                        credentials: 'include',
-                        mode: 'cors',
                         body: raw,
                         redirect: 'follow'
                     };
