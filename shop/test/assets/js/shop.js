@@ -21,7 +21,6 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        var str = window.location.search;
         if (sessionStorage.getItem(product + '_potential') == 'true') {
             $('#purchaseFrm').modal('show')
         }
