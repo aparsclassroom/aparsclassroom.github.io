@@ -1,4 +1,4 @@
-const product = "Engineering Admission Course 2021 (Bundle)";
+const product = "Engineering Admission Course + Medi Biology";
 const productCode = "148";
 const fix = 12200;
 const pls = 6600;
