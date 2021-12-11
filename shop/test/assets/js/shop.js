@@ -310,7 +310,7 @@ fetch(
         return response.json()
     })
     .then((data) => {
-        setCookie('ip', data.IPv4, 365)
+        setCookie('ip', data.IPv4, 1)
     })
     .catch(() => {
         setCookie('ip', '', 1)
