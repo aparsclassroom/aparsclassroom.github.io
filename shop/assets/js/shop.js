@@ -31,7 +31,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": product,
             'uid': e.uid
         });
 
@@ -66,7 +65,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
                             "product": product,
                             "cus_name": document.getElementById('name').value.trim(),
                             "email": mail,
