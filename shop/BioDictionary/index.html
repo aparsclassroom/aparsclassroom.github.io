@@ -40,88 +40,510 @@
     </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
 
-    <!-- Title -->
-    <title>ASG Shop</title>
+    <!-- loader -->
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
 
-    <!-- Site Icons -->
+    <!-- Site Title -->
+    <title>BioDictionary | ASG Shop</title>
+
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="BioDictionary">
+    <meta property="og:site_name" content="BioDictionary">
+    <meta property="og:description" content="by Apar's Classroom ❤️">
+    <meta property="og:image" content="https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2020/10/12/university.jpg?itok=i5s9Q-k3&timestamp=1602773730">
+    <meta property="og:image:secure_url" content="https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2020/10/12/university.jpg?itok=i5s9Q-k3&timestamp=1602773730">
+    <meta property="og:image:type" content="image/jpg">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="BioDictionary">
+    <meta name="theme-color" content="#1c3227">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BioDictionary">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1c3227">
+
+    <!-- Site Icon -->
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
     <link rel="icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
 
-    <!-- loader -->
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
-
-    <!-- Facebook Metas -->
-    <meta property="og:title" content="Apars Classroom">
-    <meta property="og:site_name" content="Apar's Classroom">
-    <meta property="og:description" content="BioDictionary App">
-    <meta property="og:image" content="https://aparsclassroom.com/img/bio.png">
-    <meta property="og:image:secure_url" content="https://aparsclassroom.com/img/bio.png">
-    <meta property="og:image:type" content="image/png">
-
 
     <!-- Style sheets -->
-    <link rel="stylesheet" href="../assets/minimal.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="/shop/assets/minimal.css">
+    <link rel="stylesheet" href="/shop/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/shop/assets/css/custom.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/shop/assets/css/print.css" media="print">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
-    <script src="../assets/js/script.js" defer></script>
+    <script src="/shop/assets/js/script.js" defer></script>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 
+    <style>
+        @media only screen and (max-width: 600px) {
+            #teachers img {
+                margin-left: 7px !important;
+            }
+        }
+        
+        #teachers img {
+            margin-left: 7px !important;
+        }
+    </style>
     <!-- Shop Scripts -->
     <script src="../assets/js/key.js" defer></script>
     <script src="/assets/js/count.js" defer></script>
-    <script src="assets/ss.min.js" defer></script>
-
+    <script src="./assets/info.js" defer></script>
+    <script src="./assets/ss.min.js" defer></script>
     <!-- Custom Scripts -->
-    <script src="../assets/js/shop.js" defer></script>
+    <script src="/shop//assets/js/shop.js" defer></script>
 </head>
 
 <body>
-    <div class="container flex-column">
-        <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
-        <h3 class="text-center">Product : <span id="prod"></span></h3>
-        <br>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3Gx8Ml5iFA0?modestbranding=0&controls=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd1080&enablejsapi=1&autoplay=" id="vid"></iframe>
-        </div>
-        <br>
-        <div class="cove">
-            <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span id="prevP"></span>৳</del> <span id="nop" style="color: rgb(26, 185, 66);"></span></span>
-            </h3>
-
-            <div class="d-flex justify-content-center">
-                <br> <button id="app" class="btn btn-outline-dark">Do you have any Coupon ?</button>
-                <div id="cup">
-                    <div class="input-group">
-                        <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" class="form-control" placeholder="Discount Coupon">
-                        <div class="input-group-append">
-                            <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
+    <nav class="navbar sticky-top navbar-light bg-transparent">
+        <a href="../" style="text-decoration: none;color: #115013;font-size: large;font-weight: bold;"><i class="fas fa-store-alt"></i> ASG Shop</a>
+    </nav>
+    <div class="main">
+        <div class="shopcontainer container-fluid">
+            <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
+            <h3 class="text-center"><span id="prod"></span></h3>
+            <div class="row">
+                <div id="teachers" class="col-md-7 first">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Teachers :</h2>
+                            <div class="teachers">
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide text-center"> <img src="https://i.postimg.cc/4yF2rf86/Screenshot-2021-12-13-054906.png" alt="Maisha Fairoz Nuha">
+                                            <h5 class="title.is-5 ">Maisha Fairoz Nuha</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                MBBS <br>Shaheed Suhrawardy Medical College<br><strong>Instructor : Biology</strong>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center"> <img src="https://i.postimg.cc/hvwM2CjM/Screenshot-2021-12-13-054944.png" alt="Tanvir Taswar">
+                                            <h5 class="title.is-5 ">Tanvir Taswar</h5>
+                                            <div class="content subtitle is-6 mb-1 collapsed">
+                                                MBBS <br>Dhaka Medical College<br><strong>Instructor : Biology</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-center" id="how" style="display: none;"></p>
+                    <div class="row">
+                        <div id="content" class="col-md-6">
+                            <h2>Course Content :</h2>
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0"></h5>
+                                        <button class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" id="d1" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="fa" aria-hidden="true"></i>
+                                           BioCasts
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div class="card-header" id="paper1">
+                                                <h5 class="mb-0">
+                                                    <button class="btn" data-toggle="collapse" data-target="#collapsepaper1" aria-expanded="true" aria-controls="pap1">
+                                                        <i class="fa" aria-hidden="true"></i>
+                                                        Biology 1st Paper
+                                          </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapsepaper1" class="collapse show" aria-labelledby="pap1" data-parent="#accordion1">
+                                                <div class="card-body bangla">
+                                                    <ol>
+                                                        <div id="Classes1" class="metaCont"><span id="loading1"></span>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 1: কোষ ও এর গঠন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 2: কোষ বিভাজন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 3: কোষ রসায়ন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 4: অণুজীব - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 5: শৈবাল ও ছত্রাক - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 6: ব্রায়োফাইটা ও টেরেডোফাইটা - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 7: নগ্নবীজী ও আবৃতবীজী উদ্ভিদ - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 8: টিস্যু ও টিস্যুতন্ত্র - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 9 : উদ্ভিদ শারীরতত্ত্ব - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 10: উদ্ভিদ প্রজনন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 11: জীবপ্রযুক্তি - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 12: জীবের পরিবেশ, বিস্তার ও সংরক্ষণ - 5 Classes
+                                                            </li>
+                                                        </div>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                            <div class="card-header" id="paper2">
+                                                <h5 class="mb-0">
+                                                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapsepaper2" aria-expanded="true" aria-controls="pap2">
+                                                        <i class="fa" aria-hidden="true"></i>
+                                                        Biology 2nd Paper
+                                          </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapsepaper2" class="collapse" aria-labelledby="pap2" data-parent="#accordion2">
+                                                <div class="card-body">
+                                                    <ol>
+                                                        <div id="Classes2" class="metaCont"><span id="loading2"></span>
+                                                            <li class="disabled bangla">
+                                                                🔒 Chapter 1: প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 2: প্রাণীর পরিচিতি - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 3: পরিপাক ও শোষণ - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 4: রক্ত ও সংবহন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 5 : শ্বসন ও শ্বাসক্রিয়া - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 6: বর্জ্য ও নিষ্কাশন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 7: চলন ও অঙগচালনা - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 8: সমন্বয় ও নিয়ন্ত্রণ - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 9: মানব জীবনের ধারাবাহিকতা - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 10: মানবদেহের প্রতিরক্ষা - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 11: জিনতত্ত্ব ও বিবর্তন - 5 Classes
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 12: প্রাণীর আচরণ - 5 Classes
+                                                            </li>
+                                                        </div>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Practice">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne2">
+                                        <h5 class="mb-0">
+                                            <button class="btn collapsed" data-toggle="collapse" data-target="#Practice1" id="d3" aria-expanded="true" aria-controls="Practice1">
+                                                <i class="fa" aria-hidden="true"></i>
+                                           Dictionary Words
+                                  </button>
+                                        </h5>
+                                    </div>
+                                    <div id="Practice1" class="collapse" aria-labelledby="headingOne2" data-parent="#Practice">
+                                        <div class="card-body bangla">
+                                            <ol>
+                                                <div id="prac1" class="metaCont"><span id="pra11">Loading...</span></div>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Exams">
+                                <div class="card">
+                                    <div class="card-header" id="ExamsCol">
+                                        <h5 class="mb-0">
+                                            <button class="btn collapsed" data-toggle="collapse" data-target="#Ep" aria-expanded="true" id="d5" aria-controls="ExamsCol">
+                                                <i class="fa" aria-hidden="true"></i>
+                                            Lecture Wise Exams
+                                  </button>
+                                        </h5>
+                                    </div>
+                                    <div id="Ep" class="collapse" aria-labelledby="ExamsCol" data-parent="#Examss">
+                                        <div class="card-body">
+                                            <div class="card-header" id="Examp">
+                                                <h5 class="mb-0">
+                                                    <button class="btn collapsed" data-toggle="collapse" data-target="#Exam11" aria-expanded="true" aria-controls="Exam11w">
+                                                        <i class="fa" aria-hidden="true"></i>
+                                                        Biology 1st Paper
+                                          </button>
+                                                </h5>
+                                            </div>
+                                            <div id="Exam11" class="collapse" aria-labelledby="pap11" data-parent="#Exams">
+                                                <div class="card-body bangla">
+                                                    <ol>
+                                                        <div id="ex1" class="metaCont"><span id="exloading11"></span>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 1: কোষ ও এর গঠন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 2: কোষ বিভাজন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 3: কোষ রসায়ন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 4: অণুজীব - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 5: শৈবাল ও ছত্রাক - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 6: ব্রায়োফাইটা ও টেরেডোফাইটা - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 7: নগ্নবীজী ও আবৃতবীজী উদ্ভিদ - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 8: টিস্যু ও টিস্যুতন্ত্র - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 9 : উদ্ভিদ শারীরতত্ত্ব - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 10: উদ্ভিদ প্রজনন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 11: জীবপ্রযুক্তি - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 12: জীবের পরিবেশ, বিস্তার ও সংরক্ষণ - 1 Exam(s)
+                                                            </li>
+                                                        </div>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                            <div class="card-header" id="exa2">
+                                                <h5 class="mb-0">
+                                                    <button class="btn collapsed" data-toggle="collapse" data-target="#ex22" aria-expanded="true" aria-controls="exa2">
+                                                        <i class="fa" aria-hidden="true"></i>
+                                                        Biology 2nd Paper
+                                          </button>
+                                                </h5>
+                                            </div>
+                                            <div id="ex22" class="collapse" aria-labelledby="pap22" data-parent="#exa2">
+                                                <div class="card-body bangla">
+                                                    <ol>
+                                                        <div id="ex2" class="metaCont"><span id="exloading22"></span>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 1: প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 2: প্রাণীর পরিচিতি - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 3: পরিপাক ও শোষণ - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 4: রক্ত ও সংবহন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 5 : শ্বসন ও শ্বাসক্রিয়া - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 6: বর্জ্য ও নিষ্কাশন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 7: চলন ও অঙগচালনা - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 8: সমন্বয় ও নিয়ন্ত্রণ - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 9: মানব জীবনের ধারাবাহিকতা - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 10: মানবদেহের প্রতিরক্ষা - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 11: জিনতত্ত্ব ও বিবর্তন - 1 Exam(s)
+                                                            </li>
+                                                            <li class="disabled">
+                                                                🔒 Chapter 12: প্রাণীর আচরণ - 1 Exam(s)
+                                                            </li>
+                                                        </div>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="mt-4">FAQ :</h2>
+                            <div id="Faq">
+                                <div class="card bangla">
+                                    <div class="card-header" id="faqs">
+                                        <h5 class="mb-0"></h5>
+                                        <button class="btn collapsed" data-toggle="collapse" data-target="#faqCl" aria-expanded="true" aria-controls="faqCl">
+                                                            <i class="fa" aria-hidden="true"></i>
+                                                            কোর্সটি কীভাবে কিনবো?
+                                                        </button>
+                                        </h5>
+                                    </div>
+                                    <div id="faqCl" class="collapse show" aria-labelledby="faqs" data-parent="#Faq">
+                                        <div class="card-body">
+                                            <p>বি.দ্র. কেনার পূর্বে অবশ্যই এই ভিডিওটি দেখে নাও : <br><a href="https://youtu.be/qKetBn9F2b0" target="_blank" rel="noopener noreferrer">https://youtu.be/qKetBn9F2b0</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center">
-                <!-- Button trigger modal -->
-                <button type="button" style="margin-top: 10px;" id="moda" class="btn btn-primary" data-toggle="modal">
-                   কোর্সটি কিনুন <i class="fas fa-arrow-right"></i>
-      </button>
+                <div id="video" class="col-md-5 flex-column">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div class="embed-responsive-item">
+                            <div id="thumb">
+                                <img src="/img/biology.jpeg" class="image-loaded">
+                                <img style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 45px; opacity: 1;" src="https://10minuteschool.com/assets/landing-page/video.svg">
+                            </div>
+                        </div>
+                        <div id="player"></div>
+                    </div>
+                    <div class="contmeta text-center">
+                        <div class="met">
+                            <div class="tag">
+                                <img src="https://10minuteschool.com/assets/icons/funnel/enroll.svg" alt="enrolled">
+                                <div class="flt bangla">
+                                    <span>
+                                কোর্সটি করছেন</span><strong id="enrolled" countTo="11680"></strong>
+                                </div>
+                            </div>
+                            <div class="tag">
+                                <img src="https://10minuteschool.com/assets/icons/funnel/hours_required.svg" alt="time required">
+                                <div class="flt bangla">
+                                    <span>
+                                সময়সীমা</span><strong id="duration">নেই</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag" id="con1"><i class="fas fa-check-circle"></i>&nbsp; লাইন বাই লাইন দাগানো ক্লাস
+                        </div>
+                        <div class="tag" id="con2"><i class="fas fa-check-circle"></i>&nbsp; দাগানো বইয়ের পিডিএফ কপি
+                        </div>
+                        <div class="tag" id="con4"><i class="fas fa-check-circle"></i>&nbsp; জটিল শব্দগুলোর সূত্রসহ ব্যাখ্যা
+                        </div>
+                        <div class="tag" id="con5"><i class="fas fa-check-circle"></i>&nbsp; প্রতি ক্লাসের পর এক্সাম
+                        </div>
+                    </div>
+                    <br>
+                    <div id="clprc" class="cove">
+
+                        <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span id="prevP"></span>৳</del> <span id="nop" style="color: rgb(26, 185, 66);"></span></span>
+                        </h3>
+
+                        <div class="justify-content-center">
+                            <button id="app" class="btn btn-block btn-outline-secondary">Do you have any <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/qrbokoyz.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#08a88a"
+                                    style="width:25px;height:25px">
+                                </lord-icon> Coupon ?</button>
+                            <div id="cup">
+                                <div id="coupnbosh" class="input-group">
+                                    <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" class="form-control" placeholder="Discount Coupon">
+                                    <div class="input-group-append">
+                                        <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
+                                    </div>
+                                </div>
+                                <p class="text-center" id="how" style="display: none;"></p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <!-- Button trigger modal -->
+                            <button type="button" style="margin-top: 10px;" id="moda" class="btn btn-block bangla btn-lg btn-success" data-toggle="modal">
+                               অ্যাপটির সাবস্ক্রিপশণ কিনুন <i class="fas fa-arrow-right"></i>
+                  </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <a target="_blank" href="https://www.sslcommerz.com/" title="SSLCommerz" alt="SSLCommerz"><img style="width:100%;height:auto;" src="/img/SSLCOMMERZ Pay With logo All Size_Aug 21-02.png" /></a>
+    <footer class="d-flex pb-5 pt-6 pt-md-7">
+        <div class="container">
+            <img style="width:100%;height:auto;margin-bottom: 50px;" src="/img/SSLCOMMERZ Pay With logo All Size_Aug 21-02.png" />
+            <div class="row">
+                <div class="col-lg-4">
+                    <p><strong>ASG Shop</strong> is the online shop of a popular Online Platform named Apar's Classroom. Currently more than 200K+ students of Bangladesh are learning and developing their skills using this online education platform.</p>
+                    <ul class="d-flex list-unstyled mb-5 mb-lg-0">
+                        <li class="mr-2">
+                            <a href="https://www.facebook.com/aparsclassroom/" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="facebook social link" data-toggle="tooltip" data-placement="top" title="Like @aparsclassroom on Facebook"><span aria-hidden="true" class="fab fa-facebook"></span></a>
+                        </li>
+                        <li class="mr-2">
+                            <a href="https://instagram.com/aparsclassroom" target="_blank" class="btn btn-icon-only btn-pill btn-outline-danger" aria-label="instagram social link" data-toggle="tooltip" data-placement="top" title="Follow @aparsclassroom on insta"><span aria-hidden="true" class="fab fa-instagram"></span></a>
+                        </li>
+                        <li class="mr-2"><a href="https://youtube.com/aparsclassroom" target="_blank" class="btn btn-icon-only btn-pill btn-danger" aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title="Subscribe our Channel"><span aria-hidden="true" class="fab fa-youtube"></span></a></li>
+                        <li class="mr-2"><a href="https://api.whatsapp.com/send?phone=+8801533688932" class="btn btn-icon-only btn-pill btn-success" aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title="Call Us"><span aria-hidden="true" class="fab fa-whatsapp"></span></a></li>
+                        <li class="mr-2"><a href="mailto:support@aparsclassroom.com" class="btn btn-icon-only btn-pill btn-dark" aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title="Email Us"><span aria-hidden="true" class="fas fa-envelope"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5>Important Links</h5>
+                    <ul class="footer-links list-unstyled mt-2">
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/terms.html">Terms and Conditions</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/privacy.html">Privacy Policy</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy.html">Return and Refund Policy</a></li>
+                        <li><a class="p-2" target="_blank" href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+                    <h5>Disclaimer</h5>
+                    <p class="text-gray font-small m-0">All the products are listed for sale in the shop, are owned by the Company. Anyone can buy personal license for the products. But Reselling are Strictly prohibited. Learn more about <a class="text-danger" href="/piracy.html">Anti-Piracy Laws</a>                        &amp; <a class="text-danger" href="/terms.html">Terms and Conditions</a>.
+                    </p>
+                </div>
+            </div>
+            <hr class="my-5">
+            <div class="row">
+                <div class="col">
+                    <a href="/" target="_blank" class="d-flex justify-content-center"><img src="/HSC-Full-Course/assets/images/Logo-with-Name.png" height="50" class="mb-3" alt="Apar's Classroom Logo"></a>
+                    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                        <p class="font-weight-normal font-small mb-0">&copy; <span class="current-year">2021</span> Apar's Classroom<br>All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Modal -->
     <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel" data-backdrop="static" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -129,8 +551,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="purchaseFrmLabel">Please fill up your Informations correctly</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <span aria-hidden="true">&times;</span>
+      </button>
                 </div>
                 <div class="modal-body">
                     <form id="purchase" name="purchase">
@@ -152,13 +574,13 @@
                             <div class="form-group col-md-6">
                                 <label for="hscBatch">HSC Batch</label>
                                 <select id="hscBatch" name="HSC Batch" required class="form-control">
-                                        <option value="">--Choose any--</option>
-                              <option value="HSC 21">HSC'21</option>
-                              <option value="HSC 22">HSC'22</option>
-                              <option value="HSC 23">HSC'23</option>
-                              <option value="HSC 20">HSC'20</option>
-                              <option value="Other">Other</option>
-                            </select>
+                                    <option value="">--Choose any--</option>
+                          <option value="HSC 21">HSC'21</option>
+                          <option value="HSC 22">HSC'22</option>
+                          <option value="HSC 23">HSC'23</option>
+                          <option value="HSC 20">HSC'20</option>
+                          <option value="Other">Other</option>
+                        </select>
                             </div>
                         </div>
                         <input type="text" name="disC" id="disC" class="form-control" style="display: none;" value="N/A">
@@ -179,8 +601,8 @@
                             <div class="form-check">
                                 <input class="form-check-input" required type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
-                              All the informations are correct &amp; I agree all the <a href="/terms.html" target="_blank">terms &amp; conditions </a> and <a href="/privacy.html" target="_blank">Privacy Policy </a> &amp; <a href="/return-and-refund-policy.html" target="_blank">Return Policy</a> 🥰
-                            </label>
+                          All the informations are correct &amp; I agree all the <a href="/terms.html" target="_blank">terms &amp; conditions </a> and <a href="/privacy.html" target="_blank">Privacy Policy </a> &amp; <a href="/return-and-refund-policy.html" target="_blank">Return Policy</a> 🥰
+                        </label>
                             </div>
                         </div>
                 </div>

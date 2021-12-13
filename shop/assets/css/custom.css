@@ -99,3 +99,11 @@ a:hover {
     border: #fff 1px solid;
     transform: scale(1.1);
 }
+
+.fa-check-circle {
+    color: #45c881;
+}
+
+.tag {
+    font-family: Kalpurush;
+}

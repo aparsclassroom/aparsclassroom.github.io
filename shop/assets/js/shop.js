@@ -1,9 +1,4 @@
-setTimeout(() => {
-    $("#vid")[0].src += "1";
-    $("#vid")[0].src;
-}, 1000)
-
-var re = /^(?:\+8801)?[13-9]\d{8}$/;
+var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
@@ -16,6 +11,7 @@ function testInfo(phoneNumberChk) {
     }
 }
 
+
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
 document.getElementById('prevP').innerText = fix;
@@ -25,81 +21,9 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        var str = window.location.search;
-        var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res != "aff-AAA" && res != "aff-AAA-ADB" && res != "aff-Campaign" && res.indexOf("aff") > -1 && localStorage.getItem(product) != res) {
-            swal({
-                    title: "আসসালালু আলাইকুম ❤",
-                    icon: "warning",
-                    text: "তুমি যার কাছ থেকে লিংকটি পেয়েছো সে কমেন্টে স্প্যামিং করেছে কিনা ?",
-                    closeOnClickOutside: false,
-                    dangerMode: true,
-                    buttons: ["না 😍", "হ্যাঁ 😠"]
-                })
-                .then((report) => {
-                    if (report) {
-                        let ne = "aff-AAA";
-                        localStorage.setItem(product, ne);
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                        var urlencoded = new URLSearchParams();
-                        urlencoded.append("Product", product);
-                        urlencoded.append("Affiliate Code", res);
-                        urlencoded.append("UID", e.uid);
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: urlencoded,
-                            redirect: 'follow'
-                        };
-                        fetch(reportApi, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then((res) => {
-                                $.notify({
-                                    message: res.message
-                                }, {
-                                    type: 'danger',
-                                    placement: {
-                                        from: "top",
-                                        align: 'center'
-                                    }
-                                });
-                                if (res.code != 400) {
-                                    swal({
-                                            title: "স্ক্রীনশট দিন",
-                                            icon: "warning",
-                                            text: "স্প্যামারের কমেন্টগুলোর স্ক্রীনশট তুলে আমাদের পাঠান",
-                                            closeOnClickOutside: false,
-                                            dangerMode: true,
-                                            buttons: ["না ঠিক আছে", "দিচ্ছি"]
-                                        })
-                                        .then((ss) => {
-                                            if (ss) {
-                                                window.open('mailto:feedback@aparsclassroom.com')
-                                            }
-                                        })
-                                }
-                            }).catch((err) => {
-                                swal({
-                                    title: "Error",
-                                    icon: "error",
-                                    text: err.message,
-                                    button: "Ok"
-                                }).then(() => {
-                                    location.reload()
-                                })
-                            })
-                    } else {
-                        localStorage.setItem(product, res);
-                    }
-                });
-        } else {
-            let ne = "aff-AAA";
-            localStorage.setItem(product, ne);
+        if (sessionStorage.getItem(product + '_potential') == 'true') {
+            $('#purchaseFrm').modal('show')
         }
-
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -126,7 +50,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (result.code === 200) {
                     localStorage.removeItem(product)
                     swal({
-                        title: result.message,
+                        title: "Already Enrolled !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
@@ -149,9 +73,19 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "college": document.getElementById('college').value.trim(),
                             "hsc": document.getElementById('hscBatch').value.trim(),
                             "phone": document.getElementById('phone').value.trim(),
-                            "aff": localStorage.getItem(product).trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid
+                            'uid': e.uid,
+                            "affiliate": getCookie("aff"),
+                            "utm_id": getCookie("utm_id"),
+                            "utm_source": getCookie("utm_source"),
+                            "utm_medium": getCookie("utm_medium"),
+                            "utm_campaign": getCookie("utm_campaign"),
+                            "utm_term": getCookie("utm_term"),
+                            "utm_content": getCookie("utm_content"),
+                            "lead": getCookie("lead"),
+                            "Referrer": getCookie("Referrer"),
+                            "Ip": getCookie("ip"),
+                            "Referrer": getCookie("Platform")
                         });
 
                         var requestOptions = {
@@ -189,6 +123,74 @@ firebase.auth().onAuthStateChanged(function(e) {
                             });
                     })
                 }
+            }).catch(() => {
+                const mfs = document.forms['purchase']
+                mfs.addEventListener('submit', em => {
+                    em.preventDefault();
+                    var mail = document.getElementById('email').value.toLowerCase().trim();
+                    document.getElementById('buy').innerText = "Please wait...."
+                    document.getElementById("buy").disabled = true;
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    var raw = JSON.stringify({
+                        "dicount_amount": disOFF,
+                        "product": product,
+                        "cus_name": document.getElementById('name').value.trim(),
+                        "email": mail,
+                        "college": document.getElementById('college').value.trim(),
+                        "hsc": document.getElementById('hscBatch').value.trim(),
+                        "phone": document.getElementById('phone').value.trim(),
+                        "aff": sessionStorage.getItem(product),
+                        "Cupon": document.getElementById('disC').value.trim(),
+                        'uid': e.uid,
+                        "affiliate": getCookie("affiliate"),
+                        "utm_id": getCookie("utm_id"),
+                        "utm_source": getCookie("utm_source"),
+                        "utm_medium": getCookie("utm_medium"),
+                        "utm_campaign": getCookie("utm_campaign"),
+                        "utm_term": getCookie("utm_term"),
+                        "utm_content": getCookie("utm_content"),
+                        "lead": getCookie("lead"),
+                        "Referrer": getCookie("Referrer"),
+                        "Ip": getCookie("ip"),
+                        "Referrer": getCookie("Platform")
+                    });
+
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
+
+                    fetch(`https://${shopName}/${productCode}/init`, requestOptions)
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(result => {
+                            if (result.status != 420) {
+                                location.href = result.url
+                            } else {
+                                swal({
+                                    title: result.message,
+                                    icon: "error"
+                                }).then(() => {
+                                    location.href = result.GatewayPageURL
+                                })
+                            }
+                        })
+                        .catch(() => {
+                            swal({
+                                title: "Error",
+                                icon: "error",
+                                text: "Server Busy 😶\nPlease Try Again later",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = result.GatewayPageURL
+                            })
+                        });
+                })
+
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
@@ -244,7 +246,11 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
+            method: 'GET',
+            credentials: 'include',
+            mode: 'cors'
+        })
         .then((res) => {
             return res.json();
         })
@@ -296,29 +302,3 @@ cpn.addEventListener('click', (e) => {
             })
         })
 })
-
-fetch(
-        "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572"
-    )
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        setCookie('ip', data.IPv4, 1)
-    })
-    .catch(() => {
-        setCookie('ip', '', 1)
-    })
-
-const urlParams = new URLSearchParams(location.search);
-
-for (const [key, value] of urlParams) {
-    setCookie(key, value, 1)
-}
-
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
-}

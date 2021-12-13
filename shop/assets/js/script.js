@@ -10,6 +10,33 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+fetch(
+        "https://api.ipify.org/?format=json"
+    )
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        setCookie('ip', data.ip, 1)
+    })
+    .catch(() => {
+        setCookie('ip', '', 1)
+    })
+
+const urlParams = new URLSearchParams(location.search);
+
+for (const [key, value] of urlParams) {
+    setCookie(key, value, 7)
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
+}
+
+
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
