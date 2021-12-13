@@ -1,4 +1,4 @@
-const product = "Engineering Admission Chemistry Course";
+const product = "Apar Chinmoy Engineering Chemistry Course";
 const productCode = "139";
 const fix = 3999;
 const pls = 2000;
