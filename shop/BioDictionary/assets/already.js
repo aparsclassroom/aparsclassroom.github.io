@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return response.json()
             })
             .then(result => {
-                if (result.code === 200) {
+                if (result.status === 200) {
                     var data = result.data;
                     document.getElementById('info').innerHTML = `
                     <h3>Purchase Information</h3>

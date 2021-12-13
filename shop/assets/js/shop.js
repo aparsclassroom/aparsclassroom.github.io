@@ -46,7 +46,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return response.json()
             })
             .then(result => {
-                if (result.code === 200) {
+                if (result.status === 200) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
