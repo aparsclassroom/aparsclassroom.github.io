@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Email : ${data.Email}<br>
                     Phone No. ${data.Phone}<br>
                     Purchased at : ${data.Timestamp}<br><br>
-                    App Group Link : <br><a href="${data.Webapp}" target="_blank">${data.Webapp}</a>
+                    App Group Link : <br><a href="${data.Product.Webapp}" target="_blank">${data.Product.Webapp}</a>
                     `;
 
                 } else {
