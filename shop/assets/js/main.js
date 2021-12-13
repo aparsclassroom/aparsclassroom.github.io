@@ -227,34 +227,8 @@ $('#exampleModal').on('hidden.bs.modal', function(e) {
     $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 })
 
-fetch(
-        "https://api.ipify.org/?format=json"
-    )
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        setCookie('ip', data.ip, 365)
-    })
-    .catch(() => {
-        setCookie('ip', '', 1)
-    })
-
-const urlParams = new URLSearchParams(location.search);
-
-for (const [key, value] of urlParams) {
-    setCookie(key, value, 1)
-}
-
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
-}
-
 var element = $('#countdown-gampang');
-var finish_d = new Date('December 12, 2021');
+var finish_d = new Date('December 15, 2021');
 finish_d.setDate(finish_d.getDate());
 element.CountdownGampang({
     rampung: finish_d,
