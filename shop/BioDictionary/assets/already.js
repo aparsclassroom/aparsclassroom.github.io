@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}/${productCode}/invoice`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -23,34 +23,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var data = result.data;
                     document.getElementById('info').innerHTML = `
                     <h3>Purchase Information</h3>
-                    Invoice : ${data.Invoice}<br>
                     Product : ${data.ProductName}<br>
-                    Discount Coupon : ${data.DiscountCupon}<br>
+                    Discount Coupon : ${data.Coupon}<br>
                     Paid Amount : ${data.currency_amount} ৳ <br>
-                    Username : ${data.CustomerName}<br>
+                    Username : ${data.Name}<br>
                     Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
-                    Email : ${data.value_b}<br>
-                    Phone No. ${data.value_c}<br>
-                    College : ${data.College}<br>
-                    HSC : ${data.HSC}<br>
+                    Email : ${data.Email}<br>
+                    Phone No. ${data.Phone}<br>
                     Purchased at : ${data.Timestamp}<br><br>
-                    App Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
-                    <br><br>
-                    <h3>Your App should be available in 24 hours.<br> so please have patience.</h3>
-
-                    Use this link to track Status :<br>
-                    <a href="../live-tracker.html">BioDictionary Tracker</a>
+                    App Group Link : <br><a href="${data.Webapp}" target="_blank">${data.Webapp}</a>
                     `;
-                    var clipboard = new ClipboardJS('.cp');
-                    clipboard.on('success', function(e) {
-                        alert("Copied successfully!!")
-                        document.getElementById('cpBtn').innerText = "Copied !";
-                        e.clearSelection();
-                    });
 
-                    clipboard.on('error', function(e) {
-                        alert('Action:', e.action);
-                    });
                 } else {
                     location.replace("./");
                 }
@@ -59,3 +42,15 @@ firebase.auth().onAuthStateChanged(function(e) {
         location.replace("/shop/dashboard/login.html");
     }
 })
+
+
+var clipboard = new ClipboardJS('.cp');
+clipboard.on('success', function(e) {
+    alert("Copied successfully!!")
+    document.getElementById('cpBtn').innerText = "Copied !";
+    e.clearSelection();
+});
+
+clipboard.on('error', function(e) {
+    alert('Action:', e.action);
+});
