@@ -147,7 +147,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
         });
 
         let domC4 = document.getElementById('Classes4');
-        as2.forEach(element => {
+        as4.forEach(element => {
             if (element.Playlist != "") {
                 domC4.innerHTML += `
                 <li>
@@ -207,7 +207,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
         });
 
         let domC44 = document.getElementById('notes4');
-        as2.forEach(element => {
+        as4.forEach(element => {
             if (element.Notes != "") {
                 domC44.innerHTML += `
                 <li>
@@ -247,7 +247,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
         });
 
         let qna44 = document.getElementById('qna4');
-        as2.forEach(element => {
+        as4.forEach(element => {
             qna44.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.QnAClass} Classes
@@ -280,7 +280,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
         });
 
         let prac44 = document.getElementById('prac4');
-        as2.forEach(element => {
+        as4.forEach(element => {
             prac44.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
