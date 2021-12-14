@@ -1,4 +1,4 @@
-const product = "Hasnat’s MediBiology and medi-exam pack";
+const product = "Hasnat's MediBiology and medi-exam pack";
 const productCode = "141";
 const fix = 3999;
 const pls = 1500;
