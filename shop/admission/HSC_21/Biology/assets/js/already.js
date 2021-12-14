@@ -37,16 +37,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                         <br><br>
                         `;
-                    var clipboard = new ClipboardJS('.cp');
-                    clipboard.on('success', function(e) {
-                        alert("Copied successfully!!")
-                        document.getElementById('cpBtn').innerText = "Copied !";
-                        e.clearSelection();
-                    });
-
-                    clipboard.on('error', function(e) {
-                        alert('Action:', e.action);
-                    });
                 } else {
                     location.replace("./");
                 }
@@ -57,3 +47,15 @@ firebase.auth().onAuthStateChanged(function(e) {
         location.replace("/shop/dashboard/login.html");
     }
 })
+
+
+var clipboard = new ClipboardJS('.cp');
+clipboard.on('success', function(e) {
+    alert("Copied successfully!!")
+    document.getElementById('cpBtn').innerText = "Copied !";
+    e.clearSelection();
+});
+
+clipboard.on('error', function(e) {
+    alert('Action:', e.action);
+});
