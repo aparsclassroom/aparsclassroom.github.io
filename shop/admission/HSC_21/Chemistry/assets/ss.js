@@ -1,3 +1,14 @@
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1.9,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+        delay: 4000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next'
+    },
+});
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
