@@ -1,7 +1,7 @@
 const product = "Medical English (A--Z)";
 const productCode = "137";
 const fix = 3100;
-const pls = 1500;
+const pls = 2100;
 const appl = "https://www.facebook.com/groups/2942510376000217";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
