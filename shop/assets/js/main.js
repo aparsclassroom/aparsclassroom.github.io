@@ -235,15 +235,15 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: 'ZCcuux-w44E',
-        playerVars: { 'autoplay': 1, 'playsinline': 0, 'modestbranding': 1, 'rel': 0, 'controls': 0 },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
+    // player = new YT.Player('player', {
+    //     height: '390',
+    //     width: '640',
+    //     videoId: 'ZCcuux-w44E',
+    //     playerVars: { 'autoplay': 0, 'playsinline': 0, 'modestbranding': 1, 'rel': 0, 'controls': 0 },
+    //     events: {
+    //         'onReady': onPlayerReady
+    //     }
+    // });
 }
 
 function onPlayerReady(event) {
