@@ -29,3 +29,7 @@
 .fa-fire {
     color: red;
 }
+
+#thumbnail-vid img {
+    height: 100vh;
+}

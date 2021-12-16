@@ -227,6 +227,31 @@ $('#exampleModal').on('hidden.bs.modal', function(e) {
     $('#popup-youtube-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 })
 
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'ZCcuux-w44E',
+        playerVars: { 'autoplay': 1, 'playsinline': 0, 'modestbranding': 1, 'rel': 0, 'controls': 0 },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    document.getElementById('thumb').style.display = "none";
+    event.target.setVolume(100);
+    event.target.playVideo();
+}
+
 var element = $('#countdown-gampang');
 var finish_d = new Date('December 20, 2021');
 finish_d.setDate(finish_d.getDate());
