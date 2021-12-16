@@ -37,3 +37,11 @@
 #thumbnail-vid img {
     height: 100vh;
 }
+
+.fa-circle-check {
+    color: #45c881;
+}
+
+.fa-circle-check:hover {
+    transform: scale(1.5);
+}
