@@ -247,7 +247,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
+    document.getElementById('thumbnail-vid').style.display = "none";
     event.target.setVolume(100);
     event.target.playVideo();
 }
