@@ -1,4 +1,4 @@
-const product = "University Admission English (A+B+C+D Unit)";
+const product = "University Admission English (A+D / B+D / C+D Unit)";
 const productCode = "145";
 const fix = 3100;
 const pls = 2100;
