@@ -251,14 +251,3 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
-
-var element = $('#countdown-gampang');
-var finish_d = new Date('December 20, 2021');
-finish_d.setDate(finish_d.getDate());
-element.CountdownGampang({
-    rampung: finish_d,
-    theme: "flat-colors-black"
-}, function() {
-    document.getElementById('hsc').innerHTML = "Today is the HSC 2021 Higher Math / Biology 2<sup>nd</sup> Exam !<br><strong>Good Luck ❤️</strong>";
-
-});

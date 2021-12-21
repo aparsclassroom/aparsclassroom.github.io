@@ -137,31 +137,6 @@
     </nav>
 
     <div class="container">
-        <div class="container text-center" style="margin:150px auto">
-            <h2 id="hsc" class="text-center">HSC 2021 Math / Biology (2<sup>nd</sup>)<br> Countdown</h2>
-            <div class="clock">
-                <div class="column days">
-                    <div class="timer" id="days"></div>
-                    <div class="text">DAYS</div>
-                </div>
-                <div class="timer days">:</div>
-                <div class="column">
-                    <div class="timer" id="hours"></div>
-                    <div class="text">HOURS</div>
-                </div>
-                <div class="timer">:</div>
-                <div class="column">
-                    <div class="timer" id="minutes"></div>
-                    <div class="text">MINUTES</div>
-                </div>
-                <div class="timer">:</div>
-                <div class="column">
-                    <div class="timer" id="seconds"></div>
-                    <div class="text">SECONDS</div>
-                </div>
-            </div>
-        </div>
-
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
             <div class="row">
                 <div class="col-12 col-md">
@@ -219,67 +194,6 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
         <script src="/shop/assets/js/script.js"></script>
         <script src="/assets/js/stat.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone-with-data.js"></script>
-        <script>
-            $(function() {
-                function timer(settings) {
-                    var config = {
-                        endDate: '2021-12-20 10:00',
-                        timeZone: 'Asia/Dhaka',
-                        hours: $('#hours'),
-                        minutes: $('#minutes'),
-                        seconds: $('#seconds'),
-                    };
-
-                    function prependZero(number) {
-                        return number < 10 ? '0' + number : number;
-                    }
-                    $.extend(true, config, settings || {});
-                    var currentTime = moment();
-                    var endDate = moment.tz(config.endDate, config.timeZone);
-                    var diffTime = endDate.valueOf() - currentTime.valueOf();
-                    var duration = moment.duration(diffTime, 'milliseconds');
-                    var days = duration.days();
-                    var interval = 1000;
-                    var subMessage = $('.sub-message');
-                    var clock = $('.clock');
-                    if (diffTime < 0) {
-                        endEvent(subMessage, config.newSubMessage, clock);
-                        return;
-                    }
-                    if (days > 0) {
-                        $('#days').text(prependZero(days));
-                        $('.days').css('display', 'inline-block');
-                    }
-                    var intervalID = setInterval(function() {
-                        duration = moment.duration(duration - interval, 'milliseconds');
-                        var hours = duration.hours(),
-                            minutes = duration.minutes(),
-                            seconds = duration.seconds();
-                        days = duration.days();
-                        if (hours <= 0 && minutes <= 0 && seconds <= 0 && days <= 0) {
-                            clearInterval(intervalID);
-                            endEvent(subMessage, config.newSubMessage, clock);
-                            window.location.reload();
-                        }
-                        if (days === 0) {
-                            $('.days').hide();
-                        }
-                        $('#days').text(prependZero(days));
-                        config.hours.text(prependZero(hours));
-                        config.minutes.text(prependZero(minutes));
-                        config.seconds.text(prependZero(seconds));
-                    }, interval);
-                }
-
-                function endEvent($el, newText, hideEl) {
-                    $el.text(newText);
-                    hideEl.hide();
-                }
-                timer();
-            });
-        </script>
 </body>
 
 </html>
