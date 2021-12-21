@@ -25,11 +25,11 @@ var player;
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
 
 fetch(`https://${shopName}/${productCode}/contents`)
     .then((res) => {
