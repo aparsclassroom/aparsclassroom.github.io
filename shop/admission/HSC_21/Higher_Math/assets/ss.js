@@ -43,7 +43,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
         document.getElementById('con6').innerHTML = `<i class="fas fa-user-graduate"></i>&nbsp;${types[5].TotalClasses} ${types[5].ContType} `;
-        document.getElementById('duration').innerHTML = `${types[6].TotalClasses} মাস`;
+        document.getElementById('duration').innerHTML = `${types[7].TotalClasses} মাস`;
         document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
