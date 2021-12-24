@@ -6,6 +6,12 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
+const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+if (!countUp.error) {
+    countUp.start();
+} else {
+    console.error(countUp.error);
+}
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
