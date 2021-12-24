@@ -70,7 +70,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('ws11').innerHTML = "";
         document.getElementById('ws22').innerHTML = "";
         document.getElementById('ws33').innerHTML = "";
-        document.getElementById('ws44').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
         document.getElementById('pra22').innerHTML = "";
         document.getElementById('pra33').innerHTML = "";
