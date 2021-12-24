@@ -103,55 +103,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         });
 
 
-        let domC1 = document.getElementById('notes1');
-        as.forEach(element => {
-            if (element.Notes != "") {
-                domC1.innerHTML += `
-                <li>
-                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
-
-        let domC22 = document.getElementById('notes2');
-        as2.forEach(element => {
-            if (element.Notes != "") {
-                domC22.innerHTML += `
-                <li>
-                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
-
-
-
-        let qna1 = document.getElementById('qna1');
-        as.forEach(element => {
-            qna1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-
-        });
-
-        let qna22 = document.getElementById('qna2');
-        as2.forEach(element => {
-            qna22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-        });
-
         let prac1 = document.getElementById('prac1');
         as.forEach(element => {
             prac1.innerHTML += `
