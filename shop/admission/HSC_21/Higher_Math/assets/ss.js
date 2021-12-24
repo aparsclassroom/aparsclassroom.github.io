@@ -64,6 +64,8 @@ fetch(`https://script.google.com/macros/s/AKfycbzVbICTE8cclbEYfhYS0Ae4UkfezAhtc2
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";
+        document.getElementById('prac1').innerHTML = "";
+        document.getElementById('prac2').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
         document.getElementById('exloading22').innerHTML = "";
 
