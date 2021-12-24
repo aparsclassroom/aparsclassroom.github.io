@@ -36,7 +36,7 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
-fetch(`https://${shopName}/${productCode}/contents`)
+fetch(`https://script.google.com/macros/s/AKfycbzVbICTE8cclbEYfhYS0Ae4UkfezAhtc2bSqOMGj1Gy_k9janPcSWp3am9RoQ3tyBCA/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
