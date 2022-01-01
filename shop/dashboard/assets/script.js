@@ -29,16 +29,16 @@
                 signInOptions: [
                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                    //  {
-                    //     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                    //     recaptchaParameters: {
-                    //         type: 'image',
-                    //         size: 'invisible',
-                    //         badge: 'bottomleft'
-                    //     },
-                    //     defaultCountry: 'BD',
-                    //     whitelistedCountries: ['BD', '+880', 'IN', '+91']
-                    // }
+                    {
+                        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                        recaptchaParameters: {
+                            type: 'image',
+                            size: 'invisible',
+                            badge: 'bottomleft'
+                        },
+                        defaultCountry: 'BD',
+                        whitelistedCountries: ['BD', '+880', 'IN', '+91']
+                    }
                 ],
                 tosUrl: '/terms.html',
                 privacyPolicyUrl: '/privacy.html'
