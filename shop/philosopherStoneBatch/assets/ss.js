@@ -1,7 +1,7 @@
 const product = "ASG Philosopher's Stone Batch";
 const productCode = "129";
 const fix = 2000;
-const pls = 500;
+const pls = 1000;
 const appl = "https://www.facebook.com/groups/stonebatch/";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
