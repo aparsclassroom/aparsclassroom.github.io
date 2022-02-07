@@ -124,7 +124,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     })
                                     .then(result => {
                                         if (result.status == 200) {
-                                            location.href = result.url
+                                            location.href = result.GatewayPageURL
                                         } else {
                                             swal({
                                                 title: result.message,
@@ -179,7 +179,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             })
                             .then(result => {
                                 if (result.status == 200) {
-                                    location.href = result.url
+                                    location.href = result.GatewayPageURL
                                 } else {
                                     swal({
                                         title: result.message,
@@ -234,7 +234,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                         .then(result => {
                             if (result.status == 200) {
-                                location.href = result.url
+                                location.href = result.GatewayPageURL
                             } else {
                                 swal({
                                     title: result.message,
