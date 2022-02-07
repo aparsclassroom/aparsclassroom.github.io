@@ -27,14 +27,14 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Invoice : ${data.invoice}<br>
                         Product : ${data.ProductName}<br>
                         Paid Amount : ${data.amount} ৳ <br>
-                        Username : ${data.Name}<br>
-                        Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
                         Email : ${data.email}<br>
                         Phone No. ${data.phone}<br>
                         College : ${data.College}<br>
                         HSC : ${data.HSC}<br>
                         Purchased at : ${data.time}<br><br>
-                        Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
+                        Username : ${data.Name}<br>
+                        Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
+                        Webapp Link : <br><a href="${appl}" target="_blank">${appl}</a>
                         <br><br>
                         `;
                     var clipboard = new ClipboardJS('.cp');
