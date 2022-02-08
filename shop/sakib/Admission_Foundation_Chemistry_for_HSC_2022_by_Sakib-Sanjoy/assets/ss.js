@@ -1,5 +1,5 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1.9,
+    slidesPerView: 2,
     spaceBetween: 10,
     loop: false,
     autoplay: {
@@ -25,17 +25,17 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: 'tr8ECpJa400',
-        playerVars: { 'autoplay': 1, 'playsinline': 1 },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
+// function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('player', {
+//         height: '390',
+//         width: '640',
+//         videoId: '',
+//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
+//         events: {
+//             'onReady': onPlayerReady
+//         }
+//     });
+// }
 
 function onPlayerReady(event) {
     document.getElementById('thumb').style.display = "none";
@@ -43,18 +43,12 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-fetch(`https://script.google.com/macros/s/AKfycbyzmc9PIPtS-jUU153RL8hBClSiVmbN_DufBumKEZ2ePZXPTGUF7UEGfG8z2Y94pyP6/exec?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbxI8Y2reqfJiwA6qv0hpoT94DgEHBJUrNHp86v8h8_PDO6JPUJ4nZb59WPyT_lSIT30/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
         let types = data.types;
-
-        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
-        document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
-        document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
@@ -63,7 +57,6 @@ fetch(`https://script.google.com/macros/s/AKfycbyzmc9PIPtS-jUU153RL8hBClSiVmbN_D
                 console.error(countUp.error);
             }
         }
-        document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
