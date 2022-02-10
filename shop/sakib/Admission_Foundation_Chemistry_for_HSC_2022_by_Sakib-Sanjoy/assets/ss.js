@@ -10,6 +10,13 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
+const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+if (!countUp.error) {
+    countUp.start();
+} else {
+    console.error(countUp.error);
+}
+
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -49,6 +56,7 @@ fetch(`https://script.google.com/macros/s/AKfycbxI8Y2reqfJiwA6qv0hpoT94DgEHBJUrN
     })
     .then((data) => {
         let types = data.types;
+        document.getElementById('enrolled').setAttribute('countTo', types[6].ContType);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
@@ -57,48 +65,6 @@ fetch(`https://script.google.com/macros/s/AKfycbxI8Y2reqfJiwA6qv0hpoT94DgEHBJUrN
                 console.error(countUp.error);
             }
         }
-        document.getElementById('loading1').innerHTML = "";
-        document.getElementById('pra11').innerHTML = "";
-        document.getElementById('exloading11').innerHTML = "";
-
-        let classes = data.classes;
-
-
-        let domC = document.getElementById('Classes1');
-        classes.forEach(element => {
-            if (element.Playlist != "") {
-                domC.innerHTML += `
-                <li>
-                <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.SubAndPaper} - ${element.LiveClass} Classes</a>
-                </li>`
-            } else {
-                domC.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.SubAndPaper} - ${element.LiveClass} Classes
-                </li>`
-            }
-
-        });
-
-        let prac1 = document.getElementById('prac1');
-        classes.forEach(element => {
-            prac1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.SubAndPaper} - ${element.LectureSheet} Sheets
-                </li>`
-
-        });
-
-
-        let ex1 = document.getElementById('ex1');
-        classes.forEach(element => {
-            ex1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.SubAndPaper} - ${element.Exam} Exam(s)
-                </li>`
-
-        });
-
 
     })
     .catch((err) => {
