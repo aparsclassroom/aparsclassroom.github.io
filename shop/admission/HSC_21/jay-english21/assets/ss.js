@@ -38,6 +38,9 @@ fetch(`https://script.google.com/macros/s/AKfycbybPisP2Jk5_9Jmc6CzcnOwm71J6r8tGy
         let types = data.types;
 
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
+        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; 17 Lecture Sheets `;
+        document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;17 Class Tests `;
+        document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;3 Model Tests`;
         document.getElementById('duration').innerHTML = `Self Paced`;
         document.getElementById('enrolled').setAttribute('countTo', types[3].TotalClasses);
         if (document.getElementById('enrolled')) {
@@ -48,8 +51,8 @@ fetch(`https://script.google.com/macros/s/AKfycbybPisP2Jk5_9Jmc6CzcnOwm71J6r8tGy
                 console.error(countUp.error);
             }
         }
-        document.getElementById('con2').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-        document.getElementById('con3').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
+        document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
+        document.getElementById('con6').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
     })
     .catch((err) => {
         console.log(err)
