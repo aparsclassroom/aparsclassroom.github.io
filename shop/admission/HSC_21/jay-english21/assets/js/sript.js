@@ -12,7 +12,7 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = product + " | ASG Shop";
+document.title = "Engineering English 2021 | ASG Shop";
 document.getElementById('prod').innerText = "Engineering English 2021";
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
