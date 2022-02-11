@@ -38,7 +38,7 @@ fetch(`https://script.google.com/macros/s/AKfycbybPisP2Jk5_9Jmc6CzcnOwm71J6r8tGy
         let types = data.types;
 
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('duration').innerHTML = `${types[4].TotalClasses} মাস`;
+        document.getElementById('duration').innerHTML = `Self Paced`;
         document.getElementById('enrolled').setAttribute('countTo', types[3].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
