@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = "Engineering English 2021 | ASG Shop";
-document.getElementById('prod').innerText = "Engineering English 2021";
+document.title = "Admission English (Engineering + Medical + University) | ASG Shop";
+document.getElementById('prod').innerText = "Admission English (Engineering + Medical + University)";
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
