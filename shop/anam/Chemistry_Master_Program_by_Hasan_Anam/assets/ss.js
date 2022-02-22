@@ -43,7 +43,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-fetch(`https://script.google.com/macros/s/AKfycbxIkXlN033unM4bj3qziwwxkUJsUBeixRq9jumVTEAmNrOhj4RB-QYntMsGwVT6xTVw/exec?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycby1UsFPNKe7FOiiVeoWdeuZLB58K9okUu6-h795OE7e5tV0LpumeS1uZRL9t_yWyAQ4/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
