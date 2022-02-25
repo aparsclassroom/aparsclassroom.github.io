@@ -50,7 +50,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
         let guidelines = data.guidelines;
 
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
@@ -65,7 +64,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
             }
         }
         document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-        document.getElementById('con8').innerHTML = `<i class="fab fa-discord"></i>&nbsp; Discord Server`;
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";
@@ -77,7 +75,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('pra22').innerHTML = "";
         document.getElementById('exloading11').innerHTML = "";
         document.getElementById('exloading22').innerHTML = "";
-        document.getElementById('gload').innerHTML = "";
 
         let classes = data.classes;
 
@@ -120,56 +117,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
             }
         });
 
-
-        let domC1 = document.getElementById('notes1');
-        as.forEach(element => {
-            if (element.Notes != "") {
-                domC1.innerHTML += `
-                <li>
-                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
-
-        let domC22 = document.getElementById('notes2');
-        as2.forEach(element => {
-            if (element.Notes != "") {
-                domC22.innerHTML += `
-                <li>
-                <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
-
-
-
-        let qna1 = document.getElementById('qna1');
-        as.forEach(element => {
-            qna1.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-
-        });
-
-        let qna22 = document.getElementById('qna2');
-        as2.forEach(element => {
-            qna22.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-        });
-
         let prac1 = document.getElementById('prac1');
         as.forEach(element => {
             prac1.innerHTML += `
@@ -201,13 +148,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
             ex22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
-                </li>`
-        });
-        let guides = document.getElementById('guides');
-        guidelines.forEach(element => {
-            guides.innerHTML += `
-                <li class="disabled">
-                🔒 ${element.sessionName} - ${element.Month}
                 </li>`
         });
 
