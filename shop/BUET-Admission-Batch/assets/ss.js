@@ -23,23 +23,23 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: 'kQFt_UVBJfI',
-        playerVars: { 'autoplay': 1, 'playsinline': 1 },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
+// function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('player', {
+//         height: '390',
+//         width: '640',
+//         videoId: '',
+//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
+//         events: {
+//             'onReady': onPlayerReady
+//         }
+//     });
+// }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
 
 fetch(`${courseContent}?productCode=${productCode}`)
     .then((res) => {
@@ -67,8 +67,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";
-        document.getElementById('loading11').innerHTML = "";
-        document.getElementById('loading22').innerHTML = "";
         document.getElementById('ws11').innerHTML = "";
         document.getElementById('ws22').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";
