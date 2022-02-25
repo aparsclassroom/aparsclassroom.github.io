@@ -1,5 +1,5 @@
-const product = "BUET Admission Batch'21";
-const appl = "https://www.facebook.com/groups/aparchinmoyadmission21/";
+const product = "Apar-Chinmoy 85 days Engineering Physics Plan";
+const appl = "https://www.facebook.com/groups/85days.buet.aparchinmoy";
 const WebApp = "https://buet21.aparsclassroom.com/login";
 const productCode = "113";
 const fix = 7000;
