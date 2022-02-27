@@ -81,6 +81,24 @@
     <script src="/assets/js/stat.js" defer></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/assets/css/about.css">
+    
+    <script>
+        (function(d,t) {
+          var BASE_URL="https://chat-aparsclassroom.herokuapp.com";
+          var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+          g.src=BASE_URL+"/packs/js/sdk.js";
+          g.defer = true;
+          g.async = true;
+          s.parentNode.insertBefore(g,s);
+          g.onload=function(){
+            window.chatwootSDK.run({
+              websiteToken: 'i7BUiTk22fcVxDgKtG6yjVC4',
+              baseUrl: BASE_URL
+            })
+          }
+        })(document,"script");
+      </script>
+      
 </head>
 
 <body>
