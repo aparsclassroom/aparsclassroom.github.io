@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = "Admission English (Engineering + Medical + University) | ASG Shop";
-document.getElementById('prod').innerText = "Admission English (Engineering + Medical + University)";
+document.title = "Admission English (Varsity+Medical+Engineering) | ASG Shop";
+document.getElementById('prod').innerText = "Admission English (Varsity+Medical+Engineering)";
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
