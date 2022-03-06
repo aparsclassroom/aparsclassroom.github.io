@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (res != "" && res.indexOf("utm") > -1) {
             sessionStorage.setItem(product, res);
         } else {
-            let ne = "utm=Mridul";
+            let ne = "utm=Organic";
             sessionStorage.setItem(product, ne);
         }
 
@@ -42,7 +42,8 @@ firebase.auth().onAuthStateChanged(function(e) {
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
             "product": product,
-            'uid': e.uid
+            'uid': e.uid,
+            "cycle": Cycle
         });
 
         var requestOptions = {

@@ -5,8 +5,6 @@ const productCode = "155";
 const fix = 1500;
 const pls = 750;
 
-const reportApi = "https://script.google.com/macros/s/AKfycby1UsFPNKe7FOiiVeoWdeuZLB58K9okUu6-h795OE7e5tV0LpumeS1uZRL9t_yWyAQ4/exec";
-
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -41,7 +39,7 @@ var player;
 //     event.target.playVideo();
 // }
 
-fetch(`${courseContent}?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbzF8XAV1TLDpz2f_GUsEQlsFlVUEGdxhrZMMS6pL_0a3mXQzGRaUevfvkE4i0wzG-r2pA/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
@@ -51,8 +49,7 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('con6').innerHTML = `<i class="fas fa-user-graduate"></i>&nbsp;${types[5].TotalClasses} ${types[5].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
+        document.getElementById('enrolled').setAttribute('countTo', types[5].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
