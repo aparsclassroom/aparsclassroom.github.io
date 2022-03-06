@@ -61,7 +61,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (result.code === 200) {
                     localStorage.removeItem(product)
                     swal({
-                        title: result.message,
+                        title: "Already Purchased this Cycle !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {

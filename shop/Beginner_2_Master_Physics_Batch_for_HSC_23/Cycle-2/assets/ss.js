@@ -3,7 +3,7 @@ const appl = "https://www.facebook.com/groups/hsc23b2m11";
 const WebApp = "https://hsc23.beginner2master.com/login";
 const productCode = "155";
 const fix = 1500;
-const pls = 750;
+const pls = 800;
 
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -49,7 +49,7 @@ fetch(`https://script.google.com/macros/s/AKfycbzF8XAV1TLDpz2f_GUsEQlsFlVUEGdxhr
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[5].TotalClasses);
+        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
