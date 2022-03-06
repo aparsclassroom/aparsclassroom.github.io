@@ -25,15 +25,14 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var data = result.data[0];
                     document.getElementById('info').innerHTML = `
                     <h3>Purchase Information</h3>
-                    Invoice : ${data.Invoice}<br>
+                    Invoice : ${data.invoice}<br>
                     Product : ${data.ProductName}<br>
                     Access : ${data.Cycle}<br>
-                    Discount Coupon : ${data.DiscountCupon}<br>
-                    Paid Amount : ${data.currency_amount} ৳ <br>
-                    Username : ${data.CustomerName}<br>
+                    Paid Amount : ${data.amount} ৳ <br>
+                    Username : ${data.Name}<br>
                     Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Joining Id </button><br>
-                    Email : ${data.value_b}<br>
-                    Phone No. ${data.value_c}<br>
+                    Email : ${data.email}<br>
+                    Phone No. ${data.phone}<br>
                     HSC : ${data.HSC}<br>
                     Purchased at : ${data.Timestamp}<br><br>
                     Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
@@ -41,8 +40,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     <h3>Your Group Join request should be approved in 24-48 hours.<br> so please have patience.</h3>
                     <br><br>
                     <h3>WebApp Credentials</h3>
-                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br>
-                                Joining Id  : <span id="pass2">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy Joining Id </button><br>
+                                WebApp Link : <a href="${WebApp}" target="_blank">${WebApp}</a><br><br>
+                                ${data.Cycle} Joining Id  : <span id="pass2">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn2" class="cp btn btn-success d-print-none" data-clipboard-target="#pass2">Copy ${data.Cycle} Joining Id </button><br>
                     `;
                     var clipboard = new ClipboardJS('.cp');
                     clipboard.on('success', function(e) {
