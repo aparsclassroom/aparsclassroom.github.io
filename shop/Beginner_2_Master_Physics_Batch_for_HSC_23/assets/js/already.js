@@ -30,11 +30,11 @@ firebase.auth().onAuthStateChanged(function(e) {
                     Access : ${data.Cycle}<br>
                     Paid Amount : ${data.amount} ৳ <br>
                     Username : ${data.Name}<br>
-                    Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Joining Id </button><br>
+                    ${data.Cycle} Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy ${data.Cycle} Joining Id </button><br>
                     Email : ${data.email}<br>
                     Phone No. ${data.phone}<br>
                     HSC : ${data.HSC}<br>
-                    Purchased at : ${data.Timestamp}<br><br>
+                    Purchased at : ${data.time}<br><br>
                     Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                     <br><br>
                     <h3>Your Group Join request should be approved in 24-48 hours.<br> so please have patience.</h3>
