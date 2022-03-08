@@ -23,13 +23,13 @@ firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
         if (sessionStorage.getItem(product + '_potential') == 'true') {
-            $('#purchaseFrm').modal('show')
+          //  $('#purchaseFrm').modal('show')
         }
         var res = str.split("&")[0].substring(1, 16);
         if (res != "") {
             sessionStorage.setItem(product, res);
         } else {
-            let ne = "utm=Mridul";
+            let ne = "utm=Organic";
             sessionStorage.setItem(product, ne);
         }
         var t = e.phoneNumber;
@@ -83,7 +83,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
-                        var coup = sessionStorage.getItem(product + ' Coupon')
+                        var coup = sessionStorage.getItem(product)
                         if (coup != null) {
                             var myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/json");
@@ -355,6 +355,7 @@ cpn.addEventListener('click', (e) => {
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
                 document.getElementById('disC').value = loadedData.Cupon;
+                sessionStorage.setItem(product, loadedData.Cupon);
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
                 document.getElementById('coupnbosh').style.display = "none";
