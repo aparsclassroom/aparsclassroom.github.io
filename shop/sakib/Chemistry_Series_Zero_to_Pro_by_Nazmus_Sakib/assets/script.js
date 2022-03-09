@@ -11,7 +11,7 @@ function testInfo(phoneNumberChk) {
     }
 }
 
-const Cycle = location.pathname.split('/')[3];
+const Cycle = location.pathname.split('/')[4];
 
 document.title = product + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${product}<br>(${Cycle})`;
