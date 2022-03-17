@@ -49,7 +49,7 @@ fetch(`https://script.google.com/macros/s/AKfycbwfeHrmHnwkPzQFePu2qPXj59w9VwPySy
     })
     .then((data) => {
         let types = data.types;
-        document.getElementById('enrolled').setAttribute('countTo', types[3].ContType);
+        document.getElementById('enrolled').setAttribute('countTo', types[3].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
