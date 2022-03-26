@@ -45,7 +45,7 @@ fetch(`https://${shopName}/${productCode}/contents`)
     })
     .then((data) => {
         let types = data.types;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
+        document.getElementById('enrolled').setAttribute('countTo', types[6].ContType);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
