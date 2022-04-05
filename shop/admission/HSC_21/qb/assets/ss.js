@@ -41,7 +41,7 @@ fetch(`https://script.google.com/macros/s/AKfycbzJu87U29nGZU2cMJuG1iqs7FUJK_haxr
         document.getElementById('con2').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; মডেলটেস্ট`;
         document.getElementById('con3').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; গুচ্ছ ইউনিভার্সিটি এবং ইঞ্জিনিয়ারিং কভার`;
         document.getElementById('duration').innerHTML = `Self Paced`;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
+        document.getElementById('enrolled').setAttribute('countTo', types[6].ContType);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
