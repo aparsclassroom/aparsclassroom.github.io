@@ -100,13 +100,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result.GatewayPageURL
+                                    location.href = result.url
                                 } else {
                                     swal({
                                         title: result.message,
                                         icon: "error"
                                     }).then(() => {
-                                        location.href = result.GatewayPageURL
+                                        location.href = result.url
                                     })
                                 }
                             })
@@ -117,7 +117,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     text: "Server Busy 😶\nPlease Try Again later",
                                     button: "Ok"
                                 }).then(() => {
-                                    location.href = result.GatewayPageURL
+                                    location.href = result.url
                                 })
                             });
                     })
@@ -157,13 +157,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                         .then(result => {
                             if (result.status != 420) {
-                                location.href = result.GatewayPageURL
+                                location.href = result.url
                             } else {
                                 swal({
                                     title: result.message,
                                     icon: "error"
                                 }).then(() => {
-                                    location.href = result.GatewayPageURL
+                                    location.href = result.url
                                 })
                             }
                         })
@@ -174,7 +174,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 text: "Server Busy 😶\nPlease Try Again later",
                                 button: "Ok"
                             }).then(() => {
-                                location.href = result.GatewayPageURL
+                                location.href = result.url
                             })
                         });
                 })
