@@ -1,7 +1,7 @@
 const product = "HSC REVISION AND ADMISSION MATH MMV";
 const productCode = "134";
-const fix = 4500;
-const pls = 2500;
+const fix = 9000;
+const pls = 2000;
 const appl = "https://www.facebook.com/groups/363660372025897";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
