@@ -162,7 +162,8 @@
                     `;
                         }
                     })
-                    .catch(() => {
+                    .catch((err) => {
+                        console.log(err)
                         document.getElementById('title').innerHTML = "Payment History not found !";
                     }).catch(error => document.getElementById('title').innerHTML = "Payment History not found !");
             } else {
