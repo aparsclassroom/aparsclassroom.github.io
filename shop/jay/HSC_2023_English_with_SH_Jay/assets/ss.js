@@ -43,7 +43,7 @@ var player;
 //     event.target.playVideo();
 // }
 
-fetch(`https://script.google.com/macros/s/AKfycbwfeHrmHnwkPzQFePu2qPXj59w9VwPySyRIuyyMdHhQD-oqMOfzmtGD0RijGK5HYYQQtw/exec?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbykPsKRp7bFgozJFS4HOaGntk8hyolpoRbvbd6iH0sf4I-Lc4EbE4bhgJWeiyWq85meUg/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
