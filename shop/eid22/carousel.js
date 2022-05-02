@@ -1,6 +1,6 @@
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
-const galleryControls = ['previous', 'next'];
+const galleryControls = ['left', 'right'];
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 class Carousel {
@@ -28,7 +28,7 @@ class Carousel {
   // Update the current order of the carouselArray and gallery
   setCurrentState(direction) {
 
-    if (direction.className == 'gallery-controls-previous') {
+    if (direction.className == 'gallery-controls-left') {
       this.carouselArray.unshift(this.carouselArray.pop());
     } else {
       this.carouselArray.push(this.carouselArray.shift());
@@ -42,7 +42,7 @@ class Carousel {
     this.carouselControls.forEach(control => {
       galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
 
-      document.querySelector(`.gallery-controls-${control}`).innerText = control;
+      document.querySelector(`.gallery-controls-${control}`).innerHTML = `<i class="fas fa-angle-${control}"></i>`;
     });
   }
  

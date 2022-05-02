@@ -11,7 +11,9 @@
 .bangla {
     font-family: Kalpurush;
 }
-
+a:hover {
+    text-decoration: none;
+}
 #hsc,
 .ClassyCountdown-value {
     font-family: Gilroy-ExtraBold!important;
