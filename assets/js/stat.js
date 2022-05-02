@@ -3,7 +3,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         if (user.displayName != null) {
             document.getElementById('prof').innerHTML = '<i class="fas fa-user-circle"></i>&nbsp;' + user.displayName;
         } else {
-            document.getElementById('prof').innerText = "Dashboard";
+            document.getElementById('prof').innerHTML = "<i class='fas fa-user-circle'></i>&nbsp;Dashboard";
         }
         document.getElementById('prof').href = "/shop/dashboard/";
     } else {
