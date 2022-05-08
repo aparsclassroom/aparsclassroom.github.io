@@ -1,4 +1,4 @@
-const product = "HSC 2022 English with SH Jay";
+const product = "reza SSC22";
 const productCode = "163";
 const fix = 500;
 const pls = 350;
