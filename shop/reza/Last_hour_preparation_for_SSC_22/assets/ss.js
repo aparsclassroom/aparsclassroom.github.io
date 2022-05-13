@@ -25,23 +25,23 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
-// function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '390',
-//         width: '640',
-//         videoId: '',
-//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
-//         events: {
-//             'onReady': onPlayerReady
-//         }
-//     });
-// }
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'wXpMCQlIngs',
+        playerVars: { 'autoplay': 1, 'playsinline': 1 },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
 
-// function onPlayerReady(event) {
-//     document.getElementById('thumb').style.display = "none";
-//     event.target.setVolume(100);
-//     event.target.playVideo();
-// }
+function onPlayerReady(event) {
+    document.getElementById('thumb').style.display = "none";
+    event.target.setVolume(100);
+    event.target.playVideo();
+}
 
 fetch(`https://script.google.com/macros/s/AKfycbxcsd5eOK-Gf9WDal0BsMOdcBM0c2571VrdbcxrTU_O_YpfKCgfPOUiIBRn5ZF2uR26/exec?productCode=${productCode}`)
     .then((res) => {
