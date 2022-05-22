@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = "ভার্সিটি + গুচ্ছ প্রাইভেট প্রোগ্রাম HSC 2022 | ASG Shop";
-document.getElementById('prod').innerText = "ভার্সিটি + গুচ্ছ প্রাইভেট প্রোগ্রাম HSC 2022";
+document.title = "ভার্সিটি + গুচ্ছ স্পেশাল প্রাইভেট ব্যাচ HSC 2022 | ASG Shop";
+document.getElementById('prod').innerText = "ভার্সিটি + গুচ্ছ স্পেশাল প্রাইভেট ব্যাচ HSC 2022";
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;

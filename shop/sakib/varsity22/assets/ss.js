@@ -47,10 +47,13 @@ fetch(`https://script.google.com/macros/s/AKfycbwtMPdak5swMkYJbfA0WzkmypaXDYTcQm
     .then((data) => {
         let types = data.types;
 
-        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
-        document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
-        document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
+        document.getElementById('con1').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; একটি ক্লাসে তিনটি চ্যাপ্টার নয় বরং তিনটি ক্লাসে একটি চ্যাপ্টার`;
+        document.getElementById('con2').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; Daily Lecture Slide`;
+        document.getElementById('con4').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; Secret Shortcut Book PDF`;
+        document.getElementById('con5').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; DU Question Bank PDF`;
+        document.getElementById('con6').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; Monthly Mentorship Session`;
+        document.getElementById('con7').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; সপ্তাহে ৭ দিনই ক্লাস`;
+        document.getElementById('con0').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; ভার্সিটি প্রস্তুতির সবচেয়ে নির্ভরযোগ্য প্রাইভেট ব্যাচ`;
         document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
