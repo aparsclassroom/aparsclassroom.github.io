@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = "Hasnat's Biology Academic to Admission Cycle-1 | ASG Shop";
-document.getElementById('prod').innerText = "Hasnat's Biology Academic to Admission Cycle-1";
+document.title = product + " | ASG Shop";
+document.getElementById('prod').innerText = product;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
