@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = product + " | ASG Shop";
-document.getElementById('prod').innerText = product;
+document.title = prName + " | ASG Shop";
+document.getElementById('prod').innerText = prName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
