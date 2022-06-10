@@ -49,7 +49,7 @@ fetch(`https://script.google.com/macros/s/AKfycbx9JmaK8L9ijMJDrT3zrXt5J-k72IYaXk
     })
     .then((data) => {
         let types = data.types;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].ContType);
+        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
@@ -58,7 +58,6 @@ fetch(`https://script.google.com/macros/s/AKfycbx9JmaK8L9ijMJDrT3zrXt5J-k72IYaXk
                 console.error(countUp.error);
             }
         }
-
     })
     .catch((err) => {
         console.log(err)
