@@ -16,7 +16,7 @@ element.CountdownGampang({
     rampung: finish_d,
     theme: "flat-colors-black"
 }, function() {
-    document.getElementById('hsc').innerHTML = "Today is the Gst  Exam !<br><strong>Good Luck ❤️</strong>";
+    document.getElementById('hsc').innerHTML = "Today is the Gst Exam !<br><strong>Good Luck ❤️</strong>";
 
 });
 })
