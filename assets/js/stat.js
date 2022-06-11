@@ -10,13 +10,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('prof').href = "/shop/dashboard/login";
     }
     var element = $('#countdown-gampang');
-var finish_d = new Date('June 10, 2022');
+var finish_d = new Date('July 30, 2022');
 finish_d.setDate(finish_d.getDate());
 element.CountdownGampang({
     rampung: finish_d,
     theme: "flat-colors-black"
 }, function() {
-    document.getElementById('hsc').innerHTML = "Today is the DU 'A' Unit Exam !<br><strong>Good Luck ❤️</strong>";
+    document.getElementById('hsc').innerHTML = "Today is the Gst  Exam !<br><strong>Good Luck ❤️</strong>";
 
 });
 })
