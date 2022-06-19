@@ -234,7 +234,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
+    fetch('https://script.google.com/macros/s/AKfycby04qTr8iQPHyIT6RSJw1QuIeDzjHJMX1gTcfLwHjNVF8TAwUtn1iJs3tePAKHmJqt9/exec?q=check&Cupon=' + cpnCode.toUpperCase() + '&Product=' + encodeURIComponent(product), {
             method: 'GET',
             credentials: 'include',
             mode: 'cors'
