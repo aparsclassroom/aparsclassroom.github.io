@@ -235,9 +235,7 @@ cpn.addEventListener('click', (e) => {
     cupV.disabled = true;
     cpn.disabled = true;
     fetch('https://script.google.com/macros/s/AKfycby04qTr8iQPHyIT6RSJw1QuIeDzjHJMX1gTcfLwHjNVF8TAwUtn1iJs3tePAKHmJqt9/exec?q=check&Cupon=' + cpnCode.toUpperCase() + '&Product=' + encodeURIComponent(product), {
-            method: 'GET',
-            credentials: 'include',
-            mode: 'cors'
+            method: 'GET'
         })
         .then((res) => {
             return res.json();
