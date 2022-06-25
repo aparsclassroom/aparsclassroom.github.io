@@ -37,8 +37,8 @@ fetch(`https://script.google.com/macros/s/AKfycbybPisP2Jk5_9Jmc6CzcnOwm71J6r8tGy
     .then((data) => {
         let types = data.types;
 
-        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; 25 Lecture Sheets `;
+        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; 31+ Recorded Classes`;
+        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; 25+ Lecture Sheets `;
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;20+ Class Tests `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;3 Model Tests`;
         document.getElementById('duration').innerHTML = `Self Paced`;
