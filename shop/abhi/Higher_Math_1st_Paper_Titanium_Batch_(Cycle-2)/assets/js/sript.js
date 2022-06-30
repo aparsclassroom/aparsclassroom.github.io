@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = product + " | ASG Shop";
-document.getElementById('prod').innerText = product;
+document.title = "Higher Math 1st Paper Titanium Batch (Cycle-2) | ASG Shop";
+document.getElementById('prod').innerText = "Higher Math 1st Paper Titanium Batch (Cycle-2)";
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -22,9 +22,6 @@ document.getElementById('price').value = pls;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var str = window.location.search;
-        if (sessionStorage.getItem(product + '_potential') == 'true') {
-            $('#purchaseFrm').modal('show')
-        }
         var res = str.split("&")[0].substring(1, 16);
         if (res != "" && res.indexOf("utm") > -1) {
             sessionStorage.setItem(product, res);
@@ -100,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result.GatewayPageURL
+                                    location.href = result.url
                                 } else {
                                     swal({
                                         title: result.message,
@@ -157,7 +154,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                         .then(result => {
                             if (result.status != 420) {
-                                location.href = result.GatewayPageURL
+                                location.href = result.url
                             } else {
                                 swal({
                                     title: result.message,

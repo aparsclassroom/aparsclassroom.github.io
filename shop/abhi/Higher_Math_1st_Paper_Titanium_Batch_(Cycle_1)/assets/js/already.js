@@ -1,7 +1,3 @@
-const product = "Alvi Course 1";
-const productCode = "136";
-const appl = "https://www.facebook.com/groups/605367070668041/";
-
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var myHeaders = new Headers();
@@ -25,14 +21,13 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then(result => {
                 if (result.code === 200) {
                     var data = result.data[0];
-                    if (data.Enrollment != "enrolled") {
-                        document.getElementById('info').innerHTML = `
+                    document.getElementById('info').innerHTML = `
                         <h3>Purchase Information</h3>
                         Invoice : ${data.invoice}<br>
                         Product : ${data.ProductName}<br>
                         Paid Amount : ${data.amount} ৳ <br>
                         Username : ${data.Name}<br>
-                        Password : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Passoword</button><br>
+                        Group Joining Id : <span id="pass">${data.tran_id}</span>&nbsp;&nbsp;&nbsp;<button id="cpBtn" class="cp btn btn-success d-print-none" data-clipboard-target="#pass">Copy Id</button><br>
                         Email : ${data.email}<br>
                         Phone No. ${data.phone}<br>
                         College : ${data.College}<br>
@@ -40,28 +35,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         Purchased at : ${data.time}<br><br>
                         Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a>
                         <br><br>
-                        <h3>Your Group Join request should be approved in 24-48 hours.<br> so please have patience.</h3>
                         `;
-
-                    } else {
-                        document.getElementById('info').innerHTML = `
-                        <h3>Enrollment Information</h3>
-                        Invoice : ${data.invoice}<br>
-                        Product : ${data.ProductName}<br>
-                        Paid Amount : ${data.amount} ৳ <br>
-                        Username : ${data.Name}<br>
-                        Joining ID : <span id="pass">${data.tran_id}</span><br>
-                        Email : ${data.email}<br>
-                        Phone No. ${data.phone}<br>
-                        College : ${data.College}<br>
-                        HSC : ${data.HSC}<br>
-                        Purchased at : ${data.time}<br><br>
-                        Secret Group Link : <br><a href="${appl}" target="_blank">${appl}</a><br><br>
-                        Status : You are Currently joined in the Facebook Group !
-                        <br><br>
-                        `;
-                    }
-
                     var clipboard = new ClipboardJS('.cp');
                     clipboard.on('success', function(e) {
                         alert("Copied successfully!!")
