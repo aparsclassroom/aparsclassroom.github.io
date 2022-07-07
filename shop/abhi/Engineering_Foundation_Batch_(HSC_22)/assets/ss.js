@@ -1,7 +1,20 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 1,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: false,
+    autoplay: {
+        delay: 4000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next'
+    },
 });
+const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+if (!countUp.error) {
+    countUp.start();
+} else {
+    console.error(countUp.error);
+}
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -9,12 +22,6 @@ if (screen.width <= 600) {
 } else {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
-}
-const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
-if (!countUp.error) {
-    countUp.start();
-} else {
-    console.error(countUp.error);
 }
 // var tag = document.createElement('script');
 
@@ -27,7 +34,7 @@ if (!countUp.error) {
 //     player = new YT.Player('player', {
 //         height: '390',
 //         width: '640',
-//         videoId: 'wXpMCQlIngs',
+//         videoId: '',
 //         playerVars: { 'autoplay': 1, 'playsinline': 1 },
 //         events: {
 //             'onReady': onPlayerReady
@@ -41,7 +48,7 @@ if (!countUp.error) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://script.google.com/macros/s/AKfycbxmI-Uc3M3fNEjKjXUhm4kBLtscDK6_TWVOeg0VKm2blY6upggluVa4lW5wdpRo05FjNg/exec?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbxd2_R6-OfvK4_euXBjJKlbzzuCsjuqMuqLtW-ksx8lQhcNzWooY6dXkMd6gMfz1cD1_A/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })

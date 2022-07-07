@@ -1,7 +1,20 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 1,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: false,
+    autoplay: {
+        delay: 4000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next'
+    },
 });
+const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+if (!countUp.error) {
+    countUp.start();
+} else {
+    console.error(countUp.error);
+}
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -9,12 +22,6 @@ if (screen.width <= 600) {
 } else {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
-}
-const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
-if (!countUp.error) {
-    countUp.start();
-} else {
-    console.error(countUp.error);
 }
 // var tag = document.createElement('script');
 
@@ -27,7 +34,7 @@ if (!countUp.error) {
 //     player = new YT.Player('player', {
 //         height: '390',
 //         width: '640',
-//         videoId: 'wXpMCQlIngs',
+//         videoId: '',
 //         playerVars: { 'autoplay': 1, 'playsinline': 1 },
 //         events: {
 //             'onReady': onPlayerReady
