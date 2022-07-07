@@ -48,7 +48,7 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://script.google.com/macros/s/AKfycbxmI-Uc3M3fNEjKjXUhm4kBLtscDK6_TWVOeg0VKm2blY6upggluVa4lW5wdpRo05FjNg/exec?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbwhOxtMK7Bz6PDNqpk_k0KryGbRrUxILwSPM4FqPGqBIduQmpMieBnA3wiJb7GYQIBEOA/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
