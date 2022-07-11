@@ -1,2 +1,2 @@
-const shopName = "shop.aparsclassroom.com";
+const shopName = "backup.aparsclassroom.com";
 const cuponApi = "https://shop.aparsclassroom.com/Coupon";

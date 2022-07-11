@@ -140,7 +140,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "college": document.getElementById('college').value.trim(),
                         "hsc": document.getElementById('hscBatch').value.trim(),
                         "phone": document.getElementById('phone').value.trim(),
-                        "aff": sessionStorage.getItem(product),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
                         "affiliate": getCookie("affiliate"),
