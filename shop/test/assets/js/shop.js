@@ -66,13 +66,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
+                            "productName": product,
+                            "Platform": Platform,
                             "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
+                            "cus_email": mail,
+                            "Institution": document.getElementById('college').value.trim(),
+                            "HSC": document.getElementById('hscBatch').value.trim(),
+                            "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
                             "affiliate": getCookie("affiliate"),
@@ -133,13 +133,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
                     var raw = JSON.stringify({
-                        "dicount_amount": disOFF,
-                        "product": product,
+                        "productName": product,
+                        "Platform": Platform,
                         "cus_name": document.getElementById('name').value.trim(),
-                        "email": mail,
-                        "college": document.getElementById('college').value.trim(),
-                        "hsc": document.getElementById('hscBatch').value.trim(),
-                        "phone": document.getElementById('phone').value.trim(),
+                        "cus_email": mail,
+                        "Institution": document.getElementById('college').value.trim(),
+                        "HSC": document.getElementById('hscBatch').value.trim(),
+                        "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
                         "affiliate": getCookie("affiliate"),
@@ -168,7 +168,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                         .then(result => {
                             if (result.status != 420) {
-                                location.href = result.GatewayPageURL
+                                document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
                                     title: result.message,
