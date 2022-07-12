@@ -31,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": product,
+            "product": productCode,
             'uid': e.uid
         });
 
@@ -97,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         fetch(`https://${shopName}/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.json()
+                                return response.text()
                             })
                             .then(result => {
                                 if (result.status != 420) {
@@ -164,7 +164,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                     fetch(`https://${shopName}/${productCode}/init`, requestOptions)
                         .then(response => {
-                            return response.json()
+                            return response.text()
                         })
                         .then(result => {
                             if (result.status != 420) {
