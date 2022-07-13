@@ -168,7 +168,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
                                 location.href = result.GatewayPageURL
