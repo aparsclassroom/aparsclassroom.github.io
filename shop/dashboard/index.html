@@ -112,18 +112,11 @@
                         if (loadedData.status === 200) {
                             var data = loadedData.info;
                             document.getElementById('title').innerHTML = "Payment History";
-                            if (name === null) {
-                                document.getElementById('name').innerText = "Student Name : " + loadedData.userRecord.displayName;
-                            }
-                            if (mail === null) {
-                                document.getElementById('email').innerText = "Email Address : " + loadedData.userRecord.email;
-                            }
-                            if (num === null) {
-                                document.getElementById('num').innerText = "Phone Number : +" + loadedData.userRecord.phoneNumber;
-                            }
                             data.forEach((element, idx) => {
                                 idx++
-                                const content = `
+
+                                if (element.status == "VALID" || element.status == "VALIDATED") {
+                                    var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100 cp" data-clipboard-target="#ps${idx}">
                                 <div class="card-body py-5">
@@ -131,7 +124,7 @@
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
                                     </h5>
                                     <h4 class="text-success text-center">Product Name : ${element.Product.productName}</h4>
-                                    <h4 class="text-danger text-center">Tranx Id : <span id="ps${idx}">${element.tran_id}</span></h4>
+                                    <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
                                     <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
                                     <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
@@ -142,6 +135,28 @@
                             </div>
                         </div>
                         `;
+                                } else {
+                                    var content = `
+                        <div class="col-lg-4 mb-4">
+                            <div class="card lift lift-sm h-100 cp" data-clipboard-target="#ps${idx}">
+                                <div class="card-body py-5">
+                                    <h5 class="card-title text-primary text-center mb-2">
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                    </h5>
+                                    <h4 class="text-success text-center">Product Name : ${element.Product.productName}</h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                                }
+
+                               
                                 results.innerHTML += content;
 
                             });
