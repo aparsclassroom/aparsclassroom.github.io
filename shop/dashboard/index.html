@@ -109,18 +109,17 @@
                     .then(response => response.json())
 
                 .then((loadedData) => {
-                        if (loadedData.code === 200) {
-                            var data = loadedData.data;
+                        if (loadedData.status === 200) {
+                            var data = loadedData.info;
                             document.getElementById('title').innerHTML = "Payment History";
-                            document.getElementById('HSC').innerText = "Batch : " + data[0].HSC;
                             if (name === null) {
-                                document.getElementById('name').innerText = "Student Name : " + data[0].CustomerName;
+                                document.getElementById('name').innerText = "Student Name : " + loadedData.userRecord.displayName;
                             }
                             if (mail === null) {
-                                document.getElementById('email').innerText = "Email Address : " + data[0].value_b;
+                                document.getElementById('email').innerText = "Email Address : " + loadedData.userRecord.email;
                             }
                             if (num === null) {
-                                document.getElementById('num').innerText = "Phone Number : +" + data[0].value_c;
+                                document.getElementById('num').innerText = "Phone Number : +" + loadedData.userRecord.phoneNumber;
                             }
                             data.forEach((element, idx) => {
                                 idx++
@@ -129,12 +128,12 @@
                             <div class="card lift lift-sm h-100 cp" data-clipboard-target="#ps${idx}">
                                 <div class="card-body py-5">
                                     <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${element.Invoice}
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
                                     </h5>
-                                    <h4 class="text-success text-center">Product Name : ${element.ProductName}</h4>
+                                    <h4 class="text-success text-center">Product Name : ${element.Product.productName}</h4>
                                     <h4 class="text-danger text-center">Tranx Id : <span id="ps${idx}">${element.tran_id}</span></h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${element.Paid}</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.DiscountCupon}</h3>
+                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
                                 <div class="card-footer">
@@ -174,7 +173,7 @@
         clipboard.on('success', function(e) {
             $.notify({
                 icon: "tim-icons icon-bell-55",
-                message: "Tranx Id / Joining Id / Password Copied successfully!!"
+                message: "Access Code Copied successfully!!"
             }, {
                 timer: 8000,
                 placement: {
