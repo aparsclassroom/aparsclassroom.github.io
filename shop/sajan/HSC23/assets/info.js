@@ -4,3 +4,4 @@ const productCode = "179";
 const fix = 6000;
 const pls = 2500;
 const Platform = "Sajan";
+const init = 2;
