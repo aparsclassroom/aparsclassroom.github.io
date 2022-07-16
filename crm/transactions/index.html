@@ -108,50 +108,12 @@
             redirect: 'follow'
         };
         result.innerHTML = "<img src='https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif' width='100%'>";
-        fetch(`https://${shopName}/transaction`, requestOptions)
+        fetch(`https://${shopName}/query/transaction`, requestOptions)
             .then((res) => {
-                return res.json()
+                return res.text()
             })
             .then((loadedData) => {
-                if (loadedData.APIConnect === "DONE") {
-                    let data = loadedData.element;
-                    data.forEach(element => {
-                        var a = element.value_d;
-                        var m = a.split("*,*");
-                        var product = m[1];
-                        var cusN = m[0];
-                        var coll = m[2];
-                        var hsc = m[3];
-                        var cupon = m[4];
-                        var uid = m[5];
-                        result.innerHTML = `
-                        <h3 class="text-center mt-3">Basic Information</h3>
-                        <b>Name :</b> ${cusN}<br>
-                        <b>HSC :</b> ${hsc}<br>
-                        <b>College / FB :</b> ${coll}<br>
-                        <b>Coupon :</b> ${cupon}<br>
-                        <b>Phone Number : </b> ${element.value_c}<br>
-                        <b>Email :</b> ${element.value_b}<br>
-                        <b>Transaction ID / Password / Joining ID :</b> ${element.tran_id}<br>
-                        <b>Product :</b> ${product}<br>
-                        <b>Access / Affiliation / Ranking :</b> ${element.value_a}<br><br>
-                        <h3 class="text-center">Advanced Information</h3><hr>
-                        <b>UID in shop :</b> ${uid}<br>
-                        <b>bank Gateway :</b> ${element.bank_gw}<br>
-                        <b>Payment Status : </b> ${element.status}<br>
-                        <b>Validation Date :</b> ${element.validated_on}<br>
-                        <b>Validation Id :</b> ${element.val_id}<br>
-                        <b>Paid :</b> ${element.amount}৳<br>
-                        <b>Recieved Amount :</b> ${element.store_amount}৳<br>
-                        <b>Bank Tranx ID :</b> ${element.bank_tran_id}<br>
-                        <b>Timestamp :</b> ${element.tran_date}<br> 
-                        `;
-                    });
-                } else {
-                    alert("Connection Error !")
-                    return location.reload()
-                }
-
+                document.getElementById('result').innerHTML = loadedData;
             })
             .catch(() => {
                 alert("not Found")
