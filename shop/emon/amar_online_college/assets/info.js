@@ -4,3 +4,4 @@ const productCode = "186";
 const fix = 1000;
 const pls = 500;
 const Platform = "Emon";
+const init = 0;

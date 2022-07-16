@@ -50,13 +50,12 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-fetch(`https://script.google.com/macros/s/AKfycbxI8Y2reqfJiwA6qv0hpoT94DgEHBJUrNHp86v8h8_PDO6JPUJ4nZb59WPyT_lSIT30/exec?productCode=${productCode}`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        let types = data.types;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].ContType);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {

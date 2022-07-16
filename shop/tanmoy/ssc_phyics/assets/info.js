@@ -4,3 +4,4 @@ const productCode = "166";
 const fix = 10000;
 const pls = 1500;
 const Platform = "Tanmoy";
+const init = 0;

@@ -43,12 +43,12 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://shop.aparsclassroom.com/enrollment?productCode=${productCode}`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
