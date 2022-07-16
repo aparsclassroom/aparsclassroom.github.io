@@ -1,4 +1,5 @@
 const product = "Varsity22";
+const productName = "ভার্সিটি + গুচ্ছ প্রাইভেট ব্যাচ HSC 2022";
 const productCode = "164";
 const fix = 3500;
 const pls = 2500;
