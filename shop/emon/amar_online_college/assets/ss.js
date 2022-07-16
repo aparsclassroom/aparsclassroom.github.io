@@ -48,7 +48,7 @@ fetch(`https://shop.aparsclassroom.com/enrollment?productCode=${productCode}`)
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.students);
+        document.getElementById('enrolled').setAttribute('countTo', data.count);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
