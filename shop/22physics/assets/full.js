@@ -1,4 +1,4 @@
-var re = /^(?:\+8801)?[13-9]\d{8}$/;
+var re = /^(?:\+?88)?01[13-9]\d{8}$/;
 
 function testInfo(phoneNumberChk) {
     var OK = re.exec(phoneNumberChk.value);
@@ -12,8 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-document.title = product + " | ASG Shop";
-document.getElementById('prod').innerText = product;
+document.title = productName + " | ASG Shop";
+document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -21,17 +21,6 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        var str = window.location.search;
-        if (sessionStorage.getItem(product + '_potential') == 'true') {
-          //  $('#purchaseFrm').modal('show')
-        }
-        var res = str.split("&")[0].substring(1, 16);
-        if (res != "") {
-            sessionStorage.setItem(product, res);
-        } else {
-            let ne = "utm=Organic";
-            sessionStorage.setItem(product, ne);
-        }
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -39,8 +28,8 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            'uid': e.uid,
-            'product': product
+            "product": productCode,
+            'uid': e.uid
         });
 
         var requestOptions = {
@@ -55,28 +44,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return response.json()
             })
             .then(result => {
-                if (result.code === 200) {
+                if (result.status === 200) {
                     localStorage.removeItem(product)
-                    let data = result.data;
-                    const sum = data.map(element => element.access).reduce((a, b) => a + b, 0);
-                    if (sum > 0.5) {
-                        swal({
-                            title: "100% Payment Completed !",
-                            icon: "success",
-                            button: "View Informations"
-                        }).then(() => {
-                            return location.replace("./purchased")
-                        })
-                    } else {
-                        swal({
-                            title: "Your 50% payment Remaining ! You don't need to pay the full payment",
-                            icon: "info",
-                            button: "OK"
-                        }).then(() => {
-                            return location.replace("./half")
-                        })
-                    }
-
+                    swal({
+                        title: "Already Enrolled !",
+                        icon: "success",
+                        button: "View Informations"
+                    }).then(() => {
+                        return location.replace(result.Invoice)
+                    })
                 } else {
                     const form = document.forms['purchase']
                     form.addEventListener('submit', em => {
@@ -84,206 +60,133 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
-                        var coup = sessionStorage.getItem(product)
-                        if (coup != null) {
-                            var myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/json");
-                            var raw = JSON.stringify({
-                                "dicount_amount": disOFF,
-                                "product": product,
-                                "cus_name": document.getElementById('name').value.trim(),
-                                "email": mail,
-                                "college": document.getElementById('college').value.trim(),
-                                "hsc": document.getElementById('hscBatch').value.trim(),
-                                "phone": document.getElementById('phone').value.trim(),
-                                "Cupon": coup,
-                                'uid': e.uid
-                            });
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+                        var raw = JSON.stringify({
+                            "productName": product,
+                            "Platform": Platform,
+                            "cus_name": document.getElementById('name').value.trim(),
+                            "cus_email": mail,
+                            "Institution": document.getElementById('college').value.trim(),
+                            "HSC": document.getElementById('hscBatch').value.trim(),
+                            "cus_phone": document.getElementById('phone').value.trim(),
+                            "Cupon": document.getElementById('disC').value.trim(),
+                            'uid': e.uid,
+                            "affiliate": getCookie("affiliate"),
+                            "utm_id": getCookie("utm_id"),
+                            "utm_source": getCookie("utm_source"),
+                            "utm_medium": getCookie("utm_medium"),
+                            "utm_campaign": getCookie("utm_campaign"),
+                            "utm_term": getCookie("utm_term"),
+                            "utm_content": getCookie("utm_content"),
+                            "lead": getCookie("lead"),
+                            "Referrer": getCookie("Referrer"),
+                            "Ip": getCookie("ip"),
+                            "Referrer": getCookie("Platform")
+                        });
 
-                            var requestOptions = {
-                                method: 'POST',
-                                headers: myHeaders,
-                                body: raw,
-                                redirect: 'follow'
-                            };
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: raw,
+                            redirect: 'follow'
+                        };
 
-                            fetch(`https://${shopName}/${productCode}/init`, requestOptions)
-                                .then(response => {
-                                    return response.json()
-                                })
-                                .then(result => {
-                                    if (result.status != 420) {
-                                         location.href = result.GatewayPageURL
-                                    } else {
-                                        swal({
-                                            title: result.message,
-                                            icon: "error"
-                                        }).then(() => {
-                                            location.href = result.GatewayPageURL
-                                        })
-                                    }
-                                })
-                                .catch(() => {
+                        fetch(`https://${shopName}/${productCode}/init`, requestOptions)
+                            .then(response => {
+                                return response.text()
+                            })
+                            .then(result => {
+                                if (result.status != 420) {
+                                    document.getElementById('doc').innerHTML = result
+                                } else {
                                     swal({
-                                        title: "Error",
-                                        icon: "error",
-                                        text: "Please visit after 10 pm tonight",
-                                        button: "Ok"
+                                        title: result.message,
+                                        icon: "error"
+                                    }).then(() => {
+                                        location.href = result.GatewayPageURL
                                     })
-                                });
-                        } else {
-                            var myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/json");
-                            var raw = JSON.stringify({
-                                "dicount_amount": disOFF,
-                                "product": product,
-                                "cus_name": document.getElementById('name').value.trim(),
-                                "email": mail,
-                                "college": document.getElementById('college').value.trim(),
-                                "hsc": document.getElementById('hscBatch').value.trim(),
-                                "phone": document.getElementById('phone').value.trim(),
-                                "Cupon": sessionStorage.getItem(product),
-                                'uid': e.uid
+                                }
+                            })
+                            .catch(() => {
+                                swal({
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.href = result.GatewayPageURL
+                                })
                             });
-
-                            var requestOptions = {
-                                method: 'POST',
-                                headers: myHeaders,
-                                body: raw,
-                                redirect: 'follow'
-                            };
-
-                            fetch(`https://${shopName}/${productCode}/init`, requestOptions)
-                                .then(response => {
-                                    return response.json()
-                                })
-                                .then(result => {
-                                    if (result.status != 420) {
-                                       location.href = result.GatewayPageURL
-                                    } else {
-                                        swal({
-                                            title: result.message,
-                                            icon: "error"
-                                        }).then(() => {
-                                            location.href = result.GatewayPageURL
-                                        })
-                                    }
-                                })
-                                .catch(() => {
-                                    swal({
-                                        title: "Error",
-                                        icon: "error",
-                                        text: "Please visit after 10 pm tonight",
-                                        button: "Ok"
-                                    })
-                                });
-                        }
-
                     })
                 }
-            })
-            .catch(() => {
-                const mform = document.forms['purchase']
-                mform.addEventListener('submit', em => {
+            }).catch(() => {
+                const mfs = document.forms['purchase']
+                mfs.addEventListener('submit', em => {
                     em.preventDefault();
                     var mail = document.getElementById('email').value.toLowerCase().trim();
                     document.getElementById('buy').innerText = "Please wait...."
                     document.getElementById("buy").disabled = true;
-                    var coup = sessionStorage.getItem(product + ' Coupon')
-                    if (coup != null) {
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid
-                        });
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    var raw = JSON.stringify({
+                        "productName": product,
+                        "Platform": Platform,
+                        "cus_name": document.getElementById('name').value.trim(),
+                        "cus_email": mail,
+                        "Institution": document.getElementById('college').value.trim(),
+                        "HSC": document.getElementById('hscBatch').value.trim(),
+                        "cus_phone": document.getElementById('phone').value.trim(),
+                        "Cupon": document.getElementById('disC').value.trim(),
+                        'uid': e.uid,
+                        "affiliate": getCookie("affiliate"),
+                        "utm_id": getCookie("utm_id"),
+                        "utm_source": getCookie("utm_source"),
+                        "utm_medium": getCookie("utm_medium"),
+                        "utm_campaign": getCookie("utm_campaign"),
+                        "utm_term": getCookie("utm_term"),
+                        "utm_content": getCookie("utm_content"),
+                        "lead": getCookie("lead"),
+                        "Referrer": getCookie("Referrer"),
+                        "Ip": getCookie("ip"),
+                        "Referrer": getCookie("Platform")
+                    });
 
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
 
-                        fetch(`https://${shopName}/${productCode}/init`, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then(result => {
-                                if (result.status != 420) {
-                                    location.href = result.GatewayPageURL
-                                } else {
-                                    swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
-                                }
-                            })
-                            .catch(() => {
+                    fetch(`https://${shopName}/${productCode}/init`, requestOptions)
+                        .then(response => {
+                            return response.text()
+                        })
+                        .then(result => {
+                            if (result.status != 420) {
+                                document.getElementById('doc').innerHTML = result
+                            } else {
                                 swal({
-                                    title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                    button: "Ok"
-                                })
-                            });
-                    } else {
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "Cupon": sessionStorage.getItem(product),
-                            'uid': e.uid
-                        });
-
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
-
-                        fetch(`https://${shopName}/${productCode}/init`, requestOptions)
-                            .then(response => {
-                                return response.json()
-                            })
-                            .then(result => {
-                                if (result.status != 420) {
+                                    title: result.message,
+                                    icon: "error"
+                                }).then(() => {
                                     location.href = result.GatewayPageURL
-                                } else {
-                                    swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
-                                }
-                            })
-                            .catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                    button: "Ok"
                                 })
-                            });
-                    }
+                            }
+                        })
+                        .catch(() => {
+                            swal({
+                                title: "Error",
+                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = result.GatewayPageURL
+                            })
+                        });
                 })
+
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
@@ -356,7 +259,6 @@ cpn.addEventListener('click', (e) => {
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
                 document.getElementById('disC').value = loadedData.Cupon;
-                sessionStorage.setItem(product, loadedData.Cupon);
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
                 document.getElementById('coupnbosh').style.display = "none";

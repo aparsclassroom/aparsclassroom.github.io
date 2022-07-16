@@ -13,7 +13,7 @@ function testInfo(phoneNumberChk) {
 
 
 document.title = productName + " | ASG Shop";
-document.getElementById('prod').innerText  = productName;
+document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -21,15 +21,6 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        var str = window.location.search;
-        var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res.indexOf("utm") > -1) {
-            sessionStorage.setItem(product, res);
-        } else {
-            let ne = "utm=Organic";
-            sessionStorage.setItem(product, ne);
-        }
-
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -37,7 +28,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": product,
+            "product": productCode,
             'uid': e.uid
         });
 
@@ -53,14 +44,14 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return response.json()
             })
             .then(result => {
-                if (result.code === 200) {
+                if (result.status === 200) {
                     localStorage.removeItem(product)
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
-                        return location.replace("./purchased")
+                        return location.replace(result.Invoice)
                     })
                 } else {
                     const form = document.forms['purchase']
@@ -72,16 +63,26 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
+                            "productName": product,
+                            "Platform": Platform,
                             "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "aff": sessionStorage.getItem(product),
+                            "cus_email": mail,
+                            "Institution": document.getElementById('college').value.trim(),
+                            "HSC": document.getElementById('hscBatch').value.trim(),
+                            "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid
+                            'uid': e.uid,
+                            "affiliate": getCookie("affiliate"),
+                            "utm_id": getCookie("utm_id"),
+                            "utm_source": getCookie("utm_source"),
+                            "utm_medium": getCookie("utm_medium"),
+                            "utm_campaign": getCookie("utm_campaign"),
+                            "utm_term": getCookie("utm_term"),
+                            "utm_content": getCookie("utm_content"),
+                            "lead": getCookie("lead"),
+                            "Referrer": getCookie("Referrer"),
+                            "Ip": getCookie("ip"),
+                            "Referrer": getCookie("Platform")
                         });
 
                         var requestOptions = {
@@ -93,11 +94,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         fetch(`https://${shopName}/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.json()
+                                return response.text()
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                    location.href = result.url
+                                    document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
                                         title: result.message,
@@ -129,16 +130,26 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
                     var raw = JSON.stringify({
-                        "dicount_amount": disOFF,
-                        "product": product,
+                        "productName": product,
+                        "Platform": Platform,
                         "cus_name": document.getElementById('name').value.trim(),
-                        "email": mail,
-                        "college": document.getElementById('college').value.trim(),
-                        "hsc": document.getElementById('hscBatch').value.trim(),
-                        "phone": document.getElementById('phone').value.trim(),
-                        "aff": sessionStorage.getItem(product),
+                        "cus_email": mail,
+                        "Institution": document.getElementById('college').value.trim(),
+                        "HSC": document.getElementById('hscBatch').value.trim(),
+                        "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
-                        'uid': e.uid
+                        'uid': e.uid,
+                        "affiliate": getCookie("affiliate"),
+                        "utm_id": getCookie("utm_id"),
+                        "utm_source": getCookie("utm_source"),
+                        "utm_medium": getCookie("utm_medium"),
+                        "utm_campaign": getCookie("utm_campaign"),
+                        "utm_term": getCookie("utm_term"),
+                        "utm_content": getCookie("utm_content"),
+                        "lead": getCookie("lead"),
+                        "Referrer": getCookie("Referrer"),
+                        "Ip": getCookie("ip"),
+                        "Referrer": getCookie("Platform")
                     });
 
                     var requestOptions = {
@@ -150,11 +161,11 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                     fetch(`https://${shopName}/${productCode}/init`, requestOptions)
                         .then(response => {
-                            return response.json()
+                            return response.text()
                         })
                         .then(result => {
                             if (result.status != 420) {
-                                location.href = result.url
+                                document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
                                     title: result.message,

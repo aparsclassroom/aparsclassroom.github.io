@@ -1,13 +1,9 @@
 const product = "Apar-Chinmoy Physics Program 2022";
+const productName = "Apar-Chinmoy Physics Program 2022";
 const productCode = "114";
 const fix = 8000;
 const pls = 3500;
-const productCode2 = "115";
-const fix2 = 4000;
-const pls2 = 3000;
-const appl = "https://www.facebook.com/groups/aparchinmoy.22physics";
-const reportApi = "https://script.google.com/macros/s/AKfycbyJSRY2-aaiERJfxdSsvhHMQgTmCFEJUvZx7zW4WZa95qP0VKKo42jLvjdnLKdrpGkZvQ/exec";
-const WebApp = "https://buet-physics22.herokuapp.com";
+const Platform = "Chinmoy";
 
 
 

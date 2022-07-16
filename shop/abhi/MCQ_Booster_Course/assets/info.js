@@ -3,4 +3,4 @@ const productName = "MCQ Booster Course";
 const productCode = "184";
 const fix = 600;
 const pls = 400;
-const appl = "https://apars.shop/184";
+const Platform = "Abhi";

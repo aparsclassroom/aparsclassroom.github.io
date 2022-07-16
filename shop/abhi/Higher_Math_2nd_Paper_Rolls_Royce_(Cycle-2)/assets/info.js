@@ -3,4 +3,4 @@ const productName = "Higher Math 2nd Paper Rolls Royce (Cycle-2)";
 const productCode = "178";
 const fix = 2000;
 const pls = 1500;
-const appl = "https://apars.shop/178";
+const Platform = "Abhi";

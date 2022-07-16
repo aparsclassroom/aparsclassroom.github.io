@@ -1,11 +1,9 @@
 const product = "Apar-Chinmoy 85 days Engineering Physics Plan";
-const appl = "https://www.facebook.com/groups/85days.buet.aparchinmoy";
-const WebApp = "https://buet21.aparsclassroom.com/login";
+const productName = "Apar-Chinmoy 85 days Engineering Physics Plan";
 const productCode = "113";
 const fix = 7000;
 const pls = 2500;
-
-const reportApi = "https://script.google.com/macros/s/AKfycbyJSRY2-aaiERJfxdSsvhHMQgTmCFEJUvZx7zW4WZa95qP0VKKo42jLvjdnLKdrpGkZvQ/exec";
+const Platform = "Chinmoy";
 
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
