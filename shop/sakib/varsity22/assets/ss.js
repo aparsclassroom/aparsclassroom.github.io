@@ -39,7 +39,25 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
 
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 fetch(`https://script.google.com/macros/s/AKfycbwtMPdak5swMkYJbfA0WzkmypaXDYTcQmG1LPrGoPc6nU8IsIw9N0OFIUdgBzqz1Gr1/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
@@ -54,15 +72,6 @@ fetch(`https://script.google.com/macros/s/AKfycbwtMPdak5swMkYJbfA0WzkmypaXDYTcQm
         document.getElementById('con6').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; Monthly Mentorship Session`;
         document.getElementById('con7').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; সপ্তাহে ৭ দিনই ক্লাস`;
         document.getElementById('con0').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; ভার্সিটি প্রস্তুতির সবচেয়ে নির্ভরযোগ্য প্রাইভেট ব্যাচ`;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";

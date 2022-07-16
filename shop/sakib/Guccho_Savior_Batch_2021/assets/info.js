@@ -4,3 +4,4 @@ const productCode = "172";
 const fix = 1500;
 const pls = 999;
 const Platform = "Sakib";
+const init = 1215;
