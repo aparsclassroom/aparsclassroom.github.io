@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
                 (c[a].q = c[a].q || []).push(arguments)
             };
             t = l.createElement(r);
@@ -19,9 +19,9 @@
     </script>
     <!-- Facebook Pixel Code -->
     <script>
-        ! function(f, b, e, v, n, t, s) {
+        ! function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function() {
+            n = f.fbq = function () {
                 n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n;
@@ -37,7 +37,8 @@
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '593459298431756');
         fbq('track', 'PageView');
-    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    </script> <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     <title>Transactional Tracker | CRM ASG</title>
     <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/logo/icon.ico" type="image/x-icon">
@@ -45,30 +46,33 @@
     <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/Logo-with-Name.png">
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <link rel="stylesheet" href="/shop/assets/minimal.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .container {
             margin-top: 50px;
             margin-bottom: 50px;
             max-width: 550px;
         }
-        
+
         h2 {
             text-align: center;
         }
-        
+
         .images {
             margin-top: 50px;
             max-height: 200px;
             max-width: 100%;
         }
-        
+
         p {
             text-align: center;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script src="/shop/assets/js/key.js"></script>
+    <script
+            src="https://www.jqueryscript.net/demo/Beautiful-JSON-Viewer-Editor/dist/jquery.json-editor.min.js"></script>
 </head>
 
 <body>
@@ -81,7 +85,8 @@
             </div>
         </div>
         <div id="result">
-            <img src="https://img.icons8.com/metro/452/search.png" alt="Search Here" class="images rounded mx-auto d-block">
+            <img src="https://img.icons8.com/metro/452/search.png" alt="Search Here"
+                class="images rounded mx-auto d-block">
             <br>
             <p>Search here using your Tranx Id.📑</p>
         </div>
@@ -91,7 +96,7 @@
     var search = document.getElementById('search');
     var searchBtn = document.getElementById('searchBtn');
     var result = document.getElementById('result');
-
+    result.style.textAlign = "center";
 
 
     searchBtn.addEventListener('click', () => {
@@ -113,7 +118,15 @@
                 return res.text()
             })
             .then((loadedData) => {
-                document.getElementById('result').innerHTML = loadedData;
+                result.style.textAlign = "left";
+                function getJson() {
+                    try {
+                        return JSON.parse(loadedData);
+                    } catch (ex) {
+                        alert('Wrong JSON Format: ' + ex);
+                    }
+                }
+                var editor = new JsonEditor('#result', getJson());
             })
             .catch(() => {
                 alert("not Found")
