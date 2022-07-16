@@ -1,6 +1,5 @@
 const product = "Beginner 2 Master Physics Batch for HSC 23";
-const appl = "https://www.facebook.com/groups/1012211379502849";
-const WebApp = "https://hsc23.beginner2master.com/login";
+const productName = "Beginner 2 Master Physics Batch for HSC 23";
 const productCode = "155";
 const fix = 1500;
 const pls = 800;

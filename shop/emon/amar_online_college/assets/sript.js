@@ -12,9 +12,8 @@ function testInfo(phoneNumberChk) {
 }
 
 
-const Cycle = location.pathname.split('/')[3];
-document.title = product + "(" + Cycle + ") | ASG Shop";
-document.getElementById('prod').innerHTML = `${product}<br>(${Cycle})`;
+document.title = productName + " | ASG Shop";
+document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -243,7 +242,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product+ '_'+ Cycle, {
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
             method: 'GET',
             credentials: 'include',
             mode: 'cors'
