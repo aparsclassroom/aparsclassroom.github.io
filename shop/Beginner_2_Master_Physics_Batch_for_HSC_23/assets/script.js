@@ -11,8 +11,6 @@ function testInfo(phoneNumberChk) {
     }
 }
 
-
-const Cycle = location.pathname.split('/')[3];
 document.title = product + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${product}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
@@ -40,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}/${productCode}/purchase/${Cycle}`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -73,6 +71,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
+                            'Cycle': Cycle,
                             "affiliate": getCookie("affiliate"),
                             "utm_id": getCookie("utm_id"),
                             "utm_source": getCookie("utm_source"),
@@ -93,7 +92,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName}/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName}/${Cycle}/${productCode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -140,6 +139,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
+                        'Cycle': Cycle,
                         "affiliate": getCookie("affiliate"),
                         "utm_id": getCookie("utm_id"),
                         "utm_source": getCookie("utm_source"),
@@ -160,7 +160,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName}/${productCode}/init`, requestOptions)
+                    fetch(`https://${shopName}/${Cycle}/${productCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
