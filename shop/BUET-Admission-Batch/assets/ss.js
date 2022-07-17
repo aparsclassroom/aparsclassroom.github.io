@@ -4,7 +4,7 @@ const productCode = "113";
 const fix = 7000;
 const pls = 2500;
 const Platform = "Chinmoy";
-
+const init = 3524;
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -38,7 +38,25 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
 
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 fetch(`${courseContent}?productCode=${productCode}`)
     .then((res) => {
         return res.json()
@@ -52,15 +70,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
         document.getElementById('con6').innerHTML = `<i class="fas fa-user-graduate"></i>&nbsp;${types[5].TotalClasses} ${types[5].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
         document.getElementById('loading1').innerHTML = "";

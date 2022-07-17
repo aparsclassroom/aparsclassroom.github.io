@@ -4,3 +4,4 @@ const productCode = "182";
 const fix = 3000;
 const pls = 1250;
 const Platform = "Abhi";
+const init = 1953;

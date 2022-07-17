@@ -3,6 +3,7 @@ const productCode = "130";
 const fix = 1500;
 const pls = 1000;
 const Platform = "Mahir";
+const init = 799;
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -35,6 +36,26 @@ var player;
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
 
 fetch(`${courseContent}?productCode=${productCode}`)
     .then((res) => {
@@ -46,15 +67,6 @@ fetch(`${courseContent}?productCode=${productCode}`)
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[1].TotalClasses} ${types[1].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[4].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('duration').innerHTML = `${types[3].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";

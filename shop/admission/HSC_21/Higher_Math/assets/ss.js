@@ -12,12 +12,12 @@ if (!countUp.error) {
 } else {
     console.error(countUp.error);
 }
-var tag = document.createElement('script');
+// var tag = document.createElement('script');
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
+// tag.src = "https://www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// var player;
 
 // function onYouTubeIframeAPIReady() {
 //     player = new YT.Player('player', {
@@ -31,11 +31,32 @@ var player;
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
+
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
 fetch(`https://script.google.com/macros/s/AKfycbzVbICTE8cclbEYfhYS0Ae4UkfezAhtc2bSqOMGj1Gy_k9janPcSWp3am9RoQ3tyBCA/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
@@ -50,15 +71,6 @@ fetch(`https://script.google.com/macros/s/AKfycbzVbICTE8cclbEYfhYS0Ae4UkfezAhtc2
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
         document.getElementById('con6').innerHTML = `<i class="fas fa-user-graduate"></i>&nbsp;${types[5].TotalClasses} ${types[5].ContType} `;
         document.getElementById('duration').innerHTML = `${types[7].TotalClasses} মাস`;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
         document.getElementById('con8').innerHTML = `<i class="fab fa-discord"></i>&nbsp; Discord Server`;
         document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;

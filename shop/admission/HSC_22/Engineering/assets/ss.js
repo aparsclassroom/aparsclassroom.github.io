@@ -39,13 +39,12 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
-fetch(`https://script.google.com/macros/s/AKfycbw8DxRhBeF-g8LTpe2ImCyQeApk3fP9QmywU98DMmwvk6y72aZEqp8BOq4MfOJdiuvGeA/exec?productCode=${productCode}`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        let types = data.types;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].ContType);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
@@ -54,6 +53,7 @@ fetch(`https://script.google.com/macros/s/AKfycbw8DxRhBeF-g8LTpe2ImCyQeApk3fP9Qm
                 console.error(countUp.error);
             }
         }
+
     })
     .catch((err) => {
         console.log(err)

@@ -30,8 +30,26 @@ var player;
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
 
-fetch(`https://${shopName}/${productCode}/contents`)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+fetch(`https://script.google.com/macros/s/AKfycbyZlZAippsBL-73aFAh5MtsfgUyTZzwhyF2RaN9XEqSaqDjIq-qASghMlOfKVrR2Q_4GQ/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
@@ -41,15 +59,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[1].TotalClasses} ${types[1].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[4].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('duration').innerHTML = `${types[3].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('pra11').innerHTML = "";

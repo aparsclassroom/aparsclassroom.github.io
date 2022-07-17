@@ -41,13 +41,12 @@ if (!countUp.error) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://script.google.com/macros/s/AKfycbxmI-Uc3M3fNEjKjXUhm4kBLtscDK6_TWVOeg0VKm2blY6upggluVa4lW5wdpRo05FjNg/exec?productCode=${productCode}`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        let types = data.types;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {

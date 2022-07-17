@@ -4,3 +4,4 @@ const productCode = "151";
 const fix = 10000;
 const pls = 4000;
 const Platform = "Super Admin";
+const init = 441;

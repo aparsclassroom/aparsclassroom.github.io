@@ -4,3 +4,4 @@ const productCode = "165";
 const fix = 1500;
 const pls = 1100;
 const Platform = "Hasnat";
+const init = 301;

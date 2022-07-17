@@ -42,14 +42,12 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-
-fetch(`https://script.google.com/macros/s/AKfycbxWXdbudyffwObh7aGTCkTO9U8uIwzMzZVvLNtdPngJc09bfKKcPjTyEEgzWOsBRDB_BQ/exec?productCode=${productCode}`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        let types = data[0];
-        document.getElementById('enrolled').setAttribute('countTo', types.Total);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {

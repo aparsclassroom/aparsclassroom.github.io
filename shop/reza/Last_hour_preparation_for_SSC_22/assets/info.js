@@ -4,3 +4,4 @@ const productCode = "163";
 const fix = 500;
 const pls = 300;
 const Platform = "Reza";
+const init = 93;

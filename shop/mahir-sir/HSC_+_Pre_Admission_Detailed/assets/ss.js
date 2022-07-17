@@ -31,7 +31,28 @@ var player;
 //     event.target.playVideo();
 // }
 
-fetch(`https://${shopName}/${productCode}/contents`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+
+fetch(`https://script.google.com/macros/s/AKfycbyheVq-zJXsW_4AbG_7Im6nBi1YslhR0_eRtEmYkQfcDgtDL_A6UJihNxbeegP-8xcBTw/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
@@ -43,15 +64,6 @@ fetch(`https://${shopName}/${productCode}/contents`)
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
         document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('enrolled').setAttribute('countTo', types[6].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('duration').innerHTML = `${types[5].TotalClasses} মাস`;
         document.getElementById('loading1').innerHTML = "";
         document.getElementById('loading2').innerHTML = "";

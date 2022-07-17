@@ -30,6 +30,25 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 fetch(`https://script.google.com/macros/s/AKfycbybPisP2Jk5_9Jmc6CzcnOwm71J6r8tGyb9_hCdcEtXcBED6I979qpOHedh5rsx0EO3Jw/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
@@ -42,15 +61,6 @@ fetch(`https://script.google.com/macros/s/AKfycbybPisP2Jk5_9Jmc6CzcnOwm71J6r8tGy
         document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;20+ Class Tests `;
         document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;3 Model Tests`;
         document.getElementById('duration').innerHTML = `Self Paced`;
-        document.getElementById('enrolled').setAttribute('countTo', types[3].TotalClasses);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
         document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
         document.getElementById('con6').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
     })
