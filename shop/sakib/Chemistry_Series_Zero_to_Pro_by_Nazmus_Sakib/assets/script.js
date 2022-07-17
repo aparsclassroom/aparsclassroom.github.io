@@ -11,8 +11,6 @@ function testInfo(phoneNumberChk) {
     }
 }
 
-const Cycle = location.pathname.split('/')[4];
-
 document.title = product + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${product}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
@@ -22,18 +20,6 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        var str = window.location.search;
-        if (sessionStorage.getItem(product + '_potential') == 'true') {
-            $('#purchaseFrm').modal('show')
-        }
-        var res = str.split("&")[0].substring(1, 16);
-        if (res != "" && res.indexOf("utm") > -1) {
-            sessionStorage.setItem(product, res);
-        } else {
-            let ne = "utm=Organic";
-            sessionStorage.setItem(product, ne);
-        }
-
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -41,9 +27,8 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": product,
-            'uid': e.uid,
-            "cycle": Cycle
+            "product": productCode,
+            'uid': e.uid
         });
 
         var requestOptions = {
@@ -53,19 +38,19 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}/${productCode}/purchase/${Cycle}`, requestOptions)
             .then(response => {
                 return response.json()
             })
             .then(result => {
-                if (result.code === 200) {
+                if (result.status === 200) {
                     localStorage.removeItem(product)
                     swal({
-                        title: "Already Purchased this Cycle !",
+                        title: "Already Enrolled !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
-                        return location.replace("./purchased")
+                        return location.replace(result.Invoice)
                     })
                 } else {
                     const form = document.forms['purchase']
@@ -77,17 +62,27 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
-                            "dicount_amount": disOFF,
-                            "product": product,
+                            "productName": product,
+                            "Platform": Platform,
                             "cus_name": document.getElementById('name').value.trim(),
-                            "email": mail,
-                            "cycle": Cycle,
-                            "college": document.getElementById('college').value.trim(),
-                            "hsc": document.getElementById('hscBatch').value.trim(),
-                            "phone": document.getElementById('phone').value.trim(),
-                            "aff": sessionStorage.getItem(product),
+                            "cus_email": mail,
+                            "Institution": document.getElementById('college').value.trim(),
+                            "HSC": document.getElementById('hscBatch').value.trim(),
+                            "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid
+                            'uid': e.uid,
+                            'Cycle': Cycle,
+                            "affiliate": getCookie("affiliate"),
+                            "utm_id": getCookie("utm_id"),
+                            "utm_source": getCookie("utm_source"),
+                            "utm_medium": getCookie("utm_medium"),
+                            "utm_campaign": getCookie("utm_campaign"),
+                            "utm_term": getCookie("utm_term"),
+                            "utm_content": getCookie("utm_content"),
+                            "lead": getCookie("lead"),
+                            "Referrer": getCookie("Referrer"),
+                            "Ip": getCookie("ip"),
+                            "Referrer": getCookie("Platform")
                         });
 
                         var requestOptions = {
@@ -97,13 +92,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName}/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName}/${Cycle}/${productCode}/init`, requestOptions)
                             .then(response => {
-                                return response.json()
+                                return response.text()
                             })
                             .then(result => {
                                 if (result.status != 420) {
-                                   location.href = result.GatewayPageURL
+                                    document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
                                         title: result.message,
@@ -125,6 +120,74 @@ firebase.auth().onAuthStateChanged(function(e) {
                             });
                     })
                 }
+            }).catch(() => {
+                const mfs = document.forms['purchase']
+                mfs.addEventListener('submit', em => {
+                    em.preventDefault();
+                    var mail = document.getElementById('email').value.toLowerCase().trim();
+                    document.getElementById('buy').innerText = "Please wait...."
+                    document.getElementById("buy").disabled = true;
+                    var myHeaders = new Headers();
+                    myHeaders.append("Content-Type", "application/json");
+                    var raw = JSON.stringify({
+                        "productName": product,
+                        "Platform": Platform,
+                        "cus_name": document.getElementById('name').value.trim(),
+                        "cus_email": mail,
+                        "Institution": document.getElementById('college').value.trim(),
+                        "HSC": document.getElementById('hscBatch').value.trim(),
+                        "cus_phone": document.getElementById('phone').value.trim(),
+                        "Cupon": document.getElementById('disC').value.trim(),
+                        'uid': e.uid,
+                        'Cycle': Cycle,
+                        "affiliate": getCookie("affiliate"),
+                        "utm_id": getCookie("utm_id"),
+                        "utm_source": getCookie("utm_source"),
+                        "utm_medium": getCookie("utm_medium"),
+                        "utm_campaign": getCookie("utm_campaign"),
+                        "utm_term": getCookie("utm_term"),
+                        "utm_content": getCookie("utm_content"),
+                        "lead": getCookie("lead"),
+                        "Referrer": getCookie("Referrer"),
+                        "Ip": getCookie("ip"),
+                        "Referrer": getCookie("Platform")
+                    });
+
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
+
+                    fetch(`https://${shopName}/${Cycle}/${productCode}/init`, requestOptions)
+                        .then(response => {
+                            return response.text()
+                        })
+                        .then(result => {
+                            if (result.status != 420) {
+                                document.getElementById('doc').innerHTML = result
+                            } else {
+                                swal({
+                                    title: result.message,
+                                    icon: "error"
+                                }).then(() => {
+                                    location.href = result.GatewayPageURL
+                                })
+                            }
+                        })
+                        .catch(() => {
+                            swal({
+                                title: "Error",
+                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = result.GatewayPageURL
+                            })
+                        });
+                })
+
             })
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
