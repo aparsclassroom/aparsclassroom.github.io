@@ -1,11 +1,11 @@
 const product = "Beginner 2 Master Physics Batch for HSC 23";
 const productName = "Beginner 2 Master Physics Batch for HSC 23";
-const productCode = "180";
+const productCode = "187";
 const fix = 1500;
 const pls = 800;
 const init = 44;
 const Platform = "Super Admin";
-
+const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -58,7 +58,7 @@ fetch(`https://${shopName}/enrollment/${Cycle}?productCode=${productCode}`)
     .catch((err) => {
         console.log(err)
     })
-fetch(`https://script.google.com/macros/s/AKfycbxuGTztgQURLiTvGZ27w75fRvY9zsVxfAj0BUE5_9OOUZKHKJDiV6zd7GLb7ErFd6kyhw/exec?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbx6MMqMopfqmc_kLSgtKri4AjGz-Xn8Quo4xQNpcFrJydOr9oD1lmD3MsFI7DNQfuaMjg/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
