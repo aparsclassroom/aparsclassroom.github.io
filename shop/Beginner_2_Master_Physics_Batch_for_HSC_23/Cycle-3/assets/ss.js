@@ -5,7 +5,7 @@ const fix = 1500;
 const pls = 800;
 const init = 44;
 const Platform = "Super Admin";
-
+const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
