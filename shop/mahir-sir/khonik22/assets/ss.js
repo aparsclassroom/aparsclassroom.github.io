@@ -1,11 +1,3 @@
-const product = "nirbhoy23";
-const productName = "Higher Math 1st Paper Batch Nirvoy";
-const productCode = "188";
-const fix = 1500;
-const pls = 1000;
-const init = 130;
-const Platform = "Mahir";
-const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -14,13 +6,12 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
+var tag = document.createElement('script');
 
-// var tag = document.createElement('script');
-
-// tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// var player;
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
 
 // function onYouTubeIframeAPIReady() {
 //     player = new YT.Player('player', {
@@ -39,7 +30,7 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName}/enrollment/${Cycle}?productCode=${productCode}`)
+fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
