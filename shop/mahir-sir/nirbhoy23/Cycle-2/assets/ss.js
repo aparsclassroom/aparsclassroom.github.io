@@ -1,10 +1,10 @@
-const product = "Chemistry Series Zero to Pro by Nazmus Sakib";
-const productName = "Chemistry Series Zero to Pro by Nazmus Sakib";
-const productCode = "156";
+const product = "nirbhoy23";
+const productName = "Higher Math 1st Paper Batch Nirvoy";
+const productCode = "189";
 const fix = 1500;
-const pls = 800;
-const init = 563;
-const Platform = "Super Admin";
+const pls = 1000;
+const init = 0;
+const Platform = "Mahir";
 const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -53,24 +53,6 @@ fetch(`https://${shopName}/enrollment/${Cycle}?productCode=${productCode}`)
                 console.error(countUp.error);
             }
         }
-
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-
-fetch(`https://script.google.com/macros/s/AKfycby4JWl0NNXSF7bQUwVNnBTtq15AVKzz8jHSFAWu5G1-Zl6UJSyNpop-dqiEudGw4-o/exec?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        let types = data.types;
-        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
-        document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
-        document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-        document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
 
     })
     .catch((err) => {
