@@ -44,7 +44,7 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://${shopName}/enrollment?productCode=${productCode}`)
+fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })

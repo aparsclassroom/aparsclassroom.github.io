@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName}/${productCode}/purchase/${Cycle}`, requestOptions)
+        fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions)
             .then(response => {
                 return response.json()
             })
