@@ -45,8 +45,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
-    <script src="https://demos.creative-tim.com/marketplace/black-dashboard-pro/assets/js/plugins/bootstrap-notify.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/key.js"></script>
     <!-- Site Icons -->
@@ -119,7 +117,7 @@
                                 if (element.status == "VALID" || element.status == "VALIDATED") {
                                     var content = `
                         <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100 cp" data-clipboard-target="#ps${idx}">
+                            <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
@@ -140,7 +138,7 @@
                                 } else {
                                     var content = `
                         <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100 cp">
+                            <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
@@ -200,25 +198,6 @@
                 location.replace('./login');
             }
         })
-
-        var clipboard = new ClipboardJS('.cp');
-        clipboard.on('success', function(e) {
-            $.notify({
-                icon: "tim-icons icon-bell-55",
-                message: "Access Code Copied successfully!!"
-            }, {
-                timer: 8000,
-                placement: {
-                    from: "bottom",
-                    align: "right"
-                }
-            });
-            e.clearSelection();
-        });
-
-        clipboard.on('error', function(e) {
-            alert('Action:', e.action);
-        });
     </script>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
