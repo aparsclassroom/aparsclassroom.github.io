@@ -410,7 +410,9 @@ textarea.input100 {
   -webkit-filter: blur(8px);
 }
 
-
+#login2 {
+  display: none;
+}
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
