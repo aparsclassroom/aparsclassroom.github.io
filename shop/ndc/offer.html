@@ -97,7 +97,7 @@
                             </span>
                         </div>
                         <div class="wrap-input100">
-                            <input class="input100" type="number" name="phone" id="phone" placeholder="Mobile Number"
+                            <input class="input100" type="number" name="phone" onchange="testInfo(this);" id="phone" placeholder="Mobile Number"
                                 required>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
@@ -154,7 +154,12 @@
             if (e) {
                 document.getElementById('login').style.display = "none";
                 document.getElementById('ln2').style.display = "none";
-                phone.value = e.phoneNumber;
+                
+                if (e.phoneNumber != null) {
+                    phone.value = e.phoneNumber;
+                } else {
+                    phone.value = "+88";
+                }
                 name.value = e.displayName;
                 email.value = e.email;
                 const form = document.forms['ndcform']
