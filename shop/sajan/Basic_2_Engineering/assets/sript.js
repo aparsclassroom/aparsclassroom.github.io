@@ -13,7 +13,6 @@ function testInfo(phoneNumberChk) {
 
 
 document.title = productName + " | ASG Shop";
-document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
