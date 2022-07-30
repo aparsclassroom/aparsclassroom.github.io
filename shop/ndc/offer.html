@@ -65,7 +65,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="container2-contact100-form-btn">
+                <div class="container2-contact100-form-btn" id="ln2">
                         <a class="contact100-form-btn2" id="login2" href="/shop/dashboard/login.html">
                             Please Login First&nbsp;&nbsp;
                             <i class="fas fa-lock"></i>
@@ -153,6 +153,7 @@
         firebase.auth().onAuthStateChanged(function (e) {
             if (e) {
                 document.getElementById('login').style.display = "none";
+                document.getElementById('ln2').style.display = "none";
                 phone.value = e.phoneNumber;
                 name.value = e.displayName;
                 email.value = e.email;
