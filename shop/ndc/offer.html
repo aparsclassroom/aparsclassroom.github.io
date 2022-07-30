@@ -167,7 +167,7 @@
                     e.preventDefault()
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
-
+console.log(e.uid)
                     var raw = JSON.stringify({
                         "name": name.value,
                         "email": email.value,
@@ -197,6 +197,7 @@
                 <input type="url" class="form-control" id="cpsession" value="${data.Coupon}">
                 <div class="input-group-append">
                     <button type="button" id="cpBtn2" class="cp btn btn-dark" data-clipboard-target="#cpsession">Copy Coupon</button>
+                </div>
                 </div>
                 <p>Note : We've sent you this coupon on your mobile number via sms.</p>
                 <hr>
