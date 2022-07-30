@@ -158,6 +158,7 @@ iframe {
   align-items: center;
   padding: 15px;
   background: #13213cb6;
+  position: relative;
 }
 
 .wrap-contact100 {
@@ -185,7 +186,9 @@ textarea {
 #mobile-logo {
   display: none;
 }
-
+#login2 {
+  display: none;
+}
 /*------------------------------------------------------------------
 [  ]*/
 .contact100-pic {
@@ -263,7 +266,7 @@ textarea.input100 {
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 0px 0px;
-  color: #faa41bd8;
+  color: #588eeb;
 }
 
 .input100:focus + .focus-input100 {
@@ -310,7 +313,7 @@ textarea.input100 {
 }
 
 .input100:focus + .focus-input100 + .symbol-input100 {
-  color: #FAA31B;
+  color: #588eeb;
   padding-left: 22px;
 }
 
@@ -327,7 +330,48 @@ textarea.input100 {
   justify-content: center;
   padding-top: 20px;
 }
+.container2-contact100-form-btn {
+  z-index: 5;
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  margin: auto;
+  justify-content: center;
+}
+.contact100-form-btn2 {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #13213C;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  text-align: center;
+  padding-top: 12px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
 
+.contact100-form-btn2:hover {
+  background: #e9d1c3;
+  color: #13213C;
+}
 .contact100-form-btn {
   width: 100%;
   height: 50px;
@@ -353,8 +397,19 @@ textarea.input100 {
 }
 
 .contact100-form-btn:hover {
-  background: #FAA31B;
+  background: #e9d1c3;
+  color: #13213C;
 }
+
+
+.notlogin {
+  z-index: 4;
+  pointer-events: none;
+  user-select:none;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
 
 /*------------------------------------------------------------------
 [ Responsive ]*/
@@ -399,10 +454,16 @@ textarea.input100 {
     margin-left: auto;
     margin-right: auto;
   }
+  #login2 {
+    display: block;
+  }
 }
 
 @media (max-width: 576px) {
   #mobile-logo {
+    display: block;
+  }
+  #login2 {
     display: block;
   }
   .wrap-contact100 {
