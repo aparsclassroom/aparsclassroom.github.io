@@ -158,7 +158,6 @@
                 name.value = e.displayName;
                 email.value = e.email;
                 const form = document.forms['ndcform']
-
                 form.addEventListener('submit', e => {
                     e.preventDefault()
                     var myHeaders = new Headers();
@@ -186,12 +185,17 @@
                         .then((data) => {
                             if (data.status === 200) {
                                 document.getElementById('ndcform').innerHTML = `
-                                Here is your coupon : <br>
+                                <h3>Congratulations</h3>
+                                <hr>
+                                Here is your Engineering22 coupon : <br>
                                 <div class="input-group mt-2">
                 <input type="url" class="form-control" id="cpsession" value="${data.Coupon}">
                 <div class="input-group-append">
                     <button type="button" id="cpBtn2" class="cp btn btn-dark" data-clipboard-target="#cpsession">Copy Coupon</button>
                 </div>
+                <p>Note : We've sent you this coupon on your mobile number via sms.</p>
+                <hr>
+                <a class="btn btn-block btn-primary" href=${data.link} target="_blank">Go to Enrollment Page</a>
                                 `;
                             }
                         })
@@ -206,7 +210,7 @@
 
         var clipboard = new ClipboardJS('.cp');
 clipboard.on('success', function (e) {
-    alert("Copied successfully!!")
+    document.getElementById('cpBtn2').innerText = "Coupon Copied !"
     e.clearSelection();
 });
 
