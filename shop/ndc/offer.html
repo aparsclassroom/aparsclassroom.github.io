@@ -160,12 +160,15 @@
                 } else {
                     phone.value = "+88";
                 }
-                console.log(e)
                 name.value = e.displayName;
                 email.value = e.email;
                 const form = document.forms['ndcform']
-                form.addEventListener('submit', e => {
-                    e.preventDefault()
+                form.addEventListener('submit', es => {
+                    es.preventDefault()
+
+                    document.getElementById('submit').innerText = "Please wait...";
+                    document.getElementById('submit').disabled = true;
+
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
 
@@ -189,6 +192,7 @@
                             return response.json()
                         })
                         .then((data) => {
+                            
                             if (data.status === 200) {
                                 document.getElementById('ndcform').innerHTML = `
                                 <h3>Congratulations</h3>
@@ -206,7 +210,11 @@
                                 `;
                             }
                         })
-                        .catch(error => document.getElementById('ndcform').innerHTML =  error.message);
+                        .catch(error => {
+                            document.getElementById('ndcform').innerHTML =  error.message;
+                            document.getElementById('submit').innerText = 'Proceed Next&nbsp;&nbsp;<i class="fas fa-arrow-alt-right"></i>';
+                    document.getElementById('submit').disabled = false;
+                        });
                 })
             } else {
                 document.getElementById('ndcform').className = 'notlogin';
