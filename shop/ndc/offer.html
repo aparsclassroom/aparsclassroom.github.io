@@ -60,7 +60,7 @@
                 <div class="contact100-pic js-tilt" data-tilt>
                     <img src="/HSC-Full-Course/assets/images/1.png" alt="IMG">
                     <div class="container-contact100-form-btn">
-                        <a class="contact100-form-btn" id="login" style="display: none;" href="/shop/dashboard/login">
+                        <a class="contact100-form-btn1" id="login" style="display: none;" href="/shop/dashboard/login">
                             Please Login First &nbsp;&nbsp;<i class="fas fa-lock"></i>
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                             </span>
                         </div>
                         <div class="wrap-input100">
-                            <input class="input100" type="phone" name="phone" onchange="testInfo(this);" id="phone" placeholder="Mobile Number"
+                            <input class="input100" type="phone" name="phone" id="phone" placeholder="Mobile Number"
                                 required>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
@@ -160,6 +160,7 @@
                 } else {
                     phone.value = "+88";
                 }
+                console.log(e)
                 name.value = e.displayName;
                 email.value = e.email;
                 const form = document.forms['ndcform']
@@ -167,7 +168,7 @@
                     e.preventDefault()
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
-console.log(e.uid)
+
                     var raw = JSON.stringify({
                         "name": name.value,
                         "email": email.value,

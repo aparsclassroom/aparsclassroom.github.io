@@ -391,6 +391,29 @@ textarea.input100 {
   justify-content: center;
   align-items: center;
   padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.contact100-form-btn1 {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  border-radius: 25px;
+  background: #13213C;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
   padding-top: 12px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -403,6 +426,10 @@ textarea.input100 {
   color: #13213C;
 }
 
+.contact100-form-btn1:hover {
+  background: #e9d1c3;
+  color: #13213C;
+}
 
 .notlogin {
   z-index: 4;
