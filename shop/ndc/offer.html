@@ -133,6 +133,7 @@
         $('.js-tilt').tilt({
             scale: 1.1
         })
+        const name = document.getElementById('name');
         const roll = document.getElementById('roll');
         const email = document.getElementById('email');
         const phone = document.getElementById('phone');
@@ -180,7 +181,7 @@ roll.addEventListener("input", function (event) {
                     var raw = JSON.stringify({
                         "name": name.value,
                         "email": email.value,
-                        "roll": document.getElementById('roll').value,
+                        "roll": roll.value,
                         "phone": phone.value,
                         "uid": e.uid
                     });
