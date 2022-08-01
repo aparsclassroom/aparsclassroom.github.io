@@ -96,7 +96,7 @@
                             </span>
                         </div>
                         <div class="wrap-input100">
-                            <input class="input100" type="phone" name="phone" id="phone" pattern="/^(?:\+88|88)?(01[3-9]\d{8})$/" placeholder="Mobile Number"
+                            <input class="input100" type="tel" name="phone" id="phone" pattern="/^(?:\+88|88)?(01[3-9]\d{8})$/" placeholder="Mobile Number"
                                 required>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
@@ -167,11 +167,7 @@ phone.addEventListener("input", function (event) {
                 document.getElementById('login').style.display = "none";
                 document.getElementById('ln2').style.display = "none";
                 
-                if (e.phoneNumber != null) {
-                    phone.value = e.phoneNumber;
-                } else {
-                    phone.value = "+88";
-                }
+                phone.value = e.phoneNumber
                 name.value = e.displayName;
                 email.value = e.email;
                 const form = document.forms['ndcform']
