@@ -5,10 +5,10 @@
     
     /*==================================================================
     [ Validate ]*/
-    var name = $('.validate-input input[name="name"]');
-    var email = $('.validate-input input[name="email"]');
-    var roll = $('.validate-input input[name="roll"]');
-    var phone = $('.validate-input textarea[name="phone"]');
+    var name = document.getElementById('name');
+    var email = document.getElementById('email');
+    var roll = document.getElementById('roll');
+    var phone = document.getElementById('phone');
 
 
     $('.validate-form').on('submit',function(){
