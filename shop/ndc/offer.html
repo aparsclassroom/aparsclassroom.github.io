@@ -200,7 +200,7 @@ roll.addEventListener("input", function (event) {
                             
                             if (data.status === 200) {
                                 document.getElementById('ndcform').innerHTML = `
-                                <h3>Congratulations</h3>
+                                <h3 class="text-success">Congratulations</h3>
                                 <hr>
                                 Here is your Engineering22 coupon : <br>
                                 <div class="input-group mt-2">
@@ -211,7 +211,7 @@ roll.addEventListener("input", function (event) {
                 </div>
                 <p>Note : We've sent you this coupon on your mobile number via sms.</p>
                 <hr>
-                <a class="btn btn-block btn-primary" href=${data.link} target="_blank">Go to Enrollment Page</a>
+                <a class="btn btn-block btn-primary" href="${data.link}" target="_blank">Go to Enrollment Page</a>
                                 `;
                             } else {
                                 document.getElementById('ndcform').innerHTML = `
@@ -226,6 +226,8 @@ roll.addEventListener("input", function (event) {
                                 <h3 class="text-danger">Error</h3>
                                 <hr>
                                 <p>${error.message}</p>
+                                <hr>
+                <a class="btn btn-block btn-warning" href="https://aparsclassroom.com/shop/ndc/offer">Refresh this page</a>
                                 `;
                         }); 
                 })
