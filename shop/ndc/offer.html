@@ -96,7 +96,7 @@
                             </span>
                         </div>
                         <div class="wrap-input100">
-                            <input class="input100 validate-input" type="phone" name="phone" id="phone" placeholder="Mobile Number"
+                            <input class="input100 validate-input" type="phone" name="phone" id="phone" pattern="/^(?:\+?88)?01[13-9]\d{8}$/" placeholder="Mobile Number"
                                 required>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="wrap-input100">
-                            <input class="input100 validate-input" type="email" name="email" id="email" placeholder="Email Address"
+                            <input class="input100 validate-input" type="email" name="email" id="email" pattern="/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/" placeholder="Email Address"
                                 required data-validate="Valid email is required: yourname@gmail.com">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
@@ -148,6 +148,21 @@
         const email = document.getElementById('email');
         const phone = document.getElementById('phone');
 
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an e-mail address!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+
+phone.addEventListener("input", function (event) {
+  if (phone.validity.patternMismatch) {
+    phone.setCustomValidity("Please enter a valid phone number!");
+  } else {
+    phone.setCustomValidity("");
+  }
+});
         firebase.auth().onAuthStateChanged(function (e) {
             if (e) {
                 document.getElementById('login').style.display = "none";
@@ -162,9 +177,11 @@
                 email.value = e.email;
                 const form = document.forms['ndcform']
                 form.addEventListener('submit', es => {
-                    es.preventDefault()
-
-                    document.getElementById('submit').innerText = "Please wait...";
+                    
+        if(!email.validity.valid || !phone.validity.valid || !name.validity.valid || !roll.validity.valid){ 
+            es.preventDefault()
+      } else {
+        document.getElementById('submit').innerText = "Please wait...";
                     document.getElementById('submit').disabled = true;
 
                     var myHeaders = new Headers();
@@ -221,6 +238,7 @@
                                 <p>${error.message}</p>
                                 `;
                         });
+      }              
                 })
             } else {
                 document.getElementById('ndcform').className = 'notlogin';
