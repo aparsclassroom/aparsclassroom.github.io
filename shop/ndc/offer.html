@@ -208,22 +208,18 @@
                                 `;
                             } else {
                                 document.getElementById('ndcform').innerHTML = `
-                                <h3>Error</h3>
+                                <h3 class="text-danger">Error</h3>
                                 <hr>
                                 <p>${data.message}</p>
                                 `;
-                            document.getElementById('submit').innerText = 'Proceed Next&nbsp;&nbsp;<i class="fas fa-arrow-alt-right"></i>';
-                    document.getElementById('submit').disabled = false;
                             }
                         })
                         .catch(error => {
                             document.getElementById('ndcform').innerHTML =  `
-                                <h3>Error</h3>
+                                <h3 class="text-danger">Error</h3>
                                 <hr>
                                 <p>${error.message}</p>
                                 `;
-                            document.getElementById('submit').innerText = 'Proceed Next&nbsp;&nbsp;<i class="fas fa-arrow-alt-right"></i>';
-                    document.getElementById('submit').disabled = false;
                         });
                 })
             } else {
