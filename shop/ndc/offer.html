@@ -207,10 +207,22 @@
                 <hr>
                 <a class="btn btn-block btn-primary" href=${data.link} target="_blank">Go to Enrollment Page</a>
                                 `;
+                            } else {
+                                document.getElementById('ndcform').innerHTML = `
+                                <h3>Error</h3>
+                                <hr>
+                                <p>${data.message}</p>
+                                `;
+                            document.getElementById('submit').innerText = 'Proceed Next&nbsp;&nbsp;<i class="fas fa-arrow-alt-right"></i>';
+                    document.getElementById('submit').disabled = false;
                             }
                         })
                         .catch(error => {
-                            document.getElementById('ndcform').innerHTML =  error.message;
+                            document.getElementById('ndcform').innerHTML =  `
+                                <h3>Error</h3>
+                                <hr>
+                                <p>${error.message}</p>
+                                `;
                             document.getElementById('submit').innerText = 'Proceed Next&nbsp;&nbsp;<i class="fas fa-arrow-alt-right"></i>';
                     document.getElementById('submit').disabled = false;
                         });
