@@ -56,3 +56,8 @@ function getCookie(cname) {
 function delete_cookie(name) {
     document.cookie = name + '=; Max-Age=0'
   }
+
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+  let queryPromo = params.promo;
