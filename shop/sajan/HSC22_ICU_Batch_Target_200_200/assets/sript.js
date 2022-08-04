@@ -287,6 +287,8 @@ if (queryPromo != null) {
 document.getElementById("app").style.display = "none"; 
     cpn.click();
 } else {
+
+    document.getElementById("cup").style.display = "none"; 
     delete_cookie("promo");
     notdis()
 }
