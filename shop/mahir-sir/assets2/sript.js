@@ -299,7 +299,8 @@ cpn.addEventListener('click', (e) => {
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-    document.getElementById("app").click();
+    document.getElementById("app").style.display = "none"; 
+    document.getElementById("cup").style.display = "block";
     cpn.click();
 } else {
     delete_cookie("promo");
