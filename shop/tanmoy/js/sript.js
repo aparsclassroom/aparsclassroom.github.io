@@ -304,5 +304,6 @@ if (getCookie("promo") != null) {
     document.getElementById("app").click();
     cpn.click();
 } else {
+    delete_cookie("promo");
     notdis()
 }

@@ -52,3 +52,7 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function delete_cookie(name) {
+    document.cookie = name + '=; Max-Age=0'
+  }
