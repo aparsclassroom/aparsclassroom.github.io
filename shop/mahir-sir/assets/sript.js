@@ -42,7 +42,6 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.status === 200) {
-                    localStorage.removeItem(product)
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
