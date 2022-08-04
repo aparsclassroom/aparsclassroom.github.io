@@ -298,3 +298,8 @@ cpn.addEventListener('click', (e) => {
             })
         })
 })
+
+if (getCookie("promo") != null) {
+    document.getElementById('cupon').value = getCookie("promo");
+    cpn.click();
+}
