@@ -297,3 +297,11 @@ cpn.addEventListener('click', (e) => {
             })
         })
 })
+if (getCookie("promo") != null) {
+    document.getElementById('cupon').value = getCookie("promo");
+    notdis()
+    document.getElementById("app").click();
+    cpn.click();
+} else {
+    notdis()
+}
