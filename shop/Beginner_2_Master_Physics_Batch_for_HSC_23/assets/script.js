@@ -1,16 +1,18 @@
-var re = /^(?:\+?88)?01[13-9]\d{8}$/;
-
-function testInfo(phoneNumberChk) {
-    var OK = re.exec(phoneNumberChk.value);
-    if (!OK) {
-        document.getElementById('valid-feedback').innerHTML = '<span class="text-danger">Please Enter a Valid phone Number. <br>ex. +8801XXXXXXXXX</span>';
-        document.getElementById('buy').disabled = true;
+document.getElementById('email').addEventListener("input", function (event) {
+    if (document.getElementById('email').validity.typeMismatch) {
+      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-        document.getElementById('valid-feedback').innerHTML = '<span class="text-success">✔ Valid Phone Number !</span>';
-        document.getElementById('buy').disabled = false;
+      document.getElementById('email').setCustomValidity("");
     }
-}
-
+  });
+  
+  document.getElementById('phone').addEventListener("input", function (event) {
+    if (document.getElementById('phone').validity.patternMismatch) {
+        document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+    } else {
+        document.getElementById('phone').setCustomValidity("");
+    }
+  });
 document.title = product + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${product}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
