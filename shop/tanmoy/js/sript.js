@@ -212,9 +212,9 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');
-                location.href = "/shop/dashboard/login"
+                location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
             })
-        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login" });
+        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
     }
 })
 var cupon, cpn = document.getElementById("cpnCheck");
@@ -267,7 +267,12 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                swal({
+                    title: "Alhamdulillah ❤",
+                    icon: "success",
+                    text: "Successfully applied!",
+                    button: "Ok"
+                })
                 return;
             } else {
                 cpn.innerText = "Apply";

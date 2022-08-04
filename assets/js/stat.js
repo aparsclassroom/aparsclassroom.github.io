@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
         document.getElementById('prof').href = "/shop/dashboard/";
     } else {
-        document.getElementById('prof').href = "/shop/dashboard/login";
+        document.getElementById('prof').href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href);
     }
     var element = $('#countdown-gampang');
 var finish_d = new Date('July 30, 2022');

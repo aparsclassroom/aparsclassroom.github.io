@@ -57,13 +57,13 @@
                 <div class="contact100-pic js-tilt" data-tilt>
                     <img src="/HSC-Full-Course/assets/images/1.png" alt="IMG">
                     <div class="container-contact100-form-btn">
-                        <a class="contact100-form-btn1" id="login" style="display: none;" href="/shop/dashboard/login">
+                        <a class="contact100-form-btn1" id="login" style="display: none;" href="/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)>
                             Please Login First &nbsp;&nbsp;<i class="fas fa-lock"></i>
                         </a>
                     </div>
                 </div>
                 <div class="container2-contact100-form-btn" id="ln2" style="display: none;">
-                        <a class="contact100-form-btn2" id="login2" href="/shop/dashboard/login">
+                        <a class="contact100-form-btn2" id="login2" href="/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)>
                             Please Login First&nbsp;&nbsp;
                             <i class="fas fa-lock"></i>
                         </a>
