@@ -267,12 +267,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-                swal({
-                    title: "Alhamdulillah ❤",
-                    icon: "success",
-                    text: "Successfully applied!",
-                    button: "Ok"
-                })
+document.getElementById("cup").style.display = "block"; 
                 return;
             } else {
                 cpn.innerText = "Apply";
