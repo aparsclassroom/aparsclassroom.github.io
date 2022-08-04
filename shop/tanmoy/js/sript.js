@@ -8,7 +8,7 @@ document.getElementById('email').addEventListener("input", function (event) {
   
   document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
-        document.getElementById('phone').setCustomValidity("Please enter a valid phone number!");
+        document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
