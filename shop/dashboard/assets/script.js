@@ -51,8 +51,8 @@
         }
         var user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                window.history.back();
+            if (!user) {
+                window.location.href = "/shop/dashboard";
             } else {
                 nmodal()
             }
