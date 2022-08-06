@@ -11,14 +11,15 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         firebase.auth();
-
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+          let redirectUrl = params.signInSuccessUrl;
         (function() {
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
             var uiConfig = {
                 callbacks: {
                     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-                        console.log(authResult)
-                        console.log(redirectUrl)
                         return false;
                     },
                     uiShown: function() {
@@ -26,7 +27,7 @@
                     }
                 },
                 signInFlow: 'popup',
-                signInSuccessUrl: "javascript:void()",
+                signInSuccessUrl: redirectUrl,
                 signInOptions: [
                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -53,8 +54,12 @@
         var user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                console.log(user)
-              //  window.location.href = "/shop/dashboard";
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                } else {
+                    window.location.href = "/shop/dashboard";
+                }
+                 
             } else {
                 nmodal()
             }
