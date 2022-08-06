@@ -51,6 +51,7 @@ let redirectUrl = params.signInSuccessUrl;
         privacyPolicyUrl: '/privacy.html'
     };
     ui.start('#firebaseui-auth-container', uiConfig);
+    ui.disableAutoSignIn();
 })()
 
 function onSubmit(token) {
