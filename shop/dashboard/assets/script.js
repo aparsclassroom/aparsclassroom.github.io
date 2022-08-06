@@ -27,6 +27,7 @@
                     }
                 },
                 signInFlow: 'popup',
+                queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
                 signInSuccessUrl: redirectUrl,
                 signInOptions: [
                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
