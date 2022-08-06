@@ -19,7 +19,7 @@
                     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
                         console.log(authResult)
                         console.log(redirectUrl)
-                        return true;
+                        return false;
                     },
                     uiShown: function() {
                         document.getElementById('loader').style.display = 'none';
