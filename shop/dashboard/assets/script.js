@@ -17,7 +17,8 @@
             var uiConfig = {
                 callbacks: {
                     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-
+                        console.log(authResult)
+                        console.log(redirectUrl)
                         return true;
                     },
                     uiShown: function() {
@@ -52,7 +53,8 @@
         var user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                window.location.href = "/shop/dashboard";
+                console.log(user)
+              //  window.location.href = "/shop/dashboard";
             } else {
                 nmodal()
             }
