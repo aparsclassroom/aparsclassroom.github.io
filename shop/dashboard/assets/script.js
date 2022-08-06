@@ -42,6 +42,7 @@
                         whitelistedCountries: ['BD', '+880', 'IN', '+91']
                     }
                 ],
+  credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
                 tosUrl: '/terms.html',
                 privacyPolicyUrl: '/privacy.html'
             };
