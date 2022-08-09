@@ -1,8 +1,8 @@
 const product = "nirbhoy23";
 const productName = "Higher Math 1st Paper Batch Nirvoy";
 const productCode = "189";
-const fix = 1500;
-const pls = 1000;
+const fix = 2000;
+const pls = 1500;
 const init = 0;
 const Platform = "Mahir";
 const Cycle = location.pathname.split('/')[4];
