@@ -53,6 +53,7 @@ src.addEventListener("change", function () {
                 document.getElementById('dismi').innerText = "Close";
                 document.getElementById('immp').innerHTML = `<i class="fas fa-image"></i> Change this Powerpoint ?`;
                 $('#imageModal').modal('hide');
+                document.getElementById('sub').disabled = false;
             })
             .catch(err => {
                 alert('Error', err);
