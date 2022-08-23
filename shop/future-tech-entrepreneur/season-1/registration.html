@@ -136,6 +136,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script>
     <script src="/shop/assets/js/script.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
     <script src="./script.js" defer></script>
 </head>
 
@@ -185,17 +186,17 @@
                 </div>
                 <div class="form-group">
                     <label for="Email"> Group Email Address : <strong class="text-danger">*</strong></label>
-                    <input type="email" class="form-control" id="Email" name="Email"
+                    <input type="email" class="form-control" id="Email" name="Email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
                         placeholder="Ex. yourmail@email.com" required>
                 </div>
                 <div class="form-group">
                     <label for="Phone1"> Group Contact Number (Primary) : <strong class="text-danger">*</strong></label>
-                    <input type="tel" class="form-control" id="Phone1" name="Primary Phone Number" placeholder="Ex. +88012345678910"
+                    <input type="tel" class="form-control" id="Phone1" pattern="^(?:\+?88)?01[13-9]\d{8}$" name="Primary Phone Number" placeholder="Ex. +88012345678910"
                         required>
                 </div>
                 <div class="form-group">
                     <label for="Phone2"> Group Contact Number (Secondary) : </label>
-                    <input type="tel" class="form-control" id="Phone2" name="Secondary Phone Number" placeholder="Ex. +88012345678910"
+                    <input type="tel" class="form-control" id="Phone2" pattern="^(?:\+?88)?01[13-9]\d{8}$" name="Secondary Phone Number" placeholder="Ex. +88012345678910"
                         >
                 </div>
                 <div class="form-group">

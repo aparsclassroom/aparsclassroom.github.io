@@ -1,4 +1,28 @@
 const uploadURL = "https://script.google.com/macros/s/AKfycbxt4hJccE8qd9nbk_x62dwlsWSyY2_UID_y9yyKBMmqIRFXu3Q5UA0RvGsLWFtCDn9b-g/exec";
+document.getElementById('Email').addEventListener("input", function (event) {
+    if (document.getElementById('Email').validity.typeMismatch) {
+      document.getElementById('Email').setCustomValidity("We are expecting an e-mail address!");
+    } else {
+      document.getElementById('Email').setCustomValidity("");
+    }
+  });
+  
+  document.getElementById('Phone1').addEventListener("input", function (event) {
+    if (document.getElementById('Phone1').validity.patternMismatch) {
+        document.getElementById('Phone1').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+    } else {
+        document.getElementById('Phone1').setCustomValidity("");
+    }
+  });
+
+  document.getElementById('Phone2').addEventListener("input", function (event) {
+    if (document.getElementById('Phone2').validity.patternMismatch) {
+        document.getElementById('Phone2').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+    } else {
+        document.getElementById('Phone2').setCustomValidity("");
+    }
+  });
+
 
 var src = document.getElementById("pptx");
 var target = document.getElementById("newIn");
@@ -27,6 +51,7 @@ src.addEventListener("change", function () {
                 document.getElementById('newIn').style.display = "block";
                 document.getElementById('dismi').disabled = false;
                 document.getElementById('dismi').innerText = "Close";
+                document.getElementById('immp').innerHTML = `<i class="fas fa-image"></i> Change this Powerpoint ?`;
                 $('#imageModal').modal('hide');
             })
             .catch(err => {
