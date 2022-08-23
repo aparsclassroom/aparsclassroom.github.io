@@ -87,9 +87,9 @@ form.addEventListener('submit', e => {
         })
         .then((data) => {
             swal({
-                title: data.title,
-                icon: data.code,
-                text: data.message,
+                title: data.action.title,
+                icon: data.action.code,
+                text: data.action.message,
                 button: "Close"
             }).then(() => {
                 return location.replace('/shop');
@@ -98,9 +98,9 @@ form.addEventListener('submit', e => {
 
     .catch((e) => {
         swal({
-            title: e.title,
-            icon: e.code,
-            text: e.message,
+            title: e.action.title,
+            icon: e.action.code,
+            text: e.action.message,
             button: "Okay ☹"
         })
     })
