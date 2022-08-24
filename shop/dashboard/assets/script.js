@@ -30,21 +30,22 @@ let redirectUrl = params.signInSuccessUrl;
         queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
         signInSuccessUrl: redirectUrl,
         signInOptions: [
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
             {
                 provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 clientId: "374714320984-7r0b3i1s39tapmudaa4poe2b3qkpksst.apps.googleusercontent.com"
             },
             firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            {
-                provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                recaptchaParameters: {
-                    type: 'image',
-                    size: 'invisible',
-                    badge: 'bottomleft'
-                },
-                defaultCountry: 'BD',
-                whitelistedCountries: ['BD', '+880', 'IN', '+91']
-            }
+            // {
+            //     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            //     recaptchaParameters: {
+            //         type: 'image',
+            //         size: 'invisible',
+            //         badge: 'bottomleft'
+            //     },
+            //     defaultCountry: 'BD',
+            //     whitelistedCountries: ['BD', '+880', 'IN', '+91']
+            // }
         ],
         credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
         tosUrl: '/terms.html',
