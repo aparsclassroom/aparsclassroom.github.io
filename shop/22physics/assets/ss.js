@@ -60,7 +60,7 @@ fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .catch((err) => {
         console.log(err)
     })
-fetch(`${courseContent}?productCode=${productCode}`)
+fetch(`https://script.google.com/macros/s/AKfycbxbqLpB6aEl5cDGuNZXBuE1842M7-jXfvH5KAyqrKFXbB2PyutI0E6M16bSWKt6ci2WLA/exec?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
