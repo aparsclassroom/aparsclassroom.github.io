@@ -1,9 +1,9 @@
 const product = "Beginner 2 Master Physics Batch for HSC 23";
 const productName = "Beginner 2 Master Physics Batch for HSC 23";
-const productCode = "155";
+const productCode = "195";
 const fix = 1500;
 const pls = 800;
-const init = 1741;
+const init = 0;
 const Platform = "Super Admin";
 const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
@@ -59,20 +59,9 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
         console.log(err)
     })
 
-fetch(`https://script.google.com/macros/s/AKfycbzF8XAV1TLDpz2f_GUsEQlsFlVUEGdxhrZMMS6pL_0a3mXQzGRaUevfvkE4i0wzG-r2pA/exec?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        let types = data.types;
-        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
-        document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
-        document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-        document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
-
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+    document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; 15+ Classes`;
+    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; 5+ Practice Sheets`;
+    document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp; 2 QnA Classes`;
+    document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp; 2 Exams`;
+    document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
+    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
