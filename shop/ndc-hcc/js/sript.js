@@ -27,31 +27,12 @@ firebase.auth().onAuthStateChanged(function(e) {
         const form = document.forms['purchase']
         form.addEventListener('submit', em => {
             em.preventDefault();
-            var mail = document.getElementById('email').value.toLowerCase().trim();
             document.getElementById('buy').innerText = "Please wait...."
             document.getElementById("buy").disabled = true;
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            var raw = JSON.stringify({
-                "productName": product,
-                "Platform": Platform,
-                "Name": document.getElementById('name').value.trim(),
-                "Email": mail,
-                "School": document.getElementById('School').value.trim(),
-                "Board Roll": document.getElementById('roll').value.trim(),
-                "Registration Number": document.getElementById('registration').value.trim(),
-                "Phone": document.getElementById('phone').value.trim(),
-                'UID': e.uid
-            });
-
-            var requestOptions = {
+            fetch(`https://script.google.com/macros/s/AKfycbzodlMLueKX4WOgWy7eV1ttt1S4Rr77dXStWSWLaw2QUbY6k7Z9-8Cx9q0nQhF4JPq9/exec`,  {
                 method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-
-            fetch(`https://script.google.com/macros/s/AKfycbzodlMLueKX4WOgWy7eV1ttt1S4Rr77dXStWSWLaw2QUbY6k7Z9-8Cx9q0nQhF4JPq9/exec`, requestOptions)
+                body: new FormData(form)
+            })
             .then((res) => {
                 return res.json()
             })
