@@ -39,9 +39,9 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((data) => {
                 swal({
                     title: data.action.title,
-                    icon: data.action.code,
-                    text: data.action.message,
-                    button: "Close"
+                    icon: data.action.icon,
+                    text: data.action.text,
+                    button: data.action.button
                 }).then(() => {
                     return location.replace('https://www.facebook.com/groups/1116571972397525/');
                 })
@@ -50,9 +50,9 @@ firebase.auth().onAuthStateChanged(function(e) {
         .catch((e) => {
             swal({
                 title: e.action.title,
-                icon: e.action.code,
-                text: e.action.message,
-                button: "Okay ☹"
+                icon: e.action.icon,
+                text: e.action.text,
+                button: e.action.button
             })
         })
     })
