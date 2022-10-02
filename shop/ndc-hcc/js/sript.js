@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             em.preventDefault();
             document.getElementById('buy').innerText = "Please wait...."
             document.getElementById("buy").disabled = true;
-            fetch(`https://script.google.com/macros/s/AKfycbzodlMLueKX4WOgWy7eV1ttt1S4Rr77dXStWSWLaw2QUbY6k7Z9-8Cx9q0nQhF4JPq9/exec`,  {
+            fetch(`https://script.google.com/macros/s/AKfycbzw9BLtyB7hQzCYYV1ozyhX6w1n2HNXrsNkuDz7gtrfKS3XEZdoa15Nl_k4doux2d-6/exec`,  {
                 method: 'POST',
                 body: new FormData(form)
             })
@@ -54,7 +54,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                 text: e.action.text,
                 button: e.action.button
             })
-        })
+       }).then(() => {
+        return location.reload();
+    })
     })
            
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
