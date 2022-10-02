@@ -37,7 +37,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                 "Platform": Platform,
                 "Name": document.getElementById('name').value.trim(),
                 "Email": mail,
-                "School": document.getElementById('school').value.trim(),
+                "School": document.getElementById('School').value.trim(),
+                "Board Roll": document.getElementById('roll').value.trim(),
+                "Registration Number": document.getElementById('registration').value.trim(),
                 "Phone": document.getElementById('phone').value.trim(),
                 'UID': e.uid
             });
