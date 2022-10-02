@@ -43,16 +43,16 @@ firebase.auth().onAuthStateChanged(function(e) {
                     text: data.action.text,
                     button: data.action.button
                 }).then(() => {
-                    return location.replace('https://www.facebook.com/groups/1116571972397525/');
+                    location.replace('https://www.facebook.com/groups/1116571972397525/');
                 })
             })
     
         .catch((e) => {
             swal({
-                title: e.action.er.title,
-                icon: e.action.er.icon,
-                text: e.action.er.text,
-                button: e.action.er.button
+                title: e.action.title,
+                icon: e.action.icon,
+                text: e.action.text,
+                button: e.action.button
             })
        }).then(() => {
         return location.reload();
