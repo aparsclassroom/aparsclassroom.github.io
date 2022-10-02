@@ -49,10 +49,10 @@ firebase.auth().onAuthStateChanged(function(e) {
     
         .catch((e) => {
             swal({
-                title: e.action.title,
-                icon: e.action.icon,
-                text: e.action.text,
-                button: e.action.button
+                title: e.err.title,
+                icon: e.err.icon,
+                text: e.err.text,
+                button: e.err.button
             })
        }).then(() => {
         return location.reload();
