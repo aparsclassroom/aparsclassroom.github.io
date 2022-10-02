@@ -53,10 +53,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                 icon: e.action.icon,
                 text: e.action.text,
                 button: e.action.button
+            }).then(() => {
+                return location.reload();
             })
-       }).then(() => {
-        return location.reload();
-    })
+       })
     })
            
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
