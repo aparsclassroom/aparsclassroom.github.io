@@ -43,22 +43,22 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-// fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-//     .then((res) => {
-//         return res.json()
-//     })
-//     .then((data) => {
-//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-//         if (document.getElementById('enrolled')) {
-//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-//             if (!countUp.error) {
-//                 countUp.start();
-//             } else {
-//                 console.error(countUp.error);
-//             }
-//         }
+fetch(`https://script.google.com/macros/s/AKfycbzOFK3eTI-hs-qJYnMRSiNwfmMRopbZXUtStk21wD5cNsiTfjuK1Bl4R2dxL7550Ak/exec`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.enrollment + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
 
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//     })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
