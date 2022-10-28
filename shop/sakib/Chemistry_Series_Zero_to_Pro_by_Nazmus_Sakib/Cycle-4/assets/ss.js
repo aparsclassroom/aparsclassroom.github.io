@@ -64,4 +64,4 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
     document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;10 Exams`;
     document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;Class starts Nov 20th`;
     document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; ২০ নভেম্বরের পরে সাইকেল ফি ১০০৳ হবে।`;
+    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; ২০ নভেম্বরের পরে সাইকেল ফি ১০০০৳ হবে।`;
