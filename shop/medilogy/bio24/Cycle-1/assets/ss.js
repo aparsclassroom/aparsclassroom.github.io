@@ -36,7 +36,7 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
+fetch(`https://bio24.aparsclassroom.com/public/enrollment/${Cycle}`)
     .then((res) => {
         return res.json()
     })
