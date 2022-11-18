@@ -209,6 +209,9 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
+        document.getElementById('moda').innerHTML = `
+        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+        `;
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
