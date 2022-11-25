@@ -9,12 +9,6 @@ var swiper = new Swiper(".mySwiper", {
         nextEl: '.swiper-button-next'
     },
 });
-const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
-if (!countUp.error) {
-    countUp.start();
-} else {
-    console.error(countUp.error);
-}
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
