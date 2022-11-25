@@ -1,8 +1,20 @@
-const product = "bio24";
-const productName = "অপ্রতিরোধ্য জীববিজ্ঞান ব্যাচ : এইচএসসি ২০২৪";
-const init = 0;
-const Platform = "Medilogy";
-const Cycle = location.pathname.split('/')[4];
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    loop: false,
+    autoplay: {
+        delay: 4000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next'
+    },
+});
+const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+if (!countUp.error) {
+    countUp.start();
+} else {
+    console.error(countUp.error);
+}
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -11,7 +23,6 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
-
 // var tag = document.createElement('script');
 
 // tag.src = "https://www.youtube.com/iframe_api";
@@ -36,7 +47,7 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://bio24.aparsclassroom.com/api/public/check/enrollment/${Cycle}`)
+fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
