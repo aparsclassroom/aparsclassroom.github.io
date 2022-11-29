@@ -6,7 +6,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(data => {
                 if (data.status == "success") {
-                   document.getElementById('coursevideo').src = data.course.
+                   document.getElementById('coursevideo').src = data.course
                 } else {
                   //  location.replace(`https://${shopName2}/${productCode}`);
                 }
