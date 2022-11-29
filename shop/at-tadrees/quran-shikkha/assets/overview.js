@@ -5,10 +5,11 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return response.json()
             })
             .then(data => {
+                console.log(data.course)
                 if (data.status == "success") {
                     console.log(data.course)
                 } else {
-                    location.replace(`https://${shopName2}/${productCode}`);
+                  //  location.replace(`https://${shopName2}/${productCode}`);
                 }
             })
             .catch(err => {
