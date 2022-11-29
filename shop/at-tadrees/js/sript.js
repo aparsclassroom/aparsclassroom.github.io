@@ -53,7 +53,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     form.addEventListener('submit', em => {
                         em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
-                        document.getElementById('buy').innerText = "Please wait...."
+                        document.getElementById('buy').innerText = "অপেক্ষা করুন...."
                         document.getElementById("buy").disabled = true;
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
@@ -120,7 +120,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 mfs.addEventListener('submit', em => {
                     em.preventDefault();
                     var mail = document.getElementById('email').value.toLowerCase().trim();
-                    document.getElementById('buy').innerText = "Please wait...."
+                    document.getElementById('buy').innerText = "অপেক্ষা করুন...."
                     document.getElementById("buy").disabled = true;
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
