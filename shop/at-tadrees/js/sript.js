@@ -14,8 +14,8 @@ document.getElementById('email').addEventListener("input", function (event) {
     }
   });
 
-document.title = product + " | ASG Shop";
-document.getElementById('prod').innerText = product;
+document.title = productName + " | ASG Shop";
+document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -23,9 +23,6 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        if (sessionStorage.getItem(product + '_potential') == 'true') {
-            $('#purchaseFrm').modal('show')
-        }
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -50,13 +47,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then(result => {
                 if (result.status === 200) {
-                    swal({
-                        title: "Already Enrolled !",
-                        icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace(result.Invoice)
-                    })
+                    location.replace('./overview')
                 } else {
                     const form = document.forms['purchase']
                     form.addEventListener('submit', em => {
@@ -211,6 +202,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
+        document.getElementById('moda').innerHTML = `কোর্সটিতে এনরোল করুন <i class="fas fa-arrow-right"></i>`;
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
