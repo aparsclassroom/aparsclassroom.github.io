@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
-        fetch(`https://${shopName2}/access/${productCode}/${e.uid}`, requestOptions)
+        fetch(`https://${shopName2}/access/${productCode}/${e.uid}`)
             .then(response => {
                 return response.json()
             })
@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (data.status == "success") {
                     console.log(data.course)
                 } else {
+                    location.replace(`https://${shopName2}/${productCode}`);
                 }
             })
             .catch(err => {
@@ -15,6 +16,6 @@ firebase.auth().onAuthStateChanged(function(e) {
             }
         );
     } else {
-       location.replace(`https://${shopName2}/${productCode}`);
+       location.replace(`/shop/dashboard/login`);
     }
 });
