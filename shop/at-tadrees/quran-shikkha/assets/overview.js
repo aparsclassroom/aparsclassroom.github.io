@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             document.getElementById("contents").innerHTML += `
                             <div class="col-12 col-md-6">
                             <div class="card bg-primary border-light shadow-soft">
-                                <img src="${element.image}" class="card-img-top rounded-top" alt="${element.title}">
+                                <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                 <div class="card-body">
                                     <h3 class="h5 card-title mt-3">${element.title}</h3>
                                     <p class="card-text">${element.description}</p>
