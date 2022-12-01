@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                       <h5 class="card-title">${element.title}</h5>
                                       <p class="card-text">${element.description}</p>
                                      <img src="${element.image}" class="img-fluid" alt="Responsive image">
-                                      <a href="./?${element._id}" class="btn btn-primary">শুরু করুন</a>
+                                      <a href="./yt?${element._id}" class="btn btn-primary">শুরু করুন</a>
                                   </div>
                               </div>
                           </div>
@@ -31,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                   <div class="card-body">
                                       <h5 class="card-title">${element.title}</h5>
                                       <p class="card-text">${element.description}</p>
-                                      <a href="${element.link}" class="btn btn-primary">শুরু করুন</a>
+                                      <a href="./?${element._id}" class="btn btn-primary">শুরু করুন</a>
                                   </div>
                               </div>
                           </div>
