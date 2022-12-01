@@ -31,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     <h5 class="card-title
                                     ">আপনার প্রশ্ন কি ছিল?</h5>
                                     <p class="card-text">আপনার প্রশ্ন কি ছিল? আমাদের সাথে যোগাযোগ করুন।</p>
-                                    <a href="https://www.facebook.com/groups/AtTadrees/" class="btn btn-primary">যোগাযোগ করুন</a>
+                                    <a href="https://www.facebook.com/groups/atquranshikkha" class="btn btn-primary">যোগাযোগ করুন</a>
                                 </div>
                             </div>
                         </div>
