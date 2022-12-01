@@ -11,17 +11,33 @@ firebase.auth().onAuthStateChanged(function(e) {
                     const contentLength = content.length;
 
                     content.forEach(element => {
-                       document.getElementById("contents").innerHTML += `
-                          <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">${element.title}</h5>
-                                    <p class="card-text">${element.description}</p>
-                                    <a href="${element.link}" class="btn btn-primary">শুরু করুন</a>
-                                </div>
-                            </div>
-                        </div>
-                          `;
+                        if (element.type == "yt") {
+                            document.getElementById("contents").innerHTML += `
+                            <div class="col-md-4">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <h5 class="card-title">${element.title}</h5>
+                                      <p class="card-text">${element.description}</p>
+                                     <img src="${element.image}" class="img-fluid" alt="Responsive image">
+                                      <a href="./?${element._id}" class="btn btn-primary">শুরু করুন</a>
+                                  </div>
+                              </div>
+                          </div>
+                            `;
+                        } else {
+                            document.getElementById("contents").innerHTML += `
+                            <div class="col-md-4">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <h5 class="card-title">${element.title}</h5>
+                                      <p class="card-text">${element.description}</p>
+                                      <a href="${element.link}" class="btn btn-primary">শুরু করুন</a>
+                                  </div>
+                              </div>
+                          </div>
+                            `;
+                        }
+                       
                     });
 
                     document.getElementById("contents").innerHTML += `
