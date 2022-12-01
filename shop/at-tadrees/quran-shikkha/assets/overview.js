@@ -5,7 +5,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 return response.json()
             })
             .then(data => {
-                if (data.status == "success") {
+                if (data.status == 200) {
                     const content = data.content;
                     console.log(content);
                    document.getElementById('content').innerHTML = `
