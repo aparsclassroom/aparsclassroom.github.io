@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     const contentLength = content.length;
 
                     content.forEach(element => {
-                       document.getElementById("content").innerHTML += `
+                       document.getElementById("contents").innerHTML += `
                           <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body">
@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                           `;
                     });
 
-                    document.getElementById("content").innerHTML += `
+                    document.getElementById("contents").innerHTML += `
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body">
