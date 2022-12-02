@@ -10,71 +10,54 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                     const contentLength = content.length;
                     document.getElementById("contents").innerHTML = "";
-                    content.forEach(element => {
 
-                        if (element.category == "Regular") {
-                            if (element.type == "yt") {
-                                document.getElementById("contents").innerHTML += `
-                            <div class="col-sm grid-item" data-category="Regular">
-                                <div class="card bg-primary border-light shadow-soft">
-                                <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
-                                        <div class="card-body">
-                                            <h5 class="card-title
-                                            ">${element.title}</h5>
-                                            <p class="card-text">${element.description}</p>
-                                            <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Open Class</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                            } else {
-                                document.getElementById("contents").innerHTML += `
-                                <div class="col-md grid-item" data-category="Regular" >
-                                    <div class="card bg-primary border-light shadow-soft">
-                                        <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
-                                        <div class="card-body">
-                                            <h5 class="card-title
-                                            ">${element.title}</h5>
-                                            <p class="card-text">${element.description}</p>
-                                            <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Open Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                `;
-                            }
-                        } else {
-                            if (element.type == "yt") {
-                                document.getElementById("contents").innerHTML += `
-                            <div class="col-md grid-item" data-category="Bonus">
-                            <div class="card bg-primary border-light shadow-soft">
-                            <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
-                                    <div class="card-body">
-                                        <h5 class="card-title
-                                        ">${element.title}</h5>
-                                        <p class="card-text">${element.description}</p>
-                                        <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Open Class</a>
-                                    </div>
-                                </div>
-                            </div>
-                            `;
-                            } else {
-                                document.getElementById("contents").innerHTML += `
-                                <div class="col-md grid-item" data-category="Bonus">
-                                <div class="card bg-primary border-light shadow-soft">
-                                <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
-                                        <div class="card-body">
-                                            <h5 class="card-title
-                                            ">${element.title}</h5>
-                                            <p class="card-text">${element.description}</p>
-                                            <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Open Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                `;
-                            }
+
+                    var table = $('#datatable').DataTable({
+                        "data": content,
+                        "columns": [{
+                            "data": "serial"
+                        }, {
+                            "data": "title"
+                        }, {
+                            "data": "category",
+                            render: function(data, type, row) {
+                                if (type === 'display') {
+                                    if (data == "Regular") {
+                                        return "অত‍্যাধুনিক পদ্ধতিতে কুরআন শিক্ষা";
+                                    } else {
+                                        return 'সূরা মাশক';
+                                    }
+                                }
+                                return data;
+                            },
+                        },{
+                            "data": "type",
+                            render: function(data, type, row) {
+                                if (type === 'display') {
+                                    if (data == "yt") {
+                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
+                                    } else {
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
+                                    }
+                                }
+                                return data;
+                            },
+                        }],
+                        "pagingType": "full_numbers",
+                        "lengthMenu": [
+                            [10, 25, 50, 100, 500, -1],
+                            [10, 25, 50, 100, 500, "All"]
+                        ],
+                        "order": [
+                            [1, "desc"]
+                        ],
+
+                        responsive: true,
+                        language: {
+                            search: "_INPUT_",
+                            searchPlaceholder: "Search Classes"
                         }
                     });
-
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
                 }
