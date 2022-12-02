@@ -9,36 +9,94 @@ firebase.auth().onAuthStateChanged(function (e) {
                     const content = data.course.content;
 
                     const contentLength = content.length;
+
+                    document.getElementById('tabs').innerHTML = `  
+                    <li class="nav-item">
+                    <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs1-tab" data-toggle="tab" href="#tabs1" role="tab" aria-controls="tabs1" aria-selected="true">কুরআন শিক্ষা</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs2-tab" data-toggle="tab" href="#tabs2" role="tab" aria-controls="tabs2" aria-selected="false">সূরা মশ্ক</a>
+                </li>`;
                     document.getElementById("contents").innerHTML = "";
                     content.forEach(element => {
+
+                        if (element.catagory == "regular") { 
+                            if (element.type == "yt") {
+                            document.getElementById("contents").innerHTML += `
+                            <div class="tab-pane fade show active" id="tabs1" role="tabpanel" aria-labelledby="tabs1-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <div class="card bg-primary border-light shadow-soft">
+                                <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
+                                        <div class="card-body">
+                                            <h5 class="card-title
+                                            ">${element.title}</h5>
+                                            <p class="card-text">${element.description}</p>
+                                            <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Open Class</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            `;
+                            } else {
+                                document.getElementById("contents").innerHTML += `
+                                <div class="tab-pane fade show active" id="tabs1" role="tabpanel" aria-labelledby="tabs1-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="card bg-primary border-light shadow-soft">
+                                    <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
+                                            <div class="card-body">
+                                                <h5 class="card-title
+                                                ">${element.title}</h5>
+                                                <p class="card-text">${element.description}</p>
+                                                <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Open Quiz</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                `;
+                        } 
+                    } else {
                         if (element.type == "yt") {
                             document.getElementById("contents").innerHTML += `
-                            <div class="col-12 col-md-6">
+                            <div class="tab-pane fade show active" id="tabs2" role="tabpanel" aria-labelledby="tabs2-tab">
+                            <div class="row">
+                                <div class="col-md-6">
                                 <div class="card bg-primary border-light shadow-soft">
+                                <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
+                                        <div class="card-body">
+                                            <h5 class="card-title
+                                            ">${element.title}</h5>
+                                            <p class="card-text">${element.description}</p>
+                                            <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Open Class</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            `;
+                            } else {
+                                document.getElementById("contents").innerHTML += `
+                                <div class="tab-pane fade show active" id="tabs2" role="tabpanel" aria-labelledby="tabs2-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="card bg-primary border-light shadow-soft">
                                     <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
-                                    <div class="card-body">
-                                        <h3 class="h5 card-title mt-3">${element.title}</h3>
-                                        <p class="card-text">${element.description}</p>
-                                        <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Open</a>
+                                            <div class="card-body">
+                                                <h5 class="card-title
+                                                ">${element.title}</h5>
+                                                <p class="card-text">${element.description}</p>
+                                                <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Open Quiz</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            `;
-                        } else {
-                            document.getElementById("contents").innerHTML += `
-                            <div class="col-12 col-md-6">
-                                <div class="card bg-primary border-light shadow-soft">
-                                    <img src="${element.image}" class="card-img-top rounded-top" alt="${element.title}">
-                                    <div class="card-body">
-                                        <h3 class="h5 card-title mt-3">${element.title}</h3>
-                                        <p class="card-text">${element.description}</p>
-                                        <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Open</a>
-                                    </div>
-                                </div>
-                            </div>
-                            `;
+                                `;
+                        } 
                         }
-
                     });
 
                 } else {
