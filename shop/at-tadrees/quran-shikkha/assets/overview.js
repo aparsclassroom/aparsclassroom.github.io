@@ -9,13 +9,13 @@ firebase.auth().onAuthStateChanged(function (e) {
                     const content = data.course.content;
 
                     var regularCont = content.find(function (element) {
-                        return element.cateogory == "Regular";
+                        return element.category == "Regular";
                     });
 
                     console.log(regularCont);
 
                     var bonusCont = content.find(function (element) {
-                        return element.cateogory == "Bonus";
+                        return element.category == "Bonus";
                     });
 
                     console.log(bonusCont);
