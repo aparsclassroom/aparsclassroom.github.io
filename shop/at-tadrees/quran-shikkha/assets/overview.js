@@ -61,7 +61,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                         }
                     });
 
-                    $('#datatable2').DataTable().search('Bonus').draw();
+                    $('#datatable2').DataTable()
+                    .search('category', 'Bonus').draw();
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
                 }
