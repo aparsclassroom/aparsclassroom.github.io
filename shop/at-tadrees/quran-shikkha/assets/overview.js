@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     if (data == "yt") {
                                         return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
                                     } else {
-                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা দিন</a>`;
                                     }
                                 }
                                 return data;
@@ -91,7 +91,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     if (data == "yt") {
                                         return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
                                     } else {
-                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা দিন</a>`;
                                     }
                                 }
                                 return data;
