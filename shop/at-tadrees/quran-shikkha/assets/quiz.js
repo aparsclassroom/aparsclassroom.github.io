@@ -14,7 +14,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("title").innerHTML = content.title;
                     document.getElementById("description").innerHTML = content.description;
                     if (content.type != "yt" || content.type != "ftp") {
-                        document.getElementById('content').src = content.content;
+                        document.getElementById('content').src = content.link;
                     } else {
                         location.href = './yt?'+content._id;
                     }
