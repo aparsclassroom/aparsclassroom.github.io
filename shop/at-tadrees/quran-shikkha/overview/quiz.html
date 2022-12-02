@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="/shop/assets/css/shop.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/semantic.min.css">
     <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
+    <style>
+        .responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+    </style>
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
@@ -44,7 +56,7 @@
     <div class="container">
         <h2 id="title">Loading...</h2>
         <p id="description"></p>
-        <iframe id="content" frameborder="0" height="100vh" width="100%"></iframe>
+        <iframe id="content" class="responsive-iframe"></iframe>
     </div>
 </div>
 
