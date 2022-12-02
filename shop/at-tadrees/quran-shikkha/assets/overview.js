@@ -116,12 +116,12 @@ firebase.auth().onAuthStateChanged(function (e) {
                         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                             if (e.target.hash == "#regular") {
                                 table.columns.adjust().draw();
-                                document.getElementById('bonus').classList.remove('active');
-                                document.getElementById('regular').classList.add('active');
+                                document.getElementById('tab-table2').classList.remove('active');
+                                document.getElementById('tab-table1').classList.add('active');
                             } else {
                                 table2.columns.adjust().draw();
-                                document.getElementById('regular').classList.remove('active');
-                                document.getElementById('bonus').classList.add('active');
+                                document.getElementById('tab-table1').classList.remove('active');
+                                document.getElementById('tab-table2').classList.add('active');
                             }
                         // $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
                         // document.getElementById(e.target.id).classList.remove('active');
