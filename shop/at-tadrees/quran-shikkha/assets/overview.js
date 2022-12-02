@@ -8,6 +8,15 @@ firebase.auth().onAuthStateChanged(function (e) {
                 if (data.status == 200) {
                     const content = data.course.content;
 
+                   const regular = content.find((item) => {
+                        return item.type == 'regular'
+                   })
+
+                   const bonus = content.find((item) => {
+                        return item.type == 'bonus'
+                     })
+
+
                     document.getElementById("contents").innerHTML = "";
 
                     document.getElementById('tbl').style.display = "block";
@@ -15,7 +24,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
                     });
                     var table = $('#datatable').DataTable({
-                        "data": content,
+                        "data": regular,
                         "columns": [{
                             "data": "serial"
                         }, {
@@ -62,7 +71,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     });
 
                     var table2 = $('#datatable2').DataTable({
-                        "data": content,
+                        "data": bonus,
                         "columns": [{
                             "data": "serial"
                         }, {
