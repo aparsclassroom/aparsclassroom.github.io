@@ -115,6 +115,8 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                                         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                         $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+                        console.log('tab changed');
+                        console.log(e.target);
                     });
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
