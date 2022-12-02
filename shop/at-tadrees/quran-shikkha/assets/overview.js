@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         if (element.category == "Regular") {
                             if (element.type == "yt") {
                                 document.getElementById("contents").innerHTML += `
-                            <div class="col-md-6 grid-item" data-category="Regular">
+                            <div class="col-sm grid-item" data-category="Regular">
                                 <div class="card bg-primary border-light shadow-soft">
                                 <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                         <div class="card-body">
@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             `;
                             } else {
                                 document.getElementById("contents").innerHTML += `
-                                <div class="col-md-6 grid-item" data-category="Regular" >
+                                <div class="col-sm grid-item" data-category="Regular" >
                                     <div class="card bg-primary border-light shadow-soft">
                                         <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                         <div class="card-body">
@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         } else {
                             if (element.type == "yt") {
                                 document.getElementById("contents").innerHTML += `
-                            <div class="col-md-6 grid-item" data-category="Bonus">
+                            <div class="col-sm grid-item" data-category="Bonus">
                             <div class="card bg-primary border-light shadow-soft">
                             <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                     <div class="card-body">
@@ -59,7 +59,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             `;
                             } else {
                                 document.getElementById("contents").innerHTML += `
-                                <div class="col-md-6 grid-item" data-category="Bonus">
+                                <div class="col-sm grid-item" data-category="Bonus">
                                 <div class="card bg-primary border-light shadow-soft">
                                 <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                         <div class="card-body">
