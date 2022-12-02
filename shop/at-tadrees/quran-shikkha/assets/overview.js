@@ -19,9 +19,6 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("contents").innerHTML = "";
 
                     document.getElementById('tbl').style.display = "block";
-                    // $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                    //     $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-                    // });
                     var table = $('#datatable').DataTable({
                         "data": regular,
                         "columns": [{
@@ -114,6 +111,10 @@ firebase.auth().onAuthStateChanged(function (e) {
                             search: "_INPUT_",
                             searchPlaceholder: "Search Classes"
                         }
+                    });
+
+                                        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                        $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
                     });
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
