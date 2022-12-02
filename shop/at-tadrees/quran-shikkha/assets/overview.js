@@ -8,11 +8,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                 if (data.status == 200) {
                     const content = data.course.content;
 
-                   const regular = content.find((item) => {
+                   const regular = content.filter((item) => {
                         return item.category == 'Regular'
                    })
 
-                   const bonus = content.find((item) => {
+                   const bonus = content.filter((item) => {
                         return item.category == 'Bonus'
                      })
 
