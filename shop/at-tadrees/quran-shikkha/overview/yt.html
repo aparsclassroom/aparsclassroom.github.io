@@ -29,7 +29,7 @@
     <script src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js" defer></script>
     <script src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
     <script src="../assets/js/semantic.min.js" defer></script>
-    <script src="../assets/overview.js" defer></script>
+    <script src="../assets/yt.js" defer></script>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
         <div class="header_right">
             <ul>
                 <li>
-                    <a href="create_new_course.html" class="upload_btn" title="Create New Course">Next Video</a>
+                    <a href="./" class="upload_btn" title="Create New Course">Return</a>
                 </li>
             </ul>
         </div>
@@ -61,18 +61,14 @@
                 <div class="row">
                     <div class="col-xl-8 col-lg-8">
                         <div class="section3125">
-                            <div class="live1452">
-                                <iframe src="https://www.youtube.com/embed/Pxg2l1nKZXs"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                            <div class="live1452" id="video">
                             </div>
                             <div class="user_dt5">
                                 <div class="user_dt_left">
                                     <div class="live_user_dt">
                                         <div class="user_cntnt">
-                                            <h4>Title</h4>
-                                            <p>Description</p>
-                                            <button class="subscribe-btn">Start Quiz</button>
+                                            <h4 id="title">Loading..</h4>
+                                            <p id="description"></p>
                                         </div>
                                     </div>
                                 </div>

@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     <div class="card-body">
                                         <h3 class="h5 card-title mt-3">${element.title}</h3>
                                         <p class="card-text">${element.description}</p>
-                                        <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Learn More</a>
+                                        <a href="./yt?${element._id}" class="btn btn-primary btn-sm">Open</a>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     <div class="card-body">
                                         <h3 class="h5 card-title mt-3">${element.title}</h3>
                                         <p class="card-text">${element.description}</p>
-                                        <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Learn More</a>
+                                        <a href="./quiz?${element._id}" class="btn btn-primary btn-sm">Open</a>
                                     </div>
                                 </div>
                             </div>
