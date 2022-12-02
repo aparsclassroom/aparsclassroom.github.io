@@ -114,8 +114,14 @@ firebase.auth().onAuthStateChanged(function (e) {
                     });
 
                         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                        $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-                        document.getElementById(e.target.id).classList.remove('active');
+                            if (e.target.hash == "#regular") {
+                                table.columns.adjust().draw();
+                            } else {
+                                table2.columns.adjust().draw();
+                                
+                            }
+                        // $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+                        // document.getElementById(e.target.id).classList.remove('active');
                     });
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
