@@ -15,7 +15,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("description").innerText = content.description;
                     if (content.type != "yt" || content.type != "ftp") {
                         document.getElementById('content').src = content.link;
-                        iFrameResize({ log: true }, '#content')
+                        iFrameResize({ log: true }, '#content');
+            
                     } else {
                         location.href = './yt?'+content._id;
                     }
