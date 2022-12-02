@@ -113,9 +113,9 @@ firebase.auth().onAuthStateChanged(function (e) {
                         }
                     });
 
-                                        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                         $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-                        console.log(e.target.id);
+                        document.getElementById(e.target.id).classList.remove('active');
                     });
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
