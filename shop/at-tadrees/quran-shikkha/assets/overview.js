@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             [10, 25, 50, 100, 500, "All"]
                         ],
                         "order": [
-                            [0, "desc"]
+                            [0, "asc"]
                         ],
 
                         responsive: true,
