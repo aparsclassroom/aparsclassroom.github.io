@@ -114,6 +114,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                     });
 
                         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                            $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+                            
                             if (e.target.hash == "#regular") {
                                 table.columns.adjust().draw();
                                 document.getElementById('tab-table2').classList.remove('active');
@@ -123,8 +125,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                 document.getElementById('tab-table1').classList.remove('active');
                                 document.getElementById('tab-table2').classList.add('active');
                             }
-                        // $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-                        // document.getElementById(e.target.id).classList.remove('active');
+                       
                     });
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
