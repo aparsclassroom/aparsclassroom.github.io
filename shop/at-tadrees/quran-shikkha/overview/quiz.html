@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/semantic.min.css">
     <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
     <style>
+        .container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+}
         .responsive-iframe {
   position: absolute;
   top: 0;
@@ -53,9 +59,9 @@
         </div>
     </header>
 <div class="wrapper text-center">
+    <h2 id="title">Loading...</h2>
+    <p id="description"></p>
     <div class="container">
-        <h2 id="title">Loading...</h2>
-        <p id="description"></p>
         <iframe id="content" class="responsive-iframe"></iframe>
     </div>
 </div>
