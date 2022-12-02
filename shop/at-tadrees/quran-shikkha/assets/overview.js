@@ -115,11 +115,9 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                             if (e.target.hash == "#regular") {
-                                table.columns.adjust().draw();
                                 document.getElementById('tab-table2').style.display = "none";
                                 document.getElementById('tab-table1').style.display = "block";
                             } else {
-                                table2.columns.adjust().draw();
                                 document.getElementById('tab-table1').style.display = "none";
                                 document.getElementById('tab-table2').style.display = "block";
                             }
