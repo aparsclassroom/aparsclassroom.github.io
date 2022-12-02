@@ -16,6 +16,9 @@ firebase.auth().onAuthStateChanged(function (e) {
                         return item.category == 'Bonus'
                      })
 
+                    console.log(regular)
+                    console.log(bonus)
+                    
                     document.getElementById("contents").innerHTML = "";
 
                     document.getElementById('tbl').style.display = "block";
