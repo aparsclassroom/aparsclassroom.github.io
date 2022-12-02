@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="/BioDictionary/affiliation/assets/tranx.css">
     <style>
         @font-face {
-    font-family: Kalpurush;
-    src: url('/Ambassador/assets/fonts/ASG_TARIQ.TTF');
-}
+            font-family: Kalpurush;
+            src: url('/Ambassador/assets/fonts/ASG_TARIQ.TTF');
+        }
 
-.bangla {
-    font-family: Kalpurush;
-}
+        .bangla {
+            font-family: Kalpurush;
+        }
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
@@ -27,7 +27,9 @@
     <script src="/shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js" defer></script>
     <script src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js" defer></script>
     <script src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
-    <script src="https://demos.creative-tim.com/marketplace/black-dashboard-pro/assets/js/plugins/jquery.dataTables.min.js" defer></script>
+    <script
+        src="https://demos.creative-tim.com/marketplace/black-dashboard-pro/assets/js/plugins/jquery.dataTables.min.js"
+        defer></script>
     <script src="../assets/overview.js" defer></script>
 
 </head>
@@ -35,59 +37,26 @@
 <body>
     <div class="container bangla">
         <h2 id="contents">Loading...</h2>
-            <div class="row mt-2" id="tbl" style="display:none">
+        <div class="row mt-2" id="tbl" style="display:none">
 
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="active">
-                            <a href="#tab-table1" data-toggle="tab">অত‍্যাধুনিক পদ্ধতিতে কুরআন শিক্ষা</a>
-                        </li>
-                        <li>
-                            <a href="#tab-table2" data-toggle="tab">সূরা মাশক</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab-table1">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <h2 style="text-align: center;" class="mt-5">অত‍্যাধুনিক পদ্ধতিতে কুরআন শিক্ষা</h2>
-                                    <div class="card-body">
-                                        <table id="datatable" class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th class="all">Serial</th>
-                                                    <th class="all">Title</th>
-                                                    <th class="none">Category</th>
-                                                    <th class="all">Action</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tab-table2">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <h2 style="text-align: center;" class="mt-5">সূরা মাশক</h2>
-                                    <div class="card-body">
-                                        <table id="datatable2" class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th class="all">Serial</th>
-                                                    <th class="all">Title
-                                                    </th>
-                                                    <th class="none">Category</th>
-                                                    <th class="all">Action</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div>
+                <div class="col-12">
+                    <div class="nav-wrapper position-relative mb-4">
+                        <ul class="nav nav-pills flex-column flex-sm-row" id="tabs-text" role="tablist">
+                            <li class="nav-item mr-sm-3 mr-md-0">
+                                <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-table1-tab" data-toggle="tab"
+                                    href="#tabs-table1" role="tab" aria-controls="tabs-table1"
+                                    aria-selected="true">Account</a>
+                            </li>
+                            <li class="nav-item mr-sm-3 mr-md-0">
+                                <a class="nav-link mb-sm-3 mb-md-0" id="tabs-table2-tab" data-toggle="tab"
+                                    href="#tabs-table2" role="tab" aria-controls="tabs-table2"
+                                    aria-selected="false">Profile</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div class="tab-content">
                     <div class="tab-pane active" id="tab-table1">
                         <div class="col-md-12">
                             <div class="card">
@@ -106,9 +75,8 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <hr>
-                <div class="tab-pane" id="tab-table2">
+                    </div>
+                    <div class="tab-pane" id="tab-table2">
                         <div class="col-md-12">
                             <div class="card">
                                 <h2 style="text-align: center;" class="mt-5">সূরা মাশক</h2>
@@ -128,7 +96,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
+        </div>
+    </div>
     </div>
 </body>
 

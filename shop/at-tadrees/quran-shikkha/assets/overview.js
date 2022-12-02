@@ -61,7 +61,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         }
                     });
 
-                    var table = $('#datatable2').DataTable({
+                    var table2 = $('#datatable2').DataTable({
                         "data": content,
                         "columns": [{
                             "data": "serial"
