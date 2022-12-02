@@ -12,9 +12,9 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("contents").innerHTML = "";
                     content.forEach(element => {
 
-                        if (element.category == "Regular") { 
+                        if (element.category == "Regular") {
                             if (element.type == "yt") {
-                            document.getElementById("contents").innerHTML += `
+                                document.getElementById("contents").innerHTML += `
                             <div class="col-md-6 grid-item" data-category="Regular">
                                 <div class="card bg-primary border-light shadow-soft">
                                 <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
@@ -41,10 +41,10 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     </div>
                                 </div>
                                 `;
-                        } 
-                    } else {
-                        if (element.type == "yt") {
-                            document.getElementById("contents").innerHTML += `
+                            }
+                        } else {
+                            if (element.type == "yt") {
+                                document.getElementById("contents").innerHTML += `
                             <div class="col-md-6 grid-item" data-category="Bonus">
                             <div class="card bg-primary border-light shadow-soft">
                             <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
@@ -71,7 +71,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     </div>
                                 </div>
                                 `;
-                        } 
+                            }
                         }
                     });
 
