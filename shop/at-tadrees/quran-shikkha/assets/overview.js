@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         if (element.catagory == "regular") { 
                             if (element.type == "yt") {
                             document.getElementById("contents").innerHTML += `
-                            <div class="col-md-6 tab-pane fade show active" id="tabs1" role="tabpanel">
+                            <div class="col-md-6 tab-pane fade show" id="tabs1" role="tabpanel">
                                 <div class="card bg-primary border-light shadow-soft">
                                 <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                         <div class="card-body">
@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             `;
                             } else {
                                 document.getElementById("contents").innerHTML += `
-                                <div class="col-md-6 tab-pane fade show active" id="tabs1" role="tabpanel" >
+                                <div class="col-md-6 tab-pane fade show" id="tabs1" role="tabpanel" >
                                     <div class="card bg-primary border-light shadow-soft">
                                         <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                         <div class="card-body">
@@ -53,7 +53,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     } else {
                         if (element.type == "yt") {
                             document.getElementById("contents").innerHTML += `
-                            <div class="col-md-6 tab-pane fade show active" id="tabs2" role="tabpanel">
+                            <div class="col-md-6 tab-content" id="tabs2" role="tabpanel">
                             <div class="card bg-primary border-light shadow-soft">
                             <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                     <div class="card-body">
@@ -67,7 +67,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             `;
                             } else {
                                 document.getElementById("contents").innerHTML += `
-                                <div class="col-md-6 tab-pane fade show active" id="tabs2" role="tabpanel">
+                                <div class="col-md-6 tab-pane fade show" id="tabs2" role="tabpanel">
                                 <div class="card bg-primary border-light shadow-soft">
                                 <img src="${element.image || "https://i.ibb.co/23R2Ftp/thumbnail.jpg"}" class="card-img-top rounded-top" alt="${element.title}">
                                         <div class="card-body">
