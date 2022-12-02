@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("contents").innerHTML = "";
                     content.forEach(element => {
 
-                        if (element.category == "regular") { 
+                        if (element.category == "Regular") { 
                             if (element.type == "yt") {
                             document.getElementById("contents").innerHTML += `
                             <div class="col-md-6 tab-pane" id="tabs1" role="tabpanel">
