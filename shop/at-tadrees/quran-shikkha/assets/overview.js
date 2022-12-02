@@ -9,11 +9,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                     const content = data.course.content;
 
                    const regular = content.find((item) => {
-                        return item.type == 'Regular'
+                        return item.category == 'Regular'
                    })
 
                    const bonus = content.find((item) => {
-                        return item.type == 'Bonus'
+                        return item.category == 'Bonus'
                      })
 
                     document.getElementById("contents").innerHTML = "";
