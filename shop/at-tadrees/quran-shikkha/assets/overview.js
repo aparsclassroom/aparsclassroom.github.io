@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     const contentLength = content.length;
                     document.getElementById("contents").innerHTML = "";
 
-
+                    document.getElementById('tbl').style.display = "block";
                     var table = $('#datatable').DataTable({
                         "data": content,
                         "columns": [{
