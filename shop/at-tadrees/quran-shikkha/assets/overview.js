@@ -114,16 +114,14 @@ firebase.auth().onAuthStateChanged(function (e) {
                     });
 
                         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                            $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-                            
                             if (e.target.hash == "#regular") {
                                 table.columns.adjust().draw();
-                                document.getElementById('tab-table2').classList.remove('active');
-                                document.getElementById('tab-table1').classList.add('active');
+                                document.getElementById('tab-table2').style.display = "none";
+                                document.getElementById('tab-table1').style.display = "block";
                             } else {
                                 table2.columns.adjust().draw();
-                                document.getElementById('tab-table1').classList.remove('active');
-                                document.getElementById('tab-table2').classList.add('active');
+                                document.getElementById('tab-table1').style.display = "none";
+                                document.getElementById('tab-table2').style.display = "block";
                             }
                        
                     });
