@@ -16,15 +16,12 @@ firebase.auth().onAuthStateChanged(function (e) {
                         return item.category == 'Bonus'
                      })
 
-                    console.log(regular)
-                    console.log(bonus)
-                    
                     document.getElementById("contents").innerHTML = "";
 
                     document.getElementById('tbl').style.display = "block";
-                    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                        $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-                    });
+                    // $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                    //     $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+                    // });
                     var table = $('#datatable').DataTable({
                         "data": regular,
                         "columns": [{
