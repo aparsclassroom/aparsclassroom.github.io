@@ -73,10 +73,6 @@ firebase.auth().onAuthStateChanged(function (e) {
                                 `;
                         } 
                         }
-
-                        $('#contents').isotope({
-                            itemSelector: '.grid-item'
-                          });
                     });
 
                 } else {
