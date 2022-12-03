@@ -20,6 +20,25 @@ firebase.auth().onAuthStateChanged(function (e) {
                         <div id="player" data-plyr-embed-id="<%= ${content.link} %>" data-plyr-provider="youtube"><img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" height="300px" alt="preloader"></div>
                     </div>
                         `;
+                        const player = new Plyr('#player', {
+                            keyboard: {
+                                global: true,
+                            },
+                            controls: [
+                                'rewind',
+                                'play',
+                                'fast-forward',
+                                'progress',
+                                'current-time',
+                                'duration',
+                                'mute',
+                                'volume',
+                                'settings',
+                                'pip',
+                                'airplay',
+                                'fullscreen'
+                            ],
+                        });
                     } else {
                         document.getElementById('video').innerHTML = `
                         <video width="100%" controls controlsList="nodownload">
