@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                 if (data.status == 200) {
                     const content = data.content;
                     document.getElementById("title").innerHTML = content.title;
-                    document.getElementById("description").innerText = content.description;
+                    document.getElementById("description").innerHTML = content.description;
                     if (content.type == "yt") {
                         
                         document.getElementById('video').innerHTML = `
