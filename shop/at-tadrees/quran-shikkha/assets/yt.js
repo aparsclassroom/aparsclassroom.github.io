@@ -12,7 +12,12 @@ firebase.auth().onAuthStateChanged(function (e) {
                 if (data.status == 200) {
                     const content = data.content;
                     document.getElementById("title").innerHTML = content.title;
-                    document.getElementById("description").innerHTML = `<a href="${content.description}" class="upload_btn" title="Note" target="_blank">লেকচার নোট</a>`;
+                    if (content.description != "") {
+                        document.getElementById("description").innerHTML = `<a href="${content.description}" class="upload_btn" title="Note" target="_blank">লেকচার নোট</a>`;
+                    }   else {
+                        document.getElementById("description").innerHTML = "";
+                    }
+                    
                     if (content.type == "yt") {
                         
                         document.getElementById('video').innerHTML = `
