@@ -14,7 +14,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("title").innerHTML = content.title;
                     document.getElementById("description").innerText = content.description;
                     if (content.type != "yt" || content.type != "ftp") {
-                        document.getElementById('content').src = content.link;
+                         if (content.type == "pdf") {
+                            document.getElementById('content').src = `https://drive.google.com/file/d/${content.link.split('/')[5]}/preview`;
+                         } else {
+                             document.getElementById('content').src = content.link;
+                         }
                     } else {
                         location.href = './yt?'+content._id;
                     }
