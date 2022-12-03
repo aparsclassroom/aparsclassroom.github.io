@@ -14,10 +14,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById("title").innerHTML = content.title;
                     document.getElementById("description").innerText = content.description;
                     if (content.type == "yt") {
+                        
                         document.getElementById('video').innerHTML = `
-                        <iframe src="${content.link.replace("watch?v=", "embed/")}"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-16by9">
+                        <div id="player" data-plyr-embed-id="<%= ${content.link} %>" data-plyr-provider="youtube"><img class="img-fluid" src="/assets/img/load2.gif" height="300px" alt="preloader"></div>
+                    </div>
                         `;
                     } else {
                         document.getElementById('video').innerHTML = `
