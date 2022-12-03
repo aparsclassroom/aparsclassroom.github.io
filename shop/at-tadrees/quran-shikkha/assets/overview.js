@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         "order": [
                             [0, "asc"]
                         ],
-
+                        stateSave: true,
                         responsive: true,
                         language: {
                             search: "_INPUT_",
@@ -105,7 +105,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         "order": [
                             [0, "asc"]
                         ],
-
+                        stateSave: true,
                         responsive: true,
                         language: {
                             search: "_INPUT_",
