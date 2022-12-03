@@ -42,9 +42,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                             render: function(data, type, row) {
                                 if (type === 'display') {
                                     if (data == "yt") {
-                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
+                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">ভিডিও</a>`;
+                                    } else if (data == "pdf") {
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">নোট</a>`;
                                     } else {
-                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা দিন</a>`;
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা</a>`;
                                     }
                                 }
                                 return data;
@@ -89,9 +91,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                             render: function(data, type, row) {
                                 if (type === 'display') {
                                     if (data == "yt") {
-                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">দেখুন</a>`;
+                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">ভিডিও</a>`;
+                                    } else if (data == "pdf") {
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">নোট</a>`;
                                     } else {
-                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা দিন</a>`;
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা</a>`;
                                     }
                                 }
                                 return data;
