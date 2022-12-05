@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         var raw = JSON.stringify({
-                            "productName": product,
+                            "productName": productName,
                             "Platform": Platform,
                             "cus_name": document.getElementById('name').value.trim(),
                             "cus_email": mail,
@@ -131,7 +131,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
                     var raw = JSON.stringify({
-                        "productName": product,
+                        "productName": productName,
                         "Platform": Platform,
                         "cus_name": document.getElementById('name').value.trim(),
                         "cus_email": mail,
