@@ -62,6 +62,6 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
     document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; 25 Live Classes`;
     document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;Weekly Doubt Sessions`;
     document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;4 QnA Class `;
-    document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;x Guideline Sessions `;
+    document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;Guideline Session and 6 Exams `;
     document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
     document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
