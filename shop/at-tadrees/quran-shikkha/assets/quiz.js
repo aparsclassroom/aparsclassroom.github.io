@@ -17,7 +17,12 @@ firebase.auth().onAuthStateChanged(function (e) {
                          if (content.type == "pdf") {
                             document.getElementById('content').src = `https://drive.google.com/file/d/${content.link.split('/')[5]}/preview`;
                          } else {
-                             document.getElementById('content').src = content.link;
+                            if (content.type == "quiz") {
+                                document.getElementById('content').src = content.link;
+                                document.getElementById("description").innerHTML = `${content.description}<br> কুইজটি দেখতে সমস‍্যা হলে এই লিংকে ক্লিক করো <a href="${content.link}" target="_blank">${content.link}</a>`;
+                            } else {
+                                document.getElementById('content').src = content.link;
+                            }
                          }
                     } else {
                         location.href = './yt?'+content._id;
