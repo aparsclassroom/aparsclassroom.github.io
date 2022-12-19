@@ -19,7 +19,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                          } else {
                             if (content.type == "quiz") {
                                 document.getElementById('content').src = content.link;
-                                document.getElementById("description").innerHTML = `${content.description}<br> কুইজটি দেখতে সমস‍্যা হলে এই লিংকে ক্লিক করো <a href="${content.link}" target="_blank">${content.link}</a>`;
+                                document.getElementById("description").innerHTML = `${content.description}<br> কুইজটি দেখতে সমস‍্যা হলে এই লিংকে ক্লিক করো <i class="fa-solid fa-hand-point-right"></i>&nbsp;<a href="${content.link}" target="_blank">${content.link}</a>`;
                             } else {
                                 document.getElementById('content').src = content.link;
                             }
