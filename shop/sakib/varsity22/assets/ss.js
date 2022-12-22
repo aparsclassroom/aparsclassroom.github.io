@@ -66,7 +66,6 @@ fetch(`https://script.google.com/macros/s/AKfycbwtMPdak5swMkYJbfA0WzkmypaXDYTcQm
         let types = data.types;
 
         document.getElementById('con1').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; একটি ক্লাসে তিনটি চ্যাপ্টার নয় বরং তিনটি ক্লাসে একটি চ্যাপ্টার`;
-        document.getElementById('con2').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; ৫০০ টাকা ডিস্কাউন্ট পেতে "DU500" কুপন ব্যবহার করো`;
         document.getElementById('con4').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; Secret Shortcut Book PDF`;
         document.getElementById('con5').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; DU Question Bank PDF`;
         document.getElementById('con6').innerHTML = `<i class="fas fa-check-circle"></i>&nbsp; Monthly Mentorship Session`;
