@@ -1,4 +1,4 @@
-const product = "Engineering22";
+const product = "iba22";
 const productName = "IBA BBA ADMISSION PROGRAM";
 const productCode = "210";
 const fix = 4000;
