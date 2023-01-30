@@ -1,7 +1,7 @@
-const product = "proB22";
-const productName = "B Unit Crash Course";
-const productCode = "204";
-const fix = 6000;
-const pls = 3000;
-const Platform = "Swadhin";
+const product = "sscPhy";
+const productName = "SSC Physics A Full Fledged course for SSC- 2024 & 2025";
+const productCode = "216";
+const fix = 1000;
+const pls = 500;
+const Platform = "Ucchash";
 const init = 0;
