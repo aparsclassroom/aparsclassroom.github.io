@@ -1,5 +1,5 @@
 const product = "FRB23";
-const productName = "HSC 23 FINAL REVISION BATCH";
+const productName = "HSC 23 FINAL REVISION BATCH (FRB23)";
 const productCode = "218";
 const fix = 5000;
 const pls = 2000;
