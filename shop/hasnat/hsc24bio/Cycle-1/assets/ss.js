@@ -1,5 +1,5 @@
 const product = "HBio24";
-const productName = "HSC 24 Biology";
+const productName = "BioMission for HSC 24";
 const productCode = "219";
 const fix = 1500;
 const pls = 800;
