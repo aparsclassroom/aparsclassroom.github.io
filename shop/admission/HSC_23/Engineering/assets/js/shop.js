@@ -1,7 +1,3 @@
-setTimeout(() => {
-    $("#vid")[0].src += "1";
-    $("#vid")[0].src;
-}, 1000)
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
