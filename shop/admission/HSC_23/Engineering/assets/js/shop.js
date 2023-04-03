@@ -71,10 +71,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     title: "Successfully Booked 🥰",
                                     icon: "success",
                                     text: "Your Booking Number : " + val.roll,
-                                    button: "Join Facebook Group"
+                                    button: "Thank you"
                                 }).then(() => {
                                     form.reset();
-                                    return location.replace('./');
+                                    return location.replace('/shop');
                                 })
                             })
 
