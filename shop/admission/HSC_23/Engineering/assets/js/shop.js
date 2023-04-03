@@ -32,8 +32,6 @@ fetch('https://json.geoiplookup.io/')
 
 document.title = product + " | ASG Shop";
 document.getElementById('prod').innerText = product;
-document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls + "৳";
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
