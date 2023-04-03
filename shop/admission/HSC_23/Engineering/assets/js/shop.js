@@ -26,8 +26,8 @@ fetch('https://json.geoiplookup.io/')
       });
     
 
-document.title = product + " | ASG Shop";
-document.getElementById('prod').innerText = product;
+document.title = productName + " | ASG Shop";
+document.getElementById('prod').innerText = productName;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyQZVPiFae4kjZd8e48H3SOIjXJ0Md5lgVrzeE2KoBJyPJc5BbHvNmCiYuMoPs4EKiy/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwZhmzJSUnY0LCaUnCJoneoEc-PotOWAb3SWtLqPcxPkhm13CBkq7gIdPApRvZtb9w/exec';
         fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
@@ -89,9 +89,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     })
                 } else {
                     swal({
-                        title: "Already Booked!",
+                        title: "Already Booked! ✔",
                         icon: "info",
-                        text: "You have already Booked ✔\nYour Booking Number : " + dashboard.message.Serial + "\nName : " + dashboard.message.username + "\nTime : " + dashboard.message.timestamp,
+                        text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
                         button: "Thank you"
                     }).then(() => {
                         return location.replace('./');
