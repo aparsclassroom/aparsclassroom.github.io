@@ -129,7 +129,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('moda').addEventListener('click', () => {
             location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
         })
-        fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
+        fetch(scriptURL + "?q=Indivisual&uid=unknown")
         .then((res) => {
             return res.json();
         })
