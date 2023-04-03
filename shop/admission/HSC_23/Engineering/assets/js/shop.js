@@ -94,7 +94,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
                         button: "Thank you"
                     }).then(() => {
-                        return location.replace('./');
+                        return location.replace('/shop');
                     })
                 }
 
