@@ -1,3 +1,4 @@
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwZhmzJSUnY0LCaUnCJoneoEc-PotOWAb3SWtLqPcxPkhm13CBkq7gIdPApRvZtb9w/exec';
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
@@ -37,7 +38,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwZhmzJSUnY0LCaUnCJoneoEc-PotOWAb3SWtLqPcxPkhm13CBkq7gIdPApRvZtb9w/exec';
         fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
@@ -128,6 +128,21 @@ firebase.auth().onAuthStateChanged(function(e) {
     } else {
         document.getElementById('moda').addEventListener('click', () => {
             location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
+        })
+        fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
+        .then((res) => {
+            return res.json();
+        })
+        .then((dashboard) => {
+            document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
+            if (document.getElementById('enrolled')) {
+                const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+                if (!countUp.error) {
+                    countUp.start();
+                } else {
+                    console.error(countUp.error);
+                }
+            }
         })
     }
 
