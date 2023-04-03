@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwXEyW-oaWq8trP6qM_wof6kI6b5I1_EplycujH-EpRaFHtfCJarn4d0cZW9l86DeFh/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyQZVPiFae4kjZd8e48H3SOIjXJ0Md5lgVrzeE2KoBJyPJc5BbHvNmCiYuMoPs4EKiy/exec';
         fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
