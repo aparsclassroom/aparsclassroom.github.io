@@ -36,6 +36,7 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";domain=.aparsclassroom.com;" + expires + ";path=/";
 }
 
+setCookie('returnURL', window.location.href, '1')
 
 function getCookie(cname) {
     let name = cname + "=";
