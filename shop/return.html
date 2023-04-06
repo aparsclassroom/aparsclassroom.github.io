@@ -25,7 +25,7 @@
                                     <img class="img-fluid p-4" src="https://sb-admin-pro.startbootstrap.com/assets/img/illustrations/404-error.svg" alt="" />
                                     <p class="lead" id="message"></p>
                                     <a class="text-arrow-icon" id="returnURL" href="/shop">
-                                        <i class="ms-0 me-1" data-feather="arrow-left"></i> Return Home
+                                        <i class="ms-0 me-1" data-feather="arrow-left"></i> Returning in 5 seconds...
                                     </a>
                                 </div>
                             </div>
@@ -70,13 +70,14 @@
     get: (searchParams, prop) => searchParams.get(prop),
   });
   let message = params.message;
-
   if (message === null) {
     message = "The page you requested was not found.";
   } else {
     document.getElementById("message").innerHTML = decodeURIComponent(message);
     document.getElementById("returnURL").href = getCookie("returnURL");
-    window.open(getCookie("returnURL"), "_self");
+    setTimeout(() => {
+        window.open(getCookie("returnURL"), "_self");
+    }, 5000);
   }
   
         </script>
