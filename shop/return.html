@@ -73,7 +73,12 @@
   if (message === null) {
     message = "The page you requested was not found.";
   } else {
-    document.getElementById("message").innerHTML = decodeURIComponent(message);
+    if (decodeURIComponent(message) == "CANCEL") {
+        document.getElementById("message").innerHTML = `Your Bkash Payment has been CANCELLED`;
+    } else {
+        document.getElementById("message").innerHTML = `Your Bkash Payment has been FALIED`;
+    }
+
     document.getElementById("returnURL").href = getCookie("returnURL");
     setTimeout(() => {
         window.open(getCookie("returnURL"), "_self");
