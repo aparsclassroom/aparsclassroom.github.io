@@ -59,9 +59,9 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
         console.log(err)
     })
 
-    document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; 20+ Live Classes`;
-    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;2 Question Bank Solve Class`;
-    document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;2 Special MCQ + CQ Class `;
-    document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;2 Mega Exam`;
-    document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Dedicated Lecture Sheet`;
+    document.getElementById('con1').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; 20+ Live Classes`;
+    document.getElementById('con3').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Question Bank Solve Class`;
+    document.getElementById('con4').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Special MCQ + CQ Class `;
+    document.getElementById('con5').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Mega Exam`;
+    document.getElementById('con7').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; Dedicated Web App`;
+    document.getElementById('con9').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; Dedicated Lecture Sheet`;
