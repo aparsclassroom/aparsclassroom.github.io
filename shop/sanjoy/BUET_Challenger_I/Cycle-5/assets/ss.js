@@ -1,6 +1,6 @@
 const product = "Chemistry Series Zero to Pro by Nazmus Sakib";
 const productName = "chem24";
-const productCode = "220";
+const productCode = "221";
 const fix = 1500;
 const pls = 800;
 const init = 0;

@@ -1,5 +1,5 @@
-const product = "Chemistry Series Zero to Pro by Nazmus Sakib";
-const productName = "chem24";
+const product = "BUET Challenger I";
+const productName = "buetchem24";
 const productCode = "221";
 const fix = 1500;
 const pls = 800;
