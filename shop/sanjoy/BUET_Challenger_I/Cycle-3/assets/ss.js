@@ -1,10 +1,10 @@
 const product = "BUET Challenger I";
 const productName = "buetchem24";
-const productCode = "221";
-const fix = 1500;
-const pls = 800;
+const productCode = "233";
+const fix = 800;
+const pls = 650;
 const init = 0;
-const Platform = "Sakib";
+const Platform = "Sanjoy";
 const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
