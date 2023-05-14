@@ -1,8 +1,8 @@
 const product = "BUET Challenger I";
 const productName = "buetchem24";
 const productCode = "233";
-const fix = 800;
-const pls = 650;
+const fix = 1000;
+const pls = 800;
 const init = 0;
 const Platform = "Sanjoy";
 const Cycle = location.pathname.split('/')[4];
