@@ -49,7 +49,7 @@ fetch(`https://script.google.com/macros/s/AKfycbwe6nlKYrEohiv9h3JJZ6zWsUcSGOdAZI
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.enrollment + init);
+        document.getElementById('enrolled').setAttribute('countTo', data.enrollment + init - 1);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
