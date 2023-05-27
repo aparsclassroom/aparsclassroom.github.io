@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     text: data.action.text,
                     button: data.action.button
                 }).then(() => {
-                    location.replace('https://www.facebook.com/groups/1116571972397525/');
+                    location.replace('https://www.facebook.com/groups/632928578384914');
                 })
             })
     
