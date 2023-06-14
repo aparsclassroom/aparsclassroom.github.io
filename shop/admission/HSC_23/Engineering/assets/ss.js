@@ -1,6 +1,6 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 6,
-    spaceBetween: 6,
+    slidesPerView: 5,
+    spaceBetween: 5,
     loop: false,
     autoplay: {
         delay: 4000,
