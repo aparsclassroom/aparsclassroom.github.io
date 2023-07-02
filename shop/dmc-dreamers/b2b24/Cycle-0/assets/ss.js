@@ -1,5 +1,5 @@
 const product = "b2b24";
-const productName = "BASIC TO BOSS BIOLOGY by DMC DREAMERS";
+const productName = "BIOLOGY BASIC TO BOSS by DMC DREAMERS";
 const init = 0;
 const Platform = "Super Admin";
 const Cycle = location.pathname.split('/')[4];
