@@ -115,6 +115,28 @@
                                 idx++
 
                                 if (element.status == "VALID" || element.status == "VALIDATED") {
+                                    if (element.Product.productName == "Medical23") {
+                                        var content = `
+                        <div class="col-lg-4 mb-4">
+                            <div class="card lift lift-sm h-100">
+                                <div class="card-body py-5">
+                                    <h5 class="card-title text-primary text-center mb-2">
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                    </h5>
+                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
+                                    <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="small text-muted text-center"><a class="btn btn-primary" target="_blank" href="http://exam.aparsclassroom.com/${user.uid}">Exam Dashboard</a></div>
+                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.Product.Permalink}/success/${user.uid}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
+                                    </div>
+                            </div>
+                        </div>
+                        `;
+                                    } else {
                                     var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
@@ -134,6 +156,7 @@
                             </div>
                         </div>
                         `;
+                    }
                                 } else {
                                     var content = `
                         <div class="col-lg-4 mb-4">
