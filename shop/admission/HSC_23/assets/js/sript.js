@@ -50,9 +50,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace(result.Invoice)
+                        buttons: ["View Invoice", "Exam Dashboard"]
+                    }).then((a,b) => {
+                        if (a) {
+                            location.replace(result.Invoice)
+                        } else {
+                            if (result.Exam) {
+                                location.replace(result.Exam)
+                            } else {
+                                location.replace("http://exam.aparsclassroom.com/?uid="+ e.uid)
+                            }
+                        }
                     })
                 } else {
                     const form = document.forms['purchase']
