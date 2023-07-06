@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
-                        buttons: ["View Invoice", "Exam Dashboard"]
+                        buttons:  ["Exam Dashboard", "View Invoice"]
                     }).then((a,b) => {
                         if (a) {
                             location.replace(result.Invoice)
