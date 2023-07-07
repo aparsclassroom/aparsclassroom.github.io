@@ -90,6 +90,17 @@
                 if (num != null) {
                     document.getElementById('num').innerText = "Phone Number : " + num;
                 }
+const enabledExam = [];
+fetch("https://crm.apars.shop/auth/all-exams")
+ .then(response => response.json())
+    .then((loadedData) => {
+        enabledExam.push(loadedData.Exams);
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -115,6 +126,9 @@
                                 idx++
 
                                 if (element.status == "VALID" || element.status == "VALIDATED") {
+                                    if (enabledExam[0].includes(element.Product.productName)) {
+                                        console.log("exam enabled", element.Product.productName)
+                                    }
                                     if (element.Product.productName == "Medical23") {
                                         var content = `
                         <div class="col-lg-4 mb-4">
