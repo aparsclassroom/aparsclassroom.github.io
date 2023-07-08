@@ -48,20 +48,19 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then(result => {
                 if (result.status === 200) {
                     var subs = '';
-                    result.info.forEach((e,i) => {
-                        i++;
-                        subs += `<li><a href="${e.value_a}" target="_blank">${i}. ${e.tran_id}.pdf ${e.Timestamp}</a></li>`
+                    result.info.forEach((e) => {
+                        subs += `<li><a href="${e.value_a}" target="_blank">${e.tran_id}.pdf ${e.Timestamp}</a></li>`
                     });
                     swal({
                         title: "Already purchased Subscription(s):",
                         icon: "info",
                         content: {
-                            element: "ul",
+                            element: "ol",
                             attributes: {
                                 innerHTML: subs
                             }
                         },
-                        buttons: ["Okay, Thanks"]
+                        button: ["Okay, Thanks"]
                     })
                 } else {
                     const form = document.forms['purchase']
