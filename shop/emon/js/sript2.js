@@ -48,6 +48,11 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then(result => {
                 if (result.status === 200) {
                     var subs = '';
+                    document.getElementById('email').value = result.info[0].Email;
+                    document.getElementById('name').value = result.info[0].Name;
+                    document.getElementById('college').value = result.info[0].Institution;
+                    document.getElementById('hscBatch').value = result.info[0].HSC;
+                    document.getElementById('phone').value = result.info[0].Phone;
                     result.info.forEach((e) => {
                         subs += `<li><a href="${e.value_a}" target="_blank">${e.tran_id}.pdf<br>(${e.Timestamp})</a></li>`
                     });
