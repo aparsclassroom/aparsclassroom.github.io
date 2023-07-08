@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         icon: "success",
                         buttons: ["View Invoice", "Subscribe Again"]
                     }).then((a,b) => {
-                        if (b) {
+                        if (a) {
                             return location.replace('/shop/dashboard')
                         }
                     })
