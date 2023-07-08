@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already purchased a subscription !",
                         icon: "success",
-                        button: ["View Invoice", "Subscribe Again"]
+                        buttons: ["View Invoice", "Subscribe Again"]
                     }).then((a,b) => {
                         if (b) {
                             return location.replace('/shop/dashboard')
