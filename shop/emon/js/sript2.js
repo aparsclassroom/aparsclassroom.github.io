@@ -16,7 +16,6 @@ document.getElementById('email').addEventListener("input", function (event) {
 
 
 document.title = productName + " | ASG Shop";
-document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -49,11 +48,13 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then(result => {
                 if (result.status === 200) {
                     swal({
-                        title: "Already Enrolled !",
+                        title: "Already purchased a subscription !",
                         icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace(result.Invoice)
+                        button: ["View Invoice", "Subscribe Again"]
+                    }).then((a,b) => {
+                        if (b) {
+                            return location.replace('/shop/dashboard')
+                        }
                     })
                 } else {
                     const form = document.forms['purchase']
@@ -84,7 +85,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "lead": getCookie("lead"),
                             "Referrer": getCookie("Referrer"),
                             "Ip": getCookie("ip"),
-                            "Referrer": getCookie("Platform")
+                            "Referrer": getCookie("Platform"),
+                            "value_a": "Subscription"
                         });
 
                         var requestOptions = {
@@ -151,7 +153,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "lead": getCookie("lead"),
                         "Referrer": getCookie("Referrer"),
                         "Ip": getCookie("ip"),
-                        "Referrer": getCookie("Platform")
+                        "Referrer": getCookie("Platform"),
+                        "value_a": "Subscription"
                     });
 
                     var requestOptions = {
