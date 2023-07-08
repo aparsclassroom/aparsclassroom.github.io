@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (result.status === 200) {
                     var subs = '';
                     result.info.forEach((e) => {
-                        subs += `<li><a href="${e.value_a}" target="_blank">${e.tran_id}.pdf (${e.Timestamp})</a></li>`
+                        subs += `<li><a href="${e.value_a}" target="_blank">${e.tran_id}.pdf<br>(${e.Timestamp})</a></li>`
                     });
                     swal({
                         title: "Already purchased Subscription(s):",
@@ -61,6 +61,72 @@ firebase.auth().onAuthStateChanged(function(e) {
                             }
                         },
                         button: "Okay, Thanks"
+                    })
+                    const form = document.forms['purchase']
+                    form.addEventListener('submit', em => {
+                        em.preventDefault();
+                        var mail = document.getElementById('email').value.toLowerCase().trim();
+                        document.getElementById('buy').innerText = "Please wait...."
+                        document.getElementById("buy").disabled = true;
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+                        var raw = JSON.stringify({
+                            "productName": product,
+                            "Platform": Platform,
+                            "cus_name": document.getElementById('name').value.trim(),
+                            "cus_email": mail,
+                            "Institution": document.getElementById('college').value.trim(),
+                            "HSC": document.getElementById('hscBatch').value.trim(),
+                            "cus_phone": document.getElementById('phone').value.trim(),
+                            "Cupon": document.getElementById('disC').value.trim(),
+                            'uid': e.uid,
+                            "affiliate": getCookie("affiliate"),
+                            "utm_id": getCookie("utm_id"),
+                            "utm_source": getCookie("utm_source"),
+                            "utm_medium": getCookie("utm_medium"),
+                            "utm_campaign": getCookie("utm_campaign"),
+                            "utm_term": getCookie("utm_term"),
+                            "utm_content": getCookie("utm_content"),
+                            "lead": getCookie("lead"),
+                            "Referrer": getCookie("Referrer"),
+                            "Ip": getCookie("ip"),
+                            "Referrer": getCookie("Platform"),
+                            "value_a": "Subscription"
+                        });
+
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: raw,
+                            redirect: 'follow'
+                        };
+
+                        fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+                            .then(response => {
+                                return response.text()
+                            })
+                            .then(result => {
+                                if (result.status != 420) {
+                                    document.getElementById('doc').innerHTML = result
+                                } else {
+                                    swal({
+                                        title: result.message,
+                                        icon: "error"
+                                    }).then(() => {
+                                        location.href = result.GatewayPageURL
+                                    })
+                                }
+                            })
+                            .catch(() => {
+                                swal({
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.href = result.GatewayPageURL
+                                })
+                            });
                     })
                 } else {
                     const form = document.forms['purchase']
