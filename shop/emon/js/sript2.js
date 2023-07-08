@@ -61,7 +61,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 innerHTML: subs
                             }
                         },
-                        buttons: ["Okay"]
+                        buttons: ["Okay, Thanks"]
                     })
                 } else {
                     const form = document.forms['purchase']
