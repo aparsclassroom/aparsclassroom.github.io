@@ -54,7 +54,12 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already purchased Subscription(s):",
                         icon: "info",
-                        text: `${subs}`,
+                        content: {
+                            element: "ul",
+                            attributes: {
+                                innerHTML: subs
+                            }
+                        },
                         buttons: ["Okay"]
                     })
                 } else {
