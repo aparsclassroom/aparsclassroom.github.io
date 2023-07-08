@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName2}/${productCode}/purchase/Subscription`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -50,11 +50,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already purchased a subscription !",
                         icon: "success",
-                        buttons: ["View Invoice", "Subscribe Again"]
-                    }).then((a,b) => {
-                        if (a) {
-                            return location.replace('/shop/dashboard')
-                        }
+                        text: `${info}`,
+                        buttons: ["Okay"]
                     })
                 } else {
                     const form = document.forms['purchase']

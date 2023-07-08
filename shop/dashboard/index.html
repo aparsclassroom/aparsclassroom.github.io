@@ -126,9 +126,7 @@ fetch("https://crm.apars.shop/auth/all-exams")
                                 idx++
 
                                 if (element.status == "VALID" || element.status == "VALIDATED") {
-                                    if (enabledExam[0].includes(element.Product.productName)) {
-                                        console.log("exam enabled", element.Product.productName)
-                                    }
+                     
                                     if (element.Product.productName == "Medical23") {
                                         var content = `
                         <div class="col-lg-4 mb-4">
