@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (result.status === 200) {
                     swal({
                         title: "Already purchased a subscription !",
-                        icon: "success",
+                        icon: "info",
                         text: `${info}`,
                         buttons: ["Okay"]
                     })
