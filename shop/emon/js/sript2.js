@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         subs += `<li><a href="${e.value_a}" target="_blank">${i}. ${e.tran_id}.pdf ${e.Timestamp}</a></li>`
                     });
                     swal({
-                        title: "Already purchased a subscription !",
+                        title: "Already purchased Subscription(s):",
                         icon: "info",
                         text: `${subs}`,
                         buttons: ["Okay"]
