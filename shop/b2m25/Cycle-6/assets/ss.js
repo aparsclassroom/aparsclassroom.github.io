@@ -1,6 +1,6 @@
 const product = "b2m25";
 const productName = "Apar Apurbo Physics Batch HSC 25";
-const productCode = "252";
+const productCode = "253";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
