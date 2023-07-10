@@ -59,7 +59,7 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
         console.log(err)
     })
     document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; সপ্তাহে দুুদিন ক্লাস`;
-    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; পদার্থবিজ্ঞান অধ‍্যায় ১,২,৩`;
+    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; পদার্থবিজ্ঞান দ্বিতীয় পত্র অধ‍্যায় ৪,৫,৬,৭`;
     document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;x Exams `;
     document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;x Guideline Sessions `;
     document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
