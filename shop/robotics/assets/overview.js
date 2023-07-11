@@ -55,12 +55,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                     var filterCriteria = [];
                     content.forEach(function(row) {
                         var category = row.category;
-                        var type = row.type;
                         if (category && !filterCriteria.some(function(criteria) { return criteria.value === category; })) {
                             filterCriteria.push({ label: category, value: category });
-                        }
-                        if (type && !filterCriteria.some(function(criteria) { return criteria.value === type; })) {
-                            filterCriteria.push({ label: type, value: type });
                         }
                     });
 
