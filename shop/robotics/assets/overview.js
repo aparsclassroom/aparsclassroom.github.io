@@ -25,11 +25,11 @@ firebase.auth().onAuthStateChanged(function (e) {
                             render: function(data, type, row) {
                                 if (type === 'display') {
                                     if (data == "yt") {
-                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">ভিডিও</a>`;
+                                        return `<a href="./yt?${row._id}" class="btn btn-primary btn-sm">Video</a>`;
                                     } else if (data == "pdf") {
-                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">নোট</a>`;
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">Note</a>`;
                                     } else {
-                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">পরীক্ষা</a>`;
+                                        return `<a href="./quiz?${row._id}" class="btn btn-primary btn-sm">Quiz</a>`;
                                     }
                                 }
                                 return data;
