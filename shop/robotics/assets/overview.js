@@ -62,7 +62,7 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                     // Generate filter buttons dynamically
                     filterCriteria.forEach(function(criteria) {
-                      var button = $('<button>', {
+                      var button = $('<button class="btn btn-success">', {
                         class: 'filter-button',
                         'data-filter': criteria.value,
                         text: criteria.label
