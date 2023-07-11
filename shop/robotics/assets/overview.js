@@ -1,3 +1,4 @@
+document.getElementById('courseName').innerText = productName;
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         fetch(`https://${shopName2}/access/${productCode}/${e.uid}`)
