@@ -41,8 +41,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             [10, 25, 50, 100, 500, "All"]
                         ],
                         "order": [
-                            [0, "asc"],
-                            [2, "asc"]
+                            [0, "asc"]
                         ],
                         stateSave: true,
                         language: {
@@ -60,7 +59,6 @@ firebase.auth().onAuthStateChanged(function (e) {
                         }
                     });
 
-                    // Generate filter buttons dynamically
                     filterCriteria.forEach(function(criteria) {
                       var button = $('<button class="btn btn-success">', {
                         class: 'filter-button',
@@ -75,9 +73,9 @@ firebase.auth().onAuthStateChanged(function (e) {
                         var filterValue = $(this).data('filter');
                         
                         if (filterValue === 'all') {
-                          table.search('').draw(); // Clear search and redraw the table
+                          table.search('').draw(); 
                         } else {
-                          table.search(filterValue).draw(); // Apply the filter and redraw the table
+                          table.search(filterValue).draw();
                         }
                       });
                 } else {
