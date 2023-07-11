@@ -60,8 +60,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                     });
 
                     filterCriteria.forEach(function(criteria) {
-                      var button = $('<button class="btn btn-success">', {
-                        class: 'filter-button',
+                      var button = $('<button>', {
+                        class: 'filter-button btn btn-success', 
                         'data-filter': criteria.value,
                         text: criteria.label
                       });
