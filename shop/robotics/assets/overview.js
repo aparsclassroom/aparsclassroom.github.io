@@ -44,7 +44,6 @@ firebase.auth().onAuthStateChanged(function (e) {
                             [0, "asc"]
                         ],
                         stateSave: true,
-                        responsive: true,
                         language: {
                             search: "_INPUT_",
                             searchPlaceholder: "Search Classes"
