@@ -41,7 +41,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                             [10, 25, 50, 100, 500, "All"]
                         ],
                         "order": [
-                            [0, "asc"]
+                            [0, "asc"],
+                            [2, "asc"]
                         ],
                         stateSave: true,
                         language: {
