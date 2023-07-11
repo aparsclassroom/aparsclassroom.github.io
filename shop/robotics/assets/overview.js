@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                     document.getElementById('tbl').style.display = "block";
                     var table = $('#datatable').DataTable({
-                        "data": regular,
+                        "data": content,
                         "columns": [{
                             "data": "serial"
                         }, {
