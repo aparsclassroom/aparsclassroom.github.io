@@ -50,6 +50,40 @@ firebase.auth().onAuthStateChanged(function (e) {
                             searchPlaceholder: "Search Classes"
                         }
                     });
+                    var filterButtonsContainer = $('#filter-buttons');
+
+                    var filterCriteria = [];
+                    content.forEach(function(row) {
+                        var category = row.category;
+                        var type = row.type;
+                        if (category && !filterCriteria.some(function(criteria) { return criteria.value === category; })) {
+                            filterCriteria.push({ label: category, value: category });
+                        }
+                        if (type && !filterCriteria.some(function(criteria) { return criteria.value === type; })) {
+                            filterCriteria.push({ label: type, value: type });
+                        }
+                    });
+
+                    // Generate filter buttons dynamically
+                    filterCriteria.forEach(function(criteria) {
+                      var button = $('<button>', {
+                        class: 'filter-button',
+                        'data-filter': criteria.value,
+                        text: criteria.label
+                      });
+                  
+                      button.appendTo(filterButtonsContainer);
+                    });
+                  
+                    $('.filter-button').on('click', function() {
+                        var filterValue = $(this).data('filter');
+                        
+                        if (filterValue === 'all') {
+                          table.search('').draw(); // Clear search and redraw the table
+                        } else {
+                          table.search(filterValue).draw(); // Apply the filter and redraw the table
+                        }
+                      });
                 } else {
                     location.replace(`https://${shopName2}/${productCode}`);
                 }
