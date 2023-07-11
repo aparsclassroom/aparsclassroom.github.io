@@ -1036,7 +1036,7 @@ div.dt-autofill-list div.dt-autofill-question input[type=number] {
 }
 
 div.dataTables_info {
-    color: hsla(0, 0%, 100%, .7)
+    color: hsla(20, 98%, 47%, 0.7)
 }
 
 @keyframes u {
