@@ -44,6 +44,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             [0, "asc"]
                         ],
                         stateSave: true,
+                        responsive: true,
                         language: {
                             search: "_INPUT_",
                             searchPlaceholder: "Search Classes"
@@ -61,7 +62,7 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                     filterCriteria.forEach(function(criteria) {
                       var button = $('<button>', {
-                        class: 'filter-button btn btn-primary btn-sm', 
+                        class: 'filter-button btn btn-primary mr-1 mb-1', 
                         'data-filter': criteria.value,
                         text: criteria.label
                       });
