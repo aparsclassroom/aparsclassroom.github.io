@@ -1,6 +1,6 @@
 const product = "Math24";
 const productName = "Higher Math 1st Paper (HSC 24)";
-const productCode = "226";
+const productCode = "256";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
