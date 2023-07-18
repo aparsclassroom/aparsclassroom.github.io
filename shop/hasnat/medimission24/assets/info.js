@@ -1,7 +1,7 @@
-const product = "hbio23_3D";
-const productName = "HSC Biology 3D + Main book Learning";
-const productCode = "192";
-const fix = 2000;
-const pls = 1200;
+const product = "hmedimission24";
+const productName = "মেডিমিশন-১০ বায়োলজি";
+const productCode = "258";
+const fix = 4000;
+const pls = 2000;
 const Platform = "Hasnat";
 const init = 0;
