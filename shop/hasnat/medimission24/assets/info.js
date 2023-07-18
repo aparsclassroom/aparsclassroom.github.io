@@ -1,4 +1,4 @@
-const product = "hmedimission24";
+const product = "medimission24";
 const productName = "মেডিমিশন-১০ বায়োলজি";
 const productCode = "258";
 const fix = 4000;
