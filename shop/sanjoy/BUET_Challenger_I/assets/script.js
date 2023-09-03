@@ -13,7 +13,7 @@ document.getElementById('email').addEventListener("input", function (event) {
         document.getElementById('phone').setCustomValidity("");
     }
   });
-document.title = product + "(" + Cycle + ") | ASG Shop";
+document.title = product + " (" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${product}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
