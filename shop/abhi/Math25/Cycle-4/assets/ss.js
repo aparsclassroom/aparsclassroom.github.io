@@ -1,12 +1,11 @@
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 3,
-    loop: true,
-    autoplay: {
-        delay: 2000,
-    },
-});
-
+const product = "Math25";
+const productName = "Higher Math 2nd Paper (HSC 25)";
+const productCode = "266";
+const fix = 1500;
+const pls = 1000;
+const init = 0;
+const Platform = "Abhi";
+const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -15,12 +14,13 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
-var tag = document.createElement('script');
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
+// var tag = document.createElement('script');
+
+// tag.src = "https://www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// var player;
 
 // function onYouTubeIframeAPIReady() {
 //     player = new YT.Player('player', {
@@ -34,12 +34,12 @@ var player;
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
+fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
