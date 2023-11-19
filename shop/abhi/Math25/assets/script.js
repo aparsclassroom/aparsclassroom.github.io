@@ -4,6 +4,12 @@ if (!countUp.error) {
 } else {
     console.error(countUp.error);
 }
+const countUps = new CountUp('stds', document.getElementById("stds").getAttribute("countTo"));
+if (!countUps.error) {
+    countUps.start();
+} else {
+    console.error(countUps.error);
+}
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
       document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
