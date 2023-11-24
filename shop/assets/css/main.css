@@ -2,6 +2,7 @@
     font-family: Kalpurush;
     src: url(/Ambassador/assets/fonts/ASG_TARIQ.TTF);
 }
+
 @font-face {
     font-family: 'Gilroy-ExtraBold';
     src: url(/CrashCourse/fonts/Futura_Bold.otf)
@@ -10,12 +11,14 @@
 .bangla {
     font-family: Kalpurush;
 }
+
 a:hover {
     text-decoration: none;
 }
+
 #hsc,
 .ClassyCountdown-value {
-    font-family: Gilroy-ExtraBold!important;
+    font-family: Gilroy-ExtraBold !important;
 }
 
 .navbar-brand img {
@@ -45,4 +48,16 @@ a:hover {
 
 .fa-circle-check:hover {
     transform: scale(1.5);
+}
+
+.carousel-caption3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #ecf0f3;
+    text-align: center
 }
