@@ -4,20 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
-    <title>Document</title>
+    <title>CRM Tools</title>
+    <style>
+         body {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            width: 100%;
+            margin-bottom: 25px;
+            object-fit: contain;
+        }
+        
+        .logo>image {
+            align-self: center !important;
+        }
+        
+        .buttonContainer {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .buttonContainer a {
+            padding: 15px;
+            text-align: center;
+            align-self: center !important;
+            background: rgb(87 142 235);
+            outline: none;
+            border: 1px solid rgb(87 142 235);
+            margin: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            font-family: Gilroy-ExtraBold;
+            width: 300px;
+        }
+        
+        .buttonContainer a:hover {
+            border: 1px solid rgb(87 142 235);
+            background-color: white;
+            color: orange;
+            cursor: pointer;
+        }
+        
+        p {
+            text-align: center;
+            font-family: Kalpurush;
+            font-size: 18px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <div class="container">
+        <div>
+            <div class="logo">
+                <img src="/HSC-Full-Course/assets/images/1.png" width="100%"
+                    alt="CRM TOOLS">
+            </div>
+            <hr>
+            <div class="logo">
+                <strong class="text-center bangla">ASG Shop CRM TOOLS</strong>
+            </div>
+
+        </div>
+        <div class="buttonContainer">
+            <a type="button" target="_blank" href="./transactions/">Transaction Tracker</a>
+            <a type="button" target="_blank" href="./email/">Email Tracker</a>
+            <a type="button" target="_blank" href="./phone/">Phone Tracker</a>
+        </div>
+    </div>
 </body>
 
 </html>
