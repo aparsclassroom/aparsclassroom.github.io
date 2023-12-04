@@ -97,9 +97,10 @@
                         title: "Are you Sure?",
                         icon: "warning",
                         text: "You are going to logout from this account",
-                        buttons: ["Yes, Logout", "No, wait"]
+                        buttons: ["No, wait","Yes, Logout"],
+                        dangerMode: true
                     }).then((e) => {
-                        if (!e) {
+                        if (e) {
                             return firebase.auth().signOut()
                         }
                     })
