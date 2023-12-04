@@ -62,3 +62,7 @@ function delete_cookie(name) {
     get: (searchParams, prop) => searchParams.get(prop),
   });
   let queryPromo = params.promo;
+
+  if (params.logout == true) {
+    firebase.auth().signOut()
+  }
