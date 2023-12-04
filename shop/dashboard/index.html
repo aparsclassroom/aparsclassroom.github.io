@@ -97,6 +97,9 @@
     </div>
 
     <script>
+      if (params.logOut == true) {
+        firebase.auth().signOut()
+      }
         function logOut() {
             swal({
                 title: "Are you Sure?",
