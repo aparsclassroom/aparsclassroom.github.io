@@ -217,7 +217,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
         document.getElementById('moda').innerHTML = `
-        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+        এক্সাম ব‍্যাচটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
         `;
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
