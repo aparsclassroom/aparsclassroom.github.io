@@ -77,14 +77,18 @@ function onSubmit(token) {
 var user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        if (redirectUrl == "https://exam.aparsclassroom.com/?uid=") {
-            window.location.href = redirectUrl+ user.uid;
-        } else if (redirectUrl) {
+        // if (redirectUrl == "https://exam.aparsclassroom.com/?uid=") {
+        //     window.location.href = redirectUrl+ user.uid;
+        // } else if (redirectUrl) {
+        //     window.location.href = redirectUrl;
+        // } else {
+        //     window.location.href = "/shop/dashboard";
+        // }
+        if (redirectUrl) {
             window.location.href = redirectUrl;
         } else {
             window.location.href = "/shop/dashboard";
         }
-
     } else {
         nmodal()
     }
