@@ -29,7 +29,8 @@ function getCookie(cname) {
     }
     return "";
 }
-let redirectUrl = params.signInSuccessUrl ?? getCookie("returnURLCookie");
+//let redirectUrl = params.signInSuccessUrl ?? getCookie("returnURLCookie");
+let redirectUrl = params.signInSuccessUrl;
 (function () {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     var uiConfig = {
