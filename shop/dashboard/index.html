@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
                 (c[a].q = c[a].q || []).push(arguments)
             };
             t = l.createElement(r);
@@ -18,23 +18,23 @@
         })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
     <!-- Facebook Pixel Code -->
-        <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6538fe2ef2439e1631e8405d/1hdja1qag';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6538fe2ef2439e1631e8405d/1hdja1qag';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
     <!--End of Tawk.to Script-->
     <script>
-        ! function(f, b, e, v, n, t, s) {
+        ! function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function() {
+            n = f.fbq = function () {
                 n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n;
@@ -50,9 +50,12 @@
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '593459298431756');
         fbq('track', 'PageView');
-    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    </script> <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     <title>Payment Dashboard | ASG Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="/assets/css/style.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
@@ -81,9 +84,11 @@
             <h5 style="text-align: center;" id="email"></h5>
             <h5 style="text-align: center;" id="num"></h5>
             <h5 style="text-align: center;" id="HSC"></h5>
-            <a style="text-align: center; text-decoration: none;" class="btn btn-success" href="../">Return Home</a>
+            <a style="text-align: center; text-decoration: none;" class="btn btn-success" href="../"><i
+                    class="fas fa-store-alt"></i> Return Home</a>
             <br><br>
-            <a style="text-align: center; text-decoration: none;" class="btn btn-outline-danger" href="javascript:logOut()">Log Out</a>
+            <a style="text-align: center; text-decoration: none;" class="btn btn-outline-danger"
+                href="javascript:logOut()">Log Out</a>
             <h3 style="text-align: center;margin-top: 30px;" id="title">loading...</h3>
             <hr class="mt-2 mb-4" />
             <div class="row" id="results">
@@ -94,18 +99,18 @@
     <script>
         function logOut() {
             swal({
-                        title: "Are you Sure?",
-                        icon: "warning",
-                        text: "You are going to logout from this account",
-                        buttons: ["No, wait","Yes, Logout"],
-                        dangerMode: true
-                    }).then((e) => {
-                        if (e) {
-                            return firebase.auth().signOut()
-                        }
-                    })
+                title: "Are you Sure?",
+                icon: "warning",
+                text: "You are going to logout from this account",
+                buttons: ["No, wait", "Yes, Logout"],
+                dangerMode: true
+            }).then((e) => {
+                if (e) {
+                    return firebase.auth().signOut()
+                }
+            })
         }
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 var name = user.displayName;
                 var mail = user.email;
@@ -119,15 +124,6 @@
                 if (num != null) {
                     document.getElementById('num').innerText = "Phone Number : " + num;
                 }
-const enabledExam = [];
-fetch("https://crm.apars.shop/auth/all-exams")
- .then(response => response.json())
-    .then((loadedData) => {
-        enabledExam.push(loadedData.Exams);
-    })
-    .catch((err) => {
-        console.log(err)
-    })
 
 
                 var myHeaders = new Headers();
@@ -146,17 +142,16 @@ fetch("https://crm.apars.shop/auth/all-exams")
                 fetch(`https://${shopName2}/logs`, requestOptions)
                     .then(response => response.json())
 
-                .then((loadedData) => {
+                    .then((loadedData) => {
                         if (loadedData.status === 200) {
                             var data = loadedData.info;
                             document.getElementById('title').innerHTML = "Payment History";
                             if (data.length > 0) {
                                 data.forEach((element, idx) => {
-                                idx++
+                                    idx++
 
-                                if (element.status == "VALID" || element.status == "VALIDATED") {
-                     
-                                    if (element.Product.productName == "Medical23") {
+                                    if (element.status == "VALID" || element.status == "VALIDATED") {
+
                                         var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
@@ -171,35 +166,13 @@ fetch("https://crm.apars.shop/auth/all-exams")
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-primary" target="_self" href="http://exam.aparsclassroom.com/?uid=${user.uid}">Exam Dashboard</a></div><hr>
                                     <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         `;
                                     } else {
-                                    var content = `
-                        <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100">
-                                <div class="card-body py-5">
-                                    <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                                    </h5>
-                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
-                                    <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                    }
-                                } else {
-                                    var content = `
+                                        var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
@@ -217,13 +190,13 @@ fetch("https://crm.apars.shop/auth/all-exams")
                             </div>
                         </div>
                         `;
-                                }
-                                results.innerHTML += content;
+                                    }
+                                    results.innerHTML += content;
 
-                            });
+                                });
                             } else {
                                 document.getElementById('title').innerText = "Oops 🙃";
-                            results.innerHTML = `
+                                results.innerHTML = `
                     <div class="col-lg-6 mb-4">
                     <a class="card lift lift-sm h-100" href="javascript:void(0)">
                         <div class="card-body py-5">
@@ -235,7 +208,7 @@ fetch("https://crm.apars.shop/auth/all-exams")
                 </div>
                     `;
                             }
-                           
+
                         } else {
                             document.getElementById('title').innerText = "Oops 🙃";
                             results.innerHTML = `
@@ -260,7 +233,9 @@ fetch("https://crm.apars.shop/auth/all-exams")
             }
         })
     </script>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>
