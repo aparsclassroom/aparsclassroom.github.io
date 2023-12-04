@@ -63,6 +63,6 @@ function delete_cookie(name) {
   });
   let queryPromo = params.promo;
 
-  if (params.logout == true) {
+  if (params.logout == "true") {
     firebase.auth().signOut()
   }
