@@ -97,6 +97,12 @@
     </div>
 
     <script>
+          if (params.logout == "true") {
+    firebase.auth().signOut()
+  }
+  if (params.signInSuccessUrl == "https://exam.aparsclassroom.com/?uid=") {
+    setCookie('returnURLCookie', params.signInSuccessUrl, '1')
+  }
         function logOut() {
             swal({
                 title: "Are you Sure?",

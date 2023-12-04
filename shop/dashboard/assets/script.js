@@ -14,7 +14,22 @@ firebase.auth();
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
-let redirectUrl = params.signInSuccessUrl;
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+let redirectUrl = params.signInSuccessUrl ?? getCookie("returnURLCookie");
 (function () {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     var uiConfig = {
@@ -61,7 +76,9 @@ function onSubmit(token) {
 var user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        if (redirectUrl) {
+        if (redirectUrl == "https://exam.aparsclassroom.com/?uid=") {
+            window.location.href = redirectUrl+ user.uid;
+        } else if (redirectUrl) {
             window.location.href = redirectUrl;
         } else {
             window.location.href = "/shop/dashboard";
