@@ -43,33 +43,17 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        init += data.count
-        fetch(`https://${shopName2}/enrollment?productCode=${productCode2}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) => {
-                init += data.count
-                document.getElementById('enrolled').setAttribute('countTo', init);
-                if (document.getElementById('enrolled')) {
-                    const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-                    if (!countUp.error) {
-                        countUp.start();
-                    } else {
-                        console.error(countUp.error);
-                    }
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    })
-    .catch((err) => {
-        console.log(err)
-    })
 
+
+fetch("https://crm.aparsclassroom.com/api/total-enrolled/frb23", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+        document.getElementById('enrolled').setAttribute('countTo', total + init);
+        const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+        if (!countUp.error) {
+            countUp.start();
+        } else {
+            console.error(countUp.error);
+        }
+    })
+    .catch(error => console.log('error', error));
