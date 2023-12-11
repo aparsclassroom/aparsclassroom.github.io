@@ -51,7 +51,7 @@ var requestOptions = {
 fetch("https://crm.aparsclassroom.com/api/total-enrolled/frb23", requestOptions)
     .then(response => response.json())
     .then(result => {
-        document.getElementById('enrolled').setAttribute('countTo', result.enrolled + init);
+        document.getElementById('enrolled').setAttribute('countTo', result.enrolled[0].totalTransactions + init);
         const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
         if (!countUp.error) {
             countUp.start();
