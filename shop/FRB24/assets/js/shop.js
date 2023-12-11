@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwzMx7rsGWfgXKV7-o0qpxT9MwpL-6yHNuP8Hq4mIMSLizMqEnNXvuF1Y3x0Bvqdfy0/exec';
+
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
