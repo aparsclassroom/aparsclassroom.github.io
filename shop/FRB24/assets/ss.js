@@ -44,7 +44,10 @@ if (screen.width <= 600) {
 // }
 
 
-
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
 fetch("https://crm.aparsclassroom.com/api/total-enrolled/frb23", requestOptions)
     .then(response => response.json())
     .then(result => {
