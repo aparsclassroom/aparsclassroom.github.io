@@ -113,15 +113,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.text()
                             })
                             .then(result => {
-                                if (result.status != 420 || result == '{"status":404,"message":"Product Error"}') {
+                                if (result.status != 420 || result != '{"status":404,"message":"Product Error"}') {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
+                                title: "Error",
+                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = "/shop"
+                            })
                                 }
                             })
                             .catch(() => {
@@ -131,7 +133,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     text: "Please visit after 10 pm tonight",
                                     button: "Ok"
                                 }).then(() => {
-                                    location.href = result.GatewayPageURL
+                                    location.href = "/shop"
                                 })
                             });
                     })
@@ -181,15 +183,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                             return response.text()
                         })
                         .then(result => {
-                            if (result.status != 420 || result == '{"status":404,"message":"Product Error"}') {
+                            if (result.status != 420 || result != '{"status":404,"message":"Product Error"}') {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                    title: result.message,
-                                    icon: "error"
-                                }).then(() => {
-                                    location.href = result.GatewayPageURL
-                                })
+                                title: "Error",
+                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = "/shop"
+                            })
                             }
                         })
                         .catch(() => {
@@ -199,7 +203,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
-                                location.href = result.GatewayPageURL
+                                location.href = "/shop"
                             })
                         });
                 })
