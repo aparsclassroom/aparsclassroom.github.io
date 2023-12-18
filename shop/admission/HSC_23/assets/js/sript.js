@@ -106,7 +106,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.text()
                             })
                             .then(result => {
-                                if (result.status != 420) {
+                                if (result.status != 420 || result == '{"status":404,"message":"Product Error"}') {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
@@ -173,7 +173,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             return response.text()
                         })
                         .then(result => {
-                            if (result.status != 420) {
+                            if (result.status != 420 || result == '{"status":404,"message":"Product Error"}') {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
