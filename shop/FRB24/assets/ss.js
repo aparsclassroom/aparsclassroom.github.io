@@ -43,7 +43,7 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-const thumbImage = "https://quickchart.io/watermark?mainImageUrl=https%3A%2F%2Fi.postimg.cc%2FhvwSF8BP%2Fwithout-pic-01.jpg&markRatio=.9&position=bottom&markImageUrl=https%3A%2F%2Fchart.googleapis.com%2Fchart%3Fchst%3Dd_text_outline%26chld%3DFFFFFF%7C70%7Ch%7C000000%7Cb%7CEnrolled%3A%20";
+//const thumbImage = "https://quickchart.io/watermark?mainImageUrl=https%3A%2F%2Fi.postimg.cc%2FhvwSF8BP%2Fwithout-pic-01.jpg&markRatio=.9&position=bottom&markImageUrl=https%3A%2F%2Fchart.googleapis.com%2Fchart%3Fchst%3Dd_text_outline%26chld%3DFFFFFF%7C70%7Ch%7C000000%7Cb%7CEnrolled%3A%20";
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -52,7 +52,7 @@ fetch("https://crm.aparsclassroom.com/api/total-enrolled/frb23", requestOptions)
     .then(response => response.json())
     .then(result => {
         document.getElementById('enrolled').setAttribute('countTo', result.enrolled[0].totalTransactions + init);
-        document.getElementById("thumImg").src = thumbImage + (result.enrolled[0].totalTransactions + init);
+       // document.getElementById("thumImg").src = thumbImage + (result.enrolled[0].totalTransactions + init);
         const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
         if (!countUp.error) {
             countUp.start();
