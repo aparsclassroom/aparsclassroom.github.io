@@ -1,9 +1,12 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
-    spaceBetween: 6,
+    spaceBetween: 3,
     loop: false,
     autoplay: {
         delay: 4000,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next'
     },
 });
 
@@ -26,7 +29,7 @@ if (screen.width <= 600) {
 //     player = new YT.Player('player', {
 //         height: '390',
 //         width: '640',
-//         videoId: 'FuVVBMNj59s',
+//         videoId: '',
 //         playerVars: { 'autoplay': 1, 'playsinline': 1 },
 //         events: {
 //             'onReady': onPlayerReady
@@ -34,11 +37,12 @@ if (screen.width <= 600) {
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
+
 fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
