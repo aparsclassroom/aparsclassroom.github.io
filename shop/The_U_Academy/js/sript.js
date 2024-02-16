@@ -1,18 +1,18 @@
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
@@ -21,7 +21,7 @@ document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -102,13 +102,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                        title: "Error",
+                                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                        text: "Please visit after 10 pm tonight",
+                                        button: "Ok"
+                                    }).then(() => {
+                                        location.href = "/shop"
+                                    })
                                 }
                             })
                             .catch(() => {
@@ -171,20 +171,20 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.href = "/shop"
+                                })
                             }
                         })
                         .catch(() => {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
                                 location.href = "/shop"
@@ -248,10 +248,10 @@ cpn.addEventListener('click', (e) => {
     cupV.disabled = true;
     cpn.disabled = true;
     fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
-            method: 'GET',
-            credentials: 'include',
-            mode: 'cors'
-        })
+        method: 'GET',
+        credentials: 'include',
+        mode: 'cors'
+    })
         .then((res) => {
             return res.json();
         })
@@ -272,7 +272,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -301,11 +301,11 @@ document.getElementById("cup").style.display = "block";
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
 
-    document.getElementById("cup").style.display = "none"; 
+    document.getElementById("cup").style.display = "none";
     delete_cookie("promo");
     notdis()
 }
