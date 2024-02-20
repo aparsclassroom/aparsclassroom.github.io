@@ -2,6 +2,6 @@ function waiting() {
     swal({
         title: "Not Published",
         icon: "info",
-        text: "Please Wait for this cycle to be published"
+        text: "This Cycle is out of short syllabus !"
     })
 } 
