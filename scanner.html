@@ -20,6 +20,8 @@
     <h1>QR CODE SCANNER v1</h1>
 <video id="video" autoplay></video>
 <select id="cameraSelect"></select>
+<hr>
+<div id="results"></div>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
     const video = document.getElementById('video');
@@ -93,7 +95,9 @@
     scanner.addListener('scan', function (content) {
         console.log('Scanned: ' + content);
         // Do something with the scanned content
-        alert('Scanned QR code: ' + content);
+        alert('Scanned a QR code !');
+
+        document.getElementById('result').innerHTML += `<a href=${content}>${content}</a>`;
     });
 </script>
 </body>
