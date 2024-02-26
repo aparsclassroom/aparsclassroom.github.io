@@ -85,16 +85,16 @@
         Instascan.Camera.getCameras().then(function (cameras) {
             let selectedCamera = cameras[0]; // Default to the first camera
         for (const camera of cameras) {
+            alert(camera.name.toLowerCase())
             if (camera.name.toLowerCase().includes('back')) {
                 selectedCamera = camera;
                 break;
             }
         }
-        alert(camera.name.toLowerCase())
         scanner.start(selectedCamera);
         }).catch(function (e) {
             console.error(e);
-            alert('Error accessing cameras.');
+            alert('Error accessing cameras.', e);
         });
     });
 
