@@ -61,18 +61,18 @@
     
     // Populate camera select dropdown
     Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-            cameras.forEach(function(camera, index) {
-                const option = document.createElement('option');
-                option.value = index;
-                option.text = camera.name || `Camera ${index + 1}`;
-                cameraSelect.appendChild(option);
-            });
-            // Start scanning with default camera
-            scanner.start(cameras[0]);
+        let selectedCamera = null;
+        for (const camera of cameras) {
+            if (camera.name.toLowerCase().includes('back')) {
+                selectedCamera = camera;
+                break;
+            }
+        }
+        if (selectedCamera) {
+            scanner.start(selectedCamera);
         } else {
-            console.error('No cameras found.');
-            alert('No cameras found.');
+            console.log('No back camera found. Defaulting to the first camera.');
+            scanner.start(cameras[0]); // Default to the first camera if no back camera found
         }
     }).catch(function (e) {
         console.error(e);
@@ -85,7 +85,6 @@
         Instascan.Camera.getCameras().then(function (cameras) {
             let selectedCamera = cameras[0]; // Default to the first camera
         for (const camera of cameras) {
-            alert(camera.name.toLowerCase())
             if (camera.name.toLowerCase().includes('back')) {
                 selectedCamera = camera;
                 break;
@@ -94,7 +93,7 @@
         scanner.start(selectedCamera);
         }).catch(function (e) {
             console.error(e);
-            alert('Error accessing cameras.', e);
+            alert('Error accessing cameras.');
         });
     });
 
