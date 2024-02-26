@@ -15,30 +15,26 @@
 </head>
 <body>
 <video id="video" autoplay></video>
-<select name="camera-list" id="camera-list">
-    <option value="">--Select Any--</option>
-</select>
+<select id="cameraSelect"></select>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
     const video = document.getElementById('video');
-    const cameraList = document.getElementById('camera-list');
+    const cameraSelect = document.getElementById('cameraSelect');
+
     // Use Instascan for QR code scanning
     const scanner = new Instascan.Scanner({ video: video });
-    scanner.addListener('scan', function (content) {
-        console.log('Scanned: ' + content);
-        // Do something with the scanned content
-        alert('Scanned QR code: ' + content);
-    });
-
+    
+    // Populate camera select dropdown
     Instascan.Camera.getCameras().then(function (cameras) {
-        cameras.forEach(element => {
-            cameraList.innerHTML += `<option value="${element.name}" id="${element.id}">${element.name}</option>`
-        });
-        console.log(cameras)
-        if (cameras.length = 1) {
+        if (cameras.length > 0) {
+            cameras.forEach(function(camera, index) {
+                const option = document.createElement('option');
+                option.value = index;
+                option.text = camera.name || `Camera ${index + 1}`;
+                cameraSelect.appendChild(option);
+            });
+            // Start scanning with default camera
             scanner.start(cameras[0]);
-        } else if (cameras.length > 1) {
-            scanner.start(localStorage.getItem('camera'))
         } else {
             console.error('No cameras found.');
             alert('No cameras found.');
@@ -48,11 +44,23 @@
         alert('Error accessing cameras.');
     });
 
-    
+    // Change camera when selection changes
+    cameraSelect.addEventListener('change', function() {
+        const selectedCameraIndex = cameraSelect.value;
+        Instascan.Camera.getCameras().then(function (cameras) {
+            scanner.stop();
+            scanner.start(cameras[selectedCameraIndex]);
+        }).catch(function (e) {
+            console.error(e);
+            alert('Error accessing cameras.');
+        });
+    });
 
-cameraList.addEventListener('change', (e)=>{
-    localStorage.setItem("camera", {id: cameraList.id, name: cameraList.value});
-})
+    scanner.addListener('scan', function (content) {
+        console.log('Scanned: ' + content);
+        // Do something with the scanned content
+        alert('Scanned QR code: ' + content);
+    });
 </script>
 </body>
 </html>
