@@ -1,135 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Reader</title>
-    <style>
-        body {
-            text-align: center;
-        }
-
-        #video {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-            display: block;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Reader</title>
+<style>
+    body {
+        text-align: center;
+    }
+    #video {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        display: block;
+    }
+</style>
 </head>
-
 <body>
     <h1>O2O QR CODE SCANNER v1</h1>
-    <video id="video" autoplay></video>
-    <select id="cameraSelect"></select>
-    <div id="results"></div>
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-    <script>
-        const video = document.getElementById('video');
-        const cameraSelect = document.getElementById('cameraSelect');
-        let opts = {
-            // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
-            // If true, the scanner emits the "scan" event when a QR code is scanned. Default true.
-            continuous: true,
+<video id="video" autoplay></video>
+<select id="cameraSelect"></select>
+<div id="results"></div>
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<script>
+    const video = document.getElementById('video');
+    const cameraSelect = document.getElementById('cameraSelect');
+    let opts = {
+  // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
+  // If true, the scanner emits the "scan" event when a QR code is scanned. Default true.
+  continuous: true,
+  
+  // The HTML element to use for the camera's video preview. Must be a <video> element.
+  // When the camera is active, this element will have the "active" CSS class, otherwise,
+  // it will have the "inactive" class. By default, an invisible element will be created to
+  // host the video.
+  video: video,
+  
+  // Whether to horizontally mirror the video preview. This is helpful when trying to
+  // scan a QR code with a user-facing camera. Default true.
+  mirror: false,
+  
+  // Whether to include the scanned image data as part of the scan result. See the "scan" event
+  // for image format details. Default false.
+  captureImage: false,
+  
+  // Only applies to continuous mode. Whether to actively scan when the tab is not active.
+  // When false, this reduces CPU usage when the tab is not active. Default true.
+  backgroundScan: true,
+  
+  // Only applies to continuous mode. The period, in milliseconds, before the same QR code
+  // will be recognized in succession. Default 5000 (5 seconds).
+  refractoryPeriod: 5000,
+  
+  // Only applies to continuous mode. The period, in rendered frames, between scans. A lower scan period
+  // increases CPU usage but makes scan response faster. Default 1 (i.e. analyze every frame).
+  scanPeriod: 1
+};
+    // Use Instascan for QR code scanning
+    const scanner = new Instascan.Scanner(opts);
+    
+    // Populate camera select dropdown
+    Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+            cameras.forEach(function(camera, index) {
+                const option = document.createElement('option');
+                option.value = index;
+                option.text = camera.name || `Camera ${index + 1}`;
+                cameraSelect.appendChild(option);
+            });
+            // Start scanning with default camera
+            scanner.start(cameras[0]);
+        } else {
+            console.error('No cameras found.');
+            alert('No cameras found.');
+        }
+    }).catch(function (e) {
+        console.error(e);
+        alert('Error accessing cameras.');
+    });
 
-            // The HTML element to use for the camera's video preview. Must be a <video> element.
-            // When the camera is active, this element will have the "active" CSS class, otherwise,
-            // it will have the "inactive" class. By default, an invisible element will be created to
-            // host the video.
-            video: video,
-
-            // Whether to horizontally mirror the video preview. This is helpful when trying to
-            // scan a QR code with a user-facing camera. Default true.
-            mirror: false,
-
-            // Whether to include the scanned image data as part of the scan result. See the "scan" event
-            // for image format details. Default false.
-            captureImage: false,
-
-            // Only applies to continuous mode. Whether to actively scan when the tab is not active.
-            // When false, this reduces CPU usage when the tab is not active. Default true.
-            backgroundScan: true,
-
-            // Only applies to continuous mode. The period, in milliseconds, before the same QR code
-            // will be recognized in succession. Default 5000 (5 seconds).
-            refractoryPeriod: 5000,
-
-            // Only applies to continuous mode. The period, in rendered frames, between scans. A lower scan period
-            // increases CPU usage but makes scan response faster. Default 1 (i.e. analyze every frame).
-            scanPeriod: 1
-        };
-        // Use Instascan for QR code scanning
-        const scanner = new Instascan.Scanner(opts);
-
-        // Populate camera select dropdown
+    // Change camera when selection changes
+    cameraSelect.addEventListener('change', function() {
+        const selectedCameraIndex = cameraSelect.value;
         Instascan.Camera.getCameras().then(function (cameras) {
-            if (cameras.length > 0) {
-                cameras.forEach(function (camera, index) {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.text = camera.name || `Camera ${index + 1}`;
-                    cameraSelect.appendChild(option);
-                });
-                // Start scanning with default camera
-                scanner.start(cameras[0]);
-            } else {
-                console.error('No cameras found.');
-                alert('No cameras found.');
-            }
-        }).catch(function (e) {
-            console.error(e);
-            alert('Error accessing cameras.');
-        });
-
-        Instascan.Camera.getCameras().then(function (cameras) {
-        let selectedCamera = null;
+            let selectedCamera = cameras[0]; // Default to the first camera
         for (const camera of cameras) {
             if (camera.name.toLowerCase().includes('back')) {
                 selectedCamera = camera;
                 break;
             }
         }
-        if (selectedCamera) {
-            scanner.start(selectedCamera);
-        } else {
-            alert('No back camera found. Defaulting to the first camera.');
-            scanner.start(cameras[0]); // Default to the first camera if no back camera found
-        }
-    }).catch(function (e) {
-        console.error('Error accessing cameras:', e);
-        alert('Error accessing cameras.');
+        scanner.start(selectedCamera);
+        }).catch(function (e) {
+            console.error(e);
+            alert('Error accessing cameras.');
+        });
     });
-        // Convert video to grayscale
-        video.addEventListener('play', function () {
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            function processFrame() {
-                context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imageData.data;
-                for (let i = 0; i < data.length; i += 4) {
-                    const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
-                    data[i] = brightness;
-                    data[i + 1] = brightness;
-                    data[i + 2] = brightness;
-                }
-                context.putImageData(imageData, 0, 0);
-                requestAnimationFrame(processFrame);
+ // Convert video to grayscale
+ video.addEventListener('play', function() {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        function processFrame() {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+            for (let i = 0; i < data.length; i += 4) {
+                const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = brightness;
+                data[i + 1] = brightness;
+                data[i + 2] = brightness;
             }
-            processFrame();
-        });
-        document.getElementById('results').innerHTML = "<hr><h3>Scanned QR CODES</h3>"
-        scanner.addListener('scan', function (content) {
-            console.log('Scanned: ' + content);
-            // Do something with the scanned content
-            alert('Scanned a QR code !');
+            context.putImageData(imageData, 0, 0);
+            requestAnimationFrame(processFrame);
+        }
+        processFrame();
+    });
+    document.getElementById('results').innerHTML = "<hr><h3>Scanned QR CODES</h3>"
+    scanner.addListener('scan', function (content) {
+        console.log('Scanned: ' + content);
+        // Do something with the scanned content
+        alert('Scanned a QR code !');
 
-            document.getElementById('results').innerHTML += `<a href=${content} target="_blank">${content}</a><br>`;
-        });
-    </script>
+        document.getElementById('results').innerHTML += `<a href=${content} target="_blank">${content}</a><br>`;
+    });
+</script>
 </body>
-
 </html>
