@@ -90,7 +90,18 @@
                 break;
             }
         }
-        scanner.start(selectedCamera);
+        const constraints = {
+            advanced: [{ focusMode: 'manual', focalLength: 0.1 }] // Adjust focalLength as needed
+        };
+        selectedCamera.applyConstraints(constraints)
+            .then(() => {
+                scanner.start(selectedCamera);
+            })
+            .catch((error) => {
+                console.error('Error applying constraints:', error);
+                alert('Error applying camera constraints. Starting with default settings.');
+                scanner.start(selectedCamera); // Start scanning with default settings
+            });
         }).catch(function (e) {
             console.error(e);
             alert('Error accessing cameras.');
