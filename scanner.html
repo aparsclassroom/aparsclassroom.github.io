@@ -15,10 +15,13 @@
 </head>
 <body>
 <video id="video" autoplay></video>
+<select name="camera-list" id="camera-list">
+    <option value="">--Select Any--</option>
+</select>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
     const video = document.getElementById('video');
-
+    const cameraList = document.getElementById('camera-list');
     // Use Instascan for QR code scanning
     const scanner = new Instascan.Scanner({ video: video });
     scanner.addListener('scan', function (content) {
@@ -28,8 +31,14 @@
     });
 
     Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
+        cameras.forEach(element => {
+            cameraList.innerHTML += `<option value="${element.name}" id="${element.id}">${element.name}</option>`
+        });
+        console.log(cameras)
+        if (cameras.length = 1) {
             scanner.start(cameras[0]);
+        } else if (cameras.length > 1) {
+            scanner.start(localStorage.getItem('camera'))
         } else {
             console.error('No cameras found.');
             alert('No cameras found.');
@@ -38,6 +47,12 @@
         console.error(e);
         alert('Error accessing cameras.');
     });
+
+    
+
+cameraList.addEventListener('change', (e)=>{
+    localStorage.setItem("camera", {id: cameraList.id, name: cameraList.value});
+})
 </script>
 </body>
 </html>
