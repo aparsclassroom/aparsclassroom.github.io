@@ -20,7 +20,6 @@
     <h1>O2O QR CODE SCANNER v1</h1>
 <video id="video" autoplay></video>
 <select id="cameraSelect"></select>
-<hr>
 <div id="results"></div>
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
@@ -91,13 +90,13 @@
             alert('Error accessing cameras.');
         });
     });
-
+    document.getElementById('results').innerHTML = "<hr><h3>Scanned QR CODES</h3>"
     scanner.addListener('scan', function (content) {
         console.log('Scanned: ' + content);
         // Do something with the scanned content
         alert('Scanned a QR code !');
 
-        document.getElementById('result').innerHTML += `<a href=${content} target="_blank">${content}</a>`;
+        document.getElementById('results').innerHTML += `<a href=${content} target="_blank">${content}</a>`;
     });
 </script>
 </body>
