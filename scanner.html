@@ -90,23 +90,13 @@
                 break;
             }
         }
-        const constraints = {
-            advanced: [{ focusMode: 'manual', focalLength: 0.1 }] // Adjust focalLength as needed
-        };
-        selectedCamera.applyConstraints(constraints)
-            .then(() => {
-                scanner.start(selectedCamera);
-            })
-            .catch((error) => {
-                console.error('Error applying constraints:', error);
-                alert('Error applying camera constraints. Starting with default settings.');
-                scanner.start(selectedCamera); // Start scanning with default settings
-            });
+        scanner.start(selectedCamera);
         }).catch(function (e) {
             console.error(e);
             alert('Error accessing cameras.');
         });
     });
+
     document.getElementById('results').innerHTML = "<hr><h3>Scanned QR CODES</h3>"
     scanner.addListener('scan', function (content) {
         console.log('Scanned: ' + content);
