@@ -83,8 +83,14 @@
     cameraSelect.addEventListener('change', function() {
         const selectedCameraIndex = cameraSelect.value;
         Instascan.Camera.getCameras().then(function (cameras) {
-            scanner.stop();
-            scanner.start(cameras[selectedCameraIndex]);
+            let selectedCamera = cameras[0]; // Default to the first camera
+        for (const camera of cameras) {
+            if (camera.name.toLowerCase().includes('back')) {
+                selectedCamera = camera;
+                break;
+            }
+        }
+        scanner.start(selectedCamera);
         }).catch(function (e) {
             console.error(e);
             alert('Error accessing cameras.');
@@ -96,7 +102,7 @@
         // Do something with the scanned content
         alert('Scanned a QR code !');
 
-        document.getElementById('results').innerHTML += `<a href=${content} target="_blank">${content}</a>`;
+        document.getElementById('results').innerHTML += `<a href=${content} target="_blank">${content}</a><br>`;
     });
 </script>
 </body>
