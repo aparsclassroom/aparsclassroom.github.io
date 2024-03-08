@@ -171,11 +171,11 @@
                 }
             })
         }
-        document.getElementById('pemail').addEventListener("input", function (event) {
-            if (document.getElementById('pemail').validity.typeMismatch) {
-                document.getElementById('pemail').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').addEventListener("input", function (event) {
+            if (document.getElementById('email').validity.typeMismatch) {
+                document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
             } else {
-                document.getElementById('pemail').setCustomValidity("");
+                document.getElementById('email').setCustomValidity("");
             }
         });
 
