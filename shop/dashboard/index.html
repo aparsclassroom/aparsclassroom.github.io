@@ -84,9 +84,14 @@
             <h5 style="text-align: center;" id="email"></h5>
             <h5 style="text-align: center;" id="num"></h5>
             <h5 style="text-align: center;" id="HSC"></h5>
+            <hr>
+            <button class="btn btn-outline-primary" id="upProf">
+                Update Profile
+            </button>
+            <hr>
             <a style="text-align: center; text-decoration: none;" class="btn btn-success" href="../"><i
                     class="fas fa-store-alt"></i>&nbsp;Return to SHOP</a>
-           &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <a style="text-align: center; text-decoration: none;" class="btn btn-outline-danger"
                 href="javascript:logOut()"><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
             <h3 style="text-align: center;margin-top: 30px;" id="title">loading...</h3>
@@ -95,14 +100,50 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel"
+        data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileLabel">Please fill up your Informations correctly</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="pname" placeholder="Enter your Full Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="pemail" placeholder="Enter your Email Address"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="num">Phone Number</label>
+                            <input type="text" class="form-control" id="pnum" placeholder="Enter your Phone Number"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="HSC">HSC Batch</label>
+                            <input type="text" class="form-control" id="pHSC" placeholder="Enter your HSC Batch"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-outline-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-          if (params.logout == "true") {
-    firebase.auth().signOut()
-  }
-  if (params.signInSuccessUrl == "https://exam.aparsclassroom.com/?uid=") {
-    setCookie('returnURLCookie', params.signInSuccessUrl, '1')
-  }
+        if (params.logout == "true") {
+            firebase.auth().signOut()
+        }
         function logOut() {
             swal({
                 title: "Are you Sure?",
@@ -131,7 +172,55 @@
                     document.getElementById('num').innerText = "Phone Number : " + num;
                 }
 
+                document.getElementById('upProf').addEventListener('click', () => {
+                    $('#profile').modal('show');
 
+                    document.getElementById('profileForm').addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        var name = document.getElementById('pname').value;
+                        var email = document.getElementById('pemail').value;
+                        var pnum = document.getElementById('pnum').value;
+                        var HSC = document.getElementById('pHSC').value;
+                        if (name != "" && email != "" && num != "" && HSC != "") {
+                            const myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                            const urlencoded = new URLSearchParams();
+                            urlencoded.append("uid", user.uid);
+                            urlencoded.append("Name", name);
+                            urlencoded.append("FbName", "");
+                            urlencoded.append("FbLink", "");
+                            urlencoded.append("Email", email);
+                            urlencoded.append("Phone", pnum);
+                            urlencoded.append("Parent", "");
+                            urlencoded.append("Institution", );
+                            urlencoded.append("HSC", HSC);
+
+                            const requestOptions = {
+                                method: "POST",
+                                headers: myHeaders,
+                                body: urlencoded,
+                                redirect: "follow"
+                            };
+
+                            fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
+                                .then(response => response.json())
+                                .then((result) => {
+                                    if (result.status === 200) {
+                                        swal("Profile Updated", "Your Profile has been updated successfully", "success")
+                                            .then(() => {
+                                                location.reload();
+                                            })
+                                    } else {
+                                        swal("Oops", "Something went wrong, Please try again later", "error")
+                                    }
+                                })
+                                .catch(error => swal("Oops", "Something went wrong, Please try again later", "error"));
+                        } else {
+                            swal("Oops", "Please fill up all the fields", "error")
+                        }
+                    })
+                })
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
