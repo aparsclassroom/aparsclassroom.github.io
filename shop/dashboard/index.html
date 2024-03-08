@@ -92,6 +92,10 @@
             <h5 style="text-align: center;" id="mail"></h5>
             <h5 style="text-align: center;" id="num"></h5>
             <h5 style="text-align: center;" id="HSC"></h5>
+            <h5 style="text-align: center;" id="FbName"></h5>
+            <h5 style="text-align: center;" id="FbLink"></h5>
+            <h5 style="text-align: center;" id="Parent"></h5>
+            <h5 style="text-align: center;" id="Institution"></h5>
             <hr>
             <button class="btn btn-outline-primary" id="upProf">
                 Update Profile (Warning: Still Under Development, Please don't update your profile if not necessary!)
@@ -135,7 +139,7 @@
                         <div class="form-group">
                             <label for="pnum">Phone Number</label>
                             <input type="tel" class="form-control" id="pnum" pattern="^(?:\+?88)?01[13-9]\d{8}$"
-                                placeholder="Enter your Phone Number" required>
+                                placeholder="Enter your Phone Number" value="+880" required>
                         </div>
                         <div class="form-group">
                             <label for="pHSC">HSC Batch</label>
@@ -154,18 +158,18 @@
                         </div>
                         <div class="form-group">
                             <label for="FbLink">Facebook Profile Link</label>
-                            <input type="url" class="form-control" id="FbLink" placeholder="Enter your Facebook Profile Link"
-                                required>
+                            <input type="url" class="form-control" id="FbLink"
+                                placeholder="Enter your Facebook Profile Link" required>
                         </div>
                         <div class="form-group">
-                            <label for="Parent">Parent's Name</label>
-                            <input type="text" class="form-control" id="Parent" placeholder="Enter your Parent's Name"
-                                required>
+                            <label for="Parent">Parent's Number</label>
+                            <input type="text" class="form-control" id="Parent" placeholder="Enter your Parent's Number"
+                                value="+880" required>
                         </div>
                         <div class="form-group">
                             <label for="Institution">Institution Name</label>
-                            <input type="text" class="form-control" id="Institution" placeholder="Enter your Institution Name"
-                                required>
+                            <input type="text" class="form-control" id="Institution"
+                                placeholder="Enter your Institution Name" required>
                         </div>
                         <hr>
                         <button type="submit" id="saveBtn" class="btn btn-outline-success">Save</button>
@@ -217,10 +221,6 @@
                 var mail = user.email;
                 var num = user.phoneNumber;
 
-                if (name != null) {
-                    document.getElementById('name').innerText = "Student Name : " + name;
-                    document.getElementById('pname').value = name;
-                }
                 if (mail != null) {
                     document.getElementById('mail').innerText = "Email Address : " + mail;
                     document.getElementById('email').value = mail;
@@ -231,83 +231,87 @@
                     document.getElementById('pnum').value = num;
                     document.getElementById('pnum').setAttribute('readonly', 'true');
                 }
+                fetch(`https://profile.aparsclassroom.com/profile/info?uid=${user.uid}`)
+                    .then(response => response.json())
 
+                    .then((loadedData) => {
+                        if (loadedData.status === 200) {
+                            var data = loadedData.data;
+                            document.getElementById('name').innerText = "Full Name : " + data.Name;
+                            document.getElementById('HSC').innerText = "HSC Batch : " + data.HSC;
+                            document.getElementById('FbName').innerText = "Facebook Name : " + data.FbName;
+                            document.getElementById('FbLink').innerText = "Facebook Profile Link : " + data.FbLink;
+                            document.getElementById('Parent').innerText = "Parent's Number : " + data.Parent;
+                            document.getElementById('Institution').innerText = "Institution Name : " + data.Institution;
+                            document.getElementById('pname').value = data.Name;
+                            document.getElementById('email').value = data.Email;
+                            document.getElementById('pnum').value = data.Phone;
+                            document.getElementById('pHSC').value = data.HSC;
+                            document.getElementById('FbName').value = data.FbName;
+                            document.getElementById('FbLink').value = data.FbLink;
+                            document.getElementById('Parent').value = data.Parent;
+                            document.getElementById('Institution').value = data.Institution;
+                            document.getElementById('saveBtn').innerText = "Update";
+                            document.getElementById('saveBtn').removeAttribute('disabled');
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
                 document.getElementById('upProf').addEventListener('click', () => {
                     $('#profile').modal('show');
-                    fetch(`https://profile.aparsclassroom.com/profile/info?uid=${user.uid}`)
-                        .then(response => response.json())
+                    document.getElementById('profileForm').addEventListener('submit', (e) => {
+                        e.preventDefault();
 
-                        .then((loadedData) => {
-                            if (loadedData.status === 200) {
-                                var data = loadedData.data;
-                                document.getElementById('pname').value = data.Name;
-                                document.getElementById('email').value = data.Email;
-                                document.getElementById('pnum').value = data.Phone;
-                                document.getElementById('pHSC').value = data.HSC;
-                                document.getElementById('FbName').value = data.FbName;
-                                document.getElementById('FbLink').value = data.FbLink;
-                                document.getElementById('Parent').value = data.Parent;
-                                document.getElementById('Institution').value = data.Institution;
-                                document.getElementById('saveBtn').innerText = "Update";
-                                document.getElementById('saveBtn').removeAttribute('disabled');
-                            }
-                        })
-                        .catch((err) => {
-                            console.log(err)
-                        }).catch(error => console.log(error));
+                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != "") {
 
-                        document.getElementById('profileForm').addEventListener('submit', (e) => {
-                                    e.preventDefault();
+                            document.getElementById('saveBtn').setAttribute('disabled', 'true');
+                            document.getElementById('saveBtn').innerText = "Saving...";
 
-                                    if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != "") {
+                            const myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                                        document.getElementById('saveBtn').setAttribute('disabled', 'true');
-                                        document.getElementById('saveBtn').innerText = "Saving...";
+                            const urlencoded = new URLSearchParams();
+                            urlencoded.append("uid", user.uid);
+                            urlencoded.append("Name", document.getElementById('pname').value);
+                            urlencoded.append("FbName", document.getElementById('FbName').value);
+                            urlencoded.append("FbLink", document.getElementById('FbLink').value);
+                            urlencoded.append("Email", document.getElementById('email').value);
+                            urlencoded.append("Phone", document.getElementById('pnum').value);
+                            urlencoded.append("Parent", document.getElementById('Parent').value);
+                            urlencoded.append("Institution", document.getElementById('Institution').value);
+                            urlencoded.append("HSC", document.getElementById('pHSC').value);
 
-                                        const myHeaders = new Headers();
-                                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                            const requestOptions = {
+                                method: "POST",
+                                headers: myHeaders,
+                                body: urlencoded,
+                                redirect: "follow"
+                            };
 
-                                        const urlencoded = new URLSearchParams();
-                                        urlencoded.append("uid", user.uid);
-                                        urlencoded.append("Name", document.getElementById('pname').value);
-                                        urlencoded.append("FbName", document.getElementById('FbName').value);
-                                        urlencoded.append("FbLink", document.getElementById('FbLink').value);
-                                        urlencoded.append("Email", document.getElementById('email').value);
-                                        urlencoded.append("Phone", document.getElementById('pnum').value);
-                                        urlencoded.append("Parent", document.getElementById('Parent').value);
-                                        urlencoded.append("Institution", document.getElementById('Institution').value);
-                                        urlencoded.append("HSC", document.getElementById('pHSC').value);
-
-                                        const requestOptions = {
-                                            method: "POST",
-                                            headers: myHeaders,
-                                            body: urlencoded,
-                                            redirect: "follow"
-                                        };
-
-                                        fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
-                                            .then(response => response.json())
-                                            .then((result) => {
-                                                if (result.status === 200) {
-                                                    swal("Profile Updated", "Your Profile has been updated successfully", "success")
-                                                        .then(() => {
-                                                            location.reload();
-                                                        })
-                                                } else {
-                                                    swal("Oops", "Something went wrong, Please try again later", "error")
-                                                    document.getElementById('saveBtn').removeAttribute('disabled');
-                                                    document.getElementById('saveBtn').innerText = "Save";
-                                                }
+                            fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
+                                .then(response => response.json())
+                                .then((result) => {
+                                    if (result.status === 200) {
+                                        swal("Profile Updated", "Your Profile has been updated successfully", "success")
+                                            .then(() => {
+                                                location.reload();
                                             })
-                                            .catch(error => {
-                                                swal("Oops", "Something went wrong, Please try again later", "error")
-                                                document.getElementById('saveBtn').removeAttribute('disabled');
-                                                document.getElementById('saveBtn').innerText = "Save";
-                                            });
                                     } else {
-                                        swal("Oops", "Please fill up all the fields", "error")
+                                        swal("Oops", "Something went wrong, Please try again later", "error")
+                                        document.getElementById('saveBtn').removeAttribute('disabled');
+                                        document.getElementById('saveBtn').innerText = "Save";
                                     }
                                 })
+                                .catch(error => {
+                                    swal("Oops", "Something went wrong, Please try again later", "error")
+                                    document.getElementById('saveBtn').removeAttribute('disabled');
+                                    document.getElementById('saveBtn').innerText = "Save";
+                                });
+                        } else {
+                            swal("Oops", "Please fill up all the fields", "error")
+                        }
+                    })
                 })
 
                 var myHeaders = new Headers();
