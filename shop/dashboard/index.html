@@ -203,7 +203,7 @@
                 if (mail != null) {
                     document.getElementById('mail').innerText = "Email Address : " + mail;
                     document.getElementById('email').value = mail;
-                    //document.getElementById('email').setAttribute('readonly', 'true');
+                    document.getElementById('email').setAttribute('readonly', 'true');
                 }
                 if (num != null) {
                     document.getElementById('num').innerText = "Phone Number : " + num;
@@ -217,7 +217,7 @@
                     document.getElementById('profileForm').addEventListener('submit', (e) => {
                         e.preventDefault();
 
-                        if (pname != "" && email != "" && pnum != "" && pHSC != "") {
+                       // if (pname != "" && email != "" && pnum != "" && pHSC != "") {
                             const myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -252,9 +252,9 @@
                                     }
                                 })
                                 .catch(error => swal("Oops", "Something went wrong, Please try again later", "error"));
-                        } else {
-                            swal("Oops", "Please fill up all the fields", "error")
-                        }
+                        // } else {
+                        //     swal("Oops", "Please fill up all the fields", "error")
+                        // }
                     })
                 })
                 var myHeaders = new Headers();
