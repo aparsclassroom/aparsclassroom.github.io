@@ -147,7 +147,7 @@
                                 <option value="HSC 26">HSC'26</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-outline-success">Save</button>
+                        <button type="submit" id="saveBtn" class="btn btn-outline-success">Save</button>
                     </form>
                 </div>
             </div>
@@ -218,6 +218,10 @@
                         e.preventDefault();
 
                         if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != ""){
+                            
+                            document.getElementById('saveBtn').setAttribute('disabled', 'true');
+                            document.getElementById('saveBtn').innerText = "Saving...";
+
                             const myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -249,9 +253,15 @@
                                             })
                                     } else {
                                         swal("Oops", "Something went wrong, Please try again later", "error")
+                                        document.getElementById('saveBtn').removeAttribute('disabled');
+                                        document.getElementById('saveBtn').innerText = "Save";
                                     }
                                 })
-                                .catch(error => swal("Oops", "Something went wrong, Please try again later", "error"));
+                                .catch(error => {
+                                    swal("Oops", "Something went wrong, Please try again later", "error")
+                                    document.getElementById('saveBtn').removeAttribute('disabled');
+                                    document.getElementById('saveBtn').innerText = "Save";
+                                });
                         } else {
                             swal("Oops", "Please fill up all the fields", "error")
                         }
