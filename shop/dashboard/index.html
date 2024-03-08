@@ -69,6 +69,38 @@
             cursor: pointer;
         }
     </style>
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script>
+            var OneSignal = window.OneSignal || [];
+        var initConfig = {
+            appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
+            promptOptions: {
+                customlink: {
+                    enabled: true,
+                    style: "button",
+                    size: "medium",
+                    color: {
+                        button: '#E12D30',
+                        text: '#FFFFFF',
+                    },
+                    text: {
+                        subscribe: "Turn on Notifications",
+                        unsubscribe: "Unsubscribe from notifications",
+                        explanation: "Get Live notifications from ASG SHOP",
+                    },
+                    unsubscribeEnabled: true,
+                }
+            }
+        };
+        OneSignal.push(function() {
+            OneSignal.SERVICE_WORKER_PARAM = {
+                scope: '/assets/'
+            };
+            OneSignal.SERVICE_WORKER_PATH = 'assets/OneSignalSDKWorker.js'
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = 'assets/OneSignalSDKUpdaterWorker.js'
+            OneSignal.init(initConfig);
+        });
+        </script>
 </head>
 
 <body>
@@ -76,6 +108,37 @@
         <div id="stat">
             <h3 style="text-align: center;margin-top: 30px; color: indigo;">Student Profile</h3>
             <hr class="mt-2 mb-4" />
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <div class="author">
+                                <div class="block block-one"></div>
+                                <div class="block block-two"></div>
+                                <div class="block block-three"></div>
+                                <div class="block block-four"></div>
+                                <a data-toggle="modal" data-target="#imageModal" type="button">
+                                    <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg" id="avatar" alt="avatar">
+                                </a>
+                                <h5 class="title"><span id="name"></span></h5>
+                                <p class="description">
+                                    <span id="role">Student</span><br>
+                                    <b>Apar's Classroom</b>
+                                </p>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="card-text text-center">Notification Preferences</p>
+                        <div class='onesignal-customlink-container'></div>
+                        <div class="button-container">
+                            <button id="FbLink" class="btn btn-icon btn-round">
+                    <i class="fab fa-facebook"></i>
+                  </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <a data-toggle="modal" data-target="#imageModal" type="button">
                 <img class="avatar"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg"
@@ -86,12 +149,11 @@
             <h5 style="text-align: center;" id="num"></h5>
             <h5 style="text-align: center;" id="HSC"></h5>
             <h5 style="text-align: center;" id="FbName"></h5>
-            <h5 style="text-align: center;" id="FbLink"></h5>
             <h5 style="text-align: center;" id="Parent"></h5>
             <h5 style="text-align: center;" id="Institution"></h5>
             <hr>
             <button class="btn btn-outline-primary" id="upProf">
-                Update Profile (Warning: Still Under Development, Please don't update your profile if not necessary!)
+                Update Profile<br>(Warning: Still Under Development, Please don't update your profile if not necessary!)
             </button>
             <hr>
             <a style="text-align: center; text-decoration: none;" class="btn btn-success" href="../"><i
@@ -258,7 +320,9 @@
                             document.getElementById('name').innerText = "Full Name : " + data.Name;
                             document.getElementById('HSC').innerText = "HSC Batch : " + data.HSC;
                             document.getElementById('FbName').innerText = "Facebook Name : " + data.FbName;
-                            document.getElementById('FbLink').innerText = "Facebook Profile Link : " + data.FbLink;
+                            document.getElementById('FbLink').onclick = function () {
+                                window.open(data.FbLink, '_blank');
+                            }
                             document.getElementById('Parent').innerText = "Parent's Number : " + data.Parent;
                             document.getElementById('Institution').innerText = "Institution Name : " + data.Institution;
                             if (data.photo != null) {
