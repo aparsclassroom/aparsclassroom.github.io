@@ -459,7 +459,7 @@
                 function uploadImage() {
 
                     const formdata = new FormData();
-                    formdata.append("photo", fileInput.files[0], "profile.jpg");
+                    formdata.append("photo", document.getElementById('img').files[0]);
 
                     const requestOptions = {
                         method: "POST",
