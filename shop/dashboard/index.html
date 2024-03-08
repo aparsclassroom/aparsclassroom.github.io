@@ -94,7 +94,7 @@
             <h5 style="text-align: center;" id="HSC"></h5>
             <hr>
             <button class="btn btn-outline-primary" id="upProf">
-                Update Profile
+                Update Profile (Warning: Still Under Development, Please don't update your profile if not necessary!)
             </button>
             <hr>
             <a style="text-align: center; text-decoration: none;" class="btn btn-success" href="../"><i
@@ -217,19 +217,19 @@
                     document.getElementById('profileForm').addEventListener('submit', (e) => {
                         e.preventDefault();
 
-                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "") {
+                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != ""){
                             const myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             const urlencoded = new URLSearchParams();
                             urlencoded.append("uid", user.uid);
                             urlencoded.append("Name", document.getElementById('pname').value);
-                            urlencoded.append("FbName", "");
-                            urlencoded.append("FbLink", "");
+                            urlencoded.append("FbName", document.getElementById('FbName').value);
+                            urlencoded.append("FbLink", document.getElementById('FbLink').value);
                             urlencoded.append("Email", document.getElementById('email').value);
                             urlencoded.append("Phone", document.getElementById('pnum').value);
-                            urlencoded.append("Parent", "");
-                            urlencoded.append("Institution", "");
+                            urlencoded.append("Parent", document.getElementById('Parent').value);
+                            urlencoded.append("Institution", document.getElementById('Institution').value);
                             urlencoded.append("HSC", document.getElementById('pHSC').value);
 
                             const requestOptions = {
