@@ -155,6 +155,10 @@
     </div>
 
     <script>
+        var pname = document.getElementById('pname').value;
+        var email = document.getElementById('email').value;
+        var pnum = document.getElementById('pnum').value;
+        var pHSC = document.getElementById('pHSC').value;
         if (params.logout == "true") {
             firebase.auth().signOut()
         }
@@ -191,10 +195,7 @@
                 var name = user.displayName;
                 var mail = user.email;
                 var num = user.phoneNumber;
-                var pname = document.getElementById('pname').value;
-                var email = document.getElementById('email').value;
-                var pnum = document.getElementById('pnum').value;
-                var pHSC = document.getElementById('pHSC').value;
+
                 if (name != null) {
                     document.getElementById('name').innerText = "Student Name : " + name;
                     document.getElementById('pname').value = name;
