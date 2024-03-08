@@ -80,6 +80,39 @@
         }
         
     </style>
+     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+     <script>
+         var OneSignal = window.OneSignal || [];
+     var initConfig = {
+         appId: "8d76e0ae-0afd-48eb-8258-3eb4a242d6a2",
+         promptOptions: {
+             customlink: {
+                 enabled: true,
+                 style: "button",
+                 size: "medium",
+                 color: {
+                     button: '#E12D30',
+                     text: '#FFFFFF',
+                 },
+                 text: {
+                     subscribe: "Turn on Notifications",
+                     unsubscribe: "Unsubscribe from notifications",
+                     explanation: "Get Live notifications from ASG SHOP",
+                 },
+                 unsubscribeEnabled: true,
+             }
+         }
+     };
+     OneSignal.push(function() {
+         OneSignal.SERVICE_WORKER_PARAM = {
+             scope: '/assets/'
+         };
+         OneSignal.SERVICE_WORKER_PATH = 'assets/OneSignalSDKWorker.js'
+         OneSignal.SERVICE_WORKER_UPDATER_PATH = 'assets/OneSignalSDKUpdaterWorker.js'
+         OneSignal.init(initConfig);
+     });
+     </script>
+  
 </head>
 
 <body>
@@ -102,6 +135,10 @@
             <hr>
             <button id="FbLink" class="btn btn-icon btn-round">
                 <i class="fab fa-facebook"></i>
+            </button>
+            <p class="card-text text-center">Notification Preferences</p>
+            <div class='onesignal-customlink-container'></div>
+            <hr>
             <button class="btn btn-outline-primary" id="upProf">
                 Update Profile<br>(Warning: Still Under Development, Please don't update your profile if not necessary!)
             </button>
