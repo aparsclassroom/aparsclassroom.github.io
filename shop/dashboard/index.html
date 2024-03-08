@@ -478,6 +478,29 @@
                             swal("Oops", "Something went wrong, Please try again later", "error")
                         });
                 }
+
+                function showImage(src, target) {
+    var fr = new FileReader();
+    fr.onload = function(e) {
+        target.src = this.result;
+    };
+    src.addEventListener("change", function() {
+        document.getElementById('imgbutton').disabled = false;
+        fr.readAsDataURL(src.files[0]);
+    });
+}
+var src = document.getElementById("img");
+var target = document.getElementById("target");
+showImage(src, target);
+
+function ValidateSize(file) {
+    var FileSize = file.files[0].size / 1024 / 1024;
+    if (FileSize > 2) {
+        alert('This Image size exceeds 2 MB\nPlease Select a smaller Image 😶');
+        $(file).val('');
+        return;
+    }
+}
             } else {
                 location.replace('./login');
             }
