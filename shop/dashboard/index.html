@@ -458,6 +458,9 @@
 
                 function uploadImage() {
 
+                    document.getElementById('imgbutton').setAttribute('disabled', 'true');
+                    document.getElementById('imgbutton').innerText = "Uploading...";
+
                     const formdata = new FormData();
                     formdata.append("photo", document.getElementById('img').files[0]);
 
@@ -476,12 +479,19 @@
                                         document.getElementById('avatar').src = result.photo;
                                         $('#imageModal').modal('hide');
                                     })
+
+                                document.getElementById('imgbutton').removeAttribute('disabled');
+                                document.getElementById('imgbutton').innerText = "Save Image";
                             } else {
                                 swal("Oops", "Something went wrong, Please try again later", "error")
+                                document.getElementById('imgbutton').removeAttribute('disabled');
+                                document.getElementById('imgbutton').innerText = "Save Image";
                             }
                         })
                         .catch(error => {
                             swal("Oops", "Something went wrong, Please try again later", "error")
+                            document.getElementById('imgbutton').removeAttribute('disabled');
+                            document.getElementById('imgbutton').innerText = "Save Image";
                         });
                 }
             } else {
