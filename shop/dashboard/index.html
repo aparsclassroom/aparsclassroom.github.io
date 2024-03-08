@@ -277,6 +277,7 @@
                                 document.getElementById('avatar').src = data.Photo;
                             } else {
                                 swal("Oops", "You haven't uploaded your profile image yet, Please upload your profile image to access advanced features !", "info")
+                                $('#imageModal').modal('show');
                             }
                             document.getElementById('pname').value = data.Name;
                             document.getElementById('email').value = data.Email;
