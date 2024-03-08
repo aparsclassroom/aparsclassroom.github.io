@@ -217,20 +217,20 @@
                     document.getElementById('profileForm').addEventListener('submit', (e) => {
                         e.preventDefault();
 
-                       // if (pname != "" && email != "" && pnum != "" && pHSC != "") {
+                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "") {
                             const myHeaders = new Headers();
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             const urlencoded = new URLSearchParams();
                             urlencoded.append("uid", user.uid);
-                            urlencoded.append("Name", pname);
+                            urlencoded.append("Name", document.getElementById('pname').value);
                             urlencoded.append("FbName", "");
                             urlencoded.append("FbLink", "");
-                            urlencoded.append("Email", email);
-                            urlencoded.append("Phone", pnum);
+                            urlencoded.append("Email", document.getElementById('email').value);
+                            urlencoded.append("Phone", document.getElementById('pnum').value);
                             urlencoded.append("Parent", "");
                             urlencoded.append("Institution", "");
-                            urlencoded.append("HSC", pHSC);
+                            urlencoded.append("HSC", document.getElementById('pHSC').value);
 
                             const requestOptions = {
                                 method: "POST",
@@ -252,9 +252,9 @@
                                     }
                                 })
                                 .catch(error => swal("Oops", "Something went wrong, Please try again later", "error"));
-                        // } else {
-                        //     swal("Oops", "Please fill up all the fields", "error")
-                        // }
+                        } else {
+                            swal("Oops", "Please fill up all the fields", "error")
+                        }
                     })
                 })
                 var myHeaders = new Headers();
