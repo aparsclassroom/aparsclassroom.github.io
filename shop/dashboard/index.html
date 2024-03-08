@@ -89,7 +89,7 @@
             <h3 style="text-align: center;margin-top: 30px; color: indigo;">Student Profile</h3>
             <hr class="mt-2 mb-4" />
             <h5 style="text-align: center;margin-top: 30px;" id="name"></h5>
-            <h5 style="text-align: center;" id="email"></h5>
+            <h5 style="text-align: center;" id="mail"></h5>
             <h5 style="text-align: center;" id="num"></h5>
             <h5 style="text-align: center;" id="HSC"></h5>
             <hr>
@@ -200,9 +200,9 @@
                     document.getElementById('pname').value = name;
                 }
                 if (mail != null) {
-                    document.getElementById('email').innerText = "Email Address : " + mail;
-                    document.getElementById('pemail').value = mail;
-                    document.getElementById('pemail').setAttribute('readonly', 'true');
+                    document.getElementById('mail').innerText = "Email Address : " + mail;
+                    document.getElementById('email').value = mail;
+                    document.getElementById('email').setAttribute('readonly', 'true');
                 }
                 if (num != null) {
                     document.getElementById('num').innerText = "Phone Number : " + num;
