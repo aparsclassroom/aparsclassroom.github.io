@@ -147,6 +147,27 @@
                                 <option value="HSC 26">HSC'26</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="FbName">Facebook Name</label>
+                            <input type="text" class="form-control" id="FbName" placeholder="Enter your Facebook Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="FbLink">Facebook Profile Link</label>
+                            <input type="url" class="form-control" id="FbLink" placeholder="Enter your Facebook Profile Link"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Parent">Parent's Name</label>
+                            <input type="text" class="form-control" id="Parent" placeholder="Enter your Parent's Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Institution">Institution Name</label>
+                            <input type="text" class="form-control" id="Institution" placeholder="Enter your Institution Name"
+                                required>
+                        </div>
+                        <hr>
                         <button type="submit" id="saveBtn" class="btn btn-outline-success">Save</button>
                     </form>
                 </div>
@@ -213,60 +234,82 @@
 
                 document.getElementById('upProf').addEventListener('click', () => {
                     $('#profile').modal('show');
+                    fetch(`https://profile.aparsclassroom.com/profile/info?uid=${user.uid}`)
+                        .then(response => response.json())
 
-                    document.getElementById('profileForm').addEventListener('submit', (e) => {
-                        e.preventDefault();
+                        .then((loadedData) => {
+                            if (loadedData.status === 200) {
+                                var data = loadedData.info;
+                                document.getElementById('pname').value = data.Name;
+                                document.getElementById('email').value = data.Email;
+                                document.getElementById('pnum').value = data.Phone;
+                                document.getElementById('pHSC').value = data.HSC;
+                                document.getElementById('FbName').value = data.FbName;
+                                document.getElementById('FbLink').value = data.FbLink;
+                                document.getElementById('Parent').value = data.Parent;
+                                document.getElementById('Institution').value = data.Institution;
+                                document.getElementById('saveBtn').innerText = "Update";
+                                document.getElementById('saveBtn').removeAttribute('disabled');
 
-                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != ""){
-                            
-                            document.getElementById('saveBtn').setAttribute('disabled', 'true');
-                            document.getElementById('saveBtn').innerText = "Saving...";
+                                document.getElementById('profileForm').addEventListener('submit', (e) => {
+                                    e.preventDefault();
 
-                            const myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                                    if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != "") {
 
-                            const urlencoded = new URLSearchParams();
-                            urlencoded.append("uid", user.uid);
-                            urlencoded.append("Name", document.getElementById('pname').value);
-                            urlencoded.append("FbName", document.getElementById('FbName').value);
-                            urlencoded.append("FbLink", document.getElementById('FbLink').value);
-                            urlencoded.append("Email", document.getElementById('email').value);
-                            urlencoded.append("Phone", document.getElementById('pnum').value);
-                            urlencoded.append("Parent", document.getElementById('Parent').value);
-                            urlencoded.append("Institution", document.getElementById('Institution').value);
-                            urlencoded.append("HSC", document.getElementById('pHSC').value);
+                                        document.getElementById('saveBtn').setAttribute('disabled', 'true');
+                                        document.getElementById('saveBtn').innerText = "Saving...";
 
-                            const requestOptions = {
-                                method: "POST",
-                                headers: myHeaders,
-                                body: urlencoded,
-                                redirect: "follow"
-                            };
+                                        const myHeaders = new Headers();
+                                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                            fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
-                                .then(response => response.json())
-                                .then((result) => {
-                                    if (result.status === 200) {
-                                        swal("Profile Updated", "Your Profile has been updated successfully", "success")
-                                            .then(() => {
-                                                location.reload();
+                                        const urlencoded = new URLSearchParams();
+                                        urlencoded.append("uid", user.uid);
+                                        urlencoded.append("Name", document.getElementById('pname').value);
+                                        urlencoded.append("FbName", document.getElementById('FbName').value);
+                                        urlencoded.append("FbLink", document.getElementById('FbLink').value);
+                                        urlencoded.append("Email", document.getElementById('email').value);
+                                        urlencoded.append("Phone", document.getElementById('pnum').value);
+                                        urlencoded.append("Parent", document.getElementById('Parent').value);
+                                        urlencoded.append("Institution", document.getElementById('Institution').value);
+                                        urlencoded.append("HSC", document.getElementById('pHSC').value);
+
+                                        const requestOptions = {
+                                            method: "POST",
+                                            headers: myHeaders,
+                                            body: urlencoded,
+                                            redirect: "follow"
+                                        };
+
+                                        fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
+                                            .then(response => response.json())
+                                            .then((result) => {
+                                                if (result.status === 200) {
+                                                    swal("Profile Updated", "Your Profile has been updated successfully", "success")
+                                                        .then(() => {
+                                                            location.reload();
+                                                        })
+                                                } else {
+                                                    swal("Oops", "Something went wrong, Please try again later", "error")
+                                                    document.getElementById('saveBtn').removeAttribute('disabled');
+                                                    document.getElementById('saveBtn').innerText = "Save";
+                                                }
                                             })
+                                            .catch(error => {
+                                                swal("Oops", "Something went wrong, Please try again later", "error")
+                                                document.getElementById('saveBtn').removeAttribute('disabled');
+                                                document.getElementById('saveBtn').innerText = "Save";
+                                            });
                                     } else {
-                                        swal("Oops", "Something went wrong, Please try again later", "error")
-                                        document.getElementById('saveBtn').removeAttribute('disabled');
-                                        document.getElementById('saveBtn').innerText = "Save";
+                                        swal("Oops", "Please fill up all the fields", "error")
                                     }
                                 })
-                                .catch(error => {
-                                    swal("Oops", "Something went wrong, Please try again later", "error")
-                                    document.getElementById('saveBtn').removeAttribute('disabled');
-                                    document.getElementById('saveBtn').innerText = "Save";
-                                });
-                        } else {
-                            swal("Oops", "Please fill up all the fields", "error")
-                        }
-                    })
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        }).catch(error => console.log(error));
                 })
+
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
