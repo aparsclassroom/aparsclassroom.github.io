@@ -152,23 +152,23 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="FbName">Facebook Name</label>
-                            <input type="text" class="form-control" id="FbName" placeholder="Enter your Facebook Name"
+                            <label for="pFbName">Facebook Name</label>
+                            <input type="text" class="form-control" id="pFbName" placeholder="Enter your Facebook Name"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label for="FbLink">Facebook Profile Link</label>
-                            <input type="url" class="form-control" id="FbLink"
+                            <label for="pFbLink">Facebook Profile Link</label>
+                            <input type="url" class="form-control" id="pFbLink"
                                 placeholder="Enter your Facebook Profile Link" required>
                         </div>
                         <div class="form-group">
-                            <label for="Parent">Parent's Number</label>
-                            <input type="text" class="form-control" id="Parent" placeholder="Enter your Parent's Number"
+                            <label for="pParent">Parent's Number</label>
+                            <input type="text" class="form-control" id="pParent" placeholder="Enter your Parent's Number"
                                 value="+880" required>
                         </div>
                         <div class="form-group">
-                            <label for="Institution">Institution Name</label>
-                            <input type="text" class="form-control" id="Institution"
+                            <label for="pInstitution">Institution Name</label>
+                            <input type="text" class="form-control" id="pInstitution"
                                 placeholder="Enter your Institution Name" required>
                         </div>
                         <hr>
@@ -247,10 +247,10 @@
                             document.getElementById('email').value = data.Email;
                             document.getElementById('pnum').value = data.Phone;
                             document.getElementById('pHSC').value = data.HSC;
-                            document.getElementById('FbName').value = data.FbName;
-                            document.getElementById('FbLink').value = data.FbLink;
-                            document.getElementById('Parent').value = data.Parent;
-                            document.getElementById('Institution').value = data.Institution;
+                            document.getElementById('pFbName').value = data.FbName;
+                            document.getElementById('pFbLink').value = data.FbLink;
+                            document.getElementById('pParent').value = data.Parent;
+                            document.getElementById('pInstitution').value = data.Institution;
                             document.getElementById('saveBtn').innerText = "Update";
                             document.getElementById('saveBtn').removeAttribute('disabled');
                         }
@@ -263,7 +263,7 @@
                     document.getElementById('profileForm').addEventListener('submit', (e) => {
                         e.preventDefault();
 
-                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('FbName').value != "" && document.getElementById('FbLink').value != "" && document.getElementById('Parent').value != "" && document.getElementById('Institution').value != "") {
+                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('pFbName').value != "" && document.getElementById('pFbLink').value != "" && document.getElementById('pParent').value != "" && document.getElementById('pInstitution').value != "") {
 
                             document.getElementById('saveBtn').setAttribute('disabled', 'true');
                             document.getElementById('saveBtn').innerText = "Saving...";
@@ -272,14 +272,15 @@
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             const urlencoded = new URLSearchParams();
+                            
                             urlencoded.append("uid", user.uid);
                             urlencoded.append("Name", document.getElementById('pname').value);
-                            urlencoded.append("FbName", document.getElementById('FbName').value);
-                            urlencoded.append("FbLink", document.getElementById('FbLink').value);
+                            urlencoded.append("FbName", document.getElementById('pFbName').value);
+                            urlencoded.append("FbLink", document.getElementById('pFbLink').value);
                             urlencoded.append("Email", document.getElementById('email').value);
                             urlencoded.append("Phone", document.getElementById('pnum').value);
-                            urlencoded.append("Parent", document.getElementById('Parent').value);
-                            urlencoded.append("Institution", document.getElementById('Institution').value);
+                            urlencoded.append("Parent", document.getElementById('pParent').value);
+                            urlencoded.append("Institution", document.getElementById('pInstitution').value);
                             urlencoded.append("HSC", document.getElementById('pHSC').value);
 
                             const requestOptions = {
