@@ -88,6 +88,11 @@
         <div id="stat">
             <h3 style="text-align: center;margin-top: 30px; color: indigo;">Student Profile</h3>
             <hr class="mt-2 mb-4" />
+            <a data-toggle="modal" data-target="#imageModal" type="button">
+                <img class="avatar"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg"
+                    id="avatar" alt="avatar">
+            </a>
             <h5 style="text-align: center;margin-top: 30px;" id="name"></h5>
             <h5 style="text-align: center;" id="mail"></h5>
             <h5 style="text-align: center;" id="num"></h5>
@@ -163,8 +168,8 @@
                         </div>
                         <div class="form-group">
                             <label for="pParent">Parent's Number</label>
-                            <input type="text" class="form-control" id="pParent" placeholder="Enter your Parent's Number"
-                                value="+880" required>
+                            <input type="text" class="form-control" id="pParent"
+                                placeholder="Enter your Parent's Number" value="+880" required>
                         </div>
                         <div class="form-group">
                             <label for="pInstitution">Institution Name</label>
@@ -178,7 +183,32 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Update Profile Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" onchange="ValidateSize(this)"
+                            accept="image/png, image/jpeg" name="img" id="img">
+                        <label class="custom-file-label" for="img">Choose any Image</label>
 
+                    </div>
+                    <img id="target" width="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="imgbutton" disabled class="btn btn-success">Save Image</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         var pname = document.getElementById('pname').value;
         var email = document.getElementById('email').value;
@@ -272,7 +302,7 @@
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             const urlencoded = new URLSearchParams();
-                            
+
                             urlencoded.append("uid", user.uid);
                             urlencoded.append("Name", document.getElementById('pname').value);
                             urlencoded.append("FbName", document.getElementById('pFbName').value);
@@ -417,6 +447,36 @@
                         console.log(err)
                         document.getElementById('title').innerHTML = "Payment History not found !";
                     }).catch(error => document.getElementById('title').innerHTML = "Payment History not found !");
+
+                document.getElementById('imgbutton').addEventListener('click', uploadImage)
+
+                function uploadImage() {
+
+                    const formdata = new FormData();
+                    formdata.append("photo", fileInput.files[0], "profile.jpg");
+
+                    const requestOptions = {
+                        method: "POST",
+                        body: formdata,
+                        redirect: "follow"
+                    };
+
+                    fetch("https://profile.aparsclassroom.com/profile/upload-profile-photo?uid=" + user.uid, requestOptions)
+                       .then(response => response.json())
+                        .then((result) => {
+                            if (result.status === 200) {
+                                swal("Profile Image Updated", "Your Profile Image has been updated successfully", "success")
+                                    .then(() => {
+                                        document.getElementById('avatar').src = result.photo;
+                                    })
+                            } else {
+                                swal("Oops", "Something went wrong, Please try again later", "error")
+                            }
+                        })
+                        .catch(error => {
+                            swal("Oops", "Something went wrong, Please try again later", "error")
+                        });
+                }
             } else {
                 location.replace('./login');
             }
