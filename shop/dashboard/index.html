@@ -474,6 +474,7 @@
                                 swal("Profile Image Updated", "Your Profile Image has been updated successfully", "success")
                                     .then(() => {
                                         document.getElementById('avatar').src = result.photo;
+                                        $('#imageModal').modal('hide');
                                     })
                             } else {
                                 swal("Oops", "Something went wrong, Please try again later", "error")
@@ -495,7 +496,9 @@
             };
             src.addEventListener("change", function () {
                 document.getElementById('imgbutton').disabled = false;
-                fr.readAsDataURL(src.files[0]);
+                if (src.files[0]) {
+                    fr.readAsDataURL(src.files[0]);
+                }
             });
         }
         var src = document.getElementById("img");
