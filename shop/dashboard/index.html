@@ -273,7 +273,11 @@
                             document.getElementById('FbLink').innerText = "Facebook Profile Link : " + data.FbLink;
                             document.getElementById('Parent').innerText = "Parent's Number : " + data.Parent;
                             document.getElementById('Institution').innerText = "Institution Name : " + data.Institution;
-                            document.getElementById('avatar').src = data.Photo;
+                            if (data.Photo != null) {
+                                document.getElementById('avatar').src = data.Photo;
+                            } else {
+                                swal("Oops", "You haven't uploaded your profile image yet, Please upload your profile image to access advanced features !", "info")
+                            }
                             document.getElementById('pname').value = data.Name;
                             document.getElementById('email').value = data.Email;
                             document.getElementById('pnum').value = data.Phone;
