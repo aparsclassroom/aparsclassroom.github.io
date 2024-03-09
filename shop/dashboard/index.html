@@ -727,12 +727,12 @@
                        })
                     }
                     document.getElementById('qrCode').removeAttribute('disabled');
-                    document.getElementById('qrCode').innerText = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
+                    document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
                 })
                 .catch((err)=>{
                     swal("Oops", "Something went wrong, Please try again later", "error")
                     document.getElementById('qrCode').removeAttribute('disabled');
-                    document.getElementById('qrCode').innerText = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
+                    document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
                 })
         })
 
