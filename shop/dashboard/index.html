@@ -726,6 +726,8 @@
                         document.getElementById('achieveDownload').addEventListener('click', () => {
                             window.open(url, '_blank');
                         })
+                    } else {
+                        swal("Oops", "You are not eligible for the Achieve Card yet, Please complete your payment first", "info")
                     }
                 })
                 .catch((err) => {
