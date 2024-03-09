@@ -732,7 +732,7 @@
 
 
             document.getElementById('admitCard').addEventListener('click', () => {
-                fetch(`https://profile.aparsclassroom.com/profile/eligibility-check?uid=${firebase.auth().currentUser.uid}`)
+                fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
                     .then(response => response.json())
 
                     .then((loadedData) => {
