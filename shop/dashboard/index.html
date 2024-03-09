@@ -699,6 +699,8 @@
         }
 
         document.getElementById('qrCode').addEventListener('click', () => {
+            document.getElementById('qrCode').setAttribute('disabled', 'true');
+            document.getElementById('qrCode').innerText = "Generating...";
             fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
                 .then(response => response.json())
                 .then((loadedData) => {
@@ -724,14 +726,20 @@
                             icon: "info"
                        })
                     }
+                    document.getElementById('qrCode').removeAttribute('disabled');
+                    document.getElementById('qrCode').innerText = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
                 })
                 .catch((err)=>{
                     swal("Oops", "Something went wrong, Please try again later", "error")
+                    document.getElementById('qrCode').removeAttribute('disabled');
+                    document.getElementById('qrCode').innerText = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
                 })
         })
 
 
             document.getElementById('admitCard').addEventListener('click', () => {
+                document.getElementById('admitCard').setAttribute('disabled', 'true');
+                document.getElementById('admitCard').innerText = "Checking...";
                 fetch(`https://profile.aparsclassroom.com/profile/eligibility-check?uid=${firebase.auth().currentUser.uid}`)
                     .then(response => response.json())
 
@@ -746,9 +754,13 @@
                         } else {
                             swal("Oops", "You are not eligible for the Achieve Card yet, Please enroll to a Achieve Exam first !", "info")
                         }
+                        document.getElementById('admitCard').removeAttribute('disabled');
+                        document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
                     })
                     .catch((err) => {
                         swal("Oops", "Something went wrong, Please try again later", "error")
+                        document.getElementById('admitCard').removeAttribute('disabled');
+                        document.getElementById('admitCard').innerText = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
                     })
             })
     </script>
