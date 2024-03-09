@@ -352,7 +352,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="achieveModalLabel">Achieve Card (Password : <span id="password">###########</span>)</h5>
+                    <h5 class="modal-title" id="achieveModalLabel">Achieve Card (Password: <span id="password">###########</span>)</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -436,7 +436,7 @@
                             document.getElementById('name2').innerText = data.Name;
                             document.getElementById('mail').innerText = data.Email;
                             document.getElementById('num').innerText = data.Phone;
-                            document.getElementById('password').innerText = data.Phone;
+                            document.getElementById('password').innerText = data.Phone.substr(-4);
                             document.getElementById('HSC').innerText = data.HSC;
                             document.getElementById('FbLink').innerText = data.FbName;
                             document.getElementById('FbLink').onclick = function () {
