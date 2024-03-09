@@ -214,15 +214,6 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <p class="mb-0">Facebook</p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted" id="FbName">Johnatan Smith</p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
                                             <p class="mb-0" id="Parent">Institution</p>
                                         </div>
                                         <div class="col-sm-9">
@@ -406,7 +397,7 @@
                             document.getElementById('mail').innerText = data.Email;
                             document.getElementById('num').innerText = data.Phone;
                             document.getElementById('HSC').innerText = data.HSC;
-                            document.getElementById('FbName').innerText = data.FbName;
+                            document.getElementById('FbLink').innerText = data.FbName;
                             document.getElementById('FbLink').onclick = function () {
                                 window.open(data.FbLink, '_blank');
                             }
