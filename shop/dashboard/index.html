@@ -358,11 +358,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="achieveCard"
-                        style="width: 100%; height: 500px;"></iframe>
+                    <iframe id="achieveCard" style="width: 100%; height: 500px;"></iframe>
                 </div>
                 <div class="modal-footer">
-                    <button id="achieveDownload" class="btn btn-success"><i class="fas fa-address-card"></i>&nbsp;&nbsp;Download</button>
+                    <button id="achieveDownload" class="btn btn-success"><i
+                            class="fas fa-address-card"></i>&nbsp;&nbsp;Download</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -698,42 +698,58 @@
         }
 
         document.getElementById('qrCode').addEventListener('click', () => {
-            swal({
-                title: "O2O Payment",
-                text: "Please show this QR Code to the nearest O2O Agent to make the payment",
-                closeOnClickOutside: false,
-                content: {
-                    element: "img",
-                    attributes: {
-                        src: `https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}`
-                    },
-                },
-                buttons: {
-                    cancel: "Close"
-                },
-            });
-        })
-
-        document.getElementById('admitCard').addEventListener('click', () => {
             fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
                 .then(response => response.json())
-
                 .then((loadedData) => {
                     if (loadedData.status === 200) {
-                        var url = `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`;
-                        document.getElementById('achieveCard').src = url;
-                        $('#achieveModal').modal('show');
-                        document.getElementById('achieveDownload').addEventListener('click', () => {
-                            window.open(url, '_blank');
-                        })
+                        swal({
+                            title: "O2O Payment",
+                            text: "Please show this QR Code to the nearest O2O Agent to make the payment",
+                            closeOnClickOutside: false,
+                            content: {
+                                element: "img",
+                                attributes: {
+                                    src: `https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}`
+                                },
+                            },
+                            buttons: {
+                                cancel: "Close"
+                            },
+                        });
                     } else {
-                        swal("Oops", "You are not eligible for the Achieve Card yet, Please complete your payment first", "info")
+                       swal({
+                            title: "Oops",
+                            text: "You are not eligible for the O2O Payment yet, Please update your profile first",
+                            icon: "info"
+                       })
                     }
                 })
-                .catch((err) => {
+                .catch((err)=>{
                     swal("Oops", "Something went wrong, Please try again later", "error")
                 })
         })
+
+
+            document.getElementById('admitCard').addEventListener('click', () => {
+                fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
+                    .then(response => response.json())
+
+                    .then((loadedData) => {
+                        if (loadedData.status === 200) {
+                            var url = `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`;
+                            document.getElementById('achieveCard').src = url;
+                            $('#achieveModal').modal('show');
+                            document.getElementById('achieveDownload').addEventListener('click', () => {
+                                window.open(url, '_blank');
+                            })
+                        } else {
+                            swal("Oops", "You are not eligible for the Achieve Card yet, Please complete your payment first", "info")
+                        }
+                    })
+                    .catch((err) => {
+                        swal("Oops", "Something went wrong, Please try again later", "error")
+                    })
+            })
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
