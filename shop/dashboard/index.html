@@ -660,6 +660,23 @@
                 return;
             }
         }
+
+        document.getElementById('qrCode').addEventListener('click', () => {
+            swal({
+                title: "O2O Payment",
+                text: "Please show this QR Code to the nearest bKash Agent to make the payment",
+                icon: "info",
+                content: {
+                    element: "img",
+                    attributes: {
+                        src: `https://quickchart.io/qr?text="${encodeURIComponent(firebase.auth().currentUser.uid)}`
+                    },
+                },
+                buttons: {
+                    cancel: "Close",
+                },
+            });
+        })
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
