@@ -509,13 +509,13 @@
                                                 location.reload();
                                             })
                                     } else {
-                                        swal("Oops", "Something went wrong, Please try again later", "error")
+                                        swal("Oops", result.message, "error")
                                         document.getElementById('saveBtn').removeAttribute('disabled');
                                         document.getElementById('saveBtn').innerText = "Save";
                                     }
                                 })
                                 .catch(error => {
-                                    swal("Oops", "Something went wrong, Please try again later", "error")
+                                    swal("Oops", error.message, "error")
                                     document.getElementById('saveBtn').removeAttribute('disabled');
                                     document.getElementById('saveBtn').innerText = "Save";
                                 });
