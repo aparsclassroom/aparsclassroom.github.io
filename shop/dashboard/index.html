@@ -362,6 +362,7 @@
                         style="width: 100%; height: 500px;"></iframe>
                 </div>
                 <div class="modal-footer">
+                    <button id="achieveDownload" class="btn btn-success"><i class="fas fa-address-card"></i>&nbsp;&nbsp;Download</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -722,6 +723,9 @@
                         var url = `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`;
                         document.getElementById('achieveCard').src = url;
                         $('#achieveModal').modal('show');
+                        document.getElementById('achieveDownload').addEventListener('click', () => {
+                            window.open(url, '_blank');
+                        })
                     }
                 })
                 .catch((err) => {
