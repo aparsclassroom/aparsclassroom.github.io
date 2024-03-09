@@ -702,10 +702,11 @@
                         title: "Achieve Card",
                         closeOnClickOutside: false,
                         content: {
-                            element: "img",
+                            // embed pdf
+                            element: "iframe",
                             attributes: {
                                 src: `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`
-                            },
+                            }
                         },
                         buttons: {
                             cancel: "Close"
