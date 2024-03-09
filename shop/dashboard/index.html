@@ -695,32 +695,31 @@
 
         document.getElementById('admitCard').addEventListener('click', () => {
             fetch(`https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`)
-                .then(response => response.text()
+                .then(response => response.text())
 
-                    .then((loadedData) => {
-                        var data = loadedData.data;
-                        if (data.Name != null && data.HSC != null && data.Institution != null) {
-                            swal({
-                                title: "Achieve Card",
-                                closeOnClickOutside: false,
-                                content: {
-                                    element: "img",
-                                    attributes: {
-                                        src: `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`
-                                    },
+                .then((loadedData) => {
+                    var data = loadedData.data;
+                    if (data.Name != null && data.HSC != null && data.Institution != null) {
+                        swal({
+                            title: "Achieve Card",
+                            closeOnClickOutside: false,
+                            content: {
+                                element: "img",
+                                attributes: {
+                                    src: `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`
                                 },
-                                buttons: {
-                                    cancel: "Close"
-                                },
-                            });
-                        } else {
-                            swal("Oops", "Please fill up your profile informations to get your Achieve Card", "error")
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-                )
+                            },
+                            buttons: {
+                                cancel: "Close"
+                            },
+                        });
+                    } else {
+                        swal("Oops", "Please fill up your profile informations to get your Achieve Card", "error")
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         })
     </script>
     <!-- Cloudflare Web Analytics -->
