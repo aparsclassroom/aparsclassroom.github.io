@@ -158,7 +158,7 @@
                                         <li
                                             class="list-group-item d-flex justify-content-between align-items-center p-3">
                                             <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                                            <button class="mb-0" id="FbLink">https://mdbootstrap.com</button>
+                                            <p class="mb-0" id="FbLink">https://mdbootstrap.com</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -394,6 +394,7 @@
                         if (loadedData.status === 200) {
                             var data = loadedData.data;
                             document.getElementById('name').innerText = data.Name;
+                            document.getElementById('name2').innerText = data.Name;
                             document.getElementById('mail').innerText = data.Email;
                             document.getElementById('num').innerText = data.Phone;
                             document.getElementById('HSC').innerText = data.HSC;
