@@ -665,6 +665,7 @@
             swal({
                 title: "O2O Payment",
                 text: "Please show this QR Code to the nearest O2O Agent to make the payment",
+                closeOnClickOutside: false,
                 content: {
                     element: "img",
                     attributes: {
@@ -672,7 +673,7 @@
                     },
                 },
                 buttons: {
-                    cancel: "Close",
+                    cancel: "Close"
                 },
             });
         })
