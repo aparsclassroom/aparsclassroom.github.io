@@ -145,15 +145,9 @@
                                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg"
                                     id="avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                             </a>
-                          <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                            class="rounded-circle img-fluid" style="width: 150px;">
-                          <h5 class="my-3">John Smith</h5>
-                          <p class="text-muted mb-1">Full Stack Developer</p>
-                          <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                          <div class="d-flex justify-content-center mb-2">
-                            <button type="button" class="btn btn-primary">Follow</button>
-                            <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-                          </div> -->
+                          <h5 class="my-3" id="name2">John Smith</h5>
+                          <p class="text-muted mb-1">Student</p>
+                          <p class="text-muted mb-4">Apar's Classroom</p>
                         </div>
                       </div>
                       <div class="card mb-4 mb-lg-0">
@@ -161,23 +155,7 @@
                           <ul class="list-group list-group-flush rounded-3">
                             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                               <i class="fas fa-globe fa-lg text-warning"></i>
-                              <p class="mb-0">https://mdbootstrap.com</p>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                              <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                              <p class="mb-0">mdbootstrap</p>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                              <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                              <p class="mb-0">@mdbootstrap</p>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                              <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                              <p class="mb-0">mdbootstrap</p>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                              <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                              <p class="mb-0">mdbootstrap</p>
+                              <button class="mb-0" id="FbLink">https://mdbootstrap.com</button>
                             </li>
                           </ul>
                         </div>
@@ -240,17 +218,9 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                <p class="mb-0">Facebook Link</p>
-                                </div>
-                                <div class="col-sm-9">
-                                <p class="text-muted" id="FbLink">https://www.facebook.com/john.smith</p>
-                                </div>
-                            </div>
                           <div class="row">
                             <div class="col-sm-3">
-                              <p class="mb-0" id="Parent">Address</p>
+                              <p class="mb-0" id="Parent">Institution</p>
                             </div>
                             <div class="col-sm-9">
                               <p class="text-muted mb-0" id="Institution">Bay Area, San Francisco, CA</p>
@@ -265,22 +235,6 @@
 
             <h3 style="text-align: center;margin-top: 30px; color: indigo;">Student Profile</h3>
             <hr class="mt-2 mb-4" />
-            <!-- <a data-toggle="modal" data-target="#imageModal" type="button">
-                <img class="avatar"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg"
-                    id="avatar" alt="avatar">
-            </a> -->
-            <!-- <h5 style="text-align: center;margin-top: 30px;" id="name"></h5>
-            <h5 style="text-align: center;" id="mail"></h5>
-            <h5 style="text-align: center;" id="num"></h5>
-            <h5 style="text-align: center;" id="HSC"></h5>
-            <h5 style="text-align: center;" id="FbName"></h5>
-            <h5 style="text-align: center;" id="Parent"></h5>
-            <h5 style="text-align: center;" id="Institution"></h5> -->
-            <hr>
-            <!-- <button id="FbLink" class="btn btn-icon btn-round">
-                <i class="fab fa-facebook"></i>
-            </button> -->
             <p class="card-text text-center">Notification Preferences</p>
             <div class='onesignal-customlink-container'></div>
             <hr>
@@ -445,11 +399,11 @@
                     .then((loadedData) => {
                         if (loadedData.status === 200) {
                             var data = loadedData.data;
-                            document.getElementById('name').innerText = "Full Name : " + data.Name;
-                            document.getElementById('mail').innerText = "Email Address : " + data.Email;
-                            document.getElementById('num').innerText = "Phone Number : " + data.Phone;
-                            document.getElementById('HSC').innerText = "HSC Batch : " + data.HSC;
-                            document.getElementById('FbName').innerText = "Facebook Name : " + data.FbName;
+                            document.getElementById('name').innerText = data.Name;
+                            document.getElementById('mail').innerText = data.Email;
+                            document.getElementById('num').innerText = data.Phone;
+                            document.getElementById('HSC').innerText = data.HSC;
+                            document.getElementById('FbName').innerText = data.FbName;
                             document.getElementById('FbLink').onclick = function () {
                                 window.open(data.FbLink, '_blank');
                             }
