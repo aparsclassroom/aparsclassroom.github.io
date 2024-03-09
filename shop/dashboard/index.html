@@ -764,7 +764,7 @@
                     .catch((err) => {
                         swal("Oops", "Something went wrong, Please try again later", "error")
                         document.getElementById('admitCard').removeAttribute('disabled');
-                        document.getElementById('admitCard').innerText = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
+                        document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
                     })
             })
     </script>
