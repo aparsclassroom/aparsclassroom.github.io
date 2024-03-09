@@ -402,8 +402,8 @@
                             document.getElementById('FbLink').onclick = function () {
                                 window.open(data.FbLink, '_blank');
                             }
-                            document.getElementById('Parent').innerText = "Parent's Number : " + data.Parent;
-                            document.getElementById('Institution').innerText = "Institution Name : " + data.Institution;
+                            document.getElementById('Parent').innerText = data.Parent;
+                            document.getElementById('Institution').innerText = data.Institution;
                             if (data.photo != null) {
                                 document.getElementById('avatar').src = data.photo;
                             } else {
