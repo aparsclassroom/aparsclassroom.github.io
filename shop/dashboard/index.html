@@ -121,34 +121,30 @@
         <div id="stat">
 
             <section>
-                <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light">
-    <div class="container">
-      <a style="text-align: center; text-decoration: none;" class="btn btn-success"
-                                          href="../"><i class="fas fa-store-alt"></i>&nbsp;Return to SHOP</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item ms-3">
-            <a style="text-align: center; text-decoration: none;" class="btn btn-outline-danger btn-rounded"
-                                          href="javascript:logOut()"><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar -->
+
                 <div class="container py-5">
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light">
+                        <div class="container">
+                            <a style="text-align: center; text-decoration: none;" class="btn btn-success" href="../"><i
+                                    class="fas fa-store-alt"></i>&nbsp;Return to SHOP</a>
+                            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto align-items-center">
+                                    <li class="nav-item ms-3">
+                                        <a style="text-align: center; text-decoration: none;"
+                                            class="btn btn-outline-danger btn-rounded" href="javascript:logOut()"><i
+                                                class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- Navbar -->
                     <!-- <div class="row">
                         <div class="col">
                             <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
@@ -189,7 +185,7 @@
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <i class="fas fa-bell fa-lg" style="color: #ffaa3b;"></i>
-                                                <div style="min-height: 0;" class='onesignal-customlink-container'></div>
+                                            <div style="min-height: 0;" class='onesignal-customlink-container'></div>
                                         </li>
                                     </ul>
                                 </div>
@@ -407,7 +403,7 @@
                 }
 
                 if (mail != null) {
-                    document.getElementById('mail').innerText =  mail;
+                    document.getElementById('mail').innerText = mail;
                     document.getElementById('email').value = mail;
                     document.getElementById('email').setAttribute('readonly', 'true');
                 }
