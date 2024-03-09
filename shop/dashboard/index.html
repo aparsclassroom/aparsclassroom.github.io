@@ -749,10 +749,11 @@
                             document.getElementById('achieveCard').src = url;
                             $('#achieveModal').modal('show');
                             document.getElementById('achieveDownload').addEventListener('click', () => {
-                                document.getElementById("achieveBody").innerHTML = `<h3 class="text-center">Use (${firebase.auth().currentUser.phoneNumber.substr(-4)}) as Achieve Card Password</h3>`;
-                                window.open(url, '_blank');
+                                document.getElementById("achieveModalLabel").innerText = "Achieve Card Details";
+                                document.getElementById("achieveBody").innerHTML = `<h3 class="text-center">Use "${firebase.auth().currentUser.phoneNumber.substr(-4)}" as Achieve Card Password</h3>`;
                                 document.getElementById('achieveDownload').setAttribute('disabled', 'true');
                                 document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Downloaded';
+                                window.open(url, '_blank');
                             })
                         } else {
                             swal("Oops", "You are not eligible for the Achieve Card yet, Please enroll to a Achieve Exam first !", "info")
