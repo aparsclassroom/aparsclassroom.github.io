@@ -347,6 +347,26 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="achieveModal" tabindex="-1" role="dialog" aria-labelledby="achieveModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="achieveModalLabel">Achieve Card</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="achieveCard"
+                        style="width: 100%; height: 500px;"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         var pname = document.getElementById('pname').value;
         var email = document.getElementById('email').value;
@@ -694,27 +714,18 @@
         })
 
         document.getElementById('admitCard').addEventListener('click', () => {
-            fetch(`https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`)
-                .then(response => response.text())
+            fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
+                .then(response => response.json())
 
                 .then((loadedData) => {
-                    swal({
-                        title: "Achieve Card",
-                        closeOnClickOutside: false,
-                        content: {
-                            // embed pdf
-                            element: "iframe",
-                            attributes: {
-                                src: `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`
-                            }
-                        },
-                        buttons: {
-                            cancel: "Close"
-                        },
-                    });
+                    if (loadedData.status === 200) {
+                        var url = `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`;
+                        document.getElementById('achieveCard').src = url;
+                        $('#achieveModal').modal('show');
+                    }
                 })
                 .catch((err) => {
-                    console.log(err)
+                    swal("Oops", "Something went wrong, Please try again later", "error")
                 })
         })
     </script>
