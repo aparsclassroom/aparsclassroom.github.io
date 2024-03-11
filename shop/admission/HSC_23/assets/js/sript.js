@@ -217,7 +217,16 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
-        console.log(e.customClaims)
+        firebase.auth().currentUser.getIdTokenResult()
+  .then((idTokenResult) => {
+    // Access custom claims
+    const claims = idTokenResult.claims;
+    console.log(claims)
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
         // if (e.customClaims.HSC) {
         //     document.getElementById('hscBatch').value = e.customClaims.HSC;
         // }
