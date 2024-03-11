@@ -352,7 +352,8 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="achieveModalLabel"><i class="fas fa-address-card"></i>&nbsp;Achieve Card (Password: <span id="password">####</span>)</h5>
+                    <h5 class="modal-title" id="achieveModalLabel"><i class="fas fa-address-card"></i>&nbsp;Achieve Card
+                        (Password: <span id="password">####</span>)</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -505,7 +506,9 @@
                                         swal("Profile Updated", "Your Profile has been updated successfully", "success")
                                             .then(() => {
                                                 firebase.auth().currentUser.getIdTokenResult(true)
-                                                location.reload();
+                                                    .then(() => {
+                                                        location.reload();
+                                                    })
                                             })
                                     } else {
                                         swal("Oops", result.message, "error")
@@ -719,16 +722,16 @@
                             },
                         });
                     } else {
-                       swal({
+                        swal({
                             title: "Oops",
                             text: "You are not eligible for the O2O Payment yet, Please update your profile first",
                             icon: "info"
-                       })
+                        })
                     }
                     document.getElementById('qrCode').removeAttribute('disabled');
                     document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
                 })
-                .catch((err)=>{
+                .catch((err) => {
                     swal("Oops", "Something went wrong, Please try again later", "error")
                     document.getElementById('qrCode').removeAttribute('disabled');
                     document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
@@ -736,39 +739,39 @@
         })
 
 
-            document.getElementById('admitCard').addEventListener('click', () => {
-                document.getElementById('admitCard').setAttribute('disabled', 'true');
-                document.getElementById('admitCard').innerText = "Checking...";
-                fetch(`https://profile.aparsclassroom.com/profile/eligibility-check?uid=${firebase.auth().currentUser.uid}`)
-                    .then(response => response.json())
+        document.getElementById('admitCard').addEventListener('click', () => {
+            document.getElementById('admitCard').setAttribute('disabled', 'true');
+            document.getElementById('admitCard').innerText = "Checking...";
+            fetch(`https://profile.aparsclassroom.com/profile/eligibility-check?uid=${firebase.auth().currentUser.uid}`)
+                .then(response => response.json())
 
-                    .then((loadedData) => {
-                        if (loadedData.status === 200) {
-                            var url = `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`;
-                            document.getElementById('achieveModalLabel').innerHTML = `<i class="fas fa-address-card"></i>&nbsp;Achieve Card (Password: ${firebase.auth().currentUser.phoneNumber.substr(-4)})`;
-                            document.getElementById('achieveBody').innerHTML = `<iframe src="${url}" style="width: 100%; height: 500px;"></iframe>`;
-                            document.getElementById('achieveDownload').removeAttribute('disabled');
-                            document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Download';
-                            $('#achieveModal').modal('show');
-                            document.getElementById('achieveDownload').addEventListener('click', () => {
-                                document.getElementById("achieveModalLabel").innerHTML = '<i class="fas fa-address-card"></i>&nbsp;Achieve Card Details';
-                                document.getElementById("achieveBody").innerHTML = `<h3 class="text-center">Use "${firebase.auth().currentUser.phoneNumber.substr(-4)}" as Achieve Card Password</h3>`;
-                                document.getElementById('achieveDownload').setAttribute('disabled', 'true');
-                                document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Downloaded';
-                                window.open(url, '_blank');
-                            })
-                        } else {
-                            swal("Oops", "You are not eligible for the Achieve Card yet, Please enroll to a Achieve Exam first !", "info")
-                        }
-                        document.getElementById('admitCard').removeAttribute('disabled');
-                        document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
-                    })
-                    .catch((err) => {
-                        swal("Oops", "Something went wrong, Please try again later", "error")
-                        document.getElementById('admitCard').removeAttribute('disabled');
-                        document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
-                    })
-            })
+                .then((loadedData) => {
+                    if (loadedData.status === 200) {
+                        var url = `https://profile.aparsclassroom.com/profile/achieve-card?uid=${firebase.auth().currentUser.uid}`;
+                        document.getElementById('achieveModalLabel').innerHTML = `<i class="fas fa-address-card"></i>&nbsp;Achieve Card (Password: ${firebase.auth().currentUser.phoneNumber.substr(-4)})`;
+                        document.getElementById('achieveBody').innerHTML = `<iframe src="${url}" style="width: 100%; height: 500px;"></iframe>`;
+                        document.getElementById('achieveDownload').removeAttribute('disabled');
+                        document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Download';
+                        $('#achieveModal').modal('show');
+                        document.getElementById('achieveDownload').addEventListener('click', () => {
+                            document.getElementById("achieveModalLabel").innerHTML = '<i class="fas fa-address-card"></i>&nbsp;Achieve Card Details';
+                            document.getElementById("achieveBody").innerHTML = `<h3 class="text-center">Use "${firebase.auth().currentUser.phoneNumber.substr(-4)}" as Achieve Card Password</h3>`;
+                            document.getElementById('achieveDownload').setAttribute('disabled', 'true');
+                            document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Downloaded';
+                            window.open(url, '_blank');
+                        })
+                    } else {
+                        swal("Oops", "You are not eligible for the Achieve Card yet, Please enroll to a Achieve Exam first !", "info")
+                    }
+                    document.getElementById('admitCard').removeAttribute('disabled');
+                    document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
+                })
+                .catch((err) => {
+                    swal("Oops", "Something went wrong, Please try again later", "error")
+                    document.getElementById('admitCard').removeAttribute('disabled');
+                    document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
+                })
+        })
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
