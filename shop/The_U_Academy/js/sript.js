@@ -209,12 +209,19 @@ firebase.auth().onAuthStateChanged(function (e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
-        // if (e.customClaims.HSC) {
-        //     document.getElementById('hscBatch').value = e.customClaims.HSC;
-        // }
-        // if (e.customClaims.Institution) {
-        //     document.getElementById('college').value = e.customClaims.Institution;
-        // }
+        firebase.auth().currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                const claims = idTokenResult.claims;
+                if (claims.HSC) {
+                    document.getElementById('hscBatch').value = claims.HSC;
+                }
+                if (claims.Institution) {
+                    document.getElementById('college').value = claims.Institution;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
