@@ -504,6 +504,7 @@
                                     if (result.status === 200) {
                                         swal("Profile Updated", "Your Profile has been updated successfully", "success")
                                             .then(() => {
+                                                firebase.auth().currentUser.getIdTokenResult(true)
                                                 location.reload();
                                             })
                                     } else {
