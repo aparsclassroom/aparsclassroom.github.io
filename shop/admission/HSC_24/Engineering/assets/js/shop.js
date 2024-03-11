@@ -125,12 +125,12 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
-        if (e.customClaims.HSC) {
-            document.getElementById('hscBatch').value = e.customClaims.HSC;
-        }
-        if (e.customClaims.Institution) {
-            document.getElementById('college').value = e.customClaims.Institution;
-        }
+        // if (e.customClaims.HSC) {
+        //     document.getElementById('hscBatch').value = e.customClaims.HSC;
+        // }
+        // if (e.customClaims.Institution) {
+        //     document.getElementById('college').value = e.customClaims.Institution;
+        // }
     } else {
         document.getElementById('moda').addEventListener('click', () => {
             location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
