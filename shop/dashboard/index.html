@@ -147,7 +147,7 @@
                                         id="avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 </a>
                                 <h5 class="my-3" id="name2">...</h5>
-                                <p class="text-muted mb-1">Student</p>
+                                <p class="text-muted mb-1" id="roll">Student</p>
                                 <p class="text-muted mb-4">Apar's Classroom</p>
                             </div>
                         </div>
@@ -461,6 +461,9 @@
                             document.getElementById('pAddress').value = data.Address;
                             document.getElementById('saveBtn').innerText = "Update";
                             document.getElementById('saveBtn').removeAttribute('disabled');
+                        } else if (loadedData.status === 204) {
+                            swal("Hold on", "We are assigning you a roll number !", "info")
+                            window.location.reload();
                         }
                     })
                     .catch((err) => {
