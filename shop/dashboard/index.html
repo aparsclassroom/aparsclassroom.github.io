@@ -462,6 +462,9 @@
                             document.getElementById('pAddress').value = data.Address;
                             document.getElementById('saveBtn').innerText = "Update";
                             document.getElementById('saveBtn').removeAttribute('disabled');
+                        } else if (loadedData.status === 201) {
+                            swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
+                            $('#profile').modal('show');
                         } else if (loadedData.status === 204) {
                             swal("Hold on", "We are assigning you a roll number !", "info")
                             window.location.reload();
