@@ -465,6 +465,13 @@
                         } else if (loadedData.status === 201) {
                             swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
                             $('#profile').modal('show');
+                            var data = loadedData.data;
+                            if (data.photo != null) {
+                                document.getElementById('avatar').src = data.photo;
+                            }
+                            if (data.roll != null) {
+                                document.getElementById('roll').innerText = "Achieve Roll: " +data.roll;
+                            }
                         } else if (loadedData.status === 204) {
                             swal("Hold on", "We are assigning you a roll number !", "info")
                             window.location.reload();
