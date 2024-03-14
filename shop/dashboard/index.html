@@ -723,18 +723,12 @@
                     if (loadedData.status === 200) {
                         swal({
                             title: "O2O Payment",
-                            text: "Please show this QR Code to the nearest O2O Agent to make the payment",
+                            text: "Please show this QR Code to the nearest O2O Agent to make the payment\n\nAchieve Roll: " + loadedData.roll,
                             closeOnClickOutside: false,
                             content: {
                                 element: "img",
                                 attributes: {
                                     src: `https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}`
-                                },
-                            },
-                            content: {
-                                element: "strong",
-                                attributes: {
-                                    innerText: "Achieve Roll: " + loadedData.roll
                                 },
                             },
                             buttons: {
