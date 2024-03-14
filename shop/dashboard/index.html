@@ -433,7 +433,7 @@
                             var data = loadedData.data;
                             document.getElementById('name').innerText = data.Name;
                             document.getElementById('name2').innerText = data.Name;
-                            document.getElementById('roll').innerText = "Achieve Roll: " +data.roll;
+                            document.getElementById('roll').innerText = "Achieve Roll: " + data.roll;
                             document.getElementById('mail').innerText = data.Email;
                             document.getElementById('num').innerText = data.Phone;
                             document.getElementById('password').innerText = data.Phone.substr(-4);
@@ -470,7 +470,7 @@
                                 document.getElementById('avatar').src = data.photo;
                             }
                             if (data.roll != null) {
-                                document.getElementById('roll').innerText = "Achieve Roll: " +data.roll;
+                                document.getElementById('roll').innerText = "Achieve Roll: " + data.roll;
                             }
                         } else if (loadedData.status === 204) {
                             swal("Hold on", "We are assigning you a roll number !", "info")
@@ -581,7 +581,7 @@
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a || element.Product.Permalink +'/success/'+ user.uid}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
+                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a || element.Product.Permalink + '/success/' + user.uid}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
                                 </div>
                             </div>
                         </div>
@@ -722,13 +722,13 @@
                 .then((loadedData) => {
                     if (loadedData.status === 200) {
                         swal({
-                            title: "O2O Payment\n\nAchieve Roll: " + loadedData.roll,
+                            title: "O2O Payment",
                             text: "Please show this QR Code or Achieve Roll to the nearest O2O Agent to make the payment",
                             closeOnClickOutside: false,
                             content: {
-                                element: "img",
+                                element: "div",
                                 attributes: {
-                                    src: `https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}`
+                                    innerHTML: `<img src="https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}" width="100%"><br>Achieve Roll: ${loadedData.roll}`
                                 },
                             },
                             buttons: {
