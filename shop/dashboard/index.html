@@ -722,8 +722,8 @@
                 .then((loadedData) => {
                     if (loadedData.status === 200) {
                         swal({
-                            title: "O2O Payment",
-                            text: "Please show this QR Code to the nearest O2O Agent to make the payment\n\nAchieve Roll: " + loadedData.roll,
+                            title: "O2O Payment\n\nAchieve Roll: " + loadedData.roll,
+                            text: "Please show this QR Code or Achieve Roll to the nearest O2O Agent to make the payment",
                             closeOnClickOutside: false,
                             content: {
                                 element: "img",
