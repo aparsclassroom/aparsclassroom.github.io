@@ -731,6 +731,12 @@
                                     src: `https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}`
                                 },
                             },
+                            content: {
+                                element: "strong",
+                                attributes: {
+                                    innerText: "Achieve Roll: " + loadedData.roll
+                                },
+                            },
                             buttons: {
                                 cancel: "Close"
                             },
