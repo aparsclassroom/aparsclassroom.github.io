@@ -78,9 +78,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         firebase.auth().currentUser.getIdTokenResult()
             .then((idTokenResult) => {
                 const claims = idTokenResult.claims;
-                if (claims.HSC) {
-                    document.getElementById('hscBatch').value = claims.HSC;
-                }
                 if (claims.Institution) {
                     document.getElementById('college').value = claims.Institution;
                 }
