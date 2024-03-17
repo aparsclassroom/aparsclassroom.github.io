@@ -812,24 +812,20 @@
                 var notificationTitle = payload.notification.title;
                 var notificationOptions = {
                     body: payload.notification.body,
-                    icon: payload.notification.icon,
                     image: payload.notification.image,
-                    badge: payload.notification.badge,
-                    data: payload.notification.click_action
+                    link: payload.notification.link
                 };
 
                 var notification = new Notification(notificationTitle, notificationOptions);
-                notification.onclick = function (event) {
-                    event.preventDefault(); // prevent the browser from focusing the Notification's tab
-
-                    if (event.target.data) {
-                        window.open(event.target.data, '_blank');
-                    }
-                }
 
             });
         }
 
+        if (Notification.permission === 'granted') {
+            document.getElementById('notify').innerText = "Notifications are ON";
+        } else {
+            document.getElementById('notify').innerText = "Turn on Notifications";
+        }
         // Register service worker for handling background notifications
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/firebase-messaging-sw.js')
