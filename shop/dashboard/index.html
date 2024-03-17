@@ -758,26 +758,10 @@
         function requestNotificationPermission() {
             document.getElementById('notify').innerText = "Requesting...";
             if (!('Notification' in window)) {
+                document.getElementById('notify').innerText = "Notifications not supported";
                 swal("Oops", "This browser does not support desktop notification", "error")
             } else if (Notification.permission === 'granted') {
-                messaging.getToken()
-                    .then((currentToken) => {
-                        if (currentToken) {
-                            messaging.deleteToken(currentToken)
-                                .then(() => {
-                                    console.log('Token deleted');
-                                    document.getElementById('notify').innerText = "Turn on Notifications";
-                                })
-                                .catch((err) => {
-                                    console.log('Unable to delete token', err);
-                                });
-                        } else {
-                            console.log('No registration token available. Request permission to generate one.');
-                        }
-                    })
-                    .catch((err) => {
-                        console.log('An error occurred while retrieving token. ', err);
-                    });
+                document.getElementById('notify').innerText = "Notifications are ON";
             } else if (Notification.permission !== 'denied') {
                 messaging.requestPermission()
                     .then(function () {
@@ -869,7 +853,7 @@
         }
 
         if (Notification.permission === 'granted') {
-            document.getElementById('notify').innerText = "Turn off Notifications";
+            document.getElementById('notify').innerText = "Notifications are ON";
         } else {
             document.getElementById('notify').innerText = "Turn on Notifications";
         }
