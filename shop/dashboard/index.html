@@ -757,7 +757,12 @@
 
         function requestNotificationPermission() {
             document.getElementById('notify').innerText = "Requesting...";
-            messaging.requestPermission()
+            if (!('Notification' in window)) {
+                swal("Oops", "This browser does not support desktop notification", "error")
+            } else if (Notification.permission === 'granted') {
+                document.getElementById('notify').innerText = "Notifications are ON";
+            } else if (Notification.permission !== 'denied') {
+                messaging.requestPermission()
                 .then(function () {
                     if (Notification.permission === 'granted') {
                         document.getElementById('notify').innerText = "Notifications are ON";
@@ -804,6 +809,11 @@
                     }
 
                 });
+            } else {
+                document.getElementById('notify').innerText = "Turn on Notifications";
+                swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+            }
+           
 
             messaging.onMessage((payload) => {
 
