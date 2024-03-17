@@ -856,13 +856,11 @@
             document.getElementById('notify').innerText = "Turn off Notifications";
 
             document.getElementById('notify').addEventListener('click', () => {
-                if (Notification.permission === 'granted') {
-                    messaging.getToken()
+                messaging.getToken()
                     .then((currentToken) => {
                         if (currentToken) {
                             messaging.deleteToken(currentToken)
                                 .then(() => {
-                                    document.getElementById('notify').innerText = "Unsubscribing...";
                                     var myHeaders = new Headers();
                                     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -900,10 +898,6 @@
                     .catch((err) => {
                         console.log('An error occurred while retrieving token. ', err);
                     });
-                } else {
-                    document.getElementById('notify').innerText = "Turn on Notifications";
-                    swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
-                }
             })
         } else {
             document.getElementById('notify').innerText = "Turn on Notifications";
