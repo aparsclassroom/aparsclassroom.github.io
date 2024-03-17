@@ -762,6 +762,7 @@
                 swal("Oops", "This browser does not support desktop notification", "error")
             } else if (Notification.permission === 'granted') {
                 document.getElementById('notify').innerText = "Notifications are ON";
+                document.getElementById('notify').setAttribute('disabled', 'true');
             } else if (Notification.permission !== 'denied') {
                 messaging.requestPermission()
                     .then(function () {
@@ -854,6 +855,7 @@
 
         if (Notification.permission === 'granted') {
             document.getElementById('notify').innerText = "Notifications are ON";
+            document.getElementById('notify').setAttribute('disabled', 'true');
         } else {
             document.getElementById('notify').innerText = "Turn on Notifications";
         }
