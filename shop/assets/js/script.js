@@ -9,7 +9,7 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
+const messaging = firebase.messaging();
 fetch(
         "https://api.ipify.org/?format=json"
     )
