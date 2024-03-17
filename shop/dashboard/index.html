@@ -794,7 +794,7 @@
                             if (loadedData.status === 200) {
                                 swal("Notifications are ON", "You will receive important notifications from Apar's Classroom", "success")
                             } else {
-                                swal("Oops", "Something went wrong, Please try again later", "error")
+                                swal("Not Eligible yet", loadedData.message, "info")
                             }
                         })
                         .catch((err) => {
