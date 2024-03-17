@@ -12,3 +12,16 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
+
+messaging.onBackgroundMessage(function(payload) {
+
+    const notificationTitle = payload.notification.title;
+    const notificationOptions = {
+        body: payload.notification.body,
+        image: payload.notification.image,
+        link: payload.notification.link
+    };
+
+    self.registration.showNotification(notificationTitle,
+        notificationOptions);
+});
