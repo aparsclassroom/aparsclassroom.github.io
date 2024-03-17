@@ -764,10 +764,10 @@
                         return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
                     } else {
                         document.getElementById('notify').innerText = "Turn on Notifications";
+                        swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
                     }
                 })
                 .then(function (token) {
-                    console.log('Token:', token);
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
