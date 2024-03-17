@@ -755,7 +755,7 @@
                     document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
                 })
         })
-
+        console.log(messaging.getToken())
         function requestNotificationPermission() {
             document.getElementById('notify').innerText = "Requesting...";
             if (!('Notification' in window)) {
