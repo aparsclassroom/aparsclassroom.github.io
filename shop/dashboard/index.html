@@ -773,6 +773,7 @@
                         }
                     })
                     .then(function (token) {
+                        document.getElementById('notify').innerText = "Please wait...";
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
