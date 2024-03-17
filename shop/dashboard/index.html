@@ -830,7 +830,34 @@
         }
 
         if (Notification.permission === 'granted') {
-            document.getElementById('notify').innerText = "Notifications are ON";
+            document.getElementById('notify').innerText = "Turn off Notifications";
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("uid", firebase.auth().currentUser.uid);
+            
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+                redirect: 'follow'
+            };
+
+            fetch(`https://profile.aparsclassroom.com/profile/unsubscribe`, requestOptions)
+                .then(response => response.json())
+                .then((loadedData) => {
+                    if (loadedData.status === 200) {
+                        document.getElementById('notify').innerText = "Turn on Notifications";
+                    } else {
+                        document.getElementById('notify').innerText = "Turn off Notifications";
+                        swal("Oops", "Something went wrong, Please try again later", "error")
+                    }
+                })
+                .catch((err) => {
+                    swal("Oops", "Something went wrong, Please try again later", "error")
+                })
         } else {
             document.getElementById('notify').innerText = "Turn on Notifications";
         }
