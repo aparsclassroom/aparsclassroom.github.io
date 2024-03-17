@@ -761,7 +761,48 @@
             if (!('Notification' in window)) {
                 swal("Oops", "This browser does not support desktop notification", "error")
             } else if (Notification.permission === 'granted') {
-                document.getElementById('notify').innerText = "Turn off Notifications";
+                messaging.getToken()
+                    .then((currentToken) => {
+                        if (currentToken) {
+                            messaging.deleteToken(currentToken)
+                                .then(() => {
+                                    var myHeaders = new Headers();
+                                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                    var urlencoded = new URLSearchParams();
+                                    urlencoded.append("uid", firebase.auth().currentUser.uid);
+
+                                    var requestOptions = {
+                                        method: 'POST',
+                                        headers: myHeaders,
+                                        body: urlencoded,
+                                        redirect: 'follow'
+                                    };
+
+                                    fetch(`https://profile.aparsclassroom.com/profile/unsubscribe`, requestOptions)
+                                        .then(response => response.json())
+                                        .then((loadedData) => {
+                                            if (loadedData.status === 200) {
+                                                document.getElementById('notify').innerText = "Turn on Notifications";
+                                            } else {
+                                                document.getElementById('notify').innerText = "Turn off Notifications";
+                                                swal("Oops", "Something went wrong, Please try again later", "error")
+                                            }
+                                        })
+                                        .catch((err) => {
+                                            swal("Oops", "Something went wrong, Please try again later", "error")
+                                        })
+                                })
+                                .catch((err) => {
+                                    console.log('Unable to delete token', err);
+                                });
+                        } else {
+                            console.log('No registration token available. Request permission to generate one.');
+                        }
+                    })
+                    .catch((err) => {
+                        console.log('An error occurred while retrieving token. ', err);
+                    });
             } else if (Notification.permission !== 'denied') {
                 messaging.requestPermission()
                     .then(function () {
@@ -854,51 +895,6 @@
 
         if (Notification.permission === 'granted') {
             document.getElementById('notify').innerText = "Turn off Notifications";
-
-            document.getElementById('notify').addEventListener('click', () => {
-                messaging.getToken()
-                    .then((currentToken) => {
-                        if (currentToken) {
-                            messaging.deleteToken(currentToken)
-                                .then(() => {
-                                    var myHeaders = new Headers();
-                                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-                                    var urlencoded = new URLSearchParams();
-                                    urlencoded.append("uid", firebase.auth().currentUser.uid);
-
-                                    var requestOptions = {
-                                        method: 'POST',
-                                        headers: myHeaders,
-                                        body: urlencoded,
-                                        redirect: 'follow'
-                                    };
-
-                                    fetch(`https://profile.aparsclassroom.com/profile/unsubscribe`, requestOptions)
-                                        .then(response => response.json())
-                                        .then((loadedData) => {
-                                            if (loadedData.status === 200) {
-                                                document.getElementById('notify').innerText = "Turn on Notifications";
-                                            } else {
-                                                document.getElementById('notify').innerText = "Turn off Notifications";
-                                                swal("Oops", "Something went wrong, Please try again later", "error")
-                                            }
-                                        })
-                                        .catch((err) => {
-                                            swal("Oops", "Something went wrong, Please try again later", "error")
-                                        })
-                                })
-                                .catch((err) => {
-                                    console.log('Unable to delete token', err);
-                                });
-                        } else {
-                            console.log('No registration token available. Request permission to generate one.');
-                        }
-                    })
-                    .catch((err) => {
-                        console.log('An error occurred while retrieving token. ', err);
-                    });
-            })
         } else {
             document.getElementById('notify').innerText = "Turn on Notifications";
         }
