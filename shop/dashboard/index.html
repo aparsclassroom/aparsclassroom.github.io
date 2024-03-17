@@ -128,7 +128,8 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <i class="fas fa-bell fa-lg" style="color: #ffaa3b;"></i>
-                                        <button class="btn btn-warning" onclick="requestNotificationPermission()" id="notify">Turn on Notifications</button>
+                                        <button class="btn btn-warning" onclick="requestNotificationPermission()"
+                                            id="notify">Turn on Notifications</button>
                                     </li>
                                 </ul>
                             </div>
@@ -763,57 +764,76 @@
                 document.getElementById('notify').innerText = "Notifications are ON";
             } else if (Notification.permission !== 'denied') {
                 messaging.requestPermission()
-                .then(function () {
-                    if (Notification.permission === 'granted') {
-                        document.getElementById('notify').innerText = "Notifications are ON";
-                        return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
-                    } else {
-                        document.getElementById('notify').innerText = "Turn on Notifications";
-                        swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
-                    }
-                })
-                .then(function (token) {
-                    var myHeaders = new Headers();
-                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                    .then(function () {
+                        if (Notification.permission === 'granted') {
+                            document.getElementById('notify').innerText = "Notifications are ON";
+                            return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
+                        } else {
+                            document.getElementById('notify').innerText = "Turn on Notifications";
+                            swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+                        }
+                    })
+                    .then(function (token) {
+                        var myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                    var urlencoded = new URLSearchParams();
-                    urlencoded.append("uid", firebase.auth().currentUser.uid);
-                    urlencoded.append("token", token);
+                        var urlencoded = new URLSearchParams();
+                        urlencoded.append("uid", firebase.auth().currentUser.uid);
+                        urlencoded.append("token", token);
 
-                    var requestOptions = {
-                        method: 'POST',
-                        headers: myHeaders,
-                        body: urlencoded,
-                        redirect: 'follow'
-                    };
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: 'follow'
+                        };
 
-                    
-                    fetch(`https://profile.aparsclassroom.com/profile/notification`, requestOptions)
-                        .then(response => response.json())
-                        .then((loadedData) => {
-                            if (loadedData.status === 200) {
-                                swal("Notifications are ON", "You will receive important notifications from Apar's Classroom", "success")
-                            } else {
-                                swal("Not Eligible yet", loadedData.message, "info")
-                            }
-                        })
-                        .catch((err) => {
-                            swal("Oops", "Something went wrong, Please try again later", "error")
-                        })
-                })
-                .catch(function (err) {
-                    if (err.code === 'messaging/permission-blocked') {
-                        swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
-                    } else {
-                        swal("Oops", "Unable to get permission to notify", "error")
-                    }
 
-                });
+                        fetch(`https://profile.aparsclassroom.com/profile/notification`, requestOptions)
+                            .then(response => response.json())
+                            .then((loadedData) => {
+                                if (loadedData.status === 200) {
+                                    swal("Notifications are ON", "You will receive important notifications from Apar's Classroom", "success")
+                                } else {
+                                    swal("Not Eligible yet", loadedData.message, "info")
+                                    document.getElementById('notify').innerText = "Turn on Notifications";
+                                    messaging.getToken()
+                                        .then((currentToken) => {
+                                            if (currentToken) {
+                                                messaging.deleteToken(currentToken)
+                                                    .then(() => {
+                                                        console.log('Token deleted');
+                                                    })
+                                                    .catch((err) => {
+                                                        console.log('Unable to delete token', err);
+                                                    });
+                                            } else {
+                                                console.log('No registration token available. Request permission to generate one.');
+                                            }
+                                        })
+                                        .catch((err) => {
+                                            console.log('An error occurred while retrieving token. ', err);
+                                        });
+
+                                }
+                            })
+                            .catch((err) => {
+                                swal("Oops", "Something went wrong, Please try again later", "error")
+                            })
+                    })
+                    .catch(function (err) {
+                        if (err.code === 'messaging/permission-blocked') {
+                            swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+                        } else {
+                            swal("Oops", "Unable to get permission to notify", "error")
+                        }
+
+                    });
             } else {
                 document.getElementById('notify').innerText = "Turn on Notifications";
                 swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
             }
-           
+
 
             messaging.onMessage((payload) => {
 
@@ -832,32 +852,50 @@
         if (Notification.permission === 'granted') {
             document.getElementById('notify').innerText = "Turn off Notifications";
 
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+            document.getElementById('notify').addEventListener('click', () => {
+                messaging.getToken()
+                    .then((currentToken) => {
+                        if (currentToken) {
+                            messaging.deleteToken(currentToken)
+                                .then(() => {
+                                    var myHeaders = new Headers();
+                                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-            var urlencoded = new URLSearchParams();
-            urlencoded.append("uid", firebase.auth().currentUser.uid);
-            
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: urlencoded,
-                redirect: 'follow'
-            };
+                                    var urlencoded = new URLSearchParams();
+                                    urlencoded.append("uid", firebase.auth().currentUser.uid);
 
-            fetch(`https://profile.aparsclassroom.com/profile/unsubscribe`, requestOptions)
-                .then(response => response.json())
-                .then((loadedData) => {
-                    if (loadedData.status === 200) {
-                        document.getElementById('notify').innerText = "Turn on Notifications";
-                    } else {
-                        document.getElementById('notify').innerText = "Turn off Notifications";
-                        swal("Oops", "Something went wrong, Please try again later", "error")
-                    }
-                })
-                .catch((err) => {
-                    swal("Oops", "Something went wrong, Please try again later", "error")
-                })
+                                    var requestOptions = {
+                                        method: 'POST',
+                                        headers: myHeaders,
+                                        body: urlencoded,
+                                        redirect: 'follow'
+                                    };
+
+                                    fetch(`https://profile.aparsclassroom.com/profile/unsubscribe`, requestOptions)
+                                        .then(response => response.json())
+                                        .then((loadedData) => {
+                                            if (loadedData.status === 200) {
+                                                document.getElementById('notify').innerText = "Turn on Notifications";
+                                            } else {
+                                                document.getElementById('notify').innerText = "Turn off Notifications";
+                                                swal("Oops", "Something went wrong, Please try again later", "error")
+                                            }
+                                        })
+                                        .catch((err) => {
+                                            swal("Oops", "Something went wrong, Please try again later", "error")
+                                        })
+                                })
+                                .catch((err) => {
+                                    console.log('Unable to delete token', err);
+                                });
+                        } else {
+                            console.log('No registration token available. Request permission to generate one.');
+                        }
+                    })
+                    .catch((err) => {
+                        console.log('An error occurred while retrieving token. ', err);
+                    });
+            })
         } else {
             document.getElementById('notify').innerText = "Turn on Notifications";
         }
