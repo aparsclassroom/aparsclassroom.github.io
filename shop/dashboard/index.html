@@ -755,7 +755,6 @@
                     document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
                 })
         })
-        console.log(messaging.getToken())
         function requestNotificationPermission() {
             document.getElementById('notify').innerText = "Requesting...";
             if (!('Notification' in window)) {
@@ -766,32 +765,8 @@
                         if (currentToken) {
                             messaging.deleteToken(currentToken)
                                 .then(() => {
-                                    var myHeaders = new Headers();
-                                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-                                    var urlencoded = new URLSearchParams();
-                                    urlencoded.append("uid", firebase.auth().currentUser.uid);
-
-                                    var requestOptions = {
-                                        method: 'POST',
-                                        headers: myHeaders,
-                                        body: urlencoded,
-                                        redirect: 'follow'
-                                    };
-
-                                    fetch(`https://profile.aparsclassroom.com/profile/unsubscribe`, requestOptions)
-                                        .then(response => response.json())
-                                        .then((loadedData) => {
-                                            if (loadedData.status === 200) {
-                                                document.getElementById('notify').innerText = "Turn on Notifications";
-                                            } else {
-                                                document.getElementById('notify').innerText = "Turn off Notifications";
-                                                swal("Oops", "Something went wrong, Please try again later", "error")
-                                            }
-                                        })
-                                        .catch((err) => {
-                                            swal("Oops", "Something went wrong, Please try again later", "error")
-                                        })
+                                    console.log('Token deleted');
+                                    document.getElementById('notify').innerText = "Turn on Notifications";
                                 })
                                 .catch((err) => {
                                     console.log('Unable to delete token', err);
