@@ -251,10 +251,15 @@
                             <label for="pHSC">HSC Batch</label>
                             <select class="form-control" id="pHSC" required>
                                 <option value="">--Select Any--</option>
+                                <option value="HSC 19">HSC'19</option>
+                                <option value="HSC 20">HSC'20</option>
+                                <option value="HSC 21">HSC'21</option>
+                                <option value="HSC 22">HSC'22</option>
                                 <option value="HSC 23">HSC'23</option>
                                 <option value="HSC 24">HSC'24</option>
                                 <option value="HSC 25">HSC'25</option>
                                 <option value="HSC 26">HSC'26</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -761,23 +766,6 @@
                 text: "This feature is not available yet, Please try again later",
                 icon: "info"
             })
-        }
-
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker
-                .register('/firebase-messaging-sw.js')
-                .then((registration) => {
-                    // registration worked
-                    console.log("Registration succeeded.");
-                    registration.unregister().then((boolean) => {
-                        // if boolean = true, unregister is successful
-                        alert("Unregistered");
-                    });
-                })
-                .catch((error) => {
-                    // registration failed
-                    console.error(`Registration failed with ${error}`);
-                });
         }
 
         // function requestNotificationPermission() {
