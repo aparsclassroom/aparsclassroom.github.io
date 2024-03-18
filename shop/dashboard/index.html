@@ -854,13 +854,18 @@
 
             });
         }
-
-        if (Notification.permission === 'granted') {
-            document.getElementById('notify').innerText = "Notifications are ON";
+        if (!('Notification' in window)) {
+            document.getElementById('notify').innerText = "Notifications not supported";
             document.getElementById('notify').setAttribute('disabled', 'true');
         } else {
-            document.getElementById('notify').innerText = "Turn on Notifications";
+            if (Notification.permission === 'granted') {
+                document.getElementById('notify').innerText = "Notifications are ON";
+                document.getElementById('notify').setAttribute('disabled', 'true');
+            } else {
+                document.getElementById('notify').innerText = "Turn on Notifications";
+            }
         }
+
         // Register service worker for handling background notifications
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/firebase-messaging-sw.js')
