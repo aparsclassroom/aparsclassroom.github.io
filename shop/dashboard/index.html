@@ -766,10 +766,10 @@
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.unregister('/firebase-messaging-sw.js')
                 .then(() => {
-                    console.log('Service Worker unregistered');
+                    alert('Service Worker unregistered');
                 })
                 .catch((err) => {
-                    console.log('Service Worker not unregistered', err);
+                    alert('Service Worker not unregistered', err);
                 });
             }
         // function requestNotificationPermission() {
