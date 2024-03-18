@@ -686,44 +686,39 @@
         document.getElementById('qrCode').addEventListener('click', () => {
             document.getElementById('qrCode').setAttribute('disabled', 'true');
             document.getElementById('qrCode').innerText = "Generating...";
-            swal(
-            navigator.platform,
-            navigator.userAgent,
-            "success"
-        )
-            // fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
-            //     .then(response => response.json())
-            //     .then((loadedData) => {
-            //         if (loadedData.status === 200) {
-            //             swal({
-            //                 title: "O2O Payment",
-            //                 text: "Please show this QR Code or Achieve Roll to the nearest O2O Agent to make the payment",
-            //                 closeOnClickOutside: false,
-            //                 content: {
-            //                     element: "div",
-            //                     attributes: {
-            //                         innerHTML: `<img src="https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}"><br><h3 class="text-center">Achieve Roll: ${loadedData.roll}</h3>`
-            //                     },
-            //                 },
-            //                 buttons: {
-            //                     cancel: "Close"
-            //                 },
-            //             });
-            //         } else {
-            //             swal({
-            //                 title: "Oops",
-            //                 text: "You are not eligible for the O2O Payment yet, Please update your profile first",
-            //                 icon: "info"
-            //             })
-            //         }
-            //         document.getElementById('qrCode').removeAttribute('disabled');
-            //         document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
-            //     })
-            //     .catch((err) => {
-            //         swal("Oops", "Something went wrong, Please try again later", "error")
-            //         document.getElementById('qrCode').removeAttribute('disabled');
-            //         document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
-            //     })
+            fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
+                .then(response => response.json())
+                .then((loadedData) => {
+                    if (loadedData.status === 200) {
+                        swal({
+                            title: "O2O Payment",
+                            text: "Please show this QR Code or Achieve Roll to the nearest O2O Agent to make the payment",
+                            closeOnClickOutside: false,
+                            content: {
+                                element: "div",
+                                attributes: {
+                                    innerHTML: `<img src="https://quickchart.io/qr?text=${encodeURIComponent(firebase.auth().currentUser.uid)}"><br><h3 class="text-center">Achieve Roll: ${loadedData.roll}</h3>`
+                                },
+                            },
+                            buttons: {
+                                cancel: "Close"
+                            },
+                        });
+                    } else {
+                        swal({
+                            title: "Oops",
+                            text: "You are not eligible for the O2O Payment yet, Please update your profile first",
+                            icon: "info"
+                        })
+                    }
+                    document.getElementById('qrCode').removeAttribute('disabled');
+                    document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
+                })
+                .catch((err) => {
+                    swal("Oops", "Something went wrong, Please try again later", "error")
+                    document.getElementById('qrCode').removeAttribute('disabled');
+                    document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
+                })
         })
 
 
