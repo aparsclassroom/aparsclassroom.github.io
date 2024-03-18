@@ -760,124 +760,124 @@
             navigator.userAgent,
             "success"
         )
-        function requestNotificationPermission() {
-            document.getElementById('notify').innerText = "Requesting...";
-            if (!('Notification' in window)) {
-                document.getElementById('notify').innerText = "Notifications not supported";
-                document.getElementById('notify').setAttribute('disabled', 'true');
-                swal("Oops", "This browser does not support desktop notification", "error")
-            } else if (Notification.permission === 'granted') {
-                document.getElementById('notify').innerText = "Notifications are ON";
-                document.getElementById('notify').setAttribute('disabled', 'true');
-            } else if (Notification.permission !== 'denied') {
-                messaging.requestPermission()
-                    .then(function () {
-                        if (Notification.permission === 'granted') {
-                            return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
-                        } else {
-                            document.getElementById('notify').innerText = "Turn on Notifications";
-                            swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
-                        }
-                    })
-                    .then(function (token) {
-                        document.getElementById('notify').innerText = "Please wait...";
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        // function requestNotificationPermission() {
+        //     document.getElementById('notify').innerText = "Requesting...";
+        //     if (!('Notification' in window)) {
+        //         document.getElementById('notify').innerText = "Notifications not supported";
+        //         document.getElementById('notify').setAttribute('disabled', 'true');
+        //         swal("Oops", "This browser does not support desktop notification", "error")
+        //     } else if (Notification.permission === 'granted') {
+        //         document.getElementById('notify').innerText = "Notifications are ON";
+        //         document.getElementById('notify').setAttribute('disabled', 'true');
+        //     } else if (Notification.permission !== 'denied') {
+        //         messaging.requestPermission()
+        //             .then(function () {
+        //                 if (Notification.permission === 'granted') {
+        //                     return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
+        //                 } else {
+        //                     document.getElementById('notify').innerText = "Turn on Notifications";
+        //                     swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+        //                 }
+        //             })
+        //             .then(function (token) {
+        //                 document.getElementById('notify').innerText = "Please wait...";
+        //                 var myHeaders = new Headers();
+        //                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                        var urlencoded = new URLSearchParams();
-                        urlencoded.append("uid", firebase.auth().currentUser.uid);
-                        urlencoded.append("token", token);
+        //                 var urlencoded = new URLSearchParams();
+        //                 urlencoded.append("uid", firebase.auth().currentUser.uid);
+        //                 urlencoded.append("token", token);
 
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: urlencoded,
-                            redirect: 'follow'
-                        };
-
-
-                        fetch(`https://profile.aparsclassroom.com/profile/notification`, requestOptions)
-                            .then(response => response.json())
-                            .then((loadedData) => {
-                                if (loadedData.status === 200) {
-                                    document.getElementById('notify').innerText = "Notifications are ON";
-                                    document.getElementById('notify').setAttribute('disabled', 'true');
-                                    swal("Notifications are ON", "You will receive important notifications from Apar's Classroom", "success")
-                                } else {
-                                    swal("Not Eligible yet", loadedData.message, "info")
-                                    document.getElementById('notify').innerText = "Turn on Notifications";
-                                    messaging.getToken()
-                                        .then((currentToken) => {
-                                            if (currentToken) {
-                                                messaging.deleteToken(currentToken)
-                                                    .then(() => {
-                                                        console.log('Token deleted');
-                                                    })
-                                                    .catch((err) => {
-                                                        console.log('Unable to delete token', err);
-                                                    });
-                                            } else {
-                                                console.log('No registration token available. Request permission to generate one.');
-                                            }
-                                        })
-                                        .catch((err) => {
-                                            console.log('An error occurred while retrieving token. ', err);
-                                        });
-
-                                }
-                            })
-                            .catch((err) => {
-                                document.getElementById('notify').innerText = "Turn on Notifications";
-                                swal("Oops", "Something went wrong, Please try again later", "error")
-                            })
-                    })
-                    .catch(function (err) {
-                        document.getElementById('notify').innerText = "Turn on Notifications";
-                        if (err.code === 'messaging/permission-blocked') {
-                            swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
-                        } else {
-                            swal("Oops", "Unable to get permission to notify", "error")
-                        }
-
-                    });
-            } else {
-                document.getElementById('notify').innerText = "Turn on Notifications";
-                swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
-            }
+        //                 var requestOptions = {
+        //                     method: 'POST',
+        //                     headers: myHeaders,
+        //                     body: urlencoded,
+        //                     redirect: 'follow'
+        //                 };
 
 
-            messaging.onMessage((payload) => {
+        //                 fetch(`https://profile.aparsclassroom.com/profile/notification`, requestOptions)
+        //                     .then(response => response.json())
+        //                     .then((loadedData) => {
+        //                         if (loadedData.status === 200) {
+        //                             document.getElementById('notify').innerText = "Notifications are ON";
+        //                             document.getElementById('notify').setAttribute('disabled', 'true');
+        //                             swal("Notifications are ON", "You will receive important notifications from Apar's Classroom", "success")
+        //                         } else {
+        //                             swal("Not Eligible yet", loadedData.message, "info")
+        //                             document.getElementById('notify').innerText = "Turn on Notifications";
+        //                             messaging.getToken()
+        //                                 .then((currentToken) => {
+        //                                     if (currentToken) {
+        //                                         messaging.deleteToken(currentToken)
+        //                                             .then(() => {
+        //                                                 console.log('Token deleted');
+        //                                             })
+        //                                             .catch((err) => {
+        //                                                 console.log('Unable to delete token', err);
+        //                                             });
+        //                                     } else {
+        //                                         console.log('No registration token available. Request permission to generate one.');
+        //                                     }
+        //                                 })
+        //                                 .catch((err) => {
+        //                                     console.log('An error occurred while retrieving token. ', err);
+        //                                 });
 
-                var notificationTitle = payload.notification.title;
-                var notificationOptions = {
-                    body: payload.notification.body,
-                    image: payload.notification.image,
-                    link: payload.notification.link
-                };
+        //                         }
+        //                     })
+        //                     .catch((err) => {
+        //                         document.getElementById('notify').innerText = "Turn on Notifications";
+        //                         swal("Oops", "Something went wrong, Please try again later", "error")
+        //                     })
+        //             })
+        //             .catch(function (err) {
+        //                 document.getElementById('notify').innerText = "Turn on Notifications";
+        //                 if (err.code === 'messaging/permission-blocked') {
+        //                     swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+        //                 } else {
+        //                     swal("Oops", "Unable to get permission to notify", "error")
+        //                 }
 
-                var notification = new Notification(notificationTitle, notificationOptions);
+        //             });
+        //     } else {
+        //         document.getElementById('notify').innerText = "Turn on Notifications";
+        //         swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+        //     }
 
-            });
-        }
-        if (!('Notification' in window)) {
-            document.getElementById('notify').innerText = "Notifications not supported";
-            document.getElementById('notify').setAttribute('disabled', 'true');
-        } else {
-            if (Notification.permission === 'granted') {
-                document.getElementById('notify').innerText = "Notifications are ON";
-                document.getElementById('notify').setAttribute('disabled', 'true');
-            } else {
-                document.getElementById('notify').innerText = "Turn on Notifications";
-            }
-        }
 
-        //Register service worker for handling background notifications
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/firebase-messaging-sw.js')
-                .then((registration) => {
-                    messaging.useServiceWorker(registration);
-                });
-        }
+        //     messaging.onMessage((payload) => {
+
+        //         var notificationTitle = payload.notification.title;
+        //         var notificationOptions = {
+        //             body: payload.notification.body,
+        //             image: payload.notification.image,
+        //             link: payload.notification.link
+        //         };
+
+        //         var notification = new Notification(notificationTitle, notificationOptions);
+
+        //     });
+        // }
+        // if (!('Notification' in window)) {
+        //     document.getElementById('notify').innerText = "Notifications not supported";
+        //     document.getElementById('notify').setAttribute('disabled', 'true');
+        // } else {
+        //     if (Notification.permission === 'granted') {
+        //         document.getElementById('notify').innerText = "Notifications are ON";
+        //         document.getElementById('notify').setAttribute('disabled', 'true');
+        //     } else {
+        //         document.getElementById('notify').innerText = "Turn on Notifications";
+        //     }
+        // }
+
+        // //Register service worker for handling background notifications
+        // if ('serviceWorker' in navigator) {
+        //     navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        //         .then((registration) => {
+        //             messaging.useServiceWorker(registration);
+        //         });
+        // }
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
