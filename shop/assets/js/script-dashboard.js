@@ -8,6 +8,7 @@ var firebaseConfig = {
     measurementId: "G-P18HXDWK2Y"
 };
 firebase.initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
 firebase.analytics();
 fetch(
         "https://api.ipify.org/?format=json"
