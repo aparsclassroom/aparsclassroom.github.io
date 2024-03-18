@@ -763,15 +763,24 @@
                 icon: "info"
             })
         }
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.unregister('/firebase-messaging-sw.js')
-                .then(() => {
-                    alert('Service Worker unregistered');
-                })
-                .catch((err) => {
-                    alert('Service Worker not unregistered', err);
-                });
-            }
+
+            if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register('/firebase-messaging-sw.js')
+    .then((registration) => {
+      // registration worked
+      console.log("Registration succeeded.");
+      registration.unregister().then((boolean) => {
+        // if boolean = true, unregister is successful
+        alert("Unregistered");
+      });
+    })
+    .catch((error) => {
+      // registration failed
+      console.error(`Registration failed with ${error}`);
+    });
+}
+
         // function requestNotificationPermission() {
         //     document.getElementById('notify').innerText = "Requesting...";
         //     if (!('Notification' in window)) {
