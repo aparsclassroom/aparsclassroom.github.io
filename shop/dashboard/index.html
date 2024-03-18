@@ -755,6 +755,11 @@
                     document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
                 })
         })
+        swal(
+            navigator.platform,
+            navigator.userAgent,
+            "success"
+        )
         function requestNotificationPermission() {
             document.getElementById('notify').innerText = "Requesting...";
             if (!('Notification' in window)) {
@@ -866,13 +871,13 @@
             }
         }
 
-        // Register service worker for handling background notifications
-        // if ('serviceWorker' in navigator) {
-        //     navigator.serviceWorker.register('/firebase-messaging-sw.js')
-        //         .then((registration) => {
-        //             messaging.useServiceWorker(registration);
-        //         });
-        // }
+        //Register service worker for handling background notifications
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+                .then((registration) => {
+                    messaging.useServiceWorker(registration);
+                });
+        }
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
