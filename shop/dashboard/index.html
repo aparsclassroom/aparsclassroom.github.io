@@ -50,7 +50,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-messaging.js"></script>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
@@ -764,22 +763,22 @@
             })
         }
 
-            if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register('/firebase-messaging-sw.js')
-    .then((registration) => {
-      // registration worked
-      console.log("Registration succeeded.");
-      registration.unregister().then((boolean) => {
-        // if boolean = true, unregister is successful
-        alert("Unregistered");
-      });
-    })
-    .catch((error) => {
-      // registration failed
-      console.error(`Registration failed with ${error}`);
-    });
-}
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+                .register('/firebase-messaging-sw.js')
+                .then((registration) => {
+                    // registration worked
+                    console.log("Registration succeeded.");
+                    registration.unregister().then((boolean) => {
+                        // if boolean = true, unregister is successful
+                        alert("Unregistered");
+                    });
+                })
+                .catch((error) => {
+                    // registration failed
+                    console.error(`Registration failed with ${error}`);
+                });
+        }
 
         // function requestNotificationPermission() {
         //     document.getElementById('notify').innerText = "Requesting...";
