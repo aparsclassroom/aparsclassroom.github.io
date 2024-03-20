@@ -549,7 +549,7 @@
                                     </h5>
                                     <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
                                     <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount + element.o2o}</h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}</h4>
                                     <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
