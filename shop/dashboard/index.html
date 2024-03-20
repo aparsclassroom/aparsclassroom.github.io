@@ -537,7 +537,9 @@
                             if (data.length > 0) {
                                 data.forEach((element, idx) => {
                                     idx++
-
+                                    if(element.o2o == null) {
+                                        element.o2o = 0;
+                                    }
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
 
                                         var content = `
