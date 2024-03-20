@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
+        fetch(`https://${shopName}/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -162,7 +162,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+                    fetch(`https://${shopName}/${productCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
