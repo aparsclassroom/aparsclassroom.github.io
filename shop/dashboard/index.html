@@ -411,13 +411,20 @@
                             document.getElementById('num').innerText = data.Phone;
                             document.getElementById('password').innerText = data.Phone.substr(-4);
                             document.getElementById('HSC').innerText = data.HSC;
-                            document.getElementById('FbLink').innerText = data.FbName;
-                            document.getElementById('FbLink').onclick = function () {
-                                window.open(data.FbLink, '_blank');
+                            if (data.FbName != null) {
+                                document.getElementById('FbLink').innerText = data.FbName;
+                                document.getElementById('FbLink').onclick = function () {
+                                    window.open(data.FbLink, '_blank');
+                                }
+                            } else {
+                                document.getElementById('FbLink').innerText = "Not Provided";
                             }
-                            document.getElementById('Parent').innerText = data.Parent;
-                            document.getElementById('Institution').innerText = data.Institution;
-                            document.getElementById('Address').innerText = data.Address;
+                            if (data.Parent != null) {
+                                document.getElementById('Parent').innerText = data.Parent;
+                            }
+                            if (data.Address != null) {
+                                document.getElementById('Address').innerText = data.Address;
+                            }
                             if (data.photo != null) {
                                 document.getElementById('avatar').src = data.photo;
                             } else {
@@ -428,11 +435,11 @@
                             document.getElementById('email').value = data.Email;
                             document.getElementById('pnum').value = data.Phone;
                             document.getElementById('pHSC').value = data.HSC;
-                            document.getElementById('pFbName').value = data.FbName;
-                            document.getElementById('pFbLink').value = data.FbLink;
-                            document.getElementById('pParent').value = data.Parent;
+                            document.getElementById('pFbName').value = data.FbName ? data.FbName : "";
+                            document.getElementById('pFbLink').value = data.FbLink ? data.FbLink : "";
+                            document.getElementById('pParent').value = data.Parent ? data.Parent : "";
                             document.getElementById('pInstitution').value = data.Institution;
-                            document.getElementById('pAddress').value = data.Address;
+                            document.getElementById('pAddress').value = data.Address ? data.Address : "";
                             document.getElementById('saveBtn').innerText = "Update";
                             document.getElementById('saveBtn').removeAttribute('disabled');
                         } else if (loadedData.status === 201) {
@@ -537,7 +544,7 @@
                             if (data.length > 0) {
                                 data.forEach((element, idx) => {
                                     idx++
-                                    if(element.o2o == null) {
+                                    if (element.o2o == null) {
                                         element.o2o = 0;
                                     }
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
