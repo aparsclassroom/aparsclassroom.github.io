@@ -114,7 +114,7 @@
                                         id="avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 </a>
                                 <h5 class="my-3" id="name2">...</h5>
-                                <p class="text-muted mb-1" id="roll">Student</p>
+                                <p class="text-bold mb-1" id="roll">Student</p>
                                 <p class="text-muted mb-4">Apar's Classroom</p>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                                     <i class="fas fa-user-edit"></i>&nbsp;&nbsp;Update Profile
                                 </button>
                                 <button class="btn btn-dark mb-2 mr-2" id="qrCode">
-                                    <i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment
+                                    <i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment QR Code
                                 </button>
                                 <button class="btn btn-success mb-2 mr-2" id="admitCard">
                                     <i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card
@@ -451,7 +451,7 @@
                                 document.getElementById('avatar').src = data.photo;
                             }
                             if (data.roll != null) {
-                                document.getElementById('roll').innerText = "Achieve Roll: " + data.roll;
+                                document.getElementById('roll').innerText = "ASG SHOP Roll: " + data.roll;
                             }
                         } else if (loadedData.status === 204) {
                             swal("Hold on", "We are assigning you a roll number !", "info")
@@ -706,12 +706,12 @@
                     if (loadedData.status === 200) {
                         swal({
                             title: "O2O Payment",
-                            text: "Please show this QR Code or Achieve Roll to the nearest O2O Agent to make the payment",
+                            text: "Please show this QR Code or ASG SHOP Roll to the nearest O2O Agent to make the payment",
                             closeOnClickOutside: false,
                             content: {
                                 element: "div",
                                 attributes: {
-                                    innerHTML: `<img src="https://quickchart.io/qr?text=ACHIEVE://${encodeURIComponent(firebase.auth().currentUser.uid)}"><br><h3 class="text-center">Achieve Roll: ${loadedData.roll}</h3>`
+                                    innerHTML: `<img src="https://quickchart.io/qr?text=ACHIEVE://${encodeURIComponent(firebase.auth().currentUser.uid)}"><br><h3 class="text-center">ASG SHOP Roll: ${loadedData.roll}</h3>`
                                 },
                             },
                             buttons: {
