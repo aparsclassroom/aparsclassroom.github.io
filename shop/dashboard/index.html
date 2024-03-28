@@ -545,8 +545,14 @@
                             if (data.length > 0) {
                                 data.forEach((element, idx) => {
                                     idx++
+                                    var courseName = "";
                                     if (element.o2o == null) {
                                         element.o2o = 0;
+                                    }
+                                    if(element.Product.Cycle !="") {
+                                        courseName = element.Product.productName + " (" + element.Product.Cycle + ")";
+                                    } else {
+                                        courseName = element.Product.productName;
                                     }
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
 
@@ -557,7 +563,7 @@
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
                                     </h5>
-                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
+                                    <h4 class="text-success text-center">Course : ${courseName}</h4>
                                     <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
                                     <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}</h4>
                                     <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
@@ -577,7 +583,7 @@
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
                                     </h5>
-                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
+                                    <h4 class="text-success text-center">Course : ${courseName}</h4>
                                     <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}</h4>
                                     <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
