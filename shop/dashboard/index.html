@@ -746,12 +746,12 @@
                         })
                     }
                     document.getElementById('qrCode').removeAttribute('disabled');
-                    document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
+                    document.getElementById('qrCode').innerHTML = 'O2O Payment';
                 })
                 .catch((err) => {
                     swal("Oops", "Something went wrong, Please try again later", "error")
                     document.getElementById('qrCode').removeAttribute('disabled');
-                    document.getElementById('qrCode').innerHTML = '<i class="fas fa-qrcode"></i>&nbsp;&nbsp;O2O Payment';
+                    document.getElementById('qrCode').innerHTML = 'O2O Payment';
                 })
         })
 
@@ -768,25 +768,25 @@
                         document.getElementById('achieveModalLabel').innerHTML = `<i class="fas fa-address-card"></i>&nbsp;Achieve Card (Password: ${firebase.auth().currentUser.phoneNumber.substr(-4)})`;
                         document.getElementById('achieveBody').innerHTML = `<iframe src="${url}" style="width: 100%; height: 500px;"></iframe>`;
                         document.getElementById('achieveDownload').removeAttribute('disabled');
-                        document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Download';
+                        document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;Download';
                         $('#achieveModal').modal('show');
                         document.getElementById('achieveDownload').addEventListener('click', () => {
                             document.getElementById("achieveModalLabel").innerHTML = '<i class="fas fa-address-card"></i>&nbsp;Achieve Card Details';
                             document.getElementById("achieveBody").innerHTML = `<h3 class="text-center">Use "${firebase.auth().currentUser.phoneNumber.substr(-4)}" as Achieve Card Password</h3>`;
                             document.getElementById('achieveDownload').setAttribute('disabled', 'true');
-                            document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;<i class="fas fa-address-card"></i>&nbsp;&nbsp;Downloaded';
+                            document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;Downloaded';
                             window.open(url, '_blank');
                         })
                     } else {
                         swal("Oops", "You are not eligible for the Achieve Card yet, Please enroll to a Achieve Exam first !", "info")
                     }
                     document.getElementById('admitCard').removeAttribute('disabled');
-                    document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
+                    document.getElementById('admitCard').innerHTML = 'Achieve Card';
                 })
                 .catch((err) => {
                     swal("Oops", "Something went wrong, Please try again later", "error")
                     document.getElementById('admitCard').removeAttribute('disabled');
-                    document.getElementById('admitCard').innerHTML = '<i class="fas fa-address-card"></i>&nbsp;&nbsp;Achieve Card';
+                    document.getElementById('admitCard').innerHTML = 'Achieve Card';
                 })
         })
 
