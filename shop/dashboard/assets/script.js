@@ -51,7 +51,7 @@ let redirectUrl = params.signInSuccessUrl;
                 provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 clientId: "374714320984-7r0b3i1s39tapmudaa4poe2b3qkpksst.apps.googleusercontent.com"
             },
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
             {
                 provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
                 recaptchaParameters: {
@@ -64,8 +64,8 @@ let redirectUrl = params.signInSuccessUrl;
             }
         ],
         credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
-        tosUrl: '/terms.html',
-        privacyPolicyUrl: '/privacy.html'
+        tosUrl: '/terms',
+        privacyPolicyUrl: '/privacy'
     };
     ui.start('#firebaseui-auth-container', uiConfig);
     ui.disableAutoSignIn();
@@ -77,9 +77,7 @@ function onSubmit(token) {
 var user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        if (redirectUrl == "https://exam.aparsclassroom.com/?uid=") {
-            window.location.href = "/shop/dashboard";
-        } else if (redirectUrl) {
+        if (redirectUrl) {
             window.location.href = redirectUrl;
         } else {
             window.location.href = "/shop/dashboard";
