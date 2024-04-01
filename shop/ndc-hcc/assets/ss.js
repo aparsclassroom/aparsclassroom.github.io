@@ -48,7 +48,7 @@ fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.enrollment + init);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
