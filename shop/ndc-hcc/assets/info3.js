@@ -1,5 +1,7 @@
-const product = "ndc-hcch26";
-const productName = "ACS College Admission Free Course 2024";
-const productCode = "000";
+const product = "ndc-hcc26";
+const productName = "ACS College Admission Course 2024";
+const productCode = "296";
 const Platform = "Super Admin";
-const init = 0;
+const init = 12653;
+const fix = 2000;
+const pls = 1000;

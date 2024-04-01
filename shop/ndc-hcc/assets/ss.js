@@ -43,7 +43,7 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://script.google.com/macros/s/AKfycbzOFK3eTI-hs-qJYnMRSiNwfmMRopbZXUtStk21wD5cNsiTfjuK1Bl4R2dxL7550Ak/exec`)
+fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
