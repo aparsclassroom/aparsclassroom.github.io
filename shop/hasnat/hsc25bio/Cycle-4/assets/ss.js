@@ -1,6 +1,6 @@
 const product = "HBio25";
 const productName = "BioMission for HSC 25";
-const productCode = "286";
+const productCode = "298";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
