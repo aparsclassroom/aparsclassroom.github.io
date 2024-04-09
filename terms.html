@@ -5,28 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '430193434618183');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '430193434618183');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Facebook Pixel Code -->
     <script>
-        ! function(f, b, e, v, n, t, s) {
+        ! function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function() {
+            n = f.fbq = function () {
                 n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n;
@@ -42,7 +44,8 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '593459298431756');
         fbq('track', 'PageView');
-    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    </script> <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     <title>Terms | Apar's Classroom</title>
     <!-- Facebook Metas -->
@@ -52,9 +55,20 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
     <meta property="og:image" content="https://aparsclassroom.com/images/poster.jpg">
     <meta property="og:image:secure_url" content="https://aparsclassroom.com/images/poster.jpg">
     <meta property="og:image:type" content="image/jpg">
+    <style>
+        @font-face {
+            font-family: 'Kalpurursh';
+            src: url('/Ambassador/assets/fonts/kalpurush.ttf');
+        }
+        .text-bangla {
+            font-family: 'Kalpurursh';
+        }
+    </style>
     <link rel="shortcut icon" href="HSC-Full-Course/assets/images/Logo-with-Name.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script>
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
@@ -75,12 +89,14 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
     </script>
 </head>
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" style="background-image: linear-gradient(to left, rgb(71, 115, 90), #5375e2, rgb(28, 50, 39));">
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark"
+    style="background-image: linear-gradient(to left, rgb(71, 115, 90), #5375e2, rgb(28, 50, 39));">
     <a class="navbar-brand" href="/">
         <img src="HSC-Full-Course/assets/images/Logo-with-Name.png" height="30px" width="30px"> Apar's Classroom</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item  active">
@@ -101,190 +117,341 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
 </nav>
 <div class="container">
     <h2><strong>Terms and Conditions</strong></h2>
-
-    <p>Welcome to <a href="https://aparsclassroom.com/">Apar's Classrooom</a>!</p>
-
-    <p>These terms and conditions outline the rules and regulations for the use of <a href="https://aparsclassroom.com/">Apar's Classrooom</a>'s Website, located at <a href="https://aparsclassroom.com/">https://aparsclassroom.com/</a>.</p>
-
-    <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use <a href="https://aparsclassroom.com/">Apar's Classrooom</a> if you do not agree to take all of the terms and conditions stated on this page.</p>
-
-    <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions.
-        "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process
-        of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Bangladesh. Any
-        use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
-
-    <h3><strong>Cookies</strong></h3>
-
-    <p>We employ the use of cookies. By accessing <a href="https://aparsclassroom.com/">Apar's Classrooom</a>, you agreed to use cookies in agreement with the <a href="https://aparsclassroom.com/">Apar's Classrooom</a>'s Privacy Policy.</p>
-
-    <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising
-        partners may also use cookies.</p>
-
-    <h3><strong>License</strong></h3>
-
-    <p>Unless otherwise stated, <a href="https://aparsclassroom.com/">Apar's Classrooom</a> and/or its licensors own the intellectual property rights for all material on <a href="https://aparsclassroom.com/">Apar's Classrooom</a>. All intellectual property
-        rights are reserved. You may access this from <a href="https://aparsclassroom.com/">Apar's Classrooom</a> for your own personal use subjected to restrictions set in these terms and conditions.</p>
-
-    <p>You must not:</p>
-    <ul>
-        <li>Republish material from <a href="https://aparsclassroom.com/">Apar's Classrooom</a></li>
-        <li>Sell, rent or sub-license material from <a href="https://aparsclassroom.com/">Apar's Classrooom</a></li>
-        <li>Reproduce, duplicate or copy material from <a href="https://aparsclassroom.com/">Apar's Classrooom</a></li>
-        <li>Redistribute content from <a href="https://aparsclassroom.com/">Apar's Classrooom</a></li>
-    </ul>
-
-    <p>This Agreement shall begin on the date hereof.</p>
-
-    <p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. <a href="https://aparsclassroom.com/">Apar's Classrooom</a> does not filter, edit, publish or review Comments prior
-        to their presence on the website. Comments do not reflect the views and opinions of <a href="https://aparsclassroom.com/">Apar's Classrooom</a>,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their
-        views and opinions. To the extent permitted by applicable laws, <a href="https://aparsclassroom.com/">Apar's Classrooom</a> shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any
-        use of and/or posting of and/or appearance of the Comments on this website.</p>
-
-    <p><a href="https://aparsclassroom.com/">Apar's Classrooom</a> reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
-
-    <p>You warrant and represent that:</p>
-
-    <ul>
-        <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>
-        <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>
-        <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>
-        <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
-    </ul>
-
-    <p>You hereby grant <a href="https://aparsclassroom.com/">Apar's Classrooom</a> a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
-
-    <h3><strong>Hyperlinking to our Content</strong></h3>
-
-    <p>The following organizations may link to our Website without prior written approval:</p>
-
-    <ul>
-        <li>Government agencies;</li>
-        <li>Search engines;</li>
-        <li>News organizations;</li>
-        <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
-        <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
-    </ul>
-
-    <p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products
-        and/or services; and (c) fits within the context of the linking party’s site.</p>
-
-    <p>We may consider and approve other link requests from the following types of organizations:</p>
-
-    <ul>
-        <li>commonly-known consumer and/or business information sources;</li>
-        <li>dot.com community sites;</li>
-        <li>associations or other groups representing charities;</li>
-        <li>online directory distributors;</li>
-        <li>internet portals;</li>
-        <li>accounting, law and consulting firms; and</li>
-        <li>educational institutions and trade associations.</li>
-    </ul>
-
-    <p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit
-        to us from the visibility of the hyperlink compensates the absence of <a href="https://aparsclassroom.com/">Apar's Classrooom</a>; and (d) the link is in the context of general resource information.</p>
-
-    <p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context
-        of the linking party’s site.</p>
-
-    <p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to <a href="https://aparsclassroom.com/">Apar's Classrooom</a>. Please include your name, your organization
-        name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
-
-    <p>Approved organizations may hyperlink to our Website as follows:</p>
-
-    <ul>
-        <li>By use of our corporate name; or</li>
-        <li>By use of the uniform resource locator being linked to; or</li>
-        <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
-    </ul>
-
-    <p>No use of <a href="https://aparsclassroom.com/">Apar's Classrooom</a>'s logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
-
-    <h3><strong>iFrames</strong></h3>
-
-    <p>Without prior approval and written permission, you may not create iframes around our Webpages that alter in any way the visual presentation or appearance of our Website.
-
-        <h3><strong>Content Liability</strong></h3>
-
-        <p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene
-            or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
-
-        <h3><strong>Reservation of Rights</strong></h3>
-
-        <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking
-            policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
-
-        <h3><strong>Removal of links from our website</strong></h3>
-
-        <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
-
-        <p>Email Us : <a href="mailto:support@aparsclassroom.com"><strong>support@aparsclassroom.com</strong></a></p>
-
-        <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
-
-        <h3><strong>Disclaimer</strong></h3>
-
-        <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
-
-        <ul>
-            <li>limit or exclude our or your liability for death or personal injury;</li>
-            <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
-            <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
-            <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
-        </ul>
-        <ul>
+    <div>
+        <p>These Terms &amp; Conditions (“<strong>Terms</strong>”) of (a) use of our website <a
+                href="https://www.aparsclassroom.com" target="_blank" rel="noreferrer">www.aparsclassroom.com</a>&nbsp;
+            (“<strong>Website</strong>”), our applications (“<strong>Application</strong>”) or any products or services
+            in connection with the Application/, Website/products (“<strong>Services</strong>”)&nbsp; or (b) any modes
+            of registrations or usage of products, including through SD cards, tablets or other storage/transmitting
+            device&nbsp; are between ASG SHOP (“<strong>Company/We/Us/Our</strong>”) and its users
+            (“<strong>User/You/Your</strong>”).</p>
+        <p>Please carefully read the terms and privacy policy of the Company (“Privacy Policy”) prior to registering,
+            using the application, website, or services. Any discrepancies between the Terms and other policies on the
+            application, website, or service are settled in favor of the Terms.</p>
+        <p>You accept and agree to be legally bound by the Terms if you access the Application, Website, or Services
+            through any means.</p>
+        <p>To avoid any potential conflicts, please refrain from using the application, website, or services if you have
+            any issues with the terms or privacy policy. Our Application along with all our services and products can
+            only be accessed through a registration/subscription.&nbsp;</p>
+        <ol>
+            <li>The software, text, images, graphics, video, script, and audio, including any other information,
+                content, material, trademarks, service marks, trade names, and trade secrets, all of which are contained
+                in the Application, Website, and services and products, are the Company's proprietary property
+                (“Proprietary Information”). Permission to reproduce, reuse, modify, and distribute Proprietary
+                Information may not be granted without first obtaining permission from the Company. Moreover, no User of
+                this Application, Website, or Services may claim any ownership in or to the intellectual property rights
+                of the Company. You can keep control of the contents, but the company always maintains ownership of the
+                information, content, and all intellectual property on that medium. While using the Website, you may
+                encounter materials that belong to other people. To ensure that the content is faithful to the original,
+                prior consent was obtained from the subject and all rights to the content belong to the third party.
+                Furthermore, you accept that all intellectual property, including trademarks, copyrights, logos, and
+                service marks, remains the property of the respective third party, and you are not entitled to use it
+                without the third party's permission.</li>
+            <li>It is prohibited to use our products, services, website, and application for any purpose other than
+                personal or non-commercial. It is prohibited to use the application, website, services, or products for
+                any purpose except personal ones. The following rules apply to your use of this application, website,
+                and our services for personal and non-commercial purposes:</li>
+        </ol>
+        <h3><strong>Course Policy</strong></h3>
+        <ul class="text-bangla">
             <li> এক কোর্স থেকে অন‍্য কোর্সে স্থানান্তর করা যাবে না।</li>
             <li> একদম নতুন খোলা/ফেইক নেম এর আইডি গ্রহনযোগ্য না। বিশেষ ক্ষেত্রে গার্জিয়ান এর আইডি ব্যবহার করা যেতে পারে</li>
             <li> একটি আইডি দিয়ে এপ্রুভালের পর কোনমতেই আইডি চেইঞ্জ করা যাবে না;</li>
             <li> ফেসবুক আইডি ব্যান হলে এর দায় কর্তৃপক্ষ নিবে না।</li>
             <li> তোমার আইপি ট্র্যাক করা হবে কোর্স চলাকালে।</li>
             <li> কোন মতেই কোর্স এর পেমেন্ট রিফান্ড এবল না।</li>
-            <li> একাধিক ডিভাইস / ব্রাউজারে লগিন করতে চাইলে আমাদের পূর্ব অনুমতি নিতে হবে। নতুবা কোর্স থেকে যেকোন সময় রিফান্ডসহ / বিনা রিফান্ডে ব‍্যান করা হতে পারে।</li>
+            <li> একাধিক ডিভাইস / ব্রাউজারে লগিন করতে চাইলে আমাদের পূর্ব অনুমতি নিতে হবে। নতুবা কোর্স থেকে যেকোন সময়
+                রিফান্ডসহ / বিনা রিফান্ডে ব‍্যান করা হতে পারে।</li>
         </ul>
-        <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract,
-            in tort and for breach of statutory duty.</p>
-
-        <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
-        <footer class="pt-4 my-md-5 pt-md-5 border-top">
-            <div class="row">
-                <div class="col-12 col-md">
-                    <img class="mb-2" src="/HSC-Full-Course/assets/images/1.png" alt="Apar's Classroom" width="50px" height="50px">
-                    <small class="d-block mb-3 text-muted">&copy; 2018-2024 Apar's Classroom</small>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Our Products</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="https://aparsclassroom.com/shop/BioDictionary/?aff-AAA">BioDictionary</a></li>
-                        <li><a class="text-muted" href="/shop/BUET-Admission-Batch/new">BUET Admission Batch</a></li>
-                        <li><a class="text-muted" href="/bcsquestion.html">বিজয়ের পথে</a></li>
-                        <li><a class="text-muted" href="/registration.html">Story Mode Learning App</a></li>
-                        <li><a class="text-muted" href="/Photon/january-download.html">Photon Magazine</a></li>
-                        <li><a class="text-muted" href="/shuchipotro-download.html">Digital Interractive Pdf</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Find Us At</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="https://www.facebook.com/aparsclassroom/" target="_blank">Facebook Page</a></li>
-                        <li><a class="text-muted" href="https://www.facebook.com/groups/aparsclassroom/" target="_blank">Facebook Group</a></li>
-                        <li><a class="text-muted" href="https://instagram.com/aparsclassroom" target="_blank">Instagram Account</a></li>
-                        <li><a class="text-muted" href="https://youtube.com/aparsclassroom">Youtube Channel</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>About</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="/about-us.html">Team</a></li>
-                        <li><a class="text-muted" href="https://maps.app.goo.gl/QxrQaeCLqKixtTG9A" target="_blank">Location</a></li>
-                        <li><a class="text-muted" href="/privacy.html">Privacy</a></li>
-                        <li><a class="text-muted" href="/terms.html">Terms</a></li>
-                        <li><a class="text-muted" href="/contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
+        <p>i. You may not copy, modify, translate, display, distribute, or perform any information or software obtained
+            from the Application and / or our Website and/or Services/Products or remove any copyright, trademark
+            registration, or other proprietary notices from the contents of the Application and / or and / or our
+            Website and/or Services/Products.</p>
+        <p>ii. You are prohibited from using this application, our website, and our products and services for commercial
+            purposes, including but not limited to selling, advertising, or promoting the application or any of our
+            products or services, asking for contributions or donations, or using public forums for commercial purposes.
+        </p>
+        <p>The following acts are strictly banned when using our services:</p>
+        <ol>
+            <li>Make available any deceptive, unlawful, hazardous, abusive, torturing, defamatory, libelous, vulgar,
+                obscene, child pornographic, loud, lascivious, unlawful, intrusive, hateful, racial, ethnic or otherwise
+                objectionable content;</li>
+            <li>Threatening, stalking, and/or harassing another person, as well as inciting another person to conduct
+                violence;</li>
+            <li>Passing on information that encourages illegal acts, that results in civil liability, or that violates
+                any applicable laws, regulations, or guidelines;</li>
+            <li>Doing anything that interferes with another person's usage or enjoyment of the
+                Application/Website/Services;</li>
+            <li>To engage in making, copying, transmitting, storing, or otherwise reproducing any intellectual property
+                protected under copyright law, doing anything that amounts to an infringement of intellectual property,
+                or providing others with access to anything that infringes on any intellectual property or other
+                proprietary rights of any party;</li>
+            <li>Provide anyone with information or anything else that You have no right to make available under any law
+                or contract or fiduciary duty, unless You have control of the rights or You have obtained the necessary
+                consent to do so;</li>
+            <li>Falsely impersonate any person or entity, or misrepresent your relationship with any person or entity;
+            </li>
+            <li>Do not transmit, share, or otherwise make available any material that has viruses, trojans, worms,
+                spyware, time bombs, cancelbots, or other computer programming routines, code, files, or programs that
+                could harm the application/services, interests, or rights of other users, or limit the functionality of
+                any computer software, hardware, or telecommunications;</li>
+            <li>You may not use the application or access the website in any way that could harm, overload, or crash any
+                of the application's or website's servers or networks;</li>
+            <li>Violate any laws or restrictions that pertain to your use of the Application/Website/Services/products,
+                break the rules of the networks connected to the Application/Website/Services/Products, or do anything
+                you are banned from doing by these Terms;</li>
+            <li>Disrupt, interfere with, or otherwise cause harm to the security of, or gain unauthorized access to
+                accounts, servers, or networks connected to or accessible through the
+                Application/Website/Services/Products or any affiliated or related sites;</li>
+            <li>Disrupt access to the Application/Website/Services/Products or any of our other sites or systems, or
+                participate in attacks such as denial of service;</li>
+            <li>The Application/Website/Services/Products may not be accessed, acquired, copied, or monitored in any way
+                by any means not made explicitly available through the Application/Website/Services/Products, including
+                but not limited to manual processes, devices, programs, algorithms, methodologies, or similar or
+                equivalent devices, tools, or manual activities;</li>
+            <li>Change or alter any element of the Services;</li>
+            <li>You are not permitted to use the Services in the following circumstances: I in contradiction to these
+                Terms; and (ii) to the extent that it is prohibited by law, regulation, or generally accepted practices
+                or standards in the relevant country;&nbsp;</li>
+            <li>Any of the terms in the Agreement for the use of the Application/Website/Services/products are to be
+                avoided.</li>
+            <li>You grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use,
+                copy, reproduce, process, adapt, modify, publish, transmit, display and distribute your content that you
+                submit to or through the Services, as well as to associate your content with you, unless prohibited. You
+                provide permission for others to use Your Material in the same manner that any other content found on
+                the Services may be used. The Services may allow other users to make copies of your content in line with
+                these Terms. You will still be able to access your content and information if you deactivate your
+                account.</li>
+            <li>To ensure that the information provided is current, correct, and clear, every effort has been taken in
+                the production of the Application/Website/Services/Products and contents therein. While unintentional
+                mistakes may occur, The Company expressly disclaims any responsibility for the veracity of information
+                that may be in the application. Users' input is encouraged to make the application and its contents
+                error-free and user-friendly. The company also retains the right to make any modifications or revisions
+                to the contents at any time, without advance notice. Neither the company nor any third parties give any
+                guarantees regarding the accuracy, timeliness, or suitability of the information and materials found or
+                offered on Application/Website/Services/Products for any specific purpose. You know that there might be
+                flaws in the information and materials we're providing, and we make no promises about their accuracy.
+            </li>
+            <li>For our users, our website serves as a resource center for collated educational content and relevant
+                sources. We take no duty for the accuracy, completeness, or use of such information, which is provided
+                on a "as is" basis. We're not liable for ensuring the site's information is updated or accurate. Any
+                inaccuracies in the information we assemble, which comes from third-party sources, or which is
+                unavailable, would not be our responsibility. The site may also provide hyperlinks to other websites
+                from time to time. The following links are provided for your information, so that you can find further
+                details. We do not support the website by using these image(s). The website we link to is not our
+                responsibility(s). A link to the site may not be created without the explicit written permission of the
+                company.</li>
+            <li>The materials and goods are based on concepts from the curriculum, which is outlined for pupils of
+                various classes. The Application/Services/Products should not be seen as a replacement for traditional
+                schooling; instead, they are designed to complement it by providing a way to make complex ideas easier
+                to understand. Everything about the subject would remain the same, except the definitions and equations.
+                The Company understands that there are other ways to present structured curriculum pedagogy and that the
+                inclusion of methods in the Application/Services/Products does not mean that the company endorses any of
+                them. The use of our Services/Website/Products does not guarantee entry to any academic institutions or
+                the success of any exam or achieving any designated percentage in any test.</li>
+            <li>Contents of the Application/Services/Website/Products (especially those about services which help with
+                administrative tasks) are sometimes opinionated. Such opinions will not be the responsibility of the
+                company. The company also provides no guarantees on the quality, content, or completeness of the
+                information and data.</li>
+            <li>The Services include interactive content, and we encourage users to submit content for publication. The
+                content is subject to editing prior to publication. No accountability or obligation is accepted by the
+                company for any content communicated via this method. The company maintains the right to remove, review,
+                edit, or delete any content at its sole discretion. We will not be liable for any user-generated content
+                placed on the site, whether or not we have approved any user-submitted answers. It would be
+                irresponsible of us to make sure that the content provided by any User doesn't infringe on anyone's
+                copyright.</li>
+            <li>The Company (and its subsidiaries/affiliates) may contact Users through SMS, email, and phone calls to
+                inform them about their services and products and to seek permission to demonstrate their offerings. The
+                User grants permission to the Company (and its subsidiaries/affiliates) to contact him/her via
+                telephone, SMS, e-mail, and he/she agrees to hold the Company harmless from any liability, including
+                financial penalties, damages, and expenses if the User's mobile number is registered with the Do Not
+                Call (DNC) database. You will be contacted through several means for marketing and educational
+                information once you register, including over the phone, SMS, and email.</li>
+            <li>The company may, at the user's consent, assist in a demonstration of its products at the requested
+                location, but the user understands that they have not been misled by anyone in regard to the products'
+                quality or other features, and that they relied solely on their own investigations, inspections, and
+                evaluations.</li>
+            <li>The Company may reach you by your registered mobile number, e-mail, or any other contact information you
+                supply to help us better provide our services. The User agrees to receive communications and messages
+                from the Company and the student via the Services, and may receive messages via the methods specified in
+                the paragraph above. The Company can monitor User/student downloads and use of the
+                Application/Services/Products and contents to talk with the User/student in order to improve and
+                optimize usage of the Services. Students must agree to have their doubts about assignments cleared by
+                the application's service, and the application must respond to any questions that students have about
+                their coursework.</li>
+            <li>Even while the company has made an attempt to train its sales and service employees to do quality
+                control, it offers no warranties or assurances about the employees' ability to do so, and is not
+                responsible for any malfeasance committed by any of its employees. Company invites User feedback on this
+                matter, and reserves the right to act as it sees fit.</li>
+            <li>Elements of the Services including counseling, case management, and so on may be subject to their own
+                terms, conditions, and fair use policy. The company has the authority to set various service aspects'
+                requirements based on its regulations. Because of this, subscriptions to the app or signing up for
+                services does not mean that the user is entitled to all the company provides. It's up to the company to
+                decide who gets access to particular services. Our Services may be extended, canceled, discontinued, or
+                changed without notice.</li>
+            <li>Devices/tablets/instruments/hardware with particular specifications are compatible with the Company's
+                products and/or Services, including the Application and content. The Company is not required to deliver
+                operational products and services for any tools that it doesn't accept or that are bought from a third
+                party and that don't work with the Company's merchandise. The company is free to upgrade the
+                table/device type as needed.</li>
+            <li>The company will not be held liable for any loss or damage resulting from your use of our products and
+                services, including loss of data or impact on processing speed.</li>
+            <li>At the time of purchase, you must specify the address where the shipment should be delivered. All
+                merchandise must be delivered to the address provided upon ordering, and it is prohibited to change the
+                delivery address following purchase completion. You must notify us of any change in your mailing address
+                in advance of your expected shipping date. If you have any errors in your name or address, your purchase
+                may not be delivered.</li>
+            <li>The shipping charges associated with the return of goods damaged at the time of delivery will be paid by
+                the company. For any reason other than the reasons listed above, the User is responsible for arranging
+                the return of the canceled product(s) and is responsible for the shipping charges. (b)Please do not
+                accept any delivery that appears to have been tampered with, opened, or damaged. The Company's products
+                must be returned in their original condition. Returns will not be accepted for items that show any wear
+                or damage in any way. All requests for product returns must be made within 15 days of delivery. Note
+                that refunds will not be accepted beyond 15 days from delivery.</li>
+            <li>In order to use the application and the services, you will need to register and maintain an account. You
+                will be asked to provide your name, mobile number, email address, residential address, student class and
+                school, as well as any other information that the Application deems necessary. To ensure that the
+                account information you give is accurate, comprehensive, and up-to-date, remember that you are solely
+                responsible for doing so. You will be in charge of protecting the account information, as well as all
+                activity that takes place on your account. To avoid account access problems, you will need to check out
+                at the conclusion of each session and inform the company of any unwanted access. If we have cause to
+                think that you've had a security breach or misuse of your account, we may ask you to change your
+                password or suspend your account, and you may do so without incurring any liability to the company. Our
+                company will not be responsible for any losses or damages you could incur due to your failure to comply
+                with this section. You admit that Your capacity to use Your account depends on external variables, such
+                as the reliability of your internet service provider and your internet network, and so the Company
+                cannot guarantee that You will always be able to access the Application. The Company shall not be
+                responsible to you for losses originating from your failure to log into your account and access the
+                services provided by the Application at any time, in addition to the disclaimers specified in the Terms
+                and Conditions.</li>
+            <li>Those who are under the age of 18, are not in debt resolution, or similar are not eligible to register
+                for Our products or Services. For those under 18, the usage of our products and services is subject to
+                your legal guardian or parents agreeing to the terms of our contract. If a minor uses the
+                Application/Website/Services, it is presumed that he/she has received the approval of his/her legal
+                guardian or parents, and that the legal guardian or parents has granted permission for him/her to use
+                the Application/Website/Services. The company is not liable for any problems arising out of misuse of
+                our products or services, including use by a minor. You agree that you and your students are using
+                correct and complete data when using the Application, and that parents/legal guardians have given their
+                authorization for students to use the software (in case of minors). In case it is found that you are
+                under the age of 18 (eighteen) years and your parent/legal guardian has not given their approval to use
+                the products or services, the company retains the right to end your membership and/or deny you access to
+                the products or services. You are aware that we do not have the duty to make sure you meet the above
+                requirements. You must personally guarantee that you meet the necessary qualifications. All those who
+                are under the age of 18 (eighteen) must obtain the permission of their parents or legal guardians before
+                submitting personal or family information to the Application.</li>
+            <li>You accept responsibility for protecting, reimbursing, and holding harmless the Company, its officers,
+                directors, employees, and agents from any and all claims, costs, debts, and liabilities (including legal
+                fees) incurred because of: (i) your use of and access to the Application/Website/Services; (ii) your
+                violation of any of these Terms or any other policy of the Company; (iii) your violation of any
+                third-party right, including without limitation any copyright, property, or privacy right; or (iv) any
+                claim that your use of the Application/Website/Services has caused damage to a third party. The
+                obligation to defend and reimburse the injured party will exist even after the agreement.</li>
+            <li>No liability will be accepted by the Company, its officers, directors, employees, partners, or agents on
+                your behalf or on behalf of any third party for any special, incidental, indirect, consequential, or
+                punitive damages in any way related to your use of the Application.</li>
+            <li>If you break these terms, the company's reputation will be ruined and they will not be able to recover
+                losses. In the event of a breach, the company would be able to get a court order to prevent it. The
+                Company may still seek additional remedies regardless of whether it obtains this relief.</li>
+            <li>In addition to any legal recourse that the company may pursue, you will be immediately suspended or
+                terminated if you violate any portion of this clause. If such requirements arise, the Company may have
+                to reveal Your Account Information. You know that breaking the terms of this agreement could also put
+                you in trouble under local laws.</li>
+            <li>The legal matters of this contract shall be determined in accordance with the laws of Bangladesh,
+                regardless of conflicts of law. In addition, these terms will be resolved in the jurisdiction of the
+                relevant courts in Dhaka, and you agree to accept their authority.</li>
+            <li>The firm is able to make any adjustments, cease, or eliminate any part of the application or service
+                whenever it sees fit without prior warning. In addition, the Company is entitled to alter these Terms
+                from time to time and without notice. There is no promise from the business that they will continue to
+                run or keep any feature of the Application. The Company does not owe you or any other third party
+                compensation for modifications, interruptions, or terminations of the Application/Services. Prices may
+                change at any time.</li>
+            <li>DISCLAIMER: THIS WEBSITE, THE APPLICATION AND THE SERVICES ARE PROVIDED ON AN "AS IS" BASIS WITH ALL
+                FAULTS AND WITHOUT ANY WARRANTY OF ANY KIND. THE COMPANY HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS
+                WITH REGARD TO THE WEBSITE, APPLICATION/PRODUCTS AND THE SERVICES, INCLUDING WITHOUT LIMITATION, ALL
+                IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY,
+                TIMELINESS. PERFORMANCE, COMPLETENESS, SUITABILITY AND NON-INFRINGEMENT. ADDITIONALLY, THE COMPANY SHALL
+                NOT BE LIABLE FOR ANY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SITE,
+                OR THE APPLICATION OR THE SERVICES. YOUR USE OF ANY INFORMATION OR MATERIALS ON THIS
+                WEBSITE/APPLICATION/SERVICES/PRODUCTS IS ENTIRELY AT YOUR OWN RISK, FOR WHICH WE SHALL NOT BE LIABLE. IT
+                SHALL BE YOUR OWN RESPONSIBILITY TO ENSURE THAT SERVICES PROVIDED BY US MEET YOUR SPECIFIC REQUIREMENTS.
+            </li>
+            <li>General Provisions:</li>
+        </ol>
+        <p>i) To ensure that any legal notifications are properly sent, please note that the Company will use your email
+            address and/or the application to notify you. The Company should be notified at support@aparsclassroom.com.
+        </p>
+        <p>ii) the entire contract The Terms, the Privacy Policy, and any other rules deemed relevant to the Application
+            apply to you and your use of the Application, Website, and Services.</p>
+        <p>iii) The Terms cannot be transferred or assigned to any other party. The Company may freely transfer its
+            rights under the Terms to any other parties without needing your permission.</p>
+        <p>iv) If any provision of the Terms is deemed unenforceable, the remaining terms shall continue in full force
+            and effect.</p>
+        <p>v) The Company will not waive any of its rights under the Terms by failing to enforce or exercise them.</p>
+        <p>vi) You agree that by being a part of the service, you are not a company employee, agency, partnership, or
+            franchise.</p>
+        <p>vii) To make sure you're aware of the terms that apply to your use of the website/application and services,
+            the Company provides these terms.&nbsp;</p>
+        <p>viii) You have agreed to these terms after the company provided you with a sufficient amount of time to
+            evaluate them.</p>
+        <ol>
+            <li>Feedback</li>
+        </ol>
+        <p>Your information, provided about the Application, will be considered non-confidential. Applications can use
+            the information whatever they choose. In addition, you represent and warrant by sending feedback that (i)
+            your feedback does not contain confidential or patent information from you or third parties; (ii) the
+            Company is not obligated or implied to maintain confidentiality regarding feedback; (iii) the Application
+            could be similar to the feedback already being considered or under development;</p>
+        <p>The Company is not liable for anything published by other users, including inappropriate or harmful content.
+            It is important to be careful when visiting the Application.</p>
+        <ol>
+            <li>Customer service</li>
+        </ol>
+        <p>We'll do all in our power to make your experience enjoyable. If you run into any problems, please get in
+            touch with us at support@aparsclassroom.com.</p>
+    </div>
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img class="mb-2" src="/HSC-Full-Course/assets/images/1.png" alt="Apar's Classroom" width="100%">
+                <small class="d-block mb-3 text-muted">&copy; 2018-2024 Apar's Classroom</small>
             </div>
-            <a target="_blank" href="https://www.sslcommerz.com/" title="SSLCommerz" alt="SSLCommerz"><img style="width:100%;height:auto;" src="/img/SSLCOMMERZ Pay With logo All Size_Aug 21-02.png" /></a>
-        </footer>
+            <div class="col-6 col-md">
+                <h5>Our Products</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted"
+                            href="https://aparsclassroom.com/shop/BioDictionary/?aff-AAA">BioDictionary</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Find Us At</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="https://www.facebook.com/aparsclassroom/" target="_blank">Facebook
+                            Page</a></li>
+                    <li><a class="text-muted" href="https://www.facebook.com/groups/aparsclassroom/"
+                            target="_blank">Facebook Group</a></li>
+                    <li><a class="text-muted" href="https://instagram.com/aparsclassroom" target="_blank">Instagram
+                            Account</a></li>
+                    <li><a class="text-muted" href="https://youtube.com/aparsclassroom">Youtube Channel</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="/about-us.html">Team</a></li>
+                    <li><a class="text-muted" href="https://maps.app.goo.gl/QxrQaeCLqKixtTG9A"
+                            target="_blank">Location</a></li>
+                    <li><a class="text-muted" href="/privacy.html">Privacy</a></li>
+                    <li><a class="text-muted" href="/terms.html">Terms</a></li>
+                    <li><a class="text-muted" href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
 </div>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>
