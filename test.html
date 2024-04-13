@@ -61,7 +61,8 @@
                     $('.multiple-select').select2({
                         data: options.branchList,
                         placeholder: "Select your nearest Achieve Branch and suitable Batch",
-                        allowClear: true
+                        allowClear: true,
+                        minimumResultsForSearch: Infinity
                     });
                 } else {
                     swal({
