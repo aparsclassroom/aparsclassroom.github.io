@@ -96,12 +96,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 function checkAndRedirect() {
-    if (shouldOpenInBrowser()) {
+    if (!shouldOpenInBrowser()) {
         Swal.fire({
             position: "center",  icon: "warning", html: `
         <div>
-            <h3>This is not a Browser !</h3>
-            <p>Please use Google Chrome to access ASG SHOP.</p>
+            <h3>This is not a Traditional Browser !</h3>
+            <p>Please use Google Chrome Browser to access ASG SHOP.</p>
             <button class="swal2-confirm swal2-styled" style="background-color: #a9dd36; color: black;" onclick="copyToClipboard()"> Click to Copy ASG SHOP Link </button>
         </div>`, showConfirmButton: false,
         });
@@ -121,8 +121,8 @@ function shouldOpenInBrowser() { var userAgent = window.navigator.userAgent || w
 function copyToClipboard() { 
     var currentPageURL = window.location.href; 
     navigator.clipboard.writeText(currentPageURL);
-     Swal.fire({ position: "top-end", toast: true, icon: "success", text: "Link copied successfully! Now open in Chrome or any other suitable browser.", showConfirmButton: true, }); 
-     openInBrowser(currentPageURL, "googlechrome://navigate?url=");
+     Swal.fire({ position: "center", toast: false, icon: "success", text: "Link copied successfully! Now open in Chrome or any other suitable browser.", showConfirmButton: true, }); 
+     openInBrowser(currentPageURL, 'googlechrome://');
      return currentPageURL; 
 };
 
