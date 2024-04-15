@@ -103,7 +103,7 @@ nmodal()
 
 
 function checkAndRedirect() {
-    if (!shouldOpenInBrowser()) {
+    if (shouldOpenInBrowser()) {
         Swal.fire({
             position: "top-end", toast: true, icon: "warning", html: `
         <div>
