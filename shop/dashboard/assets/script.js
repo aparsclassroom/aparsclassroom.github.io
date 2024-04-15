@@ -88,29 +88,32 @@ firebase.auth().onAuthStateChanged(function (user) {
         //     window.location.href = "/shop/dashboard";
         // }
     } else {
-        nmodal()
+        
+        checkAndRedirect()
     }
 });
 
-function nmodal() {
-    $('#loginModal').modal();
-}
-$('#loginModal').modal({
-    backdrop: 'static',
-    keyboard: false
-})
-nmodal()
 
 
 function checkAndRedirect() {
     if (shouldOpenInBrowser()) {
         Swal.fire({
-            position: "top-end", toast: true, icon: "warning", html: `
+            position: "center",  icon: "warning", html: `
         <div>
-            <p>Please open ASG SHOP in a suitable web browser (Like Google Chrome) for Best Experience.</p>
-            <button class="swal2-confirm swal2-styled" style="background-color: #a9dd36; color: black;" onclick="copyToClipboard()"> Copy Link </button>
+            <p>Please use Google Chrome or Any other simmilar browser to access ASG SHOP.</p>
+            <button class="swal2-confirm swal2-styled" style="background-color: #a9dd36; color: black;" onclick="copyToClipboard()"> Click to Copy ASG SHOP Link </button>
         </div>`, showConfirmButton: false,
         });
+    } else {
+        function nmodal() {
+            $('#loginModal').modal();
+        }
+        $('#loginModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+        
+        nmodal()
     }
 }
 function shouldOpenInBrowser() { var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera; return /FBAN|FBAV|Instagram/i.test(userAgent); }
@@ -121,4 +124,3 @@ function copyToClipboard() {
      return currentPageURL; 
 };
 
-checkAndRedirect()
