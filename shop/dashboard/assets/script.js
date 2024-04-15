@@ -100,7 +100,8 @@ function checkAndRedirect() {
         Swal.fire({
             position: "center",  icon: "warning", html: `
         <div>
-            <p>Please use Google Chrome or Any other simmilar browser to access ASG SHOP.</p>
+            <h3>This is not a Browser !</h3>
+            <p>Please use Google Chrome to access ASG SHOP.</p>
             <button class="swal2-confirm swal2-styled" style="background-color: #a9dd36; color: black;" onclick="copyToClipboard()"> Click to Copy ASG SHOP Link </button>
         </div>`, showConfirmButton: false,
         });
