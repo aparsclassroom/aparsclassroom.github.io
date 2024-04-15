@@ -93,10 +93,17 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+function nmodal() {
+    $('#loginModal').modal();
+}
+$('#loginModal').modal({
+    backdrop: 'static',
+    keyboard: false
+})
 
 
 function checkAndRedirect() {
-    if (!shouldOpenInBrowser()) {
+    if (shouldOpenInBrowser()) {
         Swal.fire({
             position: "center",  icon: "warning", html: `
         <div>
@@ -106,14 +113,6 @@ function checkAndRedirect() {
         </div>`, showConfirmButton: false,
         });
     } else {
-        function nmodal() {
-            $('#loginModal').modal();
-        }
-        $('#loginModal').modal({
-            backdrop: 'static',
-            keyboard: false
-        })
-        
         nmodal()
     }
 }
@@ -122,12 +121,6 @@ function copyToClipboard() {
     var currentPageURL = window.location.href; 
     navigator.clipboard.writeText(currentPageURL);
      Swal.fire({ position: "center", toast: false, icon: "success", text: "Link copied successfully! Now open in Chrome or any other suitable browser.", showConfirmButton: true, }); 
-     openInBrowser(currentPageURL, 'googlechrome://');
+     nmodal()
      return currentPageURL; 
 };
-
-function openInBrowser(target, browserScheme) {
-    var ifc = document.createElement("div");
-    ifc.innerHTML = `<iframe src='${browserScheme}${target}' style='width:0;height:0;border:0; border:none;visibility: hidden;'></iframe>`;
-    document.body.appendChild(ifc);
-}
