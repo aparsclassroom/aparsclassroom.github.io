@@ -103,11 +103,11 @@ nmodal()
 
 
 function checkAndRedirect() {
-    if (shouldOpenInBrowser()) {
+    if (!shouldOpenInBrowser()) {
         Swal.fire({
             position: "top-end", toast: true, icon: "warning", html: `
         <div>
-            <p>Please open this link in a suitable web browser to sign in with Google.</p>
+            <p>Please open ASG SHOP in a suitable web browser (Like Google Chrome) for Best Experience.</p>
             <button class="swal2-confirm swal2-styled" style="background-color: #a9dd36; color: black;" onclick="copyToClipboard()"> Copy Link </button>
         </div>`, showConfirmButton: false,
         });
@@ -115,7 +115,10 @@ function checkAndRedirect() {
 }
 function shouldOpenInBrowser() { var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera; return /FBAN|FBAV|Instagram/i.test(userAgent); }
 function copyToClipboard() { 
-    var currentPageURL = window.location.href; var dummy = document.createElement('textarea'); document.body.appendChild(dummy); dummy.value = currentPageURL; dummy.select(); document.execCommand('copy'); document.body.removeChild(dummy); Swal.fire({ position: "top-end", toast: true, icon: "success", text: "Link copied successfully! Now open in Chrome or any other suitable browser.", showConfirmButton: true, }); return currentPageURL; 
+    var currentPageURL = window.location.href; 
+    navigator.clipboard.writeText(currentPageURL);
+     Swal.fire({ position: "top-end", toast: true, icon: "success", text: "Link copied successfully! Now open in Chrome or any other suitable browser.", showConfirmButton: true, }); 
+     return currentPageURL; 
 };
 
 checkAndRedirect()
