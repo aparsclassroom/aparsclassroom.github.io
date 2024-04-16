@@ -1,11 +1,11 @@
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 5,
-    loop: false,
-    autoplay: {
-        delay: 4000,
-    },
-});
+// var swiper = new Swiper(".mySwiper", {
+//     slidesPerView: 5,
+//     spaceBetween: 5,
+//     loop: false,
+//     autoplay: {
+//         delay: 4000,
+//     },
+// });
 
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -15,12 +15,12 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
-var tag = document.createElement('script');
+// var tag = document.createElement('script');
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
+// tag.src = "https://www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// var player;
 
 // function onYouTubeIframeAPIReady() {
 //     player = new YT.Player('player', {
@@ -34,27 +34,27 @@ var player;
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
+// fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
+//     .then((res) => {
+//         return res.json()
+//     })
+//     .then((data) => {
+//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+//         if (document.getElementById('enrolled')) {
+//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+//             if (!countUp.error) {
+//                 countUp.start();
+//             } else {
+//                 console.error(countUp.error);
+//             }
+//         }
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
