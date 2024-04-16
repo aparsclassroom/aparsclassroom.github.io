@@ -29,23 +29,11 @@ fetch('https://json.geoiplookup.io/')
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
-$('#branch').select2({
-    data: [],
-    placeholder: "Scroll down to select your nearest Achieve Branch",
-});
-
-$('#batch').select2({
-    data: [],
-    placeholder: "Select a Branch First"
-});
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
 
         const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + productCode;
-
-
-
 
         fetch(branchApi)
             .then((res) => {
@@ -53,11 +41,9 @@ firebase.auth().onAuthStateChanged(function(e) {
             })
             .then((options) => {
                 if (options.status == 200) {
-                    $('#branch').select2({
-                        data: options.branchList,
-                        placeholder: "Scroll down to select your nearest Achieve Branch",
-                        allowClear: true,
-                    });
+                    options.branchList.forEach((branch) => {
+                        $('#branch').append(`<option value="${branch.id}">${branch.name}</option>`)
+                    })
                 } else {
                     swal({
                         title: "Error",
@@ -77,12 +63,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         $('#branch').on('change', function () {
             // refresh batch list
             $('#batch').empty();
-            $('#batch').select2({
-                data: [],
-                placeholder: "Select Batch",
-                allowClear: true,
-                minimumResultsForSearch: Infinity
-            });
+           
             const branchId = $(this).val();
             if (!branchId) {
                 return;
@@ -95,19 +76,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
                 .then((options) => {
                     if (options.status == 200) {
-                        $('#batch').select2({
-                            data: options.batchList,
-                            placeholder: "Select Batch",
-                            minimumResultsForSearch: Infinity
-                        });
+                        options.batchList.forEach((batch) => {
+                            $('#batch').append(`<option value="${batch.id}">${batch.name}</option>`)
+                        })
                     }
                 })
                 .catch((err) => {
-                    $('#batch').select2({
-                        data: [],
-                        placeholder: "Select a Branch First",
-                        minimumResultsForSearch: Infinity
-                    });
+                   $('#batch').append(`<option value="">No Batch Available</option>`)
                 })
         })
 

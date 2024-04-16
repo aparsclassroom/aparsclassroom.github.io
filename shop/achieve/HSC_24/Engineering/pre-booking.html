@@ -110,17 +110,6 @@
             width: 100%;
         }
 
-        .select2-selection__rendered {
-            line-height: 31px !important;
-        }
-
-        .select2-container .select2-selection--single {
-            height: 35px !important;
-        }
-
-        .select2-selection__arrow {
-            height: 34px !important;
-        }
     </style>
 
     <!-- Shop Scripts -->
@@ -311,7 +300,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
-                                <input type="tel" name="Phone" class="form-control" pattern="^(?:\+?88)?01[13-9]\d{8}$"
+                                <input type="tel" name="Phone" class="form-control" required pattern="^(?:\+?88)?01[13-9]\d{8}$"
                                     placeholder="+8801XX XXX XXXX" id="phone">
 
                                 <input type="text" style="display: none;" id="uid" name="UID">
@@ -322,13 +311,13 @@
                         <div class="form-row">
                             <div class="form-group col-12">
                                 <label for="branch">Select Branch</label>
-                                <select class="multiple-select" id="branch" name="Branch">
-                                    <option></option>
+                                <select class="multiple-select" id="branch" required name="Branch">
+                                    <option>--Select Any--</option>
                                 </select>
                             </div>
                             <div class="form-group col-12">
                                 <label for="batch">Select Batch</label>
-                                <select class="multiple-select" id="batch" name="Batch">
+                                <select class="multiple-select" id="batch" required name="Batch">
                                     <option></option>
                                 </select>
                             </div>
