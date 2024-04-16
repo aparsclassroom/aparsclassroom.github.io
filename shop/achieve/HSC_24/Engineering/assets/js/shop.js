@@ -69,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
                 .then((options) => {
                     if (options.status == 200) {
-                        $('#batch').append(`<option value="">Select Batch</option>`)
+                        $('#batch').append(`<option value="">--Select a Batch--</option>`)
                         options.batchList.forEach((batch) => {
                             $('#batch').append(`<option value="${batch.id}">${batch.text}</option>`)
                         })
