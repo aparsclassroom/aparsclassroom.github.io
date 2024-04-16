@@ -29,6 +29,15 @@ fetch('https://json.geoiplookup.io/')
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
+$('#branch').select2({
+    data: [],
+    placeholder: "Scroll down to select your nearest Achieve Branch",
+});
+
+$('#batch').select2({
+    data: [],
+    placeholder: "Select a Branch First"
+});
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
