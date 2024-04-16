@@ -42,8 +42,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((options) => {
                 if (options.status == 200) {
                     options.branchList.forEach((branch) => {
-                        console.log(branch)
-                        $('#branch').append(`<option value="${branch.id}">${branch.name}</option>`)
+                        $('#branch').append(`<option value="${branch.id}">${branch.text}</option>`)
                     })
                 } else {
                     swal({
@@ -78,7 +77,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 .then((options) => {
                     if (options.status == 200) {
                         options.batchList.forEach((batch) => {
-                            $('#batch').append(`<option value="${batch.id}">${batch.name}</option>`)
+                            $('#batch').append(`<option value="${batch.id}">${batch.text}</option>`)
                         })
                     }
                 })
