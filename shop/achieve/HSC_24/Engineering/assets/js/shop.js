@@ -42,6 +42,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((options) => {
                 if (options.status == 200) {
                     options.branchList.forEach((branch) => {
+                        console.log(branch)
                         $('#branch').append(`<option value="${branch.id}">${branch.name}</option>`)
                     })
                 } else {
