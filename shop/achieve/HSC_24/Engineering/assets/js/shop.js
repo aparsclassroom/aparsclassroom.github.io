@@ -53,13 +53,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
             })
 
-        $('#batch').select2({
-            data: [],
-            placeholder: "Select a Branch First",
-            minimumResultsForSearch: Infinity
-        });
-
-
         $('#branch').on('change', function () {
             // refresh batch list
             $('#batch').empty();
