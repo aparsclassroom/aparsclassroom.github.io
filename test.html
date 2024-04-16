@@ -57,15 +57,24 @@
             <label for="exampleFormControlSelect1" class="col-sm-12 col-form-label">Select Exam Batch</label>
             <div class="col-12">
                 <select class="form-control" id="course">
-                    <option value="111">Example Varsity Exam Batch</option>
-                    <option value="300">Example Medical Exam Batch</option>
+                    <option value="300">Achieve Engineering Exam Batch</option>
+                    <option value="301">Achieve Varsity Exam Batch</option>
+                    <option value="302">Achieve Medical Exam Batch</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1" class="col-sm-12 col-form-label">Select Branch</label>
+            <label for="branch" class="col-sm-12 col-form-label">Select Branch</label>
             <div class="col-12">
                 <select class="multiple-select" id="branch">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="batch" class="col-sm-12 col-form-label">Select Batch</label>
+            <div class="col-12">
+                <select class="multiple-select" id="batch">
                     <option></option>
                 </select>
             </div>
@@ -74,28 +83,30 @@
             <div class="col-12">
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
             </div>
-           
-           </div>
+
+        </div>
     </div>
 
     <script>
 
-        const api4 = 'https://crm.apars.shop/branch/v2/available-batches?productId=111';
+
+        // 
+
+        const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + 300;
 
 
 
 
-        fetch(api4)
+        fetch(branchApi)
             .then((res) => {
                 return res.json()
             })
             .then((options) => {
                 if (options.status == 200) {
-                    $('.multiple-select').select2({
+                    $('#branch').select2({
                         data: options.branchList,
-                        placeholder: "Scroll down to select your nearest Achieve Branch and suitable Batch",
+                        placeholder: "Scroll down to select your nearest Achieve Branch",
                         allowClear: true,
-                        minimumResultsForSearch: Infinity
                     });
                 } else {
                     swal({
@@ -105,6 +116,51 @@
                     })
                 }
             })
+
+        $('#batch').select2({
+            data: [],
+            placeholder: "Select a Branch First",
+            minimumResultsForSearch: Infinity
+        });
+
+
+        $('#branch').on('change', function () {
+            // refresh batch list
+            $('#batch').empty();
+            $('#batch').select2({
+                data: [],
+                placeholder: "Select Batch",
+                allowClear: true,
+                minimumResultsForSearch: Infinity
+            });
+            const branchId = $(this).val();
+            if (!branchId) {
+                return;
+            }
+            const batchApi = 'https://crm.aparsclassroom.com/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + 300;
+
+            fetch(batchApi)
+                .then((res) => {
+                    return res.json()
+                })
+                .then((options) => {
+                    if (options.status == 200) {
+                        $('#batch').select2({
+                            data: options.batchList,
+                            placeholder: "Select Batch",
+                            minimumResultsForSearch: Infinity
+                        });
+                    }
+                })
+                .catch((err) => {
+                    $('#batch').select2({
+                        data: [],
+                        placeholder: "Select a Branch First",
+                        minimumResultsForSearch: Infinity
+                    });
+                })
+        })
+
     </script>
 </body>
 
