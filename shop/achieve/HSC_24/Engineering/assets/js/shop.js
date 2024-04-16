@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbz_vt4YAVh--n9FMEq5S2EnfuEfBKyJqtgdgHHq_HKjaOEd6Q1ZUOaWLZ7rXXQvfKnShA/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxLn4vxBqUAOGI72wxCmXZhjXvhuqBG2_q7d7wXx5vwuo9Iz0K0A68zseXTIxAUdELc/exec';
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
@@ -32,6 +32,75 @@ document.getElementById('prod').innerText = productName;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
+
+        const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + productCode;
+
+
+
+
+        fetch(branchApi)
+            .then((res) => {
+                return res.json()
+            })
+            .then((options) => {
+                if (options.status == 200) {
+                    $('#branch').select2({
+                        data: options.branchList,
+                        placeholder: "Scroll down to select your nearest Achieve Branch",
+                        allowClear: true,
+                    });
+                } else {
+                    swal({
+                        title: "Error",
+                        icon: "error",
+                        text: options.message
+                    })
+                }
+            })
+
+        $('#batch').select2({
+            data: [],
+            placeholder: "Select a Branch First",
+            minimumResultsForSearch: Infinity
+        });
+
+
+        $('#branch').on('change', function () {
+            // refresh batch list
+            $('#batch').empty();
+            $('#batch').select2({
+                data: [],
+                placeholder: "Select Batch",
+                allowClear: true,
+                minimumResultsForSearch: Infinity
+            });
+            const branchId = $(this).val();
+            if (!branchId) {
+                return;
+            }
+            const batchApi = 'https://crm.aparsclassroom.com/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
+
+            fetch(batchApi)
+                .then((res) => {
+                    return res.json()
+                })
+                .then((options) => {
+                    if (options.status == 200) {
+                        $('#batch').select2({
+                            data: options.batchList,
+                            placeholder: "Select Batch",
+                            minimumResultsForSearch: Infinity
+                        });
+                    }
+                })
+                .catch((err) => {
+                    $('#batch').select2({
+                        data: [],
+                        placeholder: "Select a Branch First",
+                        minimumResultsForSearch: Infinity
+                    });
+                })
+        })
 
         var t = e.phoneNumber;
         var namex = e.displayName;

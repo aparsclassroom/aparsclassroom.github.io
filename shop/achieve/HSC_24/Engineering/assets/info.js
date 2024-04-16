@@ -1,7 +1,7 @@
-const product = "Engineering24";
-const productName = "ACS Engineering Admission Private Batch 2024";
-const productCode = "293";
-const fix = 10000;
-const pls = 5000;
-const Platform = "Super Admin";
+const product = "AchieveEngineering2";
+const productName = "Achieve Engineering Exam Batch 2024";
+const productCode = "300";
+const fix = 15000;
+const pls = 10000;
+const Platform = "Offline";
 const init = 0;
