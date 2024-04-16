@@ -33,6 +33,53 @@ document.getElementById('prod').innerText = productName;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
 
+        const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + productCode;
+
+        fetch(branchApi)
+            .then((res) => {
+                return res.json()
+            })
+            .then((options) => {
+                if (options.status == 200) {
+                    options.branchList.forEach((branch) => {
+                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}">${branch.text}</option>`)
+                    })
+                } else {
+                    swal({
+                        title: "Error",
+                        icon: "error",
+                        text: options.message
+                    })
+                }
+            })
+
+        $('#branch').on('change', function () {
+            // refresh batch list
+            $('#batch').empty();
+           
+            const branchId = $(this).find(':selected').data('id');
+            if (!branchId) {
+                return;
+            }
+            const batchApi = 'https://crm.aparsclassroom.com/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
+
+            fetch(batchApi)
+                .then((res) => {
+                    return res.json()
+                })
+                .then((options) => {
+                    if (options.status == 200) {
+                        $('#batch').append(`<option value="">--Select a Batch--</option>`)
+                        options.batchList.forEach((batch) => {
+                            $('#batch').append(`<option value="${batch.id}">${batch.text}</option>`)
+                        })
+                    }
+                })
+                .catch((err) => {
+                   $('#batch').append(`<option value="">No Batch Available</option>`)
+                })
+        })
+
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -74,7 +121,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     button: "Thank you"
                                 }).then(() => {
                                     form.reset();
-                                    return location.replace('/shop');
+                                    return location.replace('../');
                                 })
                             })
 
@@ -94,17 +141,12 @@ firebase.auth().onAuthStateChanged(function(e) {
                         text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
                         button: "Thank you"
                     }).then(() => {
-                        return location.replace('/shop');
+                        return location.replace('../');
                     })
                 }
 
             }).catch((err => {
                 document.getElementById('enrolled').innerHTML = `0 জন`;
-                swal({
-                    title: "Welcome",
-                    icon: "info",
-                    button: "Thanks 😃"
-                })
             }))
 
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
@@ -128,9 +170,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         firebase.auth().currentUser.getIdTokenResult()
             .then((idTokenResult) => {
                 const claims = idTokenResult.claims;
-                if (claims.HSC) {
-                    document.getElementById('hscBatch').value = claims.HSC;
-                }
                 if (claims.Institution) {
                     document.getElementById('college').value = claims.Institution;
                 }
