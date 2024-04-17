@@ -10,27 +10,27 @@ fetch('https://json.geoiplookup.io/')
     .catch(() => {
         document.getElementById("ip-details").value = "No Ip Address Found 💔";
     });
-    document.getElementById('email').addEventListener("input", function (event) {
-        if (document.getElementById('email').validity.typeMismatch) {
-          document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
-        } else {
-          document.getElementById('email').setCustomValidity("");
-        }
-      });
-      
-      document.getElementById('phone').addEventListener("input", function (event) {
-        if (document.getElementById('phone').validity.patternMismatch) {
-            document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
-        } else {
-            document.getElementById('phone').setCustomValidity("");
-        }
-      });
-    
+document.getElementById('email').addEventListener("input", function (event) {
+    if (document.getElementById('email').validity.typeMismatch) {
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+    } else {
+        document.getElementById('email').setCustomValidity("");
+    }
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
+    if (document.getElementById('phone').validity.patternMismatch) {
+        document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+    } else {
+        document.getElementById('phone').setCustomValidity("");
+    }
+});
+
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
 
         const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + productCode;
@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((options) => {
                 if (options.status == 200) {
                     options.branchList.forEach((branch) => {
-                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}" data-address="${data.address}">${branch.text}</option>`)
+                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}" data-address="${branch.address}">${branch.text}</option>`)
                     })
                 } else {
                     swal({
@@ -56,7 +56,10 @@ firebase.auth().onAuthStateChanged(function(e) {
         $('#branch').on('change', function () {
             // refresh batch list
             $('#batch').empty();
-           
+            document.getElementById("branchInfo").innerHTML = `
+                        <h3 class="text-center">${$(this).val()}</h3>
+                        <p>${$(this).find(':selected').data('address')}</p>
+                    `;
             const branchId = $(this).find(':selected').data('id');
             if (!branchId) {
                 return;
@@ -68,11 +71,12 @@ firebase.auth().onAuthStateChanged(function(e) {
                     return res.json()
                 })
                 .then((options) => {
-                    swal({
-                        title: options.BranchInfo.name,
-                        icon: options.BranchInfo.photo,
-                        text: options.BranchInfo.address
-                    })
+                    document.getElementById("branchInfo").innerHTML = `
+                        <img src="${options.BranchInfo.photo}" width="100%">
+                        <br>
+                        <h3 class="text-center">${options.BranchInfo.name}</h3>
+                        <p>${options.BranchInfo.address}</p>
+                    `;
                     if (options.status == 200) {
                         $('#batch').append(`<option value="">--Select a Batch--</option>`)
                         options.batchList.forEach((batch) => {
@@ -81,7 +85,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     }
                 })
                 .catch((err) => {
-                   $('#batch').append(`<option value="">No Batch Available</option>`)
+                    $('#batch').append(`<option value="">No Batch Available</option>`)
                 })
         })
 
@@ -112,9 +116,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                         document.getElementById('buy').innerText = "Please Wait...";
                         e.preventDefault()
                         fetch(scriptURL, {
-                                method: 'POST',
-                                body: new FormData(form)
-                            })
+                            method: 'POST',
+                            body: new FormData(form)
+                        })
                             .then((res) => {
                                 return res.json();
                             })
@@ -130,20 +134,20 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 })
                             })
 
-                        .catch(() => {
-                            swal({
-                                title: "Oh No 💔",
-                                icon: "error",
-                                text: "Your booking cancelled!\nPlease try again (later) 😶",
-                                button: "Okay ☹"
+                            .catch(() => {
+                                swal({
+                                    title: "Oh No 💔",
+                                    icon: "error",
+                                    text: "Your booking cancelled!\nPlease try again (later) 😶",
+                                    button: "Okay ☹"
+                                })
                             })
-                        })
                     })
                 } else {
                     swal({
                         title: "Already Booked! ✔",
                         icon: "info",
-                        text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
+                        text: "Hello " + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
                         button: "Thank you"
                     }).then(() => {
                         return location.replace('../');
@@ -187,20 +191,20 @@ firebase.auth().onAuthStateChanged(function(e) {
             location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
         })
         fetch(scriptURL + "?q=Indivisual&uid=unknown")
-        .then((res) => {
-            return res.json();
-        })
-        .then((dashboard) => {
-            document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
-            if (document.getElementById('enrolled')) {
-                const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-                if (!countUp.error) {
-                    countUp.start();
-                } else {
-                    console.error(countUp.error);
+            .then((res) => {
+                return res.json();
+            })
+            .then((dashboard) => {
+                document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
+                if (document.getElementById('enrolled')) {
+                    const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+                    if (!countUp.error) {
+                        countUp.start();
+                    } else {
+                        console.error(countUp.error);
+                    }
                 }
-            }
-        })
+            })
     }
 
 });
