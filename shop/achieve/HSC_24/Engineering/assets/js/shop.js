@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((options) => {
                 if (options.status == 200) {
                     options.branchList.forEach((branch) => {
-                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}">${branch.text}</option>`)
+                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}" data-address="${data.address}">${branch.text}</option>`)
                     })
                 } else {
                     swal({
@@ -68,6 +68,11 @@ firebase.auth().onAuthStateChanged(function(e) {
                     return res.json()
                 })
                 .then((options) => {
+                    swal({
+                        title: options.BranchInfo.name,
+                        icon: options.BranchInfo.photo,
+                        text: options.BranchInfo.address
+                    })
                     if (options.status == 200) {
                         $('#batch').append(`<option value="">--Select a Batch--</option>`)
                         options.batchList.forEach((batch) => {
