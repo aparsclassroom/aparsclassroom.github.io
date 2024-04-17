@@ -68,7 +68,7 @@ firebase.auth().onAuthStateChanged(function (e) {
             <img src="${$(this).find(':selected').data('photo')}" width="100%">
                         <br>
                         <h3 class="text-center">${$(this).val()}</h3>
-                        <p>${$(this).find(':selected').data('address')}</p>
+                        <p class="bangla">${$(this).find(':selected').data('address')}</p>
                     `;
             const batchApi = 'https://crm.aparsclassroom.com/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
 
