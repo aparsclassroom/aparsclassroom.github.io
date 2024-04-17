@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((options) => {
                 if (options.status == 200) {
                     options.branchList.forEach((branch) => {
-                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}">${branch.text}</option>`)
+                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}" data-address="${branch.address}" data-photo="${branch.photo}">${branch.text}</option>`)
                     })
                 } else {
                     swal({
@@ -56,7 +56,12 @@ firebase.auth().onAuthStateChanged(function(e) {
         $('#branch').on('change', function () {
             // refresh batch list
             $('#batch').empty();
-           
+            document.getElementById("branchInfo").innerHTML = `
+            <img src="${$(this).find(':selected').data('photo')}" width="100%">
+                        <br>
+                        <h3 class="text-center">${$(this).val()}</h3>
+                        <p>${$(this).find(':selected').data('address')}</p>
+                    `;
             const branchId = $(this).find(':selected').data('id');
             if (!branchId) {
                 return;
