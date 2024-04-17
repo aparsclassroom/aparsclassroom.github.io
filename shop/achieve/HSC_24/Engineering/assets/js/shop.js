@@ -76,12 +76,6 @@ firebase.auth().onAuthStateChanged(function (e) {
                     return res.json()
                 })
                 .then((options) => {
-                    document.getElementById("branchInfo").innerHTML = `
-                        <img src="${options.BranchInfo.photo}" width="100%">
-                        <br>
-                        <h3 class="text-center">${options.BranchInfo.name}</h3>
-                        <p>${options.BranchInfo.address}</p>
-                    `;
                     if (options.status == 200) {
                         $('#batch').append(`<option value="">--Select a Batch--</option>`)
                         options.batchList.forEach((batch) => {
