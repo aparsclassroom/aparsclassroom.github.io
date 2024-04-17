@@ -63,6 +63,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             }
 
             document.getElementById("branchInfo").innerHTML = `
+            <hr>
             <img src="${$(this).find(':selected').data('photo')}" width="100%">
                         <br>
                         <h3 class="text-center">${$(this).val()}</h3>
