@@ -56,16 +56,19 @@ firebase.auth().onAuthStateChanged(function(e) {
         $('#branch').on('change', function () {
             // refresh batch list
             $('#batch').empty();
+         
+            const branchId = $(this).find(':selected').data('id');
+            if (!branchId) {
+                document.getElementById("branchInfo").innerHTML = "";
+                return;
+            }
+
             document.getElementById("branchInfo").innerHTML = `
             <img src="${$(this).find(':selected').data('photo')}" width="100%">
                         <br>
                         <h3 class="text-center">${$(this).val()}</h3>
                         <p>${$(this).find(':selected').data('address')}</p>
                     `;
-            const branchId = $(this).find(':selected').data('id');
-            if (!branchId) {
-                return;
-            }
             const batchApi = 'https://crm.aparsclassroom.com/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
 
             fetch(batchApi)
