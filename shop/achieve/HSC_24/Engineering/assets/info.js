@@ -1,5 +1,5 @@
 const product = "AchieveEngineering2";
-const productName = "Achieve Engineering Exam Batch 2024";
+const productName = "ACS Achieve Engineering Exam Batch 2024";
 const productCode = "300";
 const fix = 15000;
 const pls = 10000;
