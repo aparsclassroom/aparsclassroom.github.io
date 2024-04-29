@@ -59,6 +59,7 @@ firebase.auth().onAuthStateChanged(function (e) {
 
             const branchId = $(this).find(':selected').data('id');
             if (!branchId) {
+                document.getElementById('clockContainer').style.display = "none";
                 document.getElementById("branchInfo").innerHTML = "";
                 return;
             }
