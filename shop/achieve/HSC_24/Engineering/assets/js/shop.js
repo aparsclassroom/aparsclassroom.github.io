@@ -54,7 +54,7 @@ firebase.auth().onAuthStateChanged(function (e) {
             })
 
         $('#branch').on('change', function () {
-            // refresh batch list
+            document.getElementById('clockContainer').style.display = "none";
             $('#batch').empty();
 
             const branchId = $(this).find(':selected').data('id');
