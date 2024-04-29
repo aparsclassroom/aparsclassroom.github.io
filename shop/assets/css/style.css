@@ -249,8 +249,7 @@ star-rating {
 }
 
 #hour,
-#minute,
-#second {
+#minute {
 	position: absolute;
 	background: black;
 	border-radius: 10px;
@@ -270,13 +269,5 @@ star-rating {
 	height: 30%;
 	top: 19%;
 	left: 48.9%;
-	opacity: 0.8;
-}
-
-#second {
-	width: 1%;
-	height: 40%;
-	top: 9%;
-	left: 49.25%;
 	opacity: 0.8;
 }
