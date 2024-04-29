@@ -114,7 +114,7 @@
     <script src="/assets/js/count.js" defer></script>
     <script src="./assets/info.js" defer></script>
     <script src="./assets/ss.js" defer></script>
-
+    <script src="./assets/time.js" defer></script>
     <!-- Custom Scripts -->
     <script src="./assets/js/shop.js" defer></script>
 </head>
@@ -318,6 +318,11 @@
                                 <select class="form-control" id="batch" required name="Batch">
                                     <option value="">--Select a Branch--</option>
                                 </select>
+                                <div id="clockContainer">
+                                    <div id="hour"></div>
+                                    <div id="minute"></div>
+                                    <div id="second"></div>
+                                </div>
                             </div>
                         </div>
                 </div>
@@ -334,5 +339,4 @@
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
-
 </html>

@@ -25,7 +25,7 @@ document.getElementById('phone').addEventListener("input", function (event) {
         document.getElementById('phone').setCustomValidity("");
     }
 });
-
+document.getElementById('clockContainer').style.display = "none";
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged(function (e) {
         $('#branch').on('change', function () {
             // refresh batch list
             $('#batch').empty();
-            
+
             const branchId = $(this).find(':selected').data('id');
             if (!branchId) {
                 document.getElementById("branchInfo").innerHTML = "";
@@ -80,13 +80,28 @@ firebase.auth().onAuthStateChanged(function (e) {
                     if (options.status == 200) {
                         $('#batch').append(`<option value="">--Select a Batch--</option>`)
                         options.batchList.forEach((batch) => {
-                            $('#batch').append(`<option value="${batch.id}">${batch.text}</option>`)
+                            $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text}</option>`)
                         })
                     }
                 })
                 .catch((err) => {
                     $('#batch').append(`<option value="">No Batch Available</option>`)
                 })
+
+            $('#batch').on('change', function () {
+                const batchTime = $(this).find(':selected').data('time');
+                d = batchTime.split(" - ")[0]; //object of date()
+                hr = d.split(":")[0];
+                min = d.split(":")[1];
+                sec = 0;
+                hr_rotation = 30 * hr + min / 2; //converting current time
+                min_rotation = 6 * min;
+                sec_rotation = 6 * sec;
+
+                hour.style.transform = `rotate(${hr_rotation}deg)`;
+                minute.style.transform = `rotate(${min_rotation}deg)`;
+                second.style.transform = `rotate(${sec_rotation}deg)`;
+            })
         })
 
         var t = e.phoneNumber;
