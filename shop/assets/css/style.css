@@ -243,7 +243,7 @@ star-rating {
     margin-top: 10px;
 	/*to make the height and width responsive*/
 	width: 40vh;
-	background: url(https://media.geeksforgeeks.org/wp-content/uploads/20210302161254/imgonlinecomuaCompressToSizeOmNATjUMFKw-300x300.jpg) no-repeat;
+	background: url('/img/time.jpeg') no-repeat;
 	/*setting our background image*/
 	background-size: 100%;
 }
