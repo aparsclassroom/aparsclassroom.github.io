@@ -89,6 +89,10 @@ firebase.auth().onAuthStateChanged(function (e) {
                 })
 
             $('#batch').on('change', function () {
+                if (!$(this).val()) {
+                    document.getElementById('clockContainer').style.display = "none";
+                    return;
+                }
                 document.getElementById('clockContainer').style.display = "block";
                 const batchTime = $(this).find(':selected').data('time');
                 d = batchTime.split(" - ")[0]; //object of date()
