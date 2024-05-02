@@ -60,10 +60,10 @@ let redirectUrl = params.signInSuccessUrl;
                     badge: 'bottomleft'
                 },
                 defaultCountry: 'BD',
-                whitelistedCountries: ['BD', '+880', 'IN', '+91']
+                whitelistedCountries: ['BD', '+880']
             }
         ],
-        credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
+        //credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
         tosUrl: '/terms',
         privacyPolicyUrl: '/privacy'
     };
