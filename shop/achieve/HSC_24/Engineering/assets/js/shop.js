@@ -79,6 +79,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     return res.json()
                 })
                 .then((options) => {
+                    $('#batch').empty();
                     if (options.status == 200) {
                         $('#batch').append(`<option value="">--Select a Batch--</option>`)
                         options.batchList.forEach((batch) => {

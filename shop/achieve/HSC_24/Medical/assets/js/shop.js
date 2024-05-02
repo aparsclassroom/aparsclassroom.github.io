@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             $('#branch').on('change', function () {
                 document.getElementById('clockContainer').style.display = "none";
                 $('#batch').empty();
+            $('#batch').append(`<option value="">--Select a Batch--</option>`)
     
                 const branchId = $(this).find(':selected').data('id');
                 if (!branchId) {
@@ -79,6 +80,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         return res.json()
                     })
                     .then((options) => {
+                        $('#batch').empty();
                         if (options.status == 200) {
                             $('#batch').append(`<option value="">--Select a Batch--</option>`)
                             options.batchList.forEach((batch) => {
