@@ -23,7 +23,7 @@ document.getElementById('sprice').innerText = pls;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
 
-        const branchApi = 'https://' + shopName +'/branch/find/available-branches?productId=' + productCode;
+        const branchApi = 'https://crm.apars.shop/branch/find/available-branches?productId=' + productCode;
 
         fetch(branchApi)
             .then((res) => {
@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             <h3 class="text-center">${$(this).val()}</h3>
                             <p class="bangla">${$(this).find(':selected').data('address')}</p>
                         `;
-                const batchApi = 'https://' + shopName +'/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
+                const batchApi = 'https://crm.apars.shop/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
     
                 fetch(batchApi)
                     .then((res) => {
