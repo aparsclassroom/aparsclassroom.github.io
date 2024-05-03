@@ -132,7 +132,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         title: "Already Enrolled !",
                         icon: "info",
                         button: "Achieve Card"
-                    }).then((a) => {
+                    }).then(() => {
                         location.replace("https://apars.shop/achieve/card"+ e.uid)
                     })
                 } else {
