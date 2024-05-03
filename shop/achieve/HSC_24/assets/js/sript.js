@@ -291,7 +291,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         firebase.auth().currentUser.getIdTokenResult()
             .then((idTokenResult) => {
                 const claims = idTokenResult.claims;
-                if (!claims.Roll) {
+                if (!claims.roll) {
                     swal({
                         title: "ASG SHOP Roll Missing !",
                         icon: "info",
