@@ -34,11 +34,11 @@ if (screen.width <= 600) {
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
 fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
     .then((res) => {
         return res.json()
