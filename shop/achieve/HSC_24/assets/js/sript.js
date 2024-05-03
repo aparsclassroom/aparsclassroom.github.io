@@ -19,7 +19,6 @@ document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
-document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
@@ -360,7 +359,6 @@ cpn.addEventListener('click', (e) => {
             if (loadedData.status === "success") {
                 var nes = pls - loadedData.Off;
                 disOFF = loadedData.Off;
-                document.getElementById('price').value = nes;
                 document.getElementById('sprice').innerText = nes;
                 cpn.style.cursor = "not-allowed";
                 cupV.value = loadedData.Cupon;
