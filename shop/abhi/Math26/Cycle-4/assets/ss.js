@@ -1,5 +1,5 @@
 const product = "Math26";
-const productName = "ACS Higher Math HSC 26";
+const productName = "ACS Higher Math 2nd Paper (HSC 26)";
 const productCode = "314";
 const fix = 1500;
 const pls = 1000;
