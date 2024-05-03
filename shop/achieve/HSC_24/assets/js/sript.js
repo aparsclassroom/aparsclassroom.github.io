@@ -23,6 +23,84 @@ document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
+
+        const branchApi = 'https://' + shopName +'/branch/find/available-branches?productId=' + productCode;
+
+        fetch(branchApi)
+            .then((res) => {
+                return res.json()
+            })
+            .then((options) => {
+                if (options.status == 200) {
+                    options.branchList.forEach((branch) => {
+                        $('#branch').append(`<option value="${branch.text}" data-id="${branch.id}" data-address="${branch.address}" data-photo="${branch.photo}">${branch.text}</option>`)
+                    })
+                } else {
+                    swal({
+                        title: "Error",
+                        icon: "error",
+                        text: options.message
+                    })
+                }
+            })
+
+     
+            $('#branch').on('change', function () {
+                document.getElementById('clockContainer').style.display = "none";
+                $('#batch').empty();
+            $('#batch').append(`<option value="">--Select a Batch--</option>`)
+    
+                const branchId = $(this).find(':selected').data('id');
+                if (!branchId) {
+                    document.getElementById('clockContainer').style.display = "none";
+                    document.getElementById("branchInfo").innerHTML = "";
+                    return;
+                }
+    
+                document.getElementById("branchInfo").innerHTML = `
+                <hr>
+                <img src="${$(this).find(':selected').data('photo')}" width="100%">
+                            <br>
+                            <h3 class="text-center">${$(this).val()}</h3>
+                            <p class="bangla">${$(this).find(':selected').data('address')}</p>
+                        `;
+                const batchApi = 'https://' + shopName +'/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
+    
+                fetch(batchApi)
+                    .then((res) => {
+                        return res.json()
+                    })
+                    .then((options) => {
+                        $('#batch').empty();
+                        if (options.status == 200) {
+                            $('#batch').append(`<option value="">--Select a Batch--</option>`)
+                            options.batchList.forEach((batch) => {
+                                $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text}</option>`)
+                            })
+                        }
+                    })
+                    .catch((err) => {
+                        $('#batch').append(`<option value="">No Batch Available</option>`)
+                    })
+    
+                $('#batch').on('change', function () {
+                    if (!$(this).val()) {
+                        document.getElementById('clockContainer').style.display = "none";
+                        return;
+                    }
+                    document.getElementById('clockContainer').style.display = "block";
+                    const batchTime = $(this).find(':selected').data('time');
+                    d = batchTime.split(" - ")[0]; //object of date()
+                    hr = d.split(":")[0];
+                    min = d.split(":")[1];
+                    hr_rotation = 30 * hr + min / 2; //converting current time
+                    min_rotation = 6 * min;
+    
+                    hour.style.transform = `rotate(${hr_rotation}deg)`;
+                    minute.style.transform = `rotate(${min_rotation}deg)`;
+                })
+            })
+
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
@@ -80,6 +158,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "HSC": document.getElementById('hscBatch').value.trim(),
                             "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
+                            "BranchId": document.getElementById("branch").value,
+                            "BatchId": document.getElementById("batch").value,
                             'uid': e.uid,
                             "affiliate": getCookie("affiliate"),
                             "utm_id": getCookie("utm_id"),
@@ -149,6 +229,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "HSC": document.getElementById('hscBatch').value.trim(),
                         "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
+                        "BranchId": document.getElementById("branch").value,
+                        "BatchId": document.getElementById("batch").value,
                         'uid': e.uid,
                         "affiliate": getCookie("affiliate"),
                         "utm_id": getCookie("utm_id"),
