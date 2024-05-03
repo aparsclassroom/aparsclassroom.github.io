@@ -154,7 +154,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "cus_name": document.getElementById('name').value.trim(),
                             "cus_email": mail,
                             "Institution": document.getElementById('college').value.trim(),
-                            "HSC": document.getElementById('hscBatch').value.trim(),
                             "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
                             "BranchId": document.getElementById("branch").value,
@@ -225,7 +224,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "cus_name": document.getElementById('name').value.trim(),
                         "cus_email": mail,
                         "Institution": document.getElementById('college').value.trim(),
-                        "HSC": document.getElementById('hscBatch').value.trim(),
                         "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
                         "BranchId": document.getElementById("branch").value,
@@ -301,9 +299,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         firebase.auth().currentUser.getIdTokenResult()
             .then((idTokenResult) => {
                 const claims = idTokenResult.claims;
-                if (claims.HSC) {
-                    document.getElementById('hscBatch').value = claims.HSC;
-                }
                 if (claims.Institution) {
                     document.getElementById('college').value = claims.Institution;
                 }
