@@ -295,7 +295,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "ASG SHOP Roll Missing !",
                         icon: "info",
-                        text: "You have to update your Profile First !"
+                        text: "You have to update your Profile First",
+                        button: "Ok, Go To Profile Update"
                     }).then(() => {
                         location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
                     })
