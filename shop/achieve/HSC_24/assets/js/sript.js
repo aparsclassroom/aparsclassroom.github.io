@@ -133,7 +133,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         icon: "info",
                         button: "Achieve Card"
                     }).then(() => {
-                        location.href = "https://apars.shop/achieve/card"+ e.uid
+                        location.href = "https://apars.shop/achieve/card/"+ e.uid
                     })
                 } else {
                     const form = document.forms['purchase']
