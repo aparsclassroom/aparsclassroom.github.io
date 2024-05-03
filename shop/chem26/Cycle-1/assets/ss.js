@@ -1,6 +1,6 @@
 const product = "chem26";
 const productName = "ACS HSC 26 Chemistry";
-const productCode = "318";
+const productCode = "317";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
