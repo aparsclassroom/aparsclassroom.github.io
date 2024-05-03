@@ -420,6 +420,7 @@
                             document.getElementById('roll').innerText = "ASG SHOP Roll: " + data.roll;
                             if(params.returnToCourse) {
                                 document.getElementById('returnButton').innerHTML = `<i class="fas fa-arrow-left"></i>&nbsp;Return to Course`;
+                                document.getElementById('returnButton').href = `${params.returnToCourse}`;
                             }
                             document.getElementById('mail').innerText = data.Email;
                             document.getElementById('num').innerText = data.Phone;
