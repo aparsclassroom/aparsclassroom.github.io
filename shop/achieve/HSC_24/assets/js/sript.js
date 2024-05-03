@@ -133,7 +133,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         icon: "success",
                         buttons:  ["View Achieve Card"]
                     }).then((a) => {
-                        location.replace("https://shop.aparsclassroom.com/achieve/card"+ e.uid)
+                        location.replace("https://apars.shop/achieve/card"+ e.uid)
                     })
                 } else {
                     const form = document.forms['purchase']
