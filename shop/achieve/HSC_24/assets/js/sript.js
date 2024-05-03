@@ -127,17 +127,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
-                        buttons:  ["Exam Dashboard", "View Invoice"]
-                    }).then((a,b) => {
-                        if (a) {
-                            location.replace(result.Invoice)
-                        } else {
-                            if (result.Exam) {
-                                location.replace(result.Exam)
-                            } else {
-                                location.replace("http://exam.aparsclassroom.com/?uid="+ e.uid)
-                            }
-                        }
+                        buttons:  ["View Achieve Card"]
+                    }).then((a) => {
+                        location.replace("https://shop.aparsclassroom.com/achieve/card"+ e.uid)
                     })
                 } else {
                     const form = document.forms['purchase']
@@ -299,8 +291,18 @@ firebase.auth().onAuthStateChanged(function(e) {
         firebase.auth().currentUser.getIdTokenResult()
             .then((idTokenResult) => {
                 const claims = idTokenResult.claims;
-                if (claims.Institution) {
-                    document.getElementById('college').value = claims.Institution;
+                if (!claims.Roll) {
+                    swal({
+                        title: "ASG SHOP Roll Missing !",
+                        icon: "info",
+                        text: "You have to update your Profile First !"
+                    }).then(() => {
+                        location.href = "/shop/dashboard/?return=" + encodeURIComponent(location.href)
+                    })
+                } else {
+                    if (claims.Institution) {
+                        document.getElementById('college').value = claims.Institution;
+                    }
                 }
             })
             .catch((error) => {
@@ -315,7 +317,6 @@ firebase.auth().onAuthStateChanged(function(e) {
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
-                sessionStorage.setItem(product + '_potential', 'true');
                 location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
             })
         document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
