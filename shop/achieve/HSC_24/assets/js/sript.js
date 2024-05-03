@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             <h3 class="text-center">${$(this).val()}</h3>
                             <p class="bangla">${$(this).find(':selected').data('address')}</p>
                         `;
-                const batchApi = 'https://crm.apars.shop/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
+                const batchApi = 'https://crm.apars.shop/branch/find/available-batches?branchId=' + branchId + '&productId=' + productCode;
     
                 fetch(batchApi)
                     .then((res) => {
@@ -74,7 +74,11 @@ firebase.auth().onAuthStateChanged(function(e) {
                         if (options.status == 200) {
                             $('#batch').append(`<option value="">--Select a Batch--</option>`)
                             options.batchList.forEach((batch) => {
-                                $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text}</option>`)
+                                if (batch.status != "Disable") {
+                                    $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text} (${batch.students} / ${batch.max})</option>`)
+                                } else {
+                                    $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}" disabled>${batch.text} (Batch Full)</option>`)
+                                }
                             })
                         }
                     })
@@ -148,8 +152,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "Institution": document.getElementById('college').value.trim(),
                             "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
-                            "BranchId": document.getElementById("branch").value,
-                            "BatchId": document.getElementById("batch").value,
+                            "BranchId": $('#branch').find(':selected').data('id'),
+                            "BatchId": $('#batch').val(),
                             'uid': e.uid,
                             "affiliate": getCookie("affiliate"),
                             "utm_id": getCookie("utm_id"),
@@ -218,8 +222,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "Institution": document.getElementById('college').value.trim(),
                         "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
-                        "BranchId": document.getElementById("branch").value,
-                        "BatchId": document.getElementById("batch").value,
+                        "BranchId": $('#branch').find(':selected').data('id'),
+                        "BatchId": $('#batch').val(),
                         'uid': e.uid,
                         "affiliate": getCookie("affiliate"),
                         "utm_id": getCookie("utm_id"),
