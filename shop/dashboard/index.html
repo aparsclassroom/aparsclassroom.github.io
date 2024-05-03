@@ -371,6 +371,10 @@
                 }
             })
         }
+        if(params.message == "RollMissing") {
+            swal("Update your Profile", "To get a ASG SHOP Roll you have to update your profile", "info")
+            $('#profile').modal('show');
+        }
         document.getElementById('email').addEventListener("input", function (event) {
             if (document.getElementById('email').validity.typeMismatch) {
                 document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
@@ -512,7 +516,11 @@
                                             .then(() => {
                                                 firebase.auth().currentUser.getIdTokenResult(true)
                                                     .then(() => {
-                                                        location.reload();
+                                                        if (params.returnToCourse) {
+                                                            location.replace(`${params.returnToCourse}`);
+                                                        } else {
+                                                            location.reload();
+                                                        }
                                                     })
                                             })
                                     } else {

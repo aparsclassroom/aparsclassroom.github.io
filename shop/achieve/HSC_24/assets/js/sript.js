@@ -297,7 +297,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         icon: "info",
                         text: "You have to update your Profile First !"
                     }).then(() => {
-                        location.href = "/shop/dashboard/?return=" + encodeURIComponent(location.href)
+                        location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
                     })
                 } else {
                     if (claims.Institution) {
