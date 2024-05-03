@@ -74,7 +74,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         if (options.status == 200) {
                             $('#batch').append(`<option value="">--Select a Batch--</option>`)
                             options.batchList.forEach((batch) => {
-                                if (batch.status != "Disable") {
+                                if (batch.disabled == false) {
                                     $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text} (${batch.students} / ${batch.max})</option>`)
                                 } else {
                                     $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}" disabled>${batch.text} (Batch Full)</option>`)
