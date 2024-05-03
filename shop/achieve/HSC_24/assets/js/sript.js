@@ -130,8 +130,8 @@ firebase.auth().onAuthStateChanged(function(e) {
                 if (result.status === 200) {
                     swal({
                         title: "Already Enrolled !",
-                        icon: "success",
-                        buttons:  ["View Achieve Card"]
+                        icon: "info",
+                        button: "Achieve Card"
                     }).then((a) => {
                         location.replace("https://apars.shop/achieve/card"+ e.uid)
                     })
