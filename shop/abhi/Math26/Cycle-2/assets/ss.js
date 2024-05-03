@@ -1,10 +1,10 @@
-const product = "Math25";
-const productName = "Higher Math 2nd Paper (HSC 25)";
-const productCode = "274";
+const product = "Math26";
+const productName = "ACS Higher Math HSC 26";
+const productCode = "312";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
-const Platform = "Abhi";
+const Platform = "Online";
 const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
