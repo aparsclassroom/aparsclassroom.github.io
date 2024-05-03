@@ -1,6 +1,6 @@
-const product = "chem25";
-const productName = "HSC 25 Chemistry";
-const productCode = "279";
+const product = "chem26";
+const productName = "HSC 26 Chemistry";
+const productCode = "320";
 const fix = 1500;
 const pls = 1000;
 const init = 0;

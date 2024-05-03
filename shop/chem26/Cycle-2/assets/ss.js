@@ -1,10 +1,10 @@
-const product = "chem25";
-const productName = "HSC 25 Chemistry";
-const productCode = "278";
+const product = "chem26";
+const productName = "HSC 26 Chemistry";
+const productCode = "319";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
