@@ -423,7 +423,6 @@
                             }
                             document.getElementById('mail').innerText = data.Email;
                             document.getElementById('num').innerText = data.Phone;
-                            document.getElementById('password').innerText = data.Phone.substr(-4);
                             document.getElementById('HSC').innerText = data.HSC;
                             if (data.FbName != null) {
                                 document.getElementById('FbLink').innerText = data.FbName;
@@ -568,9 +567,9 @@
                                         element.o2o = 0;
                                     }
                                     if(element.Product.Cycle !="") {
-                                        courseName = element.Product.productName + " (" + element.Product.Cycle + ")";
+                                        courseName = element.productName + " (" + element.Product.Cycle + ")";
                                     } else {
-                                        courseName = element.Product.productName;
+                                        courseName = element.productName;
                                     }
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
 
