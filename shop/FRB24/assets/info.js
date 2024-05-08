@@ -4,5 +4,5 @@ const productCode = "284";
 const productCode2 = "285";
 const fix = 5000;
 const pls = 2000;
-const Platform = "Super Admin";
+const Platform = "Online";
 const init = 0;

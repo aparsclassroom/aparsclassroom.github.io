@@ -3,5 +3,5 @@ const productName = "ACS Engineering Admission Private Batch 2024";
 const productCode = "293";
 const fix = 10000;
 const pls = 5000;
-const Platform = "Super Admin";
+const Platform = "Online";
 const init = 0;

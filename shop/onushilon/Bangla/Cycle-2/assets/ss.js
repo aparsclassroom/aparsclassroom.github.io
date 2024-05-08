@@ -1,7 +1,7 @@
 const product = "Onushilon";
 const productName = "বাংলা অনুশীলন (২য় পত্র)";
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const productCode = "292";
 const fix = 2000;
 const pls = 1000;

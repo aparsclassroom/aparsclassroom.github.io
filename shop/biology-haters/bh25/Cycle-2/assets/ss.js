@@ -1,7 +1,7 @@
 const product = "bh25";
 const productName = "Breaking Biology HSC 25 by Biology Haters";
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const productCode = "282";
 const fix = 2000;
 const pls = 1000;
