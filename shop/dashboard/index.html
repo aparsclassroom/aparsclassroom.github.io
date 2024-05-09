@@ -590,7 +590,7 @@
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success" href="javascript:viewKey('${element.assigned}','${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
+                                    <div class="small text-muted text-center"><a class="btn btn-success" id="viewBtn${element.tran_id}" href="javascript:viewKey('${element.assigned}','${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
                                 </div>
                             </div>
                         </div>
@@ -970,7 +970,8 @@
 
 
         function viewKey(assigned, tran_id) {
-
+            document.getElementById('viewBtn' + tran_id).setAttribute('disabled', 'true');
+            document.getElementById('viewBtn' + tran_id).innerText = "Loading...";
             if (assigned == "true") {
 
                 var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}`;
@@ -987,6 +988,8 @@
                         } else {
                             swal("Oops", loadedData.message, "Check back later when ASG SHOP restocks keys", "error")
                         }
+                        document.getElementById('viewBtn' + tran_id).removeAttribute('disabled');
+                        document.getElementById('viewBtn' + tran_id).innerText = "View Key";
                     })
                     .catch((err) => {
                         swal("Oops", "Something went wrong, Please try again later", "error")
@@ -1004,6 +1007,8 @@
                                 text: loadedData.key.description,
                                 icon: loadedData.key.image != "" ? loadedData.key.image : "success"
                             })
+                            document.getElementById('viewBtn' + tran_id).removeAttribute('disabled');
+                        document.getElementById('viewBtn' + tran_id).innerText = "View Key";
                         } else {
                             swal("Oops", loadedData.message, "Check back later when ASG SHOP restocks keys", "error")
                         }
