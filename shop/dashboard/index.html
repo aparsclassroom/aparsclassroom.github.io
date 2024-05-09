@@ -979,11 +979,10 @@
                     .then(response => response.json())
                     .then((loadedData) => {
                         if (loadedData.status === 200) {
-                            var key = loadedData.key;
                             swal({
-                                title: digital_key.title + ': ' + digital_key.link,
-                                text: digital_key.description,
-                                icon: digital_key.image != "" ? digital_key.image : "info"
+                                title: loadedData.key.digital_key.title + ': ' + loadedData.key.digital_key.link,
+                                text: loadedData.key.digital_key.description,
+                                icon: loadedData.key.digital_key.image != "" ? loadedData.key.digital_key.image : "info"
                             })
                         } else {
                             swal("Oops", loadedData.message, "error")
