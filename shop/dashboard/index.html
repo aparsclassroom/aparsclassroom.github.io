@@ -52,9 +52,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="/assets/js/sweetalert.min.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/key.js"></script>
@@ -87,8 +89,9 @@
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3">
                     <ol class="breadcrumb mb-0">
-                        <a style="text-align: center; text-decoration: none;" id="returnButton" class="btn btn-outline-success"
-                            href="../"><i class="fas fa-store-alt"></i>&nbsp;Return to SHOP</a>
+                        <a style="text-align: center; text-decoration: none;" id="returnButton"
+                            class="btn btn-outline-success" href="../"><i class="fas fa-store-alt"></i>&nbsp;Return to
+                            SHOP</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <a style="text-align: center; text-decoration: none;" class="btn btn-outline-danger"
                             href="javascript:logOut()"><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
@@ -282,8 +285,8 @@
                         </div>
                         <div class="form-group">
                             <label for="pParent">Parent's Number</label>
-                            <input type="tel" class="form-control" id="pParent"
-                                placeholder="Enter your Parent's Number" value="+880" required>
+                            <input type="tel" class="form-control" id="pParent" placeholder="Enter your Parent's Number"
+                                value="+880" required>
                         </div>
                         <div class="form-group">
                             <label for="pInstitution">Institution Name</label>
@@ -333,7 +336,8 @@
         <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="achieveModalLabel"><i class="fas fa-address-card"></i>&nbsp;Achieve Card</h5>
+                    <h5 class="modal-title" id="achieveModalLabel"><i class="fas fa-address-card"></i>&nbsp;Achieve Card
+                    </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -368,7 +372,7 @@
                 }
             })
         }
-        if(params.message == "RollMissing") {
+        if (params.message == "RollMissing") {
             $('#profile').modal('show');
         }
         document.getElementById('email').addEventListener("input", function (event) {
@@ -417,7 +421,7 @@
                             document.getElementById('name').innerText = data.Name;
                             document.getElementById('name2').innerText = data.Name;
                             document.getElementById('roll').innerText = "ASG SHOP Roll: " + data.roll;
-                            if(params.returnToCourse) {
+                            if (params.returnToCourse) {
                                 document.getElementById('returnButton').innerHTML = `<i class="fas fa-arrow-left"></i>&nbsp;Return to Course`;
                                 document.getElementById('returnButton').href = `${params.returnToCourse}`;
                             }
@@ -566,54 +570,33 @@
                                     if (element.o2o == null) {
                                         element.o2o = 0;
                                     }
-                                    if(element.Product.Cycle !="") {
+                                    if (element.Product.Cycle != "") {
                                         courseName = element.ProductName + " (" + element.Product.Cycle + ")";
                                     } else {
                                         courseName = element.ProductName;
                                     }
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
                                         if (element.Platform == "Digital") {
+                                            var content = `
+                        <div class="col-lg-4 mb-4">
+                            <div class="card lift lift-sm h-100">
+                                <div class="card-body py-5">
+                                    <h5 class="card-title text-primary text-center mb-2">
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                    </h5>
+                                    <h4 class="text-success text-center">${courseName}</h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="small text-muted text-center"><a class="btn btn-success" href="javascript:viewKey('${element.assigned}','${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
 
-                                            if (element.assigned == true) {
-                                                var content = `
-                        <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100">
-                                <div class="card-body py-5">
-                                    <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                                    </h5>
-                                    <h4 class="text-success text-center">${courseName}</h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success" href="javascript:viewKey('${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                                            } else {
-                                                var content = `
-                        <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100">
-                                <div class="card-body py-5">
-                                    <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                                    </h5>
-                                    <h4 class="text-success text-center">${courseName}</h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success"href="javascript:viewKey('${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                                            }
-                                           
+
                                         } else {
                                             var content = `
                         <div class="col-lg-4 mb-4">
@@ -635,7 +618,7 @@
                         </div>
                         `;
                                         }
-                                       
+
                                     } else {
                                         if (element.Platform == "Digital") {
                                             var content = `
@@ -678,7 +661,7 @@
                         </div>
                         `;
                                         }
-                                       
+
                                     }
                                     results.innerHTML += content;
 
@@ -826,7 +809,7 @@
                 })
         })
 
-        
+
         document.getElementById('admitCard').addEventListener('click', () => {
             document.getElementById('admitCard').setAttribute('disabled', 'true');
             document.getElementById('admitCard').innerText = "Checking...";
@@ -986,24 +969,52 @@
         // }
 
 
-        function viewKey(tran_id) {
-            var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}/get-key/${tran_id}`;
+        function viewKey(assigned, tran_id) {
 
-            fetch(api)
-                .then(response => response.json())
-                .then((loadedData) => {
-                    if (loadedData.status === 200) {
-                        swal({
-                            title: loadedData.key.title + ': '+ loadedData.key.link,
-                            text: loadedData.key.description
-                        })
-                    } else {
-                        swal("Oops", loadedData.message, "error")
-                    }
-                })
-                .catch((err) => {
-                    swal("Oops", "Something went wrong, Please try again later", "error")
-                })
+            if (assigned == "true") {
+
+                var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}`;
+
+                fetch(api)
+                    .then(response => response.json())
+                    .then((loadedData) => {
+                        if (loadedData.status === 200) {
+                            var key = loadedData.key;
+                            swal({
+                                title: digital_key.title + ': ' + digital_key.link,
+                                text: digital_key.description,
+                                icon: digital_key.image != "" ? digital_key.image : "info"
+                            })
+                        } else {
+                            swal("Oops", loadedData.message, "error")
+                        }
+                    })
+                    .catch((err) => {
+                        swal("Oops", "Something went wrong, Please try again later", "error")
+                    })
+
+            } else {
+                var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}/get-key/${tran_id}`;
+
+                fetch(api)
+                    .then(response => response.json())
+                    .then((loadedData) => {
+                        if (loadedData.status === 200) {
+                            swal({
+                                title: loadedData.key.title + ': ' + loadedData.key.link,
+                                text: loadedData.key.description,
+                                icon: digital_key.image != "" ? digital_key.image : "success"
+                            })
+                        } else {
+                            swal("Oops", loadedData.message, "error")
+                        }
+                    })
+                    .catch((err) => {
+                        swal("Oops", "Something went wrong, Please try again later", "error")
+                    })
+            }
+
+
         }
     </script>
     <!-- Cloudflare Web Analytics -->
