@@ -999,11 +999,11 @@
                 fetch(api)
                     .then(response => response.json())
                     .then((loadedData) => {
-                        if (loadedData.status === 200) {
+                        if (loadedData.status == 200) {
                             swal({
                                 title: loadedData.key.title + ': ' + loadedData.key.link,
                                 text: loadedData.key.description,
-                                icon: digital_key.image != "" ? digital_key.image : "success"
+                                icon: loadedData.key.image != "" ? loadedData.key.image : "success"
                             })
                         } else {
                             swal("Oops", loadedData.message, "error")
