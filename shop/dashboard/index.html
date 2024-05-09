@@ -573,7 +573,9 @@
                                     }
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
                                         if (element.Platform == "Digital") {
-                                            var content = `
+
+                                            if (element.assigned == true) {
+                                                var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
@@ -586,11 +588,32 @@
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a}">View Key</a><br>Time : ${element.Timestamp}</div>
+                                    <div class="small text-muted text-center"><a class="btn btn-success" href="javascript:viewKey('${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
                                 </div>
                             </div>
                         </div>
                         `;
+                                            } else {
+                                                var content = `
+                        <div class="col-lg-4 mb-4">
+                            <div class="card lift lift-sm h-100">
+                                <div class="card-body py-5">
+                                    <h5 class="card-title text-primary text-center mb-2">
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                    </h5>
+                                    <h4 class="text-success text-center">${courseName}</h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="small text-muted text-center"><a class="btn btn-success"href="javascript:viewKey('${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                                            }
+                                           
                                         } else {
                                             var content = `
                         <div class="col-lg-4 mb-4">
@@ -803,7 +826,7 @@
                 })
         })
 
-
+        
         document.getElementById('admitCard').addEventListener('click', () => {
             document.getElementById('admitCard').setAttribute('disabled', 'true');
             document.getElementById('admitCard').innerText = "Checking...";
@@ -961,6 +984,27 @@
         //             messaging.useServiceWorker(registration);
         //         });
         // }
+
+
+        function viewKey(tran_id) {
+            var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}/get-key/${tran_id}`;
+
+            fetch(api)
+                .then(response => response.json())
+                .then((loadedData) => {
+                    if (loadedData.status === 200) {
+                        swal({
+                            title: loadedData.key.title + ': '+ loadedData.key.link,
+                            text: loadedData.key.description
+                        })
+                    } else {
+                        swal("Oops", loadedData.message, "error")
+                    }
+                })
+                .catch((err) => {
+                    swal("Oops", "Something went wrong, Please try again later", "error")
+                })
+        }
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
