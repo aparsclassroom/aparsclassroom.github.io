@@ -1,4 +1,3 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxLn4vxBqUAOGI72wxCmXZhjXvhuqBG2_q7d7wXx5vwuo9Iz0K0A68zseXTIxAUdELc/exec';
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
@@ -33,7 +32,7 @@ document.getElementById('prod').innerText = productName;
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
 
-        const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + productCode;
+        const branchApi = branchHost + '/available-branches?productId=' + productCode;
 
         fetch(branchApi)
             .then((res) => {
@@ -72,7 +71,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         <h3 class="text-center">${$(this).val()}</h3>
                         <p class="bangla">${$(this).find(':selected').data('address')}</p>
                     `;
-            const batchApi = 'https://crm.aparsclassroom.com/branch/find/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
+            const batchApi = branchHost + '/available-batches-pre-book?branchId=' + branchId + '&productId=' + productCode;
 
             fetch(batchApi)
                 .then((res) => {
