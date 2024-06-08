@@ -311,7 +311,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
                                 })
                             } else {
-                                document.getElementById('college').value = loadedData.Institution
+                                document.getElementById('college').value = loadedData.Institution;
+                                
                             }
                         })
                         .catch((err) => {
