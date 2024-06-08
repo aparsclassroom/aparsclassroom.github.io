@@ -516,15 +516,16 @@
                                 .then((result) => {
                                     if (result.status === 200) {
                                         swal("Profile Updated", "Your Profile has been updated successfully", "success")
-                                            .then(() => {
-                                                firebase.auth().currentUser.getIdTokenResult(true)
-                                                    .then(() => {
-                                                        if (params.returnToCourse) {
-                                                            location.replace(`${params.returnToCourse}`);
-                                                        } else {
-                                                            location.reload();
-                                                        }
-                                                    })
+                                            .then((information) => {
+                                                console.log(information)
+                                                // firebase.auth().currentUser.getIdTokenResult(true)
+                                                //     .then(() => {
+                                                //         if (params.returnToCourse) {
+                                                //             location.replace(`${params.returnToCourse}`);
+                                                //         } else {
+                                                //             location.reload();
+                                                //         }
+                                                //     })
                                             })
                                     } else {
                                         swal("Oops", result.message, "error")
