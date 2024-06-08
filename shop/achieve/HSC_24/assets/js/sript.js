@@ -308,7 +308,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     text: "You have to update your Profile First",
                                     button: "Ok, Go To Profile Update"
                                 }).then(() => {
-                                    location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
+                                    location.href = "/shop/dashboard"
+                                    // location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
                                 })
                             } else {
                                 document.getElementById('college').value = loadedData.Institution;
