@@ -296,6 +296,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         }
         firebase.auth().currentUser.getIdTokenResult()
             .then((idTokenResult) => {
+                console.log(idTokenResult)
                 const claims = idTokenResult.claims;
                 if (!claims.roll) {
                     swal({
