@@ -1,18 +1,18 @@
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
@@ -20,7 +20,7 @@ document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('clockContainer').style.display = "none";
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
 
         const branchApi = 'https://crm.apars.shop/branch/find/available-branches?productId=' + productCode;
@@ -43,66 +43,66 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
             })
 
-     
-            $('#branch').on('change', function () {
-                document.getElementById('clockContainer').style.display = "none";
-                $('#batch').empty();
+
+        $('#branch').on('change', function () {
+            document.getElementById('clockContainer').style.display = "none";
+            $('#batch').empty();
             $('#batch').append(`<option value="">--Select a Batch--</option>`)
-    
-                const branchId = $(this).find(':selected').data('id');
-                if (!branchId) {
-                    document.getElementById('clockContainer').style.display = "none";
-                    document.getElementById("branchInfo").innerHTML = "";
-                    return;
-                }
-    
-                document.getElementById("branchInfo").innerHTML = `
+
+            const branchId = $(this).find(':selected').data('id');
+            if (!branchId) {
+                document.getElementById('clockContainer').style.display = "none";
+                document.getElementById("branchInfo").innerHTML = "";
+                return;
+            }
+
+            document.getElementById("branchInfo").innerHTML = `
                 <hr>
                 <img src="${$(this).find(':selected').data('photo')}" width="100%">
                             <br>
                             <h3 class="text-center">${$(this).val()}</h3>
                             <p class="bangla">${$(this).find(':selected').data('address')}</p>
                         `;
-                const batchApi = 'https://crm.apars.shop/branch/find/available-batches?branchId=' + branchId + '&productId=' + productCode;
-    
-                fetch(batchApi)
-                    .then((res) => {
-                        return res.json()
-                    })
-                    .then((options) => {
-                        $('#batch').empty();
-                        if (options.status == 200) {
-                            $('#batch').append(`<option value="">--Select a Batch--</option>`)
-                            options.batchList.forEach((batch) => {
-                                if (batch.disabled == false) {
-                                    $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text} (${batch.students} / ${batch.max})</option>`)
-                                } else {
-                                    $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}" disabled>${batch.text} (Batch Full)</option>`)
-                                }
-                            })
-                        }
-                    })
-                    .catch((err) => {
-                        $('#batch').append(`<option value="">No Batch Available</option>`)
-                    })
-    
-                $('#batch').on('change', function () {
-                    if (!$(this).val()) {
-                        document.getElementById('clockContainer').style.display = "none";
-                        return;
-                    }
-                    document.getElementById('clockContainer').style.display = "block";
-                    const batchTime = $(this).find(':selected').data('time');
-                    d = batchTime.split(" - ")[0]; //object of date()
-                    hr = d.split(":")[0];
-                    min = d.split(":")[1];
-                    hr_rotation = 30 * hr + min / 2; //converting current time
-                    min_rotation = 6 * min;
-    
-                    hour.style.transform = `rotate(${hr_rotation}deg)`;
-                    minute.style.transform = `rotate(${min_rotation}deg)`;
+            const batchApi = 'https://crm.apars.shop/branch/find/available-batches?branchId=' + branchId + '&productId=' + productCode;
+
+            fetch(batchApi)
+                .then((res) => {
+                    return res.json()
                 })
+                .then((options) => {
+                    $('#batch').empty();
+                    if (options.status == 200) {
+                        $('#batch').append(`<option value="">--Select a Batch--</option>`)
+                        options.batchList.forEach((batch) => {
+                            if (batch.disabled == false) {
+                                $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}">${batch.text} (${batch.students} / ${batch.max})</option>`)
+                            } else {
+                                $('#batch').append(`<option value="${batch.id}" data-time="${batch.time}" disabled>${batch.text} (Batch Full)</option>`)
+                            }
+                        })
+                    }
+                })
+                .catch((err) => {
+                    $('#batch').append(`<option value="">No Batch Available</option>`)
+                })
+
+            $('#batch').on('change', function () {
+                if (!$(this).val()) {
+                    document.getElementById('clockContainer').style.display = "none";
+                    return;
+                }
+                document.getElementById('clockContainer').style.display = "block";
+                const batchTime = $(this).find(':selected').data('time');
+                d = batchTime.split(" - ")[0]; //object of date()
+                hr = d.split(":")[0];
+                min = d.split(":")[1];
+                hr_rotation = 30 * hr + min / 2; //converting current time
+                min_rotation = 6 * min;
+
+                hour.style.transform = `rotate(${hr_rotation}deg)`;
+                minute.style.transform = `rotate(${min_rotation}deg)`;
             })
+        })
 
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -133,7 +133,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         icon: "info",
                         button: "Achieve Card"
                     }).then(() => {
-                        location.href = "https://apars.shop/achieve/card/"+ e.uid
+                        location.href = "https://apars.shop/achieve/card/" + e.uid
                     })
                 } else {
                     const form = document.forms['purchase']
@@ -185,13 +185,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                        title: "Error",
+                                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                        text: "Please visit after 10 pm tonight",
+                                        button: "Ok"
+                                    }).then(() => {
+                                        location.href = "/shop"
+                                    })
                                 }
                             })
                             .catch(() => {
@@ -256,20 +256,20 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.href = "/shop"
+                                })
                             }
                         })
                         .catch(() => {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
                                 location.href = "/shop"
@@ -298,14 +298,23 @@ firebase.auth().onAuthStateChanged(function(e) {
             .then((idTokenResult) => {
                 const claims = idTokenResult.claims;
                 if (!claims.roll) {
-                    swal({
-                        title: "ASG SHOP Roll Missing !",
-                        icon: "info",
-                        text: "You have to update your Profile First",
-                        button: "Ok, Go To Profile Update"
-                    }).then(() => {
-                        location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
-                    })
+                    fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
+                        .then(response => response.json())
+                        .then((loadedData) => {
+                            if (loadedData.status != 200) {
+                                swal({
+                                    title: "ASG SHOP Roll Missing !",
+                                    icon: "info",
+                                    text: "You have to update your Profile First",
+                                    button: "Ok, Go To Profile Update"
+                                }).then(() => {
+                                    location.href = "/shop/dashboard/?message=RollMissing&returnToCourse=" + encodeURIComponent(location.href)
+                                })
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
                 } else {
                     if (claims.Institution) {
                         document.getElementById('college').value = claims.Institution;
@@ -354,7 +363,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productCode)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
         .then((res) => {
             return res.json();
         })
@@ -374,7 +383,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -403,11 +412,11 @@ document.getElementById("cup").style.display = "block";
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
 
-    document.getElementById("cup").style.display = "none"; 
+    document.getElementById("cup").style.display = "none";
     delete_cookie("promo");
     notdis()
 }
