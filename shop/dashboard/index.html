@@ -1046,6 +1046,8 @@
                 .then((data) => {
                     if (data.statusCode == 404) {
                         swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info") 
+                        document.getElementById('examBtn').innerHTML = "Exam App";
+                        document.getElementById('examBtn').disabled = true;
                         return
                     }
                     window.open(data.data.redirectUrl, '_blank');
