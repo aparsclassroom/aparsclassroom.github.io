@@ -1035,27 +1035,25 @@
 
             fetch(apiUrl, {
                 method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(udata)
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(udata)
             })
-            .then((res)=>{
-                return res.json()
-            })
-            .then((data)=>{
-                if (data.data.redirectUrl == undefined) {
-                        swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info")
-                        return;
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    if (data.statusCode == 404) {
+                        swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info") 
                     }
-
                     window.open(data.data.redirectUrl, '_blank');
                     document.getElementById('examBtn').innerHTML = "Exam App";
-            })
-            .catch((err)=>{
-                swal("Oops", err.message, "error")
-                document.getElementById('examBtn').innerHTML = "Open Exam App";
-            })
+                })
+                .catch((err) => {
+                    swal("Oops", err.message, "error")
+                    document.getElementById('examBtn').innerHTML = "Open Exam App";
+                })
 
         }
     </script>
