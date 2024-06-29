@@ -128,8 +128,8 @@
                                             id="notify">Notifications</button>
                                     </li> -->
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <i class="fas fa-bell" style="color: #ffaa3b;"></i>
-                                        <button class="btn btn-warning" onclick="openExam()" id="notify">Exam
+                                        <i class="fas fa-tasks"></i>
+                                        <button class="btn btn-dark" onclick="openExam()" id="notify">Exam
                                             App</button>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -1056,7 +1056,7 @@
                     window.open(jsonResponse.data.redirectUrl, '_blank');
 
                 } catch (error) {
-                    alert('Something went wrong');
+                    swal("Oops", error.message, "error")
                 }
             }
 
