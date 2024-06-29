@@ -122,10 +122,15 @@
                         <div class="card mb-4 mb-lg-0">
                             <div class="card-body p-0">
                                 <ul class="list-group list-group-flush rounded-3">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <i class="fas fa-bell" style="color: #ffaa3b;"></i>
                                         <button class="btn btn-warning" onclick="requestNotificationPermission()"
                                             id="notify">Notifications</button>
+                                    </li> -->
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <i class="fas fa-bell" style="color: #ffaa3b;"></i>
+                                        <button class="btn btn-warning" onclick="openExam()" id="notify">Exam
+                                            App</button>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <i class="fas fa-qrcode"></i>
@@ -1008,7 +1013,7 @@
                                 icon: loadedData.key.image != "" ? loadedData.key.image : "success"
                             })
                             document.getElementById('viewBtn' + tran_id).removeAttribute('disabled');
-                        document.getElementById('viewBtn' + tran_id).innerText = "View Key";
+                            document.getElementById('viewBtn' + tran_id).innerText = "View Key";
                         } else {
                             swal("Oops", loadedData.message, "Check back later when ASG SHOP restocks keys", "error")
                         }
@@ -1020,6 +1025,43 @@
 
 
         }
+
+        function openExam() {
+            const apiUrl = 'https://api.exam.aparsclassroom.com/api/v1/auth/user/getTokenFromUidAndRedirectUrl';
+            const udata = {
+                userId: firebase.auth().currentUser.uid
+            };
+
+            async function postWithUid() {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(udata)
+                    });
+                    if (!response.ok) {
+                        swal("Oops", response.status, "error")
+                        return;
+                    }
+
+                    const jsonResponse = await response.json();
+
+                    if (jsonResponse.data.redirectUrl == undefined) {
+                        swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info")
+                        return;
+                    }
+
+                    window.open(jsonResponse.data.redirectUrl, '_blank');
+
+                } catch (error) {
+                    alert('Something went wrong');
+                }
+            }
+
+            postWithUid();
+        };
     </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
