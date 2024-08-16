@@ -4,7 +4,7 @@ const productCode = "253";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -26,7 +26,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: 'V5_9ggFPMig',
+        videoId: 'qAXDnWz13ag',
         playerVars: { 'autoplay': 1, 'playsinline': 1 },
         events: {
             'onReady': onPlayerReady
@@ -59,7 +59,7 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
         console.log(err)
     })
     document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; সপ্তাহে দুুদিন ক্লাস`;
-    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; পদার্থবিজ্ঞান দ্বিতীয় পত্র অধ‍্যায় ৮,৯,১০,১১`;
+    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; পদার্থবিজ্ঞান দ্বিতীয় পত্র অধ‍্যায় ৮,৯,১০`;
     document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;x Exams `;
     document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;x Guideline Sessions `;
     document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;

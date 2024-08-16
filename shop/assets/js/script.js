@@ -9,7 +9,6 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
 fetch(
         "https://api.ipify.org/?format=json"
     )
@@ -62,3 +61,4 @@ function delete_cookie(name) {
     get: (searchParams, prop) => searchParams.get(prop),
   });
   let queryPromo = params.promo;
+

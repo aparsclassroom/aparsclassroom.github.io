@@ -75,6 +75,19 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
+        firebase.auth().currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                const claims = idTokenResult.claims;
+                if (claims.HSC) {
+                    document.getElementById('hscBatch').value = claims.HSC;
+                }
+                if (claims.Institution) {
+                    document.getElementById('college').value = claims.Institution;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     } else {
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');

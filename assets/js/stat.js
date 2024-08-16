@@ -10,3 +10,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('prof').href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href);
     }
 });
+
+
+if(document.location.host == "www.apars.shop") {
+    document.getElementById('tradeLicense').innerHTML = "Trade License: TRAD/DNCC/035825/2023";
+    document.getElementById('supMail').innerHTML = "support@apars.shop";
+}

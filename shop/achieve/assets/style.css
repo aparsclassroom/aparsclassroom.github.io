@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('./Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Use the custom font for the body */
+}
+
+.table {
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the total width */
+    padding: 25px;
+}
+
+.table table {
+    width: 100%; /* Make the table fill the width of the container */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+.table table td {
+    border: 1.5px solid #000; /* Add border to table cells */
+    padding: 8px; /* Add padding to table cells */
+    box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+.table table td:first-child {
+    width: 40%; /* Set the width of the first column to 40% */
+}
+
+.table table td .flex {
+    display: flex;
+}
+
+.c1 {
+    flex-basis: 33%;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.a4 {
+    width: 21cm;
+    height: 29.7cm;
+    border: 2px solid #000;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden; /* Prevents content from overflowing */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    padding: 25px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Spreads the elements horizontally */
+    padding: 25px;
+}
+
+.QR,
+.image {
+    max-width: calc(25% - 20px); /* Reduced width to make them slightly smaller */
+    max-height: 100%; /* Ensures elements don't exceed the height of .header */
+}
+
+.logo {
+    max-width: calc(35% - 20px); /* Reduced width to make them slightly smaller */
+    max-height: 100%; /* Ensures elements don't exceed the height of .header */
+}
+
+.QR img,
+.image img,
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Scales down the images to fit inside their containers */
+}
+
+.header .title {
+    text-align: center; /* Center align the title */
+    font-weight: 500; /* Medium font weight */
+    font-size: 18px; /* Adjust font size as needed */
+}
+
+.timestamp {
+    text-align: center;
+    font-size: 13px;
+}

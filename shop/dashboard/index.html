@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-            c[a] = c[a] || function() {
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
                 (c[a].q = c[a].q || []).push(arguments)
             };
             t = l.createElement(r);
@@ -18,10 +18,11 @@
         })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
     <!-- Facebook Pixel Code -->
+
     <script>
-        ! function(f, b, e, v, n, t, s) {
+        ! function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function() {
+            n = f.fbq = function () {
                 n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n;
@@ -37,22 +38,46 @@
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '593459298431756');
         fbq('track', 'PageView');
-    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    </script> <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
     <title>Payment Dashboard | ASG Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="/assets/css/style.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/sweetalert.min.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/key.js"></script>
     <!-- Site Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/HSC-Full-Course/assets/images/1.png">
-    <link rel="apple-touch-icon" href="/HSC-Full-Course/assets/images/1.png">
+    <link rel="icon" href="/assets/Logo.png">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
     <style>
         .card {
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .avatar:hover {
             cursor: pointer;
         }
     </style>
@@ -60,46 +85,468 @@
 
 <body>
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3">
+                    <ol class="breadcrumb mb-0">
+                        <a style="text-align: center; text-decoration: none;" id="returnButton"
+                            class="btn btn-outline-success" href="../"><i class="fas fa-store-alt"></i>&nbsp;Return to
+                            SHOP</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a style="text-align: center; text-decoration: none;" class="btn btn-outline-danger"
+                            href="javascript:logOut()"><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div id="stat">
-            <h3 style="text-align: center;margin-top: 30px; color: indigo;">Student Profile</h3>
-            <hr class="mt-2 mb-4" />
-            <h5 style="text-align: center;margin-top: 30px;" id="name"></h5>
-            <h5 style="text-align: center;" id="email"></h5>
-            <h5 style="text-align: center;" id="num"></h5>
-            <h5 style="text-align: center;" id="HSC"></h5>
-            <a style="text-align: center; text-decoration: none;" href="../">Return Home</a>
+
+            <section>
+                <h3 style="text-align: center;margin-top: 30px; color: indigo;">Student Profile</h3>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <a data-toggle="modal" data-target="#imageModal" type="button">
+                                    <img class="avatar"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg"
+                                        id="avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                </a>
+                                <h5 class="my-3" id="name2">...</h5>
+                                <p class="text-bold mb-1" id="roll">Student</p>
+                                <p class="text-muted mb-4">Apar's Classroom</p>
+                            </div>
+                        </div>
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush rounded-3">
+                                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <i class="fas fa-bell" style="color: #ffaa3b;"></i>
+                                        <button class="btn btn-warning" onclick="requestNotificationPermission()"
+                                            id="notify">Notifications</button>
+                                    </li> -->
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <i class="fas fa-tasks"></i>
+                                        <button class="btn btn-primary" onclick="openExam()" id="examBtn">Open Exam
+                                            App</button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <i class="fas fa-qrcode"></i>
+                                        <button class="btn btn-dark" id="qrCode">
+                                            O2O Payment
+                                        </button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <i class="fas fa-address-card" style="color: green;"></i>
+                                        <button class="btn btn-success" id="admitCard">Achieve Card
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Full Name</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="name">...</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Email</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="mail">....</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">HSC</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="HSC">....</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Phone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="num">...</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Parent Mobile</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="Parent">....</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0" id="Parent">Institution</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="Institution">....</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Facebook</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0" id="FbLink">....</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted" id="Address">....</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mb-2 mr-2" id="upProf">
+                                    <i class="fas fa-user-edit"></i>&nbsp;&nbsp;Update Profile
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+            </section>
             <h3 style="text-align: center;margin-top: 30px;" id="title">loading...</h3>
             <hr class="mt-2 mb-4" />
             <div class="row" id="results">
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profileLabel"
+        data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileLabel">Please fill up your Informations correctly</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="pname">Full Name</label>
+                            <input type="text" class="form-control" id="pname" placeholder="Enter your Full Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email"
+                                pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
+                                placeholder="Enter your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pnum">Phone Number</label>
+                            <input type="tel" class="form-control" id="pnum" pattern="^(?:\+?88)?01[13-9]\d{8}$"
+                                placeholder="Enter your Phone Number" value="+880" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pHSC">HSC Batch</label>
+                            <select class="form-control" id="pHSC" required>
+                                <option value="">--Select Any--</option>
+                                <option value="HSC 19">HSC'19</option>
+                                <option value="HSC 20">HSC'20</option>
+                                <option value="HSC 21">HSC'21</option>
+                                <option value="HSC 22">HSC'22</option>
+                                <option value="HSC 23">HSC'23</option>
+                                <option value="HSC 24">HSC'24</option>
+                                <option value="HSC 25">HSC'25</option>
+                                <option value="HSC 26">HSC'26</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pFbName">Facebook Name</label>
+                            <input type="text" class="form-control" id="pFbName" placeholder="Enter your Facebook Name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pFbLink">Facebook Profile Link</label>
+                            <input type="url" class="form-control" id="pFbLink"
+                                placeholder="Enter your Facebook Profile Link" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pParent">Parent's Number</label>
+                            <input type="tel" class="form-control" id="pParent" placeholder="Enter your Parent's Number"
+                                value="+880" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pInstitution">Institution Name</label>
+                            <input type="text" class="form-control" id="pInstitution"
+                                placeholder="Enter your Institution Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pAddress">Present Address</label>
+                            <textarea class="form-control" id="pAddress"
+                                placeholder="Enter your Current Address with Postal Code" required></textarea>
+                        </div>
+                        <hr>
+                        <button type="submit" id="saveBtn" class="btn btn-outline-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Update Profile Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" onchange="ValidateSize(this)"
+                            accept="image/png, image/jpeg" name="img" id="img">
+                        <label class="custom-file-label" for="img">Choose any Image</label>
 
+                    </div>
+                    <img id="target" width="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="imgbutton" disabled class="btn btn-success">Save Image</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="achieveModal" tabindex="-1" role="dialog" aria-labelledby="achieveModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="achieveModalLabel"><i class="fas fa-address-card"></i>&nbsp;Achieve Card
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="achieveBody"></div>
+                <div class="modal-footer">
+                    <button id="achieveDownload" class="btn btn-success"><i class="fas fa-download"></i>&nbsp;&nbsp;<i
+                            class="fas fa-address-card"></i>&nbsp;&nbsp;Download</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-        firebase.auth().onAuthStateChanged(function(user) {
+        var pname = document.getElementById('pname').value;
+        var email = document.getElementById('email').value;
+        var pnum = document.getElementById('pnum').value;
+        var pHSC = document.getElementById('pHSC').value;
+        if (params.logout == "true") {
+            firebase.auth().signOut()
+        }
+        function logOut() {
+            swal({
+                title: "Are you Sure?",
+                icon: "warning",
+                text: "You are going to logout from this account",
+                buttons: ["No, wait", "Yes, Logout"],
+                dangerMode: true
+            }).then((e) => {
+                if (e) {
+                    return firebase.auth().signOut()
+                }
+            })
+        }
+        if (params.message == "RollMissing") {
+            $('#profile').modal('show');
+        }
+        document.getElementById('email').addEventListener("input", function (event) {
+            if (document.getElementById('email').validity.typeMismatch) {
+                document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+            } else {
+                document.getElementById('email').setCustomValidity("");
+            }
+        });
+
+        document.getElementById('pnum').addEventListener("input", function (event) {
+            if (document.getElementById('pnum').validity.patternMismatch) {
+                document.getElementById('pnum').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+            } else {
+                document.getElementById('pnum').setCustomValidity("");
+            }
+        });
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 var name = user.displayName;
                 var mail = user.email;
                 var num = user.phoneNumber;
+
                 if (name != null) {
-                    document.getElementById('name').innerText = "Student Name : " + name;
+                    document.getElementById('name').innerText = name;
+                    document.getElementById('name2').innerText = name;
+                    document.getElementById('pname').value = name;
                 }
+
                 if (mail != null) {
-                    document.getElementById('email').innerText = "Email Address : " + mail;
+                    document.getElementById('mail').innerText = mail;
+                    document.getElementById('email').value = mail;
+                    document.getElementById('email').setAttribute('readonly', 'true');
                 }
                 if (num != null) {
-                    document.getElementById('num').innerText = "Phone Number : " + num;
+                    document.getElementById('num').innerText = num;
+                    document.getElementById('pnum').value = num;
+                    document.getElementById('pnum').setAttribute('readonly', 'true');
                 }
-const enabledExam = [];
-fetch("https://crm.apars.shop/auth/all-exams")
- .then(response => response.json())
-    .then((loadedData) => {
-        enabledExam.push(loadedData.Exams);
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+                fetch(`https://profile.aparsclassroom.com/profile/info?uid=${user.uid}`)
+                    .then(response => response.json())
 
+                    .then((loadedData) => {
+                        if (loadedData.status === 200) {
+                            var data = loadedData.data;
+                            document.getElementById('name').innerText = data.Name;
+                            document.getElementById('name2').innerText = data.Name;
+                            document.getElementById('roll').innerText = "ASG SHOP Roll: " + data.roll;
+                            if (params.returnToCourse) {
+                                document.getElementById('returnButton').innerHTML = `<i class="fas fa-arrow-left"></i>&nbsp;Return to Course`;
+                                document.getElementById('returnButton').href = `${params.returnToCourse}`;
+                            }
+                            document.getElementById('mail').innerText = data.Email;
+                            document.getElementById('num').innerText = data.Phone;
+                            document.getElementById('HSC').innerText = data.HSC;
+                            if (data.FbName != null) {
+                                document.getElementById('FbLink').innerText = data.FbName;
+                                document.getElementById('FbLink').onclick = function () {
+                                    window.open(data.FbLink, '_blank');
+                                }
+                            } else {
+                                document.getElementById('FbLink').innerText = "Not Provided";
+                            }
+                            if (data.Parent != null) {
+                                document.getElementById('Parent').innerText = data.Parent;
+                            }
+                            if (data.Address != null) {
+                                document.getElementById('Address').innerText = data.Address;
+                            }
+                            document.getElementById('Institution').innerText = data.Institution;
+                            if (data.photo != null) {
+                                document.getElementById('avatar').src = data.photo;
+                            } else {
+                                swal("Oops", "You haven't uploaded your profile image yet, Please upload your profile image to access advanced features !", "info")
+                                $('#imageModal').modal('show');
+                            }
+                            document.getElementById('pname').value = data.Name;
+                            document.getElementById('email').value = data.Email;
+                            document.getElementById('pnum').value = data.Phone;
+                            document.getElementById('pHSC').value = data.HSC;
+                            document.getElementById('pFbName').value = data.FbName ? data.FbName : "";
+                            document.getElementById('pFbLink').value = data.FbLink ? data.FbLink : "";
+                            document.getElementById('pParent').value = data.Parent ? data.Parent : "";
+                            document.getElementById('pInstitution').value = data.Institution;
+                            document.getElementById('pAddress').value = data.Address ? data.Address : "";
+                            document.getElementById('saveBtn').innerText = "Update";
+                            document.getElementById('saveBtn').removeAttribute('disabled');
+                        } else if (loadedData.status === 201) {
+                            swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
+                            $('#profile').modal('show');
+                            var data = loadedData.data;
+                            if (data.photo != null) {
+                                document.getElementById('avatar').src = data.photo;
+                            }
+                            if (data.roll != null) {
+                                document.getElementById('roll').innerText = "ASG SHOP Roll: " + data.roll;
+                            }
+                        } else if (loadedData.status === 204) {
+                            swal("Hold on", "We are assigning you a roll number !", "info")
+                            window.location.reload();
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                document.getElementById('upProf').addEventListener('click', () => {
+                    $('#profile').modal('show');
+                    document.getElementById('profileForm').addEventListener('submit', (e) => {
+                        e.preventDefault();
+
+                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('pFbName').value != "" && document.getElementById('pFbLink').value != "" && document.getElementById('pParent').value != "" && document.getElementById('pInstitution').value != "") {
+
+                            document.getElementById('saveBtn').setAttribute('disabled', 'true');
+                            document.getElementById('saveBtn').innerText = "Saving...";
+
+                            const myHeaders = new Headers();
+                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                            const urlencoded = new URLSearchParams();
+
+                            urlencoded.append("uid", user.uid);
+                            urlencoded.append("Name", document.getElementById('pname').value);
+                            urlencoded.append("FbName", document.getElementById('pFbName').value);
+                            urlencoded.append("FbLink", document.getElementById('pFbLink').value);
+                            urlencoded.append("Email", document.getElementById('email').value);
+                            urlencoded.append("Phone", document.getElementById('pnum').value);
+                            urlencoded.append("Parent", document.getElementById('pParent').value);
+                            urlencoded.append("Institution", document.getElementById('pInstitution').value);
+                            urlencoded.append("HSC", document.getElementById('pHSC').value);
+                            urlencoded.append("Address", document.getElementById('pAddress').value);
+
+                            const requestOptions = {
+                                method: "POST",
+                                headers: myHeaders,
+                                body: urlencoded,
+                                redirect: "follow"
+                            };
+
+                            fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
+                                .then(response => response.json())
+                                .then((result) => {
+                                    if (result.status === 200) {
+                                        swal("Profile Updated", "Your Profile has been updated successfully", "success")
+                                            .then((information) => {
+                                                firebase.auth().currentUser.getIdTokenResult(true)
+                                                    .then(() => {
+                                                        if (params.returnToCourse) {
+                                                            location.replace(`${params.returnToCourse}`);
+                                                        } else {
+                                                            location.reload();
+                                                        }
+                                                    })
+                                            })
+                                    } else {
+                                        swal("Oops", result.message, "error")
+                                        document.getElementById('saveBtn').removeAttribute('disabled');
+                                        document.getElementById('saveBtn').innerText = "Save";
+                                    }
+                                })
+                                .catch(error => {
+                                    swal("Oops", error.message, "error")
+                                    document.getElementById('saveBtn').removeAttribute('disabled');
+                                    document.getElementById('saveBtn').innerText = "Save";
+                                });
+                        } else {
+                            swal("Oops", "Please fill up all the fields", "error")
+                        }
+                    })
+                })
 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -117,70 +564,80 @@ fetch("https://crm.apars.shop/auth/all-exams")
                 fetch(`https://${shopName2}/logs`, requestOptions)
                     .then(response => response.json())
 
-                .then((loadedData) => {
+                    .then((loadedData) => {
                         if (loadedData.status === 200) {
                             var data = loadedData.info;
                             document.getElementById('title').innerHTML = "Payment History";
                             if (data.length > 0) {
                                 data.forEach((element, idx) => {
-                                idx++
-
-                                if (element.status == "VALID" || element.status == "VALIDATED") {
-                     
-                                    if (element.Product.productName == "Medical23") {
-                                        var content = `
-                        <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100">
-                                <div class="card-body py-5">
-                                    <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                                    </h5>
-                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
-                                    <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-primary" target="_self" href="http://exam.aparsclassroom.com/?uid=${user.uid}">Exam Dashboard</a></div><hr>
-                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
-                                    </div>
-                            </div>
-                        </div>
-                        `;
+                                    idx++
+                                    var courseName = "";
+                                    if (element.o2o == null) {
+                                        element.o2o = 0;
+                                    }
+                                    if (element.Product.Cycle != "") {
+                                        courseName = element.ProductName + " (" + element.Product.Cycle + ")";
                                     } else {
-                                    var content = `
+                                        courseName = element.ProductName;
+                                    }
+                                    if (element.status == "VALID" || element.status == "VALIDATED") {
+                                        if (element.Platform == "Digital") {
+                                            var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
                                     </h5>
-                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
-                                    <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
-                                    <h4 class="card-text text-center">Paid Amount : ${element.currency_amount}</h4>
+                                    <h4 class="text-success text-center">${courseName}</h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
                                     <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
+                                    <div class="small text-muted text-center"><a class="btn btn-success" id="viewBtn${element.tran_id}" href="javascript:viewKey('${element.assigned}','${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
                                 </div>
                             </div>
                         </div>
                         `;
-                    }
-                                } else {
-                                    var content = `
+
+
+                                        } else {
+                                            var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
                                     <h5 class="card-title text-primary text-center mb-2">
                                         <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
                                     </h5>
-                                    <h4 class="text-success text-center">Course : ${element.Product.productName}</h4>
-                                    <h4 class="card-text text-center">Amount : ${element.currency_amount}</h4>
+                                    <h4 class="text-success text-center">Course : ${courseName}</h4>
+                                    <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
+                                    <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
                                     <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
                                     <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a || element.Product.Permalink + '/success/' + user.uid}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                                        }
+
+                                    } else {
+                                        if (element.Platform == "Digital") {
+                                            var content = `
+                        <div class="col-lg-4 mb-4">
+                            <div class="card lift lift-sm h-100">
+                                <div class="card-body py-5">
+                                    <h5 class="card-title text-primary text-center mb-2">
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                    </h5>
+                                    <h4 class="text-success text-center">${courseName}</h4>
+                                    <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                    <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
                                 </div>
                                 <div class="card-footer">
                                     <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
@@ -188,13 +645,35 @@ fetch("https://crm.apars.shop/auth/all-exams")
                             </div>
                         </div>
                         `;
-                                }
-                                results.innerHTML += content;
+                                        } else {
+                                            var content = `
+                        <div class="col-lg-4 mb-4">
+                            <div class="card lift lift-sm h-100">
+                                <div class="card-body py-5">
+                                    <h5 class="card-title text-primary text-center mb-2">
+                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                    </h5>
+                                    <h4 class="text-success text-center">Course : ${courseName}</h4>
+                                    <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
+                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                    <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                                        }
 
-                            });
+                                    }
+                                    results.innerHTML += content;
+
+                                });
                             } else {
                                 document.getElementById('title').innerText = "Oops 🙃";
-                            results.innerHTML = `
+                                results.innerHTML = `
                     <div class="col-lg-6 mb-4">
                     <a class="card lift lift-sm h-100" href="javascript:void(0)">
                         <div class="card-body py-5">
@@ -206,7 +685,7 @@ fetch("https://crm.apars.shop/auth/all-exams")
                 </div>
                     `;
                             }
-                           
+
                         } else {
                             document.getElementById('title').innerText = "Oops 🙃";
                             results.innerHTML = `
@@ -226,12 +705,364 @@ fetch("https://crm.apars.shop/auth/all-exams")
                         console.log(err)
                         document.getElementById('title').innerHTML = "Payment History not found !";
                     }).catch(error => document.getElementById('title').innerHTML = "Payment History not found !");
+
+                document.getElementById('imgbutton').addEventListener('click', uploadImage)
+
+                function uploadImage() {
+
+                    document.getElementById('imgbutton').setAttribute('disabled', 'true');
+                    document.getElementById('imgbutton').innerText = "Uploading...";
+
+                    const formdata = new FormData();
+                    formdata.append("photo", document.getElementById('img').files[0]);
+
+                    const requestOptions = {
+                        method: "POST",
+                        body: formdata,
+                        redirect: "follow"
+                    };
+
+                    fetch("https://profile.aparsclassroom.com/profile/upload-profile-photo?uid=" + user.uid, requestOptions)
+                        .then(response => response.json())
+                        .then((result) => {
+                            if (result.status === 200) {
+                                swal("Profile Image Updated", "Your Profile Image has been updated successfully", "success")
+                                    .then(() => {
+                                        document.getElementById('avatar').src = result.photo;
+                                        $('#imageModal').modal('hide');
+                                    })
+
+                                document.getElementById('imgbutton').removeAttribute('disabled');
+                                document.getElementById('imgbutton').innerText = "Save Image";
+                            } else {
+                                swal("Oops", "Something went wrong, Please try again later", "error")
+                                document.getElementById('imgbutton').removeAttribute('disabled');
+                                document.getElementById('imgbutton').innerText = "Save Image";
+                            }
+                        })
+                        .catch(error => {
+                            swal("Oops", "Something went wrong, Please try again later", "error")
+                            document.getElementById('imgbutton').removeAttribute('disabled');
+                            document.getElementById('imgbutton').innerText = "Save Image";
+                        });
+                }
             } else {
                 location.replace('./login');
             }
         })
+
+        function showImage(src, target) {
+            var fr = new FileReader();
+            fr.onload = function (e) {
+                target.src = this.result;
+            };
+            src.addEventListener("change", function () {
+                document.getElementById('imgbutton').disabled = false;
+                if (src.files[0]) {
+                    fr.readAsDataURL(src.files[0]);
+                }
+            });
+        }
+        var src = document.getElementById("img");
+        var target = document.getElementById("target");
+        showImage(src, target);
+
+        function ValidateSize(file) {
+            var FileSize = file.files[0].size / 1024 / 1024;
+            if (FileSize > 2) {
+                alert('This Image size exceeds 2 MB\nPlease Select a smaller Image 😶');
+                $(file).val('');
+                return;
+            }
+        }
+
+        document.getElementById('qrCode').addEventListener('click', () => {
+            document.getElementById('qrCode').setAttribute('disabled', 'true');
+            document.getElementById('qrCode').innerText = "Generating...";
+            fetch(`https://profile.aparsclassroom.com/profile/eligibility?uid=${firebase.auth().currentUser.uid}`)
+                .then(response => response.json())
+                .then((loadedData) => {
+                    if (loadedData.status === 200) {
+                        swal({
+                            title: "O2O Payment",
+                            text: "Please show this QR Code or ASG SHOP Roll to the nearest O2O Agent to make the payment",
+                            closeOnClickOutside: false,
+                            content: {
+                                element: "div",
+                                attributes: {
+                                    innerHTML: `<img src="https://quickchart.io/qr?text=ACHIEVE://${encodeURIComponent(firebase.auth().currentUser.uid)}"><br><h3 class="text-center">ASG SHOP Roll: ${loadedData.roll}</h3>`
+                                },
+                            },
+                            buttons: {
+                                cancel: "Close"
+                            },
+                        });
+                    } else {
+                        swal({
+                            title: "Oops",
+                            text: "You are not eligible for the O2O Payment yet, Please update your profile first",
+                            icon: "info"
+                        })
+                    }
+                    document.getElementById('qrCode').removeAttribute('disabled');
+                    document.getElementById('qrCode').innerHTML = 'O2O Payment';
+                })
+                .catch((err) => {
+                    swal("Oops", "Something went wrong, Please try again later", "error")
+                    document.getElementById('qrCode').removeAttribute('disabled');
+                    document.getElementById('qrCode').innerHTML = 'O2O Payment';
+                })
+        })
+
+
+        document.getElementById('admitCard').addEventListener('click', () => {
+            document.getElementById('admitCard').setAttribute('disabled', 'true');
+            document.getElementById('admitCard').innerText = "Checking...";
+            fetch(`https://profile.aparsclassroom.com/profile/eligibility-check?uid=${firebase.auth().currentUser.uid}`)
+                .then(response => response.json())
+
+                .then((loadedData) => {
+                    if (loadedData.status === 200) {
+                        document.getElementById('achieveBody').innerHTML = `<iframe src="${loadedData.web}" style="width: 100%; height: 500px;"></iframe>`;
+                        document.getElementById('achieveDownload').removeAttribute('disabled');
+                        document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;Download';
+                        $('#achieveModal').modal('show');
+                        document.getElementById('achieveDownload').addEventListener('click', () => {
+                            document.getElementById("achieveModalLabel").innerHTML = '<i class="fas fa-address-card"></i>&nbsp;Achieve Card Details';
+                            document.getElementById('achieveDownload').setAttribute('disabled', 'true');
+                            document.getElementById('achieveDownload').innerHTML = '<i class="fas fa-download"></i>&nbsp;&nbsp;Downloaded';
+                            window.open(loadedData.pdf, '_blank');
+                        })
+                    } else {
+                        swal("Oops", "You are not eligible for the Achieve Card yet, Please enroll to a Achieve Exam first !", "info")
+                    }
+                    document.getElementById('admitCard').removeAttribute('disabled');
+                    document.getElementById('admitCard').innerHTML = 'Achieve Card';
+                })
+                .catch((err) => {
+                    swal("Oops", "Something went wrong, Please try again later", "error")
+                    document.getElementById('admitCard').removeAttribute('disabled');
+                    document.getElementById('admitCard').innerHTML = 'Achieve Card';
+                })
+        })
+
+        function requestNotificationPermission() {
+            swal({
+                title: "Not available yet",
+                text: "This feature is not available yet, Please try again later",
+                icon: "info"
+            })
+        }
+
+        // function requestNotificationPermission() {
+        //     document.getElementById('notify').innerText = "Requesting...";
+        //     if (!('Notification' in window)) {
+        //         document.getElementById('notify').innerText = "Notifications not supported";
+        //         document.getElementById('notify').setAttribute('disabled', 'true');
+        //         swal("Oops", "This browser does not support desktop notification", "error")
+        //     } else if (Notification.permission === 'granted') {
+        //         document.getElementById('notify').innerText = "Notifications are ON";
+        //         document.getElementById('notify').setAttribute('disabled', 'true');
+        //     } else if (Notification.permission !== 'denied') {
+        //         messaging.requestPermission()
+        //             .then(function () {
+        //                 if (Notification.permission === 'granted') {
+        //                     return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
+        //                 } else {
+        //                     document.getElementById('notify').innerText = "Turn on Notifications";
+        //                     swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+        //                 }
+        //             })
+        //             .then(function (token) {
+        //                 document.getElementById('notify').innerText = "Please wait...";
+        //                 var myHeaders = new Headers();
+        //                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        //                 var urlencoded = new URLSearchParams();
+        //                 urlencoded.append("uid", firebase.auth().currentUser.uid);
+        //                 urlencoded.append("token", token);
+
+        //                 var requestOptions = {
+        //                     method: 'POST',
+        //                     headers: myHeaders,
+        //                     body: urlencoded,
+        //                     redirect: 'follow'
+        //                 };
+
+
+        //                 fetch(`https://profile.aparsclassroom.com/profile/notification`, requestOptions)
+        //                     .then(response => response.json())
+        //                     .then((loadedData) => {
+        //                         if (loadedData.status === 200) {
+        //                             document.getElementById('notify').innerText = "Notifications are ON";
+        //                             document.getElementById('notify').setAttribute('disabled', 'true');
+        //                             swal("Notifications are ON", "You will receive important notifications from Apar's Classroom", "success")
+        //                         } else {
+        //                             swal("Not Eligible yet", loadedData.message, "info")
+        //                             document.getElementById('notify').innerText = "Turn on Notifications";
+        //                             messaging.getToken()
+        //                                 .then((currentToken) => {
+        //                                     if (currentToken) {
+        //                                         messaging.deleteToken(currentToken)
+        //                                             .then(() => {
+        //                                                 console.log('Token deleted');
+        //                                             })
+        //                                             .catch((err) => {
+        //                                                 console.log('Unable to delete token', err);
+        //                                             });
+        //                                     } else {
+        //                                         console.log('No registration token available. Request permission to generate one.');
+        //                                     }
+        //                                 })
+        //                                 .catch((err) => {
+        //                                     console.log('An error occurred while retrieving token. ', err);
+        //                                 });
+
+        //                         }
+        //                     })
+        //                     .catch((err) => {
+        //                         document.getElementById('notify').innerText = "Turn on Notifications";
+        //                         swal("Oops", "Something went wrong, Please try again later", "error")
+        //                     })
+        //             })
+        //             .catch(function (err) {
+        //                 document.getElementById('notify').innerText = "Turn on Notifications";
+        //                 if (err.code === 'messaging/permission-blocked') {
+        //                     swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+        //                 } else {
+        //                     swal("Oops", "Unable to get permission to notify", "error")
+        //                 }
+
+        //             });
+        //     } else {
+        //         document.getElementById('notify').innerText = "Turn on Notifications";
+        //         swal("Oops", "Notifications are blocked, Please enable it from your browser settings", "error")
+        //     }
+
+
+        //     messaging.onMessage((payload) => {
+
+        //         var notificationTitle = payload.notification.title;
+        //         var notificationOptions = {
+        //             body: payload.notification.body,
+        //             image: payload.notification.image,
+        //             link: payload.notification.link
+        //         };
+
+        //         var notification = new Notification(notificationTitle, notificationOptions);
+
+        //     });
+        // }
+        // if (!('Notification' in window)) {
+        //     document.getElementById('notify').innerText = "Notifications not supported";
+        //     document.getElementById('notify').setAttribute('disabled', 'true');
+        // } else {
+        //     if (Notification.permission === 'granted') {
+        //         document.getElementById('notify').innerText = "Notifications are ON";
+        //         document.getElementById('notify').setAttribute('disabled', 'true');
+        //     } else {
+        //         document.getElementById('notify').innerText = "Turn on Notifications";
+        //     }
+        // }
+
+        // //Register service worker for handling background notifications
+        // if ('serviceWorker' in navigator) {
+        //     navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        //         .then((registration) => {
+        //             messaging.useServiceWorker(registration);
+        //         });
+        // }
+
+
+        function viewKey(assigned, tran_id) {
+            document.getElementById('viewBtn' + tran_id).setAttribute('disabled', 'true');
+            document.getElementById('viewBtn' + tran_id).innerText = "Loading...";
+            if (assigned == "true") {
+
+                var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}`;
+
+                fetch(api)
+                    .then(response => response.json())
+                    .then((loadedData) => {
+                        if (loadedData.status === 200) {
+                            swal({
+                                title: loadedData.key.digital_key.title + ': ' + loadedData.key.digital_key.link,
+                                text: loadedData.key.digital_key.description,
+                                icon: loadedData.key.digital_key.image != "" ? loadedData.key.digital_key.image : "info"
+                            })
+                        } else {
+                            swal("Oops", loadedData.message, "Check back later when ASG SHOP restocks keys", "error")
+                        }
+                        document.getElementById('viewBtn' + tran_id).removeAttribute('disabled');
+                        document.getElementById('viewBtn' + tran_id).innerText = "View Key";
+                    })
+                    .catch((err) => {
+                        swal("Oops", "Something went wrong, Please try again later", "error")
+                    })
+
+            } else {
+                var api = `https://apars.shop/digital/${firebase.auth().currentUser.uid}/get-key/${tran_id}`;
+
+                fetch(api)
+                    .then(response => response.json())
+                    .then((loadedData) => {
+                        if (loadedData.status == 200) {
+                            swal({
+                                title: loadedData.key.title + ': ' + loadedData.key.link,
+                                text: loadedData.key.description,
+                                icon: loadedData.key.image != "" ? loadedData.key.image : "success"
+                            })
+                            document.getElementById('viewBtn' + tran_id).removeAttribute('disabled');
+                            document.getElementById('viewBtn' + tran_id).innerText = "View Key";
+                        } else {
+                            swal("Oops", loadedData.message, "Check back later when ASG SHOP restocks keys", "error")
+                        }
+                    })
+                    .catch((err) => {
+                        swal("Oops", "Something went wrong, Please try again later", "error")
+                    })
+            }
+
+
+        }
+
+        function openExam() {
+            document.getElementById('examBtn').innerHTML = "Checking...";
+            const apiUrl = 'https://api.exam.aparsclassroom.com/api/v1/auth/user/getTokenFromUidAndRedirectUrl';
+            const udata = {
+                userId: firebase.auth().currentUser.uid
+            };
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(udata)
+            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    if (data.statusCode == 404) {
+                        swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info") 
+                        document.getElementById('examBtn').innerHTML = "Exam App";
+                        document.getElementById('examBtn').disabled = true;
+                        return
+                    }
+                    window.open(data.data.redirectUrl, '_blank');
+                    document.getElementById('examBtn').innerHTML = "Exam App";
+                })
+                .catch((err) => {
+                    swal("Oops", err.message, "error")
+                    document.getElementById('examBtn').innerHTML = "Open Exam App";
+                })
+
+        }
     </script>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>

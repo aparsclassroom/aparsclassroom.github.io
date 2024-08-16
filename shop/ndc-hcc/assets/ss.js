@@ -18,37 +18,37 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
-// var tag = document.createElement('script');
+var tag = document.createElement('script');
 
-// tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// var player;
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
 
-// function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '390',
-//         width: '640',
-//         videoId: '',
-//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
-//         events: {
-//             'onReady': onPlayerReady
-//         }
-//     });
-// }
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'm6abEz_XD7s',
+        playerVars: { 'autoplay': 1, 'playsinline': 1 },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
 
-// function onPlayerReady(event) {
-//     document.getElementById('thumb').style.display = "none";
-//     event.target.setVolume(100);
-//     event.target.playVideo();
-// }
+function onPlayerReady(event) {
+    document.getElementById('thumb').style.display = "none";
+    event.target.setVolume(100);
+    event.target.playVideo();
+}
 
-fetch(`https://script.google.com/macros/s/AKfycbzOFK3eTI-hs-qJYnMRSiNwfmMRopbZXUtStk21wD5cNsiTfjuK1Bl4R2dxL7550Ak/exec`)
+fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.enrollment + init);
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Scanner</title>
+</head>
+<body>
+    <input type="file" id="upload" accept="image/*">
+
+    <div id="output"></div>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.0.5/dist/tesseract.min.js"></script>
+   <script>
+    document.getElementById('upload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        Tesseract.recognize(
+            file,
+            'eng'
+        ).then(({ data: { text } }) => {
+            
+            document.getElementById('output').textContent = text;
+        });
+    }
+});
+
+function extractCreditCardNumber(text) {
+    // This regex matches a sequence of 13 to 19 digits which is typical for credit card numbers
+    const regex = /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)\d{13,19}\b/g;
+    const matches = text.match(regex);
+    // Return the first match, if any
+    return matches ? matches[0].replace(/[ -]/g, '') : null;
+}
+
+function isValidCreditCardNumber(number) {
+    let sum = 0;
+    let shouldDouble = false;
+    for (let i = number.length - 1; i >= 0; i--) {
+        let digit = parseInt(number.charAt(i), 10);
+
+        if (shouldDouble) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+
+        sum += digit;
+        shouldDouble = !shouldDouble;
+    }
+
+    return (sum % 10) === 0;
+}
+
+   </script>
+</body>
+</html>

@@ -1,18 +1,18 @@
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
@@ -21,7 +21,7 @@ document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -50,15 +50,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
-                        buttons:  ["Exam Dashboard", "View Invoice"]
-                    }).then((a,b) => {
+                        buttons: ["Exam Dashboard", "View Invoice"]
+                    }).then((a, b) => {
                         if (a) {
                             location.replace(result.Invoice)
                         } else {
                             if (result.Exam) {
                                 location.replace(result.Exam)
                             } else {
-                                location.replace("http://exam.aparsclassroom.com/?uid="+ e.uid)
+                                location.replace("http://exam.aparsclassroom.com/?uid=" + e.uid)
                             }
                         }
                     })
@@ -106,14 +106,16 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.text()
                             })
                             .then(result => {
-                                if (result.status != 420) {
+                                if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                        title: result.message,
-                                        icon: "error"
+                                        title: "Error",
+                                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                        text: "Please visit after 10 pm tonight",
+                                        button: "Ok"
                                     }).then(() => {
-                                        location.href = result.GatewayPageURL
+                                        location.href = "/shop"
                                     })
                                 }
                             })
@@ -124,7 +126,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     text: "Please visit after 10 pm tonight",
                                     button: "Ok"
                                 }).then(() => {
-                                    location.href = result.GatewayPageURL
+                                    location.href = "/shop"
                                 })
                             });
                     })
@@ -173,14 +175,16 @@ firebase.auth().onAuthStateChanged(function(e) {
                             return response.text()
                         })
                         .then(result => {
-                            if (result.status != 420) {
+                            if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                    title: result.message,
-                                    icon: "error"
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                    button: "Ok"
                                 }).then(() => {
-                                    location.href = result.GatewayPageURL
+                                    location.href = "/shop"
                                 })
                             }
                         })
@@ -188,10 +192,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
-                                location.href = result.GatewayPageURL
+                                location.href = "/shop"
                             })
                         });
                 })
@@ -213,6 +217,19 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
+        firebase.auth().currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                const claims = idTokenResult.claims;
+                if (claims.HSC) {
+                    document.getElementById('hscBatch').value = claims.HSC;
+                }
+                if (claims.Institution) {
+                    document.getElementById('college').value = claims.Institution;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
@@ -253,11 +270,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product, {
-            method: 'GET',
-            credentials: 'include',
-            mode: 'cors'
-        })
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
         .then((res) => {
             return res.json();
         })
@@ -278,7 +291,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -307,11 +320,11 @@ document.getElementById("cup").style.display = "block";
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
 
-    document.getElementById("cup").style.display = "none"; 
+    document.getElementById("cup").style.display = "none";
     delete_cookie("promo");
     notdis()
 }

@@ -14,6 +14,22 @@ firebase.auth();
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+//let redirectUrl = params.signInSuccessUrl ?? getCookie("returnURLCookie");
 let redirectUrl = params.signInSuccessUrl;
 (function () {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -35,21 +51,21 @@ let redirectUrl = params.signInSuccessUrl;
                 provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 clientId: "374714320984-7r0b3i1s39tapmudaa4poe2b3qkpksst.apps.googleusercontent.com"
             },
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            {
-                provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                recaptchaParameters: {
-                    type: 'image',
-                    size: 'invisible',
-                    badge: 'bottomleft'
-                },
-                defaultCountry: 'BD',
-                whitelistedCountries: ['BD', '+880', 'IN', '+91']
-            }
+            // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            // {
+            //     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            //     recaptchaParameters: {
+            //         type: 'image',
+            //         size: 'invisible',
+            //         badge: 'bottomleft'
+            //     },
+            //     defaultCountry: 'BD',
+            //     whitelistedCountries: ['BD', '+880']
+            // }
         ],
-        credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
-        tosUrl: '/terms.html',
-        privacyPolicyUrl: '/privacy.html'
+        //credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
+        tosUrl: '/terms',
+        privacyPolicyUrl: '/privacy'
     };
     ui.start('#firebaseui-auth-container', uiConfig);
     ui.disableAutoSignIn();
@@ -66,9 +82,14 @@ firebase.auth().onAuthStateChanged(function (user) {
         } else {
             window.location.href = "/shop/dashboard";
         }
-
+        // if (redirectUrl) {
+        //     window.location.href = redirectUrl;
+        // } else {
+        //     window.location.href = "/shop/dashboard";
+        // }
     } else {
-        nmodal()
+        
+        checkAndRedirect()
     }
 });
 
@@ -79,4 +100,27 @@ $('#loginModal').modal({
     backdrop: 'static',
     keyboard: false
 })
-nmodal()
+
+
+function checkAndRedirect() {
+    if (shouldOpenInBrowser()) {
+        Swal.fire({
+            position: "center",  icon: "warning", html: `
+        <div>
+            <h3>This is not a Traditional Browser !</h3>
+            <p>Please use Google Chrome Browser to access ASG SHOP.</p>
+            <button class="swal2-confirm swal2-styled" style="background-color: #a9dd36; color: black;" onclick="copyToClipboard()"> Click to Copy ASG SHOP Link </button>
+        </div>`, showConfirmButton: false,
+        });
+    } else {
+        nmodal()
+    }
+}
+function shouldOpenInBrowser() { var userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera; return /FBAN|FBAV|Instagram/i.test(userAgent); }
+function copyToClipboard() { 
+    var currentPageURL = window.location.href; 
+    navigator.clipboard.writeText(currentPageURL);
+     Swal.fire({ position: "center", toast: false, icon: "success", text: "Link copied successfully! Now open in Chrome or any other suitable browser.", showConfirmButton: true, }); 
+     nmodal()
+     return currentPageURL; 
+};

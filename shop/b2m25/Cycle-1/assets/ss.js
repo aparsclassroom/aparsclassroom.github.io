@@ -4,7 +4,7 @@ const productCode = "248";
 const fix = 1500;
 const pls = 1000;
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -26,7 +26,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: 'V5_9ggFPMig',
+        videoId: 'qAXDnWz13ag',
         playerVars: { 'autoplay': 1, 'playsinline': 1 },
         events: {
             'onReady': onPlayerReady

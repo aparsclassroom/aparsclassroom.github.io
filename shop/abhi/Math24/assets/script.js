@@ -104,15 +104,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 return response.text()
                             })
                             .then(result => {
-                                if (result.status != 420) {
+                                if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                        title: result.message,
-                                        icon: "error"
-                                    }).then(() => {
-                                        location.href = result.GatewayPageURL
-                                    })
+                                title: "Error",
+                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = "/shop"
+                            })
                                 }
                             })
                             .catch(() => {
@@ -122,7 +124,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     text: "Please visit after 10 pm tonight",
                                     button: "Ok"
                                 }).then(() => {
-                                    location.href = result.GatewayPageURL
+                                    location.href = "/shop"
                                 })
                             });
                     })
@@ -172,15 +174,17 @@ firebase.auth().onAuthStateChanged(function(e) {
                             return response.text()
                         })
                         .then(result => {
-                            if (result.status != 420) {
+                            if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                    title: result.message,
-                                    icon: "error"
-                                }).then(() => {
-                                    location.href = result.GatewayPageURL
-                                })
+                                title: "Error",
+                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    text: "Please visit after 10 pm tonight",
+                                button: "Ok"
+                            }).then(() => {
+                                location.href = "/shop"
+                            })
                             }
                         })
                         .catch(() => {
@@ -190,7 +194,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
-                                location.href = result.GatewayPageURL
+                                location.href = "/shop"
                             })
                         });
                 })
@@ -212,6 +216,19 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById('email').value = mail
             document.getElementById('email').setAttribute("readonly", true);
         }
+        firebase.auth().currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                const claims = idTokenResult.claims;
+                if (claims.HSC) {
+                    document.getElementById('hscBatch').value = claims.HSC;
+                }
+                if (claims.Institution) {
+                    document.getElementById('college').value = claims.Institution;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
@@ -249,11 +266,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + product+ '_'+ Cycle, {
-            method: 'GET',
-            credentials: 'include',
-            mode: 'cors'
-        })
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
         .then((res) => {
             return res.json();
         })

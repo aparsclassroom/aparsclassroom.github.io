@@ -1,7 +1,7 @@
 const product = "b2b24";
 const productName = "BIOLOGY BASIC TO BOSS by DMC DREAMERS";
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const productCode = "241";
 const fix = 2000;
 const pls = 1500;

@@ -1,7 +1,7 @@
 const product = "b2b24";
 const productName = "BIOLOGY BASIC TO BOSS by DMC DREAMERS";
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');

@@ -1,7 +1,7 @@
 const product = "b2b25";
 const productName = "BIOLOGY MASTER COURSE' HSC 25 by DMC DREAMERS";
 const init = 0;
-const Platform = "Super Admin";
+const Platform = "Online";
 const productCode = "264";
 const fix = 2000;
 const pls = 1200;
