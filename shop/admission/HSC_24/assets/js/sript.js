@@ -1,4 +1,6 @@
-var link = 'http://localhost:8080';
+//var link = 'http://localhost:8080';
+var link = 'https://aparsclassroom.com';
+
 
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
