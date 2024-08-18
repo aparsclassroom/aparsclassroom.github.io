@@ -1,5 +1,5 @@
 //var link = 'http://localhost:8080';
-var link = 'https://aparsclassroom.com';
+var link = 'https://' + shopName2;
 
 
 document.getElementById('email').addEventListener("input", function (event) {
