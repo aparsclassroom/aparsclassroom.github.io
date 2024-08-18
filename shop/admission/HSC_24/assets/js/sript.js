@@ -5,7 +5,7 @@ document.getElementById('email').addEventListener("input", function (event) {
       document.getElementById('email').setCustomValidity("");
     }
   });
-  
+  http://localhost:8080
   document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
+        fetch(`http://localhost:8080/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -101,7 +101,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+                        fetch(`http://localhost:8080/${productCode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -170,7 +170,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+                    fetch(`http://localhost:8080/${productCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
