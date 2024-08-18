@@ -1,3 +1,5 @@
+var link = 'http://localhost:8080';
+
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
       document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
@@ -41,7 +43,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
+        fetch(`${link}/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -101,7 +103,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+                        fetch(`${link}/${productCode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -170,7 +172,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+                    fetch(`${link}/${productCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
