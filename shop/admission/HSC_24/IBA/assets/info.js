@@ -1,4 +1,4 @@
-const product = "iba24";
+const product = "ACS IBA BBA Admission Private Batch 2024";
 const productName = "ACS IBA BBA Admission Private Batch 2024";
 const productCode = "337";
 const fix = 8000;
