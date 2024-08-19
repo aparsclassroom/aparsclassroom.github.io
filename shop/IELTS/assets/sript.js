@@ -226,7 +226,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
         document.getElementById('moda').innerHTML = `
-        ভার্চুয়াল বুকটি ক্রয় করো <i class="fas fa-arrow-right"></i>
+        কোর্সটি ক্রয় করো <i class="fas fa-arrow-right"></i>
         `;
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
