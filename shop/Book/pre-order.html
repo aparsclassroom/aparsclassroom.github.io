@@ -165,21 +165,20 @@
   <script>
     const batchElement = document.getElementById('batch');
     const otherInput = document.getElementById('batch-other');
-
+  
     batchElement.addEventListener('change', function() {
-    if (this.value === 'other') {
-      otherInput.style.display = 'block';
-    } else {
-      otherInput.style.display = 'none';
-    }
-  });
-
+      if (this.value === 'other') {
+        otherInput.style.display = 'block';
+      } else {
+        otherInput.style.display = 'none';
+      }
+    });
+  
     document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
-     
+    
       const batchValue = batchElement.value === "other" ? document.getElementById('batch-other').value : batchElement.value;
-
+  
       const data = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
@@ -188,13 +187,16 @@
         batch: batchValue,
         book: document.getElementById('book').value
       };
-
+  
       document.getElementById('overlay').classList.remove('hidden');
       document.documentElement.classList.add('no-scroll');
       document.body.classList.add('no-scroll');
-
+  
       fetch('https://membership.aparsclassroom.com/proxy', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(data),
       })
       .then(response => response.json())
@@ -202,8 +204,8 @@
         document.getElementById('overlay').classList.add('hidden');
         document.documentElement.classList.remove('no-scroll');
         document.body.classList.remove('no-scroll');
-
-        if (data === 200) {
+  
+        if (data.status === 200) {
           alert("Form submitted successfully!");
         } else {
           alert("There was an error submitting the form.");
@@ -212,5 +214,6 @@
       .catch(error => console.error('Error:', error));
     });
   </script>
+  
 </body>
 </html>
