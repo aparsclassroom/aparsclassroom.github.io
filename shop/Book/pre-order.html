@@ -1,219 +1,383 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" id="doc">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACS Book Pre-Order</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      border-top: 4px solid #3498db;
-      width: 24px;
-      height: 24px;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    .overlay {
-      position: fixed;
-      top: 0.2%;
-      left: 0.2%;
-      right: 0.2%;
-      bottom: 0.2%;
-      background: rgba(249, 253, 253, 0.5);
-      backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      border-radius: 1rem;
-    }
+    <!-- Site Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
 
-    .no-scroll {
-      overflow: hidden;
-    }
+    <meta name="description" content="Pre-Booking Form">
+    <!-- loader -->
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
 
-    body
-{
-    background-image: linear-gradient(180deg, #d5e1e9, #81a6eb, #84a7db, #70a9d8);
-}
+    <!-- Site Title -->
+    <title>ACS Book Pre-Order | Rhombus Publications | ASG Shop</title>
 
-/* If scrollbars are appearing you can disable them by just typing*/
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="ACS Book Pre-Order | Rhombus Publications">
+    <meta property="og:site_name" content="ACS Book Pre-Order | Rhombus Publications">
+    <meta property="og:description" content="Pre-Booking Form">
+    <meta property="og:image"
+        content="https://i.postimg.cc/0jKQgd7g/456866120-122099896892491818-8082388422186760590-n.jpg">
+    <meta property="og:image:secure_url"
+        content="https://i.postimg.cc/0jKQgd7g/456866120-122099896892491818-8082388422186760590-n.jpg">
+    <meta property="og:image:type" content="image/jpg">
 
-::-webkit-scrollbar
-{
-    display: none;
-}
-  </style>
-</head>
-<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="ACS Book Pre-Order | Rhombus Publications">
+    <meta name="theme-color" content="#5375e2">
 
-  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-2xl m-8">
-    <h1 class="text-lg md:text-3xl font-bold mb-6 text-center text-blue-400 font-bold">ACS Book Pre-Order Form <br> Rhombus Publications</h1>
-    <p>যারা Achieve এর বিভিন্ন এক্সাম ব্যাচে ভর্তি হবে, তোমরা বইগুলো সম্পূর্ণ ফ্রিতে পাবে। তোমাদের প্রি-অর্ডার করার দরকার নেই।</p>
-    <br>
-    <p>ACS এর বইগুলোর জন্য যারা অপেক্ষা করতেছিলে অবশেষে তোমাদের অপেক্ষার পালা শেষ হতে যাচ্ছে। প্রায় ১.৫ বছর ধরে বইগুলোর কাজ করেছি আমরা সবাই।</p>  <br> 
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ACS Book Pre-Order | Rhombus Publications">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1c3227">
 
- <p>
-  সেপ্টেম্বরের ১ম উইক থেকেই ওয়েবসাইট থেকে বই অর্ডার করতে পারবে। আমাদের ACHIEVE এর অফলাইন এক্সাম ব্যাচগুলোতে যারা ভর্তি হবে তোমরা বইগুলো গিফট হিসেবে পাবে। অফলাইন এক্সাম ব্যাচে ভর্তি হলে বই প্রি অর্ডার করার দরকার নেই। 
- </p> <br>
-<span>ইঞ্জিনিয়ারিং বইয়ের ফিচারসমূহ:</span>
-<ol>
-<li>1. BUET, CKRUET, IUT, MIST, BUTex এর ভর্তি পরীক্ষায় আসা বিগত বছরের MCQ ও Written প্রশ্নের টপিকভিত্তিক Analysis.</li>
-<li>2. টপিকভিত্তিক Practice Problem গুলো এমনভাবে বাছাই করা হয়েছে যেন তোমার ইঞ্জিনিয়ারিং ভর্তি প্রস্তুতি একদম পূর্ণাঙ্গ হয়।</li>
-<li>
-  3. সকল MCQ এবং Written প্রশ্নের সহজ ব্যাখ্যাসহ সমাধান যেন শিক্ষার্থীরা সহজে আয়ত্ত করতে পারে।
-</li>
-<li>4. MCQ সমাধানের জন্য প্রয়োজনীয় সকল Shortcut Technique বইটিতে পর্যাপ্ত উদাহরণসহ দেওয়া আছে যেন স্বল্পতম সময়ে MCQ সমাধান করা যায়।</li>
-</ol>
-<br>
-
-<span>ভার্সিটি বইয়ের ফিচারসমূহ:</span>  
-<ol>
-  <li>1. DU, JU, RU, CU এবং GST এর ভর্তি পরীক্ষার বিগত বছরের MCQ এবং Written প্রশ্নের টপিক ভিত্তিক Analysis.</li>
-  <li>2. টপিক ভিত্তিক Practice Problem গুলো এমনভাবে বাছাই করা হয়েছে যেন তোমার ভার্সিটি ভর্তি প্রস্তুতি একদম পূর্ণাঙ্গ হয়।</li>
-  <li>3. সকল MCQ এবং Written প্রশ্নের সহজ ব্যাখ্যাসহ সমাধান যেন শিক্ষার্থীরা সহজে আয়ত্ত করতে পারে।</li>
-  <li>4. MCQ সমাধানের জন্য প্রয়োজনীয় সকল Shortcut Technique বইটিতে পর্যাপ্ত উদাহরণসহ দেওয়া আছে যেন স্বল্পতম সময়ে MCQ সমাধান করা যায়।</li>
-</ol>
-
-<br>
-
-    <form id="questionnaireForm" class="space-y-4">
-
-      <!-- Name -->
-      <div>
-        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-        <input type="text" id="name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" required>
-      </div>
-
-      <!-- Email -->
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" required>
-      </div>
-
-      <!-- phone -->
-
-      <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700">Mobile No.</label>
-        <input type="text" id="phone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
-      </div>
-
-    
-
-      <div>
-        <label class="block text-sm font-medium text-gray-700">HSC Batch</label>
-        <select id="batch" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
-          <option value="" disabled selected>Select your HSC batch</option>
-          <option value="2024">2024</option>
-          <option value="2025">2025</option>
-          <option value="2026">2026</option>
-          <option value="other">Other</option>
-        </select>
-        
-        <!-- Hidden Textbox -->
-        <input type="text" id="batch-other" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" style="display:none;" placeholder="Please specify your batch">
-      </div>
-
-      <!-- Company Name -->
-      <div>
-        <label for="college" class="block text-sm font-medium text-gray-700">College</label>
-        <input type="text" id="college" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
-      </div>
-
-        
-      <div>
-        <label class="block text-sm font-medium text-gray-700">তুমি নিচের কোন বান্ডেলটি ক্রয় করতে ইচ্ছুক?</label>
-        <span> বিঃদ্রঃ </span> <br>
-        <span>- ২য় পত্রে বইগুলো এখনো সম্পূর্ণ রেডি হয়নি। সম্পূর্ণভাবে রেডি হবার পর, ২য় পত্রের জন্যেও প্রি-অর্ডার নেয়া হবে।  </span> <br>
-        <span>- যারা Achieve এর বিভিন্ন এক্সাম ব্যাচে ভর্তি হবে, তোমরা বইগুলো সম্পূর্ণ ফ্রিতে পাবে। তোমাদের প্রি-অর্ডার করার দরকার নেই।  </span> <br>
-        </span>
-        <select id="book" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" required>
-          <option value="" disabled selected>Select your option</option>
-          <option value="Engineering 1st Paper Bundle (PCM)">Engineering 1st Paper Bundle (PCM)</option>
-          <option value="Varsity 1st Paper Bundle (PCMB)">Varsity 1st Paper Bundle (PCMB)</option>
-        </select>
-      </div>
+    <!-- Site Icon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/Logo.png">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
 
 
-      <!-- Submit Button -->
-      <div class="text-center">
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
-      </div>
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="/shop/assets/minimal.css">
+    <link rel="stylesheet" href="/shop/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/shop/assets/css/custom.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/shop/assets/css/print.css" media="print">
 
-            <!-- Loading Indicator and Overlay -->
-            <div id="overlay" class="overlay hidden">
-              <div class="text-center">
-                <div class="spinner mx-auto"></div>
-                <p class="mt-2 text-white">Submitting...</p>
-              </div>
-            </div>
-
-    </form>
-  </div>
-
-  <script>
-    const batchElement = document.getElementById('batch');
-    const otherInput = document.getElementById('batch-other');
-  
-    batchElement.addEventListener('change', function() {
-      if (this.value === 'other') {
-        otherInput.style.display = 'block';
-      } else {
-        otherInput.style.display = 'none';
-      }
-    });
-  
-    document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-    
-      const batchValue = batchElement.value === "other" ? document.getElementById('batch-other').value : batchElement.value;
-  
-      const data = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        college: document.getElementById('college').value,
-        batch: batchValue,
-        book: document.getElementById('book').value
-      };
-  
-      document.getElementById('overlay').classList.remove('hidden');
-      document.documentElement.classList.add('no-scroll');
-      document.body.classList.add('no-scroll');
-  
-      fetch('https://membership.aparsclassroom.com/proxy', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('overlay').classList.add('hidden');
-        document.documentElement.classList.remove('no-scroll');
-        document.body.classList.remove('no-scroll');
-  
-        if (data.status === 200) {
-          alert("Form submitted successfully!");
-        } else {
-          alert("There was an error submitting the form.");
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
+    <script src="/shop/assets/js/script.js" defer></script>
+    <!-- Scripts -->
+    <script src="/assets/js/sweetalert.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
+        defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
+        defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+    <style>
+        @media only screen and (max-width: 600px) {
+            #teachers img {
+                margin-left: 7px !important;
+            }
         }
-      })
-      .catch(error => console.error('Error:', error));
-    });
-  </script>
-  
+
+        #teachers img {
+            margin-left: 7px !important;
+        }
+
+        .subtitle {
+            font-family: Kalpurush;
+            color: #5375e2;
+        }
+
+        .tag {
+            white-space: normal;
+        }
+
+        #module #collapseExample.collapse:not(.show) {
+            display: block;
+            height: 10rem !important;
+            overflow: hidden;
+        }
+    </style>
+
+    <!-- Shop Scripts -->
+    <script src="../assets/js/key.js" defer></script>
+    <script src="/assets/js/count.js" defer></script>
+    <script src="./assets/info.js" defer></script>
+    <script src="./assets/ss.js" defer></script>
+
+    <!-- Custom Scripts -->
+    <script src="./assets/js/shop.js" defer></script>
+</head>
+
+<body>
+    
+    <nav class="navbar sticky-top navbar-light bg-transparent">
+        <a href="/shop/" style="text-decoration: none;color: #5375e2;font-size: large;font-weight: bold;"><i
+                class="fas fa-store-alt"></i> ASG Shop</a>
+    </nav>
+    <div class="main">
+        <div class="shopcontainer container-fluid">
+            <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
+            <h3 class="text-center bangla"><span id="prod"></span></h3>
+            <div class="row">
+                <div id="teachers" class="col-md-7 first">
+                    <hr>
+                    <div class="row">
+                        <div id="content" class="col-md-6 mt-3">
+                            <div id="module" class="container bangla">
+                                <h3 class="bangla">কোর্সটি সম্পর্কে</h3>
+                                <div class="collapse text-justify" id="collapseExample" aria-expanded="false">
+                                    ACS এর বইগুলোর জন্য যারা অপেক্ষা করতেছিলে অবশেষে তোমাদের অপেক্ষার পালা শেষ হতে যাচ্ছে। প্রায় ১.৫ বছর ধরে বইগুলোর কাজ করেছি আমরা সবাই। <br>
+                                    <br>
+                                    সেপ্টেম্বরের ১ম উইক থেকেই ওয়েবসাইট থেকে বই অর্ডার করতে পারবে। আমাদের ACHIEVE এর অফলাইন এক্সাম ব্যাচগুলোতে যারা ভর্তি হবে তোমরা বইগুলো গিফট হিসেবে পাবে। অফলাইন এক্সাম ব্যাচে ভর্তি হলে বই প্রি অর্ডার করার দরকার নেই। <br>
+                                    <br>
+                                    ইঞ্জিনিয়ারিং বইয়ের ফিচারসমূহ: <br>
+                                    1.	BUET, CKRUET, IUT, MIST, BUTex এর ভর্তি পরীক্ষায় আসা বিগত বছরের MCQ ও Written প্রশ্নের টপিকভিত্তিক Analysis.<br>
+                                    2.	টপিকভিত্তিক Practice Problem গুলো এমনভাবে বাছাই করা হয়েছে যেন তোমার ইঞ্জিনিয়ারিং ভর্তি প্রস্তুতি একদম পূর্ণাঙ্গ হয়।<br>
+                                    3.	সকল MCQ এবং Written প্রশ্নের সহজ ব্যাখ্যাসহ সমাধান যেন শিক্ষার্থীরা সহজে আয়ত্ত করতে পারে।<br>
+                                    4.	MCQ সমাধানের জন্য প্রয়োজনীয় সকল Shortcut Technique বইটিতে পর্যাপ্ত উদাহরণসহ দেওয়া আছে যেন স্বল্পতম সময়ে MCQ সমাধান করা যায়।<br>
+                                    <br>
+                                    <br>
+                                    ভার্সিটি বইয়ের ফিচারসমূহ: <br>
+                                    1.	DU, JU, RU, CU এবং GST এর ভর্তি পরীক্ষার বিগত বছরের MCQ এবং Written প্রশ্নের টপিক ভিত্তিক Analysis.<br>
+                                    2.	টপিক ভিত্তিক Practice Problem গুলো এমনভাবে বাছাই করা হয়েছে যেন তোমার ভার্সিটি ভর্তি প্রস্তুতি একদম পূর্ণাঙ্গ হয়।<br>
+                                    3.	সকল MCQ এবং Written প্রশ্নের সহজ ব্যাখ্যাসহ সমাধান যেন শিক্ষার্থীরা সহজে আয়ত্ত করতে পারে।<br>
+                                    4.	MCQ সমাধানের জন্য প্রয়োজনীয় সকল Shortcut Technique বইটিতে পর্যাপ্ত উদাহরণসহ দেওয়া আছে যেন স্বল্পতম সময়ে MCQ সমাধান করা যায়।<br>
+                                </div>
+                                <div class="text-center">
+                                    <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample"
+                                        aria-expanded="false" aria-controls="collapseExample"></a>
+                                </div>
+                            </div>
+                            <h2 class="mt-4 bangla">সচরাচর জিজ্ঞাসা :</h2>
+                            <div id="Faq">
+                                <div class="card bangla">
+                                    <div class="card-header" id="faqs">
+                                        <h5 class="mb-0"></h5>
+                                        <button class="btn" data-toggle="collapse" data-target="#faqCl"
+                                            aria-expanded="true" aria-controls="faqCl">
+                                            <i class="fa" aria-hidden="true"></i>
+                                            কোর্সটি কীভাবে কিনবো?
+                                        </button>
+                                        </h5>
+                                    </div>
+                                    <div id="faqCl" class="collapse show" aria-labelledby="faqs" data-parent="#Faq">
+                                        <div class="card-body">
+                                            <div class="card-body">
+                                                <p>বি.দ্র. কেনার পূর্বে অবশ্যই এই ভিডিওটি দেখে নাও : <br><a
+                                                        href="https://www.youtube.com/watch?v=ji7epk_R20U" target="_blank"
+                                                        rel="noopener noreferrer">https://www.youtube.com/watch?v=ji7epk_R20U</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="video" class="col-md-5 flex-column">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div class="embed-responsive-item">
+                            <div id="thumb">
+                                <img src="https://i.postimg.cc/0jKQgd7g/456866120-122099896892491818-8082388422186760590-n.jpg"
+                                    class="image-loaded">
+                                    <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_aolblx3z.json"  background="transparent"  speed="1"  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; opacity: 1;"  loop autoplay></lottie-player> -->
+                            </div>
+                        </div>
+                        <div id="player"></div>
+                    </div>
+                    <div class="contmeta text-center">
+                        <div class="met">
+                            <div class="tag">
+                                <img src="/assets/enroll.svg"alt="enrolled">
+                                <div class="flt bangla">
+                                    <span>
+                                        প্রি-বুক করেছেন</span><strong id="enrolled"></strong>
+                                </div>
+                            </div>
+                            <div class="tag">
+                                <img src="/assets/revision_class.svg"
+                                    alt="time required">
+                                <div class="flt bangla"><strong id="duration">৫ সেপ্টেম্বর পর্যন্ত</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag" id="con1"><i class="fas fa-check-circle"></i>&nbsp; প্রশ্নের টপিকভিত্তিক Analysis
+                        </div>
+                        <div class="tag" id="con2"><i class="fas fa-check-circle"></i>&nbsp; টপিক ভিত্তিক Practice Problem
+                        </div>
+                        <div class="tag" id="con3"><i class="fas fa-check-circle"></i>&nbsp; Shortcut Technique
+                        </div>
+                        <div class="tag" id="con4"><i class="fas fa-check-circle"></i>&nbsp; সহজ ব্যাখ্যাসহ সমাধান
+                        </div>
+                    </div>
+                    <br>
+                    <div id="clprc" class="cove">
+                        <div class="d-flex justify-content-center">
+                            <!-- Button trigger modal -->
+                            <button type="button" style="margin-top: 10px;" id="moda" class="btn btn-block bangla btn-lg btn-success" data-toggle="modal">
+                                Pre-Booking করতে লগইন করো <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="d-flex pb-5 pt-6 pt-md-7">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                   <p>Apars Classroom <strong>(ASG Shop)</strong> is an online education center based in Dhaka, Bangladesh, specializing in providing high-quality educational resources to students across the country. Established in 2018, the platform has quickly gained popularity among Bangladeshi students, with over 700,000 students actively learning and developing their skills through its diverse range of courses.</p>
+                    <ul class="d-flex list-unstyled mb-5 mb-lg-0">
+                        <li class="mr-2">
+                            <a href="https://www.facebook.com/aparsclassroom/" target="_blank"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="facebook social link"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Like @aparsclassroom on Facebook"><span aria-hidden="true"
+                                    class="fab fa-facebook"></span></a>
+                        </li>
+                        <li class="mr-2">
+                            <a href="https://instagram.com/aparsclassroom" target="_blank"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="instagram social link"
+                                data-toggle="tooltip" data-placement="top" title="Follow @aparsclassroom on insta"><span
+                                    aria-hidden="true" class="fab fa-instagram"></span></a>
+                        </li>
+                        <li class="mr-2"><a href="https://youtube.com/aparsclassroom" target="_blank"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link"
+                                data-toggle="tooltip" data-placement="top" title="Subscribe our Channel"><span
+                                    aria-hidden="true" class="fab fa-youtube"></span></a></li>
+                        <li class="mr-2"><a href="mailto:support@aparsclassroom.com"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link"
+                                data-toggle="tooltip" data-placement="top" title="Email Us"><span aria-hidden="true"
+                                    class="fas fa-envelope"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h5>Important Links</h5>
+                    <ul class="footer-links list-unstyled mt-2">
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/terms.html">Terms and Conditions</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/privacy.html">Privacy Policy</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy.html">Return and
+                                Refund Policy</a></li>
+                        <li><a class="p-2" target="_blank" href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+                    <h5>Disclaimer</h5>
+                    <p class="text-gray font-small m-0">All the products are listed for sale in the shop, are owned by
+                        the Company. Anyone can buy personal license for the products. But Reselling are Strictly
+                        prohibited. Learn more about <a class="text-danger" href="/piracy.html">Anti-Piracy Laws</a>
+                        &amp; <a class="text-danger" href="/terms.html">Terms and Conditions</a>.
+                    </p>
+                </div>
+            </div>
+            <hr class="my-5">
+            <div class="row">
+                <div class="col">
+                    <a href="/" target="_blank" class="d-flex justify-content-center"><img
+                            src="/HSC-Full-Course/assets/images/1.png" height="50" class="mb-3"
+                            alt="Apar's Classroom Logo"></a>
+                    <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                        <p class="font-weight-normal font-small mb-0">&copy; <span class="current-year">2018-2024</span>
+                            Apar's Classroom<br>All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel"
+        data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseFrmLabel">Please fill up your Informations correctly</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="purchase" name="purchase">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" required id="name" name="Name"
+                                    placeholder="Your Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email">Email <span style="color: red;">***</span></label>
+                                <input type="email" class="form-control" id="email" required name="Email"  pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$" placeholder="xyz@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="college">College</label>
+                                <input type="text" class="form-control" id="college" required name="College"
+                                    placeholder="ex : Dhaka Residential Model College">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="hscBatch">HSC Batch</label>
+                                <select id="hscBatch" name="HSC Batch" required class="form-control">
+                                    <option value="HSC 24">HSC'24</option>
+                                    <option value="HSC 25">HSC'25</option>
+                                    <option value="HSC 26">HSC'26</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
+                                <input type="tel" name="Phone" class="form-control" pattern="^(?:\+?88)?01[13-9]\d{8}$" placeholder="+8801XX XXX XXXX" id="phone">
+                              
+                                <input type="text" style="display: none;" id="uid" name="UID">
+                                <textarea type="text" style="display: none;" id="ip-details" name="IP Address"></textarea>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="book">তুমি নিচের কোন বান্ডেলটি ক্রয় করতে ইচ্ছুক?</label>
+                                <select id="book" name="Book" required class="form-control">
+                                    <option value="" selected></option>
+                                    <option value="Engineering 1st Paper Bundle (PCM)">Engineering 1st Paper Bundle (PCM)</option>
+                                    <option value="Varsity 1st Paper Bundle (PCMB)">Varsity 1st Paper Bundle (PCMB)</option>
+                                </select>
+                                <p>
+                                    * বিঃদ্রঃ <br>
+                                    - ২য় পত্রে বইগুলো এখনো সম্পূর্ণ রেডি হয়নি। সম্পূর্ণভাবে রেডি হবার পর, ২য় পত্রের জন্যেও প্রি-অর্ডার নেয়া হবে। <br>
+                                    - যারা Achieve এর বিভিন্ন এক্সাম ব্যাচে ভর্তি হবে, তোমরা বইগুলো সম্পূর্ণ ফ্রিতে পাবে। তোমাদের প্রি-অর্ডার করার দরকার নেই।</p>
+
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" required type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                  <p class="bangla">এই ফর্মের সকল তথ্য সঠিক</p>
+                                </label>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Phone Number
+                        is very important. Please make sure there is no mistake.</span>
+                    <button id="buy" type="submit" class="btn btn-success bangla">বুক করো</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
+
 </html>
