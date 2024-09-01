@@ -1,91 +1,91 @@
-
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 @font-face {
   font-family: Montserrat-Regular;
-  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
+  src: url("../fonts/montserrat/Montserrat-Regular.ttf");
 }
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+  src: url("../fonts/montserrat/Montserrat-Bold.ttf");
 }
 
 @font-face {
   font-family: Montserrat-ExtraBold;
-  src: url('../fonts/montserrat/Montserrat-ExtraBold.ttf'); 
+  src: url("../fonts/montserrat/Montserrat-ExtraBold.ttf");
 }
 
 @font-face {
   font-family: Montserrat-Medium;
-  src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
+  src: url("../fonts/montserrat/Montserrat-Medium.ttf");
 }
-
-
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-body, html {
-	height: 100%;
-	font-family: Montserrat-Regular, sans-serif;
+body,
+html {
+  height: 100%;
+  font-family: Montserrat-Regular, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Montserrat-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #fff;
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #fff;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
 
 a:focus {
-	outline: none !important;
+  outline: none !important;
 }
 
 a:hover {
-	text-decoration: none;
-	color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
 }
 
 p {
-	font-family: Montserrat-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
 }
 
-ul, li {
-	margin: 0px;
-	list-style-type: none;
+ul,
+li {
+  margin: 0px;
+  list-style-type: none;
 }
-
 
 /*---------------------------------------------*/
 input {
-	outline: none;
-	border: none;
+  outline: none;
+  border: none;
 }
 
 textarea {
@@ -93,60 +93,90 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
 
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
 
-input::-webkit-input-placeholder { color: #aaaaaa; }
-input:-moz-placeholder { color: #aaaaaa; }
-input::-moz-placeholder { color: #aaaaaa; }
-input:-ms-input-placeholder { color: #aaaaaa; }
+input::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+input:-moz-placeholder {
+  color: #aaaaaa;
+}
+input::-moz-placeholder {
+  color: #aaaaaa;
+}
+input:-ms-input-placeholder {
+  color: #aaaaaa;
+}
 
-textarea::-webkit-input-placeholder { color: #aaaaaa; }
-textarea:-moz-placeholder { color: #aaaaaa; }
-textarea::-moz-placeholder { color: #aaaaaa; }
-textarea:-ms-input-placeholder { color: #aaaaaa; }
+textarea::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+textarea:-moz-placeholder {
+  color: #aaaaaa;
+}
+textarea::-moz-placeholder {
+  color: #aaaaaa;
+}
+textarea:-ms-input-placeholder {
+  color: #aaaaaa;
+}
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+  outline: none !important;
+  border: none;
+  background: transparent;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 iframe {
-	border: none !important;
+  border: none !important;
 }
-
-
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Contact ]*/
 
 .bg-contact100 {
-  width: 100%;  
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .container-contact100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -193,7 +223,7 @@ textarea {
 [  ]*/
 .contact100-pic {
   width: 450px;
-   padding-top: 80px;
+  padding-top: 80px;
 }
 
 .contact100-pic img {
@@ -252,7 +282,6 @@ textarea.input100 {
   line-height: 1.5;
   color: #666666;
 }
-
 
 /*------------------------------------------------------------------
 [ Focus ]*/
@@ -348,7 +377,7 @@ textarea.input100 {
   height: 50px;
   text-align: center;
   border-radius: 25px;
-  background: #13213C;
+  background: #13213c;
   font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
@@ -371,14 +400,14 @@ textarea.input100 {
 
 .contact100-form-btn2:hover {
   background: #e9d1c3;
-  color: #13213C;
+  color: #13213c;
 }
 .contact100-form-btn {
   width: 100%;
   text-align: center;
   height: 50px;
   border-radius: 25px;
-  background: #13213C;
+  background: #13213c;
   font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
@@ -401,7 +430,7 @@ textarea.input100 {
   text-align: center;
   height: 50px;
   border-radius: 25px;
-  background: #13213C;
+  background: #13213c;
   font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
@@ -423,18 +452,18 @@ textarea.input100 {
 
 .contact100-form-btn:hover {
   background: #e9d1c3;
-  color: #13213C;
+  color: #13213c;
 }
 
 .contact100-form-btn1:hover {
   background: #e9d1c3;
-  color: #13213C;
+  color: #13213c;
 }
 
 .notlogin {
   z-index: 4;
   pointer-events: none;
-  user-select:none;
+  user-select: none;
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
@@ -501,7 +530,6 @@ textarea.input100 {
     padding: 110px 15px 157px 15px;
   }
 }
-
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -572,5 +600,5 @@ textarea.input100 {
 
 #ip-details,
 #success {
-    display: none;
+  display: none;
 }

@@ -1,25 +1,29 @@
-.container input:focus {
-    border-radius: 10px;
-    padding: 25px;
-    color: rgb(28, 50, 39);
-    font-size: large;
-}
-
+/* Input styles */
 .container input {
-    border-radius: 10px;
-    padding: 20px;
-    font-size: small;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: small;
+  transition: all 0.3s ease;
 }
 
+.container input:focus {
+  padding: 25px;
+  color: rgb(28, 50, 39);
+  font-size: large;
+  outline: none;
+}
+
+/* Heading styles */
 h3 {
-    color: #5375e2;
+  color: #5375e2;
 }
 
 h5 {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
+/* Column styles */
 .col-md-15 {
-    border: 1px solid black;
+  border: 1px solid black;
 }

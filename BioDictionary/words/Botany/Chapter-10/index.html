@@ -1,70 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "8jcf2l88zu");
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
     <title>Chapter 10 | Botany | BioDictionary</title>
-    <link rel="shortcut icon" href="../../../Assets/images/logo/logo-square.ico">
+    <link
+      rel="shortcut icon"
+      href="../../../Assets/images/logo/logo-square.ico"
+    />
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
     <script src="/BioDictionary/Assets/js/fbin.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
-        $(function() {
-            "use strict";
-            $(window).on("load", function() {
-                $(".loader").fadeOut();
-                $("#preloader").delay(350).fadeOut("slow");
-                $("body").delay(350).css({
-                    "overflow": "visible"
-                });
-                $(".all-container").css({
-                    "opacity": "1"
-                });
+      $(
+        (function () {
+          "use strict";
+          $(window).on("load", function () {
+            $(".loader").fadeOut();
+            $("#preloader").delay(350).fadeOut("slow");
+            $("body").delay(350).css({
+              overflow: "visible",
             });
-        }(jQuery));
+            $(".all-container").css({
+              opacity: "1",
+            });
+          });
+        })(jQuery),
+      );
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/BioDictionary/Assets/css/chapter.css">
-</head>
+    <link rel="stylesheet" href="/BioDictionary/Assets/css/chapter.css" />
+  </head>
 
-<body>
+  <body>
     <div id="preloader">
-        <div class="loader">
-            <img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" height="500px" width="500px" alt="preloader">
-        </div>
+      <div class="loader">
+        <img
+          class="img-fluid"
+          src="/BioDictionary/Assets/images/preloader/1.gif"
+          height="500px"
+          width="500px"
+          alt="preloader"
+        />
+      </div>
     </div>
     <div class="all-container">
-        <div id="navB"></div>
-        <div class="container">
-            <br>
-            <h2 style="text-align: center;">অধ্যায় ১০<br>উদ্ভিদ প্রজনন</h2>
-            <div id="Sub"></div>
-            <div id="Chap"></div>
-            <br>
-            <input class="form-control mr-sm-2" onkeydown="searchFunc()" onkeyup="resultFunc()" id="txt-search" type="search" placeholder="কাঙ্ক্ষিত শব্দটির অর্থ খুঁজে পেতে এখানে সার্চ করুন..">
-            <br>
-            <div id="filter-records"></div>
-            <p id="status" style="text-align: center;"></p>
-            <div id="all"><img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" width="100%" alt="preloader"></div>
+      <div id="navB"></div>
+      <div class="container">
+        <br />
+        <h2 style="text-align: center">অধ্যায় ১০<br />উদ্ভিদ প্রজনন</h2>
+        <div id="Sub"></div>
+        <div id="Chap"></div>
+        <br />
+        <input
+          class="form-control mr-sm-2"
+          onkeydown="searchFunc()"
+          onkeyup="resultFunc()"
+          id="txt-search"
+          type="search"
+          placeholder="কাঙ্ক্ষিত শব্দটির অর্থ খুঁজে পেতে এখানে সার্চ করুন.."
+        />
+        <br />
+        <div id="filter-records"></div>
+        <p id="status" style="text-align: center"></p>
+        <div id="all">
+          <img
+            class="img-fluid"
+            src="/BioDictionary/Assets/images/preloader/1.gif"
+            width="100%"
+            alt="preloader"
+          />
         </div>
+      </div>
     </div>
     <div id="moda"></div>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 
-<script src="/BioDictionary/Assets/main/Botany/Chapter-10/script.js"></script>
-<script src='/BioDictionary/Assets/js/scriptB.js'></script>
-
+  <script src="/BioDictionary/Assets/main/Botany/Chapter-10/script.js"></script>
+  <script src="/BioDictionary/Assets/js/scriptB.js"></script>
 </html>

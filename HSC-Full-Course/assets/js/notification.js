@@ -13,7 +13,6 @@ const noti = "Hey There 🤩\nTry our Story Mode Learning App";
 // Notification Link
 const noti2 = "https://storymodelearning.com/registration";
 
-
 // window.addEventListener('load', function() {
 //     if (window.Notification && Notification.permission === "granted") {
 //         var notification = new Notification(title, {

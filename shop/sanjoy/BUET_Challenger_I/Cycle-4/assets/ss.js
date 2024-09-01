@@ -5,14 +5,14 @@ const fix = 1000;
 const pls = 800;
 const init = 0;
 const Platform = "Sanjoy";
-const Cycle = location.pathname.split('/')[4];
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const Cycle = location.pathname.split("/")[4];
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
 
 // var tag = document.createElement('script');
@@ -40,28 +40,38 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    document
+      .getElementById("enrolled")
+      .setAttribute("countTo", data.count + init);
+    if (document.getElementById("enrolled")) {
+      const countUp = new CountUp(
+        "enrolled",
+        document.getElementById("enrolled").getAttribute("countTo"),
+      );
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-
-    document.getElementById('con1').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; 20+ Live Classes`;
-    document.getElementById('con3').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Question Bank Solve Class`;
-    document.getElementById('con4').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Special MCQ + CQ Class `;
-    document.getElementById('con5').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Mega Exam`;
-    document.getElementById('con7').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; Dedicated Web App`;
-    document.getElementById('con9').innerHTML = `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; Dedicated Lecture Sheet`;
+document.getElementById("con1").innerHTML =
+  `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; 20+ Live Classes`;
+document.getElementById("con3").innerHTML =
+  `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Question Bank Solve Class`;
+document.getElementById("con4").innerHTML =
+  `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Special MCQ + CQ Class `;
+document.getElementById("con5").innerHTML =
+  `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp;2 Mega Exam`;
+document.getElementById("con7").innerHTML =
+  `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; Dedicated Web App`;
+document.getElementById("con9").innerHTML =
+  `<i title="feature" class="fa-solid fa-circle-check"></i>&nbsp; Dedicated Lecture Sheet`;

@@ -1,24 +1,24 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 5,
-    loop: false,
-    autoplay: {
-        delay: 4000,
-    },
+  slidesPerView: 5,
+  spaceBetween: 5,
+  loop: false,
+  autoplay: {
+    delay: 4000,
+  },
 });
 
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
-var tag = document.createElement('script');
+var tag = document.createElement("script");
 
 tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
+var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
@@ -35,7 +35,7 @@ var player;
 // }
 
 function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
+  document.getElementById("thumb").style.display = "none";
+  event.target.setVolume(100);
+  event.target.playVideo();
 }

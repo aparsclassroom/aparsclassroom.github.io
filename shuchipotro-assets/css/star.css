@@ -1,53 +1,53 @@
-  .center{
-    position: relative;
-    width: 300px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .center .stars input{
-    display: none;
-  }
-  .stars label{
-    font-size: 30px;
-    color: grey;
-    padding: 10px;
-    float: right;
-    transition: all 0.2s ease;
-  }
-  input:not(:checked) ~ label:hover,
-  input:not(:checked) ~ label:hover ~ label{
-    color: #fd4;
-  }
-  input:checked ~ label{
-    color: #fd4;
-    text-shadow: 1px 1px #c60;
-  }
-  input#rate-5:checked ~ label{
-    color: #fe7;
-    text-shadow: 0 0 5px #952;
-  }
-  .result {
-      font-size: 20px;
-      text-align: center;
-  }
-  .stars input:checked ~ .result:before{
-    display: block;
-  }
-  .stars #five:checked ~ .result:before{
-    content: "I love it 😍";
-  }
-  .stars #four:checked ~ .result:before{
-    content: "I like it 😎";
-  }
-  .stars #three:checked ~ .result:before{
-    content: "It's good 😄";
-  }
-  .stars #two:checked ~ .result:before{
-    content: "I don't like it 😒";
-  }
-  .stars #one:checked ~ .result:before{
-    content: "I hate it 😠";
-  }
+.center {
+  position: relative;
+  width: 300px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.center .stars input {
+  display: none;
+}
+.stars label {
+  font-size: 30px;
+  color: grey;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: #fd4;
+}
+input:checked ~ label {
+  color: #fd4;
+  text-shadow: 1px 1px #c60;
+}
+input#rate-5:checked ~ label {
+  color: #fe7;
+  text-shadow: 0 0 5px #952;
+}
+.result {
+  font-size: 20px;
+  text-align: center;
+}
+.stars input:checked ~ .result:before {
+  display: block;
+}
+.stars #five:checked ~ .result:before {
+  content: "I love it 😍";
+}
+.stars #four:checked ~ .result:before {
+  content: "I like it 😎";
+}
+.stars #three:checked ~ .result:before {
+  content: "It's good 😄";
+}
+.stars #two:checked ~ .result:before {
+  content: "I don't like it 😒";
+}
+.stars #one:checked ~ .result:before {
+  content: "I hate it 😠";
+}

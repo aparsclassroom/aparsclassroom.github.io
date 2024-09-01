@@ -3,6 +3,6 @@ const subj = "physics";
 var slider = document.getElementById("duration");
 var output = document.getElementById("output");
 output.value = slider.value;
-slider.oninput = function() {
-    output.value = this.value;
-}
+slider.oninput = function () {
+  output.value = this.value;
+};

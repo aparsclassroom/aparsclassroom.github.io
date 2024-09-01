@@ -1,20 +1,23 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 1,
+  slidesPerView: 2,
+  spaceBetween: 1,
 });
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
-const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+const countUp = new CountUp(
+  "std",
+  document.getElementById("std").getAttribute("countTo"),
+);
 if (!countUp.error) {
-    countUp.start();
+  countUp.start();
 } else {
-    console.error(countUp.error);
+  console.error(countUp.error);
 }
 // var tag = document.createElement('script');
 
@@ -42,21 +45,25 @@ if (!countUp.error) {
 // }
 
 fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
-
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    document
+      .getElementById("enrolled")
+      .setAttribute("countTo", data.count + init);
+    if (document.getElementById("enrolled")) {
+      const countUp = new CountUp(
+        "enrolled",
+        document.getElementById("enrolled").getAttribute("countTo"),
+      );
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
