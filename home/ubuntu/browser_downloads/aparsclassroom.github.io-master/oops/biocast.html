@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>BioCast Admin Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="new-script.js" defer></script>
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        
+        .container.csc {
+            max-width: 700px;
+        }
+        
+        .container {
+            margin-left: 0;
+        }
+        
+        table,
+        th,
+        td {
+            margin: 10px 0;
+            border: solid 1px #333;
+            padding: 2px 4px;
+            font: 15px Verdana;
+            text-align: center;
+        }
+        
+        th {
+            font-weight: bold;
+        }
+        
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid blue;
+            border-bottom: 16px solid blue;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            visibility: hidden;
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="csc">
+        <h1 class="text-center">BioCast Admin Dashboard</h1>
+    </div>
+    <div class="text-center">
+        <div align="center">
+            <div id="loader"></div>
+            <a class="btn btn-secondary" target="_blank" href="./pdf.html">Raw Pdfs</a>
+            <p id="re"></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertMD">
+                Add Video
+              </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateMD">
+                Add Edited Video Link
+              </button>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#StatusMD">
+                Update Status
+              </button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteMD">
+                Delete Video
+              </button>
+            <input type="button" class="btn btn-warning" onclick="read_value()" value="Refresh" />
+            <br><br><br>
+            <div id="showData"><img src='https://www.cappsure.com/resources/assets/img/ajax-loader-3.gif?version=3.5' width='500px'></div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="deleteMD" tabindex="-1" role="dialog" aria-labelledby="deleteMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteMDLabel">Delete Video (Mridul Only)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="dlte">
+                        <div class="form-group">
+                            <label for="dPaper"> Paper : </label>
+                            <select id="dPaper" name="dPaper" class="form-control">
+                    <option value="Botany">Botany</option>
+                    <option value="Zoology">Zoology</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dChapter"> Chapter : </label>
+                            <select id="dChapter" name="dChapter" class="form-control">
+                    <option value="Chapter-1">Chapter-1</option>
+                    <option value="Chapter-2">Chapter-2</option>
+                    <option value="Chapter-3">Chapter-3</option>
+                    <option value="Chapter-4">Chapter-4</option>
+                    <option value="Chapter-5">Chapter-5</option>
+                    <option value="Chapter-6">Chapter-6</option>
+                    <option value="Chapter-7">Chapter-7</option>
+                    <option value="Chapter-8">Chapter-8</option>
+                    <option value="Chapter-9">Chapter-9</option>
+                    <option value="Chapter-10">Chapter-10</option>
+                    <option value="Chapter-11">Chapter-11</option>
+                    <option value="Chapter-12">Chapter-12</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dEpisode"> Episode : </label>
+                            <select id="dEpisode" name="dEpisode" class="form-control">
+                    <option value="Episode-1">Episode-1</option>
+                    <option value="Episode-2">Episode-2</option>
+                    <option value="Episode-3">Episode-3</option>
+                    <option value="Episode-4">Episode-4</option>
+                    <option value="Episode-5">Episode-5</option>
+                    <option value="Episode-6">Episode-6</option>
+                    </select>
+                        </div>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-danger" onclick="delete_value()" value="Delete Video" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="StatusMD" tabindex="-1" role="dialog" aria-labelledby="StatusMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="StatusMDLabel">Update Upload Status (Mridul Only)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updt">
+                        <div class="form-group">
+                            <label for="cPaper"> Paper : </label>
+                            <select id="cPaper" name="cPaper" class="form-control">
+                    <option value="Botany">Botany</option>
+                    <option value="Zoology">Zoology</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cChapter"> Chapter : </label>
+                            <select id="cChapter" name="cChapter" class="form-control">
+                    <option value="Chapter-1">Chapter-1</option>
+                    <option value="Chapter-2">Chapter-2</option>
+                    <option value="Chapter-3">Chapter-3</option>
+                    <option value="Chapter-4">Chapter-4</option>
+                    <option value="Chapter-5">Chapter-5</option>
+                    <option value="Chapter-6">Chapter-6</option>
+                    <option value="Chapter-7">Chapter-7</option>
+                    <option value="Chapter-8">Chapter-8</option>
+                    <option value="Chapter-9">Chapter-9</option>
+                    <option value="Chapter-10">Chapter-10</option>
+                    <option value="Chapter-11">Chapter-11</option>
+                    <option value="Chapter-12">Chapter-12</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cEpisode"> Episode : </label>
+                            <select id="cEpisode" name="cEpisode" class="form-control">
+                    <option value="Episode-1">Episode-1</option>
+                    <option value="Episode-2">Episode-2</option>
+                    <option value="Episode-3">Episode-3</option>
+                    <option value="Episode-4">Episode-4</option>
+                    <option value="Episode-5">Episode-5</option>
+                    <option value="Episode-6">Episode-6</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Status"> Status : </label>
+                            <select id="Status" name="Status" class="form-control">
+                    <option value="✔">Done ✔</option>
+                    <option value="❌">Declined ❌</option>
+                    </select>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="button" class="btn btn-success" onclick="status()" value="Update Status" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="updateMD" tabindex="-1" role="dialog" aria-labelledby="updateMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateMDLabel">Add Edited Video (Rafayet Only)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updts">
+                        <div class="form-group">
+                            <label for="uPaper"> Paper : </label>
+                            <select id="uPaper" name="uPaper" class="form-control">
+                    <option value="Botany">Botany</option>
+                    <option value="Zoology">Zoology</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="uChapter"> Chapter : </label>
+                            <select id="uChapter" name="uChapter" class="form-control">
+                    <option value="Chapter-1">Chapter-1</option>
+                    <option value="Chapter-2">Chapter-2</option>
+                    <option value="Chapter-3">Chapter-3</option>
+                    <option value="Chapter-4">Chapter-4</option>
+                    <option value="Chapter-5">Chapter-5</option>
+                    <option value="Chapter-6">Chapter-6</option>
+                    <option value="Chapter-7">Chapter-7</option>
+                    <option value="Chapter-8">Chapter-8</option>
+                    <option value="Chapter-9">Chapter-9</option>
+                    <option value="Chapter-10">Chapter-10</option>
+                    <option value="Chapter-11">Chapter-11</option>
+                    <option value="Chapter-12">Chapter-12</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="uEpisode"> Episode : </label>
+                            <select id="uEpisode" name="uEpisode" class="form-control">
+                    <option value="Episode-1">Episode-1</option>
+                    <option value="Episode-2">Episode-2</option>
+                    <option value="Episode-3">Episode-3</option>
+                    <option value="Episode-4">Episode-4</option>
+                    <option value="Episode-5">Episode-5</option>
+                    <option value="Episode-6">Episode-6</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Final"> Edited Final Video Link : </label> <input class="form-control" placeholder="https://drive.google.com/Final_Video" type="text" name="Final" id="Final">
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="button" class="btn btn-success" onclick="update_value()" value="Add Final Video Link" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="insertMD" tabindex="-1" role="dialog" aria-labelledby="insertMDLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="insertMDLabel">Add a new Video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <form id="insertF">
+                        <div class="form-group">
+                            <label for="Paper"> Paper : </label>
+                            <select id="Paper" name="Paper" class="form-control">
+                    <option value="Botany">Botany</option>
+                    <option value="Zoology">Zoology</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Chapter"> Chapter : </label>
+                            <select id="Chapter" name="Chapter" class="form-control">
+                    <option value="Chapter-1">Chapter-1</option>
+                    <option value="Chapter-2">Chapter-2</option>
+                    <option value="Chapter-3">Chapter-3</option>
+                    <option value="Chapter-4">Chapter-4</option>
+                    <option value="Chapter-5">Chapter-5</option>
+                    <option value="Chapter-6">Chapter-6</option>
+                    <option value="Chapter-7">Chapter-7</option>
+                    <option value="Chapter-8">Chapter-8</option>
+                    <option value="Chapter-9">Chapter-9</option>
+                    <option value="Chapter-10">Chapter-10</option>
+                    <option value="Chapter-11">Chapter-11</option>
+                    <option value="Chapter-12">Chapter-12</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Episode"> Episode : </label>
+                            <select id="Episode" name="Episode" class="form-control">
+                    <option value="Episode-1">Episode-1</option>
+                    <option value="Episode-2">Episode-2</option>
+                    <option value="Episode-3">Episode-3</option>
+                    <option value="Episode-4">Episode-4</option>
+                    <option value="Episode-5">Episode-5</option>
+                    <option value="Episode-6">Episode-6</option>
+                    </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Video_Link"> Video_Link : </label> <input class="form-control" placeholder="https://drive.google.com/video_Link" type="text" name="Video_Link" id="Video_Link">
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Video Description (Syllabus / Extra Information Regarding Video) : </label> <textarea class="form-control" type="text" name="Description" id="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Pdf"> Pdf Link : </label> <input class="form-control" placeholder="https://drive.google.com/pdf_Link" type="text" name="Pdf" id="Pdf">
+                        </div>
+                        <div class="form-group">
+                            <label for="Instructor"> Instructor : </label>
+                            <select id="Instructor" name="Instructor" class="form-control">
+                    <option value="Maisha Fairuz Nuha">Maisha Fairuz Nuha</option>
+                    <option value="Tanvir Taswar">Tanvir Taswar</option>
+                    </select>
+                        </div>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-primary" id="addU" value="Add Video"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

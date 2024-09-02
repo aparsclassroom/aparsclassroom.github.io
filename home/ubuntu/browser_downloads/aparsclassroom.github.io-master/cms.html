@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Firebase Web Push Example</title>
+
+</head>
+
+<body>
+  <h1>Firebase Web Push Notification Example</h1>
+  <button onclick="requestNotificationPermission()">Request Notification Permission</button>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-messaging.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyD4WuQA56koZ-qWV56rDXDTtczaCVnGft8",
+      authDomain: "asg-shop.firebaseapp.com",
+      projectId: "asg-shop",
+      storageBucket: "asg-shop.appspot.com",
+      messagingSenderId: "374714320984",
+      appId: "1:374714320984:web:d2d308f1ea2a9f46bbe22d",
+      measurementId: "G-P18HXDWK2Y"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const messaging = firebase.messaging();
+  </script>
+  <script>
+    function requestNotificationPermission() {
+      messaging.requestPermission()
+        .then(function () {
+          console.log('Notification permission granted.');
+          return messaging.getToken({ vapidKey: 'BK90HU6rpd0p4uXS7BJ7CIIcumG0WGZxBPTdmnqKoSJ1BO1PTyUxNcq0NGK4WAFgZ139YRK9fsVRBzYA6q6Hlmg' });
+        })
+        .then(function (token) {
+          console.log('Token:', token);
+          // Send this token to your server for future push notifications
+        })
+        .catch(function (err) {
+          console.log('Unable to get permission to notify.', err);
+        });
+
+      messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+        // Handle the received push notification here
+      });
+    }
+
+    // Register service worker for handling background notifications
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./firebase-messaging-sw.js')
+        .then((registration) => {
+          messaging.useServiceWorker(registration);
+        });
+    }
+  </script>
+</body>
+
+</html>

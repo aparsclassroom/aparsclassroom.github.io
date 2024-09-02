@@ -1,205 +1,205 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@1,600&display=swap");
 @font-face {
-    font-family: Kalpurush;
-    src: url('../css/kalpurush.ttf');
+  font-family: Kalpurush;
+  src: url("../css/kalpurush.ttf");
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #fff;
-    background-attachment: fixed;
-    background-color: #fdfdfd;
-    background-image: url(../img/bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  background-attachment: fixed;
+  background-color: #fdfdfd;
+  background-image: url(../img/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .bangla {
-    font-family: Kalpurush;
+  font-family: Kalpurush;
 }
 
 video {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .container {
-    position: relative;
-    max-width: 1000px;
-    margin-top: 55px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  position: relative;
+  max-width: 1000px;
+  margin-top: 55px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 ::selection {
-    color: #fff;
-    background: #EE4574;
+  color: #fff;
+  background: #ee4574;
 }
 
 .wrapper {
-    height: 500px;
-    width: 400px;
-    margin: 10px;
-    position: relative;
-    transform-style: preserve-3d;
-    perspective: 1000px;
+  height: 500px;
+  width: 400px;
+  margin: 10px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
-@media screen and (max-width:600px) {
-    .wrapper {
-        width: 300px;
-    }
+@media screen and (max-width: 600px) {
+  .wrapper {
+    width: 300px;
+  }
 }
 
 .container .wrapper .card {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    transform: translateY(0deg);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  transform: translateY(0deg);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.wrapper:hover>.front-face {
-    transform: rotateY(-180deg);
+.wrapper:hover > .front-face {
+  transform: rotateY(-180deg);
 }
 
 .wrapper .card img {
-    height: 150px;
-    width: 250px;
-    margin-top: 20px;
-    border-radius: 10px;
+  height: 150px;
+  width: 250px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 .wrapper .back-face {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: rotateY(180deg);
 }
 
-.wrapper:hover>.back-face {
-    transform: rotateY(0deg);
+.wrapper:hover > .back-face {
+  transform: rotateY(0deg);
 }
 
 .wrapper .back-face img {
-    height: 350px;
-    width: 260px;
-    padding: 2px;
-    margin-top: 10px;
-    border-radius: 10px;
-    background: #EE4574;
+  height: 350px;
+  width: 260px;
+  padding: 2px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: #ee4574;
 }
 
 .wrapper .front-face .info,
 .wrapper .back-face .info {
-    text-align: center;
+  text-align: center;
 }
 
 .front-face .info .title,
 .back-face .info .title,
 .back-face #visans {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: Kalpurush;
-    color: #EE4574;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Kalpurush;
+  color: #ee4574;
 }
 
 .wrapper .back-face .info p {
-    text-align: left;
-    padding: 5px;
-    font-family: Kalpurush;
+  text-align: left;
+  padding: 5px;
+  font-family: Kalpurush;
 }
 
 .wrapper .front-face .info p {
-    text-align: center;
-    color: #EE4574;
-    font-family: Kalpurush;
-    font-size: 20px;
+  text-align: center;
+  color: #ee4574;
+  font-family: Kalpurush;
+  font-size: 20px;
 }
 
 .wrapper .front-face .info .meta .sub p {
-    text-align: center;
-    color: black;
-    font-family: Kalpurush;
-    font-size: 30px;
+  text-align: center;
+  color: black;
+  font-family: Kalpurush;
+  font-size: 30px;
 }
 
 .wrapper .front-face .info .meta .chap p {
-    text-align: center;
-    color: #0000009c;
-    font-family: Kalpurush;
-    font-size: 17px;
+  text-align: center;
+  color: #0000009c;
+  font-family: Kalpurush;
+  font-size: 17px;
 }
 
 .wrapper .front-face .info .meta .chapname p {
-    text-align: center;
-    color: black;
-    font-family: Kalpurush;
-    font-size: 20px;
+  text-align: center;
+  color: black;
+  font-family: Kalpurush;
+  font-size: 20px;
 }
 
 .ques {
-    margin: 20px;
-    padding: 5px;
-    background-color: #E5E5E5;
-    border-radius: 10px;
+  margin: 20px;
+  padding: 5px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
 }
 
 .ans {
-    margin: 20px;
-    background-color: #E5E5E5;
-    border-radius: 10px;
-    border: 2px solid #EE4574;
+  margin: 20px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  border: 2px solid #ee4574;
 }
 
 .back-face a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    background: #EE4574;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 40px;
-    text-decoration: none;
-    margin-top: 15px;
-    isolation: isolate;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background: #ee4574;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-top: 15px;
+  isolation: isolate;
 }
 
 .back-face a:hover {
-    color: #EE4574;
-    background: #fdfdfd;
-    border: 1px solid #EE4574;
-    cursor: pointer;
+  color: #ee4574;
+  background: #fdfdfd;
+  border: 1px solid #ee4574;
+  cursor: pointer;
 }
 
 #change2,
 #visans {
-    display: none;
+  display: none;
 }

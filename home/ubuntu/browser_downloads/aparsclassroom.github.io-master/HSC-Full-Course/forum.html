@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '430193434618183');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <title>Apar's QnA Forums</title>
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="https://aparsclassroom.com/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://aparsclassroom.com/HSC-Full-Course/assets/images/1.png">
+    <link rel="apple-touch-icon" href="https://aparsclassroom.com/HSC-Full-Course/assets/images/1.png">
+
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="/HSC-Full-Course/assets/sec/cred.js"></script>
+    <script src="/HSC-Full-Course/assets/sec/check.js"></script>
+
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+            font-family: Kalpurush;
+            src: url('https://aparsclassroom.com/Ambassador/assets/fonts/kalpurush.ttf');
+        }
+        
+        .bangla {
+            font-family: Kalpurush;
+            font-size: 18px;
+        }
+        
+        body {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(71, 115, 90);
+            background-image: linear-gradient(to left, rgb(71, 115, 90), #5375e2, rgb(28, 50, 39));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            flex-direction: column;
+        }
+        
+        .cc {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(71, 115, 90);
+            background-image: linear-gradient(to left, rgb(71, 115, 90), #5375e2, rgb(28, 50, 39));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            flex-direction: column;
+        }
+        
+        .btn1 {
+            color: white;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+        
+        .btn1:hover {
+            text-decoration: none;
+            color: yellow;
+        }
+        
+        .logo {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: 'Amaranth', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cc">
+        <img src="https://aparsclassroom.com/HSC-Full-Course/assets/images/1.png" alt="Logo" height="100px">
+        <h3 class="logo">QnA Forum</h3>
+        <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://apars-qna-forum.web.app/">General</a>
+        <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" data-toggle="modal" data-target="#sub-mod">Subject-Wise</a>
+        <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://admission-apar-qna-forum.web.app/">Admission</a>
+    </div>
+    <div class="modal fade" id="sub-mod" tabindex="-1" role="dialog" aria-labelledby="sub-modLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header cc">
+                    <h5 class="modal-title" id="sub-modLabel">Subject Wise Forums</h5>
+                </div>
+                <div class="modal-body cc">
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://physics-apar-qna-forum.web.app/">Physics</a>
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://chemistry-apar-qna-forum.web.app/">Chemistry</a>
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://math-apar-qna-forum.web.app/">Math</a>
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://biology-apar-qna-forum.web.app/">Biology</a>
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1 bangla" href="https://bangla-apar-qna-forum.web.app/">বাংলা</a>
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://english-apar-qna-forum.web.app/">English</a>
+                    <a type="button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect btn1" href="https://ict-apar-qna-forum.web.app/">ICT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

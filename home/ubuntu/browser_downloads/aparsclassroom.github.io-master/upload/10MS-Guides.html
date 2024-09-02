@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guides Info Form</title>
+    <link rel="icon" href="https://lms10.s3.ap-southeast-1.amazonaws.com/main/10ms_favicon.png" sizes="32x32">
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="10 Minute School">
+    <meta property="og:site_name" content="Robi 10 Minute School">
+    <meta property="og:description" content="Guides Information">
+    <meta property="og:image" content="https://aparsclassroom.com/img/guide-poster.png">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/img/guide-poster.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="480">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '430193434618183');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '593459298431756');
+        fbq('track', 'PageView');
+    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: url('https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Noto Sans', sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .btn:hover {
+            box-shadow: 5px 5px 5px 3px rgba(78, 74, 74, 0.418);
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        span {
+            color: red;
+        }
+        
+        #sub {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="col-md-6 offset-md-3 mt-5 container">
+
+        <h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/10minutesschool.png/500px-10minutesschool.png" alt="Robi 10 Minute School" height="50px" width="150px"><br>Guides <span>Information</span> Form</h3>
+        <form id="uploadForm" action="https://script.google.com/macros/s/AKfycbxbrJiOAWK4Inmy2KGTYhnLFmkXWWYof33Nkb_R_TLL3TAS04wKU2cWCg/exec" method="POST">
+            <div class="form-group">
+                <label> Name : </label><input class="form-control" placeholder="Ex. Ayman Sadiq" required type="text" name="name" id="name"></div>
+            <input type="hidden" name="fileContent" id="fileContent">
+            <input type="hidden" name="filename" id="filename">
+            <div class="form-group">
+                <label> Email : </label> <input class="form-control" placeholder="Ex. ayman@sadiq.com" required type="email" name="email" id="email"><br>
+                <label> Contact : </label><input class="form-control" required placeholder="Ex. 01800000000" type="number" name="contact" id="contact"><br>
+                <label> Skills : </label> <input class="form-control" type="text" placeholder="Ex. Content Creation, Public Speaking.." name="skills" id="skills"><br>
+                <label> Facebook Id : </label><input class="form-control" type="url" placeholder="Ex. https://facebook.com/AymanSadiq10" name="facebookUrl" id="facebookUrl"><br>
+                <div class="form-group">
+                    <label> Select Your Image : </label>
+                    <input type="file" class="form-control" id="attach" name="attach">
+                </div>
+                <br>
+                <input value="Submit" id="sub" type="button" class="btn btn-block btn-outline-dark" onclick="UploadFile();">
+            </div>
+
+    </div>
+    </form>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    function UploadFile() {
+        var reader = new FileReader();
+        var file = document.getElementById('attach').files[0];
+        reader.onload = function() {
+            document.getElementById('fileContent').value = reader.result;
+            document.getElementById('filename').value = file.name;
+            document.getElementById('sub').value = "please wait....";
+            document.getElementById('uploadForm').submit();
+        }
+        reader.readAsDataURL(file);
+    }
+</script>
+
+</html>

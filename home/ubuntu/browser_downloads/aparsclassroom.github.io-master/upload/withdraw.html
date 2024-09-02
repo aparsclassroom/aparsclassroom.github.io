@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Withdraw Tracker</title>
+    <link rel="icon" href="https://lms10.s3.ap-southeast-1.amazonaws.com/main/10ms_favicon.png" sizes="32x32">
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="Apar-Chinmoy Admission Batch">
+    <meta property="og:site_name" content="Apar-Chinmoy Admission Batch">
+    <meta property="og:description" content="Withdraw Tracker">
+    <meta property="og:image" content="https://drive.google.com/uc?export=download&id=1IglAeYTPYh5KXBUiLEic2De2Oclu3RZe">
+    <meta property="og:image:secure_url" content="https://drive.google.com/uc?export=download&id=1IglAeYTPYh5KXBUiLEic2De2Oclu3RZe">
+    <meta property="og:image:type" content="image/png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '430193434618183');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '593459298431756');
+        fbq('track', 'PageView');
+    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: url('https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?size=626&ext=jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Noto Sans', sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .container {
+            max-width: 550px;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .btn:hover {
+            box-shadow: 5px 5px 5px 3px rgba(78, 74, 74, 0.418);
+        }
+        
+        h3 {
+            text-align: center;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        span {
+            color: red;
+        }
+        
+        #sub {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="col-md-6 offset-md-3 mt-5 container">
+
+        <h3><img src="https://drive.google.com/uc?export=download&id=1DiKDPsRe8ep5zOck4RIkVAZ6L-bzg1fN" alt="Apar-Chinmoy Admission Batch" width="100%"><br>Withdraw <span>Tracker</span></h3>
+        <form id="uploadForm" name="uploadForm">
+            <div class="form-group">
+                <label> Name : </label>
+                <select class="form-control" required name="Name" id="Name">
+                    <option value="">--Select Any--</option>
+                    <option value="Apar">Numeri Sattar Apar</option>
+                    <option value="Chinmoy">Chinmoy Saha</option>
+                </select>
+                <br>
+                <div class="form-group">
+                    <label> Withdrawn Amount : </label> <input class="form-control" placeholder="Ex. 1000 ৳" required type="number" name="Amount" id="amount">
+                    <label>Account Type : </label>
+                    <select class="form-control" required name="Account Type" id="type">
+                        <option value="">--Select Any--</option>
+                            <option value="SSLCommerz">SSLCommerz</option>
+                            <option value="Bkash">Bkash</option>
+                            <option value="Nagad">Nagad</option>
+                        </select>
+                    <label> Account No. <span>(Optional)</span> : </label><input class="form-control" placeholder="Ex. 01800000000" type="text" name="Account No." id="accountNo"><br>
+                    <label> Withdrawn Date : </label> <input class="form-control" required type="datetime-local" placeholder="Ex. 22-07-2021" name="Withdrew Date" id="withdate"><br>
+
+                </div>
+                <button id="sub" type="submit" class="btn btn-block btn-outline-dark">Save Record</button>
+            </div>
+        </form>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    const script = "https://script.google.com/macros/s/AKfycbzKiddSGzK7rItwuY973ee4XaMmh-d3lS0H6_ykti-XmD1o8ZVUL6udtyKZaHxEcK95/exec";
+
+    const form = document.forms['uploadForm']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        document.getElementById('sub').disabled = true;
+        document.getElementById('sub').innerText = "Please wait....";
+        fetch(script, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then((res) => {
+                swal({
+                    title: "Saved",
+                    icon: "success",
+                    text: res.message + "\nClick Ok to check the Current Status",
+                    button: "OK"
+                }).then(() => {
+                    return location.replace("https://docs.google.com/spreadsheets/d/18iKlL1fG-4O-jTXIfY7R6RANafIjzNMXdfjqi7uVkc0/edit#gid=0");
+                })
+            })
+            .catch(error => alert('Error!', error.message))
+    })
+</script>
+
+</html>

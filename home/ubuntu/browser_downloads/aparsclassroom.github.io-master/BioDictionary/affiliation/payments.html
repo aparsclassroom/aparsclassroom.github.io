@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '430193434618183');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '195174089402190');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=195174089402190&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/HSC-Full-Course/assets/images/1.png">
+    <link rel="icon" type="image/png" href="/HSC-Full-Course/assets/images/1.png">
+    <title>
+        Payment History | Zombie Mode | BioDictionary
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="/affiliation/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="/affiliation/assets/css/black-dashboard.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="../Assets/js/firebase.js"></script>
+</head>
+
+<body id="bioT" class="white-content">
+    <div class="wrapper">
+        <div class="sidebar" data="blue">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="javascript:void(0)" class="simple-text logo-mini">
+                        <img src="https://aparsclassroom.com/HSC-Full-Course/assets/images/1.png" alt="" srcset="">
+                    </a>
+                    <a href="javascript:void(0)" class="simple-text logo-normal">
+            Affiliation Program
+          </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="../dashboard.html">
+                            <i class="tim-icons icon-double-left"></i>
+                            <p>Return to BioDictionary</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Analytics Dashbard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./profile.html">
+                            <i class="tim-icons icon-single-02"></i>
+                            <p>Affiliate Profile</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void()">
+                            <i class="tim-icons icon-notes"></i>
+                            <p>Payment History</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./controller.html">
+                            <i class="fas fa-user-shield"></i>
+                            <p>Affiliation Controller</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./terms.html">
+                            <i class="fas fa-handshake"></i>
+                            <p>Affiliation Terms</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./tutorial.html">
+                            <i class="tim-icons icon-bulb-63"></i>
+                            <p>Dashboard Tutorial</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle d-inline">
+                            <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+                        </div>
+                        <a class="navbar-brand mt-5 afd" style="margin-top: 10px;" href="javascript:void(0)"> <i class="tim-icons icon-notes"></i> Payment History</a>
+                    </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <h3 class="title text-center">Payment History</h3>
+                <h4 class="title text-center" id="token">Loading..</h4>
+                <div id="pay"></div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a href="./profile.html" class="nav-link">
+                    User Profile
+                  </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./tutorial.html" class="nav-link">
+                    Tutorial
+                  </a>
+                            </li>
+                        </ul>
+                        <div class="copyright">
+                            ©
+                            <span id="date"></span>
+                            <script>
+                                document.getElementById('date').innerText = (new Date().getFullYear())
+                            </script> ASG
+                            <a href="https://facebook.com/maheyan.mridul" target="_blank">Research & Development Team</a>.
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            </div>
+        </div>
+        <!--   Core JS Files   -->
+        <script src="/affiliation/assets/js/core/jquery.min.js"></script>
+        <script src="/affiliation/assets/js/core/popper.min.js"></script>
+        <script src="/affiliation/assets/js/core/bootstrap.min.js"></script>
+        <script src="/affiliation/assets/js/black-dashboard.js"></script>
+        <script src="assets/tc.js"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

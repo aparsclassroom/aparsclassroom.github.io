@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '430193434618183');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '195174089402190');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=195174089402190&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/HSC-Full-Course/assets/images/1.png">
+    <link rel="icon" type="image/png" href="/HSC-Full-Course/assets/images/1.png">
+    <title>
+        Cash Out | ASG Affiliate Program
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="assets/css/black-dashboard.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body class="">
+    <div class="wrapper">
+        <div class="sidebar" data="blue">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="javascript:void(0)" class="simple-text logo-mini">
+                        <img src="https://aparsclassroom.com/HSC-Full-Course/assets/images/1.png" alt="" srcset="">
+                    </a>
+                    <a href="javascript:void(0)" class="simple-text logo-normal">
+            Affiliation Program
+          </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="./dashboard.html">
+                            <i class="tim-icons icon-chart-pie-36"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./profile.html">
+                            <i class="tim-icons icon-single-02"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./products.html">
+                            <i class="tim-icons icon-puzzle-10"></i>
+                            <p>Products</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./tutorial.html">
+                            <i class="tim-icons icon-bell-55"></i>
+                            <p>Tutorial</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="./cashout.html">
+                            <i class="tim-icons"> 💰</i>
+                            <p>Cash Out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle d-inline">
+                            <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+                        </div>
+                        <a class="navbar-brand mt-5 afd" style="margin-top: 10px;" href="javascript:void(0)">Affiliation Cash Out</a>
+                    </div>
+            </nav>
+            <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header mb-5">
+                            </div>
+                            <div class="card-body">
+                                <div class="typography-line text-center">
+                                    <h1>Affiliation Controller</h1>
+                                    <h3><span id="contoller"></span></h3>
+                                    <h3>
+                                        <a id="info">📞 <span class="text-success" id="contollerInfo"></span></a></h3>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <div class="typography-line text-center">
+                                        <h1 class="text-primary">Terms & Conditions</h1>
+                                        <p class="bangla">প্রতি মাসের "১৫" এবং "৩০" তারিখে টাকা ক্যাশ আউট করার জন্য আবেদন করা যাবে।</p>
+                                        <p class="bangla mb-5">আবেদন করার জন্য নিচের ফরমটি সঠিকভাবে পূরণ করুন। ২৪ ঘন্টার মধ্যে টাকা না পেলে এফিলিয়েশন কন্ট্রোলারকে কল করুন।</p>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="title text-center" id="res">Cash Out Form</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="post" autocomplete="off" id="CashOut" name="CashOut">
+                                                <div class="row">
+                                                    <div class="col-md-5 pr-md-1">
+                                                        <div class="form-group">
+                                                            <label>Company</label>
+                                                            <input type="text" class="form-control" readonly placeholder="Company" value="Apar's Classroom">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 px-md-1">
+                                                        <div class="form-group">
+                                                            <label>Username</label>
+                                                            <input type="text" class="form-control" readonly id="Username" name="Name" placeholder="Username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 pl-md-1">
+                                                        <div class="form-group">
+                                                            <label for="email" class="text-success">Email address</label>
+                                                            <input type="email" id="email" readonly class="form-control" name="Email" placeholder="Loading...">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 pr-md-1">
+                                                        <div class="form-group">
+                                                            <label>National Id / Birth Certificate</label>
+                                                            <input type="text" id="nid" readonly class="form-control" placeholder="National Id / Birth Certificate">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 pl-md-1">
+                                                        <div class="form-group">
+                                                            <label>Secrect Id</label>
+                                                            <input type="text" class="form-control" readonly id="uid" name="Secret Id" placeholder="Secret Id">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>College / University</label>
+                                                            <input type="text" class="form-control" id="clg" readonly placeholder="College / University">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 pr-md-1">
+                                                        <div class="form-group">
+                                                            <label>Primary Contact Number</label>
+                                                            <input type="tel" class="form-control" id="mbl1" name="mobile" readonly placeholder="Primary Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 px-md-1">
+                                                        <div class="form-group">
+                                                            <label>Secondary Contact Number</label>
+                                                            <input type="text" class="form-control" id="mbl2" readonly placeholder="Secondary Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 pl-md-1">
+                                                        <div class="form-group">
+                                                            <label>Affiliation Code</label>
+                                                            <input type="text" class="form-control" id="aff" name="Affiliation Code" readonly placeholder="Affiliation Code">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 pr-md-1">
+                                                        <div class="form-group">
+                                                            <label class="text-success">Bkash Number **</label>
+                                                            <input type="tel" class="form-control" name="Bkash" id="bkash" readonly placeholder="Bkash Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 px-md-1">
+                                                        <div class="form-group">
+                                                            <label>Nagad Number</label>
+                                                            <input type="text" class="form-control" name="Nagad" id="nagad" readonly placeholder="Nagad Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 pl-md-1">
+                                                        <div class="form-group">
+                                                            <label>Rocket Number</label>
+                                                            <input type="text" class="form-control" name="Rocket" id="rocket" readonly placeholder="Rocket Number">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="text-success">Payment Method **</label>
+                                                            <select required name="Payment Gateway" id="payment">
+                                                                <option value="">--Select Any--</option>
+                                                                <option value="Bkash">Bkash</option>
+                                                                <option value="Nagad">Nagad</option>
+                                                                <option value="Rocket">Rocket</option>
+                                                              </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="text-success">Amount of Cash Out <span class="text-danger">( N.B. Your Wallet has : <span id="lmt"></span> ৳ )</span>**</label>
+                                                            <input type="number" required name="Requested Amount" class="form-control" id="cash" placeholder="example: 1000">
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" hidden id="serial" name="serial">
+                                                    <textarea hidden id="ip-details" name="IP Details"></textarea>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="text-success">Message (optional)</label>
+                                                            <textarea class="form-control" id="message" name="Message" placeholder="If you have any message you can write here ..."></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-round btn-primary">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <footer class="footer">
+                        <div class="container-fluid">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a href="./dashboard.html" class="nav-link">
+                    Dashboard
+                  </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./tutorial.html" class="nav-link">
+                    Tutorial
+                  </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./products.html" class="nav-link">
+                    Products
+                  </a>
+                                </li>
+                            </ul>
+                            <div class="copyright">
+                                ©
+                                <span id="date"></span>
+                                <script>
+                                    document.getElementById('date').innerText = (new Date().getFullYear())
+                                </script> ASG
+                                <a href="https://facebook.com/maheyan.mridul" target="_blank">Research & Development Team</a>.
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <!--   Core JS Files   -->
+            <script src="assets/js/core/jquery.min.js"></script>
+            <script src="assets/js/core/popper.min.js"></script>
+            <script src="assets/js/core/bootstrap.min.js"></script>
+            <script src="assets/js/black-dashboard.js"></script>
+            <script src="assets/js/tc.js"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

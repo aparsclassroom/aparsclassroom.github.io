@@ -1,0 +1,25 @@
+.container input:focus {
+    border-radius: 10px;
+    padding: 25px;
+    color: rgb(28, 50, 39);
+    font-size: large;
+}
+
+.container input {
+    border-radius: 10px;
+    padding: 20px;
+    font-size: small;
+}
+
+h3 {
+    color: #5375e2;
+}
+
+h5 {
+    color: red;
+    font-weight: bold;
+}
+
+.col-md-15 {
+    border: 1px solid black;
+}

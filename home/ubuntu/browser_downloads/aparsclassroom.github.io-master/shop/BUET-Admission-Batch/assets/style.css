@@ -1,0 +1,35 @@
+.blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.container {
+    margin-top: 20px;
+    /* margin-bottom: 50px; */
+    max-width: 450px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.images {
+    margin-top: 50px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+.roun {
+    border-radius: 50%;
+}
+
+p {
+    text-align: center;
+}
+
+#search {
+    background-color: transparent;
+}

@@ -2,14 +2,15 @@ const allClasses = document.getElementById("classes");
 
 allClasses.innerHTML += ``;
 
-
 fetch(`https://shop.aparsclassroom.com/access/${uid}`)
-.then(res=>{res.json()})
-.then(data=>{
+  .then((res) => {
+    res.json();
+  })
+  .then((data) => {
     console.log(data);
-    if(data.status == "success"){
-        data.classes.forEach((item)=>{
-            allClasses.innerHTML += `
+    if (data.status == "success") {
+      data.classes.forEach((item) => {
+        allClasses.innerHTML += `
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -22,11 +23,9 @@ fetch(`https://shop.aparsclassroom.com/access/${uid}`)
                 </div>
             </div>
             `;
-        }   
-        )
-    }
-    else{
-        allClasses.innerHTML += `
+      });
+    } else {
+      allClasses.innerHTML += `
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
@@ -39,4 +38,4 @@ fetch(`https://shop.aparsclassroom.com/access/${uid}`)
         </div>
         `;
     }
-})
+  });

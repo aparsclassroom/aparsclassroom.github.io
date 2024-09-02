@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Congrats!</title>
+    <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/app.css" />
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/Logo.png">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+            <h1 id="finalScore" name="finalScore"></h1>
+            <form method="post" id="form" name="highScore">
+                <input type="text" name="username" id="username" placeholder="username" />
+                <input type="text" name="score" id="score" style="display: none;" />
+                <textarea type="text" name="ip-details" id="ip-details" style="display: none;"></textarea>
+                <button type="submit" class="btn" id="online" disabled>
+            Save Online
+          </button>
+                <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)" disabled>
+          Save Offline
+        </button>
+            </form>
+            <a class="btn" href="exam.html">Retake?</a>
+            <a class="btn" onclick="close_window()">Close Exam</a>
+        </div>
+    </div>
+    <script src="js/end.js"></script>
+    <script>
+        function close_window() {
+            if (confirm("Close Quick Exam?")) {
+                close();
+            }
+        }
+    </script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

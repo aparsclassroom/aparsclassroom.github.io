@@ -1,38 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Site Meta -->
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "8jcf2l88zu");
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
     <title>Login | HSC Full Course</title>
 
     <!-- SEO Meta -->
-    <meta name="keywords" content="Story Mode, Story Mode App, Story Mode Learning App, Apar's Classroom, Story, Biology, Zoology, Botany, Numeri Sattar Apar, 10 Minute School, Ayman Sadiq, Munzereen Shahid">
-    <meta name="description" content="Step towards Futuristic Learning System">
-    <meta name="author" content="Maheyan Mridul">
+    <meta
+      name="keywords"
+      content="Story Mode, Story Mode App, Story Mode Learning App, Apar's Classroom, Story, Biology, Zoology, Botany, Numeri Sattar Apar, 10 Minute School, Ayman Sadiq, Munzereen Shahid"
+    />
+    <meta
+      name="description"
+      content="Step towards Futuristic Learning System"
+    />
+    <meta name="author" content="Maheyan Mridul" />
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/Logo.png">
-    <link rel="apple-touch-icon" href="/assets/Logo.png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/assets/Logo.png" />
+    <link rel="apple-touch-icon" href="/assets/Logo.png" />
 
     <!-- Facebook Metas -->
-    <meta property="og:title" content="HSC Full Course">
-    <meta property="og:site_name" content="Apar's HSC Full Course">
-    <meta property="og:description" content="Login to Continue the full HSC Course">
-    <meta property="og:image" content="https://aparsclassroom.com/HSC-Full-Course/assets/images/SEO/index.jpg">
-    <meta property="og:image:secure_url" content="https://aparsclassroom.com/HSC-Full-Course/assets/images/SEO/index.jpg">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="627">
+    <meta property="og:title" content="HSC Full Course" />
+    <meta property="og:site_name" content="Apar's HSC Full Course" />
+    <meta
+      property="og:description"
+      content="Login to Continue the full HSC Course"
+    />
+    <meta
+      property="og:image"
+      content="https://aparsclassroom.com/HSC-Full-Course/assets/images/SEO/index.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://aparsclassroom.com/HSC-Full-Course/assets/images/SEO/index.jpg"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
 
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
@@ -41,45 +62,78 @@
 
     <!-- Login JS and CSS -->
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css">
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/HSC-Full-Course/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/HSC-Full-Course/assets/css/bootstrap.css" />
 
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="login-assets/css/login.css">
+    <link rel="stylesheet" href="login-assets/css/login.css" />
 
     <!-- Recaptcha JS -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
 
-</head>
-
-<body>
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-1 d-flex justify-content-center">
-                    <h4 style="text-align: center;">Choose any provider</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="firebaseui-auth-container"></div>
-                    <div id="loader">
-                        <img src="../images/ajax-loader.gif" alt="Loading..."></div>
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <div class="signup-section">Need Help? <a type="button" target="_blank" href="https://tawk.to/chat/600993d9c31c9117cb710da1/1esimj2rc" class="text-info"> Help Desk</a></div>
-                </div>
+  <body>
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div
+            class="modal-header border-bottom-1 d-flex justify-content-center"
+          >
+            <h4 style="text-align: center">Choose any provider</h4>
+          </div>
+          <div class="modal-body">
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">
+              <img src="../images/ajax-loader.gif" alt="Loading..." />
             </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <div class="signup-section">
+              Need Help?
+              <a
+                type="button"
+                target="_blank"
+                href="https://tawk.to/chat/600993d9c31c9117cb710da1/1esimj2rc"
+                class="text-info"
+              >
+                Help Desk</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit' data-action='submit'></button>
+    <button
+      class="g-recaptcha"
+      data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v"
+      data-callback="onSubmit"
+      data-action="submit"
+    ></button>
 
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="login-assets/js/login.js"></script>
     <script src="login-assets/js/custom-modal.js"></script>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>

@@ -1,48 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Congrats!</title>
     <!-- Site Icons -->
     <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/app.css" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/Logo.png">
-    <link rel="apple-touch-icon" href="/assets/Logo.png">
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js" defer></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/assets/Logo.png" />
+    <link rel="apple-touch-icon" href="/assets/Logo.png" />
+    <script
+      src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"
+      defer
+    ></script>
     <script src="/BioDictionary/Assets/js/firebase.js" defer></script>
-    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js" defer></script>
-    <script src="../../../../../../Assets/video/p1/C2/Ep2/script.js" defer></script>
+    <script
+      src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js"
+      defer
+    ></script>
+    <script
+      src="../../../../../../Assets/video/p1/C2/Ep2/script.js"
+      defer
+    ></script>
     <script src="/assets/js/sweetalert.min.js" defer></script>
     <script src="../../../../../../Assets/js/end.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div id="end" class="flex-center flex-column">
-            <h1 id="finalScore" name="finalScore"></h1>
-            <p class="usertime"> Time taken <span class="time_taken"></span></p>
-            <form method="post" id="form" name="highScore">
-                <input type="text" id="user" disabled>
-                <input type="text" name="username" id="username" style="display: none;" placeholder="username">
-                <input type="text" name="score" id="score" style="display: none;">
-                <input type="text" id="duration" name="duration" style="display: none;">
-                <input type="text" id="uid" name="uid" style="display: none;">
-                <textarea type="text" name="ip-details" id="ip-details" style="display: none;"></textarea>
-                <button type="submit" class="btn" id="online">Loading...</button>
-            </form>
-            <a class="btn" id="solve" style="display: none;">Solution</a>
-            <a class="btn" id="highs" style="display: none;">High Score</a>
-            <a class="btn" id="ret" style="display: none;">Retake?</a>
-            <a class="btn" onclick="close_window()">Close Exam</a>
-        </div>
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalScore" name="finalScore"></h1>
+        <p class="usertime">Time taken <span class="time_taken"></span></p>
+        <form method="post" id="form" name="highScore">
+          <input type="text" id="user" disabled />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            style="display: none"
+            placeholder="username"
+          />
+          <input type="text" name="score" id="score" style="display: none" />
+          <input
+            type="text"
+            id="duration"
+            name="duration"
+            style="display: none"
+          />
+          <input type="text" id="uid" name="uid" style="display: none" />
+          <textarea
+            type="text"
+            name="ip-details"
+            id="ip-details"
+            style="display: none"
+          ></textarea>
+          <button type="submit" class="btn" id="online">Loading...</button>
+        </form>
+        <a class="btn" id="solve" style="display: none">Solution</a>
+        <a class="btn" id="highs" style="display: none">High Score</a>
+        <a class="btn" id="ret" style="display: none">Retake?</a>
+        <a class="btn" onclick="close_window()">Close Exam</a>
+      </div>
     </div>
 
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>

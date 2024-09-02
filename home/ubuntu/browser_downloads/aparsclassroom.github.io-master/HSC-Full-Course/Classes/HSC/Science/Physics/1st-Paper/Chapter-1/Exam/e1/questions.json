@@ -1,0 +1,81 @@
+[{
+        "question": "এক আলোকবর্ষ ",
+        "choice1": "9.46×10<sup>-15</sup> km",
+        "choice2": "9.46×10<sup>-15</sup> m",
+        "choice3": "9.46×10<sup>15</sup> m",
+        "choice4": "9.46×10<sup>15</sup> km",
+        "answer": "3"
+    },
+    {
+        "question": "ভরের মাত্রা-",
+        "choice1": "L",
+        "choice2": "W",
+        "choice3": "m",
+        "choice4": "M",
+        "answer": "4"
+    },
+    {
+        "question": "এক জুল-",
+        "choice1": "kg m<sup>2</sup>/s",
+        "choice2": "kg m<sup>2</sup>s<sup>-2</sup>",
+        "choice3": "kg<sup>2</sup>m<sup>2</sup>/s",
+        "choice4": "kg m/s<sup>2</sup>",
+        "answer": "2"
+    },
+    {
+        "question": "দীপন তীব্রতা এর এস আই একক কি?",
+        "choice1": "ক্যান্ডেলা",
+        "choice2": "অ্যাম্পিয়ার",
+        "choice3": "কিলোগ্রাম",
+        "choice4": "কেলভিন",
+        "answer": "1"
+    },
+    {
+        "question": "কোনো রাশিতে উপস্থিত মৌলিক রাশিগুলোর সূচককে কি বলে?",
+        "choice1": "একক",
+        "choice2": "মাত্রা",
+        "choice3": "মোল",
+        "choice4": "ক্যান্ডেলা",
+        "answer": "2"
+    },
+    {
+        "question": "এক জেপ্টোমিটার-",
+        "choice1": "10<sup>21</sup> m",
+        "choice2": "10<sup>-21</sup> cm",
+        "choice3": "10<sup>-21</sup> m",
+        "choice4": "10<sup>21</sup> cm",
+        "answer": "3"
+    },
+    {
+        "question": "শক্তির মাত্রা-",
+        "choice1": "ML<sup>2</sup>T<sup>-3</sup>",
+        "choice2": "ML<sup>2</sup>T",
+        "choice3": "MLT<sup>-2</sup>",
+        "choice4": "ML<sup>2</sup>T<sup>-2</sup>",
+        "answer": "4"
+    },
+    {
+        "question": "1 fm- ",
+        "choice1": "10⁻¹⁵ m",
+        "choice2": "10⁻¹⁵ cm",
+        "choice3": "10¹⁵ m",
+        "choice4": "10¹⁵ cm",
+        "answer": "1"
+    },
+    {
+        "question": "১ বছর-",
+        "choice1": "3.156×10<sup>5</sup> sec",
+        "choice2": "3.156×10<sup>5</sup> min",
+        "choice3": "3.156×10<sup>7</sup> sec",
+        "choice4": "3.156×10<sup>7</sup> min",
+        "answer": "3"
+    },
+    {
+        "question": "মৌলিক রাশিসমূহ গুণ বা ভাগ করে কি পাওয়া যায়? ",
+        "choice1": "দৈর্ঘ্য",
+        "choice2": "লব্ধ রাশি",
+        "choice3": "মাত্রা",
+        "choice4": "একক",
+        "answer": "2"
+    }
+]

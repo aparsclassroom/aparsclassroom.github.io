@@ -1,0 +1,192 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/kalpurush.ttf');
+}
+
+.bangla {
+    font-family: Kalpurush;
+}
+
+.profile-header {
+    transform: translateY(5rem);
+}
+
+.bg {
+    background-color: #2c3f52;
+}
+
+.bg .btn:hover {
+    background-color: #2c3f52;
+}
+
+body {
+    background: url('../images/Background/bg.webp');
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-color: #fdfdfd;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+body {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.mu {
+    margin-top: 50px;
+}
+
+.mu1 {
+    margin-top: 10px;
+}
+
+.py-4 .btn {
+    padding: 6px;
+    margin: 6px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.modal .btn {
+    padding: 6px;
+    margin: 6px;
+}
+
+.bg-white {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
+}
+
+.card {
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.cmt {
+    margin-right: 10px;
+}
+
+.bklink {
+    text-decoration: none;
+    color: black;
+}
+
+.bklink:hover {
+    text-decoration: none;
+    color: #ed4e6e;
+    transform: scale(1.025);
+}
+
+.bklink {
+    text-align: center;
+}
+
+#dpimage {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.mob {
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.mob:hover {
+    text-decoration: none;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+svg:hover,
+.fa-history:hover,
+.fa-chart-pie:hover,
+.fa-check-circle:hover,
+.fa-question-circle:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.fa-chart-pie {
+    color: rgba(238, 133, 171, 1);
+}
+
+.fa-chart-pie:hover {
+    color: rgba(54, 163, 235, 0.466);
+}
+
+.fa-history {
+    color: orange;
+    font-size: 22px;
+}
+
+.fa-question-circle {
+    color: gray;
+    font-size: 18px;
+}
+
+.fa-question-circle:hover {
+    color: whitesmoke;
+}
+
+.fa-check-circle {
+    color: chartreuse;
+    font-size: 18px;
+}
+
+nav .btn {
+    padding: 5px;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.btn-danger:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid white;
+}
+
+.all-container {
+    opacity: 0;
+    height: 100%;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FDFDFD;
+    z-index: 999999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}

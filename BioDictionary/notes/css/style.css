@@ -1,221 +1,217 @@
 /* ------------ youtube.com/CodeExplained ------------ */
 
 body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Titillium Web', sans-serif;
-    background: url('https://aparsclassroom.com/BioDictionary/Assets/images/Background/bg.webp');
-    justify-content: center;
-    align-items: center;
-    max-height: 100vh;
-    background-attachment: fixed;
-    background-color: #fdfdfd;
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  padding: 0;
+  margin: 0;
+  font-family: "Titillium Web", sans-serif;
+  background: url("https://aparsclassroom.com/BioDictionary/Assets/images/Background/bg.webp");
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  background-attachment: fixed;
+  background-color: #fdfdfd;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .fa-home {
-    color: white;
-    font-size: 30px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    cursor: pointer;
-    transition: .25s;
+  color: white;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
 .fa-home:hover {
-    color: rgb(255, 136, 0);
-    transform: rotate(360deg);
+  color: rgb(255, 136, 0);
+  transform: rotate(360deg);
 }
-
 
 /* ------------ container ------------ */
 
 .container {
-    padding: 10px;
-    width: 380px;
-    margin: 0px auto;
-    margin-top: 25px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px 5px rgb(107, 107, 105);
+  padding: 10px;
+  width: 380px;
+  margin: 0px auto;
+  margin-top: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 5px rgb(107, 107, 105);
 }
-
 
 /* ------------ header ------------ */
 
 .header {
-    width: 100%;
-    height: 200px;
-    background-image: url('../../Assets/images/illustration/dis.jpg');
-    border-radius: 15px 15px 0 0;
-    position: relative;
+  width: 100%;
+  height: 200px;
+  background-image: url("../../Assets/images/illustration/dis.jpg");
+  border-radius: 15px 15px 0 0;
+  position: relative;
 }
 
 .clear {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .clear i {
-    font-size: 30px;
-    color: #FFF;
+  font-size: 30px;
+  color: #fff;
 }
 
 .clear i:hover {
-    cursor: pointer;
-    text-shadow: 1px 3px 5px #000;
-    transform: rotate(45deg);
+  cursor: pointer;
+  text-shadow: 1px 3px 5px #000;
+  transform: rotate(45deg);
 }
 
 #date {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: #FFF;
-    font-size: 25px;
-    font-family: 'Titillium Web', sans-serif;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 25px;
+  font-family: "Titillium Web", sans-serif;
 }
-
 
 /* ------------ content ------------ */
 
 .content {
-    width: 380px;
-    height: 350px;
-    max-height: 350px;
-    background-color: #FFF;
-    overflow: auto;
+  width: 380px;
+  height: 350px;
+  max-height: 350px;
+  background-color: #fff;
+  overflow: auto;
 }
 
 .content::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .content ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .item {
-    width: 380px;
-    height: 85px;
-    min-height: 45px;
-    position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  width: 380px;
+  height: 85px;
+  min-height: 45px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .item i.co {
-    position: absolute;
-    font-size: 25px;
-    padding-left: 5px;
-    left: 15px;
-    top: 10px;
+  position: absolute;
+  font-size: 25px;
+  padding-left: 5px;
+  left: 15px;
+  top: 10px;
 }
 
 .item i.co:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .fa-check-circle {
-    color: #6eb200;
+  color: #6eb200;
 }
 
 .item p.text {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    font-size: 20px;
-    left: 50px;
-    top: 5px;
-    background-color: #FFF;
-    max-width: 285px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  left: 50px;
+  top: 5px;
+  background-color: #fff;
+  max-width: 285px;
 }
 
 .lineThrough {
-    text-decoration: line-through;
-    color: #ccc;
+  text-decoration: line-through;
+  color: #ccc;
 }
 
 .item i.de {
-    position: absolute;
-    font-size: 25px;
-    right: 15px;
-    top: 10px;
+  position: absolute;
+  font-size: 25px;
+  right: 15px;
+  top: 10px;
 }
 
 .item i.de:hover {
-    color: #af0000;
-    cursor: pointer;
+  color: #af0000;
+  cursor: pointer;
 }
-
 
 /* ------------ add item ------------ */
 
 .add-to-do {
-    position: relative;
-    width: 360px;
-    height: 40px;
-    background-color: #FFF;
-    padding: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.671);
+  position: relative;
+  width: 360px;
+  height: 40px;
+  background-color: #fff;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.671);
 }
 
 .add-to-do i {
-    position: absolute;
-    font-size: 40px;
-    color: #4162f6;
+  position: absolute;
+  font-size: 40px;
+  color: #4162f6;
 }
 
 .add-to-do input {
-    position: absolute;
-    left: 50px;
-    height: 35px;
-    width: 310px;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    padding-left: 10px;
+  position: absolute;
+  left: 50px;
+  height: 35px;
+  width: 310px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  padding-left: 10px;
 }
 
 .add-to-do input::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: #4162f6;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
+  /* Chrome/Opera/Safari */
+  color: #4162f6;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 20px;
 }
 
 .add-to-do input::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #4162f6;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
+  /* Firefox 19+ */
+  color: #4162f6;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 20px;
 }
 
 .add-to-do input:-ms-input-placeholder {
-    /* IE 10+ */
-    color: #4162f6;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
+  /* IE 10+ */
+  color: #4162f6;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 20px;
 }
 
 .add-to-do input:-moz-placeholder {
-    /* Firefox 18- */
-    color: #4162f6;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 20px;
+  /* Firefox 18- */
+  color: #4162f6;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 20px;
 }

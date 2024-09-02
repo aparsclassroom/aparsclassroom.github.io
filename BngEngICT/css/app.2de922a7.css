@@ -1,1 +1,43 @@
-@import url(https://fonts.maateen.me/solaiman-lipi/font.css);.imageContainer[data-v-5feb29c5]{position:relative}.delete__button[data-v-5feb29c5]{position:absolute;top:0;left:0}.title__text{display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center}@media only screen and (max-width:600px){.main_heading{font-size:20px!important}}.subject__button{background:rgba(224,15,61,.897);margin-left:5px;padding:10px 15px;color:#fff;border-radius:5px;box-shadow:1px 1px 2px #181924}.activebtn{background:#121118;box-shadow:2px 2px 4px rgba(174,174,185,.9)!important}.subject__filters{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-content:center}.heading{font-family:Roboto}
+@import url(https://fonts.maateen.me/solaiman-lipi/font.css);
+.imageContainer[data-v-5feb29c5] {
+  position: relative;
+}
+.delete__button[data-v-5feb29c5] {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.title__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .main_heading {
+    font-size: 20px !important;
+  }
+}
+.subject__button {
+  background: rgba(224, 15, 61, 0.897);
+  margin-left: 5px;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px #181924;
+}
+.activebtn {
+  background: #121118;
+  box-shadow: 2px 2px 4px rgba(174, 174, 185, 0.9) !important;
+}
+.subject__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-content: center;
+}
+.heading {
+  font-family: Roboto;
+}

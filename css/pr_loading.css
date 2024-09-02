@@ -93,7 +93,7 @@
 }
 .loading .finger-item span:before,
 .loading .finger-item span:after {
-  content: '';
+  content: "";
   position: relative;
   display: block;
   margin: 0 0 2px 0;
@@ -148,7 +148,7 @@
   overflow: hidden;
 }
 .loading .last-finger-item i:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;

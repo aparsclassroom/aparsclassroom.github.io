@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '430193434618183');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <title>Login | ASG Shop</title>
+    <link rel="stylesheet" href="/HSC-Full-Course/assets/css/bootstrap.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/Logo.png">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/HSC-Full-Course/login-assets/css/login.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="ASG Shop">
+    <meta property="og:site_name" content="ASG Shop">
+    <meta property="og:description" content="Login to Continue the Checkout">
+    <meta property="og:image" content="https://i.postimg.cc/Z5zPP3tK/IMG-1724.jpg">
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/Z5zPP3tK/IMG-1724.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app-check.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Firebase UI JS and CSS -->
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css">
+
+</head>
+
+<body>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-1">
+                    <a style="text-align: center; text-decoration: none;" class="btn btn-outline-primary"
+                            href="/shop"><i class="fas fa-hand-point-left"></i></a><h4>Choose any Method to login ⚡
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="firebaseui-auth-container"></div>
+                    <div class="text-center" id="loader">Please Wait...</div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="signup-section">Need Help? <a type="button" target="_blank" href="//m.me/aparsclassroom"
+                            class="text-info"> Help Desk</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit'
+        data-action='submit'></button>
+    <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
+    <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
+    <script src="./assets/script.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

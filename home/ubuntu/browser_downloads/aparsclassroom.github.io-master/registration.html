@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration Form - Apar's Classroom</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=https://storymodelearning.com/registration.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7R4CMSFEBN');
+    </script>
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="Story Mode Learning App">
+    <meta property="og:site_name" content="Apar's Story Mode Learning App">
+    <meta property="og:description" content="Registration Form">
+    <meta property="og:image" content="https://story-mode-learning-app.github.io/img/fb/Thumbnail-image-fb.png">
+    <meta property="og:image:secure_url" content="https://story-mode-learning-app.github.io/img/fb/Thumbnail-image-fb.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.PNG">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/animsition/css/animsition.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/util.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/cf/ContactFrom_v17/css/main.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <style>
+        select {
+            width: 100%;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+        }
+        
+        .contact100-form-btn:hover {
+            background-image: linear-gradient(to left, #039BE5, #01579b);
+        }
+        
+        #ip-details {
+            display: none;
+        }
+        
+        #confirmation {
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        #newAlert {
+            text-align: center;
+        }
+        
+        #form .indicator {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: transparent;
+        }
+        
+        #form.valid .indicator {
+            background: green;
+        }
+        
+        #form.invalid .indicator {
+            background: red;
+        }
+    </style>
+</head>
+
+<body onload="myFunction()">
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <form method="post" autocomplete="off" id="form" name="RegistrationForm" class="contact100-form validate-form">
+                <span class="contact100-form-title" style="color: #01579b;">
+	<b>Story Mode Learning App</b><br>
+Registration Form
+</span>
+                <div id="newAlert" class="alert alert-warning wrap-input100" role="alert">
+                    <strong>Did You Know?</strong><br> You have to Register only once
+                </div>
+                <label class="label-input100" style="color: red;">N.B. Kindly use Chorme or any other browser (if didn't)<br>বি.দ্র. অনুগ্রহ পূর্বক ক্রোম ব্রাউজারে এই লিংক পেস্ট করুন (যদি না করে থাকেন)</label>
+                <label class="label-input100" for="first-name">Tell us your name *</label>
+                <div class="wrap-input100 rs1-wrap-input100">
+                    <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 rs2-wrap-input100">
+                    <input class="input100" type="text" name="last-name" placeholder="Last name" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="email">Enter your email *</label>
+                <div class="wrap-input100">
+                    <input id="email" class="input100" type="email" onkeyup="validate()" name="email" placeholder="Eg. example@email.com" required>
+                    <span class="focus-input100"></span>
+                    <span class="indicator"></span>
+                </div>
+                <label class="label-input100" for="phone">Enter phone number *</label>
+                <div class="wrap-input100">
+                    <input id="phone" class="input100" type="number" name="phone" placeholder="Eg. 01X 0000 0000" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="hsc">Select Your HSC Batch</label>
+                <div class="wrap-input100">
+                    <select id="hsc" name="hsc">
+        <option value="HSC-21">HSC'21</option>
+        <option value="HSC-20">Auto Pass XD</option>
+        <option value="HSC-22">HSC'22</option>
+        <option value="HSC-19">HSC'19</option>
+        <option value="HSC-23">HSC'23</option>
+        <option value="HSC-18">HSC'18</option>
+        <option value="HSC-15">HSC'15</option>
+        <option value="HSC-16">HSC'16</option>
+        <option value="HSC-17">HSC'17</option>
+        <option value="HSC-24">HSC'24</option>
+        <option value="HSC-14">HSC'14</option>
+        </select>
+                </div>
+                <span class="focus-input100"></span>
+                <label class="label-input100" for="college">Enter Your College / University *</label>
+                <div class="wrap-input100">
+                    <input id="college" class="input100" type="text" name="college" placeholder="Eg. XYZ Govt. College, Cummila" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="message">How much excited are You about this Story Mode Learning App? *</label>
+                <div class="wrap-input100">
+                    <textarea id="message" class="input100" name="message" placeholder="Very Much Excited 😍" required></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+                <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit' data-action='submit'></button>
+                <textarea name="ip-details" id="ip-details"></textarea>
+                <div id="confirmation" class="alert alert-success wrap-input100" role="alert">
+                    <strong>Success!</strong> Please Wait...
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <button type="submit" id="reg" name="submit" class="contact100-form-btn">
+Register
+</button>
+                </div>
+            </form>
+            <div class="contact100-more flex-col-c-m" style="background-image: url('img/apar.jpg');">
+                <div class="flex-w size1 p-b-47">
+                    <div class="txt1 p-r-25">
+                        <span class="lnr lnr-map-marker"></span>
+                    </div>
+                    <div class="flex-col size2">
+                        <span class="txt1 p-b-20">
+Address
+</span>
+                        <span class="txt2">
+Apar's Classroom<br>
+Dhaka, Bangladesh
+</span>
+                    </div>
+                </div>
+                <div class="dis-flex size1 p-b-47">
+                    <div class="txt1 p-r-25">
+                        <span class="lnr lnr-phone-handset"></span>
+                    </div>
+                    <div class="flex-col size2">
+                        <span class="txt1 p-b-20">
+Lets Talk
+</span>
+                        <a href="tel:+8809677005588">
+                            <span class="txt3">
++880 1873 307 425
+</span></a>
+                    </div>
+                </div>
+                <div class="dis-flex size1 p-b-47">
+                    <div class="txt1 p-r-25">
+                        <span class="lnr lnr-envelope"></span>
+                    </div>
+                    <div class="flex-col size2">
+                        <span class="txt1 p-b-20">
+General Support
+</span>
+                        <span class="txt3">
+<a href="mailto:contact@storymodelearning.com">contact@storymodelearning.com</a>
+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("form").submit();
+        }
+    </script>
+    <script>
+        function validate() {
+            const form = document.getElementById('form');
+            const email = document.getElementById('email').value;
+            const pattern = /^[^ ]+@[^ ]+\.[a-z]{3}$/
+
+            if (email.match(pattern)) {
+                form.classList.add('valid')
+                form.classList.remove('invalid')
+            } else {
+                form.classList.add('invalid')
+                form.classList.remove('valid')
+            }
+            if (email == "") {
+                form.classList.remove('valid')
+                form.classList.remove('invalid')
+            }
+        }
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxEwhMeyyqwpCrWNEMtgnmdNm439LIakZCSLZAMb8hpRp2R7xg/exec'
+        const form = document.forms['RegistrationForm']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("You've been successfully registered 🥰 \nClick Ok to Enter the App"))
+                .then(response => window.location.replace("https://storymodelearning.com/"))
+
+            .catch(error => console.error('Error!', error.message))
+            document.querySelector('#confirmation').style.display = 'block';
+            document.querySelector('#reg').style.display = 'none';
+            form.reset();
+        })
+    </script>
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/animsition/js/animsition.min.js"></script>
+
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/popper.js"></script>
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://colorlib.com/etc/cf/ContactFrom_v17/js/main.js"></script>
+    <script>
+        $.get('https://json.geoiplookup.io/', function(res) {
+            var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+            document.getElementById("ip-details").value = a;
+        });
+
+        function myFunction() {
+            $("#newAlert").delay(2000).fadeOut(500);
+        }
+    </script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

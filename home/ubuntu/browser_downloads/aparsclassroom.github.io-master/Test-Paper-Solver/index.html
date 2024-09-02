@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>Test Paper Solver</title>
+    <link rel="stylesheet" href="/BioDictionary/Assets/Vendor/css/bootstrap.css">
+    <script src="/BioDictionary/Assets/Vendor/js/jquery.js"></script>
+     <script src="js/draganddrop.js"></script>
+    <style>
+        .container {
+            margin-top: 100px;
+        }
+        
+        .option,
+        .inp {
+            text-align: center;
+        }
+        
+        .ques {
+            text-align: justify;
+        }
+        
+        #answers {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Preposition</h1>
+        
+            <p class="option">
+                <button id="o1" class="btn btn-outline-dark dragdrop">for</button>
+                <button id="o2" class="btn btn-outline-dark dragdrop">in</button>
+                <button id="o3" class="btn btn-outline-dark dragdrop">of</button>
+                <button id="o4" class="btn btn-outline-dark dragdrop">through</button>
+                <button id="o5" class="btn btn-outline-dark dragdrop">with</button>
+                <button id="o6" hidden class="btn btn-outline-dark dragdrop">through</button>
+            </p>
+
+
+            <div class="align-items-center">
+                 A merchant was riding horse <input type="text" class="inp" id="a" placeholder="(a)" readonly>a fair. He had <input type="text" class="inp" id="b" placeholder="(b)" readonly> him a large bag <input type="text"  class="inp" placeholder="(c)" id="c" readonly> money. It rained heavily and the good man was wet <input type="text" class="inp" placeholder="(d)" id="d" readonly> and through. He was there at dissatisfied and complained that God had given him such a bad weather <input type="text" class="inp" placeholder="(e)" id="e" readonly> his journey. His road led him <input type="text" class="inp" id="f" placeholder="(f)" readonly> a dense forest.
+
+            </div>
+
+            <div id="answers">
+                <div id="ans1"></div>
+                <div id="ans2"></div>
+                <div id="ans3"></div>
+                <div id="ans4"></div>
+                <div id="ans5"></div>
+                <div id="ans6"></div>
+            </div>
+            <button style="margin-top: 20px;" class="btn btn-block btn-outline-danger" id="checkbtn">Check Answer</button>
+        </p>
+    </div>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script>
+    $('.dragdrop').draggable({
+        revert: true,
+        placeholder: true,
+        droptarget: '.inp',
+        drop: function(evt, droptarget) {
+            droptarget.value = evt.target.outerText;
+        }
+    });
+    var checkbtn = document.getElementById('checkbtn');
+    var a1 = document.getElementById('ans1');
+    var a2 = document.getElementById('ans2');
+    var a3 = document.getElementById('ans3');
+    var a4 = document.getElementById('ans4');
+    var a5 = document.getElementById('ans5');
+    var a6 = document.getElementById('ans6');
+
+    var o1 = document.getElementById('o1');
+    var o2 = document.getElementById('o2');
+    var o3 = document.getElementById('o3');
+    var o4 = document.getElementById('o4');
+    var o5 = document.getElementById('o5');
+    var o6 = document.getElementById('o6');
+
+    var a = document.getElementById('a');
+    var b = document.getElementById('b');
+    var c = document.getElementById('c');
+    var d = document.getElementById('d');
+    var e = document.getElementById('e');
+    var f = document.getElementById('f');
+
+    checkbtn.addEventListener('click', () => {
+        checkbtn.innerText = "Check Again?";
+        if (o2.innerText === a.value) {
+            a.style.background = "green";
+            a1.innerHTML = `✔ Correct Answer : <b>${o2.innerText}</b>`;
+        } else {
+            a.style.background = "rgba(255, 72, 0, 0.678)";
+            a1.innerHTML = `❌ <b>${a.value}</b> Word Answer... Correct Answer : <b>${o2.innerText}</b><br>
+            Explaination : Blah Blah ........`;
+        }
+        if (o5.innerText === b.value) {
+            b.style.background = "green";
+            a2.innerHTML = `✔ Correct Answer : <b>${o5.innerText}</b>`;
+        } else {
+            b.style.background = "rgba(255, 72, 0, 0.678)";
+            a2.innerHTML = `❌ <b>${b.value}</b> Word Answer... Correct Answer : <b>${o5.innerText}</b><br>
+            Explaination : Blah Blah ........`;
+        }
+        if (o3.innerText === c.value) {
+            c.style.background = "green";
+            a3.innerHTML = `✔ Correct Answer : <b>${o3.innerText}</b>`;
+        } else {
+            c.style.background = "rgba(255, 72, 0, 0.678)";
+            a3.innerHTML = `❌ <b>${c.value}</b> Word Answer... Correct Answer : <b>${o3.innerText}</b><br>
+            Explaination : Blah Blah ........`;
+        }
+        if (o4.innerText === d.value) {
+            d.style.background = "green";
+            a4.innerHTML = `✔ Correct Answer : <b>${o4.innerText}</b>`;
+        } else {
+            d.style.background = "rgba(255, 72, 0, 0.678)";
+            a4.innerHTML = `❌ <b>${d.value}</b> Word Answer... Correct Answer : <b>${o4.innerText}</b><br>
+            Explaination : Blah Blah ........`;
+        }
+        if (o1.innerText === e.value) {
+            e.style.background = "green";
+            a5.innerHTML = `✔ Correct Answer : <b>${o1.innerText}</b>`;
+        } else {
+            e.style.background = "rgba(255, 72, 0, 0.678)";
+            a5.innerHTML = `❌ <b>${e.value}</b> Word Answer... Correct Answer : <b>${o1.innerText}</b><br>
+            Explaination : Blah Blah ........`;
+        }
+        if (o6.innerText === f.value) {
+            f.style.background = "green";
+            a6.innerHTML = `✔ Correct Answer : <b>${o6.innerText}</b>`;
+        } else {
+            f.style.background = "rgba(255, 72, 0, 0.678)";
+            a6.innerHTML = `❌ <b>${f.value}</b> Word Answer... Correct Answer : <b>${o6.innerText}</b><br>
+            Explaination : Blah Blah ........`;
+        }
+    })
+</script>
+
+</html>

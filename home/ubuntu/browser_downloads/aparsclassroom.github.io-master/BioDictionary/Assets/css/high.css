@@ -1,0 +1,41 @@
+.econtainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 725px;
+    margin: 20px auto;
+    padding: 2rem;
+}
+
+.econtainer>* {
+    width: 100%;
+}
+
+.high-score {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+h3:hover,
+p:hover {
+    transform: scale(1.025);
+    cursor: pointer;
+}
+
+.score {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 1.2rem;
+}
+
+@media screen and (max-width:400px) {
+    .score {
+        text-align: center;
+        font-size: 30px;
+        color: green;
+        margin-bottom: 1.2rem;
+    }
+}

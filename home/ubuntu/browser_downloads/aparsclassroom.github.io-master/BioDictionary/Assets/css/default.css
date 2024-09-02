@@ -1,0 +1,86 @@
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: #2c3f52;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    margin-top: 25px;
+}
+
+h1 {
+    font-family: Kalpurush;
+    text-align: center;
+}
+
+a {
+    color: #888;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a:hover,
+a:active {
+    color: #333;
+    text-decoration: none;
+}
+
+.all-container {
+    opacity: 0;
+    height: 100%;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FDFDFD;
+    z-index: 999999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+nav .btn {
+    padding: 5px;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.btn-danger:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid white;
+}
+
+.lock:hover::before {
+    content: "You have to Unlock 🔑 🔒";
+    color: white;
+}

@@ -1,1 +1,2 @@
-const inf = "QUtmeWNiemZnbzhjWTN1WWZuYktseV9BLUFCRGdQNG0teVZMeXFkeVpqSmtrUzFkeGVkMG1SYmhkeVNpUzRyY1RfQjVWanhm";
+const inf =
+  "QUtmeWNiemZnbzhjWTN1WWZuYktseV9BLUFCRGdQNG0teVZMeXFkeVpqSmtrUzFkeGVkMG1SYmhkeVNpUzRyY1RfQjVWanhm";

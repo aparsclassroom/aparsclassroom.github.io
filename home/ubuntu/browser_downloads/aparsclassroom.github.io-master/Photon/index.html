@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Photon | Apar's Classroom</title>
+	<meta charset="UTF-8">
+		        <!-- Facebook Metas -->
+				<meta property="og:title" content="Photon | ফোটন">
+				<meta property="og:site_name" content="Photon | ফোটন">
+				<meta property="og:description" content="Download Form">
+				<meta property="og:image" content="https://aparsclassroom.com/Photon/images/logo.png">
+				<meta property="og:image:secure_url" content="https://aparsclassroom.com/Photon/images/logo.png">
+				<meta property="og:image:type" content="image/png">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7R4CMSFEBN');
+</script>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/Tariq_logo_main.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ip-geolocation-api-jquery-sdk@1.1.0/ipgeolocation.min.js"></script>
+<!--===============================================================================================-->
+</head>
+<body onload="myFunction()">
+
+	<div class="bg-contact100" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact100">
+			<div class="wrap-contact100">
+				<div class="contact100-pic js-tilt" data-tilt>
+					<img src="images/Tariq_logo_main.png" alt="IMG">
+				</div>
+				
+				<form class="contact100-form validate-form" method="POST" id="Photon" name="Photon">
+					<div class="rounded mx-auto d-block">
+						<img id="mobile-logo" src="images/Tariq_logo_main.png" height="100px" width="200px" alt="IMG">
+					</div>
+					<br>
+					<span style="text-align: center;" class="contact100-form-title">
+						Download Form
+					</span>
+					<div id="data">
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="Name" placeholder="Name" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="College" placeholder="College" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="Hsc" placeholder="HSC Batch" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-header" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100">
+						<input class="input100" type="number" name="Mobile" placeholder="Mobile Number" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100">
+						<input class="input100" type="email" name="Email" placeholder="Email" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100">
+						<textarea class="input100" name="message" placeholder="Do you have any future plan regarding PHOTON?" required></textarea>
+						<span class="focus-input100"></span>
+					</div>
+
+					<textarea name="ip-details" id="ip-details"></textarea>
+
+					<div class="container-contact100-form-btn">
+						<button class="contact100-form-btn" id="submit" type="submit">
+							OK
+						</button>
+					</div>
+				</div>
+					<div id="down" class="container-contact100-form-btn">
+						If download did't start automatically... Click below
+						<a type="button" id="download" class="contact100-form-btn" href="https://aparsclassroom.com/free-pdf/Photon_December.pdf" download="ফোটন.pdf">Downloading... Please Wait 🥰</a>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		_ipgeolocation.enableSessionStorage(true);
+		var a;
+		var ip = sessionStorage.getItem("ip");
+		var country_name = sessionStorage.getItem("country_name");
+		var district = sessionStorage.getItem("district");
+		var isp = sessionStorage.getItem("isp");
+		var city = sessionStorage.getItem("city");
+		var latitude = sessionStorage.getItem("latitude");
+		var longitude = sessionStorage.getItem("longitude");
+			   
+			_ipgeolocation.makeAsyncCallsToAPI(false);
+			_ipgeolocation.setFields("country_name,district,isp,city,latitude,longitude");
+			_ipgeolocation.getGeolocation(handleResponse, "815ba4a2bbe84e9ba860e52e7729644e");
+   
+		function handleResponse(json) {
+			ip = json.ip;
+			country_name = json.country_name;
+			district = json.district;
+			isp = json.isp;
+			city = json.city;
+			latitude = json.latitude;
+			longitude = json.longitude;
+		}
+				   
+		$(document).ready(function() {
+		    a = document.getElementById("ip-details").value = ("IP address : " +  ip + "\n" + "ISP Provider : " + isp + "\n" + "Latitude : " + latitude + "\n" + "Longitude : " + longitude + "\n" +  "Neigbourhood : " + district + "\n" + "City : " + city + "\n" + "Country : " + country_name);
+		});
+	   </script>
+
+   	<script>
+		           function myFunction() {
+          document.getElementById("ip-details").value = a;
+        }
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbw9dmIWpY9LfqiDj29oYcHLRvBTlSmTvXkJbzJe-N_MFd75sh78uaHyyA/exec'
+		const form = document.forms['Photon']
+	  
+		form.addEventListener('submit', e => {
+		  e.preventDefault()
+		  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		  .then(response => window.location.replace("https://cutt.ly/JhIEeDB"))
+		  .catch(error => console.error('Error!', error.message))
+			document.querySelector('#down').style.display = 'block';
+			document.querySelector('#data').style.display = 'none';
+		})
+		
+		</script>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Gilroy-ExtraBold';
+    src: url(fonts/Futura_Bold.otf)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(imegs/CrashBG.png);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    width: 100%;
+    margin-bottom: 25px;
+    object-fit: contain;
+}
+
+.logo>image {
+    align-self: center !important;
+}
+
+.buttonContainer {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+a {
+    padding: 15px;
+    text-align: center;
+    align-self: center !important;
+    background: rgba(240, 8, 85, 0.747);
+    outline: none;
+    border: 1px solid rgb(236, 8, 84);
+    margin: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-family: Gilroy-ExtraBold;
+
+    width: 240px;
+}
+
+a:hover {
+    border: 1px solid rgb(236, 8, 84);
+    background-color: white;
+    color: rgb(236, 8, 84);
+}

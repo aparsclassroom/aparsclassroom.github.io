@@ -1,0 +1,111 @@
+a:hover {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/ASG_TARIQ.TTF');
+}
+
+.bangla {
+    font-family: Kalpurush;
+}
+
+#module {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#module #collapseExample.collapse:not(.show) {
+    display: block;
+    height: 3rem;
+    overflow: hidden;
+}
+
+#module #collapseExample.collapsing {
+    height: 3rem;
+}
+
+#module a.collapsed::after {
+    content: '+ আরো পড়ুন';
+}
+
+#module a:not(.collapsed)::after {
+    content: '- সংক্ষিপ্ত করুন';
+}
+#module table td a:not(.collapsed)::after {
+    content: '' !important;
+}
+.image-loaded {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .9;
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.btn-success-mod {
+    color: #fff;
+    background-color: #45c881;
+    border-color: #45c881;
+}
+
+#pass:focus {
+    outline: 0px;
+}
+
+.btn-success-mod:hover {
+    color: #fff;
+    transform: scale(1.01);
+}
+
+.fa-arrow-right:hover,
+.tag:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+.fa-facebook-square {
+    color: #1877f2;
+}
+
+.fa-discord {
+    color: #7289da;
+}
+
+.fa-clinic-medical {
+    color: #ee70a6;
+}
+
+.fa-tablet-alt {
+    color: #5375e2;
+}
+
+.fa-question-circle {
+    color: slategrey;
+}
+
+.fa-calendar-check {
+    color: green;
+}
+
+.fa-clipboard {
+    color: #f47721;
+}
+
+#app:hover {
+    background-color: transparent;
+    color: black;
+    border: #fff 1px solid;
+    transform: scale(1.1);
+}
+
+.fa-check-circle {
+    color: #45c881;
+}
+
+.tag {
+    font-family: Kalpurush;
+}

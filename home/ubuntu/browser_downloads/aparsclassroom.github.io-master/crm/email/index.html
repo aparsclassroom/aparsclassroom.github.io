@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+
+    <title>Transaction by Email Tracker | CRM ASG</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/Logo.png">
+    <link rel="apple-touch-icon" href="/assets/Logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="/shop/assets/minimal.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 550px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .images {
+            margin-top: 50px;
+            max-height: 200px;
+            max-width: 100%;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="/shop/assets/js/key.js"></script>
+    <script src="/affiliation/assets/js/core/jquery.min.js"></script>
+    <script
+            src="https://www.jqueryscript.net/demo/Beautiful-JSON-Viewer-Editor/dist/jquery.json-editor.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Email TRACKER</h2>
+        <div class="input-group">
+            <input type="email" class="form-control" id="search" placeholder="Email ID">
+            <div class="input-group-append">
+                <button id="searchBtn" class="btn btn-dark">Search</button>
+            </div>
+        </div>
+        <div id="result">
+            <img src="https://img.icons8.com/metro/452/search.png" alt="Search Here"
+                class="images rounded mx-auto d-block">
+            <br>
+            <p>Search here using your Email Id.📑</p>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script>
+    var search = document.getElementById('search');
+    var searchBtn = document.getElementById('searchBtn');
+    var result = document.getElementById('result');
+    result.style.textAlign = "center";
+
+
+    searchBtn.addEventListener('click', () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("email", search.value);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+        result.innerHTML = "<img src='https://www.cappsure.com/resources/assets/img/ajax-loader-3.gif?version=3.5' width='100%'>";
+        fetch(`https://${shopName2}/query/email`, requestOptions)
+            .then((res) => {
+                return res.text()
+            })
+            .then((loadedData) => {
+                result.style.textAlign = "left";
+                function getJson() {
+                    try {
+                        return JSON.parse(loadedData);
+                    } catch (ex) {
+                        alert('Wrong JSON Format: ' + ex);
+                    }
+                }
+                var editor = new JsonEditor('#result', getJson());
+            })
+            .catch(() => {
+                alert("not Found")
+                return location.reload()
+            })
+    })
+</script>
+
+</html>

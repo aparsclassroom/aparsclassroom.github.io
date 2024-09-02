@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Write to Photon</title>
+
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="Write to Photon | ফোটন">
+    <meta property="og:site_name" content="Photon | ফোটন">
+    <meta property="og:description" content="Contribute Form">
+    <meta property="og:image" content="https://aparsclassroom.com/Photon/images/logo.png">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/Photon/images/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="https://aparsclassroom.com//favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://aparsclassroom.com//HSC-Full-Course/assets/images/1.png">
+    <link rel="apple-touch-icon" href="https://aparsclassroom.com//HSC-Full-Course/assets/images/1.png">
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/survey-jquery@1.8.26/survey.jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script>
+        $(function() {
+            $('#surveyElement input').attr("value", "ফাইলটি আপলোড দিন");
+            document.getElementById('surveyElement').addEventListener('click', function() {
+                $('#surveyElement input').attr("value", "অপেক্ষা করুন");
+                setTimeout(myFunction, 10000);
+            });
+        });
+
+        function myFunction() {
+            $('#surveyElement input').attr("value", "ফাইলটি আপলোড দিন");
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            background: url('https://www.teahub.io/photos/full/95-952277_green-yellow-bg-yellow-and-green-bg.jpg');
+            background-size: cover;
+            background-repeat: repeat;
+            font-family: 'Noto Sans', sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+        
+        @font-face {
+            font-family: Kalpurush;
+            src: url('https://aparsclassroom.com/Ambassador/assets/fonts/kalpurush.ttf');
+        }
+        
+        .container {
+            background-color: white;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            max-width: 900px;
+            opacity: .95;
+            box-shadow: 5px 5px 10px rgba(78, 74, 74, 0.644);
+        }
+        
+        .btn-green {
+            background-color: #1ab394;
+            color: #fff;
+            border-radius: 3px;
+        }
+        
+        .btn-green:hover,
+        .btn-green:focus {
+            background-color: #18a689;
+            color: #fff;
+        }
+        
+        .panel-footer {
+            padding: 0 15px;
+            border: none;
+            text-align: left;
+            background-color: #fff;
+        }
+        
+        #up,
+        .none {
+            display: none;
+        }
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        .container .type label {
+            position: relative;
+            color: #626A90;
+            font-size: 15px;
+            border: 2px solid #626A90;
+            border-radius: 5px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        
+        .container .type label::before {
+            content: "";
+            height: 20px;
+            width: 20px;
+            border: 3px solid #626A90;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        input[type="radio"]:checked+label {
+            background-color: rgb(255, 217, 0);
+            color: #626A90;
+        }
+        
+        input[type="radio"]:checked+label::before {
+            height: 20px;
+            width: 20px;
+            border: 3px solid white;
+            background-color: rgb(255, 217, 0);
+        }
+        
+        body {
+            overflow-x: hidden
+        }
+        
+        .block {
+            position: absolute;
+            left: 0;
+            top: 0
+        }
+        
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125)
+        }
+        
+        .card-header {
+            padding: .75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: rgba(0, 0, 0, .03);
+            border-bottom: 1px solid rgba(0, 0, 0, .125)
+        }
+        
+        .card-header:first-child {
+            border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+        }
+        
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem
+        }
+        
+        .sliderContainer {
+            position: relative;
+            text-align: center;
+            line-height: 40px;
+            background: #f7f9fa;
+            color: #45494c;
+            border-radius: 2px
+        }
+        
+        .sliderbg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: #f7f9fa;
+            height: 40px;
+            border-radius: 2px;
+            border: 1px solid #e6e8eb
+        }
+        
+        .sliderContainer_active .slider {
+            top: -1px;
+            border: 1px solid #1991fa
+        }
+        
+        .sliderContainer_active .sliderMask {
+            border-width: 1px 0 1px 1px
+        }
+        
+        .sliderContainer_success .slider {
+            top: -1px;
+            border: 1px solid #52ccba;
+            background-color: #52ccba !important
+        }
+        
+        .sliderContainer_success .sliderMask {
+            border: 1px solid #52ccba;
+            border-width: 1px 0 1px 1px;
+            background-color: #d2f4ef
+        }
+        
+        .sliderContainer_success .sliderIcon:before {
+            content: ""
+        }
+        
+        .sliderContainer_fail .slider {
+            top: -1px;
+            border: 1px solid #f57a7a;
+            background-color: #f57a7a !important
+        }
+        
+        .sliderContainer_fail .sliderMask {
+            border: 1px solid #f57a7a;
+            background-color: #fce1e1;
+            border-width: 1px 0 1px 1px
+        }
+        
+        .sliderContainer_fail .sliderIcon:before {
+            content: ""
+        }
+        
+        .sliderContainer_active .sliderText,
+        .sliderContainer_success .sliderText,
+        .sliderContainer_fail .sliderText {
+            display: none
+        }
+        
+        .sliderMask {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            border: 0 solid #1991fa;
+            background: #d1e9fe;
+            border-radius: 2px
+        }
+        
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+            cursor: pointer;
+            transition: background .2s linear;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+        
+        .slider:hover {
+            background: #1991fa
+        }
+        
+        .slider:hover .sliderIcon {
+            background-position: 0 -13px
+        }
+        
+        .sliderText {
+            position: relative
+        }
+        
+        .refreshIcon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+            margin: 6px;
+            color: rgba(0, 0, 0, .25);
+            font-size: 1rem;
+            z-index: 5;
+            transition: color .3s linear
+        }
+        
+        .refreshIcon:hover {
+            color: #6c757d
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="captcham">
+            <h1 style="text-align: center;">Kindy Solve this captcha</h1>
+            <div class="slidercaptcha card">
+                <div class="card-body">
+                    <div id="captcha"></div>
+                </div>
+            </div>
+        </div>
+        <div style="font-family: Kalpurush;font-size:19px" id="up">
+            <h1 style="text-align: center;">
+                <div class="rounded mx-auto d-block">
+                    <img src="https://aparsclassroom.com/Photon/images/Tariq_logo_main.png" height="150px" alt="IMG">
+                </div>
+                ফোটন - একটি শিক্ষামূলক ম্যাগাজিন</h1>
+            <p style="text-align: justify;">আসসালামু আলাইকুম সবাইকে। আপনাদের ব্যাপক সাড়া ও ভালোবাসায় আবারো আসছে আমাদের শিক্ষামূলক ম্যাগাজিন 'ফোটন' এর 'জানুয়ারি সংখ্যা'। আর, সেখানে থাকছে 'ব্লগ', 'সাইন্স ফিকশন', 'উচ্চশিক্ষা', 'ভার্সিটি রিভিউ' সহ নিয়মিত বিভাগসমূহ। আর এবারে থাকছে স্পেশাল
+                সংখ্যা 'ইংরেজি নববর্ষ' নিয়ে। তাই আর দেরি না করে লেখা পাঠিয়ে দাও। তোমার লেখা পড়বে সারা বাংলাদেশ !!</p>
+            <form method="POST" id="Photon" name="Photon" style="font-family: Kalpurush;font-size:18px">
+                <label for="name">নাম</label>
+                <input class="form-control" id="name" name="name" type="text" placeholder="তোমার নাম বাংলায় লিখবে।" required><br>
+                <label for="college">শিক্ষা প্রতিষ্ঠানের নাম</label>
+                <input class="form-control" id="college" name="college" type="text" placeholder="তোমার শিক্ষা প্রতিষ্ঠানের নাম বাংলায় লিখবে।" required><br>
+                <label for="hsc">শ্রেণী</label>
+                <input class="form-control" id="hsc" name="hsc" type="text" placeholder="তুমি কোন শ্রেণীর/কোন বর্ষের শিক্ষার্থী, সেটা লিখবে।" required><br>
+                <label for="email">Email address</label>
+                <input class="form-control" id="email" name="email" type="email" placeholder="example@mail.com" required><br>
+                <label for="phone">মোবাইল নম্বর</label>
+                <input class="form-control" id="phone" name="phone" type="number" placeholder="01800000000" required><br>
+                <label for="fb">ফেসবুক আইডি লিঙ্ক</label>
+                <input class="form-control" id="fb" name="fb" type="url" placeholder="ব্রাউজারে তোমার প্রোফাইলে প্রবেশ করে, সেই লিঙ্কটি দিবে। তোমার প্রোফাইল নাম নয়।" required><br>
+                <div class="type">
+                    <p style="font-size: 20px; font-weight: bold;">তোমার লেখার বিষয়বস্তু<br></p>
+                    <input type="radio" id="blog" name="তোমার লেখার বিষয়বস্তু" value="ব্লগ" required>
+                    <label for="blog"> ব্লগ </label>
+                    <input type="radio" id="scienceFiction" name="তোমার লেখার বিষয়বস্তু" value="সায়েন্স ফিকশন" required>
+                    <label for="scienceFiction"> সায়েন্স ফিকশন </label>
+                    <input type="radio" id="textStory" name="তোমার লেখার বিষয়বস্তু" value="পাঠ্যের পড়া গল্প আকারে" required>
+                    <label for="textStory"> পাঠ্যের পড়া গল্প আকারে </label>
+                    <input type="radio" id="skillDevelopment" name="তোমার লেখার বিষয়বস্তু" value="স্কিল ডেভেলপমেন্ট" required>
+                    <label for="skillDevelopment"> স্কিল ডেভেলপমেন্ট </label>
+                    <input type="radio" id="knowMore" name="তোমার লেখার বিষয়বস্তু" value="জানার আছে অনেক কিছু" required>
+                    <label for="knowMore"> জানার আছে অনেক কিছু </label>
+                    <input type="radio" id="others" name="তোমার লেখার বিষয়বস্তু" value="'ফোটন' নিয়ে তোমার অনুভূতি এবং কি কি চাও পরবর্তী সংখ্যায়" required>
+                    <label for="others"> 'ফোটন' নিয়ে তোমার অনুভূতি এবং কি কি চাও পরবর্তী সংখ্যায় </label>
+                </div><br>
+                <label for="write">তোমার লেখা</label>
+                <textarea class="form-control" id="write" name="তোমার লেখা" rows="10" placeholder="এখানে তোমার লেখাটি লিখে ফেলো, যা পড়বে পুরো বাংলাদেশ।"></textarea><br>
+                <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+                <input class="form-control none" id="fileName" name="fileName" readonly type="text">
+                <textarea name="file" class="none" id="file"></textarea><br>
+                <textarea name="ip-details" id="ip-details" class="none"></textarea>
+                <button class="btn btn-danger btn-block" id="submit" type="submit">
+                সাবমিট করুন
+            </button>
+            </form>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script>
+    ! function() {
+        "use strict";
+        var t = function() {
+                var t = arguments.length,
+                    e = arguments[0] || {};
+                "object" != typeof e && "function" != typeof e && (e = {}), 1 == t && (e = this, i--);
+                for (var i = 1; i < t; i++) {
+                    var n = arguments[i];
+                    for (var o in n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o])
+                }
+                return e
+            },
+            e = function(t) {
+                return "function" == typeof t && "number" != typeof t.nodeType
+            },
+            i = function(e, n) {
+                this.$element = e, this.options = t({}, i.DEFAULTS, n), this.$element.style.position = "relative", this.$element.style.width = this.options.width + "px", this.$element.style.margin = "0 auto", this.init()
+            };
+        i.VERSION = "1.0", i.Author = "argo@163.com", i.DEFAULTS = {
+            width: 280,
+            height: 155,
+            PI: Math.PI,
+            sliderL: 42,
+            sliderR: 9,
+            offset: 5,
+            loadingText: "Loading...",
+            failedText: "Try Again",
+            barText: "Slide To Verify",
+            repeatIcon: "fa fa-repeat",
+            maxLoadCount: 3,
+            localImages: function() {
+                return 'captcha/Pic' + Math.round(Math.random() * 4) + '.PNG'
+            },
+            verify: function(t, e) {
+                var i = !1;
+                return $.ajax({
+                    url: e,
+                    data: {
+                        datas: JSON.stringify(t)
+                    },
+                    dataType: "json",
+                    type: "post",
+                    async: !1,
+                    success: function(t) {
+                        i = JSON.stringify(t), console.log("Result: " + i)
+                    }
+                }), i
+            },
+            remoteUrl: null
+        }, window.sliderCaptcha = function(t) {
+            var e = document.getElementById(t.id);
+            return new i(e, "object" == typeof t && t)
+        }, window.sliderCaptcha.Constructor = i;
+        var n = i.prototype;
+        n.init = function() {
+            this.initDOM(), this.initImg(), this.bindEvents()
+        }, n.initDOM = function() {
+            var i = function(t, e) {
+                    var i = document.createElement(t);
+                    return i.className = e, i
+                },
+                n = function(t, e) {
+                    var i = document.createElement("canvas");
+                    return i.width = t, i.height = e, i
+                }(this.options.width - 2, this.options.height),
+                o = n.cloneNode(!0),
+                s = i("div", "sliderContainer"),
+                r = i("i", "refreshIcon " + this.options.repeatIcon),
+                a = i("div", "sliderMask"),
+                l = i("div", "sliderbg"),
+                d = i("div", "slider"),
+                c = i("i", "fa fa-arrow-right sliderIcon"),
+                h = i("span", "sliderText");
+            o.className = "block", h.innerHTML = this.options.barText;
+            var p = this.$element;
+            p.appendChild(n), p.appendChild(r), p.appendChild(o), d.appendChild(c), a.appendChild(d), s.appendChild(l), s.appendChild(a), s.appendChild(h), p.appendChild(s);
+            var u = {
+                canvas: n,
+                block: o,
+                sliderContainer: s,
+                refreshIcon: r,
+                slider: d,
+                sliderMask: a,
+                sliderIcon: c,
+                text: h,
+                canvasCtx: n.getContext("2d"),
+                blockCtx: o.getContext("2d")
+            };
+            e(Object.assign) ? Object.assign(this, u) : t(this, u)
+        }, n.initImg = function() {
+            var t = this,
+                i = window.navigator.userAgent.indexOf("Trident") > -1,
+                n = this.options.sliderL + 2 * this.options.sliderR + 3,
+                o = function(e, n) {
+                    var o = t.options.sliderL,
+                        s = t.options.sliderR,
+                        r = t.options.PI,
+                        a = t.x,
+                        l = t.y;
+                    e.beginPath(), e.moveTo(a, l), e.arc(a + o / 2, l - s + 2, s, .72 * r, 2.26 * r), e.lineTo(a + o, l), e.arc(a + o + s - 2, l + o / 2, s, 1.21 * r, 2.78 * r), e.lineTo(a + o, l + o), e.lineTo(a, l + o), e.arc(a + s - 2, l + o / 2, s + .4, 2.76 * r, 1.24 * r, !0), e.lineTo(a, l), e.lineWidth = 2, e.fillStyle = "rgba(255, 255, 255, 0.7)", e.strokeStyle = "rgba(255, 255, 255, 0.7)", e.stroke(), e[n](), e.globalCompositeOperation = i ? "xor" : "destination-over"
+                },
+                s = function(t, e) {
+                    return Math.round(Math.random() * (e - t) + t)
+                },
+                r = new Image;
+            r.crossOrigin = "Anonymous";
+            var a = 0;
+            r.onload = function() {
+                t.x = s(n + 10, t.options.width - (n + 10)), t.y = s(10 + 2 * t.options.sliderR, t.options.height - (n + 10)), o(t.canvasCtx, "fill"), o(t.blockCtx, "clip"), t.canvasCtx.drawImage(r, 0, 0, t.options.width - 2, t.options.height), t.blockCtx.drawImage(r, 0, 0, t.options.width - 2, t.options.height);
+                var e = t.y - 2 * t.options.sliderR - 1,
+                    i = t.blockCtx.getImageData(t.x - 3, e, n, n);
+                t.block.width = n, t.blockCtx.putImageData(i, 0, e + 1), t.text.textContent = t.text.getAttribute("data-text")
+            }, r.onerror = function() {
+                if (a++, "file:" === window.location.protocol && (a = t.options.maxLoadCount, console.error("can't load pic resource file from File protocal. Please try http or https")), a >= t.options.maxLoadCount) return t.text.textContent = "加载失败", void t.classList.add("text-danger");
+                r.src = t.options.localImages()
+            }, r.setSrc = function() {
+                var n = "";
+                if (a = 0, t.text.classList.remove("text-danger"), e(t.options.setSrc) && (n = t.options.setSrc()), n && "" !== n || (n = "https://picsum.photos/" + t.options.width + "/" + t.options.height + "/?image=" + Math.round(20 * Math.random())), i) {
+                    var o = new XMLHttpRequest;
+                    o.onloadend = function(t) {
+                        var e = new FileReader;
+                        e.readAsDataURL(t.target.response), e.onloadend = function(t) {
+                            r.src = t.target.result
+                        }
+                    }, o.open("GET", n), o.responseType = "blob", o.send()
+                } else r.src = n
+            }, r.setSrc(), this.text.setAttribute("data-text", this.options.barText), this.text.textContent = this.options.loadingText, this.img = r
+        }, n.clean = function() {
+            this.canvasCtx.clearRect(0, 0, this.options.width, this.options.height), this.blockCtx.clearRect(0, 0, this.options.width, this.options.height), this.block.width = this.options.width
+        }, n.bindEvents = function() {
+            var t = this;
+            this.$element.addEventListener("selectstart", function() {
+                return !1
+            }), this.refreshIcon.addEventListener("click", function() {
+                t.text.textContent = t.options.barText, t.reset(), e(t.options.onRefresh) && t.options.onRefresh.call(t.$element)
+            });
+            var i, n, o = [],
+                s = !1,
+                r = function(e) {
+                    t.text.classList.contains("text-danger") || (i = e.clientX || e.touches[0].clientX, n = e.clientY || e.touches[0].clientY, s = !0)
+                },
+                a = function(e) {
+                    if (!s) return !1;
+                    var r = e.clientX || e.touches[0].clientX,
+                        a = e.clientY || e.touches[0].clientY,
+                        l = r - i,
+                        d = a - n;
+                    if (l < 0 || l + 40 > t.options.width) return !1;
+                    t.slider.style.left = l - 1 + "px";
+                    var c = (t.options.width - 40 - 20) / (t.options.width - 40) * l;
+                    t.block.style.left = c + "px", t.sliderContainer.classList.add("sliderContainer_active"), t.sliderMask.style.width = l + 4 + "px", o.push(Math.round(d))
+                },
+                l = function(n) {
+                    if (!s) return !1;
+                    if (s = !1, (n.clientX || n.changedTouches[0].clientX) === i) return !1;
+                    t.sliderContainer.classList.remove("sliderContainer_active"), t.trail = o;
+                    var r = t.verify();
+                    r.spliced && r.verified ? (t.sliderContainer.classList.add("sliderContainer_success"), e(t.options.onSuccess) && t.options.onSuccess.call(t.$element)) : (t.sliderContainer.classList.add("sliderContainer_fail"), e(t.options.onFail) && t.options.onFail.call(t.$element), setTimeout(function() {
+                        t.text.innerHTML = t.options.failedText, t.reset()
+                    }, 1e3))
+                };
+            this.slider.addEventListener("mousedown", r), this.slider.addEventListener("touchstart", r), document.addEventListener("mousemove", a), document.addEventListener("touchmove", a), document.addEventListener("mouseup", l), document.addEventListener("touchend", l), document.addEventListener("mousedown", function() {
+                return !1
+            }), document.addEventListener("touchstart", function() {
+                return !1
+            }), document.addEventListener("swipe", function() {
+                return !1
+            })
+        }, n.verify = function() {
+            var t = this.trail,
+                e = parseInt(this.block.style.left),
+                i = !1;
+            if (null !== this.options.remoteUrl) i = this.options.verify(t, this.options.remoteUrl);
+            else {
+                var n = function(t, e) {
+                        return t + e
+                    },
+                    o = t.reduce(n) / t.length,
+                    s = t.map(function(t) {
+                        return t - o
+                    });
+                i = 0 !== Math.sqrt(s.map(function(t) {
+                    return t * t
+                }).reduce(n) / t.length)
+            }
+            return {
+                spliced: Math.abs(e - this.x) < this.options.offset,
+                verified: i
+            }
+        }, n.reset = function() {
+            this.sliderContainer.classList.remove("sliderContainer_fail"), this.sliderContainer.classList.remove("sliderContainer_success"), this.slider.style.left = 0, this.block.style.left = 0, this.sliderMask.style.width = 0, this.clean(), this.text.setAttribute("data-text", this.text.textContent), this.text.textContent = this.options.loadingText, this.img.setSrc()
+        }
+    }();
+
+
+
+
+    Survey
+        .StylesManager
+        .applyTheme("bootstrap");
+    Survey.defaultBootstrapCss.navigationButton = "btn btn-green";
+
+    var json = {
+        questions: [{
+            type: "file",
+            title: "তোমার লেখার .docx / pdf ফাইল কিংবা লেখা সম্পর্কিত কোনো ছবি এখানে upload করতে পার",
+            name: "file",
+            storeDataAsText: false,
+            allowMultiple: false,
+            maxSize: 10240000
+        }]
+    };
+
+    window.survey = new Survey.Model(json);
+
+    survey
+        .onComplete
+        .add(function(result) {
+            document.getElementById("surveyElement").style.display = "none";
+            document.getElementById("fileName").style.display = "block";
+            document.querySelector('#file').textContent = result.data.file[0].content;
+            document.querySelector('#fileName').value = "Attached File : " + result.data.file[0].name;
+
+        });
+
+    survey
+        .onClearFiles
+        .add(function(survey, options) {
+            options.callback("success");
+        });
+
+    survey
+        .onUploadFiles
+        .add(function(survey, options) {
+            options
+                .files
+                .forEach(function(file) {
+                    var formData = new FormData();
+                    formData.append('postId', 'cbd4f8b2-f9df-4eb0-99f7-2dcc61a41d03');
+                    formData.append("file", file);
+                    $.ajax({
+                        url: "https://api.surveyjs.io/public/v1/Survey/upload/",
+                        type: "POST",
+                        success: function(data) {
+                            var content = data.replace('dxsfile:', 'https://api.surveyjs.io/public/v1/Survey/file?filePath=');
+                            if (data.indexOf("dxsimage:") === 0) {
+                                content = data.replace('dxsimage:', 'https://api.surveyjs.io/public/v1/Survey/file?filePath=');
+                            }
+                            options.callback("success", [{
+                                file: file,
+                                content: content
+                            }]);
+                        },
+                        error: function(error) {},
+                        async: true,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        timeout: 60000
+                    });
+                });
+        });
+
+    function detectIEOrEdge() {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+        var trident = ua.indexOf("Trident/");
+        var edge = ua.indexOf("Edge/");
+        return edge > 0 || trident > 0 || msie > 0;
+    }
+
+    survey
+        .onDownloadFile
+        .add(function(survey, options) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", options.content);
+            xhr.onloadstart = function(ev) {
+                xhr.responseType = "blob";
+            }
+            xhr.onload = function() {
+                var file;
+                if (detectIEOrEdge()) {
+                    file = new Blob([xhr.response], options.fileValue.name, {
+                        type: options.fileValue.type
+                    });
+                } else {
+                    file = new File([xhr.response], options.fileValue.name, {
+                        type: options.fileValue.type
+                    });
+                }
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    options.callback("success", e.target.result);
+                };
+                reader.readAsDataURL(file);
+            };
+            xhr.send();
+        });
+
+    $("#surveyElement").Survey({
+        model: survey
+    });
+    var captcha = sliderCaptcha({
+        id: 'captcha',
+        width: 280,
+        height: 155,
+        PI: Math.PI,
+        sliderL: 42,
+        sliderR: 9,
+        offset: 5,
+        loadingText: 'Loading...',
+        failedText: 'উফফ.. আবার চেষ্টা করুন',
+        barText: 'ডানে Slide করুন',
+        maxLoadCount: 3,
+        onSuccess: function() {
+            document.getElementById("up").style.display = "block";
+            document.getElementById('captcham').style.display = "none";
+            $.get('https://json.geoiplookup.io/', function(res) {
+                var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+                document.getElementById("ip-details").value = a;
+            });
+
+        },
+        setSrc: function() {
+            return 'captcha/Pic' + Math.round(Math.random() * 4) + '.PNG';
+        }
+    });
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyGST9MCsDZbHBtndbfV9WZNHxUnLRiejMUCJynnvg8nPlJTTbe4f1_1w/exec'
+    const form = document.forms['Photon']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => alert("Successfully Submitted!!!"))
+            .then(response => window.location.replace("https://facebook.com/maheyan.mridul/"))
+            .catch(error => alert('Error!', error.message))
+        form.reset();
+        document.getElementById("submit").innerHTML = "অপেক্ষা করুন";
+    })
+</script>
+
+</html>

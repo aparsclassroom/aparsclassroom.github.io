@@ -1,0 +1,173 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/1.png">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7R4CMSFEBN');
+    </script>
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="URL Shortner">
+    <meta property="og:site_name" content="URL Shortner">
+    <meta property="og:description" content="Free Service by ASG Shop">
+    <meta property="og:image" content="https://miro.medium.com/max/566/1*j3xVt5zsYuAB19-QATkk_w.png">
+    <meta property="og:image:secure_url" content="https://miro.medium.com/max/566/1*j3xVt5zsYuAB19-QATkk_w.png">
+    <meta property="og:image:type" content="image/png">
+    <style>
+        @font-face {
+            font-family: 'Gilroy-ExtraBold';
+            src: url("/CrashCourse/fonts/Futura_Bold.otf")
+        }
+        
+        body {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Gilroy-ExtraBold';
+            background-image: url(https://image.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg);
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .buttonContainer {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        button {
+            padding: 15px;
+            text-align: center;
+            align-self: center !important;
+            background: rgb(27, 131, 156);
+            outline: none;
+            border: 1px solid rgb(0, 70, 128);
+            margin: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            font-family: Gilroy-ExtraBold;
+            width: 300px;
+        }
+        
+        button:hover {
+            border: 1px solid rgb(27, 112, 192);
+            background-color: white;
+            color: rgb(0, 70, 128);
+            cursor: pointer;
+        }
+        
+        #linkinput {
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            padding: 15px;
+            border: 1px solid rgb(41, 95, 156);
+            margin: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            outline: none;
+        }
+        
+        #linkinput:hover {
+            transform: scale(1.5);
+        }
+        
+        .image {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+        }
+        
+        .image2 {
+            width: 300px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <img src="/img/logo.jpg" alt="ASG Logo" class="image">
+        <img src="https://camo.githubusercontent.com/56ea24702a43a27f55794275849e38c16cd393e244a59297a71266b9b34e3e53/68747470733a2f2f617368616c6c656e64657369676e2e636f2e756b2f696d616765732f637573746f6d2f73686f72742d75726c2d6c6f676f2e706e67" alt="Short Url" class="image2">
+        <div>
+            <input type="url" id="linkinput" placeholder="Paste a Long URL to shorten"><br>
+            <button type="submit" id="myinput">Shorten</button>
+            <button class="cp" style="display: none;" data-clipboard-target="#linkinput" id="Copy">Copy Link</button>
+        </div>
+    </div>
+
+    <script>
+        var link = document.getElementById("linkinput");
+        var genBtn = document.getElementById("myinput");
+        var copyBtn = document.getElementById("Copy");
+        link.addEventListener('input', () => {
+            genBtn.innerText = "Shorten"
+            genBtn.style.display = "block";
+            copyBtn.style.display = "none";
+        })
+        genBtn.onclick = function() {
+            if (link.value != "") {
+                genBtn.innerText = "Shortening..."
+                var data = {
+                    "domain": "click.apars.shop",
+                    "originalURL": link.value,
+                    "allowDuplicates": false
+                };
+                fetch('https://api.short.cm/links/public', {
+                        method: 'post',
+                        headers: {
+                            'accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'authorization': 'pk_fw00SCTGIuGpPu5l'
+                        },
+                        body: JSON.stringify(data)
+                    }).then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        link.value = data.shortURL;
+                        genBtn.style.display = "none";
+                        copyBtn.style.display = "block";
+                    })
+
+            } else {
+                alert('Please paste a long url');
+            }
+        }
+        var clipboard = new ClipboardJS('.cp');
+        clipboard.on('success', function(e) {
+            copyBtn.innerText = "Copied !";
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            alert('Action:', e.action);
+        });
+    </script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

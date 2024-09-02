@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>Zoology | BioDictionary</title>
+    <meta name="theme-color" content="#34495e">
+    <link rel="shortcut icon" href="./Assets/images/logo/logo-square.ico">
+    <link rel="stylesheet" href="./Assets/Vendor/css/bootstrap.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    <script src="./Assets/js/fbin.js"></script>
+    <meta name="theme-color" content="#34495e">
+    <script src="/BioDictionary/Assets/js/chz.js"></script>
+    <link rel="stylesheet" href="/BioDictionary/Assets/css/default.css">
+    <link rel="stylesheet" href="/BioDictionary/Assets/css/component.css">
+    <script src="https://kit.fontawesome.com/dbb868ec12.js" crossorigin="anonymous"></script>
+    <script src="/BioDictionary/Assets/js/modernizr.custom.js" defer></script>
+    <script src="/BioDictionary/Assets/js/touch.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/BioDictionary/Assets/Vendor/js/popper.js" defer></script>
+    <script src="/BioDictionary/Assets/Vendor/js/bootstrap.js" defer></script>
+    <script>
+        $(function() {
+            "use strict";
+            $(window).on("load", function() {
+                $(".loader").fadeOut();
+                $("#preloader").delay(350).fadeOut("slow");
+                $("body").delay(350).css({
+                    "overflow": "visible"
+                });
+                $(".all-container").css({
+                    "opacity": "1"
+                });
+            });
+        }(jQuery));
+    </script>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader">
+            <img class="img-fluid" src="/BioDictionary/Assets/images/preloader/1.gif" height="500px" width="500px" alt="preloader">
+        </div>
+    </div>
+    <div class="all-container">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #2c3f52;">
+            <a class="navbar-brand" href="./index.html"><img src="/BioDictionary/Assets/images/logo/logo-transparent.png" alt="logo" height="30px" width="30px"> BioDictionary</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="zombie" href="affiliation/profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+                          </svg> Affiliation Dashboard <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://storymodelearning.com/">Story Mode Learning App</a>
+                    </li>
+                </ul>
+                <button class="btn btn-danger" id="lg" onclick="mainApp.logOut();"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                <a type="button" class="btn btn-outline-light" id="dsh" href="dashboard.html"><i class="fas fa-user-circle" height="30px" width="30px"></i> Profile</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>জীববিজ্ঞান (২য় পত্র)</h1>
+            <ul class="grid cs-style-1">
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-1-opt.jpg" alt="img01">
+                        <figcaption>
+                            <h3>অধ্যায় ১</h3>
+                            <span>প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-1">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-1/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-2-opt.jpg" alt="img02">
+                        <figcaption>
+                            <h3>অধ্যায় ২</h3>
+                            <span>প্রাণীর পরিচিতি</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-2">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-2/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-3-opt.jpg" alt="img03">
+                        <figcaption>
+                            <h3>অধ্যায় ৩</h3>
+                            <span>মানব শরীরতত্ত্ব (পরিপাক ও শোষণ)</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-3">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-3/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-4-opt.jpg" alt="img04">
+                        <figcaption>
+                            <h3>অধ্যায় ৪</h3>
+                            <span>মানব শরীরতত্ত্ব (রক্ত ও সঞ্চালন)</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-4">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-4/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-5-opt.jpg" alt="img05">
+                        <figcaption>
+                            <h3>অধ্যায় ৫</h3>
+                            <span>মানব শরীরতত্ত্ব (শ্বসন ও শ্বাসক্রিয়া)</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-5">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-5/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-6-opt.jpg" alt="img06">
+                        <figcaption>
+                            <h3>অধ্যায় ৬</h3>
+                            <span>মানব শরীরতত্ত্ব : বর্জ্য ও নিষ্কাশন</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-6">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-6/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-7-opt.jpg" alt="img01">
+                        <figcaption>
+                            <h3>অধ্যায় ৭</h3>
+                            <span>মানব শরীরতত্ত্ব : চলন ও অঙ্গচালনা</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-7">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-7/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-8-opt.jpg" alt="img02">
+                        <figcaption>
+                            <h3>অধ্যায় ৮</h3>
+                            <span>মানব শরীরতত্ত্ব : সমন্বয় ও নিয়ন্ত্রন</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-8">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-8/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-9-opt.jpg" alt="img03">
+                        <figcaption>
+                            <h3>অধ্যায় ৯</h3>
+                            <span>মানব জীবনের ধারাবাহিকতা</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-9">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-9/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-10-opt.jpg" alt="img04">
+                        <figcaption>
+                            <h3>অধ্যায় ১০</h3>
+                            <span>মানব দেহের প্রতিরক্ষা (ইমিউনিটি)</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-10">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-10/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-11-opt.jpg" alt="img05">
+                        <figcaption>
+                            <h3>অধ্যায় ১১</h3>
+                            <span>জিনতত্ত্ব ও বিবর্তন</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-11">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-11/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="/BioDictionary/Assets/images/Biology/Second Paper/chap-12-opt.jpg" alt="img06">
+                        <figcaption>
+                            <h3>অধ্যায় ১২</h3>
+                            <span>প্রানীর আচরণ</span>
+                            <a class="Bio" href="classes/Zoology/Chapter-12">BioCast</a>&nbsp;&nbsp;
+                            <a href="words/Zoology/Chapter-12/index.html">Dictionary</a>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

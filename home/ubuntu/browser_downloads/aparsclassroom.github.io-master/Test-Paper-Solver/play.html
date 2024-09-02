@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>Test Paper Solver</title>
+    <link rel="stylesheet" href="/BioDictionary/Assets/Vendor/css/bootstrap.css">
+    <link rel="stylesheet" href="/QNA-Hint/assets/css/style.css" />
+    <script src="/BioDictionary/Assets/Vendor/js/jquery.js"></script>
+    <script src="js/draganddrop.js"></script>
+    <style>
+        .container {
+            margin-top: 100px;
+            max-width: 600px;
+        }
+        
+        .option,
+        .inp {
+            text-align: center;
+        }
+        
+        #o3,
+        #o1 {
+            max-width: 80%;
+        }
+        
+        .ques {
+            text-align: justify;
+        }
+        
+        #answers {
+            margin-top: 20px;
+        }
+        
+        .inst {
+            margin-top: 30px;
+            background-color: cornsilk;
+        }
+        
+        .ansFil {
+            margin: 10px;
+            border: 1px dashed black;
+            border-radius: 10px;
+            background-color: transparent;
+        }
+        
+        .quiz_timer {
+            border: 5px solid #004853;
+            padding: 5px;
+            color: #004853;
+            font-family: Verdana, sans-serif, Arial;
+            font-size: 35px;
+            font-weight: bold;
+            text-decoration: none;
+            width: 200px;
+        }
+        
+        .dragdrop {
+            cursor: grabbing;
+        }
+        
+        .time {
+            color: #004853;
+        }
+        
+        .ftime {
+            color: white;
+        }
+        
+        textarea {
+            background-color: rgba(209, 162, 162, 0.623);
+            border: 1px dashed black;
+            width: 100%;
+            resize: none;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        @media only screen and (min-width: 500px) {
+            .cursor {
+                position: fixed;
+                width: 50px;
+                height: 50px;
+                border: 1px solid black;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                transition: .1s;
+            }
+            .cursor2 {
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background-color: black;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                transition: .15s;
+            }
+            .container:hover~.cursor {
+                transform: translate(-50%, -50%) scale(1.5);
+                background-color: #c6c6c6;
+                opacity: .5;
+            }
+            .container:hover~.cursor2 {
+                opacity: 0;
+            }
+        }
+        
+        .ds {
+            margin-top: 5px;
+            border: 1px dashed black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="timer" class="quiz_timer">
+            <span id="st" class="time">00:00</span>
+        </div>
+        <h1 style="text-align: center;">Formula Solver App</h1>
+        <h4 style="color: brown;">দুটি ভেক্টর 𝐴 ⃗=30 𝑖 ̂ −100 𝑘 ̂ ও 𝐵 ⃗=3 𝑖 ̂ +4 𝑗 ̂−10 𝑘 ̂ হলে 𝐴 ⃗ এর ওপর 𝐵 ⃗ এর উপাংশ নির্ণয় কর?</h4>
+        <div id="form">
+
+
+            <button onclick="checkResult ()" id="ys" class="btn btn-success">Stop Timer</button><br>
+            <div class="inst">
+                <p>Drag and Drop Correct Formulas To solve the math 👇👇👇</p>
+                <p>বি. দ্র. ফর্মুলাগুলো স্ক্রীনের যেখানে ইচ্ছা ড্র্যাগ করে রাখা যাবে।</p>
+                <img id="o3" src="/QNA-Hint/assets/images/h3.png" height="50px" value="Formula 3" class="btn ds btn-outline-warning dragdrop"><br>
+                <img id="o1" src="/QNA-Hint/assets/images/h1.png" height="50px" value="Formula 1" class="btn ds btn-outline-warning dragdrop"><br>
+                <img id="o2" src="/QNA-Hint/assets/images/h2.png" height="50px" value="Formula 2" class="btn ds btn-outline-warning dragdrop"><br>
+
+            </div>
+
+
+            <div id="d1" class="ansFil align-items-center">
+                <p>Step 1 : অভিক্ষেপ নির্ণয়ঃ</p>
+                <p>অভিক্ষেপ নির্ণয়ের সঠিক ফর্মুলা কোনটি?</p>
+                <textarea id="a" rows="3" readonly class="inp">
+                  Drop the Formula Here 📄📎
+                </textarea>
+                <img id="theDiv1" width="100%">
+            </div>
+            <div id="d2" class="ansFil align-items-center ">
+                <div>
+                    <p>Step 2 : একক ভেক্টর নির্ণয়ঃ </p>একক ভেক্টর নির্ণয়ের সঠিক ফর্মুলা কোনটি?</div>
+                <textarea id="b" rows="3" readonly class="inp">
+                    Drop the Formula Here 📄📎
+                  </textarea>
+                <img id="theDiv2" height="50px">
+            </div>
+            <div id="d3" class="ansFil align-items-center ">
+                <div>
+                    <p>Step 3 : অভিক্ষেপ হতে উপাংশ নির্ণয়ঃ </p>অভিক্ষেপ হতে উপাংশ নির্ণয়ের সঠিক ফর্মুলা কোনটি?</div>
+                <textarea id="c" rows="3" readonly class="inp">
+                    Drop the Formula Here 📄📎
+                  </textarea>
+                <img id="theDiv3" width="100%">
+            </div>
+            </p>
+        </div>
+        <div>
+            <div id="dis">
+                <div id="i1"></div>
+                <div id="i2"></div>
+                <div id="i3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="seeCalc" tabindex="-1" role="dialog" aria-labelledby="seeCalcTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><span id="title"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <div id="image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script>
+    $('.dragdrop').draggable({
+        revert: false,
+        placeholder: true,
+        droptarget: '.inp',
+        drop: function(evt, droptarget) {
+
+            droptarget.value = evt.target.attributes.value.value;
+            // console.log(droptarget.attributes.id.value)
+
+
+            if (droptarget.attributes.id.value === "a") {
+
+                if (o1.attributes.value.value === a.value) {
+                    $(this).appendTo(droptarget).draggable('destroy');
+                    // a.classList.remove("inp");
+                    a.style.display = "none";
+                    document.getElementById('d1').style.background = "green";
+                    document.getElementById('theDiv1').src = evt.target.attributes.src.value;
+                    $('#seeCalc').modal();
+                    document.getElementById('title').innerHTML = "Congratulations! Step 1 Unlocked";
+                    document.getElementById('i1').innerHTML = `
+                        <h1>Step 1</h1>
+                        <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture1.png" alt="Full Calculation" width="100%">
+                        `;
+                    document.getElementById('image').innerHTML = `
+            
+            <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture1.png" alt="Full Calculation" width="100%">
+            `;
+                } else {
+                    $('#seeCalc').modal();
+                    document.getElementById('d1').style.background = "red";
+                    a.value = "Try Again";
+                    document.getElementById('title').innerHTML = "Alert";
+                    document.getElementById('image').innerHTML = `
+            <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Warning.png" alt="Full Calculation" width="100%">
+            <h3 style="text-align:center"> Bhul Hoise 💔</h3>
+            `;
+                }
+                return;
+            }
+            if (droptarget.attributes.id.value === "b") {
+
+                if (o2.attributes.value.value === b.value) {
+                    // b.classList.remove("inp");
+                    b.style.display = "none";
+                    $(this).appendTo(droptarget).draggable('destroy');
+                    document.getElementById('d2').style.background = "green";
+                    document.getElementById('theDiv2').src = evt.target.attributes.src.value;
+                    $('#seeCalc').modal();
+                    document.getElementById('title').innerHTML = "Congratulations! Step 2 Unlocked";
+                    document.getElementById('i2').innerHTML = `
+                        <h1>Step 2</h1>
+                        <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture2.png" alt="Full Calculation" width="100%">
+                        `;
+                    document.getElementById('image').innerHTML = `
+            
+            <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture2.png" alt="Full Calculation" width="100%">
+            `;
+                } else {
+                    $('#seeCalc').modal();
+                    b.value = "Try Again";
+                    document.getElementById('d2').style.background = "red";
+                    document.getElementById('title').innerHTML = "Alert";
+                    document.getElementById('image').innerHTML = `
+            <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Warning.png" alt="Full Calculation" width="100%">
+            <h3 style="text-align:center"> Bhul Hoise 💔</h3>
+            `;
+                }
+                return;
+            }
+            if (droptarget.attributes.id.value === "c") {
+
+                if (o3.attributes.value.value === c.value) {
+                    // c.classList.remove("inp");
+                    c.style.display = "none";
+                    $(this).appendTo(droptarget).draggable('destroy');
+                    document.getElementById('d3').style.background = "green";
+                    document.getElementById('theDiv3').src = evt.target.attributes.src.value;
+                    document.getElementById('i3').innerHTML = `
+                        <h1>Step 3</h1>
+                        <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture3.png" alt="Full Calculation" width="100%">
+                        `;
+                    $('#seeCalc').modal();
+                    document.getElementById('title').innerHTML = "Congratulations! Step 3 Unlocked";
+                    document.getElementById('image').innerHTML = `
+            
+            <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Picture3.png" alt="Full Calculation" width="100%">
+            `;
+                } else {
+                    $('#seeCalc').modal();
+                    c.value = "Try Again";
+                    document.getElementById('d3').style.background = "red";
+                    document.getElementById('title').innerHTML = "Alert";
+                    document.getElementById('image').innerHTML = `
+            <img src="https://aparsclassroom.com/Test-Paper-Solver/Assets/Images/Warning.png" alt="Full Calculation" width="100%">
+            <h3 style="text-align:center"> Bhul Hoise 💔</h3>
+            `;
+                }
+                return;
+            }
+
+        }
+
+    });
+    var checkbtn = document.getElementById('checkbtn');
+    var a1 = document.getElementById('ans1');
+    var a2 = document.getElementById('ans2');
+    var a3 = document.getElementById('ans3');
+
+    var o1 = document.getElementById('o1');
+    var o2 = document.getElementById('o2');
+    var o3 = document.getElementById('o3');
+
+    var a = document.getElementById('a');
+    var b = document.getElementById('b');
+    var c = document.getElementById('c');
+
+    function checkResult() {
+        if (o1.attributes.value.value === a.value && o2.attributes.value.value === b.value && o3.attributes.value.value === c.value) {
+            document.getElementById('ys').innerText = "Congrats";
+            localStorage.setItem("minutes", minutes);
+            localStorage.setItem("seconds", seconds);
+            clearInterval(mytime);
+            document.getElementById('dis').style.display = "block";
+            document.getElementById('form').style.display = "none";
+            return;
+        } else {
+            alert("Kisu Hoy Nai");
+        }
+    }
+</script>
+<!-- Modal -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="js/timer.js"></script>
+
+</html>

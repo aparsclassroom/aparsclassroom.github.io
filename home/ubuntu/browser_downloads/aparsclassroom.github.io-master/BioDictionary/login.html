@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>BioDictionary</title>
+    <link rel="shortcut icon" href="./Assets/images/logo/logo-square.ico">
+    <link rel="stylesheet" href="Assets/css/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js" defer></script>
+    <script src="Assets/js/firebase.js" defer></script>
+    <script src="/BioDictionary/Assets/js/login.js" defer></script>
+    <!-- Facebook Metas -->
+    <meta property="og:title" content="BioDictionary">
+    <meta property="og:site_name" content="BioDictionary">
+    <meta property="og:description" content="Ultimate Solution To Biology">
+    <meta property="og:image" content="https://aparsclassroom.com/App/Assets/FB/login-page.png">
+    <meta property="og:image:secure_url" content="https://aparsclassroom.com/App/Assets/FB/login-page.png">
+    <meta property="og:image:type" content="image/png">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/603cf4191c1c2a130d639fee/1evn1jmic';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</head>
+
+<body>
+    <div class="form-container">
+        <img src="/BioDictionary/Assets/images/logo/logo-square.png" width="200px" style="border-radius: 20px;" height="200px">
+        <h2>BioDictionary App</h2>
+        <div class="input-field">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="input-field">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Tranx Id / Password">
+            <span>
+              <i class="fas fa-eye-slash" aria-hidden="true"  type="button" id="eye"></i>
+           </span>
+        </div>
+        <br>
+        <button id="access" name="signin" class="btn">Log in</button>
+
+        <a type="button" id="forgotPass" style="display:none;cursor: pointer;color:red;">Forgot Password?</a>
+        <a id="subs" href="https://aparsclassroom.com/shop/BioDictionary?aff-AAA">Buy a Subscription</a>
+        <br>
+        <button id="free" class="btn" style="margin-top: 5px;">Free Trial</button>
+        <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit' data-action='submit'></button>
+    </div>
+    </div>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

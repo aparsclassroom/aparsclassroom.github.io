@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>Link Tracker</title>
+    <style>
+        body {
+            font-size: 18px;
+        }
+        
+        .res {
+            margin-top: 150px;
+        }
+    </style>
+</head>
+
+<body align="center">
+    <H1 class="res">Custom Link Tracker</H1>
+    <div id="res">Loading...</div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+<script>
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkQ2MDA1NzIzQUIzNUZCRUQyNTAyN0RFOTdBOTBGQzZCOEE0NzFCQjUiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIxZ0JYSTZzMS0tMGxBbjNwZXBEOGE0cEhHN1UifQ.eyJuYmYiOjE2MTgwNTA1NzMsImV4cCI6MTYxODEzNjk3MywiaXNzIjoiaHR0cHM6Ly9vYXV0aC5yZWJyYW5kbHkuY29tIiwiYXVkIjpbImh0dHBzOi8vb2F1dGgucmVicmFuZGx5LmNvbS9yZXNvdXJjZXMiLCJyYmFwaSIsInJiYXBpa2V5cyIsInJiaW52aXRlcyIsInJiZG93bmdyYWRlIl0sImNsaWVudF9pZCI6IjFGRUIzRERELThBQzctNEY4My1BMkIzLUVENEVCNTU4REZBMiIsInN1YiI6IjkzYjM2Nzk5LWRhYjctNDEzNi04MjEwLWIzYzY4OTRmOWMwMiIsImF1dGhfdGltZSI6MTYxNzE5NzcxNiwiaWRwIjoiR29vZ2xlIiwibmFtZSI6ImFwYXJzY2xhc3Nyb29tQGdtYWlsLmNvbSIsInByZWZlcnJlZF91c2VybmFtZSI6ImFwYXJzY2xhc3Nyb29tQGdtYWlsLmNvbSIsImVtYWlsIjoiYXBhcnNjbGFzc3Jvb21AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImp0aSI6IjY0YTIzMDE4NWQyOGI0YzUzNDQ0YzNhOWVmMGM5Yjc4Iiwic2NvcGUiOlsicmJhcGkiLCJyYmFwaWtleXMiLCJyYmludml0ZXMiLCJyYmRvd25ncmFkZSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJleHRlcm5hbCJdfQ.PZqei59P9I9qcmqsbNaMZ5BJ9kGSYozrPEWjrFuYmpD_QnXcjHR-2Iz3Iv8JuT0fo4iT6nsmqExV2J5_6CylY2Bsfh3ewY0CBaNS_MwAiC1I2mQLAalgUO1US96E35FY022HecWWsZz9nmepwR4ltPJti3pIkt_iDo4kipFvrURCJRQGAJXq_NDqQY47LVA-gdpQJOQyTvmFUeTB_opMxtp30skj7JX1kkxPv4nWbVqhcGW1Ik1HQf-9GYL4yBK94wLIOQjq6sXK1Jwo7hrCjJuhDmAcWoMpBUhOaa91rV3tU59563Bio4l4I70Uq4MbZ7BaWsAh65GBneVnDDzZ8A");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch("https://api.rebrandly.com/v1/links?limit=20&orderBy=createdAt&orderDir=desc", requestOptions)
+        .then(response => {
+            return response.json();
+        })
+        .then(result => {
+            var a = result[0];
+            document.getElementById('res').innerHTML = `
+            <h3>Link Title : ${a.title}</h3>
+            Short Link : <a href="https://${a.shortUrl}" target="_blank">https://${a.shortUrl}</a><br>
+            Original Link : <a href="${a.destination}" target="_blank">${a.destination}</a><br>
+            <h3>Clicks : ${a.clicks}</h3>
+            Domain : ${a.domainName}<br>
+            Created At : ${a.createdAt}
+            `;
+        })
+        .catch(error => document.getElementById('res').innerHTML = ('error', error));
+</script>
+
+</html>

@@ -1,0 +1,7 @@
+body * {
+    display: none !important;
+}
+
+body:after {
+    content: "You are not allowed to print preview this page, Thank you";
+}

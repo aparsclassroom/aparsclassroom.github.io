@@ -1,27 +1,27 @@
-firebase.auth().onAuthStateChanged(function(e) {
-    if (e) {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-            "product": product,
-            'uid': e.uid
-        });
+firebase.auth().onAuthStateChanged(function (e) {
+  if (e) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+      product: product,
+      uid: e.uid,
+    });
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
 
-        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
-            .then(response => {
-                return response.json()
-            })
-            .then(result => {
-                if (result.code === 200) {
-                    var data = result.data;
-                    document.getElementById('info').innerHTML = `
+    fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        if (result.code === 200) {
+          var data = result.data;
+          document.getElementById("info").innerHTML = `
                     <h3>Purchase Information</h3>
                     Invoice : ${data.Invoice}<br>
                     Product : ${data.ProductName}<br>
@@ -38,21 +38,21 @@ firebase.auth().onAuthStateChanged(function(e) {
                     <br><br>
                     <h3>Your App / Course should be available in 24 hours.<br> so please have patience.</h3>
                     `;
-                    var clipboard = new ClipboardJS('.cp');
-                    clipboard.on('success', function(e) {
-                        alert("Copied successfully!!")
-                        document.getElementById('cpBtn').innerText = "Copied !";
-                        e.clearSelection();
-                    });
+          var clipboard = new ClipboardJS(".cp");
+          clipboard.on("success", function (e) {
+            alert("Copied successfully!!");
+            document.getElementById("cpBtn").innerText = "Copied !";
+            e.clearSelection();
+          });
 
-                    clipboard.on('error', function(e) {
-                        alert('Action:', e.action);
-                    });
-                } else {
-                    location.replace("./");
-                }
-            })
-    } else {
-        location.replace("./");
-    }
-})
+          clipboard.on("error", function (e) {
+            alert("Action:", e.action);
+          });
+        } else {
+          location.replace("./");
+        }
+      });
+  } else {
+    location.replace("./");
+  }
+});

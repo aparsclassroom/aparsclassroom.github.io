@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script>
+    <title>Join Us | BioDictionary</title>
+    <meta name="theme-color" content="#34495e">
+    <link rel="shortcut icon" href="./Assets/images/logo/logo-square.ico">
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js" defer></script>
+    <script src="/assets/js/sweetalert.min.js" defer></script>
+    <script src="./Assets/js/join.js" defer></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/css/join.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center cust">Join Us</h1>
+        <p class="bangla text-center"><b>আসসালামু আলাইকুম।</b> BioDictionary আমাদের সকলের একটি অ্যাপ। BioDictionary টীমে জয়েন করতে চাইলে আজই সব তথ্যগুলো সঠিকভাবে পূরণ করে ফেলো। আমাদের একজন প্রতিনিধি তোমার সঙ্গে যোগাযোগ করবে 🥰</p>
+        <form id="join" name="join" autocomplete="off" method="post">
+            <div class="form-group">
+                <label for="fullName">
+                    Full Name <span style="color: red;">*</span>
+                </label>
+                <input type="text" class="form-control" name="Full Name" placeholder="ex. Maheyan Mridul" id="fullName" required>
+                <label for="email">
+                    Email Address <span style="color: red;">*</span>
+                </label>
+                <input type="email" class="form-control" name="Email Address" placeholder="ex. xyz@gmail.com" id="email" required>
+                <label for="mobileNumber">
+                    Mobile Number <span style="color: red;">*</span>
+                </label>
+                <input type="number" class="form-control" name="Mobile Number" placeholder="ex. 0180 000 0000" id="mobileNumber" required>
+                <label for="currentInstitution">
+                    Current Institution <span style="color: red;">*</span>
+                </label>
+                <input type="text" class="form-control" name="Current Institution" placeholder="ex. Dhaka Medical College" id="currentInstitution" required>
+                <label for="expertAt">
+                    Expert At <span style="color: red;">*</span>
+                </label>
+                <select class="form-control" name="Expert At" id="expertAt" required>
+                    <option value="">--Select One--</option>
+                    <option value="Instructor (Biology)">Instructor (Biology)</option>
+                    <option value="Quiz Maker (Biology)">Quiz Maker (Biology)</option>
+                    <option value="Front End Developer (Web)">Front End Developer (Web)</option>
+                    <option value="Back End Developer (Web)">Back End Developer (Web)</option>
+                    <option value="Full Stack Developer (Web)">Full Stack Developer (Web)</option>
+                    <option value="Native App Developer (Android)">Native App Developer (Android)</option>
+                    <option value="UI / UX Designer">UI / UX Designer</option>
+                    <option value="Digital Artist">Digital Artist</option>
+                </select>
+                <input type="text" style="display: none;" name="UID" id="uid">
+                <textarea type="text" name="IP Details" style="display: none;" id="ip-details"></textarea>
+                <label for="why">
+                    Why We should SELECT You ? <span style="color: red;">*</span>
+                </label>
+                <textarea class="form-control" placeholder="write your answer..." name="Why We should SELECT You ?" id="why" rows="3" required></textarea>
+            </div>
+            <button type="submit" id="apply" class="btn btn-primary btn-block">Apply</button>
+        </form>
+    </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>

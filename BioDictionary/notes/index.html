@@ -1,53 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Notes | Apar's Classroom</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "8jcf2l88zu");
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="../Assets/images/logo/logo-square.ico">
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Titillium+Web"
+    />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="../Assets/images/logo/logo-square.ico" />
+    <script
+      src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"
+      defer
+    ></script>
     <script src="js/app.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="header">
-            <div class="return">
-                <a href="../dashboard.html">
-                    <i class="fa fa-home"></i>
-                </a>
-            </div>
-            <div class="clear">
-                <i class="fa fa-refresh"></i>
-            </div>
-            <div id="date"></div>
+      <div class="header">
+        <div class="return">
+          <a href="../dashboard.html">
+            <i class="fa fa-home"></i>
+          </a>
         </div>
-        <div class="content">
-            <ul id="list">
-            </ul>
+        <div class="clear">
+          <i class="fa fa-refresh"></i>
         </div>
-        <div class="add-to-do">
-            <a type="button" id="addNote">
-                <i class="fa fa-plus-circle"></i>
-            </a>
-            <input type="text" id="input" placeholder="Add a Note">
-        </div>
+        <div id="date"></div>
+      </div>
+      <div class="content">
+        <ul id="list"></ul>
+      </div>
+      <div class="add-to-do">
+        <a type="button" id="addNote">
+          <i class="fa fa-plus-circle"></i>
+        </a>
+        <input type="text" id="input" placeholder="Add a Note" />
+      </div>
     </div>
 
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>

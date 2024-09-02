@@ -1,0 +1,92 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('kalpurush.ttf');
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+    background-attachment: fixed;
+    background-color: #fdfdfd;
+    background-image: url(../img/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: Kalpurush;
+}
+
+.card {
+    background: none;
+    border: none;
+}
+
+.container input:focus {
+    border-radius: 10px;
+    padding: 25px;
+    color: #EE4574;
+    font-size: larger;
+}
+
+.container input {
+    border-radius: 10px;
+    padding: 20px;
+    font-size: large;
+    text-align: center;
+}
+
+h3,
+h2 {
+    color: #EE4574;
+}
+
+h5 {
+    color: #EE4574;
+    font-weight: bold;
+}
+
+.links {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background: #EE4574;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.links:hover {
+    color: #EE4574;
+    background: #fdfdfd;
+    border: 1px solid #EE4574;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+p {
+    font-size: 20px;
+}
+
+video {
+    height: 400px;
+    width: 100%;
+}
+
+.col-md-15 {
+    border: 3px solid #EE4574;
+    margin: 5px;
+    padding-top: 25px;
+}
+
+.container {
+    max-width: 700px;
+}

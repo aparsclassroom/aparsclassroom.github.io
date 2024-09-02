@@ -1,0 +1,125 @@
+* {
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: #333;
+    background-color: #fdfdfd;
+    background-image: url(../images/Background/bg.webp);
+    background-size: cover;
+    background-repeat: repeat;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form-container {
+    max-width: 330px;
+    margin: 40px auto;
+    padding: 50px;
+    text-align: center;
+}
+
+.input-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #efefef;
+}
+
+.input-field .fa {
+    width: 15%;
+    color: #2c3f52;
+}
+
+.input-field input {
+    box-sizing: border-box;
+    width: 85%;
+    padding: 10px;
+    color: #555;
+    border: 0;
+    font-size: inherit;
+    font-family: 'Roboto';
+}
+
+#eye {
+    color: #2c3f52;
+    padding: 0px 25px 0px 0px;
+    float: right;
+    position: relative;
+    right: -50%;
+    top: -.2%;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.btn {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    background: #2c3f52;
+    border: 1px solid transparent;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: inherit;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    color: #2c3f52;
+    background: #fdfdfd;
+    border: 1px solid #2c3f52;
+}
+
+a {
+    display: inline-block;
+    color: #555;
+    text-decoration: none;
+}
+
+#dtl,
+#i {
+    display: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+#forgotPass {
+    margin-right: 25px;
+}
+
+@media only screen and (max-width: 500px) {
+    #forgotPass {
+        margin-right: 0px;
+        margin-bottom: 5px;
+    }
+    img {
+        height: 130px;
+        width: 130px;
+    }
+    #subs {
+        display: inline-block;
+    }
+    .form-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.g-recaptcha {
+    display: none;
+}

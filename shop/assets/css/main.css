@@ -1,63 +1,63 @@
 @font-face {
-    font-family: Kalpurush;
-    src: url(/Ambassador/assets/fonts/ASG_TARIQ.TTF);
+  font-family: Kalpurush;
+  src: url(/Ambassador/assets/fonts/ASG_TARIQ.TTF);
 }
 
 @font-face {
-    font-family: 'Gilroy-ExtraBold';
-    src: url(/CrashCourse/fonts/Futura_Bold.otf)
+  font-family: "Gilroy-ExtraBold";
+  src: url(/CrashCourse/fonts/Futura_Bold.otf);
 }
 
 .bangla {
-    font-family: Kalpurush;
+  font-family: Kalpurush;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #hsc,
 .ClassyCountdown-value {
-    font-family: Gilroy-ExtraBold !important;
+  font-family: Gilroy-ExtraBold !important;
 }
 
 .navbar-brand img {
-    height: 35px;
+  height: 35px;
 }
 
 #prof {
-    font-size: 20px;
-    color: darkslategray;
+  font-size: 20px;
+  color: darkslategray;
 }
 
 .fa-fire {
-    color: red;
+  color: red;
 }
 
 .fa-youtube {
-    color: red;
+  color: red;
 }
 
 #thumbnail-vid img {
-    height: 100vh;
+  height: 100vh;
 }
 
 .fa-circle-check {
-    color: #45c881;
+  color: #45c881;
 }
 
 .fa-circle-check:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .carousel-caption3 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #ecf0f3;
-    text-align: center
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ecf0f3;
+  text-align: center;
 }
