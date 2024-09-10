@@ -1,697 +1,1440 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '430193434618183');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "430193434618183");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Facebook Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '195174089402190');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=195174089402190&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Facebook Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "195174089402190");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=195174089402190&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
     <title>Generator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        @font-face {
-            font-family: Kalpurush;
-            src: url('Ambassador/assets/fonts/kalpurush.ttf');
-        }
-        
-        * {
-            color: black;
-        }
-        
-        body {
-            overflow-y: scroll;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
-        body::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .none {
-            display: none;
-        }
-        
-        .container {
-            margin-bottom: 30px;
-            max-width: 700px;
-        }
-        
-        .ques {
-            background-color: rgba(163, 205, 233, 0.801);
-            padding: 20px;
-            border-radius: 15px;
-            font-family: Kalpurush;
-            font-size: 18px;
-        }
-        
-        textarea {
-            resize: none;
-        }
+      @font-face {
+        font-family: Kalpurush;
+        src: url("Ambassador/assets/fonts/kalpurush.ttf");
+      }
+
+      * {
+        color: black;
+      }
+
+      body {
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+      .none {
+        display: none;
+      }
+
+      .container {
+        margin-bottom: 30px;
+        max-width: 700px;
+      }
+
+      .ques {
+        background-color: rgba(163, 205, 233, 0.801);
+        padding: 20px;
+        border-radius: 15px;
+        font-family: Kalpurush;
+        font-size: 18px;
+      }
+
+      textarea {
+        resize: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1 style="text-align: center;">MCQ Generator</h1>
-        <div class="ques">
-            <div class="form-group">
-                <label for="q1">প্রশ্ন নং ১ </label>
-                <input type="text" class="form-control" id="q1" aria-describedby="Question1Help" placeholder="Enter Question">
-                <small id="Question1Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt1_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt1_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt1_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt1_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt1_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt1_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt1_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt1_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a1">১ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a1" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+      <h1 style="text-align: center">MCQ Generator</h1>
+      <div class="ques">
+        <div class="form-group">
+          <label for="q1">প্রশ্ন নং ১ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q1"
+            aria-describedby="Question1Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question1Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q2">প্রশ্ন নং ২ </label>
-                <input type="text" class="form-control" id="q2" aria-describedby="Question2Help" placeholder="Enter Question">
-                <small id="Question2Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt2_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt2_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt2_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt2_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt2_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt2_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt2_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt2_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a2">২ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a2" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt1_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt1_1"
+            placeholder="উদাহরণ : বল"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q3">প্রশ্ন নং ৩ </label>
-                <input type="text" class="form-control" id="q3" aria-describedby="Question3Help" placeholder="Enter Question">
-                <small id="Question3Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt3_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt3_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt3_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt3_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt3_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt3_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt3_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt3_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a3">৩ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a3" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt1_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt1_2"
+            placeholder="উদাহরণ : বেগ"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q4">প্রশ্ন নং ৪ </label>
-                <input type="text" class="form-control" id="q4" aria-describedby="Question4Help" placeholder="Enter Question">
-                <small id="Question4Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt4_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt4_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt4_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt4_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt4_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt4_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt4_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt4_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a4">৪ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a4" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt1_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt1_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q5">প্রশ্ন নং ৫ </label>
-                <input type="text" class="form-control" id="q5" aria-describedby="Question5Help" placeholder="Enter Question">
-                <small id="Question5Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt5_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt5_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt5_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt5_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt5_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt5_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt5_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt5_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a5">৫ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a5" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt1_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt1_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q6">প্রশ্ন নং ৬ </label>
-                <input type="text" class="form-control" id="q6" aria-describedby="Question6Help" placeholder="Enter Question">
-                <small id="Question6Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt6_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt6_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt6_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt6_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt6_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt6_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt6_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt6_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a6">৬ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a6" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="form-group">
+          <label for="a1">১ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a1"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q7">প্রশ্ন নং ৭ </label>
-                <input type="text" class="form-control" id="q7" aria-describedby="Question7Help" placeholder="Enter Question">
-                <small id="Question7Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt7_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt7_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt7_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt7_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt7_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt7_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt7_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt7_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a7">৭ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a7" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q2">প্রশ্ন নং ২ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q2"
+            aria-describedby="Question2Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question2Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q8">প্রশ্ন নং ৮ </label>
-                <input type="text" class="form-control" id="q8" aria-describedby="Question8Help" placeholder="Enter Question">
-                <small id="Question8Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt8_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt8_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt8_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt8_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt8_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt8_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt8_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt8_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a8">৮ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a8" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt2_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt2_1"
+            placeholder="উদাহরণ : বল"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q9">প্রশ্ন নং ৯ </label>
-                <input type="text" class="form-control" id="q9" aria-describedby="Question9Help" placeholder="Enter Question">
-                <small id="Question9Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt9_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt9_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt9_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt9_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt9_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt9_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt9_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt9_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="col">
-                <label for="a9">৯ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a9" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt2_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt2_2"
+            placeholder="উদাহরণ : বেগ"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q10">প্রশ্ন নং ১০ </label>
-                <input type="text" class="form-control" id="q10" aria-describedby="Question10Help" placeholder="Enter Question">
-                <small id="Question10Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt10_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt10_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt10_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt10_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt10_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt10_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt10_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt10_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a10">১০ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a10" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt2_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt2_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q11">প্রশ্ন নং ১১ </label>
-                <input type="text" class="form-control" id="q11" aria-describedby="Question11Help" placeholder="Enter Question">
-                <small id="Question1Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt11_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt11_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt11_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt11_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt11_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt11_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt11_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt11_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a11">১১ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a11" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt2_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt2_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q12">প্রশ্ন নং ১২ </label>
-                <input type="text" class="form-control" id="q12" aria-describedby="Question12Help" placeholder="Enter Question">
-                <small id="Question2Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt12_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt12_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt12_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt12_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt12_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt12_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt12_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt12_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a12">১২ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a12" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="form-group">
+          <label for="a2">২ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a2"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q13">প্রশ্ন নং ১৩ </label>
-                <input type="text" class="form-control" id="q13" aria-describedby="Question13Help" placeholder="Enter Question">
-                <small id="Question3Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt13_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt13_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt13_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt13_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt13_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt13_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt13_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt13_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a13">১৩ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a13" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q3">প্রশ্ন নং ৩ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q3"
+            aria-describedby="Question3Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question3Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q14">প্রশ্ন নং ১৪ </label>
-                <input type="text" class="form-control" id="q14" aria-describedby="Question14Help" placeholder="Enter Question">
-                <small id="Question4Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt14_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt14_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt14_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt14_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt14_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt14_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt14_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt14_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a14">১৪ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a14" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt3_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt3_1"
+            placeholder="উদাহরণ : বল"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q15">প্রশ্ন নং ১৫ </label>
-                <input type="text" class="form-control" id="q15" aria-describedby="Question15Help" placeholder="Enter Question">
-                <small id="Question5Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt15_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt15_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt15_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt15_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt15_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt15_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt15_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt15_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a15">১৫ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a15" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt3_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt3_2"
+            placeholder="উদাহরণ : বেগ"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q16">প্রশ্ন নং ১৬ </label>
-                <input type="text" class="form-control" id="q16" aria-describedby="Question16Help" placeholder="Enter Question">
-                <small id="Question6Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt16_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt16_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt16_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt16_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt16_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt16_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt16_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt16_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a16">১৬ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a16" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt3_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt3_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q17">প্রশ্ন নং ১৭ </label>
-                <input type="text" class="form-control" id="q17" aria-describedby="Question17Help" placeholder="Enter Question">
-                <small id="Question7Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt17_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt17_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt17_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt17_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt17_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt17_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt17_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt17_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a17">১৭ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a17" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt3_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt3_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q18">প্রশ্ন নং ১৮ </label>
-                <input type="text" class="form-control" id="q18" aria-describedby="Question18Help" placeholder="Enter Question">
-                <small id="Question8Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt18_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt18_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt18_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt18_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt18_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt18_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt18_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt18_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a18">১৮ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a18" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="form-group">
+          <label for="a3">৩ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a3"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q19">প্রশ্ন নং ১৯ </label>
-                <input type="text" class="form-control" id="q19" aria-describedby="Question19Help" placeholder="Enter Question">
-                <small id="Question9Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt19_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt19_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt19_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt19_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt19_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt19_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt19_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt19_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="col">
-                <label for="a19">১৯ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a19" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q4">প্রশ্ন নং ৪ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q4"
+            aria-describedby="Question4Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question4Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
         </div>
-        <hr style="border-width: 3px;">
-        <div class="ques">
-            <div class="form-group">
-                <label for="q20">প্রশ্ন নং ২০ </label>
-                <input type="text" class="form-control" id="q20" aria-describedby="Question20Help" placeholder="Enter Question">
-                <small id="Question10Help" class="form-text">উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small>
-            </div>
-            <div class="col">
-                <label for="opt20_1">অপশন নং ১</label>
-                <input type="text" class="form-control" id="opt20_1" placeholder="উদাহরণ : বল">
-            </div>
-            <div class="col">
-                <label for="opt20_2">অপশন নং ২</label>
-                <input type="text" class="form-control" id="opt20_2" placeholder="উদাহরণ : বেগ">
-            </div>
-            <div class="col">
-                <label for="opt20_3">অপশন নং ৩</label>
-                <input type="text" class="form-control" id="opt20_3" placeholder="উদাহরণ : ত্বরণ">
-            </div>
-            <div class="col">
-                <label for="opt20_4">অপশন নং ৪</label>
-                <input type="text" class="form-control" id="opt20_4" placeholder="উদাহরণ : জড়তা">
-            </div>
-            <div class="form-group">
-                <label for="a20">২০ নং প্রশ্নের উত্তর</label>
-                <input type="number" class="form-control" id="a20" placeholder="উত্তরের ক্রম লিখ। ">
-            </div>
+        <div class="col">
+          <label for="opt4_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt4_1"
+            placeholder="উদাহরণ : বল"
+          />
         </div>
-        <br>
-        <button id="process" onclick="processF()" class="btn btn-md btn-block btn-outline-primary">Process</button>
+        <div class="col">
+          <label for="opt4_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt4_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt4_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt4_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt4_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt4_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a4">৪ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a4"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q5">প্রশ্ন নং ৫ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q5"
+            aria-describedby="Question5Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question5Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt5_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt5_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt5_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt5_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt5_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt5_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt5_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt5_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a5">৫ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a5"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q6">প্রশ্ন নং ৬ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q6"
+            aria-describedby="Question6Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question6Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt6_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt6_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt6_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt6_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt6_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt6_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt6_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt6_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a6">৬ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a6"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q7">প্রশ্ন নং ৭ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q7"
+            aria-describedby="Question7Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question7Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt7_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt7_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt7_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt7_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt7_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt7_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt7_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt7_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a7">৭ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a7"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q8">প্রশ্ন নং ৮ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q8"
+            aria-describedby="Question8Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question8Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt8_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt8_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt8_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt8_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt8_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt8_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt8_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt8_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a8">৮ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a8"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q9">প্রশ্ন নং ৯ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q9"
+            aria-describedby="Question9Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question9Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt9_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt9_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt9_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt9_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt9_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt9_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt9_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt9_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="col">
+          <label for="a9">৯ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a9"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q10">প্রশ্ন নং ১০ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q10"
+            aria-describedby="Question10Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question10Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt10_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt10_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt10_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt10_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt10_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt10_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt10_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt10_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a10">১০ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a10"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q11">প্রশ্ন নং ১১ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q11"
+            aria-describedby="Question11Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question1Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt11_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt11_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt11_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt11_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt11_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt11_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt11_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt11_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a11">১১ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a11"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q12">প্রশ্ন নং ১২ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q12"
+            aria-describedby="Question12Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question2Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt12_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt12_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt12_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt12_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt12_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt12_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt12_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt12_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a12">১২ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a12"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q13">প্রশ্ন নং ১৩ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q13"
+            aria-describedby="Question13Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question3Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt13_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt13_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt13_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt13_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt13_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt13_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt13_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt13_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a13">১৩ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a13"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q14">প্রশ্ন নং ১৪ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q14"
+            aria-describedby="Question14Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question4Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt14_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt14_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt14_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt14_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt14_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt14_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt14_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt14_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a14">১৪ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a14"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q15">প্রশ্ন নং ১৫ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q15"
+            aria-describedby="Question15Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question5Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt15_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt15_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt15_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt15_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt15_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt15_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt15_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt15_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a15">১৫ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a15"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q16">প্রশ্ন নং ১৬ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q16"
+            aria-describedby="Question16Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question6Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt16_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt16_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt16_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt16_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt16_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt16_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt16_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt16_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a16">১৬ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a16"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q17">প্রশ্ন নং ১৭ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q17"
+            aria-describedby="Question17Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question7Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt17_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt17_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt17_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt17_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt17_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt17_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt17_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt17_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a17">১৭ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a17"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q18">প্রশ্ন নং ১৮ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q18"
+            aria-describedby="Question18Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question8Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt18_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt18_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt18_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt18_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt18_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt18_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt18_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt18_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a18">১৮ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a18"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q19">প্রশ্ন নং ১৯ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q19"
+            aria-describedby="Question19Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question9Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt19_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt19_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt19_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt19_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt19_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt19_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt19_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt19_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="col">
+          <label for="a19">১৯ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a19"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <hr style="border-width: 3px" />
+      <div class="ques">
+        <div class="form-group">
+          <label for="q20">প্রশ্ন নং ২০ </label>
+          <input
+            type="text"
+            class="form-control"
+            id="q20"
+            aria-describedby="Question20Help"
+            placeholder="Enter Question"
+          />
+          <small id="Question10Help" class="form-text"
+            >উদাহরণ : ভর দ্বারা পরিমাপ করা হয়-</small
+          >
+        </div>
+        <div class="col">
+          <label for="opt20_1">অপশন নং ১</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt20_1"
+            placeholder="উদাহরণ : বল"
+          />
+        </div>
+        <div class="col">
+          <label for="opt20_2">অপশন নং ২</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt20_2"
+            placeholder="উদাহরণ : বেগ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt20_3">অপশন নং ৩</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt20_3"
+            placeholder="উদাহরণ : ত্বরণ"
+          />
+        </div>
+        <div class="col">
+          <label for="opt20_4">অপশন নং ৪</label>
+          <input
+            type="text"
+            class="form-control"
+            id="opt20_4"
+            placeholder="উদাহরণ : জড়তা"
+          />
+        </div>
+        <div class="form-group">
+          <label for="a20">২০ নং প্রশ্নের উত্তর</label>
+          <input
+            type="number"
+            class="form-control"
+            id="a20"
+            placeholder="উত্তরের ক্রম লিখ। "
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        id="process"
+        onclick="processF()"
+        class="btn btn-md btn-block btn-outline-primary"
+      >
+        Process
+      </button>
 
-        <form id="preview" method="post" autocomplete="off" id="form" name="MCQForm" class="none">
-            <h1 style="text-align: center;">Preview</h1>
-            <textarea name="json" rows="20" readonly class="form-control rounded-0" id="json"></textarea><br>
-            <button type="button" class="btn btn-round btn-danger" data-clipboard-target="#json" id="copy">Copy</button><br>
-            <div class="form-group">
-                <label for="Volunteer"> Volunteer : </label>
-                <select id="Volunteer" name="Volunteer" class="form-control">
-                    <option value="Nafisa Tabassum">Nafisa Tabassum</option>
-                    <option value="Sadia Afrin">Sadia Afrin</option>
-                    <option value="ফাইরুজ">ফাইরুজ</option>
-                    <option value="Kazi Asmatul Jannat">Kazi Asmatul Jannat</option>
-                    <option value="উমামা">উমামা</option>
-                    <option value="নূর এ জান্নাত শুচি">নূর এ জান্নাত শুচি</option>
-                    <option value="Nawshin">Nawshin</option>
-                    <option value="মোঃ কাওছার আহমেদ পায়েল">মোঃ কাওছার আহমেদ পায়েল</option>
-                    <option value="Abrar Nowshad">Abrar Nowshad</option>
-                    <option value="Imtiaz Uddin">Imtiaz Uddin</option>
-                    <option value="nusrat jahan anika">nusrat jahan anika</option>
-                    <option value="Eusha Nabila">Eusha Nabila</option>
-                    <option value="Tamanna Jahan Usha">Tamanna Jahan Usha</option>
-                    <option value="Nusrat Jahan">Nusrat Jahan</option>
-                    <option value="Samira Kuthiyal Dola">Samira Kuthiyal Dola</option>
-                    <option value="Tasfia Islam Nimu">Tasfia Islam Nimu</option>
-                    <option value="Raisul Haque Rizbe">Raisul Haque Rizbe</option>
-                    <option value="Aavas Roy">Aavas Roy</option>
-                    <option value="Rasel Ujjaman Ridoy">Rasel Ujjaman Ridoy</option>
-                    <option value="Radiya oishi">Radiya oishi</option>
-                    <option value="Shaila Rahman  Trisha">Shaila Rahman  Trisha</option>
-                    <option value="Isfat Ara">Isfat Ara</option>
-        </select>
-            </div>
-            <div class="form-group">
-                <label for="Paper"> Paper : </label>
-                <select id="Paper" name="Paper" class="form-control">
+      <form
+        id="preview"
+        method="post"
+        autocomplete="off"
+        id="form"
+        name="MCQForm"
+        class="none"
+      >
+        <h1 style="text-align: center">Preview</h1>
+        <textarea
+          name="json"
+          rows="20"
+          readonly
+          class="form-control rounded-0"
+          id="json"
+        ></textarea
+        ><br />
+        <button
+          type="button"
+          class="btn btn-round btn-danger"
+          data-clipboard-target="#json"
+          id="copy"
+        >
+          Copy</button
+        ><br />
+        <div class="form-group">
+          <label for="Volunteer"> Volunteer : </label>
+          <select id="Volunteer" name="Volunteer" class="form-control">
+            <option value="Nafisa Tabassum">Nafisa Tabassum</option>
+            <option value="Sadia Afrin">Sadia Afrin</option>
+            <option value="ফাইরুজ">ফাইরুজ</option>
+            <option value="Kazi Asmatul Jannat">Kazi Asmatul Jannat</option>
+            <option value="উমামা">উমামা</option>
+            <option value="নূর এ জান্নাত শুচি">নূর এ জান্নাত শুচি</option>
+            <option value="Nawshin">Nawshin</option>
+            <option value="মোঃ কাওছার আহমেদ পায়েল">
+              মোঃ কাওছার আহমেদ পায়েল
+            </option>
+            <option value="Abrar Nowshad">Abrar Nowshad</option>
+            <option value="Imtiaz Uddin">Imtiaz Uddin</option>
+            <option value="nusrat jahan anika">nusrat jahan anika</option>
+            <option value="Eusha Nabila">Eusha Nabila</option>
+            <option value="Tamanna Jahan Usha">Tamanna Jahan Usha</option>
+            <option value="Nusrat Jahan">Nusrat Jahan</option>
+            <option value="Samira Kuthiyal Dola">Samira Kuthiyal Dola</option>
+            <option value="Tasfia Islam Nimu">Tasfia Islam Nimu</option>
+            <option value="Raisul Haque Rizbe">Raisul Haque Rizbe</option>
+            <option value="Aavas Roy">Aavas Roy</option>
+            <option value="Rasel Ujjaman Ridoy">Rasel Ujjaman Ridoy</option>
+            <option value="Radiya oishi">Radiya oishi</option>
+            <option value="Shaila Rahman  Trisha">Shaila Rahman Trisha</option>
+            <option value="Isfat Ara">Isfat Ara</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Paper"> Paper : </label>
+          <select id="Paper" name="Paper" class="form-control">
             <option value="Botany">Botany</option>
             <option value="Zoology">Zoology</option>
-            </select>
-            </div>
-            <div class="form-group">
-                <label for="Chapter"> Chapter : </label>
-                <select id="Chapter" name="Chapter" class="form-control">
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Chapter"> Chapter : </label>
+          <select id="Chapter" name="Chapter" class="form-control">
             <option value="Chapter-1">Chapter-1</option>
             <option value="Chapter-2">Chapter-2</option>
             <option value="Chapter-3">Chapter-3</option>
@@ -704,202 +1447,214 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
             <option value="Chapter-10">Chapter-10</option>
             <option value="Chapter-11">Chapter-11</option>
             <option value="Chapter-12">Chapter-12</option>
-            </select>
-            </div>
-            <div class="form-group">
-                <label for="Episode"> Episode : </label>
-                <select id="Episode" name="Episode" class="form-control">
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Episode"> Episode : </label>
+          <select id="Episode" name="Episode" class="form-control">
             <option value="Episode-1">Episode-1</option>
             <option value="Episode-2">Episode-2</option>
             <option value="Episode-3">Episode-3</option>
             <option value="Episode-4">Episode-4</option>
             <option value="Episode-5">Episode-5</option>
             <option value="Episode-6">Episode-6</option>
-            </select>
-            </div>
-            <div class="form-group">
-                <label for="Total"> Total : </label>
-                <select id="Total" name="Total" class="form-control">
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Total"> Total : </label>
+          <select id="Total" name="Total" class="form-control">
             <option value="20">20</option>
-            </select>
-            </div>
-            <br>
-            <button type="submit" id="up" name="submit" class="btn btn-success">Upload</button>
-            <div id="confirmation" class="none alert alert-success" role="alert">
-                <strong>সফল হয়েছে!</strong> একটু ধৈর্য্য ধরুন...
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-        </form>
+          </select>
+        </div>
+        <br />
+        <button type="submit" id="up" name="submit" class="btn btn-success">
+          Upload
+        </button>
+        <div id="confirmation" class="none alert alert-success" role="alert">
+          <strong>সফল হয়েছে!</strong> একটু ধৈর্য্য ধরুন...
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </form>
     </div>
     <script>
-        function processF() {
-            var q1 = document.getElementById("q1").value,
-                q2 = document.getElementById("q2").value,
-                q3 = document.getElementById("q3").value,
-                q4 = document.getElementById("q4").value,
-                q5 = document.getElementById("q5").value,
-                q6 = document.getElementById("q6").value,
-                q7 = document.getElementById("q7").value,
-                q8 = document.getElementById("q8").value,
-                q9 = document.getElementById("q9").value,
-                q10 = document.getElementById("q10").value,
-                q11 = document.getElementById("q11").value,
-                q12 = document.getElementById("q12").value,
-                q13 = document.getElementById("q13").value,
-                q14 = document.getElementById("q14").value,
-                q15 = document.getElementById("q15").value,
-                q16 = document.getElementById("q16").value,
-                q17 = document.getElementById("q17").value,
-                q18 = document.getElementById("q18").value,
-                q19 = document.getElementById("q19").value,
-                q20 = document.getElementById("q20").value,
-                a1 = document.getElementById("a1").value,
-                a2 = document.getElementById("a2").value,
-                a3 = document.getElementById("a3").value,
-                a4 = document.getElementById("a4").value,
-                a5 = document.getElementById("a5").value,
-                a6 = document.getElementById("a6").value,
-                a7 = document.getElementById("a7").value,
-                a8 = document.getElementById("a8").value,
-                a9 = document.getElementById("a9").value,
-                a10 = document.getElementById("a10").value,
-                a11 = document.getElementById("a11").value,
-                a12 = document.getElementById("a12").value,
-                a13 = document.getElementById("a13").value,
-                a14 = document.getElementById("a14").value,
-                a15 = document.getElementById("a15").value,
-                a16 = document.getElementById("a16").value,
-                a17 = document.getElementById("a17").value,
-                a18 = document.getElementById("a18").value,
-                a19 = document.getElementById("a19").value,
-                a20 = document.getElementById("a20").value,
-                opt1_1 = document.getElementById("opt1_1").value,
-                opt1_2 = document.getElementById("opt1_2").value,
-                opt1_3 = document.getElementById("opt1_3").value,
-                opt1_4 = document.getElementById("opt1_4").value,
-                opt2_1 = document.getElementById("opt2_1").value,
-                opt2_2 = document.getElementById("opt2_2").value,
-                opt2_3 = document.getElementById("opt2_3").value,
-                opt2_4 = document.getElementById("opt2_4").value,
-                opt3_1 = document.getElementById("opt3_1").value,
-                opt3_2 = document.getElementById("opt3_2").value,
-                opt3_3 = document.getElementById("opt3_3").value,
-                opt3_4 = document.getElementById("opt3_4").value,
-                opt4_1 = document.getElementById("opt4_1").value,
-                opt4_2 = document.getElementById("opt4_2").value,
-                opt4_3 = document.getElementById("opt4_3").value,
-                opt4_4 = document.getElementById("opt4_4").value,
-                opt5_1 = document.getElementById("opt5_1").value,
-                opt5_2 = document.getElementById("opt5_2").value,
-                opt5_3 = document.getElementById("opt5_3").value,
-                opt5_4 = document.getElementById("opt5_4").value,
-                opt6_1 = document.getElementById("opt6_1").value,
-                opt6_2 = document.getElementById("opt6_2").value,
-                opt6_3 = document.getElementById("opt6_3").value,
-                opt6_4 = document.getElementById("opt6_4").value,
-                opt7_1 = document.getElementById("opt7_1").value,
-                opt7_2 = document.getElementById("opt7_2").value,
-                opt7_3 = document.getElementById("opt7_3").value,
-                opt7_4 = document.getElementById("opt7_4").value,
-                opt8_1 = document.getElementById("opt8_1").value,
-                opt8_2 = document.getElementById("opt8_2").value,
-                opt8_3 = document.getElementById("opt8_3").value,
-                opt8_4 = document.getElementById("opt8_4").value,
-                opt9_1 = document.getElementById("opt9_1").value,
-                opt9_2 = document.getElementById("opt9_2").value,
-                opt9_3 = document.getElementById("opt9_3").value,
-                opt9_4 = document.getElementById("opt9_4").value,
-                opt10_1 = document.getElementById("opt10_1").value,
-                opt10_2 = document.getElementById("opt10_2").value,
-                opt10_3 = document.getElementById("opt10_3").value,
-                opt10_4 = document.getElementById("opt10_4").value,
-                opt11_1 = document.getElementById("opt11_1").value,
-                opt11_2 = document.getElementById("opt11_2").value,
-                opt11_3 = document.getElementById("opt11_3").value,
-                opt11_4 = document.getElementById("opt11_4").value,
-                opt12_1 = document.getElementById("opt12_1").value,
-                opt12_2 = document.getElementById("opt12_2").value,
-                opt12_3 = document.getElementById("opt12_3").value,
-                opt12_4 = document.getElementById("opt12_4").value,
-                opt13_1 = document.getElementById("opt13_1").value,
-                opt13_2 = document.getElementById("opt13_2").value,
-                opt13_3 = document.getElementById("opt13_3").value,
-                opt13_4 = document.getElementById("opt13_4").value,
-                opt14_1 = document.getElementById("opt14_1").value,
-                opt14_2 = document.getElementById("opt14_2").value,
-                opt14_3 = document.getElementById("opt14_3").value,
-                opt14_4 = document.getElementById("opt14_4").value,
-                opt15_1 = document.getElementById("opt15_1").value,
-                opt15_2 = document.getElementById("opt15_2").value,
-                opt15_3 = document.getElementById("opt15_3").value,
-                opt15_4 = document.getElementById("opt15_4").value,
-                opt16_1 = document.getElementById("opt16_1").value,
-                opt16_2 = document.getElementById("opt16_2").value,
-                opt16_3 = document.getElementById("opt16_3").value,
-                opt16_4 = document.getElementById("opt16_4").value,
-                opt17_1 = document.getElementById("opt17_1").value,
-                opt17_2 = document.getElementById("opt17_2").value,
-                opt17_3 = document.getElementById("opt17_3").value,
-                opt17_4 = document.getElementById("opt17_4").value,
-                opt18_1 = document.getElementById("opt18_1").value,
-                opt18_2 = document.getElementById("opt18_2").value,
-                opt18_3 = document.getElementById("opt18_3").value,
-                opt18_4 = document.getElementById("opt18_4").value,
-                opt19_1 = document.getElementById("opt19_1").value,
-                opt19_2 = document.getElementById("opt19_2").value,
-                opt19_3 = document.getElementById("opt19_3").value,
-                opt19_4 = document.getElementById("opt19_4").value,
-                opt20_1 = document.getElementById("opt20_1").value,
-                opt20_2 = document.getElementById("opt20_2").value,
-                opt20_3 = document.getElementById("opt20_3").value,
-                opt20_4 = document.getElementById("opt20_4").value,
-                temp = `\n[\n  {\n    "question": "${q1}",\n    "choice1": "${opt1_1}",\n    "choice2": "${opt1_2}",\n    "choice3": "${opt1_3}",\n    "choice4": "${opt1_4}",\n    "answer": "${a1}"\n  },\n  {\n    "question": "${q2}",\n    "choice1": "${opt2_1}",\n    "choice2": "${opt2_2}",\n    "choice3": "${opt2_3}",\n    "choice4": "${opt2_4}",\n    "answer": "${a2}"\n  },\n  {\n    "question": "${q3}",\n    "choice1": "${opt3_1}",\n    "choice2": "${opt3_2}",\n    "choice3": "${opt3_3}",\n    "choice4": "${opt3_4}",\n    "answer": "${a3}"\n  },\n  {\n    "question": "${q4}",\n    "choice1": "${opt4_1}",\n    "choice2": "${opt4_2}",\n    "choice3": "${opt4_3}",\n    "choice4": "${opt4_4}",\n    "answer": "${a4}"\n  },\n  {\n    "question": "${q5}",\n    "choice1": "${opt5_1}",\n    "choice2": "${opt5_2}",\n    "choice3": "${opt5_3}",\n    "choice4": "${opt5_4}",\n    "answer": "${a5}"\n  },\n  {\n    "question": "${q6}",\n    "choice1": "${opt6_1}",\n    "choice2": "${opt6_2}",\n    "choice3": "${opt6_3}",\n    "choice4": "${opt6_4}",\n    "answer": "${a6}"\n  },\n  {\n    "question": "${q7}",\n    "choice1": "${opt7_1}",\n    "choice2": "${opt7_2}",\n    "choice3": "${opt7_3}",\n    "choice4": "${opt7_4}",\n    "answer": "${a7}"\n  },\n  {\n    "question": "${q8}",\n    "choice1": "${opt8_1}",\n    "choice2": "${opt8_2}",\n    "choice3": "${opt8_3}",\n    "choice4": "${opt8_4}",\n    "answer": "${a8}"\n  },\n  {\n    "question": "${q9}",\n    "choice1": "${opt9_1}",\n    "choice2": "${opt9_2}",\n    "choice3": "${opt9_3}",\n    "choice4": "${opt9_4}",\n    "answer": "${a9}"\n  },\n  {\n    "question": "${q10}",\n    "choice1": "${opt10_1}",\n    "choice2": "${opt10_2}",\n    "choice3": "${opt10_3}",\n    "choice4": "${opt10_4}",\n    "answer": "${a10}"\n  },\n    {\n    "question": "${q11}",\n    "choice1": "${opt11_1}",\n    "choice2": "${opt11_2}",\n    "choice3": "${opt11_3}",\n    "choice4": "${opt11_4}",\n    "answer": "${a11}"\n  },\n  {\n    "question": "${q12}",\n    "choice1": "${opt12_1}",\n    "choice2": "${opt12_2}",\n    "choice3": "${opt12_3}",\n    "choice4": "${opt12_4}",\n    "answer": "${a12}"\n  },\n  {\n    "question": "${q13}",\n    "choice1": "${opt13_1}",\n    "choice2": "${opt13_2}",\n    "choice3": "${opt13_3}",\n    "choice4": "${opt13_4}",\n    "answer": "${a13}"\n  },\n  {\n    "question": "${q14}",\n    "choice1": "${opt14_1}",\n    "choice2": "${opt14_2}",\n    "choice3": "${opt14_3}",\n    "choice4": "${opt14_4}",\n    "answer": "${a14}"\n  },\n  {\n    "question": "${q15}",\n    "choice1": "${opt15_1}",\n    "choice2": "${opt15_2}",\n    "choice3": "${opt15_3}",\n    "choice4": "${opt15_4}",\n    "answer": "${a15}"\n  },\n  {\n    "question": "${q16}",\n    "choice1": "${opt16_1}",\n    "choice2": "${opt16_2}",\n    "choice3": "${opt16_3}",\n    "choice4": "${opt16_4}",\n    "answer": "${a16}"\n  },\n  {\n    "question": "${q17}",\n    "choice1": "${opt17_1}",\n    "choice2": "${opt17_2}",\n    "choice3": "${opt17_3}",\n    "choice4": "${opt17_4}",\n    "answer": "${a17}"\n  },\n  {\n    "question": "${q18}",\n    "choice1": "${opt18_1}",\n    "choice2": "${opt18_2}",\n    "choice3": "${opt18_3}",\n    "choice4": "${opt18_4}",\n    "answer": "${a18}"\n  },\n  {\n    "question": "${q19}",\n    "choice1": "${opt19_1}",\n    "choice2": "${opt19_2}",\n    "choice3": "${opt19_3}",\n    "choice4": "${opt19_4}",\n    "answer": "${a19}"\n  },\n  {\n    "question": "${q20}",\n    "choice1": "${opt20_1}",\n    "choice2": "${opt20_2}",\n    "choice3": "${opt20_3}",\n    "choice4": "${opt20_4}",\n    "answer": "${a20}"\n  }\n ]\n  `;
+      function processF() {
+        var q1 = document.getElementById("q1").value,
+          q2 = document.getElementById("q2").value,
+          q3 = document.getElementById("q3").value,
+          q4 = document.getElementById("q4").value,
+          q5 = document.getElementById("q5").value,
+          q6 = document.getElementById("q6").value,
+          q7 = document.getElementById("q7").value,
+          q8 = document.getElementById("q8").value,
+          q9 = document.getElementById("q9").value,
+          q10 = document.getElementById("q10").value,
+          q11 = document.getElementById("q11").value,
+          q12 = document.getElementById("q12").value,
+          q13 = document.getElementById("q13").value,
+          q14 = document.getElementById("q14").value,
+          q15 = document.getElementById("q15").value,
+          q16 = document.getElementById("q16").value,
+          q17 = document.getElementById("q17").value,
+          q18 = document.getElementById("q18").value,
+          q19 = document.getElementById("q19").value,
+          q20 = document.getElementById("q20").value,
+          a1 = document.getElementById("a1").value,
+          a2 = document.getElementById("a2").value,
+          a3 = document.getElementById("a3").value,
+          a4 = document.getElementById("a4").value,
+          a5 = document.getElementById("a5").value,
+          a6 = document.getElementById("a6").value,
+          a7 = document.getElementById("a7").value,
+          a8 = document.getElementById("a8").value,
+          a9 = document.getElementById("a9").value,
+          a10 = document.getElementById("a10").value,
+          a11 = document.getElementById("a11").value,
+          a12 = document.getElementById("a12").value,
+          a13 = document.getElementById("a13").value,
+          a14 = document.getElementById("a14").value,
+          a15 = document.getElementById("a15").value,
+          a16 = document.getElementById("a16").value,
+          a17 = document.getElementById("a17").value,
+          a18 = document.getElementById("a18").value,
+          a19 = document.getElementById("a19").value,
+          a20 = document.getElementById("a20").value,
+          opt1_1 = document.getElementById("opt1_1").value,
+          opt1_2 = document.getElementById("opt1_2").value,
+          opt1_3 = document.getElementById("opt1_3").value,
+          opt1_4 = document.getElementById("opt1_4").value,
+          opt2_1 = document.getElementById("opt2_1").value,
+          opt2_2 = document.getElementById("opt2_2").value,
+          opt2_3 = document.getElementById("opt2_3").value,
+          opt2_4 = document.getElementById("opt2_4").value,
+          opt3_1 = document.getElementById("opt3_1").value,
+          opt3_2 = document.getElementById("opt3_2").value,
+          opt3_3 = document.getElementById("opt3_3").value,
+          opt3_4 = document.getElementById("opt3_4").value,
+          opt4_1 = document.getElementById("opt4_1").value,
+          opt4_2 = document.getElementById("opt4_2").value,
+          opt4_3 = document.getElementById("opt4_3").value,
+          opt4_4 = document.getElementById("opt4_4").value,
+          opt5_1 = document.getElementById("opt5_1").value,
+          opt5_2 = document.getElementById("opt5_2").value,
+          opt5_3 = document.getElementById("opt5_3").value,
+          opt5_4 = document.getElementById("opt5_4").value,
+          opt6_1 = document.getElementById("opt6_1").value,
+          opt6_2 = document.getElementById("opt6_2").value,
+          opt6_3 = document.getElementById("opt6_3").value,
+          opt6_4 = document.getElementById("opt6_4").value,
+          opt7_1 = document.getElementById("opt7_1").value,
+          opt7_2 = document.getElementById("opt7_2").value,
+          opt7_3 = document.getElementById("opt7_3").value,
+          opt7_4 = document.getElementById("opt7_4").value,
+          opt8_1 = document.getElementById("opt8_1").value,
+          opt8_2 = document.getElementById("opt8_2").value,
+          opt8_3 = document.getElementById("opt8_3").value,
+          opt8_4 = document.getElementById("opt8_4").value,
+          opt9_1 = document.getElementById("opt9_1").value,
+          opt9_2 = document.getElementById("opt9_2").value,
+          opt9_3 = document.getElementById("opt9_3").value,
+          opt9_4 = document.getElementById("opt9_4").value,
+          opt10_1 = document.getElementById("opt10_1").value,
+          opt10_2 = document.getElementById("opt10_2").value,
+          opt10_3 = document.getElementById("opt10_3").value,
+          opt10_4 = document.getElementById("opt10_4").value,
+          opt11_1 = document.getElementById("opt11_1").value,
+          opt11_2 = document.getElementById("opt11_2").value,
+          opt11_3 = document.getElementById("opt11_3").value,
+          opt11_4 = document.getElementById("opt11_4").value,
+          opt12_1 = document.getElementById("opt12_1").value,
+          opt12_2 = document.getElementById("opt12_2").value,
+          opt12_3 = document.getElementById("opt12_3").value,
+          opt12_4 = document.getElementById("opt12_4").value,
+          opt13_1 = document.getElementById("opt13_1").value,
+          opt13_2 = document.getElementById("opt13_2").value,
+          opt13_3 = document.getElementById("opt13_3").value,
+          opt13_4 = document.getElementById("opt13_4").value,
+          opt14_1 = document.getElementById("opt14_1").value,
+          opt14_2 = document.getElementById("opt14_2").value,
+          opt14_3 = document.getElementById("opt14_3").value,
+          opt14_4 = document.getElementById("opt14_4").value,
+          opt15_1 = document.getElementById("opt15_1").value,
+          opt15_2 = document.getElementById("opt15_2").value,
+          opt15_3 = document.getElementById("opt15_3").value,
+          opt15_4 = document.getElementById("opt15_4").value,
+          opt16_1 = document.getElementById("opt16_1").value,
+          opt16_2 = document.getElementById("opt16_2").value,
+          opt16_3 = document.getElementById("opt16_3").value,
+          opt16_4 = document.getElementById("opt16_4").value,
+          opt17_1 = document.getElementById("opt17_1").value,
+          opt17_2 = document.getElementById("opt17_2").value,
+          opt17_3 = document.getElementById("opt17_3").value,
+          opt17_4 = document.getElementById("opt17_4").value,
+          opt18_1 = document.getElementById("opt18_1").value,
+          opt18_2 = document.getElementById("opt18_2").value,
+          opt18_3 = document.getElementById("opt18_3").value,
+          opt18_4 = document.getElementById("opt18_4").value,
+          opt19_1 = document.getElementById("opt19_1").value,
+          opt19_2 = document.getElementById("opt19_2").value,
+          opt19_3 = document.getElementById("opt19_3").value,
+          opt19_4 = document.getElementById("opt19_4").value,
+          opt20_1 = document.getElementById("opt20_1").value,
+          opt20_2 = document.getElementById("opt20_2").value,
+          opt20_3 = document.getElementById("opt20_3").value,
+          opt20_4 = document.getElementById("opt20_4").value,
+          temp = `\n[\n  {\n    "question": "${q1}",\n    "choice1": "${opt1_1}",\n    "choice2": "${opt1_2}",\n    "choice3": "${opt1_3}",\n    "choice4": "${opt1_4}",\n    "answer": "${a1}"\n  },\n  {\n    "question": "${q2}",\n    "choice1": "${opt2_1}",\n    "choice2": "${opt2_2}",\n    "choice3": "${opt2_3}",\n    "choice4": "${opt2_4}",\n    "answer": "${a2}"\n  },\n  {\n    "question": "${q3}",\n    "choice1": "${opt3_1}",\n    "choice2": "${opt3_2}",\n    "choice3": "${opt3_3}",\n    "choice4": "${opt3_4}",\n    "answer": "${a3}"\n  },\n  {\n    "question": "${q4}",\n    "choice1": "${opt4_1}",\n    "choice2": "${opt4_2}",\n    "choice3": "${opt4_3}",\n    "choice4": "${opt4_4}",\n    "answer": "${a4}"\n  },\n  {\n    "question": "${q5}",\n    "choice1": "${opt5_1}",\n    "choice2": "${opt5_2}",\n    "choice3": "${opt5_3}",\n    "choice4": "${opt5_4}",\n    "answer": "${a5}"\n  },\n  {\n    "question": "${q6}",\n    "choice1": "${opt6_1}",\n    "choice2": "${opt6_2}",\n    "choice3": "${opt6_3}",\n    "choice4": "${opt6_4}",\n    "answer": "${a6}"\n  },\n  {\n    "question": "${q7}",\n    "choice1": "${opt7_1}",\n    "choice2": "${opt7_2}",\n    "choice3": "${opt7_3}",\n    "choice4": "${opt7_4}",\n    "answer": "${a7}"\n  },\n  {\n    "question": "${q8}",\n    "choice1": "${opt8_1}",\n    "choice2": "${opt8_2}",\n    "choice3": "${opt8_3}",\n    "choice4": "${opt8_4}",\n    "answer": "${a8}"\n  },\n  {\n    "question": "${q9}",\n    "choice1": "${opt9_1}",\n    "choice2": "${opt9_2}",\n    "choice3": "${opt9_3}",\n    "choice4": "${opt9_4}",\n    "answer": "${a9}"\n  },\n  {\n    "question": "${q10}",\n    "choice1": "${opt10_1}",\n    "choice2": "${opt10_2}",\n    "choice3": "${opt10_3}",\n    "choice4": "${opt10_4}",\n    "answer": "${a10}"\n  },\n    {\n    "question": "${q11}",\n    "choice1": "${opt11_1}",\n    "choice2": "${opt11_2}",\n    "choice3": "${opt11_3}",\n    "choice4": "${opt11_4}",\n    "answer": "${a11}"\n  },\n  {\n    "question": "${q12}",\n    "choice1": "${opt12_1}",\n    "choice2": "${opt12_2}",\n    "choice3": "${opt12_3}",\n    "choice4": "${opt12_4}",\n    "answer": "${a12}"\n  },\n  {\n    "question": "${q13}",\n    "choice1": "${opt13_1}",\n    "choice2": "${opt13_2}",\n    "choice3": "${opt13_3}",\n    "choice4": "${opt13_4}",\n    "answer": "${a13}"\n  },\n  {\n    "question": "${q14}",\n    "choice1": "${opt14_1}",\n    "choice2": "${opt14_2}",\n    "choice3": "${opt14_3}",\n    "choice4": "${opt14_4}",\n    "answer": "${a14}"\n  },\n  {\n    "question": "${q15}",\n    "choice1": "${opt15_1}",\n    "choice2": "${opt15_2}",\n    "choice3": "${opt15_3}",\n    "choice4": "${opt15_4}",\n    "answer": "${a15}"\n  },\n  {\n    "question": "${q16}",\n    "choice1": "${opt16_1}",\n    "choice2": "${opt16_2}",\n    "choice3": "${opt16_3}",\n    "choice4": "${opt16_4}",\n    "answer": "${a16}"\n  },\n  {\n    "question": "${q17}",\n    "choice1": "${opt17_1}",\n    "choice2": "${opt17_2}",\n    "choice3": "${opt17_3}",\n    "choice4": "${opt17_4}",\n    "answer": "${a17}"\n  },\n  {\n    "question": "${q18}",\n    "choice1": "${opt18_1}",\n    "choice2": "${opt18_2}",\n    "choice3": "${opt18_3}",\n    "choice4": "${opt18_4}",\n    "answer": "${a18}"\n  },\n  {\n    "question": "${q19}",\n    "choice1": "${opt19_1}",\n    "choice2": "${opt19_2}",\n    "choice3": "${opt19_3}",\n    "choice4": "${opt19_4}",\n    "answer": "${a19}"\n  },\n  {\n    "question": "${q20}",\n    "choice1": "${opt20_1}",\n    "choice2": "${opt20_2}",\n    "choice3": "${opt20_3}",\n    "choice4": "${opt20_4}",\n    "answer": "${a20}"\n  }\n ]\n  `;
 
-            document.getElementById('json').innerHTML = temp;
-            document.getElementById('process').innerText = "Process Again?";
-            document.getElementById('preview').style.display = "block";
-        }
+        document.getElementById("json").innerHTML = temp;
+        document.getElementById("process").innerText = "Process Again?";
+        document.getElementById("preview").style.display = "block";
+      }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxXmY73sMQ6Hg-0hxNDrkxH8sx9vbDxkq07u88CcHQxtpgSfrQk6bibw9m4sD0elGRzIA/exec'
-        const form = document.forms['MCQForm']
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxXmY73sMQ6Hg-0hxNDrkxH8sx9vbDxkq07u88CcHQxtpgSfrQk6bibw9m4sD0elGRzIA/exec";
+      const form = document.forms["MCQForm"];
 
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => {
-                    return response.json()
-                })
-                .then((res) => {
-                    alert(res.result + '\n' + res.message);
-                    location.href = "./";
-                })
-                .catch(error => console.error('Error!', error.message))
-            document.querySelector('#confirmation').style.display = 'block';
-            document.querySelector('#up').style.display = 'none';
-            form.reset();
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, {
+          method: "POST",
+          body: new FormData(form),
         })
+          .then((response) => {
+            return response.json();
+          })
+          .then((res) => {
+            alert(res.result + "\n" + res.message);
+            location.href = "./";
+          })
+          .catch((error) => console.error("Error!", error.message));
+        document.querySelector("#confirmation").style.display = "block";
+        document.querySelector("#up").style.display = "none";
+        form.reset();
+      });
 
+      var clipboard = new ClipboardJS("#copy");
 
-        var clipboard = new ClipboardJS('#copy');
+      clipboard.on("success", function (e) {
+        document.getElementById("copy").innerText = "Copied!";
+        e.clearSelection();
+      });
 
-        clipboard.on('success', function(e) {
-            document.getElementById('copy').innerText = "Copied!"
-            e.clearSelection();
-        });
-
-        clipboard.on('error', function(e) {
-            console.error('Action:', e.action);
-            console.error('Trigger:', e.trigger);
-        });
+      clipboard.on("error", function (e) {
+        console.error("Action:", e.action);
+        console.error("Trigger:", e.trigger);
+      });
     </script>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>

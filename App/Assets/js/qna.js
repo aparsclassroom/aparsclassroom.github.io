@@ -1,20 +1,20 @@
 var serial = q - 1;
-$(document).ready(function() {
-    fetch('../js/q1.json')
-        .then((res) => {
-            return res.json();
-        })
-        .then((loadedData) => {
-            a = loadedData;
-            Question = a[serial].Question;
-            Subject = a[serial].Subject;
-            chapter = a[serial].chapter;
-            Topic = a[serial].Topic;
-            Answer1 = a[serial].Answer1;
-            Answer2 = a[serial].Answer2;
-            img = a[serial].img;
-            link = a[serial].chaplink;
-            document.getElementById('qnaCard').innerHTML = `
+$(document).ready(function () {
+  fetch("../js/q1.json")
+    .then((res) => {
+      return res.json();
+    })
+    .then((loadedData) => {
+      a = loadedData;
+      Question = a[serial].Question;
+      Subject = a[serial].Subject;
+      chapter = a[serial].chapter;
+      Topic = a[serial].Topic;
+      Answer1 = a[serial].Answer1;
+      Answer2 = a[serial].Answer2;
+      img = a[serial].img;
+      link = a[serial].chaplink;
+      document.getElementById("qnaCard").innerHTML = `
             
             <div class="wrapper">
         <div class="card front-face">
@@ -60,30 +60,24 @@ $(document).ready(function() {
         </div>
     </div>
             `;
-
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 });
 
-
-
-
-
-
 function openVisualise() {
-    document.getElementById("gif").style.display = "flex";
-    document.getElementById('change1').style.display = "none";
-    document.getElementById('change2').style.cssText = "display:inline-block;";
-    document.getElementById("textAns").style.display = "none";
-    document.getElementById('visans').style.display = "block";
+  document.getElementById("gif").style.display = "flex";
+  document.getElementById("change1").style.display = "none";
+  document.getElementById("change2").style.cssText = "display:inline-block;";
+  document.getElementById("textAns").style.display = "none";
+  document.getElementById("visans").style.display = "block";
 }
 
 function openText() {
-    document.getElementById("gif").style.display = "none";
-    document.getElementById('change2').style.display = "none";
-    document.getElementById('change1').style.cssText = "display:inline-block;";
-    document.getElementById("textAns").style.display = "block";
-    document.getElementById('visans').style.display = "none";
+  document.getElementById("gif").style.display = "none";
+  document.getElementById("change2").style.display = "none";
+  document.getElementById("change1").style.cssText = "display:inline-block;";
+  document.getElementById("textAns").style.display = "block";
+  document.getElementById("visans").style.display = "none";
 }

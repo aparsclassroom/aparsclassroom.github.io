@@ -7,13 +7,13 @@
 //     },
 // });
 
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
 // var tag = document.createElement('script');
 

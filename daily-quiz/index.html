@@ -1,114 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "8jcf2l88zu");
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
-    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/1.png">
+    <link rel="shortcut icon" href="/HSC-Full-Course/assets/images/1.png" />
     <title>Daily Quiz | Apar's Classroom</title>
 
     <!-- Facebook Metas -->
-    <meta property="og:title" content="Daily Quiz | Apar's Classroom">
-    <meta roperty="og:site_name" content="Apar's Daily Quiz | Apar's Classroom">
-    <meta property="g:description" content="Quiz Form">
-    <meta property="og:image" content="https://aparsclassroom.com/images/poster.jpg">
-    <meta property="og:image:secure_url" content="https://aparsclassroom.com/images/poster.jpg">
+    <meta property="og:title" content="Daily Quiz | Apar's Classroom" />
+    <meta
+      roperty="og:site_name"
+      content="Apar's Daily Quiz | Apar's Classroom"
+    />
+    <meta property="g:description" content="Quiz Form" />
+    <meta
+      property="og:image"
+      content="https://aparsclassroom.com/images/poster.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://aparsclassroom.com/images/poster.jpg"
+    />
 
-    <link rel="stylesheet" href="/BioDictionary/Assets/images/illustration/animate/animate.css">
-    <link rel="stylesheet" href="/BioDictionary/Assets/images/illustration/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/BioDictionary/Assets/Vendor/css/bootstrap.css">
-    <link rel="stylesheet" href="/BioDictionary/Assets/images/illustration/mobster.css">
+    <link
+      rel="stylesheet"
+      href="/BioDictionary/Assets/images/illustration/animate/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/BioDictionary/Assets/images/illustration/owl-carousel/css/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/BioDictionary/Assets/Vendor/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/BioDictionary/Assets/images/illustration/mobster.css"
+    />
     <script src="/assets/js/sweetalert.min.js" defer></script>
     <script src="/BioDictionary/Assets/Vendor/js/jquery.js" defer></script>
-    <script src="/BioDictionary/Assets/images/illustration/owl-carousel/js/owl.carousel.min.js" defer></script>
-    <script src="/BioDictionary/Assets/images/illustration/wow.min.js" defer></script>
-    <script src="/BioDictionary/Assets/images/illustration/mobster.js" defer></script>
-    <script src="https://asg-microcourse.herokuapp.com/assets/js/select.js" defer></script>
+    <script
+      src="/BioDictionary/Assets/images/illustration/owl-carousel/js/owl.carousel.min.js"
+      defer
+    ></script>
+    <script
+      src="/BioDictionary/Assets/images/illustration/wow.min.js"
+      defer
+    ></script>
+    <script
+      src="/BioDictionary/Assets/images/illustration/mobster.js"
+      defer
+    ></script>
+    <script
+      src="https://asg-microcourse.herokuapp.com/assets/js/select.js"
+      defer
+    ></script>
     <script src="./js.js" defer></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="page-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 py-3 mb-5 mb-lg-0">
-                    <div class="img-place w-lg-75 wow zoomIn">
-                        <img src="https://sb-admin-pro.startbootstrap.com/assets/img/illustrations/problem-solving.svg" alt="contact">
-                    </div>
-                </div>
-                <div class="col-lg-5 py-3">
-                    <h1 class="wow fadeInUp">Daily Quiz</h1>
-
-                    <form method="POST" class="mt-5" name="qna">
-                        <div class="form-group wow fadeInUp">
-                            <label for="name" class="fw-medium fg-grey">Your Full Name</label>
-                            <input type="text" class="form-control" id="name" name="Name" placeholder="ex. Maheyan Mridul" required>
-                        </div>
-                        <textarea type="text" id="ip-details" style="display: none;" name="IP Details"></textarea>
-                        <div class="form-group wow fadeInUp">
-                            <label for="name" class="fw-medium fg-grey">Subject</label>
-                            <select name="Subject" id="Subject" required class="form-control">
-                            <option value="">--Select Any--</option>
-                            <option value="Physics (1st Paper)">Physics (1st Paper)</option>
-                            <option value="Physics (2nd Paper)">Physics (2nd Paper)</option>
-                            <option value="Chemistry (1st Paper)">Chemistry (1st Paper)</option>
-                            <option value="Chemistry (2nd Paper)">Chemistry (2nd Paper)</option> 
-                            <option value="Biology (1st Paper)">Biology (1st Paper)</option>
-                            <option value="Biology (2nd Paper)">Biology (2nd Paper)</option>
-                            <option value="Math (1st Paper)">Math (1st Paper)</option>
-                            <option value="Math (2nd Paper)">Math (2nd Paper)</option>
-                            <option value="Bangla (1st Paper)">Bangla (1st Paper)</option>
-                            <option value="ICT">ICT</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="name" class="fw-medium fg-grey">Chapter</label>
-                            <select name="Chapter" class="form-control" required id="Chapter">
-                    </select>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="ques" class="fw-medium fg-grey">Question</label>
-                            <input type="text" class="form-control" id="ques" name="Question" placeholder="ex. ভর দ্বারা পরিমাপ করা হয়-" required>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="op1" class="fw-medium fg-grey">Option 1</label>
-                            <input type="text" class="form-control" id="op1" name="Option 1" placeholder="ex. বল" required>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="op2" class="fw-medium fg-grey">Option 2</label>
-                            <input type="text" class="form-control" id="op2" name="Option 2" placeholder="ex. বেগ" required>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="op3" class="fw-medium fg-grey">Option 3</label>
-                            <input type="text" class="form-control" id="op3" name="Option 3" placeholder="ex. ত্বরণ" required>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="op3" class="fw-medium fg-grey">Option 4</label>
-                            <input type="text" class="form-control" id="op4" name="Option 4" placeholder="ex. জড়তা" required>
-                        </div>
-                        <div class="form-group wow fadeInUp">
-                            <label for="ans" class="fw-medium fg-grey">Correct Answer</label>
-                            <input type="text" class="form-control" id="ans" name="Answer" placeholder="ex. option 4 : জড়তা" required>
-                        </div>
-                        <div class="form-group mt-4 wow fadeInUp">
-                            <button type="submit" id="send" class="btn btn-primary">Submit Question</button>
-                        </div>
-                    </form>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 py-3 mb-5 mb-lg-0">
+            <div class="img-place w-lg-75 wow zoomIn">
+              <img
+                src="https://sb-admin-pro.startbootstrap.com/assets/img/illustrations/problem-solving.svg"
+                alt="contact"
+              />
             </div>
-        </div>
-    </div>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+          </div>
+          <div class="col-lg-5 py-3">
+            <h1 class="wow fadeInUp">Daily Quiz</h1>
 
+            <form method="POST" class="mt-5" name="qna">
+              <div class="form-group wow fadeInUp">
+                <label for="name" class="fw-medium fg-grey"
+                  >Your Full Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="Name"
+                  placeholder="ex. Maheyan Mridul"
+                  required
+                />
+              </div>
+              <textarea
+                type="text"
+                id="ip-details"
+                style="display: none"
+                name="IP Details"
+              ></textarea>
+              <div class="form-group wow fadeInUp">
+                <label for="name" class="fw-medium fg-grey">Subject</label>
+                <select
+                  name="Subject"
+                  id="Subject"
+                  required
+                  class="form-control"
+                >
+                  <option value="">--Select Any--</option>
+                  <option value="Physics (1st Paper)">
+                    Physics (1st Paper)
+                  </option>
+                  <option value="Physics (2nd Paper)">
+                    Physics (2nd Paper)
+                  </option>
+                  <option value="Chemistry (1st Paper)">
+                    Chemistry (1st Paper)
+                  </option>
+                  <option value="Chemistry (2nd Paper)">
+                    Chemistry (2nd Paper)
+                  </option>
+                  <option value="Biology (1st Paper)">
+                    Biology (1st Paper)
+                  </option>
+                  <option value="Biology (2nd Paper)">
+                    Biology (2nd Paper)
+                  </option>
+                  <option value="Math (1st Paper)">Math (1st Paper)</option>
+                  <option value="Math (2nd Paper)">Math (2nd Paper)</option>
+                  <option value="Bangla (1st Paper)">Bangla (1st Paper)</option>
+                  <option value="ICT">ICT</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="name" class="fw-medium fg-grey">Chapter</label>
+                <select
+                  name="Chapter"
+                  class="form-control"
+                  required
+                  id="Chapter"
+                ></select>
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="ques" class="fw-medium fg-grey">Question</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ques"
+                  name="Question"
+                  placeholder="ex. ভর দ্বারা পরিমাপ করা হয়-"
+                  required
+                />
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="op1" class="fw-medium fg-grey">Option 1</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="op1"
+                  name="Option 1"
+                  placeholder="ex. বল"
+                  required
+                />
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="op2" class="fw-medium fg-grey">Option 2</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="op2"
+                  name="Option 2"
+                  placeholder="ex. বেগ"
+                  required
+                />
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="op3" class="fw-medium fg-grey">Option 3</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="op3"
+                  name="Option 3"
+                  placeholder="ex. ত্বরণ"
+                  required
+                />
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="op3" class="fw-medium fg-grey">Option 4</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="op4"
+                  name="Option 4"
+                  placeholder="ex. জড়তা"
+                  required
+                />
+              </div>
+              <div class="form-group wow fadeInUp">
+                <label for="ans" class="fw-medium fg-grey"
+                  >Correct Answer</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ans"
+                  name="Answer"
+                  placeholder="ex. option 4 : জড়তা"
+                  required
+                />
+              </div>
+              <div class="form-group mt-4 wow fadeInUp">
+                <button type="submit" id="send" class="btn btn-primary">
+                  Submit Question
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>

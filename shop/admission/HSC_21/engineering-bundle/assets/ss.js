@@ -1,16 +1,16 @@
-$('.slider').slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1
+$(".slider").slick({
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 1,
 });
 
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
 // var tag = document.createElement('script');
 
@@ -38,238 +38,246 @@ if (screen.width <= 600) {
 // }
 
 fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    document
+      .getElementById("enrolled")
+      .setAttribute("countTo", data.count + init);
+    if (document.getElementById("enrolled")) {
+      const countUp = new CountUp(
+        "enrolled",
+        document.getElementById("enrolled").getAttribute("countTo"),
+      );
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+fetch(
+  `https://script.google.com/macros/s/AKfycbyJnwBjla6m7l3kL7ysEOlVvAuTRzsqLoF9ddsdjN4NtBB3BZYG25OVXbE8DZNk_64U/exec?productCode=${productCode}`,
+)
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    let types = data.types;
 
-    
+    document.getElementById("con1").innerHTML =
+      `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
+    document.getElementById("con2").innerHTML =
+      `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
+    document.getElementById("con3").innerHTML =
+      `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
+    document.getElementById("con4").innerHTML =
+      `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
+    document.getElementById("con5").innerHTML =
+      `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
+    document.getElementById("duration").innerHTML = `${types[7].TotalClasses}`;
+    document.getElementById("con7").innerHTML =
+      `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
+    document.getElementById("con8").innerHTML =
+      `<i class="fab fa-discord"></i>&nbsp; Discord Server`;
+    document.getElementById("con9").innerHTML =
+      `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
+    document.getElementById("loading1").innerHTML = "";
+    document.getElementById("loading2").innerHTML = "";
+    document.getElementById("loading3").innerHTML = "";
+    document.getElementById("loading11").innerHTML = "";
+    document.getElementById("loading22").innerHTML = "";
+    document.getElementById("loading33").innerHTML = "";
+    document.getElementById("ws11").innerHTML = "";
+    document.getElementById("ws22").innerHTML = "";
+    document.getElementById("ws33").innerHTML = "";
+    document.getElementById("pra11").innerHTML = "";
+    document.getElementById("pra22").innerHTML = "";
+    document.getElementById("pra33").innerHTML = "";
+    document.getElementById("exloading11").innerHTML = "";
+    document.getElementById("exloading22").innerHTML = "";
+    document.getElementById("exloading33").innerHTML = "";
 
-fetch(`https://script.google.com/macros/s/AKfycbyJnwBjla6m7l3kL7ysEOlVvAuTRzsqLoF9ddsdjN4NtBB3BZYG25OVXbE8DZNk_64U/exec?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        let types = data.types;
+    let classes = data.classes;
 
-        document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; ${types[0].TotalClasses} ${types[0].ContType}`;
-        document.getElementById('con2').innerHTML = `<i class="fas fa-clipboard"></i>&nbsp; ${types[1].TotalClasses} ${types[1].ContType} `;
-        document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;${types[2].TotalClasses} ${types[2].ContType} `;
-        document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp;${types[3].TotalClasses} ${types[3].ContType} `;
-        document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp;${types[4].TotalClasses} ${types[4].ContType} `;
-        document.getElementById('duration').innerHTML = `${types[7].TotalClasses}`;
-        document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-        document.getElementById('con8').innerHTML = `<i class="fab fa-discord"></i>&nbsp; Discord Server`;
-        document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
-        document.getElementById('loading1').innerHTML = "";
-        document.getElementById('loading2').innerHTML = "";
-        document.getElementById('loading3').innerHTML = "";
-        document.getElementById('loading11').innerHTML = "";
-        document.getElementById('loading22').innerHTML = "";
-        document.getElementById('loading33').innerHTML = "";
-        document.getElementById('ws11').innerHTML = "";
-        document.getElementById('ws22').innerHTML = "";
-        document.getElementById('ws33').innerHTML = "";
-        document.getElementById('pra11').innerHTML = "";
-        document.getElementById('pra22').innerHTML = "";
-        document.getElementById('pra33').innerHTML = "";
-        document.getElementById('exloading11').innerHTML = "";
-        document.getElementById('exloading22').innerHTML = "";
-        document.getElementById('exloading33').innerHTML = "";
+    var as = classes.filter((all) => {
+      return all.SubAndPaper == "Physics";
+    });
 
-        let classes = data.classes;
+    var as2 = classes.filter((all) => {
+      return all.SubAndPaper == "Chemistry";
+    });
 
-        var as = classes.filter((all) => {
-            return all.SubAndPaper == 'Physics'
-        })
-
-        var as2 = classes.filter((all) => {
-            return all.SubAndPaper == 'Chemistry'
-        })
-
-        var as3 = classes.filter((all) => {
-            return all.SubAndPaper == 'Higher Math'
-        })
-        let domC = document.getElementById('Classes1');
-        as.forEach(element => {
-            if (element.Playlist != "") {
-                domC.innerHTML += `
+    var as3 = classes.filter((all) => {
+      return all.SubAndPaper == "Higher Math";
+    });
+    let domC = document.getElementById("Classes1");
+    as.forEach((element) => {
+      if (element.Playlist != "") {
+        domC.innerHTML += `
                 <li>
                 <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
-                </li>`
-            } else {
-                domC.innerHTML += `
+                </li>`;
+      } else {
+        domC.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.LiveClass} Classes
-                </li>`
-            }
+                </li>`;
+      }
+    });
 
-        });
-
-        let domC2 = document.getElementById('Classes2');
-        as2.forEach(element => {
-            if (element.Playlist != "") {
-                domC2.innerHTML += `
+    let domC2 = document.getElementById("Classes2");
+    as2.forEach((element) => {
+      if (element.Playlist != "") {
+        domC2.innerHTML += `
                 <li>
                 <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
-                </li>`
-            } else {
-                domC2.innerHTML += `
+                </li>`;
+      } else {
+        domC2.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.LiveClass} Classes
-                </li>`
-            }
-        });
+                </li>`;
+      }
+    });
 
-        let domC3 = document.getElementById('Classes3');
-        as3.forEach(element => {
-            if (element.Playlist != "") {
-                domC3.innerHTML += `
+    let domC3 = document.getElementById("Classes3");
+    as3.forEach((element) => {
+      if (element.Playlist != "") {
+        domC3.innerHTML += `
                 <li>
                 <a href = "${element.Playlist}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LiveClass} Classes</a>
-                </li>`
-            } else {
-                domC3.innerHTML += `
+                </li>`;
+      } else {
+        domC3.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.LiveClass} Classes
-                </li>`
-            }
-        });
+                </li>`;
+      }
+    });
 
-        let domC1 = document.getElementById('notes1');
-        as.forEach(element => {
-            if (element.Notes != "") {
-                domC1.innerHTML += `
+    let domC1 = document.getElementById("notes1");
+    as.forEach((element) => {
+      if (element.Notes != "") {
+        domC1.innerHTML += `
                 <li>
                 <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC1.innerHTML += `
+                </li>`;
+      } else {
+        domC1.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
+                </li>`;
+      }
+    });
 
-        let domC22 = document.getElementById('notes2');
-        as2.forEach(element => {
-            if (element.Notes != "") {
-                domC22.innerHTML += `
+    let domC22 = document.getElementById("notes2");
+    as2.forEach((element) => {
+      if (element.Notes != "") {
+        domC22.innerHTML += `
                 <li>
                 <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC22.innerHTML += `
+                </li>`;
+      } else {
+        domC22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
+                </li>`;
+      }
+    });
 
-        let domC33 = document.getElementById('notes3');
-        as3.forEach(element => {
-            if (element.Notes != "") {
-                domC33.innerHTML += `
+    let domC33 = document.getElementById("notes3");
+    as3.forEach((element) => {
+      if (element.Notes != "") {
+        domC33.innerHTML += `
                 <li>
                 <a href = "${element.Notes}" style="color:rgb(37, 173, 55);text-decoration:none;font-weight:bold;" target="blank">🗝️🔒 ${element.Chapter} - ${element.LectureSheet} Sheets</a>
-                </li>`
-            } else {
-                domC33.innerHTML += `
+                </li>`;
+      } else {
+        domC33.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.LectureSheet} Sheets
-                </li>`
-            }
-        });
+                </li>`;
+      }
+    });
 
-        let qna1 = document.getElementById('qna1');
-        as.forEach(element => {
-            qna1.innerHTML += `
+    let qna1 = document.getElementById("qna1");
+    as.forEach((element) => {
+      qna1.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
+                </li>`;
+    });
 
-        });
-
-        let qna22 = document.getElementById('qna2');
-        as2.forEach(element => {
-            qna22.innerHTML += `
+    let qna22 = document.getElementById("qna2");
+    as2.forEach((element) => {
+      qna22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-        });
+                </li>`;
+    });
 
-        let qna33 = document.getElementById('qna3');
-        as3.forEach(element => {
-            qna33.innerHTML += `
+    let qna33 = document.getElementById("qna3");
+    as3.forEach((element) => {
+      qna33.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.QnAClass} Classes
-                </li>`
-        });
+                </li>`;
+    });
 
-        let prac1 = document.getElementById('prac1');
-        as.forEach(element => {
-            prac1.innerHTML += `
+    let prac1 = document.getElementById("prac1");
+    as.forEach((element) => {
+      prac1.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
-                </li>`
+                </li>`;
+    });
 
-        });
-
-        let prac22 = document.getElementById('prac2');
-        as2.forEach(element => {
-            prac22.innerHTML += `
+    let prac22 = document.getElementById("prac2");
+    as2.forEach((element) => {
+      prac22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
-                </li>`
-        });
+                </li>`;
+    });
 
-        let prac33 = document.getElementById('prac3');
-        as2.forEach(element => {
-            prac33.innerHTML += `
+    let prac33 = document.getElementById("prac3");
+    as2.forEach((element) => {
+      prac33.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.PracticeSheet} Sheets
-                </li>`
-        });
+                </li>`;
+    });
 
-        let ex1 = document.getElementById('ex1');
-        as.forEach(element => {
-            ex1.innerHTML += `
+    let ex1 = document.getElementById("ex1");
+    as.forEach((element) => {
+      ex1.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
-                </li>`
+                </li>`;
+    });
 
-        });
-
-        let ex22 = document.getElementById('ex2');
-        as2.forEach(element => {
-            ex22.innerHTML += `
+    let ex22 = document.getElementById("ex2");
+    as2.forEach((element) => {
+      ex22.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
-                </li>`
-        });
+                </li>`;
+    });
 
-        let ex33 = document.getElementById('ex3');
-        as3.forEach(element => {
-            ex33.innerHTML += `
+    let ex33 = document.getElementById("ex3");
+    as3.forEach((element) => {
+      ex33.innerHTML += `
                 <li class="disabled">
                 🔒 ${element.Chapter} - ${element.Exam} Exam(s)
-                </li>`
-        });
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+                </li>`;
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });

@@ -1,47 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>High Scores</title>
     <link rel="stylesheet" href="/HSC-Full-Course/Exam-Assets/css/app.css" />
-    <link rel="stylesheet" href="/BioDictionary/Assets/css/high.css">
-    <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/materialize/tabulator_materialize.min.css">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/Logo.png">
-    <link rel="apple-touch-icon" href="/assets/Logo.png">
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js" defer></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js" defer></script>
+    <link rel="stylesheet" href="/BioDictionary/Assets/css/high.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/materialize/tabulator_materialize.min.css"
+    />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/assets/Logo.png" />
+    <link rel="apple-touch-icon" href="/assets/Logo.png" />
+    <script
+      src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"
+      defer
+    ></script>
     <script src="/BioDictionary/Assets/js/firebase.js" defer></script>
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js" defer></script>
-    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js" defer></script>
-    <script src="../../../../../../Assets/video/p1/C10/Ep5/script.js" defer></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"
+      defer
+    ></script>
+    <script
+      src="../../../../../../Assets/video/p1/C10/Ep5/script.js"
+      defer
+    ></script>
     <script src="../../../../../../Assets/js/high.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="econtainer">
-        <div id="highScores" class="flex-center flex-column">
-            <p class="score" id="finalScore">Your Score</p>
-            <p id="showPersonalData"></p>
-            <br>
-            <a class="btn" href="./">Go Home</a>
-            <br><br><br>
-            <p class="score" id="GlobalfinalScore">Global Scores</p>
-            <a class="btn" id="download-xlsx">Download XLSX</a>
-            <a class="btn" id="download-pdf">Download PDF</a>
-            <div id="showData">
-                <h3>Loading...</h3>
-            </div>
+      <div id="highScores" class="flex-center flex-column">
+        <p class="score" id="finalScore">Your Score</p>
+        <p id="showPersonalData"></p>
+        <br />
+        <a class="btn" href="./">Go Home</a>
+        <br /><br /><br />
+        <p class="score" id="GlobalfinalScore">Global Scores</p>
+        <a class="btn" id="download-xlsx">Download XLSX</a>
+        <a class="btn" id="download-pdf">Download PDF</a>
+        <div id="showData">
+          <h3>Loading...</h3>
         </div>
+      </div>
     </div>
 
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>

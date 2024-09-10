@@ -1,35 +1,41 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    loop: false,
-    autoplay: {
-        delay: 4000,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next'
-    },
+  slidesPerView: 1,
+  spaceBetween: 10,
+  loop: false,
+  autoplay: {
+    delay: 4000,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+  },
 });
-const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+const countUp = new CountUp(
+  "std",
+  document.getElementById("std").getAttribute("countTo"),
+);
 if (!countUp.error) {
-    countUp.start();
+  countUp.start();
 } else {
-    console.error(countUp.error);
+  console.error(countUp.error);
 }
 if (document.getElementById("stds")) {
-    const countUps = new CountUp('stds', document.getElementById("stds").getAttribute("countTo"));
-    if (!countUps.error) {
-        countUps.start();
-    } else {
-        console.error(countUps.error);
-    }
+  const countUps = new CountUp(
+    "stds",
+    document.getElementById("stds").getAttribute("countTo"),
+  );
+  if (!countUps.error) {
+    countUps.start();
+  } else {
+    console.error(countUps.error);
+  }
 }
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
 // var tag = document.createElement('script');
 

@@ -1,23 +1,22 @@
-
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    loop: false,
-    autoplay: {
-        delay: 4000,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next'
-    },
+  slidesPerView: 1,
+  spaceBetween: 10,
+  loop: false,
+  autoplay: {
+    delay: 4000,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+  },
 });
 
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
 // var tag = document.createElement('script');
 
@@ -44,22 +43,28 @@ if (screen.width <= 600) {
 //     event.target.playVideo();
 // }
 
-fetch(`https://script.google.com/macros/s/AKfycbwMme4InesTKhNB9aPTrP_SaghgDS8Kph0262iv_hCcl5TRt3T8shmU_FXjLUcnDgJt/exec`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.enrollment + init - 1);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
-
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+fetch(
+  `https://script.google.com/macros/s/AKfycbwMme4InesTKhNB9aPTrP_SaghgDS8Kph0262iv_hCcl5TRt3T8shmU_FXjLUcnDgJt/exec`,
+)
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    document
+      .getElementById("enrolled")
+      .setAttribute("countTo", data.enrollment + init - 1);
+    if (document.getElementById("enrolled")) {
+      const countUp = new CountUp(
+        "enrolled",
+        document.getElementById("enrolled").getAttribute("countTo"),
+      );
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+  });

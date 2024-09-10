@@ -1,21 +1,21 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 3,
-    loop: true,
-    autoplay: {
-        delay: 2000,
-    },
+  slidesPerView: 5,
+  spaceBetween: 3,
+  loop: true,
+  autoplay: {
+    delay: 2000,
+  },
 });
 
-const vidD = document.getElementById('video');
-const clprc = document.getElementById('clprc');
+const vidD = document.getElementById("video");
+const clprc = document.getElementById("clprc");
 if (screen.width <= 600) {
-    clprc.classList.add('fixed-bottom');
+  clprc.classList.add("fixed-bottom");
 } else {
-    clprc.classList.remove('fixed-bottom');
-    vidD.style.position = 'sticky';
+  clprc.classList.remove("fixed-bottom");
+  vidD.style.position = "sticky";
 }
-var tag = document.createElement('script');
+var tag = document.createElement("script");
 
 // tag.src = "https://www.youtube.com/iframe_api";
 // var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -40,19 +40,27 @@ var tag = document.createElement('script');
 //     event.target.playVideo();
 // }
 var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-fetch("https://crm.aparsclassroom.com/api/total-enrolled/"+ product, requestOptions)
-    .then(response => response.json())
-    .then(result => {
-        document.getElementById('enrolled').setAttribute('countTo', result.enrolled[0].totalTransactions + init);
-       // document.getElementById("thumImg").src = thumbImage + (result.enrolled[0].totalTransactions + init);
-        const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-        if (!countUp.error) {
-            countUp.start();
-        } else {
-            console.error(countUp.error);
-        }
-    })
-    .catch(error => console.log('error', error));
+  method: "GET",
+  redirect: "follow",
+};
+fetch(
+  "https://crm.aparsclassroom.com/api/total-enrolled/" + product,
+  requestOptions,
+)
+  .then((response) => response.json())
+  .then((result) => {
+    document
+      .getElementById("enrolled")
+      .setAttribute("countTo", result.enrolled[0].totalTransactions + init);
+    // document.getElementById("thumImg").src = thumbImage + (result.enrolled[0].totalTransactions + init);
+    const countUp = new CountUp(
+      "enrolled",
+      document.getElementById("enrolled").getAttribute("countTo"),
+    );
+    if (!countUp.error) {
+      countUp.start();
+    } else {
+      console.error(countUp.error);
+    }
+  })
+  .catch((error) => console.log("error", error));
