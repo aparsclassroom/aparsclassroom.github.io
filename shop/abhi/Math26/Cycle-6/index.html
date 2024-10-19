@@ -121,6 +121,18 @@
                                         </div>
                                     </div>
                                 </p>
+                                <p>
+                                    <img src="https://i.postimg.cc/sgzt8wgL/Dipit.jpg" class="image is-64x64 media-left" alt="Dipit Saha">
+                                    <div class="media-content">
+                                        <h5 class="title.is-5">Dipit Saha</h5>
+                                        <div class="content subtitle is-6 mb-1 collapsed">
+                                            CSE'21, BUET <br>Math Instructor,
+                                            <br>2 Years of Experience<br>
+                                            Mentored <strong id="stdss" data-count="100000">0</strong>+ Students<br>
+                                            Founder, Dipit's Learning Point
+                                        </div>
+                                    </div>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -399,6 +411,32 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+
+        <script>
+            function countTo(elementId, duration) {
+                const element = document.getElementById(elementId);
+                const targetValue = parseInt(element.getAttribute("data-count"), 10);
+                let startValue = 0;
+                const increment = targetValue / (duration / 10); // Calculate increment per 10ms
+        
+                const timer = setInterval(() => {
+                    startValue += increment;
+                    if (startValue >= targetValue) {
+                        element.textContent = targetValue.toLocaleString(); // Add commas for large numbers
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(startValue).toLocaleString();
+                    }
+                }, 10); // Update every 10ms
+            }
+        
+            // Run the animation after DOM content is loaded
+            document.addEventListener("DOMContentLoaded", () => {
+                countTo("stdss", 3000); // 3-second animation for the counter
+            });
+        </script>
+
+
+    </body>
 
 </html>
