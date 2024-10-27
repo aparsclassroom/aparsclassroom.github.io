@@ -109,7 +109,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         document.getElementById('moda').innerHTML = `
-        প্রি-বুক করো <i class="fas fa-arrow-right"></i>
+        বই অর্ডার করো <i class="fas fa-arrow-right"></i>
         `;
         if (t != null) {
             document.getElementById('phone').value = t;
