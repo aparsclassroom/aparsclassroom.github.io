@@ -1,4 +1,5 @@
-var scriptURL = "https://script.google.com/macros/s/AKfycbz05kled4mPkA0l6oevJ_ZTFIQNeRaaoPIkge6H6tG-wlb2Otv5s4-l-HJVH5Vt87i2/exec"
+//var scriptURL = "https://script.google.com/macros/s/AKfycbz05kled4mPkA0l6oevJ_ZTFIQNeRaaoPIkge6H6tG-wlb2Otv5s4-l-HJVH5Vt87i2/exec"
+var scriptURL = "https://agri23.aparsclassroom.com/"
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
@@ -38,7 +39,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
 
-        fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
+        fetch(scriptURL + "getUser?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
             })
@@ -59,7 +60,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     form.addEventListener('submit', e => {
                         document.getElementById('buy').innerText = "Please Wait...";
                         e.preventDefault()
-                        fetch(scriptURL, {
+                        fetch(scriptURL + "setUser", {
                                 method: 'POST',
                                 body: new FormData(form)
                             })
