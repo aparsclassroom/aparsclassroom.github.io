@@ -1,5 +1,5 @@
 
-const Cycle = "With Books";
+const Cycle = "Without Books";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
