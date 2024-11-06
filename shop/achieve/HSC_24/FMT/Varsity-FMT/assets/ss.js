@@ -1,11 +1,5 @@
-const product = "AchieveVarsity24FMT";
-const productName = "Achieve Varsity Final Model Test";
-const productCode = "352";
-const fix = 10000;
-const pls = 3500;
-const init = 0;
-const Platform = "Offline";
-const Cycle = location.pathname.split('/')[4];
+
+const Cycle = "With Books";
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
