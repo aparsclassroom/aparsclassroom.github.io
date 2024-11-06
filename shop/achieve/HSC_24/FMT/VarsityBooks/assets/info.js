@@ -1,4 +1,4 @@
-const product = "AchieveVarsity24FMT";
+const product = "AchieveVarsity24FMTwithBooks";
 const productName = "Achieve Varsity Final Model Test with ACS Practice Books";
 const productCode = "353";
 const fix = 12000;
