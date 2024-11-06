@@ -1,12 +1,11 @@
-// var swiper = new Swiper(".mySwiper", {
-//     slidesPerView: 5,
-//     spaceBetween: 5,
-//     loop: false,
-//     autoplay: {
-//         delay: 4000,
-//     },
-// });
-
+const product = "AchieveVarsity24FMTwithBooks";
+const productName = "Achieve Varsity Final Model Test with ACS Practice Books";
+const productCode = "353";
+const fix = 12000;
+const pls = 5500;
+const init = 0;
+const Platform = "Offline";
+const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -15,6 +14,7 @@ if (screen.width <= 600) {
     clprc.classList.remove('fixed-bottom');
     vidD.style.position = 'sticky';
 }
+
 // var tag = document.createElement('script');
 
 // tag.src = "https://www.youtube.com/iframe_api";
@@ -39,7 +39,7 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
+fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
