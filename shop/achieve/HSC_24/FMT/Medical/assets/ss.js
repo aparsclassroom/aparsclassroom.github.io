@@ -33,7 +33,7 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`)
+fetch(`https://${shopName2}/enrollment/MedicalFMT?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
