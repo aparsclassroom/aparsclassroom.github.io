@@ -33,7 +33,7 @@ document.getElementById('prod').innerText = productName;
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
 
-        const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + productCode;
+        const branchApi = 'https://crm.aparsclassroom.com/branch/find/available-branches?productId=' + 359;
 
         fetch(branchApi)
             .then((res) => {
