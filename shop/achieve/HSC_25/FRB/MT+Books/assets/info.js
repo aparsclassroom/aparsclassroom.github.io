@@ -1,5 +1,5 @@
 const product = "AchieveFRBwithBooks";
-const productName = "ACS Achieve Final Revision Exam Batch with ACS Practice Books";
+const productName = "Achieve Final Revision Exam Batch with ACS Compact Suggestion Books";
 const productCode = "359";
 const fix = 10000;
 const pls = 8000;
