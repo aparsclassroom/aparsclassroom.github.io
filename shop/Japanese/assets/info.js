@@ -1,8 +1,7 @@
-const product = "FRB25";
+const product = "Japanese";
 const productName = "Japanese Language Course - N5 Level";
-const productCode = "350";
-const productCode2 = "351";
+const productCode = "367";
 const fix = 5000;
-const pls = 2250;
+const pls = 4000;
 const Platform = "Online";
 const init = 0;
