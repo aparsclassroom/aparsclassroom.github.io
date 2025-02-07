@@ -1,5 +1,5 @@
 const product = "Japanese";
-const productName = "Japanese Language Course - N5 Level";
+const productName = "Japanese Language Course - N5 Level By MA-NAVI";
 const productCode = "367";
 const fix = 5000;
 const pls = 4000;
