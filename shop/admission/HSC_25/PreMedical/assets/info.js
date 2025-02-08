@@ -1,7 +1,7 @@
-const product = "Medical24";
-const productName = "Pre-Medical Admission Batch Prebooking 2025";
-const productCode = "291";
-const fix = 6000;
+const product = "Medical25";
+const productName = "Pre-Medical Admission Batch 2025";
+const productCode = "366";
+const fix = 8000;
 const pls = 5000;
 const Platform = "Online";
 const init = 0;
