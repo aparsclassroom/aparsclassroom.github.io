@@ -1,5 +1,5 @@
 const product = "Medical25";
-const productName = "Pre-Medical Admission Batch 2025";
+const productName = "ACS Medical Admission Private Batch 2025";
 const productCode = "366";
 const fix = 8000;
 const pls = 5000;
