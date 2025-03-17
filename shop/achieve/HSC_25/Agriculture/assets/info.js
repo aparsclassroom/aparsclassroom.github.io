@@ -1,0 +1,7 @@
+const product = "AchieveAgriculture25";
+const productName = "Achieve Agriculture Exam Batch 2025";
+const productCode = "381";
+const fix = 2000;
+const pls = 1500;
+const Platform = "Offline";
+const init = 0;
