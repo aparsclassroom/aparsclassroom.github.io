@@ -1,5 +1,5 @@
 const product = "Onushilon26";
-const productName = "HSC-26 অনুশীলন বাংলা প্রথম পত্র";
+const productName = "HSC-26 অনুশীলন বাংলা দ্বিতীয় পত্র";
 const init = 0;
 const Platform = "Online";
 const productCode = "371";
