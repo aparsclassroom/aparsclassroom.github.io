@@ -22,39 +22,39 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
-// function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '390',
-//         width: '640',
-//         videoId: 'trueirsfB9s',
-//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
-//         events: {
-//             'onReady': onPlayerReady
-//         }
-//     });
-// }
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'XOe6igeASKw',
+        playerVars: { 'autoplay': 1, 'playsinline': 1 },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
 
-// function onPlayerReady(event) {
-//     document.getElementById('thumb').style.display = "none";
-//     event.target.setVolume(100);
-//     event.target.playVideo();
-// }
-// fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-//     .then((res) => {
-//         return res.json()
-//     })
-//     .then((data) => {
-//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-//         if (document.getElementById('enrolled')) {
-//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-//             if (!countUp.error) {
-//                 countUp.start();
-//             } else {
-//                 console.error(countUp.error);
-//             }
-//         }
+function onPlayerReady(event) {
+    document.getElementById('thumb').style.display = "none";
+    event.target.setVolume(100);
+    event.target.playVideo();
+}
+fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
 
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//     })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
