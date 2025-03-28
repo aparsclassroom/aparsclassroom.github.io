@@ -45,6 +45,16 @@ a:hover {
     width: 100%;
     border-radius: 15px 15px 0px 0px;
 }
+.image-loaded2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0px 0px;
+}
+
 
 .btn-success-mod {
     color: #fff;
