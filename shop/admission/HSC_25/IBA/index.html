@@ -18,19 +18,19 @@
         })(window, document, "clarity", "script", "8jcf2l88zu");
     </script>
 
-    <meta name="description" content="Pre-Booking Form">
+    <meta name="description" content="ACS IBA BBA Admission Private Batch 2025 ">
     <!-- loader -->
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
 
     <!-- Site Title -->
     <title>ACS IBA BBA Admission Private Batch 2025 | ASG Shop</title>
-     <meta http-equiv="refresh" content="0; url=https://aparsclassroom.com/shop/admission/HSC_25/IBA/"> 
+    <!-- <meta http-equiv="refresh" content="0; url=https://aparsclassroom.com/shop/admission/HSC_24/Medical/"> -->
     <!-- Facebook Metas -->
     <meta property="og:title" content="ACS IBA BBA Admission Private Batch 2025">
     <meta property="og:site_name" content="ACS IBA BBA Admission Private Batch 2025">
     <meta property="og:description" content="Pre-Booking Form">
-    <meta property="og:image" content="https://i.postimg.cc/MHHT1pJv/IBA-1.jpg">
-    <meta property="og:image:secure_url" content="https://i.postimg.cc/MHHT1pJv/IBA-1.jpg">
+    <meta property="og:image" content="https://i.postimg.cc/L87Gq7VY/ACS-IBA-BBA-ADMISSION-PROGRAM-2025-2.jpg">
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/L87Gq7VY/ACS-IBA-BBA-ADMISSION-PROGRAM-2025-2.jpg">
     <meta property="og:image:type" content="image/jpg">
 
     <!-- Android -->
@@ -108,9 +108,8 @@
     <script src="/assets/js/count.js" defer></script>
     <script src="./assets/info.js" defer></script>
     <script src="./assets/ss.js" defer></script>
-
-    <!-- Custom Scripts -->
-    <script src="./assets/js/shop.js" defer></script>
+     <!-- Custom Scripts -->
+     <script src="../assets/js/sript.js" defer></script>
 </head>
 
 <body>
@@ -293,7 +292,7 @@
                     <div class="embed-responsive embed-responsive-16by9">
                         <div class="embed-responsive-item">
                             <div id="thumb">
-                                <img src="https://i.postimg.cc/MHHT1pJv/IBA-1.jpg" class="image-loaded">
+                                <img src="https://i.postimg.cc/L87Gq7VY/ACS-IBA-BBA-ADMISSION-PROGRAM-2025-2.jpg" class="image-loaded">
                                 <!-- <script src="/assets/js/lottie-player.js"></script>
                                     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_aolblx3z.json"  background="transparent"  speed="1"  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; opacity: 1;"  loop autoplay></lottie-player> -->
                             </div>
@@ -306,7 +305,7 @@
                                 <img src="/assets/enroll.svg" alt="enrolled">
                                 <div class="flt bangla">
                                     <span>
-                                        প্রি-বুক করেছেন</span><strong id="enrolled"></strong>
+                                      কোর্সটি করছেন</span><strong id="enrolled"></strong>
                                 </div>
                             </div>
                             <!-- <div class="tag">
@@ -331,13 +330,37 @@
                     </div>
                     <br>
                     <div id="clprc" class="cove">
-                        <div class="d-flex justify-content-center">
-                            <!-- Button trigger modal -->
-                            <button type="button" style="margin-top: 10px;" id="moda"
-                                class="btn btn-block bangla btn-lg btn-success" data-toggle="modal">
-                                Pre-Booking করতে লগইন করো <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
+
+                      <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span
+                                      id="prevP"></span>৳</del> <span id="nop"
+                                  style="color: rgb(26, 185, 66);"></span></span>
+                      </h3>
+
+                      <div class="justify-content-center">
+                          <button id="app" class="btn btn-block btn-outline-secondary">Do you have any
+                              <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+                              <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="loop"
+                                  colors="primary:#121331,secondary:#08a88a" style="width:25px;height:25px">
+                              </lord-icon> Coupon ?
+                          </button>
+                          <div id="cup">
+                              <div id="coupnbosh" class="input-group">
+                                  <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()"
+                                      class="form-control" placeholder="Discount Coupon">
+                                  <div class="input-group-append">
+                                      <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
+                                  </div>
+                              </div>
+                              <p class="text-center" id="how" style="display: none;"></p>
+                          </div>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                          <!-- Button trigger modal -->
+                          <button type="button" style="margin-top: 10px;" id="moda"
+                              class="btn btn-block bangla btn-lg btn-success" data-toggle="modal">
+                              কোর্সটিতে এনরোল করতে লগইন করো <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
@@ -410,74 +433,85 @@
     </footer>
     <!-- Modal -->
     <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel"
-        data-backdrop="static" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="purchaseFrmLabel">Please fill up your Informations correctly</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="purchase" name="purchase">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" required id="name" name="Name"
-                                    placeholder="Your Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Email <span style="color: red;">***</span></label>
-                                <input type="email" class="form-control" id="email" required name="Email"
-                                    pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
-                                    placeholder="xyz@gmail.com">
-                            </div>
+    data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="purchaseFrmLabel">Please fill up your Informations correctly</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="purchase" name="purchase">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" required id="name" name="Name"
+                                placeholder="Your Name">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="college">College</label>
-                                <input type="text" class="form-control" id="college" required name="College"
-                                    placeholder="ex : Dhaka Residential Model College">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="hscBatch">HSC Batch</label>
-                                <select id="hscBatch" name="HSC Batch" required class="form-control">
-                                    <option value="HSC 25">HSC'25</option>
-                                    <option value="HSC 24">HSC'24 (Second Timer)</option>
-                                </select>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email <span style="color: red;">***</span></label>
+                            <input type="email" class="form-control" id="email" required name="Email"
+                                pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
+                                placeholder="xyz@gmail.com">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
-                                <input type="tel" name="Phone" class="form-control" pattern="^(?:\+?88)?01[13-9]\d{8}$"
-                                    placeholder="+8801XX XXX XXXX" id="phone">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="college">College</label>
+                            <input type="text" class="form-control" id="college" required name="College"
+                                placeholder="ex : Dhaka Residential Model College">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="hscBatch">HSC Batch</label>
+                            <select id="hscBatch" name="HSC Batch" required class="form-control">
+                                <option value="HSC 23">HSC'23</option>
+                                <option value="HSC 24">HSC'24</option>
+                                <option value="HSC 25">HSC'25</option>
+                                <option value="HSC 26">HSC'26</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="text" name="disC" id="disC" class="form-control" style="display: none;"
+                        value="N/A">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
+                            <input type="tel" name="User Phone" class="form-control"
+                                pattern="^(?:\+?88)?01[13-9]\d{8}$" placeholder="+8801XX XXX XXXX" id="phone">
 
-                                <input type="text" style="display: none;" id="uid" name="UID">
-                                <textarea type="text" style="display: none;" id="ip-details"
-                                    name="IP Address"></textarea>
-                            </div>
+                            <input type="text" style="display: none;" id="uid" name="uid">
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" required type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                    <p class="bangla">মেডিকেল ব্যাচের সকল কন্টেন্ট সততার সাথে দেখে শেষ করবো ও চান্স
-                                        পাবো বলে প্রতিজ্ঞা করলাম</p>
-                                </label>
-                            </div>
-                        </div> -->
-                </div>
-                <div class="modal-footer">
-                    <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Phone Number
-                        is very important. Please make sure there is no mistake.</span>
-                    <button id="buy" type="submit" class="btn btn-success bangla">বুক করো</button>
-                    </form>
-                </div>
+                        <div class="form-group col-md-6">
+                            <label for="price">Product Price</label>
+                            <input type="number" disabled class="form-control" id="price">
+                        </div>
+                    </div>
+                    <div class="form-row"><label style="color: red;">You have to pay <span id="sprice"></span> ৳
+                        </label></div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" required type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                All the informations are correct &amp; I agree all the <a href="/terms.html"
+                                    target="_blank">Terms &amp; conditions </a> and <a href="/privacy.html"
+                                    target="_blank">Privacy Policy </a> &amp; <a
+                                    href="/return-and-refund-policy.html" target="_blank">Return Policy</a> 🥰
+                            </label>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Phone Number
+                    is very important. Please make sure there is no mistake.</span>
+                <button id="buy" type="submit" class="btn btn-success">Proceed Payment</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
+   
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
