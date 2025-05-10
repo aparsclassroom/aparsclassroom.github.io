@@ -55,6 +55,16 @@ a:hover {
     border-radius: 15px 15px 0px 0px;
 }
 
+.image-loaded3 {
+    position: static; /* ← Let the image flow naturally */
+    width: 100%;
+    height: 100%;
+    max-width: 100%; /* Responsive on smaller screens */
+    border-radius: 15px 15px 0px 0px;
+    display: block;
+    margin: 0 auto; /* Optional: center horizontally */
+}
+
 
 .btn-success-mod {
     color: #fff;
