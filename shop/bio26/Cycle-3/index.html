@@ -286,10 +286,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="d-flex justify-content-center">
                             <!-- Button trigger modal -->
-                             <button type="button" style="margin-top: 10px;" id="moda"
-                                class="btn btn-block bangla btn-lg btn-success-mod" data-toggle="modal">
+                              <button type="button" style="margin-top: 10px;" id="stop"
+                                class="btn btn-block bangla btn-lg btn-success-mod">
                                 সাইকেলে এনরোল করুন <i class="fas fa-arrow-right"></i>
                             </button>
+                            <script>
+                                document.getElementById('stop').addEventListener('click', () => {
+                                    swal({
+                                        title: "Course not available",
+                                        icon: "error",
+                                        button: "Ok"
+                                    }).then(() => {
+                                        return notdis();
+                                    });
+
+                                    function notdis() {
+                                        console.log("hahahahaha");
+                                    }
+                                });
+
+                                function notdis() {
+                                    console.log("hahahahaha");
+                                }
+                            </script>
                             
                         </div>
                     </div>

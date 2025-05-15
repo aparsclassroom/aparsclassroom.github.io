@@ -21,7 +21,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -312,10 +312,29 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <!-- Button trigger modal -->
-                            <button type="button" style="margin-top: 10px;" id="moda"
-                                class="btn btn-block bangla btn-lg btn-success-mod" data-toggle="modal">
+                            <button type="button" style="margin-top: 10px;" id="stop"
+                                class="btn btn-block bangla btn-lg btn-success-mod">
                                 সাইকেলে এনরোল করুন <i class="fas fa-arrow-right"></i>
                             </button>
+                            <script>
+                                document.getElementById('stop').addEventListener('click', () => {
+                                    swal({
+                                        title: "Course not available",
+                                        icon: "error",
+                                        button: "Ok"
+                                    }).then(() => {
+                                        return notdis();
+                                    });
+
+                                    function notdis() {
+                                        console.log("hahahahaha");
+                                    }
+                                });
+
+                                function notdis() {
+                                    console.log("hahahahaha");
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
