@@ -5,28 +5,30 @@
     <!-- Site Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '430193434618183');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '430193434618183');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Facebook Pixel Code -->
     <script>
-        ! function(f, b, e, v, n, t, s) {
+        ! function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
-            n = f.fbq = function() {
+            n = f.fbq = function () {
                 n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n;
@@ -42,7 +44,8 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
         }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '593459298431756');
         fbq('track', 'PageView');
-    </script> <noscript><img height="1" width="1" style="display:none"   src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
+    </script> <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=593459298431756&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
 
     <!-- loader -->
@@ -79,10 +82,28 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
     <!-- Style sheets -->
     <link rel="stylesheet" href="/shop/assets/minimal.css">
     <link rel="stylesheet" href="/shop/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/shop/assets/css/custom.css">
     <link rel="stylesheet" href="/shop/assets/css/print.css" media="print">
+
+        <style>
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #1ab942;
+        }
+
+        .checkbox-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #444;
+            margin: 0;
+        }
+    </style>
 
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
@@ -93,8 +114,12 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
     <!-- Scripts -->
     <script src="/assets/js/sweetalert.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
+        defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"
+        defer></script>
 
 
     <!-- Shop Scripts -->
@@ -104,12 +129,13 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
 
     <!-- Custom Scripts -->
     <script src="../assets/script.js" defer></script>
-    
+
 </head>
 
 <body>
     <nav class="navbar sticky-top navbar-light bg-transparent">
-        <a href="../" style="text-decoration: none;color: #5375e2;font-size: large;font-weight: bold;"><i class="fas fa-store-alt"></i> ASG Shop</a>
+        <a href="../" style="text-decoration: none;color: #5375e2;font-size: large;font-weight: bold;"><i
+                class="fas fa-store-alt"></i> ASG Shop</a>
     </nav>
     <div class="main">
         <div class="shopcontainer container-fluid">
@@ -122,80 +148,95 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                             <h2>Teachers :</h2>
                             <div class="media">
                                 <p>
-                                    <img src="https://i.postimg.cc/DychPq8r/Screenshot-2021-09-20-174533.png" class="image is-64x64 media-left" alt="Shuvro">
-                                    <div class="media-content">
-                                        <h5 class="title.is-5 ">Sheikh Hasnat Zaman Shuvro</h5>
-                                        <div class="content subtitle is-6 mb-1 collapsed">
-                                            Shaheed Suhrawardy Medical College Dental Unit
-                                        </div>
+                                    <img src="https://i.postimg.cc/DychPq8r/Screenshot-2021-09-20-174533.png"
+                                        class="image is-64x64 media-left" alt="Shuvro">
+                                <div class="media-content">
+                                    <h5 class="title.is-5 ">Sheikh Hasnat Zaman Shuvro</h5>
+                                    <div class="content subtitle is-6 mb-1 collapsed">
+                                        Shaheed Suhrawardy Medical College Dental Unit
                                     </div>
+                                </div>
                                 </p>
                             </div>
                         </div>
                     </div>
-<hr>
+                    <hr>
                     <div class="row">
                         <div id="content" class="col-md-6">
-                           <p class="bangla">
-                            SSC শেষ করে HSC শুরু—এই সময়টাই জীবনের সবচেয়ে গুরুত্বপূর্ণ একাডেমিক ট্রানজিশন। আর এই সময়টা যদি ঠিকভাবে কাজে লাগানো যায়, ভবিষ্যতের জন্য তৈরি হওয়া অনেক সহজ হয়। <br> <br>
-                            BioMission-এর HSC Academic Biology Course ২০২৪, ২০২৫ এবং ২০২৬ এই তিনটি ব্যাচে অভাবনীয় সফলতা পেয়েছে।
+                            <p class="bangla">
+                                SSC শেষ করে HSC শুরু—এই সময়টাই জীবনের সবচেয়ে গুরুত্বপূর্ণ একাডেমিক ট্রানজিশন। আর এই
+                                সময়টা যদি ঠিকভাবে কাজে লাগানো যায়, ভবিষ্যতের জন্য তৈরি হওয়া অনেক সহজ হয়। <br> <br>
+                                BioMission-এর HSC Academic Biology Course ২০২৪, ২০২৫ এবং ২০২৬ এই তিনটি ব্যাচে অভাবনীয়
+                                সফলতা পেয়েছে।
                             <p> <strong> এই তিন ব্যাচে মোট প্রায় ৩৮,০০০ শিক্ষার্থী যুক্ত হয়েছে। </strong> </p>
                             এখনো ১০,০০০+ শিক্ষার্থী নিয়মিত ক্লাস করছে আমাদের লাইভ ও আর্কাইভ সিস্টেমে। <br> <br>
-                            <h5> <strong> 🔍 কেন এই কোর্স আলাদা?  </strong> </h5> <br>
-   <strong> 📘 চ্যাপ্টারভিত্তিক সাজানো ক্লাসনোট + বই + স্লাইড </strong> <br>
- – প্রতিটি ক্লাস করানো হয় বেসিকের পাশাপাশি বোর্ড ও এডমিশন প্রশ্নভিত্তিক টার্গেট নিয়ে। <br>
- – মেইনবই ও ক্লাসনোটের গাঁথুনি এমন যে, আলাদা কিছু এক্সট্রা পড়ার দরকার পড়ে না।  <br> <br>
-   <strong> 🧪 বোর্ড ও সৃজনশীল প্রশ্নে কমন পড়ার মতো সাজেশন ভিত্তিক গাইডিং</strong> <br>
- – কীভাবে উত্তর লিখতে হবে, কীভাবে পড়তে হবে, এবং লাখ টাকার প্রশ্ন "কতটুকু শিখতে হবে?" —সব জানানো হবে সরাসরি লাইভ ক্লাসেই। <br> <br>
- <strong> 📝 সাপ্তাহিক কুইজ + Mega Exam + র‍্যাংকিং সিস্টেম  </strong> <br>
- – নিয়মিত অনুশীলন ও নিজেকে যাচাই করার সুযোগ <br> 
- – ছাত্র নিজের অবস্থান বুঝতে পারে এবং উন্নতির দিক খুঁজে পায়। <br> <br>
- <strong>  🎥 পরীক্ষার আগের দিন প্রি-রেকর্ডেড রিভিশন ক্লাস   </strong><br>
- – A+ পেতে ছাত্র যেন শেষ মুহূর্তে পুরোটা গুছিয়ে নিতে পারে, তার জন্যই এই ব্যাবস্থা। <br>
- – এক্সাম ফোকাসড, একদম সোজা Target করা ক্লাস। ডিউরেশন অল্প তাই পরীক্ষার আগের রাত্রে চট করেই দেখে ফেলা যায়। <br>
-– শুরুতেই প্রি রেকর্ডেড আকারে দেয়া থাকবে এই রিভিশন ক্লাস তাই লাইভ ক্লাসের শিডিউলের অপেক্ষা নিয়ে দুশ্চিন্তা নেই।    <br> <br>
-<strong> 📊 লাইভ ক্লাসের রেকর্ডেড ভার্সন + আর্কাইভ দুইই থাকবে  </strong> <br>
- – ক্লাস মিস হলেও পুনরায় দেখা যাবে—ফোন বা কম্পিউটার থেকে যেকোনো সময়। <br> <br>
- <strong>  🔒 একবার ভর্তি মানেই সম্পূর্ণ প্রস্তুতির নিশ্চয়তা   </strong> <br>
- – লাইভ ক্লাসের রেকর্ডেড ভার্সন , স্লাইড, ক্লাস নোট , বই, এক্সাম , রিভিশন, মেগা মডেল টেস্ট —সব এক প্ল্যাটফর্মেই। <br> <br>
-   <h5><strong>শিক্ষক পরিচিতি:  </strong> </h5> <br>
-এই কোর্সের প্রধান শিক্ষক – <strong>শেখ হাসনাত জামান শুভ্র </strong> <br>
- যিনি গত ৪ বছরে অনলাইনে ৭–৮ লাখ শিক্ষার্থীকে পড়িয়েছেন, <br>
- তাঁর ছাত্রদের মধ্যে ৫–৬ হাজারের বেশি ছাত্রছাত্রী মেডিকেলে চান্স পেয়েছে। <br>
-<strong> এই কোর্সে তিনি নিজেই সরাসরি ক্লাস নেন, স্লাইড তৈরি করেন, এবং ছাত্রদের গাইড করেন। </strong> <br> <br>
-<h5> <strong>< 💬 ২৪/৭ সরাসরি সাপোর্ট – শেখ হাসনাত জামান শুভ্র স্যারের কাছ থেকে </strong></h5><br>
-   <strong>🤝 ক্লাসে কিছু বুঝতে সমস্যা? পরীক্ষার আগে গাইডলাইন দরকার? </strong> <br> 
- নিশ্চিন্তে প্রশ্ন করো – শুভ্র স্যার নিজেই থাকবেন তোমার পাশে, ২৪/৭! <br> <br>
-📱 BioMission Whatsapp গ্রুপে সরাসরি স্যারের সাপোর্ট:  <br>
- ✍️ প্রশ্ন, কনফিউশন, সাজেশন – সবকিছুর উত্তর পাবে স্যারের কাছ থেকে <br>
- ✅ একদম ব্যক্তিগত মনোযোগ – যেন তুমি কখনো একা না পড়ো
- <br> <br> 
-<strong> 💸 ভর্তি ও ক্লাস ফ্রিকোয়েন্সি:  </strong> <br>
-💰 প্রতি সাইকেলের ফি: ১২৯৯ টাকা <br>
+                            <h5> <strong> 🔍 কেন এই কোর্স আলাদা? </strong> </h5> <br>
+                            <strong> 📘 চ্যাপ্টারভিত্তিক সাজানো ক্লাসনোট + বই + স্লাইড </strong> <br>
+                            – প্রতিটি ক্লাস করানো হয় বেসিকের পাশাপাশি বোর্ড ও এডমিশন প্রশ্নভিত্তিক টার্গেট নিয়ে। <br>
+                            – মেইনবই ও ক্লাসনোটের গাঁথুনি এমন যে, আলাদা কিছু এক্সট্রা পড়ার দরকার পড়ে না। <br> <br>
+                            <strong> 🧪 বোর্ড ও সৃজনশীল প্রশ্নে কমন পড়ার মতো সাজেশন ভিত্তিক গাইডিং</strong> <br>
+                            – কীভাবে উত্তর লিখতে হবে, কীভাবে পড়তে হবে, এবং লাখ টাকার প্রশ্ন "কতটুকু শিখতে হবে?" —সব
+                            জানানো হবে সরাসরি লাইভ ক্লাসেই। <br> <br>
+                            <strong> 📝 সাপ্তাহিক কুইজ + Mega Exam + র‍্যাংকিং সিস্টেম </strong> <br>
+                            – নিয়মিত অনুশীলন ও নিজেকে যাচাই করার সুযোগ <br>
+                            – ছাত্র নিজের অবস্থান বুঝতে পারে এবং উন্নতির দিক খুঁজে পায়। <br> <br>
+                            <strong> 🎥 পরীক্ষার আগের দিন প্রি-রেকর্ডেড রিভিশন ক্লাস </strong><br>
+                            – A+ পেতে ছাত্র যেন শেষ মুহূর্তে পুরোটা গুছিয়ে নিতে পারে, তার জন্যই এই ব্যাবস্থা। <br>
+                            – এক্সাম ফোকাসড, একদম সোজা Target করা ক্লাস। ডিউরেশন অল্প তাই পরীক্ষার আগের রাত্রে চট করেই
+                            দেখে ফেলা যায়। <br>
+                            – শুরুতেই প্রি রেকর্ডেড আকারে দেয়া থাকবে এই রিভিশন ক্লাস তাই লাইভ ক্লাসের শিডিউলের অপেক্ষা
+                            নিয়ে দুশ্চিন্তা নেই। <br> <br>
+                            <strong> 📊 লাইভ ক্লাসের রেকর্ডেড ভার্সন + আর্কাইভ দুইই থাকবে </strong> <br>
+                            – ক্লাস মিস হলেও পুনরায় দেখা যাবে—ফোন বা কম্পিউটার থেকে যেকোনো সময়। <br> <br>
+                            <strong> 🔒 একবার ভর্তি মানেই সম্পূর্ণ প্রস্তুতির নিশ্চয়তা </strong> <br>
+                            – লাইভ ক্লাসের রেকর্ডেড ভার্সন , স্লাইড, ক্লাস নোট , বই, এক্সাম , রিভিশন, মেগা মডেল টেস্ট
+                            —সব এক প্ল্যাটফর্মেই। <br> <br>
+                            <h5><strong>শিক্ষক পরিচিতি: </strong> </h5> <br>
+                            এই কোর্সের প্রধান শিক্ষক – <strong>শেখ হাসনাত জামান শুভ্র </strong> <br>
+                            যিনি গত ৪ বছরে অনলাইনে ৭–৮ লাখ শিক্ষার্থীকে পড়িয়েছেন, <br>
+                            তাঁর ছাত্রদের মধ্যে ৫–৬ হাজারের বেশি ছাত্রছাত্রী মেডিকেলে চান্স পেয়েছে। <br>
+                            <strong> এই কোর্সে তিনি নিজেই সরাসরি ক্লাস নেন, স্লাইড তৈরি করেন, এবং ছাত্রদের গাইড করেন।
+                            </strong> <br> <br>
+                            <h5> <strong>
+                                    < 💬 ২৪/৭ সরাসরি সাপোর্ট – শেখ হাসনাত জামান শুভ্র স্যারের কাছ থেকে </strong>
+                            </h5><br>
+                            <strong>🤝 ক্লাসে কিছু বুঝতে সমস্যা? পরীক্ষার আগে গাইডলাইন দরকার? </strong> <br>
+                            নিশ্চিন্তে প্রশ্ন করো – শুভ্র স্যার নিজেই থাকবেন তোমার পাশে, ২৪/৭! <br> <br>
+                            📱 BioMission Whatsapp গ্রুপে সরাসরি স্যারের সাপোর্ট: <br>
+                            ✍️ প্রশ্ন, কনফিউশন, সাজেশন – সবকিছুর উত্তর পাবে স্যারের কাছ থেকে <br>
+                            ✅ একদম ব্যক্তিগত মনোযোগ – যেন তুমি কখনো একা না পড়ো
+                            <br> <br>
+                            <strong> 💸 ভর্তি ও ক্লাস ফ্রিকোয়েন্সি: </strong> <br>
+                            💰 প্রতি সাইকেলের ফি: ১০০০ টাকা <br>
 
-📘 প্রতি সাইকেলের বই: 0 টাকা <br>
+                            📘 প্রতি সাইকেলের বই: 0 টাকা <br>
 
-🗓️ ক্লাস দিন: প্রতি সপ্তাহে ৩ দিন – রবি, মঙ্গল, বৃহস্পতি <br>
+                            🗓️ ক্লাস দিন: প্রতি সপ্তাহে ৩ দিন – রবি, মঙ্গল, বৃহস্পতি <br>
 
-🌐 মোড: সম্পূর্ণ অনলাইন – ফেসবুক লাইভ এর পাশাপাশি ASG-BioMission Web App এ ক্লাস <br>
+                            🌐 মোড: সম্পূর্ণ অনলাইন – ফেসবুক লাইভ এর পাশাপাশি ASG-BioMission Web App এ ক্লাস <br>
 
-                            
-                           <p/>
+
+                            <p />
                             <h3 class="mt-4 bangla">সচরাচর জিজ্ঞাসা</h3>
                             <div id="Faq">
                                 <div class="card bangla">
                                     <div class="card-header" id="faqs">
                                         <h5 class="mb-0"></h5>
-                                        <button class="btn collapsed" data-toggle="collapse" data-target="#faqCl" aria-expanded="true" aria-controls="faqCl">
-                                                            <i class="fa" aria-hidden="true"></i>
-                                                            কোর্সটি কীভাবে কিনবো?
-                                                        </button>
+                                        <button class="btn collapsed" data-toggle="collapse" data-target="#faqCl"
+                                            aria-expanded="true" aria-controls="faqCl">
+                                            <i class="fa" aria-hidden="true"></i>
+                                            কোর্সটি কীভাবে কিনবো?
+                                        </button>
                                         </h5>
                                     </div>
                                     <div id="faqCl" class="collapse show" aria-labelledby="faqs" data-parent="#Faq">
                                         <div class="card-body">
                                             <div class="card-body">
-                                                <p>বি.দ্র. কেনার পূর্বে অবশ্যই এই ভিডিওটি দেখে নাও : <br><a href="https://www.youtube.com/watch?v=ji7epk_R20U" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=ji7epk_R20U</a></p>
+                                                <p>বি.দ্র. কেনার পূর্বে অবশ্যই এই ভিডিওটি দেখে নাও : <br><a
+                                                        href="https://www.youtube.com/watch?v=ji7epk_R20U"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer">https://www.youtube.com/watch?v=ji7epk_R20U</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +250,7 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                         <div class="embed-responsive-item">
                             <div id="thumb">
                                 <img src="https://i.postimg.cc/43CrPncd/Cycle-1.jpg" class="image-loaded">
-                                 <!-- <script src="/assets/js/lottie-player.js"></script>
+                                <!-- <script src="/assets/js/lottie-player.js"></script>
                                     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_aolblx3z.json"  background="transparent"  speed="1"  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; opacity: 1;"  loop autoplay></lottie-player> -->
                             </div>
                         </div>
@@ -218,17 +259,17 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                     <div class="contmeta text-center">
                         <div class="met">
                             <div class="tag">
-                                <img src="/assets/enroll.svg"alt="enrolled">
+                                <img src="/assets/enroll.svg" alt="enrolled">
                                 <div class="flt bangla">
                                     <span>
-                                কোর্সটি করছেন</span><strong id="enrolled"></strong>
+                                        কোর্সটি করছেন</span><strong id="enrolled"></strong>
                                 </div>
                             </div>
                             <div class="tag">
                                 <img src="/assets/revision_class.svg" alt="time required">
                                 <div class="flt bangla">
                                     <span>
-                                সময় লাগবে</span><strong> ২.৫ মাস</strong>
+                                        সময় লাগবে</span><strong> ২.৫ মাস</strong>
                                 </div>
                             </div>
                         </div>
@@ -242,20 +283,24 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                     <br>
                     <div id="clprc" class="cove">
 
-                        <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span id="prevP"></span>৳</del> <span id="nop" style="color: rgb(26, 185, 66);"></span></span>
+                        <h3 class="text-center">Price : <span id="smp"><del style="color: red;"><span
+                                        id="prevP"></span>৳</del> <span id="nop"
+                                    style="color: rgb(26, 185, 66);"></span></span>
                         </h3>
 
+
+
                         <div class="justify-content-center">
-                            <button id="app" class="btn btn-block btn-outline-secondary">Do you have any <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/qrbokoyz.json"
-                                    trigger="loop"
-                                    colors="primary:#121331,secondary:#08a88a"
-                                    style="width:25px;height:25px">
-                                </lord-icon> Coupon ?</button>
+                            <button id="app" class="btn btn-block btn-outline-secondary">Do you have any
+                                <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="loop"
+                                    colors="primary:#121331,secondary:#08a88a" style="width:25px;height:25px">
+                                </lord-icon> Coupon ?
+                            </button>
                             <div id="cup">
                                 <div id="coupnbosh" class="input-group">
-                                    <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()" class="form-control" placeholder="Discount Coupon">
+                                    <input id="cupon" name="cupon" type="text" oninput="func()" onkeyup="suc()"
+                                        class="form-control" placeholder="Discount Coupon">
                                     <div class="input-group-append">
                                         <button id="cpnCheck" disabled class="btn btn-dark">Apply</button>
                                     </div>
@@ -263,11 +308,20 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                                 <p class="text-center" id="how" style="display: none;"></p>
                             </div>
                         </div>
+                        <div class="text-center"
+                            style="background-color: rgb(238, 245, 237); padding: 10px; margin-top: 10px; margin-bottom: 10px; border-radius: 1rem;">
+                            <input class="custom-checkbox" type="checkbox" id="addBooks">
+                            <label class="checkbox-label" for="addBooks">
+                                <h6>Add Books (+250 TK) <span class="delivery-icon">🏠</span> <br>&nbsp; (Home Delivery
+                                    included) </h6>
+                            </label>
+
+                        </div>
                         <div class="d-flex justify-content-center">
                             <!-- Button trigger modal -->
-                             <button type="button" style="margin-top: 10px;" id="moda"
-                                class="btn btn-block bangla btn-lg btn-success" data-toggle="modal">
-                                কোর্স কিনতে লগইন করো <i class="fas fa-arrow-right"></i>
+                            <button type="button" style="margin-top: 10px;" id="moda"
+                                class="btn btn-block bangla btn-lg btn-success-mod" data-toggle="modal">
+                                কোর্সটি কিনুন <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
@@ -277,19 +331,36 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
     </div>
     <footer class="d-flex pb-5 pt-6 pt-md-7">
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-lg-4">
-                    <p>Apars Classroom <strong>(ASG Shop)</strong> is an online education center based in Dhaka, Bangladesh, specializing in providing high-quality educational resources to students across the country. Established in 2018, the platform has quickly gained popularity among Bangladeshi students, with over 900,000 students actively learning and developing their skills through its diverse range of courses.</p>
+                    <p>Apars Classroom <strong>(ASG Shop)</strong> is an online education center based in Dhaka,
+                        Bangladesh, specializing in providing high-quality educational resources to students across the
+                        country. Established in 2018, the platform has quickly gained popularity among Bangladeshi
+                        students, with over 900,000 students actively learning and developing their skills through its
+                        diverse range of courses.</p>
                     <ul class="d-flex list-unstyled mb-5 mb-lg-0">
                         <li class="mr-2">
-                            <a href="https://www.facebook.com/aparsclassroom/" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="facebook social link" data-toggle="tooltip" data-placement="top" title="Like @aparsclassroom on Facebook"><span aria-hidden="true" class="fab fa-facebook"></span></a>
+                            <a href="https://www.facebook.com/aparsclassroom/" target="_blank"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="facebook social link"
+                                data-toggle="tooltip" data-placement="top"
+                                title="Like @aparsclassroom on Facebook"><span aria-hidden="true"
+                                    class="fab fa-facebook"></span></a>
                         </li>
                         <li class="mr-2">
-                            <a href="https://instagram.com/aparsclassroom" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="instagram social link" data-toggle="tooltip" data-placement="top" title="Follow @aparsclassroom on insta"><span aria-hidden="true" class="fab fa-instagram"></span></a>
+                            <a href="https://instagram.com/aparsclassroom" target="_blank"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="instagram social link"
+                                data-toggle="tooltip" data-placement="top" title="Follow @aparsclassroom on insta"><span
+                                    aria-hidden="true" class="fab fa-instagram"></span></a>
                         </li>
-                        <li class="mr-2"><a href="https://youtube.com/aparsclassroom" target="_blank" class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title="Subscribe our Channel"><span aria-hidden="true" class="fab fa-youtube"></span></a></li>
-                        <li class="mr-2"><a href="mailto:support@aparsclassroom.com" class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title="Email Us"><span aria-hidden="true" class="fas fa-envelope"></span></a></li>
+                        <li class="mr-2"><a href="https://youtube.com/aparsclassroom" target="_blank"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link"
+                                data-toggle="tooltip" data-placement="top" title="Subscribe our Channel"><span
+                                    aria-hidden="true" class="fab fa-youtube"></span></a></li>
+                        <li class="mr-2"><a href="mailto:support@aparsclassroom.com"
+                                class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link"
+                                data-toggle="tooltip" data-placement="top" title="Email Us"><span aria-hidden="true"
+                                    class="fas fa-envelope"></span></a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -297,68 +368,82 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                     <ul class="footer-links list-unstyled mt-2">
                         <li class="mb-1"><a class="p-2" target="_blank" href="/terms.html">Terms and Conditions</a></li>
                         <li class="mb-1"><a class="p-2" target="_blank" href="/privacy.html">Privacy Policy</a></li>
-                        <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy.html">Return and Refund Policy</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy.html">Return and
+                                Refund Policy</a></li>
                         <li><a class="p-2" target="_blank" href="/contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                     <h5>Disclaimer</h5>
-                    <p class="text-gray font-small m-0">All the products are listed for sale in the shop, are owned by the Company. Anyone can buy personal license for the products. But Reselling are Strictly prohibited. Learn more about <a class="text-danger" href="/piracy.html">Anti-Piracy Laws</a>                        &amp; <a class="text-danger" href="/terms.html">Terms and Conditions</a>.
+                    <p class="text-gray font-small m-0">All the products are listed for sale in the shop, are owned by
+                        the Company. Anyone can buy personal license for the products. But Reselling are Strictly
+                        prohibited. Learn more about <a class="text-danger" href="/piracy.html">Anti-Piracy Laws</a>
+                        &amp; <a class="text-danger" href="/terms.html">Terms and Conditions</a>.
                     </p>
                 </div>
             </div>
             <hr class="my-5">
             <div class="row">
                 <div class="col">
-                    <a href="/" target="_blank" class="d-flex justify-content-center"><img src="/HSC-Full-Course/assets/images/1.png" height="50" class="mb-3" alt="Apar's Classroom Logo"></a>
+                    <a href="/" target="_blank" class="d-flex justify-content-center"><img
+                            src="/HSC-Full-Course/assets/images/1.png" height="50" class="mb-3"
+                            alt="Apar's Classroom Logo"></a>
                     <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
-                        <p class="font-weight-normal font-small mb-0">&copy; <span class="current-year">2018-2024</span> Apar's Classroom<br>All rights reserved.</p>
+                        <p class="font-weight-normal font-small mb-0">&copy; <span class="current-year">2018-2024</span>
+                            Apar's Classroom<br>All rights reserved.</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
     <!-- Modal -->
-    <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel" data-backdrop="static" aria-hidden="true">
+    <div class="modal fade" id="purchaseFrm" tabindex="-1" role="dialog" aria-labelledby="purchaseFrmLabel"
+        data-backdrop="static" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="purchaseFrmLabel">Please fill up your Informations correctly</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form id="purchase" name="purchase">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" required id="name" name="Name" placeholder="Your Name">
+                                <input type="text" class="form-control" required id="name" name="Name"
+                                    placeholder="Your Name">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email">Email <span style="color: red;">***</span></label>
-                                <input type="email" class="form-control" id="email" required name="Email"  pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$" placeholder="xyz@gmail.com">
+                                <input type="email" class="form-control" id="email" required name="Email"
+                                    pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$"
+                                    placeholder="xyz@gmail.com">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="college">Institute</label>
-                                <input type="text" class="form-control" id="college" required name="College" placeholder="ex : Dhaka Residential Model College">
+                                <input type="text" class="form-control" id="college" required name="College"
+                                    placeholder="ex : Dhaka Residential Model College">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="hscBatch">HSC Batch</label>
                                 <select id="hscBatch" name="HSC Batch" required class="form-control">
-                          <option value="HSC 26">HSC'26</option>
-                          <option value="HSC 27">HSC'27</option>
-                        </select>
+                                    <option value="HSC 26">HSC'26</option>
+                                    <option value="HSC 27">HSC'27</option>
+                                </select>
                             </div>
                         </div>
-                        <input type="text" name="disC" id="disC" class="form-control" style="display: none;" value="N/A">
+                        <input type="text" name="disC" id="disC" class="form-control" style="display: none;"
+                            value="N/A">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Phone">Your Phone Number <span style="color: red;">***</span></label>
-                                <input type="tel" name="User Phone" class="form-control" pattern="^(?:\+?88)?01[13-9]\d{8}$" placeholder="+8801XX XXX XXXX" id="phone">
-                              
+                                <input type="tel" name="User Phone" class="form-control"
+                                    pattern="^(?:\+?88)?01[13-9]\d{8}$" placeholder="+8801XX XXX XXXX" id="phone">
+
                                 <input type="text" style="display: none;" id="uid" name="uid">
                             </div>
                             <div class="form-group col-md-6">
@@ -366,25 +451,150 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                                 <input type="number" disabled class="form-control" id="price">
                             </div>
                         </div>
-                        <div class="form-row"><label style="color: red;">You have to pay <span id="sprice"></span> ৳ </label></div>
+
+                         <div id="shippingFields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="ship_name">Shipping Name</label>
+                                    <input type="text" class="form-control" id="ship_name"
+                                        placeholder="Full name for delivery">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ship_phone">Shipping Phone</label>
+                                    <input type="tel" class="form-control" id="ship_phone" pattern="^(?:\+?88)?01[13-9]\d{8}$" placeholder="+8801XX XXX XXXX">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ship_add1">Address Line 1</label>
+                                <input type="text" class="form-control" id="ship_add1" placeholder="Street address">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="ship_area">Branch</label>
+                                    <select class="form-control" id="ship_area">
+                                        <option value="Cumilla Aces">Cumilla Aces</option>
+                                        <option value="Farmgate Falcons">Farmgate Falcons</option>
+                                        <option value="Khulna Tigers">Khulna Tigers</option>
+                                        <option value="Motijheel Monarchs">Motijheel Monarchs</option>
+                                        <option value="Sylhet Sultans">Sylhet Sultans</option>
+                                        <option value="Bogura Titans">Bogura Titans</option>
+                                        <option value="Mirpur Gladiators">Mirpur Gladiators</option>
+                                        <option value="Rajshahi Royals">Rajshahi Royals</option>
+                                        <option value="Rangpur Rangers">Rangpur Rangers</option>
+                                        <option value="Chattogram Vikings">Chattogram Vikings</option>
+                                        <option value="Barisal Predators">Barisal Predators</option>
+                                        <option value="Kushtia Kings">Kushtia Kings</option>
+                                        <option value="Kushtia Kings">Uttara Raptors</option>
+                                        <option value="Chattogram Vikings">Mymensingh Warriors</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="ship_city">City</label>
+                                    <select class="form-control" id="ship_city">
+                                        <option value="Bagerhat">Bagerhat</option>
+                                        <option value="Bandarban">Bandarban</option>
+                                        <option value="Barguna">Barguna</option>
+                                        <option value="Barisal">Barisal</option>
+                                        <option value="Bhola">Bhola</option>
+                                        <option value="Bogura">Bogura</option>
+                                        <option value="Brahmanbaria">Brahmanbaria</option>
+                                        <option value="Chandpur">Chandpur</option>
+                                        <option value="Chapainawabganj">Chapainawabganj</option>
+                                        <option value="Chattogram">Chattogram</option>
+                                        <option value="Chuadanga">Chuadanga</option>
+                                        <option value="Cumilla">Cumilla</option>
+                                        <option value="Cox's Bazar">Cox's Bazar</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Dinajpur">Dinajpur</option>
+                                        <option value="Faridpur">Faridpur</option>
+                                        <option value="Feni">Feni</option>
+                                        <option value="Gaibandha">Gaibandha</option>
+                                        <option value="Gazipur">Gazipur</option>
+                                        <option value="Gopalganj">Gopalganj</option>
+                                        <option value="Habiganj">Habiganj</option>
+                                        <option value="Jamalpur">Jamalpur</option>
+                                        <option value="Jashore">Jashore</option>
+                                        <option value="Jhalokati">Jhalokati</option>
+                                        <option value="Jhenaidah">Jhenaidah</option>
+                                        <option value="Joypurhat">Joypurhat</option>
+                                        <option value="Khagrachhari">Khagrachhari</option>
+                                        <option value="Khulna">Khulna</option>
+                                        <option value="Kishoreganj">Kishoreganj</option>
+                                        <option value="Kurigram">Kurigram</option>
+                                        <option value="Kushtia">Kushtia</option>
+                                        <option value="Lakshmipur">Lakshmipur</option>
+                                        <option value="Lalmonirhat">Lalmonirhat</option>
+                                        <option value="Madaripur">Madaripur</option>
+                                        <option value="Magura">Magura</option>
+                                        <option value="Manikganj">Manikganj</option>
+                                        <option value="Meherpur">Meherpur</option>
+                                        <option value="Moulvibazar">Moulvibazar</option>
+                                        <option value="Munshiganj">Munshiganj</option>
+                                        <option value="Mymensingh">Mymensingh</option>
+                                        <option value="Naogaon">Naogaon</option>
+                                        <option value="Narail">Narail</option>
+                                        <option value="Narayanganj">Narayanganj</option>
+                                        <option value="Narsingdi">Narsingdi</option>
+                                        <option value="Natore">Natore</option>
+                                        <option value="Netrakona">Netrakona</option>
+                                        <option value="Nilphamari">Nilphamari</option>
+                                        <option value="Noakhali">Noakhali</option>
+                                        <option value="Pabna">Pabna</option>
+                                        <option value="Panchagarh">Panchagarh</option>
+                                        <option value="Patuakhali">Patuakhali</option>
+                                        <option value="Pirojpur">Pirojpur</option>
+                                        <option value="Rajbari">Rajbari</option>
+                                        <option value="Rajshahi">Rajshahi</option>
+                                        <option value="Rangamati">Rangamati</option>
+                                        <option value="Rangpur">Rangpur</option>
+                                        <option value="Satkhira">Satkhira</option>
+                                        <option value="Shariatpur">Shariatpur</option>
+                                        <option value="Sherpur">Sherpur</option>
+                                        <option value="Sirajganj">Sirajganj</option>
+                                        <option value="Sunamganj">Sunamganj</option>
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Tangail">Tangail</option>
+                                        <option value="Thakurgaon">Thakurgaon</option>
+                                        <!-- Add all 64 districts -->
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="ship_postcode">Postcode</label>
+                                    <input type="text" class="form-control" id="ship_postcode" placeholder="e.g. 4120">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row"><label style="color: red;">You have to pay <span id="sprice"></span> ৳
+                            </label></div>
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" required type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
-                          All the informations are correct &amp; I agree all the <a href="/terms.html" target="_blank">Terms &amp; conditions </a> and <a href="/privacy.html" target="_blank">Privacy Policy </a> &amp; <a href="/return-and-refund-policy.html" target="_blank">Return Policy</a> 🥰
-                        </label>
+                                    All the informations are correct &amp; I agree all the <a href="/terms.html"
+                                        target="_blank">Terms &amp; conditions </a> and <a href="/privacy.html"
+                                        target="_blank">Privacy Policy </a> &amp; <a
+                                        href="/return-and-refund-policy.html" target="_blank">Return Policy</a> 🥰
+                                </label>
                             </div>
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Phone Number is very important. Please make sure there is no mistake.</span>
+                    <span style="text-align: left;"> <span style="color: red;">Note: </span> your Email and Phone Number
+                        is very important. Please make sure there is no mistake.</span>
                     <button id="buy" type="submit" class="btn btn-success">Proceed Payment</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>

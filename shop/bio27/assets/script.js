@@ -1,18 +1,20 @@
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+let productcode = productCode;
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
@@ -20,7 +22,48 @@ document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
-firebase.auth().onAuthStateChanged(function(e) {
+document.getElementById('addBooks').addEventListener('change', function () {
+    const shipFields = document.getElementById('shippingFields');
+    const isShipping = this.checked;
+
+    shipFields.style.display = isShipping ? 'block' : 'none';
+
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_area'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_postcode'),
+    ];
+
+    if (isShipping) {
+        document.getElementById('sprice').innerText = pls2;
+        document.getElementById('price').value = pls2;
+        document.getElementById('nop').innerText = pls2 + "৳";
+        shippingInputs.forEach(input => input.setAttribute('required', ''));
+         productcode = productCode2;
+        document.getElementById('ship_phone').addEventListener("input", function (event) {
+            if (document.getElementById('ship_phone').validity.patternMismatch) {
+                document.getElementById('ship_phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+            } else {
+                document.getElementById('ship_phone').setCustomValidity("");
+            }
+        });
+    } else {
+        document.getElementById('sprice').innerText = pls;
+        document.getElementById('price').value = pls;
+        document.getElementById('nop').innerText = pls + "৳";
+         productcode = productCode;
+        // Platform = Platform;
+        shippingInputs.forEach(input => input.removeAttribute('required'));
+        // product = product;
+    }
+});
+
+
+
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -29,7 +72,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": productCode,
+            "product": productcode,
             'uid': e.uid
         });
 
@@ -40,7 +83,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions)
+        fetch(`https://${shopName2}/${productcode}/purchase/${Cycle}`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -62,9 +105,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                         document.getElementById("buy").disabled = true;
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "productName": product,
-                            "Platform": Platform,
+                        const isShipping = document.getElementById('addBooks').checked;
+                        var rawData = {
+                            "productName": isShipping ? product2 : product,
+                            "Platform": isShipping? Platform2 : Platform,
                             "cus_name": document.getElementById('name').value.trim(),
                             "cus_email": mail,
                             "Institution": document.getElementById('college').value.trim(),
@@ -84,7 +128,19 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "Referrer": getCookie("Referrer"),
                             "Ip": getCookie("ip"),
                             "Referrer": getCookie("Platform")
-                        });
+                        };
+
+                        if (isShipping) {
+                            rawData.ship_name = document.getElementById('ship_name').value.trim();
+                            rawData.ship_phone = document.getElementById('ship_phone').value.trim();
+                            rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
+                            rawData.ship_area = document.getElementById('ship_area').value;
+                            rawData.ship_city = document.getElementById('ship_city').value;
+                            rawData.ship_postcode = document.getElementById('ship_postcode').value.trim();
+                            rawData.ship_method = 'Courier'
+                        }
+
+                        var raw = JSON.stringify(rawData);
 
                         var requestOptions = {
                             method: 'POST',
@@ -93,7 +149,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName2}/${Cycle}/${productcode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -102,13 +158,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                        title: "Error",
+                                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                        text: "Please visit after 10 pm tonight",
+                                        button: "Ok"
+                                    }).then(() => {
+                                        location.href = "/shop"
+                                    })
                                 }
                             })
                             .catch(() => {
@@ -132,9 +188,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                     document.getElementById("buy").disabled = true;
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
-                    var raw = JSON.stringify({
-                        "productName": product,
-                        "Platform": Platform,
+                    const isShipping = document.getElementById('addBooks').checked;
+                    var rawData = {
+                        "productName": isShipping ? product2 : product,
+                        "Platform": isShipping? Platform2 : Platform,
                         "cus_name": document.getElementById('name').value.trim(),
                         "cus_email": mail,
                         "Institution": document.getElementById('college').value.trim(),
@@ -154,7 +211,19 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "Referrer": getCookie("Referrer"),
                         "Ip": getCookie("ip"),
                         "Referrer": getCookie("Platform")
-                    });
+                    };
+
+                    if (isShipping) {
+                        rawData.ship_name = document.getElementById('ship_name').value.trim();
+                        rawData.ship_phone = document.getElementById('ship_phone').value.trim();
+                        rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
+                        rawData.ship_area = document.getElementById('ship_area').value;
+                        rawData.ship_city = document.getElementById('ship_city').value;
+                        rawData.ship_postcode = document.getElementById('ship_postcode').value.trim();
+                        rawData.ship_method = 'Courier'
+                    }
+
+                    var raw = JSON.stringify(rawData);
 
                     var requestOptions = {
                         method: 'POST',
@@ -163,7 +232,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
+                    fetch(`https://${shopName2}/${Cycle}/${productcode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
@@ -172,20 +241,20 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.href = "/shop"
+                                })
                             }
                         })
                         .catch(() => {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
                                 location.href = "/shop"
@@ -260,7 +329,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productcode)
         .then((res) => {
             return res.json();
         })
@@ -281,7 +350,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -310,11 +379,11 @@ document.getElementById("cup").style.display = "block";
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
 
-    document.getElementById("cup").style.display = "none"; 
+    document.getElementById("cup").style.display = "none";
     delete_cookie("promo");
     notdis()
 }

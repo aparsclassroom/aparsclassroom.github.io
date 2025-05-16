@@ -1,10 +1,15 @@
 const product = "hbio27";
+const product2 = "hbio27wbook";
 const productName = "ACS - College Biology Course by BioMission";
+const productName2 = "ACS - College Biology Course by BioMission with Book";
 const productCode = "389";
+const productCode2 = "432";
 const fix = 2000;
-const pls = 1299;
+const pls = 1000;
+const pls2 = 1250;
 const init = 0;
-const Platform = "Online";
+let Platform = "Online";
+let Platform2 = "Physical";
 const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
