@@ -329,13 +329,15 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
+    const isShipping = document.getElementById('addBooks').checked;
     fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productcode)
         .then((res) => {
             return res.json();
         })
         .then((loadedData) => {
             if (loadedData.status === "success") {
-                var nes = pls - loadedData.Off;
+                var nes;
+                isShipping ? nes = pls2 - loadedData.Off : nes = pls - loadedData.Off;
                 disOFF = loadedData.Off;
                 document.getElementById('price').value = nes;
                 document.getElementById('sprice').innerText = nes;
