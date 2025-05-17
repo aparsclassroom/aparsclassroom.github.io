@@ -116,6 +116,47 @@
         }
     </style>
 
+        <style>
+    .teachers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .teacher-card {
+        flex: 1 1 calc(50% - 20px);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .teacher-card img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .teacher-info {
+        font-size: 15px;
+    }
+
+    .teacher-info strong {
+        font-size: 16px;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .teacher-card {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
@@ -158,22 +199,29 @@
             <h3 class="text-center"><span id="prod"></span></h3>
             <div class="row">
                 <div id="teachers" class="col-md-7 first">
-                    <div class="row">
+                   <div class="row">
                         <div class="col-md-6">
-                            <h2>Teachers :</h2>
-                            <div class="teachers">
-                                <p>
-                                    <img src="https://i.postimg.cc/3xMKmCMQ/Screenshot-20.png"
-                                        alt="Apurbo Opu"><br><span
-                                        style="padding-left: 15px;display: flex;text-align: center;"> <span
-                                            style="text-align: center;"></span>Apurbo Opu<br>EEE, RUET'13</span>
-                                </p>
-                                <p>
-                                    <img src="https://i.postimg.cc/pXBHdFWZ/Screenshot-24.png"
-                                        alt="M Mashrur Hussain"><br><span
-                                        style="padding-left: 15px;display: flex;text-align: center;">M Mashrur
-                                        Hussain<br>NAME, BUET'13</span>
-                                </p>
+                            <div class="teacher-section">
+                                <h2>Teachers :</h2>
+                                <div class="teachers">
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/3xMKmCMQ/Screenshot-20.png" alt="Apurbo Opu">
+                                        <div class="teacher-info">
+                                            <strong>Apurbo Opu</strong>
+                                            EEE, RUET'13
+                                            Founder, Apurbo Physics
+                                        </div>
+                                    </div>
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/pXBHdFWZ/Screenshot-24.png"
+                                            alt="M Mashrur Hussain">
+                                        <div class="teacher-info">
+                                            <strong>M Mashrur Hussain</strong>
+                                            BUET | IBA, DU (MBA) 
+                                            Founder, Lobdhi
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
