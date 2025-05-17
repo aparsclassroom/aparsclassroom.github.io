@@ -1,5 +1,5 @@
 // const product = "Math26";
-// const productName = "ACS Higher Math 1st Paper (HSC 27)";
+// const productName = "ACS HSC 27 Higher Math Academic";
 // const productCode = "396";
 // const fix = 1500;
 // const pls = 1000;
@@ -7,8 +7,8 @@
 // const Platform = "Online";
 const product = "Math27";
 const product2 = "math27wbooks";
-const productName = "ACS Higher Math 1st Paper (HSC 27)";
-const productName2 = "ACS HSC 27 Higher Math Academic with Book";
+const productName = "ACS HSC 27 Higher Math Academic";
+const productName2 = "ACS HSC 27 Higher Math Academic with Books";
 let productCode = "396";
 let productCode2 = "427";
 const fix = 1500;
