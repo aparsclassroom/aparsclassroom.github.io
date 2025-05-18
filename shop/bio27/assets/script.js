@@ -32,9 +32,9 @@ document.getElementById('addBooks').addEventListener('change', function () {
         document.getElementById('ship_name'),
         document.getElementById('ship_phone'),
         document.getElementById('ship_add1'),
-        document.getElementById('ship_area'),
+        
         document.getElementById('ship_city'),
-        document.getElementById('ship_postcode'),
+        document.getElementById('ship_upzilla'),
     ];
 
     if (isShipping) {
@@ -134,9 +134,9 @@ firebase.auth().onAuthStateChanged(function (e) {
                             rawData.ship_name = document.getElementById('ship_name').value.trim();
                             rawData.ship_phone = document.getElementById('ship_phone').value.trim();
                             rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
-                            rawData.ship_area = document.getElementById('ship_area').value;
+                            
                             rawData.ship_city = document.getElementById('ship_city').value;
-                            rawData.ship_postcode = document.getElementById('ship_postcode').value.trim();
+                            rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
                             rawData.ship_method = 'Courier'
                         }
 
@@ -217,9 +217,9 @@ firebase.auth().onAuthStateChanged(function (e) {
                         rawData.ship_name = document.getElementById('ship_name').value.trim();
                         rawData.ship_phone = document.getElementById('ship_phone').value.trim();
                         rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
-                        rawData.ship_area = document.getElementById('ship_area').value;
+                        
                         rawData.ship_city = document.getElementById('ship_city').value;
-                        rawData.ship_postcode = document.getElementById('ship_postcode').value.trim();
+                        rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
                         rawData.ship_method = 'Courier'
                     }
 
