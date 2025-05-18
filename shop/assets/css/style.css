@@ -136,11 +136,12 @@ ol {
     line-height: 1.5;
     padding-left: .75em;
     padding-right: .75em;
-    white-space: nowrap;
+    white-space: wrap;
     margin-bottom: .8rem;
     margin-right: .25rem;
     margin-left: .25rem;
 }
+
 
 .tag2 {
     align-items: center;
