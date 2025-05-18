@@ -116,46 +116,46 @@
         }
     </style>
 
-        <style>
-    .teachers {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .teacher-card {
-        flex: 1 1 calc(50% - 20px);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 10px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-    }
-
-    .teacher-card img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    .teacher-info {
-        font-size: 15px;
-    }
-
-    .teacher-info strong {
-        font-size: 16px;
-        display: block;
-    }
-
-    @media (max-width: 768px) {
-        .teacher-card {
-            flex: 1 1 100%;
+    <style>
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-    }
-</style>
+
+        .teacher-card {
+            flex: 1 1 calc(50% - 20px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .teacher-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .teacher-info {
+            font-size: 15px;
+        }
+
+        .teacher-info strong {
+            font-size: 16px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .teacher-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
 
     <!-- Firebase Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
@@ -199,7 +199,7 @@
             <h3 class="text-center"><span id="prod"></span></h3>
             <div class="row">
                 <div id="teachers" class="col-md-7 first">
-                   <div class="row">
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="teacher-section">
                                 <h2>Teachers :</h2>
@@ -531,100 +531,20 @@
                             </div>
 
                             <div class="form-row">
+                                <!-- District Dropdown -->
                                 <div class="form-group col-md-6">
-                                    <label for="ship_area">Nearest Branch</label>
-                                    <select class="form-control" id="ship_area">
-                                        <option value="Cumilla Aces">Cumilla Aces</option>
-                                        <option value="Farmgate Falcons">Farmgate Falcons</option>
-                                        <option value="Khulna Tigers">Khulna Tigers</option>
-                                        <option value="Motijheel Monarchs">Motijheel Monarchs</option>
-                                        <option value="Sylhet Sultans">Sylhet Sultans</option>
-                                        <option value="Bogura Titans">Bogura Titans</option>
-                                        <option value="Mirpur Gladiators">Mirpur Gladiators</option>
-                                        <option value="Rajshahi Royals">Rajshahi Royals</option>
-                                        <option value="Rangpur Rangers">Rangpur Rangers</option>
-                                        <option value="Chattogram Vikings">Chattogram Vikings</option>
-                                        <option value="Barisal Predators">Barisal Predators</option>
-                                        <option value="Kushtia Kings">Kushtia Kings</option>
-                                        <option value="Kushtia Kings">Uttara Raptors</option>
-                                        <option value="Chattogram Vikings">Mymensingh Warriors</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-md-4">
                                     <label for="ship_city">District</label>
                                     <select class="form-control" id="ship_city">
-                                        <option value="Bagerhat">Bagerhat</option>
-                                        <option value="Bandarban">Bandarban</option>
-                                        <option value="Barguna">Barguna</option>
-                                        <option value="Barisal">Barisal</option>
-                                        <option value="Bhola">Bhola</option>
-                                        <option value="Bogura">Bogura</option>
-                                        <option value="Brahmanbaria">Brahmanbaria</option>
-                                        <option value="Chandpur">Chandpur</option>
-                                        <option value="Chapainawabganj">Chapainawabganj</option>
-                                        <option value="Chattogram">Chattogram</option>
-                                        <option value="Chuadanga">Chuadanga</option>
-                                        <option value="Cumilla">Cumilla</option>
-                                        <option value="Cox's Bazar">Cox's Bazar</option>
-                                        <option value="Dhaka">Dhaka</option>
-                                        <option value="Dinajpur">Dinajpur</option>
-                                        <option value="Faridpur">Faridpur</option>
-                                        <option value="Feni">Feni</option>
-                                        <option value="Gaibandha">Gaibandha</option>
-                                        <option value="Gazipur">Gazipur</option>
-                                        <option value="Gopalganj">Gopalganj</option>
-                                        <option value="Habiganj">Habiganj</option>
-                                        <option value="Jamalpur">Jamalpur</option>
-                                        <option value="Jashore">Jashore</option>
-                                        <option value="Jhalokati">Jhalokati</option>
-                                        <option value="Jhenaidah">Jhenaidah</option>
-                                        <option value="Joypurhat">Joypurhat</option>
-                                        <option value="Khagrachhari">Khagrachhari</option>
-                                        <option value="Khulna">Khulna</option>
-                                        <option value="Kishoreganj">Kishoreganj</option>
-                                        <option value="Kurigram">Kurigram</option>
-                                        <option value="Kushtia">Kushtia</option>
-                                        <option value="Lakshmipur">Lakshmipur</option>
-                                        <option value="Lalmonirhat">Lalmonirhat</option>
-                                        <option value="Madaripur">Madaripur</option>
-                                        <option value="Magura">Magura</option>
-                                        <option value="Manikganj">Manikganj</option>
-                                        <option value="Meherpur">Meherpur</option>
-                                        <option value="Moulvibazar">Moulvibazar</option>
-                                        <option value="Munshiganj">Munshiganj</option>
-                                        <option value="Mymensingh">Mymensingh</option>
-                                        <option value="Naogaon">Naogaon</option>
-                                        <option value="Narail">Narail</option>
-                                        <option value="Narayanganj">Narayanganj</option>
-                                        <option value="Narsingdi">Narsingdi</option>
-                                        <option value="Natore">Natore</option>
-                                        <option value="Netrakona">Netrakona</option>
-                                        <option value="Nilphamari">Nilphamari</option>
-                                        <option value="Noakhali">Noakhali</option>
-                                        <option value="Pabna">Pabna</option>
-                                        <option value="Panchagarh">Panchagarh</option>
-                                        <option value="Patuakhali">Patuakhali</option>
-                                        <option value="Pirojpur">Pirojpur</option>
-                                        <option value="Rajbari">Rajbari</option>
-                                        <option value="Rajshahi">Rajshahi</option>
-                                        <option value="Rangamati">Rangamati</option>
-                                        <option value="Rangpur">Rangpur</option>
-                                        <option value="Satkhira">Satkhira</option>
-                                        <option value="Shariatpur">Shariatpur</option>
-                                        <option value="Sherpur">Sherpur</option>
-                                        <option value="Sirajganj">Sirajganj</option>
-                                        <option value="Sunamganj">Sunamganj</option>
-                                        <option value="Sylhet">Sylhet</option>
-                                        <option value="Tangail">Tangail</option>
-                                        <option value="Thakurgaon">Thakurgaon</option>
-                                        <!-- Add all 64 districts -->
+                                        <option value="">-- Select District --</option>
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-2">
-                                    <label for="ship_postcode">Postcode</label>
-                                    <input type="text" class="form-control" id="ship_postcode" placeholder="e.g. 4120">
+                                <!-- Sub-district Dropdown -->
+                                <div class="form-group col-md-6">
+                                    <label for="ship_upzilla">Upazila</label>
+                                    <select class="form-control" id="ship_upzilla">
+                                        <option value="">-- Select Upazila --</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -654,6 +574,720 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <script>
+        const districtUpazilas = {
+            "BARGUNA": [
+                "AMTALI",
+                "BAMNA",
+                "BARGUNA SADAR",
+                "BETAGI",
+                "PATHARGHATA",
+                "TALTALI"
+            ],
+            "BARISAL": [
+                "AGAILJHARA",
+                "BABUGANJ",
+                "BAKERGANJ",
+                "BANARI PARA",
+                "GAURNADI",
+                "HIZLA",
+                "BARISAL SADAR (KOTWALI)",
+                "MHENDIGANJ",
+                "MULADI",
+                "WAZIRPUR"
+            ],
+            "BHOLA": [
+                "BHOLA SADAR",
+                "BURHANUDDIN",
+                "CHAR FASSON",
+                "DAULAT KHAN",
+                "LALMOHAN",
+                "MANPURA",
+                "TAZUMUDDIN"
+            ],
+            "JHALOKATI": [
+                "JHALOKATI SADAR",
+                "KANTHALIA",
+                "NALCHITY",
+                "RAJAPUR"
+            ],
+            "PATUAKHALI": [
+                "BAUPHAL",
+                "DASHMINA",
+                "DUMKI",
+                "GALACHIPA",
+                "KALAPARA",
+                "MIRZAGANJ",
+                "PATUAKHALI SADAR",
+                "RANGABALI"
+            ],
+            "PIROJPUR": [
+                "BHANDARIA",
+                "KAWKHALI",
+                "MATHBARIA",
+                "NAZIRPUR",
+                "PIROJPUR SADAR",
+                "NESARABAD (SWARUPKATI)",
+                "ZIANAGAR"
+            ],
+            "BANDARBAN": [
+                "ALIKADAM",
+                "BANDARBAN SADAR",
+                "LAMA",
+                "NAIKHONGCHHARI",
+                "ROWANGCHHARI",
+                "RUMA",
+                "THANCHI"
+            ],
+            "BRAHMANBARIA": [
+                "AKHAURA",
+                "BANCHHARAMPUR",
+                "BIJOYNAGAR",
+                "BRAHMANBARIA SADAR",
+                "ASHUGANJ",
+                "KASBA",
+                "NABINAGAR",
+                "NASIRNAGAR",
+                "SARAIL"
+            ],
+            "CHANDPUR": [
+                "CHANDPUR SADAR",
+                "FARIDGANJ",
+                "HAIM CHAR",
+                "HAJIGANJ",
+                "KACHUA",
+                "MATLAB DAKSHIN",
+                "MATLAB UTTAR",
+                "SHAHRASTI"
+            ],
+            "CHITTAGONG": [
+                "ANOWARA",
+                "BAYEJID BOSTAMI",
+                "BANSHKHALI",
+                "BAKALIA",
+                "BOALKHALI",
+                "CHANDANAISH",
+                "CHANDGAON",
+                "CHITTAGONG PORT",
+                "DOUBLE MOORING",
+                "FATIKCHHARI",
+                "HALISHAHAR",
+                "HATHAZARI",
+                "KOTWALI",
+                "KHULSHI",
+                "LOHAGARA",
+                "MIRSHARAI",
+                "PAHARTALI",
+                "PANCHLAISH",
+                "PATIYA",
+                "PATENGA",
+                "RANGUNIA",
+                "RAOZAN",
+                "SANDWIP",
+                "SATKANIA",
+                "SITAKUNDA"
+            ],
+            "COMILLA": [
+                "BARURA",
+                "BRAHMAN PARA",
+                "BURICHANG",
+                "CHANDINA",
+                "CHAUDDAGRAM",
+                "COMILLA SADAR DAKSHIN",
+                "DAUDKANDI",
+                "DEBIDWAR",
+                "HOMNA",
+                "COMILLA ADARSHA SADAR",
+                "LAKSAM",
+                "MANOHARGANJ",
+                "MEGHNA",
+                "MURADNAGAR",
+                "NANGALKOT",
+                "TITAS"
+            ],
+            "COX'S BAZAR": [
+                "CHAKARIA",
+                "COX'S BAZAR SADAR",
+                "KUTUBDIA",
+                "MAHESHKHALI",
+                "PEKUA",
+                "RAMU",
+                "TEKNAF",
+                "UKHIA"
+            ],
+            "FENI": [
+                "CHHAGALNAIYA",
+                "DAGANBHUIYAN",
+                "FENI SADAR",
+                "FULGAZI",
+                "PARSHURAM",
+                "SONAGAZI"
+            ],
+            "KHAGRACHHARI": [
+                "DIGHINALA",
+                "KHAGRACHHARI SADAR",
+                "LAKSHMICHHARI",
+                "MAHALCHHARI",
+                "MANIKCHHARI",
+                "MATIRANGA",
+                "PANCHHARI",
+                "RAMGARH"
+            ],
+            "LAKSHMIPUR": [
+                "KAMALNAGAR",
+                "LAKSHMIPUR SADAR",
+                "ROYPUR",
+                "RAMGANJ",
+                "RAMGATI"
+            ],
+            "NOAKHALI": [
+                "BEGUMGANJ",
+                "CHATKHIL",
+                "COMPANIGANJ",
+                "HATIYA",
+                "KABIRHAT",
+                "SENBAGH",
+                "SONAIMURI",
+                "SUBARNACHAR",
+                "NOAKHALI SADAR"
+            ],
+            "RANGAMATI": [
+                "BAGHAICHHARI",
+                "BARKAL UPAZILA",
+                "KAWKHALI (BETBUNIA)",
+                "BELAI CHHARI UPAZI",
+                "KAPTAI UPAZILA",
+                "JURAI CHHARI UPAZIL",
+                "LANGADU UPAZILA",
+                "NANIARCHAR UPAZILA",
+                "RAJASTHALI UPAZILA",
+                "RANGAMATI SADAR UP"
+            ],
+            "DHAKA": [
+                "ADABOR",
+                "BADDA",
+                "BANGSHAL",
+                "BIMAN BANDAR",
+                "BANANI",
+                "CANTONMENT",
+                "CHAK BAZAR",
+                "DAKSHINKHAN",
+                "DARUS SALAM",
+                "DEMRA",
+                "DHAMRAI",
+                "DHANMONDI",
+                "DOHAR",
+                "BHASAN TEK",
+                "BHATARA",
+                "GENDARIA",
+                "GULSHAN",
+                "HAZARIBAGH",
+                "JATRABARI",
+                "KAFRUL",
+                "KADAMTALI",
+                "KALABAGAN",
+                "KAMRANGIR CHAR",
+                "KHILGAON",
+                "KHILKHET",
+                "KERANIGANJ",
+                "KOTWALI",
+                "LALBAGH",
+                "MIRPUR",
+                "MOHAMMADPUR",
+                "MOTIJHEEL",
+                "MUGDA PARA",
+                "NAWABGANJ",
+                "NEW MARKET",
+                "PALLABI",
+                "PALTAN",
+                "RAMNA",
+                "RAMPURA",
+                "SABUJBAGH",
+                "RUPNAGAR",
+                "SAVAR",
+                "SHAHJAHANPUR",
+                "SHAH ALI",
+                "SHAHBAGH",
+                "SHYAMPUR",
+                "SHER-E-BANGLA NAGAR",
+                "SUTRAPUR",
+                "TEJGAON",
+                "TEJGAON IND. AREA",
+                "TURAG",
+                "UTTARA PASCHIM",
+                "UTTARA PURBA",
+                "UTTAR KHAN",
+                "WARI"
+            ],
+            "FARIDPUR": [
+                "ALFADANGA",
+                "BHANGA",
+                "BOALMARI",
+                "CHAR BHADRASAN",
+                "FARIDPUR SADAR",
+                "MADHUKHALI",
+                "NAGARKANDA",
+                "SADARPUR",
+                "SALTHA"
+            ],
+            "GAZIPUR": [
+                "GAZIPUR SADAR",
+                "KALIAKAIR",
+                "KALIGANJ",
+                "KAPASIA",
+                "SREEPUR"
+            ],
+            "GOPALGANJ": [
+                "GOPALGANJ SADAR",
+                "KASHIANI",
+                "KOTALIPARA",
+                "MUKSUDPUR",
+                "TUNGIPARA"
+            ],
+            "JAMALPUR": [
+                "BAKSHIGANJ",
+                "DEWANGANJ",
+                "ISLAMPUR",
+                "JAMALPUR SADAR",
+                "MADARGANJ",
+                "MELANDAHA",
+                "SARISHABARI UPAZILA"
+            ],
+            "KISHOREGONJ": [
+                "AUSTAGRAM",
+                "BAJITPUR",
+                "BHAIRAB",
+                "HOSSAINPUR",
+                "ITNA",
+                "KARIMGANJ",
+                "KATIADI",
+                "KISHOREGANJ SADAR",
+                "KULIAR CHAR",
+                "MITHAMAIN",
+                "NIKLI",
+                "PAKUNDIA",
+                "TARAIL"
+            ],
+            "MADARIPUR": [
+                "KALKINI",
+                "MADARIPUR SADAR",
+                "RAJOIR",
+                "SHIBCHAR"
+            ],
+            "MANIKGANJ": [
+                "DAULATPUR",
+                "GHIOR",
+                "HARIRAMPUR",
+                "MANIKGANJ SADAR",
+                "SATURIA",
+                "SHIBALAYA",
+                "SINGAIR"
+            ],
+            "MUNSHIGANJ": [
+                "GAZARIA",
+                "LOHAJANG",
+                "MUNSHIGANJ SADAR",
+                "SERAJDIKHAN",
+                "SREENAGAR",
+                "TONGIBARI"
+            ],
+            "MYMENSINGH": [
+                "BHALUKA",
+                "DHOBAURA",
+                "FULBARIA",
+                "GAFFARGAON",
+                "GAURIPUR",
+                "HALUAGHAT",
+                "ISHWARGANJ",
+                "MYMENSINGH SADAR",
+                "MUKTAGACHHA",
+                "NANDAIL",
+                "PHULPUR",
+                "TRISHAL"
+            ],
+            "NARAYANGANJ": [
+                "ARAIHAZAR",
+                "SONARGAON",
+                "BANDAR",
+                "NARAYANGANJ SADAR",
+                "RUPGANJ"
+            ],
+            "NARSINGDI": [
+                "BELABO",
+                "MANOHARDI",
+                "NARSINGDI SADAR",
+                "PALASH",
+                "ROYPURA",
+                "SHIBPUR"
+            ],
+            "NETRAKONA": [
+                "ATPARA",
+                "BARHATTA",
+                "DURGAPUR",
+                "KHALIAJURI",
+                "KALMAKANDA",
+                "KENDUA",
+                "MADAN",
+                "MOHANGANJ",
+                "NETROKONA SADAR",
+                "PURBADHALA"
+            ],
+            "RAJBARI": [
+                "BALIAKANDI",
+                "GOALANDA",
+                "KALUKHALI",
+                "PANGSHA",
+                "RAJBARI SADAR"
+            ],
+            "SHARIATPUR": [
+                "BHEDARGANJ",
+                "DAMUDYA",
+                "GOSAIRHAT",
+                "NARIA",
+                "SHARIATPUR SADAR",
+                "ZANJIRA"
+            ],
+            "SHERPUR": [
+                "JHENAIGATI",
+                "NAKLA",
+                "NALITABARI",
+                "SHERPUR SADAR",
+                "SREEBARDI"
+            ],
+            "TANGAIL": [
+                "BASAIL",
+                "BHUAPUR",
+                "DELDUAR",
+                "DHANBARI",
+                "GHATAIL",
+                "GOPALPUR",
+                "KALIHATI",
+                "MADHUPUR",
+                "MIRZAPUR",
+                "NAGARPUR",
+                "SAKHIPUR",
+                "TANGAIL SADAR"
+            ],
+            "BAGERHAT": [
+                "BAGERHAT SADAR",
+                "CHITALMARI",
+                "FAKIRHAT",
+                "KACHUA",
+                "MOLLAHAT",
+                "MONGLA",
+                "MORRELGANJ",
+                "RAMPAL",
+                "SARANKHOLA"
+            ],
+            "CHUADANGA": [
+                "ALAMDANGA",
+                "CHUADANGA SADAR",
+                "DAMURHUDA",
+                "JIBAN NAGAR"
+            ],
+            "JESSORE": [
+                "ABHAYNAGAR",
+                "BAGHER PARA",
+                "CHAUGACHHA",
+                "JHIKARGACHHA",
+                "KESHABPUR",
+                "JESSORE SADAR",
+                "MANIRAMPUR",
+                "SHARSHA"
+            ],
+            "JHENAIDAH": [
+                "HARINAKUNDA",
+                "JHENAIDAH SADAR",
+                "KALIGANJ",
+                "KOTCHANDPUR",
+                "MAHESHPUR",
+                "SHAILKUPA"
+            ],
+            "KHULNA": [
+                "BATIAGHATA",
+                "DACOPE",
+                "DAULATPUR",
+                "DUMURIA",
+                "DIGHALIA",
+                "KHALISHPUR",
+                "KHAN JAHAN ALI",
+                "KHULNA SADAR",
+                "KOYRA",
+                "PAIKGACHHA",
+                "PHULTALA",
+                "RUPSA",
+                "SONADANGA",
+                "TEROKHADA"
+            ],
+            "KUSHTIA": [
+                "BHERAMARA",
+                "DAULATPUR",
+                "KHOKSA",
+                "KUMARKHALI",
+                "KUSHTIA SADAR",
+                "MIRPUR"
+            ],
+            "MAGURA": [
+                "MAGURA SADAR",
+                "MOHAMMADPUR",
+                "SHALIKHA",
+                "SREEPUR"
+            ],
+            "MEHERPUR": [
+                "GANGNI",
+                "MUJIB NAGAR",
+                "MEHERPUR SADAR"
+            ],
+            "NARAIL": [
+                "KALIA",
+                "LOHAGARA",
+                "NARAIL SADAR"
+            ],
+            "SATKHIRA": [
+                "ASSASUNI",
+                "DEBHATA",
+                "KALAROA",
+                "KALIGANJ",
+                "SATKHIRA SADAR",
+                "SHYAMNAGAR",
+                "TALA"
+            ],
+            "BOGRA": [
+                "ADAMDIGHI",
+                "BOGRA SADAR",
+                "DHUNAT",
+                "DHUPCHANCHIA",
+                "GABTALI",
+                "KAHALOO",
+                "NANDIGRAM",
+                "SARIAKANDI",
+                "SHAJAHANPUR",
+                "SHERPUR",
+                "SHIBGANJ",
+                "SONATOLA"
+            ],
+            "JOYPURHAT": [
+                "AKKELPUR",
+                "JOYPURHAT SADAR",
+                "KALAI",
+                "KHETLAL",
+                "PANCHBIBI"
+            ],
+            "NAOGAON": [
+                "ATRAI",
+                "BADALGACHHI",
+                "DHAMOIRHAT",
+                "MANDA",
+                "MAHADEBPUR",
+                "NAOGAON SADAR",
+                "NIAMATPUR",
+                "PATNITALA",
+                "PORSHA",
+                "RANINAGAR",
+                "SAPAHAR"
+            ],
+            "NATORE": [
+                "BAGATIPARA",
+                "BARAIGRAM",
+                "GURUDASPUR",
+                "LALPUR",
+                "NATORE SADAR",
+                "SINGRA"
+            ],
+            "CHAPAI NABABGANJ": [
+                "BHOLAHAT",
+                "GOMASTAPUR",
+                "NACHOLE",
+                "CHAPAI NABABGANJ SADAR",
+                "SHIBGANJ"
+            ],
+            "PABNA": [
+                "ATGHARIA",
+                "BERA",
+                "BHANGURA",
+                "CHATMOHAR",
+                "FARIDPUR",
+                "ISHWARDI",
+                "PABNA SADAR",
+                "SANTHIA",
+                "SUJANAGAR"
+            ],
+            "RAJSHAHI": [
+                "BAGHA",
+                "BAGHMARA",
+                "BOALIA",
+                "CHARGHAT",
+                "DURGAPUR",
+                "GODAGARI",
+                "MATIHAR",
+                "MOHANPUR",
+                "PABA",
+                "PUTHIA",
+                "RAJPARA",
+                "SHAH MAKHDUM",
+                "TANORE"
+            ],
+            "SIRAJGANJ": [
+                "BELKUCHI",
+                "CHAUHALI",
+                "KAMARKHANDA",
+                "KAZIPUR",
+                "ROYGANJ",
+                "SHAHJADPUR",
+                "SIRAJGANJ SADAR",
+                "TARASH",
+                "ULLAH PARA"
+            ],
+            "DINAJPUR": [
+                "BIRAMPUR",
+                "BIRGANJ",
+                "BIRAL",
+                "BOCHAGANJ",
+                "CHIRIRBANDAR",
+                "FULBARI",
+                "GHORAGHAT",
+                "HAKIMPUR",
+                "KAHAROLE",
+                "KHANSAMA",
+                "DINAJPUR SADAR",
+                "NAWABGANJ",
+                "PARBATIPUR"
+            ],
+            "GAIBANDHA": [
+                "FULCHHARI",
+                "GAIBANDHA SADAR",
+                "GOBINDAGANJ",
+                "PALASHBARI",
+                "SADULLAPUR",
+                "SAGHATA",
+                "SUNDARGANJ"
+            ],
+            "KURIGRAM": [
+                "BHURUNGAMARI",
+                "CHAR RAJIBPUR",
+                "CHILMARI",
+                "PHULBARI",
+                "KURIGRAM SADAR",
+                "NAGESHWARI",
+                "RAJARHAT",
+                "RAUMARI",
+                "ULIPUR"
+            ],
+            "LALMONIRHAT": [
+                "ADITMARI",
+                "HATIBANDHA",
+                "KALIGANJ",
+                "LALMONIRHAT SADAR",
+                "PATGRAM"
+            ],
+            "NILPHAMARI": [
+                "DIMLA UPAZILA",
+                "DOMAR UPAZILA",
+                "JALDHAKA UPAZILA",
+                "KISHOREGANJ UPAZILA",
+                "NILPHAMARI SADAR UPAZ",
+                "SAIDPUR UPAZILA"
+            ],
+            "PANCHAGARH": [
+                "ATWARI",
+                "BODA",
+                "DEBIGANJ",
+                "PANCHAGARH SADAR",
+                "TENTULIA"
+            ],
+            "RANGPUR": [
+                "BADARGANJ",
+                "GANGACHARA",
+                "KAUNIA",
+                "RANGPUR SADAR",
+                "MITHA PUKUR",
+                "PIRGACHHA",
+                "PIRGANJ",
+                "TARAGANJ"
+            ],
+            "THAKURGAON": [
+                "BALIADANGI",
+                "HARIPUR",
+                "PIRGANJ",
+                "RANISANKAIL",
+                "THAKURGAON SADAR"
+            ],
+            "HABIGANJ": [
+                "AJMIRIGANJ",
+                "BAHUBAL",
+                "BANIACHONG",
+                "CHUNARUGHAT",
+                "HABIGANJ SADAR",
+                "LAKHAI",
+                "MADHABPUR",
+                "NABIGANJ"
+            ],
+            "MAULVIBAZAR": [
+                "BARLEKHA",
+                "JURI",
+                "KAMALGANJ",
+                "KULAURA",
+                "MAULVIBAZAR SADAR",
+                "RAJNAGAR",
+                "SREEMANGAL"
+            ],
+            "SUNAMGANJ": [
+                "BISHWAMBARPUR",
+                "CHHATAK",
+                "DAKSHIN SUNAMGANJ",
+                "DERAI",
+                "DHARAMPASHA",
+                "DOWARABAZAR",
+                "JAGANNATHPUR",
+                "JAMALGANJ",
+                "SULLA",
+                "SUNAMGANJ SADAR",
+                "TAHIRPUR"
+            ],
+            "SYLHET": [
+                "BALAGANJ",
+                "BEANI BAZAR",
+                "BISHWANATH",
+                "COMPANIGANJ",
+                "DAKSHIN SURMA",
+                "FENCHUGANJ",
+                "GOLAPGANJ",
+                "GOWAINGHAT",
+                "JAINTIAPUR",
+                "KANAIGHAT",
+                "SYLHET SADAR",
+                "ZAKIGANJ"
+            ]
+        }
+
+        const districtSelect = document.getElementById('ship_city');
+        const upazilaSelect = document.getElementById('ship_upzilla');
+
+        // Populate Districts
+        Object.keys(districtUpazilas).forEach(district => {
+            const option = document.createElement('option');
+            option.value = district;
+            option.textContent = district;
+            districtSelect.appendChild(option);
+        });
+
+        // Handle District Change
+        districtSelect.addEventListener('change', function () {
+            const selectedDistrict = this.value;
+            const upazilas = districtUpazilas[selectedDistrict] || [];
+
+            // Reset sub-district dropdown
+            upazilaSelect.innerHTML = '<option value="">-- Select Sub-district --</option>';
+
+            // Populate Sub-districts
+            upazilas.forEach(upazila => {
+                const option = document.createElement('option');
+                option.value = upazila;
+                option.textContent = upazila;
+                upazilaSelect.appendChild(option);
+            });
+        });
+    </script>
 </body>
 
 </html>
