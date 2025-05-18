@@ -75,6 +75,81 @@ document.getElementById('addBooks').addEventListener('change', function () {
     }
 });
 
+// const quotes = [
+//     "A reader lives a thousand lives before he dies.",
+//     "Books are a uniquely portable magic.",
+//     "Reading is essential for those who seek to rise above the ordinary.",
+//     "So many books, so little time.",
+//     "Books are the quietest and most constant of friends.",
+//     "A room without books is like a body without a soul.",
+//     "The more that you read, the more things you will know.",
+//     "Reading gives us someplace to go when we have to stay where we are."
+// ];
+
+// document.getElementById('addBooks').addEventListener('change', function () {
+//     const shipFields = document.getElementById('shippingFields');
+//     const isShipping = this.checked;
+//     const shippingInputs = [
+//         document.getElementById('ship_name'),
+//         document.getElementById('ship_phone'),
+//         document.getElementById('ship_add1'),
+//         document.getElementById('ship_city'),
+//         document.getElementById('ship_upzilla'),
+//     ];
+
+//     if (isShipping) {
+//         // If checked, show fields and update pricing
+//         shipFields.style.display = 'block';
+//         document.getElementById('sprice').innerText = pls2;
+//         document.getElementById('price').value = pls2;
+//         document.getElementById('nop').innerText = pls2 + "৳";
+//         productcode = productCode2;
+//         shippingInputs.forEach(input => input.setAttribute('required', ''));
+
+//         document.getElementById('ship_phone').addEventListener("input", function (event) {
+//             if (this.validity.patternMismatch) {
+//                 this.setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+//             } else {
+//                 this.setCustomValidity("");
+//             }
+//         });
+
+//     } else {
+//         // Show confirmation modal before hiding fields
+//         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+//         Swal.fire({
+//             title: 'Are you sure?',
+//             html: `
+//                 <div style="margin-top: 10px;">
+//                     <p>আমাদের বইগুলো সাইকেল এর লেকচার কন্টেন্ট এর পরিপূরক</p>
+//                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
+//                 </div>
+//             `,
+//             icon: 'warning',
+//             showCancelButton: true,
+//             confirmButtonText: 'না আমি বই নিতে চাইনা',
+//             cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
+//             confirmButtonColor: '#e74c3c', // red button
+//             cancelButtonColor: '#3498db', //  green button
+//         }).then((result) => {
+//             if (result.isConfirmed) {
+//                 // User confirmed they don't want books
+//                 shipFields.style.display = 'none';
+//                 document.getElementById('sprice').innerText = pls;
+//                 document.getElementById('price').value = pls;
+//                 document.getElementById('nop').innerText = pls + "৳";
+//                 productcode = productCode;
+//                 shippingInputs.forEach(input => input.removeAttribute('required'));
+//             } else {
+//                 // Re-check the checkbox if cancelled
+//                 document.getElementById('addBooks').checked = true;
+//             }
+//         });
+//     }
+// });
+
+
 
 
 firebase.auth().onAuthStateChanged(function (e) {
