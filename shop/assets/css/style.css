@@ -206,6 +206,13 @@ star-rating {
     border-radius: 55em;
 }
 
+.image.is-80x64 {
+    height: 94px;
+    width: 80px;
+    border-radius: 55em;
+}
+
+
 .media-left {
     margin-right: 1rem;
 }
