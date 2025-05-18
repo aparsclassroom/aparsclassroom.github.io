@@ -83,100 +83,102 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
 
     <!-- Style sheets -->
     <link rel="stylesheet" href="../assets/minimal.css">
-    <style>
-        @font-face {
-            font-family: 'Gilroy-ExtraBold';
-            src: url("/CrashCourse/fonts/Futura_Bold.otf")
-        }
-        
-        @font-face {
-            font-family: 'Kalpurush';
-            src: url("/Ambassador/assets/fonts/kalpurush.ttf")
-        }
-        .text-center {
-            text-align: center !important;
-        }
-        .bangla {
-            font-family: 'Kalpurush';
-            src: url("/Ambassador/assets/fonts/kalpurush.ttf")
-        }
-        body {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-        
-        .logo {
-            display: flex;
-            justify-content: center;
-            width: 100vw;
-            width: 100%;
-            margin-bottom: 25px;
-            object-fit: contain;
-        }
-        
-        .logo>image {
-            align-self: center !important;
-        }
-        
-        .buttonContainer {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .buttonContainer a {
-            padding: 15px;
-            text-align: center;
-            align-self: center !important;
-            background: rgb(180, 120, 9);
-            outline: none;
-            border: 1px solid rgb(180, 120, 9);
-            margin: 10px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-            font-family: Gilroy-ExtraBold;
-            width: 300px;
-        }
-        
-        .buttonContainer a:hover {
-            border: 1px solid rgb(180, 120, 9);
-            background-color: white;
-            color: orange;
-            cursor: pointer;
-        }
-        
-        p {
-            text-align: center;
-            font-family: Kalpurush;
-            font-size: 18px;
-        }
-        .swal-modal {
-            font-family: 'Gilroy-ExtraBold';
-        }
-        .green {
-            background: green !important;
-        }
-        .green:hover {
-            background: #fff !important;
-        }
-    </style>
+ <style>
+    :root {
+      --primary-color: #5375e2;
+      --accent-color: #1c4ca6;
+      --hover-color: #fefefe;
+      --text-color: #333;
+      --background: #f5f7fb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, .bangla {
+      margin: 20px 0;
+      font-size: 22px;
+      font-weight: 600;
+      font-family: 'Kalpurush', sans-serif;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .buttonContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .buttonContainer a {
+      padding: 16px 24px;
+      border: none;
+      border-radius: 12px;
+      background-color: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      line-height: 1.4;
+    }
+
+    .buttonContainer a span {
+      font-family: 'Kalpurush', sans-serif;
+      display: block;
+      font-weight: normal;
+      font-size: 15px;
+      margin-top: 5px;
+    }
+
+    .buttonContainer a:hover {
+      background-color: white;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+    }
+
+    @media (max-width: 600px) {
+      .buttonContainer a {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+
+    @font-face {
+      font-family: 'Kalpurush';
+      src: url("/Ambassador/assets/fonts/kalpurush.ttf");
+    }
+  </style>
 </head>
 
 <body>
@@ -196,12 +198,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
               
         </div>
-        <div class="buttonContainer">
-            <a type="button" class="green" href="./Cycle-1/">Cycle 1<br><span class="bangla">ল্যাবরেটরির নিরাপদ ব্যবহার,গুণগত রসায়ন, মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন</span> </a>
-            <a type="button" class="green" href="./Cycle-2/">Cycle 2<br><span class="bangla"> রাসায়নিক পরিবর্তন, কর্মমুখী রসায়ন </span></a>
-            <a type="button" class="green" href="./Cycle-3/">Cycle 3<br><span class="bangla">পরিবেশ রসায়ন, পরিমাণগত রসায়ন, তড়িৎ রসায়ন, অর্থনৈতিক রসায়ন</span></a>
-            <a type="button" class="green" href="./Cycle-4/">Cycle 4<br><span class="bangla">জৈব রসায়ন </span></a>
-        </div>
+    <div class="buttonContainer">
+      <a href="./Cycle-1/">
+        Cycle 1
+        <span class="bangla">ল্যাবরেটরির নিরাপদ ব্যবহার, গুণগত রসায়ন</span>
+      </a>
+      <a href="./Cycle-2/">
+        Cycle 2
+        <span class="bangla">মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন, কর্মমুখী রসায়ন</span>
+      </a>
+      <a href="./Cycle-3/">
+        Cycle 3
+        <span class="bangla">রাসায়নিক পরিবর্তন, পরিবেশ রসায়ন</span>
+      </a>
+      <a href="./Cycle-4/">
+        Cycle 4
+        <span class="bangla">জৈব রসায়ন</span>
+      </a>
+      <a href="./Cycle-5/">
+        Cycle 5
+        <span class="bangla">পরিমাণগত রসায়ন, তড়িৎ রসায়ন, অর্থনৈতিক রসায়ন</span>
+      </a>
+    </div>
     </div>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
