@@ -51,25 +51,47 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+// fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
+//     .then((res) => {
+//         return res.json()
+//     })
+//     .then((data) => {
+//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+//         if (document.getElementById('enrolled')) {
+//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+//             if (!countUp.error) {
+//                 countUp.start();
+//             } else {
+//                 console.error(countUp.error);
+//             }
+//         }
+
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+
+Promise.all([
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+])
+    .then(([data1, data2]) => {
+        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
+
         if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            const countUp = new CountUp('enrolled', totalEnrollment);
             if (!countUp.error) {
                 countUp.start();
             } else {
                 console.error(countUp.error);
             }
         }
-
     })
-    .catch((err) => {
-        console.log(err)
-    })
+    .catch(err => {
+        console.log("Enrollment fetch error:", err);
+    });
 document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; Live Classes`;
 document.getElementById('con2').innerHTML = `<i class="fas fa-book"></i>&nbsp; Archive Classes`;
 document.getElementById('con3').innerHTML = `<i class="fas fa-stream"></i>&nbsp; Chapter ending Compact Class`; 
