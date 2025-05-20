@@ -6,7 +6,7 @@ document.getElementById('email').addEventListener("input", function (event) {
     }
 });
 
-let productcode = productCode;
+let productcode = productCode2;
 
 document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
@@ -18,48 +18,88 @@ document.getElementById('phone').addEventListener("input", function (event) {
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls + "৳";
-document.getElementById('sprice').innerText = pls;
-document.getElementById('price').value = pls;
+document.getElementById('nop').innerText = pls2 + "৳";
+document.getElementById('sprice').innerText = pls2;
+document.getElementById('price').value = pls2;
+
+const quotes = [
+    "A reader lives a thousand lives before he dies.",
+    "Books are a uniquely portable magic.",
+    "Reading is essential for those who seek to rise above the ordinary.",
+    "So many books, so little time.",
+    "Books are the quietest and most constant of friends.",
+    "A room without books is like a body without a soul.",
+    "The more that you read, the more things you will know.",
+    "Reading gives us someplace to go when we have to stay where we are."
+];
 
 document.getElementById('addBooks').addEventListener('change', function () {
     const shipFields = document.getElementById('shippingFields');
     const isShipping = this.checked;
-
-    shipFields.style.display = isShipping ? 'block' : 'none';
-
     const shippingInputs = [
         document.getElementById('ship_name'),
         document.getElementById('ship_phone'),
         document.getElementById('ship_add1'),
-       
         document.getElementById('ship_city'),
         document.getElementById('ship_upzilla'),
     ];
 
     if (isShipping) {
+        // If checked, show fields and update pricing
+        shipFields.style.display = 'block';
         document.getElementById('sprice').innerText = pls2;
         document.getElementById('price').value = pls2;
         document.getElementById('nop').innerText = pls2 + "৳";
+        productcode = productCode2;
         shippingInputs.forEach(input => input.setAttribute('required', ''));
-         productcode = productCode2;
+
         document.getElementById('ship_phone').addEventListener("input", function (event) {
-            if (document.getElementById('ship_phone').validity.patternMismatch) {
-                document.getElementById('ship_phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+            if (this.validity.patternMismatch) {
+                this.setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
             } else {
-                document.getElementById('ship_phone').setCustomValidity("");
+                this.setCustomValidity("");
             }
         });
+
     } else {
-        document.getElementById('sprice').innerText = pls;
-        document.getElementById('price').value = pls;
-        document.getElementById('nop').innerText = pls + "৳";
-         productcode = productCode;
-        // Platform = Platform;
-        shippingInputs.forEach(input => input.removeAttribute('required'));
-        // product = product;
+        // Show confirmation modal before hiding fields
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        Swal.fire({
+            title: 'Are you sure?',
+            html: `
+                <div style="margin-top: 10px;">
+                    <p>আমাদের বইগুলো সাইকেল এর লেকচার কন্টেন্ট এর পরিপূরক</p>
+                    <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
+                </div>
+            `,
+            imageUrl: 'https://i.postimg.cc/VNYBTDtZ/compact-series-1-1.jpg',
+            showCancelButton: true,
+            confirmButtonText: 'না আমি বই নিতে চাইনা',
+            cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
+            customClass: {
+                image: 'no-image-margin'
+            },
+            confirmButtonColor: '#e74c3c', // red button
+            cancelButtonColor: '#4CBB17', //  green button
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // User confirmed they don't want books
+                shipFields.style.display = 'none';
+                document.getElementById('sprice').innerText = pls;
+                document.getElementById('price').value = pls;
+                document.getElementById('nop').innerText = pls + "৳";
+                productcode = productCode;
+                shippingInputs.forEach(input => input.removeAttribute('required'));
+            } else {
+                // Re-check the checkbox if cancelled
+                document.getElementById('addBooks').checked = true;
+                document.getElementById('nop').innerText = pls2 + "৳";
+            }
+        });
     }
 });
+
 
 
 
@@ -108,7 +148,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         const isShipping = document.getElementById('addBooks').checked;
                         var rawData = {
                             "productName": isShipping ? product2 : product,
-                            "Platform": isShipping? Platform2 : Platform,
+                            "Platform": isShipping ? Platform2 : Platform,
                             "cus_name": document.getElementById('name').value.trim(),
                             "cus_email": mail,
                             "Institution": document.getElementById('college').value.trim(),
@@ -134,7 +174,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             rawData.ship_name = document.getElementById('ship_name').value.trim();
                             rawData.ship_phone = document.getElementById('ship_phone').value.trim();
                             rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
-                            
+
                             rawData.ship_city = document.getElementById('ship_city').value;
                             rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
                             rawData.ship_method = 'Courier'
@@ -191,7 +231,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                     const isShipping = document.getElementById('addBooks').checked;
                     var rawData = {
                         "productName": isShipping ? product2 : product,
-                        "Platform": isShipping? Platform2 : Platform,
+                        "Platform": isShipping ? Platform2 : Platform,
                         "cus_name": document.getElementById('name').value.trim(),
                         "cus_email": mail,
                         "Institution": document.getElementById('college').value.trim(),
@@ -217,7 +257,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         rawData.ship_name = document.getElementById('ship_name').value.trim();
                         rawData.ship_phone = document.getElementById('ship_phone').value.trim();
                         rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
-                        
+
                         rawData.ship_city = document.getElementById('ship_city').value;
                         rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
                         rawData.ship_method = 'Courier'
