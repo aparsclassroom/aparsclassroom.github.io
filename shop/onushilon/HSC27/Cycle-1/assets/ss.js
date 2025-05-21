@@ -1,8 +1,8 @@
-const product = "Onushilon26";
-const productName = "HSC অনুশীলন বাংলা দ্বিতীয় পত্র";
+const product = "Onushilon27";
+const productName = "HSC-আলিম অনুশীলন বাংলা ১ম পত্র	";
 const init = 0;
 const Platform = "Online";
-const productCode = "371";
+const productCode = "493";
 const fix = 2000;
 const pls = 1000;
 const Cycle = location.pathname.split('/')[4];
