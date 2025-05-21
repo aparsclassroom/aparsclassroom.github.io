@@ -42,7 +42,7 @@ fetch(`https://b2b27.aparsclassroom.com/api/enrollment/total`)
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.total + init);
+        document.getElementById('enrolled').setAttribute('countTo', data.data.total + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
