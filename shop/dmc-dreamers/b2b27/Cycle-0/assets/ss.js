@@ -38,21 +38,23 @@ var tag = document.createElement('script');
 // }
 
 fetch(`https://b2b27.aparsclassroom.com/api/enrollment/total`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.data.total + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+  .then((res) => res.json())
+  .then((data) => {
+    const enrolledEl = document.getElementById('enrolled');
+    if (enrolledEl) {
+      const countTo = Number(data.data.total) + Number(init);
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+      console.log('API total:', data.data.total); // Debug
+      console.log('Final countTo:', countTo);     // Debug
+
+      const countUp = new CountUp('enrolled', countTo);
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error('CountUp error:', countUp.error);
+      }
+    }
+  })
+  .catch((err) => {
+    console.error('Fetch error:', err);
+  });
