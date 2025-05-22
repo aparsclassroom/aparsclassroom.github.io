@@ -84,6 +84,4 @@ Promise.all([
     .catch(err => {
         console.log("Enrollment fetch error:", err);
     });
-    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp;ক্লাস দিন: প্রতি সপ্তাহে ৩ দিন – রবি, মঙ্গল, বৃহস্পতি`;
-    document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
+
