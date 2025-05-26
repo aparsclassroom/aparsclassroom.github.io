@@ -1,5 +1,5 @@
 const product = "cunit";
-const productName = "C Unit (Varsity+GST)";
+const productName = "C Unit (Varsity+GST) 2024";
 const productCode = "344";
 const fix = 5000;
 const pls = 3500;
