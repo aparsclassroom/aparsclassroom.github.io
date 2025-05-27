@@ -6,7 +6,7 @@ document.getElementById('email').addEventListener("input", function (event) {
     }
 });
 
-let productcode = productCode2;
+let productcode = productCode;
 
 document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
@@ -18,9 +18,9 @@ document.getElementById('phone').addEventListener("input", function (event) {
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls2 + "৳";
-document.getElementById('sprice').innerText = pls2;
-document.getElementById('price').value = pls2;
+document.getElementById('nop').innerText = pls + "৳";
+document.getElementById('sprice').innerText = pls;
+document.getElementById('price').value = pls;
 
 const quotes = [
     "A reader lives a thousand lives before he dies.",
