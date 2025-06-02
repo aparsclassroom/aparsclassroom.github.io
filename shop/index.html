@@ -226,10 +226,9 @@
                 </div>
             </div>
 
-              <div class="item p-3">
+            <div class="item p-3">
                 <div class="card bg-primary shadow-soft border-light">
-                    <img loading="lazy"
-                        src="https://i.postimg.cc/Hkq4P3RW/BBA-thumbnail-1.jpg"
+                    <img loading="lazy" src="https://i.postimg.cc/Hkq4P3RW/BBA-thumbnail-1.jpg"
                         class="card-img-top rounded-xl p-2" alt="2nd Timer Restart Batch 2025">
                     <div class="card-body">
                         <h2 class="h2 card-title text-center mb-2 bangla">2nd Timer Restart Batch 2025</h2>
@@ -348,9 +347,19 @@
         <div class="col-12 mb-3">
             <a id="All"></a>
             <h2 class="text-center mb-2">All Listed Courses</h2>
+            <br>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px">
+                <button onclick="filterDivs('all')" class="btn btn-primary">All Courses</button>
+                <button onclick="filterDivs('HSC25')" class="btn btn-primary">HSC 25</button>
+                <button onclick="filterDivs('HSC26')" class="btn btn-primary">HSC 26</button>
+                <button onclick="filterDivs('HSC27')" class="btn btn-primary">HSC 27</button>
+                <button onclick="filterDivs('others')" class="btn btn-primary">Others</button>
+            </div>
+            <br>
 
 
-            <div class="row mb-3 mt-3">
+
+            <div class="row mb-3 mt-3 course" data-id="HSC25">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -417,7 +426,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="HSC26">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -452,9 +461,10 @@
                                             Abhi-Rakib</li>
                                         <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> ACS HSC 26 Chemistry</li>
-                                                 <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> ACS HSC 26 chemistry by Mottasin Pahlovi </li>
-                                                 <!-- <li class="bangla"><i title="Recommended Course"
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS HSC 26 chemistry by Mottasin
+                                            Pahlovi </li>
+                                        <!-- <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> Chemistry Academic Comeback with OxyChem for HSC 2026</li> -->
                                         <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> ACS Biology 2026</li>
@@ -470,8 +480,9 @@
                                             Professional</li>
                                         <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> HSC 26 English A to Z </li>
-                                                <li class="bangla"><i title="Recommended Course"
-                                                    class="fa-solid fa-circle-check"></i>Galacticos 1.0 English Cycles by Crowning English for HSC 26 </li> 
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i>Galacticos 1.0 English Cycles by
+                                            Crowning English for HSC 26 </li>
                                     </ul>
                                 </div>
                             </div>
@@ -491,7 +502,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="HSC27">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -517,35 +528,43 @@
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
                                     <ul style="list-style-type: none">
-                                         <li class="bangla"><i title="Recommended Course"
+                                        <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> ACS Physics HSC 27 By Apurbo
                                             Mashrur (Books Available) </li>
                                         <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 Higher Math Academic Cycle (Books Available)</li>
-                                                 <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> Higher Math Full Syllabus (HSC-27) by Fahim-Aohin</li>
-                                                
-                                       <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 chemistry by Mottasin Pahlovi (Books Available) </li>
-                                       
+                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 Higher Math Academic
+                                            Cycle (Books Available)</li>
                                         <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 Basic to Advance Chemistry by Hemel  (Books Available)</li>
-                                                 <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i>ACS HSC-27 Chemistry powered by ChemShifu (Books Available)</li>
+                                                class="fa-solid fa-circle-check"></i> Higher Math Full Syllabus (HSC-27)
+                                            by Fahim-Aohin</li>
+
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 chemistry by Mottasin
+                                            Pahlovi (Books Available) </li>
+
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 Basic to Advance
+                                            Chemistry by Hemel (Books Available)</li>
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i>ACS HSC-27 Chemistry powered by
+                                            ChemShifu (Books Available)</li>
                                         <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> ACS Biology 2027 by BioMission
                                             (Books Available)</li>
-                                             
-                                         <li class="bangla"><i title="Recommended Course"
-                                                    class="fa-solid fa-circle-check"></i> ACS Biology Cycle for HSC 27 by DMC DREAMERS</li>
-                                                   
-                                                     <li class="bangla"><i title="Recommended Course"
-                                                    class="fa-solid fa-circle-check"></i> ACS HSC 27 Compact Biology (Books Available) </li>
 
-                                               <li class="bangla"><i title="Recommended Course"
-                                                    class="fa-solid fa-circle-check"></i> Biology Adda HSC-27 Next Level Biology Course </li>      
-                                                    
-                                                   <!-- 
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS Biology Cycle for HSC 27 by
+                                            DMC DREAMERS</li>
+
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS HSC 27 Compact Biology (Books
+                                            Available) </li>
+
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> Biology Adda HSC-27 Next Level
+                                            Biology Course </li>
+
+                                        <!-- 
                                                 <li class="bangla"><i title="Recommended Course"
                                                     class="fa-solid fa-circle-check"></i> Compact Biology (HSC'26) </li>
                                         <li class="bangla"><i title="Recommended Course"
@@ -553,10 +572,11 @@
                                         <li class="bangla"><i title="Recommended Course"
                                                 class="fa-solid fa-circle-check"></i> ASG ICT BATCH : Academic to
                                             Professional</li>-->
-                                         <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> HSC 27 English A to Z </li> 
-                                                <li class="bangla"><i title="Recommended Course"
-                                                    class="fa-solid fa-circle-check"></i>ACS - CROWNING English Cycles by Crowning English for HSC 27 </li>    
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> HSC 27 English A to Z </li>
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i>ACS - CROWNING English Cycles by
+                                            Crowning English for HSC 27 </li>
                                     </ul>
                                 </div>
                             </div>
@@ -576,20 +596,21 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row course" data-id="HSC25">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="./achieve/HSC_25/">
-                                    <img loading="lazy" src="https://i.postimg.cc/FR557gxM/Red-Yellow-Modern-Simple-Big-Sale-Promotion-Instagram-Post.png"
+                                    <img loading="lazy"
+                                        src="https://i.postimg.cc/FR557gxM/Red-Yellow-Modern-Simple-Big-Sale-Promotion-Instagram-Post.png"
                                         style="border-radius: 15px;" alt="HSC 23 Academic">
                                 </a>
                             </aside>
                             <div class="col-md-6">
                                 <div class="info-main">
-                                    <a href="./achieve/HSC_25/" class="h5 title"> ACS Achieve Offline Exam Batches </a><i title="Recommended Course"
-                                        class="fa-solid fa-circle-check"></i>
+                                    <a href="./achieve/HSC_25/" class="h5 title"> ACS Achieve Offline Exam Batches
+                                    </a><i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                     <div class="d-flex my-3">
                                         <span class="star fas fa-star text-warning fa-beat mr-1"></span>
                                         <span class="star fas fa-star text-warning fa-beat mr-1"
@@ -603,20 +624,26 @@
                                     </div>
                                     <ul style="list-style-type: none">
                                         <li class="bangla"><i title="Recommended Course"
-                                               class="fa-solid fa-circle-check"></i> ACS Achieve Varsity Exam Batch 2025 </li>
-                                       <li class="bangla"><i title="Recommended Course"
-                                               class="fa-solid fa-circle-check"></i>ACS Achieve Engineering Exam Batch Exam 2025</li>
-                                                <li class="bangla"><i title="Recommended Course"
-                                               class="fa-solid fa-circle-check"></i> ACS Achieve Medical Exam Batch 2025 </li>
-                                               
-                                      <li class="bangla"><i title="Recommended Course"
-                                               class="fa-solid fa-circle-check"></i> Achieve Varsity 2nd Time Exam Batch 25 </li>
-                                      
-                                       <li class="bangla"><i title="Recommended Course"
-                                               class="fa-solid fa-circle-check"></i> Achieve Medical 2nd Time Exam Batch 25  </li>
-                                               <li class="bangla"><i title="Recommended Course"
-                                                class="fa-solid fa-circle-check"></i> ACS Achieve Final Model Test HSC'25 </li>
-                                            </ul>
+                                                class="fa-solid fa-circle-check"></i> ACS Achieve Varsity Exam Batch
+                                            2025 </li>
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i>ACS Achieve Engineering Exam Batch
+                                            Exam 2025</li>
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS Achieve Medical Exam Batch
+                                            2025 </li>
+
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> Achieve Varsity 2nd Time Exam
+                                            Batch 25 </li>
+
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> Achieve Medical 2nd Time Exam
+                                            Batch 25 </li>
+                                        <li class="bangla"><i title="Recommended Course"
+                                                class="fa-solid fa-circle-check"></i> ACS Achieve Final Model Test
+                                            HSC'25 </li>
+                                    </ul>
                                 </div>
 
                             </div>
@@ -714,7 +741,7 @@
                 </div>
             </div> -->
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="HSC25">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -787,7 +814,7 @@
             </div>
 
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="HSC25">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -843,7 +870,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -937,7 +964,7 @@
             </div> -->
 
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="HSC24">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1093,7 +1120,7 @@
             </div> -->
 
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="HSC25">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1148,7 +1175,7 @@
             </div>
 
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1198,7 +1225,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1263,7 +1290,7 @@
             </div>
 
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1323,7 +1350,7 @@
             </div>
 
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1377,7 +1404,7 @@
 
             <!-- cpv3 -->
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1428,7 +1455,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3 mt-3">
+            <div class="row mb-3 mt-3 course" data-id="others">
                 <div class="col-12 mb-3">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -2011,6 +2038,18 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
 <script src="./assets/js/script.js"></script>
+<script>
+function filterDivs(id) {
+  const allDivs = document.querySelectorAll('.course');
+  allDivs.forEach(div => {
+    if (id === 'all' || div.dataset.id === id) {
+      div.style.display = 'block';
+    } else {
+      div.style.display = 'none';
+    }
+  });
+}
+</script>
 <script src="/shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js"></script>
 <script src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
