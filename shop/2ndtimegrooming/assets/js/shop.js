@@ -69,9 +69,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                             })
                             .then((val) => {
                                 swal({
-                                    title: "Successfully Booked 🥰",
+                                    title: "Successfully Joined 🥰",
                                     icon: "success",
-                                    text: "Your Booking Number : " + val.roll,
+                                    text: "Your Serial Number : " + val.roll,
                                     button: "Access Facebook Group"
                                 }).then(() => {
                                     form.reset();
@@ -83,16 +83,16 @@ firebase.auth().onAuthStateChanged(function(e) {
                             swal({
                                 title: "Oh No 💔",
                                 icon: "error",
-                                text: "Your booking cancelled!\nPlease try again (later) 😶",
+                                text: "Your joining cancelled!\nPlease try again (later) 😶",
                                 button: "Okay ☹"
                             })
                         })
                     })
                 } else {
                     swal({
-                        title: "Already Booked! ✔",
+                        title: "Already Joined! ✔",
                         icon: "info",
-                        text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
+                        text: "Hello "  + dashboard.message.username + "\nYour Serial Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
                         button: "Visit Facebook group"
                     }).then(() => {
                         return location.replace('https://www.facebook.com/groups/2ndtimegroominh25');
@@ -111,7 +111,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         document.getElementById('moda').innerHTML = `
-        প্রি-বুক করো <i class="fas fa-arrow-right"></i>
+        কোর্সে জয়েন করো <i class="fas fa-arrow-right"></i>
         `;
         if (t != null) {
             document.getElementById('phone').value = t;
