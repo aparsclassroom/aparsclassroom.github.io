@@ -2,13 +2,16 @@
 <html lang="en" id="doc">
 
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WL8MSKLC');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WL8MSKLC');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- Site Meta -->
     <meta charset="utf-8">
@@ -44,8 +47,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         পড়াশোনা করে সেই আলোকে পর্যাপ্ত সংখ্যক প্র‍্যাকটিস করতে পারে, নিজের অবস্থান যাচাই
                                         করতে পারে আর বাসায় প্র‍্যাকটিস এর জন্য বই আর বাসায় প্র‍্যাকটিস এক্সাম শীট নিয়ে
                                         যেতে পারে।">
-    <meta property="og:image" content="https://i.postimg.cc/FK7rxDvG/ACS-ENGINEERING-EXAM-BATCH-2.jpg">
-    <meta property="og:image:secure_url" content="https://i.postimg.cc/FK7rxDvG/ACS-ENGINEERING-EXAM-BATCH-2.jpg">
+    <meta property="og:image" content="https://i.postimg.cc/d1rtm0bv/ENGR-1.png">
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/d1rtm0bv/ENGR-1.png">
     <meta property="og:image:type" content="image/jpg">
 
     <!-- Android -->
@@ -84,6 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="/shop/assets/js/script.js" defer></script>
     <!-- Scripts -->
     <script src="/assets/js/sweetalert.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -118,6 +122,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             height: 10rem !important;
             overflow: hidden;
         }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #1ab942;
+            margin: 0; /* Remove default margin */
+            vertical-align: middle; /* Align with text baseline */
+        }
+        
+        .checkbox-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #444;
+            margin: 0;
+            cursor: pointer; /* Make label clickable */
+            line-height: 1; /* Consistent line height */
+        }
+        
+        .checkbox-container {
+            background-color: rgb(238, 245, 237);
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center; /* Vertical center alignment */
+            justify-content: center; /* Horizontal center alignment */
+            gap: 8px; /* Slightly reduced gap for better visual balance */
+        }
+
+        .swal2-image.no-image-margin {
+            margin: 0 !important;
+        }
     </style>
 
     <!-- Shop Scripts -->
@@ -126,14 +164,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="./assets/info.js" defer></script>
     <script src="./assets/ss.js" defer></script>
     <!-- Custom Scripts -->
-    <script src="../assets/js/sript.js" defer></script>
+    <script src="../assets/js/sript3.js" defer></script>
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL8MSKLC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL8MSKLC" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 
     <nav class="navbar sticky-top navbar-light bg-transparent">
@@ -160,7 +198,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <br> <br>
                                         Course Features
                                         <br> <br>
-                                        <img src="https://i.postimg.cc/qRrCDP74/ACS-ENGINEERING-COMBO-BATCH-1-1.jpg" width="80%" alt="">
+                                        <img src="https://i.postimg.cc/qRrCDP74/ACS-ENGINEERING-COMBO-BATCH-1-1.jpg"
+                                            width="80%" alt="">
                                     </p>
                                     <ul>
                                         <li>Daily Central and Branch Wise Merit</li>
@@ -186,14 +225,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
                 <div id="video" class="col-md-5 flex-column">
-                            <div id="thumb">
-                                <img src="https://i.postimg.cc/FK7rxDvG/ACS-ENGINEERING-EXAM-BATCH-2.jpg"
-                                    class="image-loaded3">
-                                <!-- <script src="/assets/js/lottie-player.js"></script>
+                    <div id="thumb">
+                        <img src="https://i.postimg.cc/d1rtm0bv/ENGR-1.png" class="image-loaded3">
+                        <!-- <script src="/assets/js/lottie-player.js"></script>
                                     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_aolblx3z.json"  background="transparent"  speed="1"  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; opacity: 1;"  loop autoplay></lottie-player> -->
-                            </div>
-                        <div id="player"></div>
-                    
+                    </div>
+                    <div id="player"></div>
+
                     <div class="contmeta text-center">
                         <div class="met">
                             <div class="tag">
@@ -211,7 +249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div> -->
                         </div>
                     </div>
-                    
+
                     <br>
 
                     <!-- <div class="text-center">
@@ -243,6 +281,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                                 <p class="text-center" id="how" style="display: none;"></p>
                             </div>
+                        </div>
+                        <div class="checkbox-container">
+                            <input class="custom-checkbox" type="checkbox" id="addBooks" checked>
+                            <label class="checkbox-label" for="addBooks">
+                                Add Books (+2000 TK)
+                            </label>
                         </div>
                         <div class="d-flex justify-content-center">
                             <!-- Button trigger modal -->
@@ -383,7 +427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                         <input type="text" name="disC" id="disC" class="form-control" style="display: none;"
-                        value="N/A">
+                            value="N/A">
                         <div class="form-row"><label style="color: red;">You have to pay <span id="sprice"></span> ৳
                             </label></div>
                         <div class="form-group">
@@ -411,13 +455,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
-
+<!-- 
 <script>
     let routine = document.getElementById("routine");
 
     routine.addEventListener('click', function () {
         window.open("https://click.apars.shop/JS")
     })
-</script>
+</script> -->
 
 </html>

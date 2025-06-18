@@ -1,7 +1,11 @@
 const product = "achieveeng25";
-const productName = "ACS Achieve Engineering Exam Batch 2025";
+const product2 = "achieveeng25nobook";
+const productName = "ACS Achieve Engineering Exam Batch 2025 with Books";
+const productName2 = "ACS Achieve Engineering Exam Batch 2025 without Books";
 const productCode = "404";
+const productCode2 = "522";
 const fix = 15000;
 const pls = 12000;
+const pls2 = 10000;
 const Platform = "Offline";
 const init = 0;

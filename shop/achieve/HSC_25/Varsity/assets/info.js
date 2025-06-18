@@ -1,7 +1,11 @@
 const product = "achievevarsity25";
-const productName = "Achieve Varsity Exam Batch 2025";
+const product2 = "achievevarsity25nobook";
+const productName2 = "ACS Achieve Varsity Exam Batch 2025 without Books";
+const productName = "ACS Achieve Varsity Exam Batch 2025 with Books";
 const productCode = "406";
+const productCode2 = "521";
 const fix = 15000;
 const pls = 12000;
+const pls2 = 10000;
 const Platform = "Offline";
 const init = 0;
