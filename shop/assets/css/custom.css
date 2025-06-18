@@ -30,7 +30,7 @@ a:hover {
     content: '+ আরো পড়ুন';
 }
 
-#module a:not(.collapsed)::after {
+#module a:not(.collapsed):not(.exclude-style)::after {
     content: '- সংক্ষিপ্ত করুন';
 }
 #module table td a:not(.collapsed)::after {
