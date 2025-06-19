@@ -1,7 +1,11 @@
 const product = "achievemedical25";
-const productName = "ACS Achieve Medical Exam Batch 2025";
+const product2 = "achievemedical25nobook";
+const productName = "ACS Achieve Medical Exam Batch 2025 with Books";
+const productName2 = "ACS Achieve Medical Exam Batch 2025 without Books";
 const productCode = "402";
+const productCode2 = "523";
 const fix = 13000;
 const pls = 10000;
+const pls2 = 8000;
 const Platform = "Offline";
 const init = 0;
