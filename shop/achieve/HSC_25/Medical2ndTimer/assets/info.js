@@ -1,7 +1,11 @@
 const product = "achieve2ndtimemedi25";
-const productName = "Achieve Medical 2nd Time Exam Batch 25";
+const product2 = "achieve2ndtimemedi25nobook"
+const productName = "Achieve Medical 2nd Time Exam Batch 25 with Books";
+const productName2 = "Achieve Medical 2nd Time Exam Batch 25 without Books";
 const productCode = "497";
+const productCode2 = "527";
 const fix = 10000;
-const pls = 6000;
+const pls = 9000;
+const pls2 = 7000;
 const Platform = "Offline";
 const init = 0;
