@@ -39,6 +39,13 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+
+document.getElementById('moda').addEventListener('click', function () {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+    }
+});
+
 var requestOptions = {
     method: 'GET',
     redirect: 'follow'
