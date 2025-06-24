@@ -13,6 +13,91 @@ if (document.getElementById("stds")) {
     }
 }
 
+// Function to get URL parameter value
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Function to extract product code from promo parameter
+function getProductCodeFromURL() {
+    const promoParam = getURLParameter('promo');
+    if (promoParam) {
+        // Extract the product code (part after 'C-' and before the next '-')
+        const match = promoParam.match(/C-(\d+)-/);
+        if (match) {
+            return match[1]; // Returns the captured group (the product code)
+        }
+    }
+    return null;
+}
+
+// Get product code from URL and set initial state
+const urlProductCode = getProductCodeFromURL();
+let productcode;
+
+// Set initial state based on URL product code
+if (urlProductCode === productCode) {
+    // If URL has productCode (407), start with books unchecked
+    productcode = productCode;
+    document.getElementById('addBooks').checked = false;
+    document.getElementById('shippingFields').style.display = 'none';
+    document.getElementById('sprice').innerText = pls;
+    document.getElementById('price').value = pls;
+    document.getElementById('nop').innerText = pls + "৳";
+
+   document.getElementById('addbooksdiv').style.display = 'none'; // Hide the books checkbox
+    
+    // Remove required attributes from shipping fields
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+    shippingInputs.forEach(input => input.removeAttribute('required'));
+} else if (urlProductCode === productCode2) {
+    // If URL has productCode2 (444), start with books checked
+    productcode = productCode2;
+    document.getElementById('addBooks').checked = true;
+    document.getElementById('shippingFields').style.display = 'block';
+    document.getElementById('sprice').innerText = pls2;
+    document.getElementById('price').value = pls2;
+    document.getElementById('nop').innerText = pls2 + "৳";
+
+     document.getElementById('addbooksdiv').style.display = 'none';
+    
+    // Add required attributes to shipping fields
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+    shippingInputs.forEach(input => input.setAttribute('required', ''));
+} else {
+    // Default state when no promo or unrecognized promo (books checked)
+    productcode = productCode2;
+    document.getElementById('addBooks').checked = true;
+    document.getElementById('shippingFields').style.display = 'block';
+    document.getElementById('sprice').innerText = pls2;
+    document.getElementById('price').value = pls2;
+    document.getElementById('nop').innerText = pls2 + "৳";
+    
+    // Add required attributes to shipping fields
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+    shippingInputs.forEach(input => input.setAttribute('required', ''));
+}
+
+// Email validation
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
         document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
@@ -21,8 +106,7 @@ document.getElementById('email').addEventListener("input", function (event) {
     }
 });
 
-let productcode = productCode2;
-
+// Phone validation
 document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
@@ -30,12 +114,11 @@ document.getElementById('phone').addEventListener("input", function (event) {
         document.getElementById('phone').setCustomValidity("");
     }
 });
+
+// Set page title and product info
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls2 + "৳";
-document.getElementById('sprice').innerText = pls2;
-document.getElementById('price').value = pls2;
 
 const quotes = [
     "A reader lives a thousand lives before he dies.",
@@ -48,6 +131,7 @@ const quotes = [
     "Reading gives us someplace to go when we have to stay where we are."
 ];
 
+// Add books checkbox event listener
 document.getElementById('addBooks').addEventListener('change', function () {
     const shipFields = document.getElementById('shippingFields');
     const isShipping = this.checked;
@@ -115,9 +199,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
     }
 });
 
-
-
-
+// Rest of your existing code remains the same...
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
@@ -359,6 +441,8 @@ firebase.auth().onAuthStateChanged(function (e) {
         document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
     }
 })
+
+// Coupon functionality
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
@@ -377,6 +461,7 @@ notdis()
 var disOFF = 0;
 
 function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
+
 cpn.addEventListener('click', (e) => {
     e.preventDefault();
     const cupV = document.getElementById('cupon');
@@ -433,14 +518,15 @@ cpn.addEventListener('click', (e) => {
             })
         })
 })
-if (queryPromo != null) {
-    document.getElementById('cupon').value = getCookie("promo");
+
+// Auto-apply promo code if it exists in URL
+const urlPromo = getURLParameter('promo');
+if (urlPromo) {
+    document.getElementById('cupon').value = urlPromo;
     notdis()
     document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
-
     document.getElementById("cup").style.display = "none";
-    delete_cookie("promo");
     notdis()
 }
