@@ -39,7 +39,27 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
+// fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
+//     .then((res) => {
+//         return res.json()
+//     })
+//     .then((data) => {
+//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+//         if (document.getElementById('enrolled')) {
+//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+//             if (!countUp.error) {
+//                 countUp.start();
+//             } else {
+//                 console.error(countUp.error);
+//             }
+//         }
+
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+
+fetch(`https://hmath27.aparsclassroom.com/api/public/check/enrollment/${Cycle}`)
     .then((res) => {
         return res.json()
     })
