@@ -38,6 +38,26 @@
             visibility: hidden;
             /* or display: none if layout shift is extreme */
         }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 5px solid #ddd;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 
 
@@ -108,6 +128,11 @@
         <div class="col-12 mb-3">
             <a id="All"></a>
             <h2 class="text-center mb-2 mt-4">HSC 2027 All Academic Cycles</h2>
+            <div id="loader" style="text-align:center; margin-top: 50px;">
+                <div class="spinner" style="margin-bottom: 10px;"></div>
+                <div>Loading courses...</div>
+            </div>
+            <br>
             <div class="card bg-primary shadow-soft border-light p-4" id="course-container">
                 <div class="col-12 mb-3" id="b2m27">
                     <div class="card bg-primary shadow-soft border-light p-4">
@@ -187,19 +212,19 @@
                     </div>
                 </div>
 
-                       <div class="col-12 mb-3" id="phyfusion27">
+                <div class="col-12 mb-3" id="phyfusion27">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="/shop/phyfusion27/">
-                                    <img src="https://i.postimg.cc/gk3Dxc8F/1-1.jpg"
-                                        style="border-radius: 15px;" alt="cycle-2 hsc25">
+                                    <img src="https://i.postimg.cc/gk3Dxc8F/1-1.jpg" style="border-radius: 15px;"
+                                        alt="cycle-2 hsc25">
                                 </a>
                             </aside>
                             <div class="col-md-6">
                                 <div class="info-main">
-                                    <a href="/shop/phyfusion27/" class="h5 title">ACS HSC 27 Physics Fusion Academic Cycle</a> <i title="Recommended Course"
-                                        class="fa-solid fa-circle-check"></i>
+                                    <a href="/shop/phyfusion27/" class="h5 title">ACS HSC 27 Physics Fusion Academic
+                                        Cycle</a> <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                     <div class="d-flex my-3">
                                         <span class="star fas fa-star text-warning fa-beat mr-1"></span>
                                         <span class="star fas fa-star text-warning fa-beat mr-1"
@@ -211,8 +236,8 @@
                                         <span class="star fas fa-star text-warning fa-beat"
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
-                                    <p class="bangla"> 
-                                         <ul>
+                                    <p class="bangla">
+                                    <ul>
                                         <li>Cycle-1 (Enrollment On)</li>
                                         <li>Cycle-2 (Enrollment On)</li>
                                         <li>Cycle-3 (Enrollment On)</li>
@@ -1036,7 +1061,8 @@
                                     </div>
                                     <p class="bangla">
                                         🎓 ASG ICT HSC 27 – HSC ‘27 ব্যাচের জন্য ICT এর সম্পূর্ণ প্রস্তুতির কোর্স! <br>
-                                        🚀 HSC ICT এর পূর্ণ প্রস্তুতি শুরু হোক এখান থেকেই। সঠিক গাইড, সঠিক রিসোর্স, একদম বোর্ড স্ট্যান্ডার্ডে! ... </p>
+                                        🚀 HSC ICT এর পূর্ণ প্রস্তুতি শুরু হোক এখান থেকেই। সঠিক গাইড, সঠিক রিসোর্স, একদম
+                                        বোর্ড স্ট্যান্ডার্ডে! ... </p>
 
 
                                 </div>
@@ -1049,7 +1075,8 @@
                                     <span class="h2 mb-0 text-success bangla"> ৭৫০৳ </span>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="/shop/codervai/codervaiict27/" class="btn btn-primary btn-sm btn-block"><span
+                                    <a href="/shop/codervai/codervaiict27/"
+                                        class="btn btn-primary btn-sm btn-block"><span
                                             class="fas fa-shopping-cart mr-1"></span>
                                         Enrollment Details
                                     </a>
@@ -1309,7 +1336,8 @@
                                         <span class="star fas fa-star text-warning fa-beat"
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
-                                    <p class="bangla">আসসালামু আলাইকুম, এইচ.এস.সি. ২০২৭ ব্যাচ এর শিক্ষার্থীরা তোমাদের HSC এর English এর
+                                    <p class="bangla">আসসালামু আলাইকুম, এইচ.এস.সি. ২০২৭ ব্যাচ এর শিক্ষার্থীরা তোমাদের
+                                        HSC এর English এর
                                         Journey টা Smooth করতে HSC 27 English A to Z এই Batch টি নিয়ে এসেছি। এই ব্যাচ
                                         টায় ৪ টা Cycle থাকবে। </p>
                                     <p class="bangla">
@@ -1557,8 +1585,8 @@
             .then(data => {
                 if (data.code === 200) {
                     const container = document.getElementById("course-container");
+                    const loader = document.getElementById("loader");
 
-                    // Temporarily store divs in correct order
                     const sortedDivs = [];
 
                     data.enrolled.forEach(item => {
@@ -1568,15 +1596,20 @@
                         }
                     });
 
-                    // Append divs in new order
                     sortedDivs.forEach(div => {
-                        container.appendChild(div); // moves the div to the bottom of container
+                        container.appendChild(div);
                     });
 
-                     container.style.visibility = "visible";
+                    loader.style.display = "none"; // Hide loader
+                    container.style.visibility = "visible"; // Show content
                 }
+            })
+            .catch(error => {
+                console.error("Failed to fetch course data:", error);
+                document.getElementById("loader").innerText = "Failed to load courses.";
             });
     </script>
+
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
