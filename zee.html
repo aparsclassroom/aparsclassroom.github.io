@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -193,10 +194,21 @@
             border-radius: 4px;
         }
 
-        .log-info { background: rgba(59, 130, 246, 0.1); }
-        .log-success { background: rgba(34, 197, 94, 0.1); }
-        .log-error { background: rgba(239, 68, 68, 0.1); }
-        .log-warning { background: rgba(251, 146, 60, 0.1); }
+        .log-info {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .log-success {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .log-error {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .log-warning {
+            background: rgba(251, 146, 60, 0.1);
+        }
 
         .timestamp {
             color: #94a3b8;
@@ -224,9 +236,20 @@
             font-weight: 500;
         }
 
-        .access-granted { background: rgba(34, 197, 94, 0.3); border: 1px solid rgba(34, 197, 94, 0.4); }
-        .access-denied { background: rgba(239, 68, 68, 0.3); border: 1px solid rgba(239, 68, 68, 0.4); }
-        .access-loading { background: rgba(59, 130, 246, 0.3); border: 1px solid rgba(59, 130, 246, 0.4); }
+        .access-granted {
+            background: rgba(34, 197, 94, 0.3);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .access-denied {
+            background: rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .access-loading {
+            background: rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
 
         .spinner {
             display: inline-block;
@@ -239,23 +262,43 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .refresh-status {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1>🎓 AparsClassroom</h1>
-            <p>SSO Integration Test Page</p>
+            <p>SSO Integration Test Page with Auto-Refresh</p>
         </div>
 
         <div class="main-grid">
             <!-- Authentication Status Card -->
             <div class="card">
                 <h2>🔐 Authentication Status</h2>
-                
+
+                <div class="refresh-status">
+                    <strong>🔄 Auto-Refresh:</strong> <span id="refresh-status">Initializing...</span><br>
+                    <strong>⏰ Next Refresh:</strong> <span id="next-refresh">-</span><br>
+                    <strong>🏃 User Activity:</strong> <span id="activity-status">Active</span>
+                </div>
+
                 <div id="auth-status" class="status loading">
                     <div class="spinner"></div> Checking authentication...
                 </div>
@@ -267,7 +310,7 @@
                     <p><strong>Role:</strong> <span id="user-role">-</span></p>
                     <p><strong>User ID:</strong> <span id="user-id">-</span></p>
                     <p><strong>Email Verified:</strong> <span id="user-verified">-</span></p>
-                    
+
                     <div class="permissions">
                         <strong>Permissions:</strong>
                         <div id="user-permissions"></div>
@@ -281,7 +324,8 @@
                     <a id="login-btn" href="#" class="btn btn-success" style="display: none;">
                         🚪 Login via SSO
                     </a>
-                    <a id="dashboard-btn" href="https://sso.aparsclassroom.com/dashboard" class="btn btn-secondary" style="display: none;">
+                    <a id="dashboard-btn" href="https://sso.aparsclassroom.com/dashboard" class="btn btn-secondary"
+                        style="display: none;">
                         📊 Go to Dashboard
                     </a>
                     <button id="logout-btn" class="btn btn-danger" style="display: none;">
@@ -293,7 +337,7 @@
             <!-- Subdomain Access Tests -->
             <div class="card">
                 <h2>🌐 Subdomain Access Tests</h2>
-                
+
                 <div class="subdomain-tests">
                     <div class="subdomain-test">
                         <span>learn.aparsclassroom.com</span>
@@ -337,10 +381,323 @@
     </div>
 
     <script>
+        // Enhanced Token Refresh System for Seamless Authentication
+        class SSOManager {
+            constructor(ssoBaseUrl = 'https://sso.aparsclassroom.com') {
+                this.ssoBaseUrl = ssoBaseUrl;
+                this.apiBase = `${ssoBaseUrl}/api`;
+                this.refreshInterval = null;
+                this.isRefreshing = false;
+                this.failedRefreshAttempts = 0;
+                this.maxRefreshAttempts = 3;
+                this.nextRefreshTime = null;
+
+                // Start automatic refresh cycle
+                this.startAutoRefresh();
+
+                // Handle visibility change to refresh when tab becomes active
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) {
+                        this.verifyAndRefreshIfNeeded();
+                    }
+                });
+            }
+
+            // Automatic token refresh every 10 minutes (before 15min expiry)
+            startAutoRefresh() {
+                // Clear existing interval
+                if (this.refreshInterval) {
+                    clearInterval(this.refreshInterval);
+                }
+
+                // Set interval for 10 minutes (600,000 ms)
+                this.refreshInterval = setInterval(() => {
+                    this.verifyAndRefreshIfNeeded();
+                }, 10 * 60 * 1000);
+
+                this.nextRefreshTime = new Date(Date.now() + 10 * 60 * 1000);
+                this.updateRefreshStatus('🟢 Active (every 10 minutes)');
+                log('🔄 Auto-refresh started: will refresh tokens every 10 minutes', 'success');
+            }
+
+            // Stop automatic refresh
+            stopAutoRefresh() {
+                if (this.refreshInterval) {
+                    clearInterval(this.refreshInterval);
+                    this.refreshInterval = null;
+                    this.nextRefreshTime = null;
+                    this.updateRefreshStatus('🔴 Paused (user inactive)');
+                    log('⏹️ Auto-refresh stopped', 'warning');
+                }
+            }
+
+            updateRefreshStatus(status) {
+                const statusEl = document.getElementById('refresh-status');
+                const nextRefreshEl = document.getElementById('next-refresh');
+                if (statusEl) statusEl.textContent = status;
+                if (nextRefreshEl && this.nextRefreshTime) {
+                    nextRefreshEl.textContent = this.nextRefreshTime.toLocaleTimeString();
+                } else if (nextRefreshEl) {
+                    nextRefreshEl.textContent = '-';
+                }
+            }
+
+            // Enhanced verification with automatic refresh
+            async verifyAndRefreshIfNeeded() {
+                try {
+                    log('🔍 Checking authentication status...', 'info');
+                    
+                    // First, try to verify with current token
+                    const verification = await this.verifyUserToken();
+
+                    if (verification.authenticated) {
+                        this.failedRefreshAttempts = 0;
+                        this.nextRefreshTime = new Date(Date.now() + 10 * 60 * 1000);
+                        this.updateRefreshStatus('🟢 Active (every 10 minutes)');
+                        return verification;
+                    }
+
+                    // If verification failed, try to refresh token
+                    log('🔄 Access token may be expired, attempting refresh...', 'warning');
+                    const refreshResult = await this.refreshToken();
+
+                    if (refreshResult.success) {
+                        // After successful refresh, verify again
+                        log('✅ Token refreshed, re-verifying...', 'success');
+                        return await this.verifyUserToken();
+                    } else {
+                        // Refresh failed, user needs to login
+                        this.handleAuthenticationFailure();
+                        return { authenticated: false, needsLogin: true };
+                    }
+
+                } catch (error) {
+                    log(`❌ Verification and refresh error: ${error.message}`, 'error');
+                    return { authenticated: false, error: error.message };
+                }
+            }
+
+            // Verify user authentication (renamed to avoid conflicts)
+            async verifyUserToken() {
+                try {
+                    const response = await fetch(`${this.apiBase}/sso/verify`, {
+                        method: 'GET',
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        log(`✅ User verified: ${data.user.name}`, 'success');
+
+                        return {
+                            valid: data.valid,
+                            user: data.user,
+                            authenticated: true
+                        };
+                    } else {
+                        log(`❌ Verification failed: ${response.status}`, 'error');
+                        return {
+                            valid: false,
+                            authenticated: false,
+                            status: response.status
+                        };
+                    }
+                } catch (error) {
+                    log(`❌ Verification error: ${error.message}`, 'error');
+                    return {
+                        valid: false,
+                        authenticated: false,
+                        error: error.message
+                    };
+                }
+            }
+
+            // Refresh access token using refresh token
+            async refreshToken() {
+                if (this.isRefreshing) {
+                    log('🔄 Refresh already in progress, waiting...', 'info');
+                    return { success: false, message: 'Refresh in progress' };
+                }
+
+                this.isRefreshing = true;
+
+                try {
+                    log('🔄 Refreshing access token...', 'info');
+
+                    const response = await fetch(`${this.apiBase}/auth/refresh`, {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        log(`✅ Token refreshed successfully for: ${data.user.name}`, 'success');
+
+                        this.failedRefreshAttempts = 0;
+                        return {
+                            success: true,
+                            user: data.user,
+                            message: data.message
+                        };
+                    } else {
+                        this.failedRefreshAttempts++;
+                        log(`❌ Token refresh failed: ${response.status}`, 'error');
+
+                        return {
+                            success: false,
+                            status: response.status,
+                            message: await response.text()
+                        };
+                    }
+                } catch (error) {
+                    this.failedRefreshAttempts++;
+                    log(`❌ Token refresh error: ${error.message}`, 'error');
+
+                    return {
+                        success: false,
+                        error: error.message
+                    };
+                } finally {
+                    this.isRefreshing = false;
+                }
+            }
+
+            // Handle authentication failure
+            handleAuthenticationFailure() {
+                log('❌ Authentication failed after refresh attempts', 'error');
+
+                if (this.failedRefreshAttempts >= this.maxRefreshAttempts) {
+                    log('🚪 Max refresh attempts reached, redirecting to login', 'warning');
+                    this.redirectToLogin();
+                }
+            }
+
+            // Redirect to login with return URL
+            redirectToLogin() {
+                this.stopAutoRefresh();
+                const returnURL = encodeURIComponent(window.location.href);
+                const loginUrl = `${this.ssoBaseUrl}/login?returnURL=${returnURL}`;
+                log(`🚪 Redirecting to login: ${loginUrl}`, 'info');
+                window.location.href = loginUrl;
+            }
+
+            // Enhanced logout with cleanup
+            async logout() {
+                try {
+                    log('🚪 Logging out...', 'info');
+
+                    // Stop auto-refresh
+                    this.stopAutoRefresh();
+
+                    // Call logout API
+                    await fetch(`${this.apiBase}/auth/logout`, {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+
+                    log('✅ Logout successful', 'success');
+
+                    // Redirect to login or home
+                    this.redirectToLogin();
+
+                } catch (error) {
+                    log(`❌ Logout error: ${error.message}`, 'error');
+                    // Force redirect even if logout API fails
+                    this.redirectToLogin();
+                }
+            }
+
+            // Check if user has specific subdomain access
+            async checkSubdomainAccess(subdomain) {
+                try {
+                    // First ensure we have valid authentication
+                    const auth = await this.verifyAndRefreshIfNeeded();
+                    if (!auth.authenticated) {
+                        return { hasAccess: false, needsLogin: true };
+                    }
+
+                    const response = await fetch(`${this.apiBase}/sso/access/${subdomain}`, {
+                        credentials: 'include'
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        return {
+                            hasAccess: data.access,
+                            user: data.user,
+                            subdomain: data.subdomain
+                        };
+                    } else if (response.status === 401) {
+                        // Token might have expired, try refresh
+                        const refreshResult = await this.refreshToken();
+                        if (refreshResult.success) {
+                            // Retry the access check
+                            return this.checkSubdomainAccess(subdomain);
+                        } else {
+                            return { hasAccess: false, needsLogin: true };
+                        }
+                    } else {
+                        return {
+                            hasAccess: false,
+                            error: await response.text()
+                        };
+                    }
+                } catch (error) {
+                    log(`❌ Subdomain access check failed for ${subdomain}: ${error.message}`, 'error');
+                    return {
+                        hasAccess: false,
+                        error: error.message
+                    };
+                }
+            }
+
+            // Get user permissions with automatic refresh
+            async getUserPermissions() {
+                try {
+                    // Ensure valid authentication first
+                    const auth = await this.verifyAndRefreshIfNeeded();
+                    if (!auth.authenticated) {
+                        return null;
+                    }
+
+                    const response = await fetch(`${this.apiBase}/sso/permissions`, {
+                        credentials: 'include'
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        return {
+                            permissions: data.permissions,
+                            role: data.role
+                        };
+                    } else if (response.status === 401) {
+                        // Try refresh and retry
+                        const refreshResult = await this.refreshToken();
+                        if (refreshResult.success) {
+                            return this.getUserPermissions();
+                        }
+                    }
+
+                    return null;
+                } catch (error) {
+                    log(`❌ Get permissions error: ${error.message}`, 'error');
+                    return null;
+                }
+            }
+        }
+
+        // Global SSO Manager instance
+        const ssoManager = new SSOManager();
+
         // Configuration
         const SSO_BASE = 'https://sso.aparsclassroom.com';
-        const API_BASE = `${SSO_BASE}/api`;
-        
+
         // Global state
         let currentUser = null;
         let isAuthenticated = false;
@@ -356,102 +713,8 @@
             `;
             logsContainer.appendChild(logEntry);
             logsContainer.scrollTop = logsContainer.scrollHeight;
-            
+
             console.log(`[${type.toUpperCase()}] ${message}`);
-        }
-
-        // Clear logs
-        document.getElementById('clear-logs-btn').addEventListener('click', () => {
-            document.getElementById('logs').innerHTML = '';
-            log('Logs cleared', 'info');
-        });
-
-        // SSO Verification function
-        async function verifyUser() {
-            try {
-                log('Starting SSO verification...', 'info');
-                
-                const response = await fetch(`${API_BASE}/sso/verify`, {
-                    method: 'GET',
-                    credentials: 'include',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    log(`SSO verification successful: ${data.user.name}`, 'success');
-                    
-                    return {
-                        valid: data.valid,
-                        user: data.user,
-                        authenticated: true
-                    };
-                } else {
-                    const errorText = await response.text();
-                    log(`SSO verification failed: ${response.status} ${errorText}`, 'error');
-                    
-                    return {
-                        valid: false,
-                        authenticated: false,
-                        error: errorText
-                    };
-                }
-            } catch (error) {
-                log(`SSO verification error: ${error.message}`, 'error');
-                return {
-                    valid: false,
-                    authenticated: false,
-                    error: error.message
-                };
-            }
-        }
-
-        // Check subdomain access
-        async function checkSubdomainAccess(subdomain) {
-            try {
-                log(`Checking access to ${subdomain}...`, 'info');
-                
-                const response = await fetch(`${API_BASE}/sso/access/${subdomain}`, {
-                    credentials: 'include'
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    log(`Access to ${subdomain}: ${data.access ? 'GRANTED' : 'DENIED'}`, data.access ? 'success' : 'warning');
-                    return data.access;
-                } else {
-                    log(`Access check failed for ${subdomain}: ${response.status}`, 'error');
-                    return false;
-                }
-            } catch (error) {
-                log(`Access check error for ${subdomain}: ${error.message}`, 'error');
-                return false;
-            }
-        }
-
-        // Get user permissions
-        async function getUserPermissions() {
-            try {
-                log('Fetching user permissions...', 'info');
-                
-                const response = await fetch(`${API_BASE}/sso/permissions`, {
-                    credentials: 'include'
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    log(`Permissions fetched: ${data.permissions.length} permissions, role: ${data.role}`, 'success');
-                    return data;
-                } else {
-                    log(`Failed to get permissions: ${response.status}`, 'error');
-                    return null;
-                }
-            } catch (error) {
-                log(`Get permissions error: ${error.message}`, 'error');
-                return null;
-            }
         }
 
         // Update UI based on authentication status
@@ -464,8 +727,8 @@
 
             if (authResult.authenticated) {
                 statusEl.className = 'status authenticated';
-                statusEl.innerHTML = '✅ Authenticated via SSO';
-                
+                statusEl.innerHTML = '✅ Authenticated via SSO (Auto-refresh enabled)';
+
                 userInfoEl.style.display = 'block';
                 document.getElementById('user-name').textContent = authResult.user.name;
                 document.getElementById('user-email').textContent = authResult.user.email;
@@ -497,9 +760,9 @@
             } else {
                 statusEl.className = 'status unauthenticated';
                 statusEl.innerHTML = '❌ Not authenticated';
-                
+
                 userInfoEl.style.display = 'none';
-                
+
                 const returnURL = encodeURIComponent(window.location.href);
                 loginBtn.href = `${SSO_BASE}/login?returnURL=${returnURL}`;
                 loginBtn.style.display = 'inline-flex';
@@ -526,63 +789,72 @@
         // Test all subdomain access
         async function testAllAccess() {
             const subdomains = ['learn', 'student', 'teacher', 'admin'];
-            
+
             for (const subdomain of subdomains) {
                 const accessEl = document.getElementById(`${subdomain}-access`);
                 accessEl.className = 'access-badge access-loading';
                 accessEl.textContent = 'Testing...';
-                
-                const hasAccess = await checkSubdomainAccess(subdomain);
-                updateSubdomainUI(subdomain, hasAccess);
-            }
-        }
 
-        // Logout function
-        async function logout() {
-            try {
-                log('Initiating logout...', 'info');
+                const accessResult = await ssoManager.checkSubdomainAccess(subdomain);
+                updateSubdomainUI(subdomain, accessResult.hasAccess);
                 
-                // Call logout API
-                await fetch(`${API_BASE}/auth/logout`, {
-                    method: 'POST',
-                    credentials: 'include'
-                });
-
-                log('Logout successful', 'success');
-                
-                // Clear all access indicators
-                const subdomains = ['learn', 'student', 'teacher', 'admin'];
-                subdomains.forEach(subdomain => {
-                    const accessEl = document.getElementById(`${subdomain}-access`);
-                    accessEl.className = 'access-badge access-loading';
-                    accessEl.textContent = 'Testing...';
-                });
-
-                // Re-verify to update UI
-                await performVerification();
-                
-            } catch (error) {
-                log(`Logout error: ${error.message}`, 'error');
+                log(`Access to ${subdomain}: ${accessResult.hasAccess ? 'GRANTED' : 'DENIED'}`, 
+                    accessResult.hasAccess ? 'success' : 'warning');
             }
         }
 
         // Main verification function
         async function performVerification() {
-            const authResult = await verifyUser();
+            log('🔄 Starting comprehensive verification...', 'info');
+            const authResult = await ssoManager.verifyAndRefreshIfNeeded();
             updateAuthUI(authResult);
-            
+
             if (authResult.authenticated) {
                 await testAllAccess();
             }
         }
 
+        // Activity detection to prevent unnecessary refreshes
+        let lastActivity = Date.now();
+        const ACTIVITY_EVENTS = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+
+        ACTIVITY_EVENTS.forEach(event => {
+            document.addEventListener(event, () => {
+                lastActivity = Date.now();
+                const activityEl = document.getElementById('activity-status');
+                if (activityEl) activityEl.textContent = 'Active';
+            }, { passive: true });
+        });
+
+        // Only refresh if user was active in last 30 minutes
+        setInterval(() => {
+            const timeSinceActivity = Date.now() - lastActivity;
+            const thirtyMinutes = 30 * 60 * 1000;
+            const activityEl = document.getElementById('activity-status');
+
+            if (timeSinceActivity > thirtyMinutes) {
+                if (activityEl) activityEl.textContent = 'Inactive (30+ min)';
+                log('👤 User inactive for 30+ minutes, pausing auto-refresh', 'warning');
+                ssoManager.stopAutoRefresh();
+            } else if (!ssoManager.refreshInterval) {
+                if (activityEl) activityEl.textContent = 'Active';
+                log('👤 User active, resuming auto-refresh', 'success');
+                ssoManager.startAutoRefresh();
+            }
+        }, 5 * 60 * 1000); // Check every 5 minutes
+
         // Event listeners
+        document.getElementById('clear-logs-btn').addEventListener('click', () => {
+            document.getElementById('logs').innerHTML = '';
+            log('Logs cleared', 'info');
+        });
+
         document.getElementById('verify-btn').addEventListener('click', performVerification);
         document.getElementById('test-access-btn').addEventListener('click', testAllAccess);
-        document.getElementById('logout-btn').addEventListener('click', logout);
+        document.getElementById('logout-btn').addEventListener('click', () => ssoManager.logout());
 
         document.getElementById('get-permissions-btn').addEventListener('click', async () => {
-            const permissions = await getUserPermissions();
+            const permissions = await ssoManager.getUserPermissions();
             if (permissions) {
                 log(`Current permissions: Role=${permissions.role}, Permissions=${JSON.stringify(permissions.permissions)}`, 'info');
             }
@@ -590,20 +862,45 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
-            log('AparsClassroom SSO Test Page loaded', 'info');
+            log('🚀 AparsClassroom SSO Test Page loaded with Auto-Refresh', 'success');
             log(`Testing SSO integration with: ${SSO_BASE}`, 'info');
             performVerification();
         });
 
-        // Periodic verification (every 5 minutes)
+        // Handle page visibility for immediate refresh when user returns
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && Date.now() - lastActivity < 30 * 60 * 1000) {
+                log('👁️ Page visible again, checking authentication...', 'info');
+                performVerification();
+            }
+        });
+
+        // Periodic verification (every 5 minutes) with enhanced logging
         setInterval(async () => {
-            log('Performing periodic authentication check...', 'info');
-            const result = await verifyUser();
+            log('⏰ Performing periodic authentication check...', 'info');
+            const result = await ssoManager.verifyAndRefreshIfNeeded();
             if (!result.authenticated && isAuthenticated) {
-                log('Session expired! Please login again.', 'warning');
+                log('⚠️ Session expired! User needs to login again.', 'warning');
                 updateAuthUI(result);
             }
         }, 5 * 60 * 1000);
+
+        // Update next refresh time display every minute
+        setInterval(() => {
+            if (ssoManager.nextRefreshTime) {
+                const nextRefreshEl = document.getElementById('next-refresh');
+                if (nextRefreshEl) {
+                    nextRefreshEl.textContent = ssoManager.nextRefreshTime.toLocaleTimeString();
+                }
+            }
+        }, 60 * 1000);
+
+        // Export for global use
+        window.SSOManager = SSOManager;
+        window.ssoManager = ssoManager;
+        window.performVerification = performVerification;
+        window.testAllAccess = testAllAccess;
     </script>
 </body>
+
 </html>
