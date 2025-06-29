@@ -1,47 +1,609 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Text to Image Test</title>
-    <script>
-        function drawText(text, font, textColor, backColor) {
-            var canvas = document.createElement('canvas');
-            var context = canvas.getContext('2d');
-
-            context.font = font;
-            var textSize = context.measureText(text);
-
-            canvas.width = textSize.width;
-            canvas.height = parseInt(font, 10); 
-
-            context.fillStyle = backColor;
-            context.fillRect(0, 0, canvas.width, canvas.height);
-
-            context.fillStyle = textColor;
-            context.textBaseline = 'middle'; // Align text vertically
-            context.fillText(text, 0, canvas.height / 2);
-
-            return canvas.toDataURL();
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AparsClassroom - SSO Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        function createImage() {
-            var text = document.getElementById('text').value;
-            var font = document.getElementById('font').value;
-            var textColor = document.getElementById('textColor').value;
-            var backColor = document.getElementById('backColor').value;
-
-            var imageDataUrl = drawText(text, font, textColor, backColor);
-            document.getElementById('result').src = imageDataUrl;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
-    </script>
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .status.loading {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .status.authenticated {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .status.unauthenticated {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .status.error {
+            background: rgba(251, 146, 60, 0.2);
+            border: 1px solid rgba(251, 146, 60, 0.3);
+        }
+
+        .user-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .user-info h3 {
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+
+        .user-info p {
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        .user-info .permissions {
+            margin-top: 15px;
+        }
+
+        .permission-tag {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-success {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logs {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .log-info { background: rgba(59, 130, 246, 0.1); }
+        .log-success { background: rgba(34, 197, 94, 0.1); }
+        .log-error { background: rgba(239, 68, 68, 0.1); }
+        .log-warning { background: rgba(251, 146, 60, 0.1); }
+
+        .timestamp {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        .subdomain-tests {
+            margin-top: 20px;
+        }
+
+        .subdomain-test {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .access-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .access-granted { background: rgba(34, 197, 94, 0.3); border: 1px solid rgba(34, 197, 94, 0.4); }
+        .access-denied { background: rgba(239, 68, 68, 0.3); border: 1px solid rgba(239, 68, 68, 0.4); }
+        .access-loading { background: rgba(59, 130, 246, 0.3); border: 1px solid rgba(59, 130, 246, 0.4); }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-left: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <h2>Text to Image Converter</h2>
-    <p>Text: <input type="text" id="text" value="Hello World!"></p>
-    <p>Font: <input type="text" id="font" value="20px Arial"></p>
-    <p>Text Color: <input type="color" id="textColor" value="#000000"></p>
-    <p>Background Color: <input type="color" id="backColor" value="#FFFFFF"></p>
-    <button onclick="createImage()">Create Image</button>
-    <br>
-    <img id="result" />
+    <div class="container">
+        <div class="header">
+            <h1>🎓 AparsClassroom</h1>
+            <p>SSO Integration Test Page</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Authentication Status Card -->
+            <div class="card">
+                <h2>🔐 Authentication Status</h2>
+                
+                <div id="auth-status" class="status loading">
+                    <div class="spinner"></div> Checking authentication...
+                </div>
+
+                <div id="user-info" class="user-info" style="display: none;">
+                    <h3>User Information</h3>
+                    <p><strong>Name:</strong> <span id="user-name">-</span></p>
+                    <p><strong>Email:</strong> <span id="user-email">-</span></p>
+                    <p><strong>Role:</strong> <span id="user-role">-</span></p>
+                    <p><strong>User ID:</strong> <span id="user-id">-</span></p>
+                    <p><strong>Email Verified:</strong> <span id="user-verified">-</span></p>
+                    
+                    <div class="permissions">
+                        <strong>Permissions:</strong>
+                        <div id="user-permissions"></div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button id="verify-btn" class="btn btn-primary">
+                        🔄 Re-verify
+                    </button>
+                    <a id="login-btn" href="#" class="btn btn-success" style="display: none;">
+                        🚪 Login via SSO
+                    </a>
+                    <a id="dashboard-btn" href="https://sso.aparsclassroom.com/dashboard" class="btn btn-secondary" style="display: none;">
+                        📊 Go to Dashboard
+                    </a>
+                    <button id="logout-btn" class="btn btn-danger" style="display: none;">
+                        🚪 Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subdomain Access Tests -->
+            <div class="card">
+                <h2>🌐 Subdomain Access Tests</h2>
+                
+                <div class="subdomain-tests">
+                    <div class="subdomain-test">
+                        <span>learn.aparsclassroom.com</span>
+                        <span id="learn-access" class="access-badge access-loading">Testing...</span>
+                    </div>
+                    <div class="subdomain-test">
+                        <span>student.aparsclassroom.com</span>
+                        <span id="student-access" class="access-badge access-loading">Testing...</span>
+                    </div>
+                    <div class="subdomain-test">
+                        <span>teacher.aparsclassroom.com</span>
+                        <span id="teacher-access" class="access-badge access-loading">Testing...</span>
+                    </div>
+                    <div class="subdomain-test">
+                        <span>admin.aparsclassroom.com</span>
+                        <span id="admin-access" class="access-badge access-loading">Testing...</span>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button id="test-access-btn" class="btn btn-primary">
+                        🧪 Test All Access
+                    </button>
+                    <button id="get-permissions-btn" class="btn btn-secondary">
+                        🔑 Get Permissions
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Logs -->
+        <div class="card">
+            <h2>📝 Activity Logs</h2>
+            <div id="logs" class="logs"></div>
+            <div class="buttons" style="margin-top: 15px;">
+                <button id="clear-logs-btn" class="btn btn-secondary">
+                    🗑️ Clear Logs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const SSO_BASE = 'https://sso.aparsclassroom.com';
+        const API_BASE = `${SSO_BASE}/api`;
+        
+        // Global state
+        let currentUser = null;
+        let isAuthenticated = false;
+
+        // Logging system
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logsContainer = document.getElementById('logs');
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry log-${type}`;
+            logEntry.innerHTML = `
+                <span class="timestamp">[${timestamp}]</span> ${message}
+            `;
+            logsContainer.appendChild(logEntry);
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+            
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        // Clear logs
+        document.getElementById('clear-logs-btn').addEventListener('click', () => {
+            document.getElementById('logs').innerHTML = '';
+            log('Logs cleared', 'info');
+        });
+
+        // SSO Verification function
+        async function verifyUser() {
+            try {
+                log('Starting SSO verification...', 'info');
+                
+                const response = await fetch(`${API_BASE}/sso/verify`, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`SSO verification successful: ${data.user.name}`, 'success');
+                    
+                    return {
+                        valid: data.valid,
+                        user: data.user,
+                        authenticated: true
+                    };
+                } else {
+                    const errorText = await response.text();
+                    log(`SSO verification failed: ${response.status} ${errorText}`, 'error');
+                    
+                    return {
+                        valid: false,
+                        authenticated: false,
+                        error: errorText
+                    };
+                }
+            } catch (error) {
+                log(`SSO verification error: ${error.message}`, 'error');
+                return {
+                    valid: false,
+                    authenticated: false,
+                    error: error.message
+                };
+            }
+        }
+
+        // Check subdomain access
+        async function checkSubdomainAccess(subdomain) {
+            try {
+                log(`Checking access to ${subdomain}...`, 'info');
+                
+                const response = await fetch(`${API_BASE}/sso/access/${subdomain}`, {
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`Access to ${subdomain}: ${data.access ? 'GRANTED' : 'DENIED'}`, data.access ? 'success' : 'warning');
+                    return data.access;
+                } else {
+                    log(`Access check failed for ${subdomain}: ${response.status}`, 'error');
+                    return false;
+                }
+            } catch (error) {
+                log(`Access check error for ${subdomain}: ${error.message}`, 'error');
+                return false;
+            }
+        }
+
+        // Get user permissions
+        async function getUserPermissions() {
+            try {
+                log('Fetching user permissions...', 'info');
+                
+                const response = await fetch(`${API_BASE}/sso/permissions`, {
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`Permissions fetched: ${data.permissions.length} permissions, role: ${data.role}`, 'success');
+                    return data;
+                } else {
+                    log(`Failed to get permissions: ${response.status}`, 'error');
+                    return null;
+                }
+            } catch (error) {
+                log(`Get permissions error: ${error.message}`, 'error');
+                return null;
+            }
+        }
+
+        // Update UI based on authentication status
+        function updateAuthUI(authResult) {
+            const statusEl = document.getElementById('auth-status');
+            const userInfoEl = document.getElementById('user-info');
+            const loginBtn = document.getElementById('login-btn');
+            const dashboardBtn = document.getElementById('dashboard-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+
+            if (authResult.authenticated) {
+                statusEl.className = 'status authenticated';
+                statusEl.innerHTML = '✅ Authenticated via SSO';
+                
+                userInfoEl.style.display = 'block';
+                document.getElementById('user-name').textContent = authResult.user.name;
+                document.getElementById('user-email').textContent = authResult.user.email;
+                document.getElementById('user-role').textContent = authResult.user.role;
+                document.getElementById('user-id').textContent = authResult.user.id;
+                document.getElementById('user-verified').textContent = authResult.user.isEmailVerified ? 'Yes' : 'No';
+
+                // Show permissions
+                const permissionsEl = document.getElementById('user-permissions');
+                permissionsEl.innerHTML = '';
+                if (authResult.user.permissions && authResult.user.permissions.length > 0) {
+                    authResult.user.permissions.forEach(perm => {
+                        const tag = document.createElement('span');
+                        tag.className = 'permission-tag';
+                        tag.textContent = `${perm.subdomain}: ${perm.roles.join(', ')}`;
+                        permissionsEl.appendChild(tag);
+                    });
+                } else {
+                    permissionsEl.innerHTML = '<span class="permission-tag">No specific permissions</span>';
+                }
+
+                loginBtn.style.display = 'none';
+                dashboardBtn.style.display = 'inline-flex';
+                logoutBtn.style.display = 'inline-flex';
+
+                currentUser = authResult.user;
+                isAuthenticated = true;
+
+            } else {
+                statusEl.className = 'status unauthenticated';
+                statusEl.innerHTML = '❌ Not authenticated';
+                
+                userInfoEl.style.display = 'none';
+                
+                const returnURL = encodeURIComponent(window.location.href);
+                loginBtn.href = `${SSO_BASE}/login?returnURL=${returnURL}`;
+                loginBtn.style.display = 'inline-flex';
+                dashboardBtn.style.display = 'none';
+                logoutBtn.style.display = 'none';
+
+                currentUser = null;
+                isAuthenticated = false;
+            }
+        }
+
+        // Update subdomain access UI
+        function updateSubdomainUI(subdomain, hasAccess) {
+            const accessEl = document.getElementById(`${subdomain}-access`);
+            if (hasAccess) {
+                accessEl.className = 'access-badge access-granted';
+                accessEl.textContent = 'Access Granted';
+            } else {
+                accessEl.className = 'access-badge access-denied';
+                accessEl.textContent = 'Access Denied';
+            }
+        }
+
+        // Test all subdomain access
+        async function testAllAccess() {
+            const subdomains = ['learn', 'student', 'teacher', 'admin'];
+            
+            for (const subdomain of subdomains) {
+                const accessEl = document.getElementById(`${subdomain}-access`);
+                accessEl.className = 'access-badge access-loading';
+                accessEl.textContent = 'Testing...';
+                
+                const hasAccess = await checkSubdomainAccess(subdomain);
+                updateSubdomainUI(subdomain, hasAccess);
+            }
+        }
+
+        // Logout function
+        async function logout() {
+            try {
+                log('Initiating logout...', 'info');
+                
+                // Call logout API
+                await fetch(`${API_BASE}/auth/logout`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+
+                log('Logout successful', 'success');
+                
+                // Clear all access indicators
+                const subdomains = ['learn', 'student', 'teacher', 'admin'];
+                subdomains.forEach(subdomain => {
+                    const accessEl = document.getElementById(`${subdomain}-access`);
+                    accessEl.className = 'access-badge access-loading';
+                    accessEl.textContent = 'Testing...';
+                });
+
+                // Re-verify to update UI
+                await performVerification();
+                
+            } catch (error) {
+                log(`Logout error: ${error.message}`, 'error');
+            }
+        }
+
+        // Main verification function
+        async function performVerification() {
+            const authResult = await verifyUser();
+            updateAuthUI(authResult);
+            
+            if (authResult.authenticated) {
+                await testAllAccess();
+            }
+        }
+
+        // Event listeners
+        document.getElementById('verify-btn').addEventListener('click', performVerification);
+        document.getElementById('test-access-btn').addEventListener('click', testAllAccess);
+        document.getElementById('logout-btn').addEventListener('click', logout);
+
+        document.getElementById('get-permissions-btn').addEventListener('click', async () => {
+            const permissions = await getUserPermissions();
+            if (permissions) {
+                log(`Current permissions: Role=${permissions.role}, Permissions=${JSON.stringify(permissions.permissions)}`, 'info');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            log('AparsClassroom SSO Test Page loaded', 'info');
+            log(`Testing SSO integration with: ${SSO_BASE}`, 'info');
+            performVerification();
+        });
+
+        // Periodic verification (every 5 minutes)
+        setInterval(async () => {
+            log('Performing periodic authentication check...', 'info');
+            const result = await verifyUser();
+            if (!result.authenticated && isAuthenticated) {
+                log('Session expired! Please login again.', 'warning');
+                updateAuthUI(result);
+            }
+        }, 5 * 60 * 1000);
+    </script>
 </body>
 </html>
