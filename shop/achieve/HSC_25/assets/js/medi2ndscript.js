@@ -176,32 +176,52 @@ firebase.auth().onAuthStateChanged(function (e) {
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       var raw = JSON.stringify({
-          "product": productCode,
-          'uid': e.uid
-      });
+        "product": productCode,
+        'uid': e.uid
+    });
 
-      var requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: raw,
-          redirect: 'follow'
-      };
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
 
-      fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
-          .then(response => {
-              return response.json()
-          })
-          .then(result => {
-              if (result.status === 200) {
-                  swal({
-                      title: "Already Enrolled !",
-                      icon: "info",
-                      button: "Achieve Card"
-                  }).then(() => {
-                      location.href = "https://apars.shop/achieve/card/" + e.uid
-                  })
-              } else {
-                  const form = document.forms['purchase']
+    var raw2 = JSON.stringify({
+        "product": productCode2,
+        'uid': e.uid
+    });
+
+    var requestOptions2 = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw2,
+        redirect: 'follow'
+    };
+
+    Promise.all([
+        fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions).then(res => res.json()),
+        fetch(`https://${shopName2}/${productCode2}/purchase/${Cycle}`, requestOptions2).then(res => res.json())
+    ])
+        .then(([result1, result2]) => {
+            if (result1.status === 200) {
+                swal({
+                    title: "Already Enrolled !",
+                    icon: "info",
+                    button: "Achieve Card"
+                }).then(() => {
+                    location.href = "https://apars.shop/achieve/card/" + e.uid
+                })
+            } else if (result2.status === 200) {
+                swal({
+                    title: "Already Enrolled !",
+                    icon: "info",
+                    button: "Achieve Card"
+                }).then(() => {
+                    location.href = "https://apars.shop/achieve/card/" + e.uid
+                })
+            } else {
+                const form = document.forms['purchase'];
                   form.addEventListener('submit', em => {
                       em.preventDefault();
                       var mail = document.getElementById('email').value.toLowerCase().trim();
