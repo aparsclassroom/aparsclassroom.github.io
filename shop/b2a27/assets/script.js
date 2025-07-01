@@ -641,21 +641,29 @@ firebase.auth().onAuthStateChanged(function (e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productcode}/purchase/${Cycle}`, requestOptions)
-            .then(response => {
-                return response.json()
-            })
-            .then(result => {
-                if (result.status === 200) {
-                    swal({
-                        title: "Already Enrolled !",
-                        icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace(result.Invoice)
-                    })
-                } else {
-                    const form = document.forms['purchase']
+        Promise.all([
+            fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions).then(res => res.json()),
+            fetch(`https://${shopName2}/${productCode2}/purchase/${Cycle}`, requestOptions).then(res => res.json())
+        ])
+        .then(([result1, result2]) => {
+            if (result1.status === 200) {
+                swal({
+                    title: "Already Enrolled!",
+                    icon: "success",
+                    button: "View Informations"
+                }).then(() => {
+                    location.replace(result1.Invoice);
+                });
+            } else if (result2.status === 200) {
+                swal({
+                    title: "Already Enrolled!",
+                    icon: "success",
+                    button: "View Informations"
+                }).then(() => {
+                    location.replace(result2.Invoice);
+                });
+            } else {
+                const form = document.forms['purchase'];
                     form.addEventListener('submit', em => {
                         em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
