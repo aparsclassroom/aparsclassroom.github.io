@@ -630,7 +630,12 @@ firebase.auth().onAuthStateChanged(function (e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": productcode,
+            "product": productCode,
+            'uid': e.uid
+        });
+
+        var raw2 = JSON.stringify({ 
+            "product": productCode2,        
             'uid': e.uid
         });
 
@@ -641,9 +646,16 @@ firebase.auth().onAuthStateChanged(function (e) {
             redirect: 'follow'
         };
 
+        var requestOptions2 = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw2,
+            redirect: 'follow'
+        };
+
         Promise.all([
             fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions).then(res => res.json()),
-            fetch(`https://${shopName2}/${productCode2}/purchase/${Cycle}`, requestOptions).then(res => res.json())
+            fetch(`https://${shopName2}/${productCode2}/purchase/${Cycle}`, requestOptions2).then(res => res.json())
         ])
         .then(([result1, result2]) => {
             if (result1.status === 200) {
