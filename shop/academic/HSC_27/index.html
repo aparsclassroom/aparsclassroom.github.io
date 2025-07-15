@@ -60,6 +60,66 @@
         }
     </style>
 
+    <style>
+        /* Base style for all top courses */
+        .top-course {
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 1rem;
+        }
+
+        .trophy-badge {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            font-size: 5rem;
+            z-index: 10;
+            border-radius: 50%;
+            padding: 4px 8px;
+            transform: scale(1.1);
+        }
+
+        .trophy-gold {
+            color: #FFD700;
+        }
+
+        /* 🥇 */
+        .trophy-silver {
+            color: #C0C0C0;
+        }
+
+        /* 🥈 */
+        .trophy-bronze {
+            color: #CD7F32;
+        }
+
+        .top-course {
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 1rem;
+        }
+
+        /* Shared base styles for all top courses */
+        .top-course-1::before,
+        .top-course-2::before,
+        .top-course-3::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            border-radius: 12px;
+            background-size: 300% 300%;
+            background-repeat: no-repeat;
+        }
+        
+    </style>
 
     <title>HSC 27 Academic Cycles | Apar's Classroom | ASG Shop</title>
 
@@ -170,6 +230,7 @@
                                         একাডেমিক ব্যাচে যুক্ত ছিলো। তারই ধারাবাহিকতায় ২৭ ব্যাচের স্টুডেন্ট দেরকেও আমরা
                                         সার্ভ করতে প্রস্তুত।
                                     </p>
+                                    <span class="inject-count"></span>
 
                                 </div>
                             </div>
@@ -319,6 +380,7 @@
                                         একাডেমিক ব্যাচে যুক্ত ছিলো। তারই ধারাবাহিকতায় ২৭ ব্যাচের স্টুডেন্ট দেরকেও আমরা
                                         সার্ভ করতে প্রস্তুত।
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -397,6 +459,7 @@
                                         তাই আমরা তোমাদের জন্য নিয়ে আসছি “Higher Math Full Syllabus Course
                                         (HSC 27)” যেখানে তোমাদের ব্যাসিক টু অ্যাডভান্সড সব কিছুই কভার করা হবে ...
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -468,6 +531,7 @@
                                         <li>Cycle-5 (Enrollment On)</li>
                                     </ul>
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -539,6 +603,7 @@
                                         <li>Cycle-5 (Enrollment On)</li>
                                     </ul>
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -612,6 +677,7 @@
                                         <li>Cycle-5 (Enrollment On)</li>
                                     </ul>
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -683,6 +749,7 @@
                                     <p class="bangla"> BioMission-এর HSC Academic Biology Course ২০২৪, ২০২৫ এবং ২০২৬ এই
                                         তিনটি ব্যাচে অভাবনীয় সফলতা পেয়েছে। </p>
                                     <p class="bangla">এই তিন ব্যাচে মোট প্রায় ৩৮,০০০ শিক্ষার্থী যুক্ত হয়েছে। ...</p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -771,6 +838,7 @@
                                         জীববিজ্ঞানে মুখস্থ করার ভয়তে জীববিজ্ঞান হয়ে যায় কলেজ জীবনের সবচেয়ে কঠিন বিষয়!
                                         এটা যেনো একটা আত্মবিশ্বাসের জায়গা হয়ে উঠে তাই পূরণ হবে এই কোর্সে।
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -860,6 +928,7 @@
                                         দ্রুতই ৬ টা সাইকেলের মাধ্যমে আমরা বস হবো ২৪ টা চ্যাপ্টারের।</p>
                                     <p class="bangla"> হেলে-খেলে বায়োলজি শিখবো। HSC এর পাশাপাশি কমপ্লিট করবো এডমিশনের
                                         প্রস্তুতিও। দেখি কে ঠেকায় আমাদের! </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -1010,7 +1079,7 @@
                                         সাবজেক্টের ভীড়ে আইসিটি বিষয়টাও তাদের জন্য বেশি ভয়ের কারণ হয়ে উঠে। হঠাৎ করে লজিক
                                         গেইট আর
                                         প্রোগ্রামিং এর মতো কনসেপ্ট গুলো তার জন্য বুঝে উঠা প্রায় কষ্টকর হয়ে উঠে ... </p>
-
+                                    <span class="inject-count"></span>
 
                                 </div>
                             </div>
@@ -1060,7 +1129,7 @@
                                         🚀 HSC ICT এর পূর্ণ প্রস্তুতি শুরু হোক এখান থেকেই। সঠিক গাইড, সঠিক রিসোর্স, একদম
                                         বোর্ড স্ট্যান্ডার্ডে! ... </p>
 
-
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -1280,6 +1349,7 @@
                                         <li>Cycle-2 [২য় পত্র]</li>
                                     </ul>
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -1341,7 +1411,7 @@
                                         তোমাদের জন্য থাকছে Combined Cycle যেখানে ২ পেপার থেকেই টপিক গুলো নিয়ে Cycle
                                         অনুযায়ী পড়ানো হবে ...
                                     </p>
-
+                                    <span class="inject-count"></span>
 
                                 </div>
                             </div>
@@ -1380,20 +1450,21 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div class="col-12 mb-3" id="benjon27">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="/shop/sakib/benjon27/">
-                                    <img src="https://i.postimg.cc/T2rgbZ9f/Poster.jpg"
-                                        style="border-radius: 15px;" alt="poster" alt="poster">
+                                    <img src="https://i.postimg.cc/T2rgbZ9f/Poster.jpg" style="border-radius: 15px;"
+                                        alt="poster" alt="poster">
                                 </a>
                             </aside>
                             <div class="col-md-6">
                                 <div class="info-main">
-                                    <a href="/shop/sakib/benjon27/" class="h5 title bangla"> বাংলা ব্যঞ্জন ২৫-২৬ ব্যাচ</a>
+                                    <a href="/shop/sakib/benjon27/" class="h5 title bangla"> বাংলা ব্যঞ্জন ২৫-২৬
+                                        ব্যাচ</a>
                                     <div class="d-flex my-3">
                                         <span class="star fas fa-star text-warning fa-beat mr-1"></span>
                                         <span class="star fas fa-star text-warning fa-beat mr-1"
@@ -1405,8 +1476,11 @@
                                         <span class="star fas fa-star text-warning fa-beat"
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
-                                    <p class="bangla">স্নেহের শিক্ষার্থীরা,তোমাদের জন্য শুরু করছি "ব্যঞ্জন ২৫, ২৬ ব্যাচ"।বাংলা ১ম পত্র ও ২য় পত্র ফুল সিলেবাস সম্পূর্ণ করে, আশা করছি কলেজ,বোর্ড এক্সাম এবং এডমিশনে সাফল্য নিশ্চিতের ভিত্তি গড়ে তুলবে এই ব্যাচ। <br>
+                                    <p class="bangla">স্নেহের শিক্ষার্থীরা,তোমাদের জন্য শুরু করছি "ব্যঞ্জন ২৫, ২৬
+                                        ব্যাচ"।বাংলা ১ম পত্র ও ২য় পত্র ফুল সিলেবাস সম্পূর্ণ করে, আশা করছি কলেজ,বোর্ড
+                                        এক্সাম এবং এডমিশনে সাফল্য নিশ্চিতের ভিত্তি গড়ে তুলবে এই ব্যাচ। <br>
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -1425,9 +1499,9 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
-            
+
                 <div class="col-12 mb-3" id="galacticos2.0">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
@@ -1460,6 +1534,7 @@
                                         <li>Cycle-2 (Enrollment On)</li>
                                     </ul>
                                     </p>
+                                    <span class="inject-count"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -1585,19 +1660,56 @@
 
                     const sortedDivs = [];
 
-                    data.enrolled.forEach(item => {
+                    data.enrolled.forEach((item, index) => {
                         const div = document.getElementById(item.name);
                         if (div) {
-                            sortedDivs.push(div);
+                            const wrapper = div; // The `.col-12.mb-3` div
+                            wrapper.classList.add("position-relative"); // Ensure relative for absolute positioning
+
+                            // 🔥 Add trophy for top 3
+                            if (index < 3) {
+                                const trophy = document.createElement("span");
+                                trophy.classList.add("trophy-badge");
+
+                                if (index === 0) {
+                                    wrapper.classList.add("top-course", "top-course-1");
+                                    trophy.classList.add("trophy-gold");
+                                    trophy.innerText = "🏆";
+                                } else if (index === 1) {
+                                    wrapper.classList.add("top-course", "top-course-2");
+                                    trophy.classList.add("trophy-silver");
+                                    trophy.innerText = "🥈";
+                                } else if (index === 2) {
+                                    wrapper.classList.add("top-course", "top-course-3");
+                                    trophy.classList.add("trophy-bronze");
+                                    trophy.innerText = "🥉";
+                                }
+
+                                wrapper.appendChild(trophy);
+                            }
+
+                            // ✅ Inject total enrollment below title
+                            const titleAnchor = div.querySelector(".inject-count");
+                            if (titleAnchor) {
+                                const enrollmentInfo = document.createElement("div");
+                                enrollmentInfo.classList.add("text-muted", "small", "mt-1");
+                                enrollmentInfo.innerHTML = `Total Enrolled: <strong>${item.totalTransactions.toLocaleString()}</strong> students`;
+
+                                titleAnchor.parentElement.insertBefore(enrollmentInfo, titleAnchor.nextSibling);
+                            }
+
+                            sortedDivs.push(wrapper);
                         }
                     });
+
+
 
                     sortedDivs.forEach(div => {
                         container.appendChild(div);
                     });
 
-                    loader.style.display = "none"; // Hide loader
-                    container.style.visibility = "visible"; // Show content
+                    loader.style.display = "none";
+                    container.style.visibility = "visible";
                 }
             })
             .catch(error => {
@@ -1605,6 +1717,8 @@
                 document.getElementById("loader").innerText = "Failed to load courses.";
             });
     </script>
+
+
 
 
 </body>
