@@ -1743,15 +1743,15 @@
                     if (index < 3) {
                         const trophy = document.createElement("span");
                         trophy.classList.add("trophy-badge");
-                        if (index === 0) {
+                        if (index === 0 && period === 'all') {
                             wrapper.classList.add("top-course", "top-course-1");
                             trophy.classList.add("trophy-gold");
                             trophy.innerText = "🏆";
-                        } else if (index === 1) {
+                        } else if (index === 1 && period === 'all') {
                             wrapper.classList.add("top-course", "top-course-2");
                             trophy.classList.add("trophy-silver");
                             trophy.innerText = "🥈";
-                        } else if (index === 2) {
+                        } else if (index === 2 && period === 'all') {
                             wrapper.classList.add("top-course", "top-course-3");
                             trophy.classList.add("trophy-bronze");
                             trophy.innerText = "🥉";
@@ -1817,7 +1817,6 @@
             fetchAndDisplay('all');
         });
     </script>
-    <!-- END FILTER BUTTONS AND SCRIPT -->
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
