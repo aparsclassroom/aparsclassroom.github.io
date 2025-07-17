@@ -236,7 +236,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 })
 var cupon, cpn = document.getElementById("cpnCheck");
 
-const DEFAULT_COUPON = "math250"; // Change this to your desired default coupon
+const DEFAULT_COUPON = "math250";
 
 function func() {
     cupon = document.getElementById("cupon").value;
@@ -306,16 +306,13 @@ function applyCoupon(couponCode) {
         })
 }
 
-// Auto-apply default coupon when page loads
+// Auto-apply coupon 
 window.addEventListener('load', function() {
-    // Set the default coupon in the input field
-    document.getElementById('cupon').value = DEFAULT_COUPON;
     
-    // Apply the coupon automatically
+    document.getElementById('cupon').value = DEFAULT_COUPON;
     applyCoupon(DEFAULT_COUPON);
 });
 
-// Keep the manual click event as fallback
 cpn.addEventListener('click', (e) => {
     e.preventDefault();
     const cupV = document.getElementById('cupon');
@@ -333,7 +330,6 @@ cpn.addEventListener('click', (e) => {
     applyCoupon(cpnCode);
 });
 
-// Initialize the state
 notdis();
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
