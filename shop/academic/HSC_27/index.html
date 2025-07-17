@@ -118,7 +118,6 @@
             background-size: 300% 300%;
             background-repeat: no-repeat;
         }
-        
     </style>
 
     <title>HSC 27 Academic Cycles | Apar's Classroom | ASG Shop</title>
@@ -138,6 +137,34 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/Logo.png">
     <link rel="apple-touch-icon" href="/assets/Logo.png">
+
+    <style>
+        @media (max-width: 576px) {
+            #enroll-filter-group {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                gap: 0;
+            }
+            #enroll-filter-group .btn {
+                width: 48%;
+                margin-bottom: 10px;
+                margin-right: 2%;
+                font-size: 1.1rem;
+                border-radius: 8px;
+                box-sizing: border-box;
+            }
+            #enroll-filter-group .btn:nth-child(2n) {
+                margin-right: 0;
+            }
+            #enroll-filter-group .btn:nth-last-child(-n+2) {
+                margin-bottom: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -174,20 +201,19 @@
     </header>
     <div class="container">
 
-        <!--<div id="Carousel" class="carousel slide shadow-soft border border-light p-4 rounded" data-ride="carousel">
-            <div class="carousel-inner rounded">
-                <div class="carousel-item active">
-                    <a href="/shop/ict/">
-                        <img class="d-block w-100" src="https://i.ibb.co/Bg1RYH0/acs-ict-poster.png"
-                            alt="Highlighted Course">
-                    </a>
-                </div>
-            </div>
-        </div>-->
+        <!-- Add filter buttons above the course list -->
 
         <div class="col-12 mb-3">
             <a id="All"></a>
             <h2 class="text-center mb-2 mt-4">HSC 2027 All Academic Cycles</h2>
+            <div class="text-center my-4">
+                <div id="enroll-filter-group" class="btn-group" role="group" aria-label="Enrollment Filter">
+                    <button type="button" class="btn btn-primary active" data-period="all">All time</button>
+                    <button type="button" class="btn btn-primary" data-period="daily">Today</button>
+                    <button type="button" class="btn btn-primary" data-period="weekly">This Week</button>
+                    <button type="button" class="btn btn-primary" data-period="monthly">This Month</button>
+                </div>
+            </div>
             <div id="loader" style="text-align:center; margin-top: 50px;">
                 <div class="spinner" style="margin-bottom: 10px;"></div>
                 <div>Loading courses...</div>
@@ -456,8 +482,8 @@
 
                                         <br>
                                         <br>
-                                        তাই আমরা তোমাদের জন্য নিয়ে আসছি “Higher Math Full Syllabus Course
-                                        (HSC 27)” যেখানে তোমাদের ব্যাসিক টু অ্যাডভান্সড সব কিছুই কভার করা হবে ...
+                                        তাই আমরা তোমাদের জন্য নিয়ে আসছি "Higher Math Full Syllabus Course
+                                        (HSC 27)" যেখানে তোমাদের ব্যাসিক টু অ্যাডভান্সড সব কিছুই কভার করা হবে ...
                                     </p>
                                     <span class="inject-count"></span>
                                 </div>
@@ -1000,8 +1026,8 @@
                                     <p class="bangla">
                                         এইচএসসি ২০২৭? বায়োলজি শিখবে এবার একদম অন্যভাবে!
                                     </p>
-                                    <p class="bangla"> SSC পর্যন্ত অনেকেই ভাবে বায়োলজি মানেই “বুঝার কিছু নাই, লাগাও ঠাডা
-                                        মুখস্থ!” মজার ব্যাপার
+                                    <p class="bangla"> SSC পর্যন্ত অনেকেই ভাবে বায়োলজি মানেই "বুঝার কিছু নাই, লাগাও ঠাডা
+                                        মুখস্থ!" মজার ব্যাপার
                                         হলো - এই পদ্ধতিতে A+ পেয়েও যায় কেউ কেউ। কিন্তু HSC-তে এসে তারাই পড়ে যায় মহা
                                         বিপাকে,
                                         যখন দেখে- ওমা! স্কুলের সেই পিচ্চি বায়োলজি বইটা আর নেই। </p>
@@ -1125,7 +1151,7 @@
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
                                     <p class="bangla">
-                                        🎓 ASG ICT HSC 27 – HSC ‘27 ব্যাচের জন্য ICT এর সম্পূর্ণ প্রস্তুতির কোর্স! <br>
+                                        🎓 ASG ICT HSC 27 – HSC '27 ব্যাচের জন্য ICT এর সম্পূর্ণ প্রস্তুতির কোর্স! <br>
                                         🚀 HSC ICT এর পূর্ণ প্রস্তুতি শুরু হোক এখান থেকেই। সঠিক গাইড, সঠিক রিসোর্স, একদম
                                         বোর্ড স্ট্যান্ডার্ডে! ... </p>
 
@@ -1650,76 +1676,148 @@
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
 
+    <!-- Add a hidden container to store course templates -->
+    <div id="all-course-templates" style="display:none"></div>
+
     <script>
-        fetch("https://crm.apars.shop/api/total-enrolled/hsc27")
-            .then(res => res.json())
-            .then(data => {
-                if (data.code === 200) {
-                    const container = document.getElementById("course-container");
-                    const loader = document.getElementById("loader");
+        const periodApiMap = {
+            all: "https://crm.apars.shop/api/total-enrolled/hsc27",
+            daily: "https://crm.apars.shop/api/total-enrolled/hsc27/daily",
+            weekly: "https://crm.apars.shop/api/total-enrolled/hsc27/weekly",
+            monthly: "https://crm.apars.shop/api/total-enrolled/hsc27/monthly"
+        };
+        const periodLabelMap = {
+            all: "Total Enrolled",
+            daily: "Total Enrolled Today",
+            weekly: "Total Enrolled This Week",
+            monthly: "Total Enrolled This Month"
+        };
 
-                    const sortedDivs = [];
-
-                    data.enrolled.forEach((item, index) => {
-                        const div = document.getElementById(item.name);
-                        if (div) {
-                            const wrapper = div; // The `.col-12.mb-3` div
-                            wrapper.classList.add("position-relative"); // Ensure relative for absolute positioning
-
-                            // 🔥 Add trophy for top 3
-                            if (index < 3) {
-                                const trophy = document.createElement("span");
-                                trophy.classList.add("trophy-badge");
-
-                                if (index === 0) {
-                                    wrapper.classList.add("top-course", "top-course-1");
-                                    trophy.classList.add("trophy-gold");
-                                    trophy.innerText = "🏆";
-                                } else if (index === 1) {
-                                    wrapper.classList.add("top-course", "top-course-2");
-                                    trophy.classList.add("trophy-silver");
-                                    trophy.innerText = "🥈";
-                                } else if (index === 2) {
-                                    wrapper.classList.add("top-course", "top-course-3");
-                                    trophy.classList.add("trophy-bronze");
-                                    trophy.innerText = "🥉";
-                                }
-
-                                wrapper.appendChild(trophy);
-                            }
-
-                            // ✅ Inject total enrollment below title
-                            const titleAnchor = div.querySelector(".inject-count");
-                            if (titleAnchor) {
-                                const enrollmentInfo = document.createElement("div");
-                                enrollmentInfo.classList.add("text-muted", "small", "mt-1");
-                                enrollmentInfo.innerHTML = `Total Enrolled: <strong>${item.totalTransactions.toLocaleString()}</strong> students`;
-
-                                titleAnchor.parentElement.insertBefore(enrollmentInfo, titleAnchor.nextSibling);
-                            }
-
-                            sortedDivs.push(wrapper);
-                        }
-                    });
-
-
-
-                    sortedDivs.forEach(div => {
-                        container.appendChild(div);
-                    });
-
-                    loader.style.display = "none";
-                    container.style.visibility = "visible";
-                }
-            })
-            .catch(error => {
-                console.error("Failed to fetch course data:", error);
-                document.getElementById("loader").innerText = "Failed to load courses.";
+        function updateActiveButton(period) {
+            document.querySelectorAll('#enroll-filter-group .btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.period === period);
             });
+        }
+
+        function clearCourseCounts() {
+            document.querySelectorAll('.inject-count').forEach(el => {
+                if (el.nextElementSibling && el.nextElementSibling.classList.contains('enroll-info')) {
+                    el.nextElementSibling.remove();
+                }
+            });
+            // Remove trophies and top-course classes
+            document.querySelectorAll('.trophy-badge').forEach(el => el.remove());
+            document.querySelectorAll('.top-course, .top-course-1, .top-course-2, .top-course-3').forEach(el => {
+                el.classList.remove('top-course', 'top-course-1', 'top-course-2', 'top-course-3');
+            });
+        }
+
+        // Move all course divs into the template container on DOMContentLoaded
+        function moveCourseDivsToTemplate() {
+            const container = document.getElementById("course-container");
+            const templateContainer = document.getElementById("all-course-templates");
+            // Move only direct children with id (course divs)
+            Array.from(container.children).forEach(child => {
+                if (child.id) {
+                    templateContainer.appendChild(child);
+                }
+            });
+        }
+
+        function getCourseDivCloneById(id) {
+            const templateContainer = document.getElementById("all-course-templates");
+            const original = templateContainer.querySelector(`[id="${CSS.escape(id)}"]`);
+            return original ? original.cloneNode(true) : null;
+        }
+
+        function sortAndDisplayCourses(data, period) {
+            const container = document.getElementById("course-container");
+            const sortedDivs = [];
+            clearCourseCounts();
+            data.enrolled.forEach((item, index) => {
+                const div = getCourseDivCloneById(item.name);
+                if (div) {
+                    const wrapper = div;
+                    wrapper.classList.add("position-relative");
+                    // Add trophy for top 3
+                    if (index < 3) {
+                        const trophy = document.createElement("span");
+                        trophy.classList.add("trophy-badge");
+                        if (index === 0) {
+                            wrapper.classList.add("top-course", "top-course-1");
+                            trophy.classList.add("trophy-gold");
+                            trophy.innerText = "🏆";
+                        } else if (index === 1) {
+                            wrapper.classList.add("top-course", "top-course-2");
+                            trophy.classList.add("trophy-silver");
+                            trophy.innerText = "🥈";
+                        } else if (index === 2) {
+                            wrapper.classList.add("top-course", "top-course-3");
+                            trophy.classList.add("trophy-bronze");
+                            trophy.innerText = "🥉";
+                        }
+                        wrapper.appendChild(trophy);
+                    }
+                    // Inject total enrollment below title
+                    const titleAnchor = div.querySelector(".inject-count");
+                    if (titleAnchor) {
+                        const enrollmentInfo = document.createElement("div");
+                        enrollmentInfo.classList.add("text-muted", "small", "mt-1", "enroll-info");
+                        enrollmentInfo.innerHTML = `${periodLabelMap[period]}: <strong>${item.totalTransactions.toLocaleString()}</strong> students`;
+                        titleAnchor.parentElement.insertBefore(enrollmentInfo, titleAnchor.nextSibling);
+                    }
+                    sortedDivs.push(wrapper);
+                }
+            });
+            // Remove all children before appending new ones
+            while (container.firstChild) container.removeChild(container.firstChild);
+            sortedDivs.forEach(div => container.appendChild(div));
+        }
+
+        let originalCourseContainerDisplay = null;
+        function fetchAndDisplay(period) {
+            updateActiveButton(period);
+            const loader = document.getElementById("loader");
+            const container = document.getElementById("course-container");
+            // Store the original display value if not already stored
+            if (originalCourseContainerDisplay === null) {
+                originalCourseContainerDisplay = window.getComputedStyle(container).display;
+            }
+            // Remove all course divs immediately for better UX
+            while (container.firstChild) container.removeChild(container.firstChild);
+            loader.style.display = "block";
+            container.style.display = "none"; // Hide completely
+            container.style.visibility = "hidden"; // Also hide by visibility
+            fetch(periodApiMap[period])
+                .then(res => res.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        sortAndDisplayCourses(data, period);
+                        loader.style.display = "none";
+                        container.style.display = originalCourseContainerDisplay; // Restore original display
+                        container.style.visibility = "visible"; // Make visible
+                    }
+                })
+                .catch(error => {
+                    console.error("Failed to fetch course data:", error);
+                    loader.innerText = "Failed to load courses.";
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            moveCourseDivsToTemplate();
+            // Attach event listeners to filter buttons
+            document.querySelectorAll('#enroll-filter-group .btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const period = this.dataset.period;
+                    fetchAndDisplay(period);
+                });
+            });
+            // Initial load (all time)
+            fetchAndDisplay('all');
+        });
     </script>
-
-
-
+    <!-- END FILTER BUTTONS AND SCRIPT -->
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
