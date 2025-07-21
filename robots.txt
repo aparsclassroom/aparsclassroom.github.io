@@ -1,2 +1,3 @@
 User-Agent: *
 Disallow: /shop/bundle27/
+Disallow: /shop/bundle26/
