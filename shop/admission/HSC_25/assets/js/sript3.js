@@ -226,8 +226,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
     } else {
-        // document.getElementById("app").style.display = "none",
-         document.getElementById("cup").style.display = "none",
+        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');
                 location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
@@ -237,7 +236,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 })
 var cupon, cpn = document.getElementById("cpnCheck");
 
-const DEFAULT_COUPON = "math250";
+const DEFAULT_COUPON = "bio250";
 
 function func() {
     cupon = document.getElementById("cupon").value;
