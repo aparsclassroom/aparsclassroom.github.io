@@ -13,8 +13,9 @@ document.getElementById('email').addEventListener("input", function (event) {
         document.getElementById('phone').setCustomValidity("");
     }
   });
-document.title = productName + "(" + Cycle + ") | ASG Shop";
-document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
+
+document.title = productName + " | ASG Shop";
+document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
@@ -40,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions)
+        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -72,7 +73,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
-                            'Cycle': Cycle,
                             "affiliate": getCookie("affiliate"),
                             "utm_id": getCookie("utm_id"),
                             "utm_source": getCookie("utm_source"),
@@ -93,7 +93,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -142,7 +142,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
-                        'Cycle': Cycle,
                         "affiliate": getCookie("affiliate"),
                         "utm_id": getCookie("utm_id"),
                         "utm_source": getCookie("utm_source"),
@@ -163,7 +162,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
+                    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
@@ -260,7 +259,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productCode)
         .then((res) => {
             return res.json();
         })

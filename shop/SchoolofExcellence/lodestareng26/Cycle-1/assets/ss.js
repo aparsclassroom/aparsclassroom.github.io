@@ -1,11 +1,11 @@
-const product = "bioadda27";
-const productName = "Biology Adda HSC-27 Next Level Biology Course";
-const productCode = "480";
-const fix = 1500;
-const pls = 1000;
+const product = "lodestareng26";
+const productName = "Lodestar English Academic 26 Batch";
 const init = 0;
 const Platform = "Online";
-const Cycle = location.pathname.split('/')[3];
+const productCode = "538";
+const fix = 2000;
+const pls = 1290;
+const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -26,7 +26,7 @@ var tag = document.createElement('script');
 //     player = new YT.Player('player', {
 //         height: '390',
 //         width: '640',
-//         videoId: 'QbZv2pg2aoM',
+//         videoId: 'JuUVxLymluY',
 //         playerVars: { 'autoplay': 1, 'playsinline': 1 },
 //         events: {
 //             'onReady': onPlayerReady
@@ -39,7 +39,7 @@ var tag = document.createElement('script');
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
+fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
@@ -58,4 +58,3 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
     .catch((err) => {
         console.log(err)
     })
-
