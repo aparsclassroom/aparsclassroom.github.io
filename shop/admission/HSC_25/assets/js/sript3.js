@@ -285,7 +285,7 @@ function applyCoupon(couponCode) {
                 cpnBtn.disabled = true;
                 var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
                 document.getElementById('how').style.display = "block";
-                document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
+                document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code for the first 500 students`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
                 document.getElementById("cup").style.display = "block"; 
                 return;
