@@ -1,5 +1,5 @@
 const product = "galacticos2.0";
-const productName = "Galacticos 2.0 (ACS-CROWNING English Second Paper Full Cycle)";
+const productName = "Galacticos 2.0 (CROWNING English Second Paper Full Cycle)";
 const init = 0;
 const Platform = "Crowning";
 const productCode = "494";

@@ -1,5 +1,5 @@
 const product = "galacticos1.0";
-const productName = "ACS- Crowning Breakthrough to HSC English(Free)";
+const productName = "Crowning Breakthrough to HSC English(Free)";
 const init = 0;
 const Platform = "Crowning";
 const productCode = "495";
