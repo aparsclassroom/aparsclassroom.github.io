@@ -237,7 +237,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 })
 var cupon, cpn = document.getElementById("cpnCheck");
 
-const DEFAULT_COUPON = "physics250";
+const DEFAULT_COUPON = "physics500";
 
 function func() {
     cupon = document.getElementById("cupon").value;
