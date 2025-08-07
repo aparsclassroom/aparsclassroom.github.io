@@ -18,12 +18,12 @@ a:hover {
 
 #module #collapseExample.collapse:not(.show) {
     display: block;
-    height: 3rem;
+    height: 9rem;
     overflow: hidden;
 }
 
 #module #collapseExample.collapsing {
-    height: 3rem;
+    height: 9rem;
 }
 
 #module a.collapsed::after {
