@@ -1,4 +1,4 @@
-const product = "varsitychem25";
+const product = "acsvarsitychem25";
 const productName = "ACS Varsity Chemistry Private Batch 2025";
 const productCode = "529";
 const fix = 1500;
