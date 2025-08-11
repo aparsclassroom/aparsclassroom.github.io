@@ -290,6 +290,7 @@ cpn.addEventListener('click', (e) => {
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
                 document.getElementById('coupnbosh').style.display = "none";
+                if(document.getElementById('cpninfo')) document.getElementById('cpninfo').style.display = "none";
                 cpn.disabled = true;
                 var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
                 document.getElementById('how').style.display = "block";
