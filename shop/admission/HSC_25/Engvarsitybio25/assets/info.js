@@ -1,5 +1,5 @@
 const product = "engvarsitybio25";
-const productName = "ACS Engineering + Varsity Biology 2025";
+const productName = "ACS Varsity + Engineering Biology Private Batch 2025";
 const productCode = "535";
 const fix = 2000;
 const pls = 1500;
