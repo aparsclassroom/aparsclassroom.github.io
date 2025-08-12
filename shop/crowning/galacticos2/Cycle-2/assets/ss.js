@@ -1,5 +1,5 @@
 const product = "galacticos1.0";
-const productName = "Galacticos 1.0 (CROWNING English First Paper Full Cycle)	";
+const productName = "ACS 27 English by Crowning English";
 const init = 0;
 const Platform = "Crowning";
 const productCode = "495";
