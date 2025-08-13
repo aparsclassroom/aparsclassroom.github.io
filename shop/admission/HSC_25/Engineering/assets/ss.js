@@ -17,34 +17,34 @@ if (screen.width <= 600) {
 }
 var tag = document.createElement('script');
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
+// tag.src = "https://www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// var player;
 
- function onYouTubeIframeAPIReady() {
-     player = new YT.Player('player', {
-         height: '390',
-         width: '640',
-         videoId: '2dpdIxatjJE',
-         playerVars: { 'autoplay': 1, 'playsinline': 1 },
-         events: {
-             'onReady': onPlayerReady
-         }
-     });
- }
+//  function onYouTubeIframeAPIReady() {
+//      player = new YT.Player('player', {
+//          height: '390',
+//          width: '640',
+//          videoId: '2dpdIxatjJE',
+//          playerVars: { 'autoplay': 1, 'playsinline': 1 },
+//          events: {
+//              'onReady': onPlayerReady
+//          }
+//      });
+//  }
 
- function onPlayerReady(event) {
-     document.getElementById('thumb').style.display = "none";
-     event.target.setVolume(100);
-     event.target.playVideo();
- }
+//  function onPlayerReady(event) {
+//      document.getElementById('thumb').style.display = "none";
+//      event.target.setVolume(100);
+//      event.target.playVideo();
+//  }
 
- document.getElementById('moda').addEventListener('click', function () {
-    if (player && typeof player.pauseVideo === 'function') {
-        player.pauseVideo();
-    }
-});
+//  document.getElementById('moda').addEventListener('click', function () {
+//     if (player && typeof player.pauseVideo === 'function') {
+//         player.pauseVideo();
+//     }
+// });
 
 fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`)
     .then((res) => {
