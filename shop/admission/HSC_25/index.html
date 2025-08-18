@@ -34,6 +34,12 @@
     <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
 
+    <style>
+        #course-container {
+            visibility: hidden;
+        }
+    </style>
+
     <title>HSC 25 Admission Program | Apar's Classroom</title>
     <meta name="description"
         content="HSC 2025 Admission Courses. এইচএসসি ২৫ এডমিশন কোর্স ভার্সিটি কোর্স ইঞ্জিনিয়ারিং কোর্স মেডিকেল কোর্স ২০২৫">
@@ -95,7 +101,8 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="./Engineering">
-                                <img src="https://i.postimg.cc/tT94jyVg/Engineering-Landing-Page-Cover.png" alt="Engineering 25">
+                                <img src="https://i.postimg.cc/tT94jyVg/Engineering-Landing-Page-Cover.png"
+                                    alt="Engineering 25">
                             </a>
                         </div>
                         <div class="swiper-slide">
@@ -142,10 +149,14 @@
         <div class="col-12 mb-3">
             <a id="All"></a>
             <h2 class="text-center mb-2 mt-4">All HSC 2025 Admission Courses</h2>
-            <div class="card bg-primary shadow-soft border-light p-4">
+            <div id="loader" style="text-align:center; margin-top: 50px;">
+                <div class="spinner" style="margin-bottom: 10px;"></div>
+                <div>Loading courses...</div>
+            </div>
+            <div class="card bg-primary shadow-soft border-light p-4" id="course-container">
                 <div class="row mb-3 mt-3">
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="Engineering25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -156,7 +167,7 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./Engineering/" class="h5 title"> ACS Engineering
+                                        <a href="./Engineering/" class="h5 title"> ACS <strong>Engineering </strong>
                                             Admission Private
                                             Batch 2025</a> <i title="Recommended Course"
                                             class="fa-solid fa-circle-check"></i>
@@ -196,7 +207,7 @@
                         </div>
                     </div>
 
-                     <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="varsity25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -207,7 +218,8 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./Varsity/" class="h5 title"> ACS Varsity + GST Special Private
+                                        <a href="./Varsity/" class="h5 title"> ACS <strong>Varsity + GST</strong>
+                                            Special Private
                                             Programme 2025</a> <i title="Recommended Course"
                                             class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
@@ -247,7 +259,7 @@
                     </div>
 
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="Medical25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -258,7 +270,8 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./PreMedical/" class="h5 title"> ACS Medical Admission Batch
+                                        <a href="./PreMedical/" class="h5 title"> ACS <strong>Medical</strong> Admission
+                                            Batch
                                             2025</a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
@@ -309,7 +322,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="MedicalSecondTimer25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -362,7 +375,7 @@
                     </div>
 
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="iba25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -409,7 +422,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="acsvarsitychem25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -454,7 +467,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="medimath25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -465,7 +478,8 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="../../abhi/varsitymath25/" class="h5 title">ACS Varsity + Medical Higher
+                                        <a href="../../abhi/varsitymath25/" class="h5 title">ACS Varsity + Medical
+                                            Higher
                                             Math Private Batch 2025</a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
@@ -503,7 +517,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="varsityphy25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -605,7 +619,7 @@
                         </div>
                     </div> -->
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="varsityaloron25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -616,7 +630,8 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./varsityaloron25/" class="h5 title"> ACS Varsity + Medical Chemistry Private Batch 2025</a>
+                                        <a href="./varsityaloron25/" class="h5 title"> ACS Varsity + Medical Chemistry
+                                            Private Batch 2025</a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
                                             <span class="star fas fa-star text-warning fa-beat mr-1"></span>
@@ -630,15 +645,17 @@
                                                 style="--fa-beat-scale: 0.5;"></span>
                                         </div>
                                         <p class="bangla">
-                                            প্রতিটি ভর্তি পরীক্ষায় অন্যতম একটি গুরুত্বপূর্ণ সাবজেক্ট হলো কেমিস্ট্রি। র‍্যাংকের লড়াইয়ে এগিয়ে যেতে চাইলে কেমিস্ট্রিতে দক্ষতা থাকা জরুরি। কিন্তু শুধু পড়লেই হবে না,প্রয়োজন সঠিক স্ট্রাটেজি, সময় ব্যবস্থাপনা, টার্গেটেড প্র্যাকটিস এবং প্রপার গাইডলাইন ...
+                                            প্রতিটি ভর্তি পরীক্ষায় অন্যতম একটি গুরুত্বপূর্ণ সাবজেক্ট হলো কেমিস্ট্রি।
+                                            র‍্যাংকের লড়াইয়ে এগিয়ে যেতে চাইলে কেমিস্ট্রিতে দক্ষতা থাকা জরুরি। কিন্তু
+                                            শুধু পড়লেই হবে না,প্রয়োজন সঠিক স্ট্রাটেজি, সময় ব্যবস্থাপনা, টার্গেটেড
+                                            প্র্যাকটিস এবং প্রপার গাইডলাইন ...
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3">
 
                                     <div class="mt-4">
-                                        <a class="btn btn-primary btn-sm btn-block mb-3"
-                                            href="./varsityaloron25/"><span
+                                        <a class="btn btn-primary btn-sm btn-block mb-3" href="./varsityaloron25/"><span
                                                 class="fas fa-shopping-cart mr-1"></span>
                                             Enroll Now
                                         </a>
@@ -649,7 +666,7 @@
                     </div>
 
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="engvarsitybio25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -660,8 +677,9 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./Engvarsitybio25/" class="h5 title">ACS Varsity + Engineering Biology Private Batch 2025
-</a>
+                                        <a href="./Engvarsitybio25/" class="h5 title">ACS Varsity + Engineering Biology
+                                            Private Batch 2025
+                                        </a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
                                             <span class="star fas fa-star text-warning fa-beat mr-1"></span>
@@ -694,7 +712,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="varsitybio25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -720,7 +738,9 @@
                                                 style="--fa-beat-scale: 0.5;"></span>
                                         </div>
                                         <p class="bangla">
-                                            ঢাবি, রাবি, জাবি, চবি সহ দেশের সব পাবলিক বিশ্ববিদ্যালয়, প্রযুক্তি বিশ্ববিদ্যালয়, GST, কৃষি বিশ্ববিদ্যালয় এবং মেডিকেল ভর্তি পরীক্ষার বায়োলজি – সব কিছুর জন্য এই একটি মাত্র কোর্স যথেষ্ট। ...
+                                            ঢাবি, রাবি, জাবি, চবি সহ দেশের সব পাবলিক বিশ্ববিদ্যালয়, প্রযুক্তি
+                                            বিশ্ববিদ্যালয়, GST, কৃষি বিশ্ববিদ্যালয় এবং মেডিকেল ভর্তি পরীক্ষার বায়োলজি –
+                                            সব কিছুর জন্য এই একটি মাত্র কোর্স যথেষ্ট। ...
                                         </p>
                                     </div>
                                 </div>
@@ -737,7 +757,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="goalhackers25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -748,7 +768,8 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="../../crowning/goalhackers25/" class="h5 title">ACS Admission English Special Private Programme 2025</a>
+                                        <a href="../../crowning/goalhackers25/" class="h5 title">ACS Admission English
+                                            Special Private Programme 2025</a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
                                             <span class="star fas fa-star text-warning fa-beat mr-1"></span>
@@ -792,19 +813,19 @@
                         </div>
                     </div>
 
-                     <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="varsitybangla25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
                                     <a href="./varsitybangla25/">
                                         <img src="https://i.postimg.cc/pLqBrFzQ/ACS-Thumbnail.jpg"
-                                            style="border-radius: 15px;"
-                                            alt="ACS ভার্সিটি বাংলা প্রাইভেট ব্যাচ-২০২৫">
+                                            style="border-radius: 15px;" alt="ACS ভার্সিটি বাংলা প্রাইভেট ব্যাচ-২০২৫">
                                     </a>
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./varsitybangla25/" class="h5 title"> ACS ভার্সিটি বাংলা প্রাইভেট ব্যাচ-২০২৫</a>
+                                        <a href="./varsitybangla25/" class="h5 title"> ACS ভার্সিটি বাংলা প্রাইভেট
+                                            ব্যাচ-২০২৫</a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
                                             <span class="star fas fa-star text-warning fa-beat mr-1"></span>
@@ -818,7 +839,9 @@
                                                 style="--fa-beat-scale: 0.5;"></span>
                                         </div>
                                         <p class="bangla">
-                                            বাংলা বিষয়ে ভরসাযোগ্য প্রস্তুতির জন্য আমরা নিয়ে এসেছি বিশ্ববিদ্যালয় ভর্তি কোচিংয়ের বিশেষ বাংলা কোর্স, যেখানে মাত্র ২০টি ক্লাসেই সম্পূর্ণ প্রস্তুতি নিশ্চিত করা হবে।
+                                            বাংলা বিষয়ে ভরসাযোগ্য প্রস্তুতির জন্য আমরা নিয়ে এসেছি বিশ্ববিদ্যালয় ভর্তি
+                                            কোচিংয়ের বিশেষ বাংলা কোর্স, যেখানে মাত্র ২০টি ক্লাসেই সম্পূর্ণ প্রস্তুতি
+                                            নিশ্চিত করা হবে।
                                             ...
                                         </p>
                                     </div>
@@ -890,7 +913,7 @@
                         </div>
                     </div> -->
 
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" id="acsenglishvar25">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
                                 <aside class="col-md-3">
@@ -902,7 +925,8 @@
                                 </aside>
                                 <div class="col-md-6">
                                     <div class="info-main">
-                                        <a href="./acsenglishvar25/" class="h5 title"> ACS-SoE Varsity, Medical, Engineering English Private Batch</a>
+                                        <a href="./acsenglishvar25/" class="h5 title"> ACS-SoE Varsity, Medical,
+                                            Engineering English Private Batch</a>
                                         <i title="Recommended Course" class="fa-solid fa-circle-check"></i>
                                         <div class="d-flex my-3">
                                             <span class="star fas fa-star text-warning fa-beat mr-1"></span>
@@ -916,7 +940,12 @@
                                                 style="--fa-beat-scale: 0.5;"></span>
                                         </div>
                                         <p class="bangla">
-                                            HSC 25, 2nd Time HSC 24 ব্যাচের এডমিশনের Game Changer হতে পারে ইংরেজি। মেডিকেল, ভার্সিটি ও CKRuet সহ অন্যান্য ইঞ্জিনিয়ারিং এডমিশনের ইংরেজি নিয়ে যাদের ভীতি কাজ করছে বা ইংরেজিকে তোমরা নিজেদের বিশ্ববিদ্যালয়ে চান্স পাওয়ার Trump Card হিসেবে ব্যবহার করতে চাও, তাদের জন্য ACS-SoE Varsity, Medical, Engineering English Private Batch নিয়ে এসেছি School of Excellence (SoE) এর পক্ষ থেকে। 
+                                            HSC 25, 2nd Time HSC 24 ব্যাচের এডমিশনের Game Changer হতে পারে ইংরেজি।
+                                            মেডিকেল, ভার্সিটি ও CKRuet সহ অন্যান্য ইঞ্জিনিয়ারিং এডমিশনের ইংরেজি নিয়ে
+                                            যাদের ভীতি কাজ করছে বা ইংরেজিকে তোমরা নিজেদের বিশ্ববিদ্যালয়ে চান্স পাওয়ার
+                                            Trump Card হিসেবে ব্যবহার করতে চাও, তাদের জন্য ACS-SoE Varsity, Medical,
+                                            Engineering English Private Batch নিয়ে এসেছি School of Excellence (SoE) এর
+                                            পক্ষ থেকে।
                                             ...
                                         </p>
                                     </div>
@@ -1023,6 +1052,50 @@
             <!-- Cloudflare Web Analytics -->
             <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
                 data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script>
+            <script>
+                const loader = document.getElementById("loader");
+                fetch("https://crm.apars.shop/api/total-enrolled/admission25")
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.code === 200) {
+                            loader.style.display = "none";
+                            const container = document.getElementById("course-container");
+
+                            // Temporarily store divs in correct order
+                            const sortedDivs = [];
+
+                            data.enrolled.forEach(item => {
+                                const div = document.getElementById(item.name);
+                                if (div) {
+                                    sortedDivs.push(div);
+                                }
+                            });
+
+                            // Append divs in new order
+                            sortedDivs.forEach(div => {
+                                container.appendChild(div); // moves the div to the bottom of container
+                            });
+
+                            container.style.visibility = "visible";
+                        }
+                        else {
+                            loader.innerHTML = `
+                    <div class="alert alert-danger" role="alert">
+                        Error loading courses. Please refresh the page.
+                    </div>
+                `;
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error loading courses:", error);
+                        loader.innerHTML = `
+                                < div class="alert alert-danger" role = "alert" >
+                                    Error loading courses.Please refresh the page.
+                    </div >
+                `;
+                        container.style.opacity = "1";
+                    });;
+            </script>
             <!-- End Cloudflare Web Analytics -->
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
