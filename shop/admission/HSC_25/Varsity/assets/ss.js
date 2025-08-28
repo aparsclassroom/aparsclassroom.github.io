@@ -50,7 +50,7 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2},547,546,545,541,540,529,530,534,535`)
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2},549,547,546,545,541,540,529,530,534,535`)
     .then((res) => {
         return res.json()
     })
