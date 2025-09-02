@@ -322,7 +322,8 @@ cpn.addEventListener('click', (e) => {
         document.getElementById('sprice').innerText = nes;
         cpn.style.cursor = "not-allowed";
         cupV.value = loadedData.Cupon;
-        document.getElementById('disC').value = loadedData.Cupon;
+        //disable coupon sending for reachsavvy
+        //document.getElementById('disC').value = loadedData.Cupon;
         cupV.disabled = true;
         cpn.innerText = "Applied ✔"
         document.getElementById('coupnbosh').style.display = "none";

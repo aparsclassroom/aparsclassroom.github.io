@@ -43,7 +43,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},525,557,558,420`)
     .then((res) => {
         return res.json()
     })
