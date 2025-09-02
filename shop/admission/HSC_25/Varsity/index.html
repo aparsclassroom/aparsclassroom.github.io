@@ -121,7 +121,38 @@
         .card.shadow-soft.border-light:hover {
             cursor: pointer;
         }
-        
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .tick-mark {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 30px;
+            height: 30px;
+            background-color: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .tick-mark::after {
+            content: '✓';
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .img-fluid {
+            border-radius: 8px;
+        }
     </style>
 
     <!-- Shop Scripts -->
@@ -201,7 +232,7 @@
                                                 <strong> Chemistry</strong>
                                             </div>
                                         </div>
-                                          <div class="swiper-slide text-center"> <img
+                                        <div class="swiper-slide text-center"> <img
                                                 src="https://i.postimg.cc/0jgqnLNg/H-Nazmus-Sakib-Full-Resolution.jpg"
                                                 alt="Nazmus Sakib">
                                             <h5 class="title.is-5 bangla">সাকিব ভাইয়া</h5>
@@ -242,7 +273,7 @@
                                             </div>
                                         </div>
 
-                                         <div class="swiper-slide text-center"> <img
+                                        <div class="swiper-slide text-center"> <img
                                                 src="https://i.postimg.cc/SRWYGrPB/Screenshot-91.png" alt="ফাহাদ ভাইয়া">
                                             <h5 class="title.is-5 bangla">ফাহাদ ভাইয়া</h5>
                                             <div class="content subtitle is-6 mb-1 collapsed">
@@ -250,8 +281,9 @@
                                             </div>
                                         </div>
 
-                                         <div class="swiper-slide text-center"> <img
-                                                src="https://i.postimg.cc/x84WtXYK/Screenshot-1.png" alt="তোফায়েল ভাইয়া">
+                                        <div class="swiper-slide text-center"> <img
+                                                src="https://i.postimg.cc/x84WtXYK/Screenshot-1.png"
+                                                alt="তোফায়েল ভাইয়া">
                                             <h5 class="title.is-5 bangla">তোফায়েল ভাইয়া</h5>
                                             <div class="content subtitle is-6 mb-1 collapsed">
                                                 <strong> Biology</strong>
@@ -590,6 +622,27 @@
                                 <input type="number" disabled class="form-control" id="price">
                             </div>
                         </div>
+                        <div class="form-row mx-2">
+                            <div class="form-group col-md-6">
+                                <label for="included">Included Physics Course</label>
+                                <div class="image-container">
+                                    <div class="tick-mark"></div>
+                                    <img src="https://i.postimg.cc/kX0NYdxg/Acs-Varsity-Physics.jpg"
+                                        class="img-fluid rounded mb-2" alt="Chemistry Course 2">
+                                </div>
+
+                                <div class="h6">ACS Varsity Physics 2025</div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="included2">Included Math Course</label>
+                                <div class="image-container">
+                                    <div class="tick-mark"></div>
+                                    <img src="https://i.postimg.cc/dtfGGGG0/ACS-VARSITY-MEDICAL-HIGHER-MATH-PRIVATE-BATCH-Thumbnail.jpg"
+                                        class="img-fluid rounded mb-2" alt="Chemistry Course 2">
+                                </div>
+                                <div class="h6">ACS Varsity + Medical Higher Math Private Batch 2025</div>
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="h5 mb-3">Choose your Chemistry course</label>
@@ -627,8 +680,9 @@
                                         <label class="custom-control-label w-100" for="bio1">
                                             <img src="https://i.postimg.cc/mZ5c1dD3/gr-16.jpg"
                                                 class="img-fluid rounded mb-2" alt="Biology Course 1">
-                                            <div class="h6">ACS Varsity + Engineering Biology Private Batch 2025 by DMC
-                                                Dreamers</div>
+                                            <div class="h6">ACS Varsity + Engineering Biology Private Batch 2025 by
+                                                DMCian Squad
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
@@ -639,7 +693,8 @@
                                         <label class="custom-control-label w-100" for="bio2">
                                             <img src="https://i.postimg.cc/C1C3yF4d/Artboard-1-1-1.jpg"
                                                 class="img-fluid rounded mb-2" alt="Biology Course 2">
-                                            <div class="h6">ACS Varsity Biology Private Batch 2025 by biomission</div>
+                                            <div class="h6">ACS Varsity Biology Private Batch 2025 by Biomission x RTD
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
