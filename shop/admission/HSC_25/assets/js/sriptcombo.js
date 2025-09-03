@@ -2,10 +2,8 @@
 var link = 'https://' + shopName2;
 
 const COMBO_CONFIGS = {
-  'chem1-bio1': { code: '555', name: 'varsity25combo1' },
-  'chem1-bio2': { code: '556', name: 'varsity25combo2' },
-  'chem2-bio1': { code: '557', name: 'varsity25combo3' },
-  'chem2-bio2': { code: '558', name: 'varsity25combo4' }
+  'bio1': { code: '555', name: 'varsity25combo1' },
+  'bio2': { code: '556', name: 'varsity25combo2' },
 };
 
 
@@ -77,19 +75,18 @@ firebase.auth().onAuthStateChanged(function (e) {
           const form = document.forms['purchase']
           form.addEventListener('submit', em => {
             em.preventDefault();
-            const selectedChem = document.querySelector('input[name="chemistry"]:checked');
             const selectedBio = document.querySelector('input[name="biology"]:checked');
 
-            if (!selectedChem || !selectedBio) {
+            if (!selectedBio) {
               swal({
                 title: "Error",
-                text: "Please select both chemistry and biology courses",
+                text: "Please select a biology course",
                 icon: "error",
                 button: "Ok"
               });
               return;
             }
-            const comboKey = `${selectedChem.id}-${selectedBio.id}`;
+            const comboKey = `${selectedBio.id}`;
             const comboConfig = COMBO_CONFIGS[comboKey];
             var mail = document.getElementById('email').value.toLowerCase().trim();
             document.getElementById('buy').innerText = "Please wait...."
@@ -159,20 +156,19 @@ firebase.auth().onAuthStateChanged(function (e) {
       }).catch(() => {
         const mfs = document.forms['purchase']
         mfs.addEventListener('submit', em => {
-          em.preventDefault();
-          const selectedChem = document.querySelector('input[name="chemistry"]:checked');
+          em.preventDefault()
           const selectedBio = document.querySelector('input[name="biology"]:checked');
 
-          if (!selectedChem || !selectedBio) {
+          if (!selectedBio) {
             swal({
               title: "Error",
-              text: "Please select both chemistry and biology courses",
+              text: "Please select a biology course",
               icon: "error",
               button: "Ok"
             });
             return;
           }
-          const comboKey = `${selectedChem.id}-${selectedBio.id}`;
+          const comboKey = `${selectedBio.id}`;
           const comboConfig = COMBO_CONFIGS[comboKey];
           
           var mail = document.getElementById('email').value.toLowerCase().trim();
