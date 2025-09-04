@@ -300,61 +300,69 @@ var disOFF = 0;
 
 function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
 cpn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const cupV = document.getElementById('cupon');
-  const cpnCode = cupV.value;
-  cpn.innerText = "Checking..";
-  cupV.disabled = true;
-  cpn.disabled = true;
-  fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
-    .then((res) => {
-      return res.json();
+    e.preventDefault();
+    const cupV = document.getElementById('cupon');
+    const cpnCode = cupV.value;
+    cpn.innerText = "Checking..";
+    cupV.disabled = true;
+    cpn.disabled = true;
+
+    Promise.all([
+        fetch(`${cuponApi}/${cpnCode.toUpperCase()}/${productCode}`).then(res => res.json()),
+        fetch(`${cuponApi}/${cpnCode.toUpperCase()}/${productCode2}`).then(res => res.json())
+    ])
+    .then(([result1, result2]) => {
+        let validResult = null;
+
+        // Check if either result is valid
+        if (result1.status === "success") {
+            validResult = result1;
+        } else if (result2.status === "success") {
+            validResult = result2;
+        }
+
+        if (validResult) {
+            const nes = pls - validResult.Off;
+            disOFF = validResult.Off;
+            document.getElementById('price').value = nes;
+            document.getElementById('sprice').innerText = nes;
+            cpn.style.cursor = "not-allowed";
+            cupV.value = validResult.Cupon;
+            cupV.disabled = true;
+            cpn.innerText = "Applied ✔";
+            document.getElementById('coupnbosh').style.display = "none";
+            if (document.getElementById('cpninfo')) document.getElementById('cpninfo').style.display = "none";
+            cpn.disabled = true;
+            const percent = Math.round(((parseInt(validResult.Off) + (fix - pls)) / fix) * 100);
+            document.getElementById('how').style.display = "block";
+            document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${validResult.Cupon}"</span> promo code`;
+            document.getElementById('smp').innerHTML = `<del style='color:red'> ${fix}৳</del> <span style='color:rgb(26, 185, 66);;'>${nes} ৳</span>`;
+            document.getElementById("cup").style.display = "block";
+        } else {
+            cpn.innerText = "Apply";
+            cupV.disabled = false;
+            cpn.disabled = false;
+            document.getElementById('cupon').value = "";
+            swal({
+                title: "Code not valid",
+                icon: "error",
+                button: "Ok"
+            }).then(() => {
+                notdis();
+            });
+        }
     })
-    .then((loadedData) => {
-      if (loadedData.status === "success") {
-        var nes = pls - loadedData.Off;
-        disOFF = loadedData.Off;
-        document.getElementById('price').value = nes;
-        document.getElementById('sprice').innerText = nes;
-        cpn.style.cursor = "not-allowed";
-        cupV.value = loadedData.Cupon;
-        //disable coupon sending for reachsavvy
-        //document.getElementById('disC').value = loadedData.Cupon;
-        cupV.disabled = true;
-        cpn.innerText = "Applied ✔"
-        document.getElementById('coupnbosh').style.display = "none";
-        if (document.getElementById('cpninfo')) document.getElementById('cpninfo').style.display = "none";
-        cpn.disabled = true;
-        var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
-        document.getElementById('how').style.display = "block";
-        document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-        document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-        document.getElementById("cup").style.display = "block";
-        return;
-      } else {
-        cpn.innerText = "Apply";
-        cupV.disabled = false;
-        cpn.disabled = false;
+    .catch(() => {
         document.getElementById('cupon').value = "";
         swal({
-          title: "Code not valid",
-          icon: "error",
-          button: "Ok"
+            title: "Coupon can't be Empty 😶",
+            icon: "error",
+            button: "Ok"
         }).then(() => {
-          return notdis()
-        })
-      }
-    }).catch(() => {
-      document.getElementById('cupon').value = "";
-      swal({
-        title: "Cupon can't be Empty 😶",
-        icon: "error",
-        button: "Ok"
-      }).then(() => {
-        return notdis()
-      })
-    })
-})
+            notdis();
+        });
+    });
+});
 if (queryPromo != null) {
   document.getElementById('cupon').value = getCookie("promo");
   notdis()
