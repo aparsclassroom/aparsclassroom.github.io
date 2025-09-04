@@ -179,6 +179,12 @@ firebase.auth().onAuthStateChanged(function (e) {
 
           var mail = document.getElementById('email').value.toLowerCase().trim();
           document.getElementById('buy').innerText = "Please wait...."
+          function adjustCoupon(coupon, productCode) {
+              if (coupon.includes("555") && productCode === "556") {
+                return coupon.replace("555", "556");
+              }
+              return coupon;
+            }
           document.getElementById("buy").disabled = true;
           var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
