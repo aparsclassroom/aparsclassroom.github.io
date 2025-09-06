@@ -131,7 +131,7 @@
         .tick-mark {
             position: absolute;
             top: -5px;
-            left: -5px;
+            right: -5px;
             width: 30px;
             height: 30px;
             background-color: #28a745;
@@ -654,37 +654,40 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-12"> 
+                            <div class="form-group col-md-12">
                                 <label class="mb-3 ml-2">Choose your Biology course</label>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div class="custom-control custom-radio">
                                             <div class="card shadow-soft border-light p-3">
-                                               
-                                                <input type="radio" id="bio1" name="biology"
-                                                    class="custom-control-input" required>
-                                                <label class="custom-control-label w-100" for="bio1">
-                                                    <img src="https://i.postimg.cc/mZ5c1dD3/gr-16.jpg"
-                                                        class="img-fluid rounded" alt="Biology Course 1">
-                                                   
-                                                    <div>ACS Varsity + Engineering Biology Private Batch 2025
-                                                        by DMCian Squad</div>
-                                                   
-                                                </label>
+                                                <div class="image-container">
+                                                    <div class="tick-mark" style="display: none;"></div>
+                                                    <input type="radio" id="bio1" name="biology"
+                                                        class="custom-control-input" required>
+                                                    <label class="custom-control-label w-100" for="bio1">
+                                                        <img src="https://i.postimg.cc/mZ5c1dD3/gr-16.jpg"
+                                                            class="img-fluid rounded" alt="Biology Course 1">
+                                                        <div>ACS Varsity + Engineering Biology Private Batch 2025 by
+                                                            DMCian Squad</div>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
                                         <div class="custom-control custom-radio">
                                             <div class="card shadow-soft border-light p-3">
-                                                <input type="radio" id="bio2" name="biology"
-                                                    class="custom-control-input" required>
-                                                <label class="custom-control-label w-100" for="bio2">
-                                                    <img src="https://i.postimg.cc/C1C3yF4d/Artboard-1-1-1.jpg"
-                                                        class="img-fluid rounded" alt="Biology Course 2">
-                                                    <div>ACS Varsity Biology Private Batch 2025 by Biomission
-                                                        x RTD</div> 
-                                                </label>
+                                                <div class="image-container">
+                                                    <div class="tick-mark" style="display: none;"></div>
+                                                    <input type="radio" id="bio2" name="biology"
+                                                        class="custom-control-input" required>
+                                                    <label class="custom-control-label w-100" for="bio2">
+                                                        <img src="https://i.postimg.cc/C1C3yF4d/Artboard-1-1-1.jpg"
+                                                            class="img-fluid rounded" alt="Biology Course 2">
+                                                        <div>ACS Varsity Biology Private Batch 2025 by Biomission x RTD
+                                                        </div>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -727,24 +730,27 @@
     //     window.open("https://click.apars.shop/JV")
     // })
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const bioRadios = document.querySelectorAll('input[name="biology"]');
+   document.addEventListener('DOMContentLoaded', function () {
+    const bioRadios = document.querySelectorAll('input[name="biology"]');
 
-        function handleSelection(radioButtons) {
-            radioButtons.forEach(radio => {
-                radio.addEventListener('change', function () {
-                    radioButtons.forEach(r => {
-                        r.closest('.card').style.backgroundColor = '';
-                    });
-
-                    if (this.checked) {
-                        this.closest('.card').style.backgroundColor = '#f0f0f0';
-                    }
+    function handleSelection(radioButtons) {
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function () {
+                radioButtons.forEach(r => {
+                    r.closest('.card').style.backgroundColor = '';
+                    r.closest('.image-container').querySelector('.tick-mark').style.display = 'none';
                 });
+
+                if (this.checked) {
+                    this.closest('.card').style.backgroundColor = '#f0f0f0';
+                    this.closest('.image-container').querySelector('.tick-mark').style.display = 'flex';
+                }
             });
-        }
-        handleSelection(bioRadios);
-    });
+        });
+    }
+    handleSelection(bioRadios);
+});
+
 </script>
 
 </html>
