@@ -1,5 +1,5 @@
 const product = "lodestareng26";
-const productName = "Lodestar English Academic 26 Batch";
+const productName = "ACS English Academic 26 Batch";
 const init = 0;
 const Platform = "Online";
 const productCode = "539";
