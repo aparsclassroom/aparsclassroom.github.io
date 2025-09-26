@@ -1,0 +1,13 @@
+const product = "FRB26";
+const product2 = "FRB26wbooks";
+const productName = "HSC 26 Final Revision Batch (Full Syllabus) - FRB";
+const productName2 = "HSC 26 Final Revision Batch (Full Syllabus) - FRB	with Books";
+let productCode = "563";
+let productCode2 = "564";
+let productCode3 = "565";
+const fix = 6000;
+const pls = 2500;
+const pls2 = 5500;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
