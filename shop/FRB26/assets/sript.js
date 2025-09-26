@@ -150,7 +150,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
             title: 'Are you sure?',
             html: `
                 <div style="margin-top: 10px;">
-                    <p>আমাদের বইগুলো লেকচার কন্টেন্ট এর পরিপূরক</p>
+                    <p>আমাদের বইগুলো FRB ব্যাচের লেকচার কন্টেন্ট এর পরিপূরক</p>
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
