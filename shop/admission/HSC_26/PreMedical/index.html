@@ -119,6 +119,47 @@
             list-style-type: none;
         }
     </style>
+
+    <style>
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .teacher-card {
+            flex: 1 1 calc(50% - 20px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .teacher-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .teacher-info {
+            font-size: 15px;
+        }
+
+        .teacher-info strong {
+            font-size: 16px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .teacher-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
     <!-- Shop Scripts -->
     <script src="/shop/assets/js/key.js" defer></script>
     <script src="/assets/js/count.js" defer></script>
@@ -148,8 +189,43 @@
                 <div id="teachers" class="col-md-7 first">
                     <div class="row">
                         <div class="col-md-6">
-                            <h2 class="bangla">Faculties</h2>
-                            <div class="teachers">
+                            <div class="teacher-section">
+                                <h2>Faculties</h2>
+                                <div class="teachers">
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/x84WtXYK/Screenshot-1.png" alt="Dr. Tofael Ahmed">
+                                        <div class="teacher-info">
+                                            <strong>Dr. Tofael Ahmed</strong>
+                                            Dhaka Medical College (K-70)
+                                        </div>
+                                    </div>
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/SRWYGrPB/Screenshot-91.png"
+                                            alt="Dr. Md. Fahad Ibna Mahafuz">
+                                        <div class="teacher-info">
+                                            <strong>Dr. Md. Fahad Ibna Mahafuz</strong>
+                                           Dhaka Medical College (K-68)
+                                        </div>
+                                    </div>
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/qvwt1sHq/Shad-vai-01.jpg"
+                                            alt="Dr. Md. Julkar Nayeem Shahrier Shad">
+                                        <div class="teacher-info">
+                                            <strong>Dr. Md. Julkar Nayeem Shahrier Shad</strong>
+                                           Dhaka Medical College (K-66)
+                                        </div>
+                                    </div>
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/43SLXTfR/Screenshot-2025-04-04-at-5-39-51-PM.png"
+                                            alt="Apurbo Apu">
+                                        <div class="teacher-info">
+                                            <strong>Apurbo Apu</strong>
+                                           EEE, RUET
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="teachers">
                                 <div class="swiper mySwiper">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide text-center"> <img
@@ -183,7 +259,7 @@
                                                 <strong> EEE, RUET</strong>
                                             </div>
                                         </div>
-                                        <div class="swiper-slide text-center"> <img
+                                       <div class="swiper-slide text-center"> <img
                                                 src="https://i.postimg.cc/90RRdZJ7/Shampod-Bhowmick-1.jpg"
                                                 alt="Shampod Bhowmick">
                                             <h5 class="title.is-5 bangla">Shampod Bhowmick</h5>
@@ -193,7 +269,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <hr>
@@ -346,7 +422,9 @@
                         </h3>
 
                         <div class="justify-content-center">
-                            <center><p>Use <strong>"FAST500"</strong> Coupon For 500 TAKA Discount</p></center>
+                            <center>
+                                <p>Use <strong>"FAST500"</strong> Coupon For 500 TAKA Discount</p>
+                            </center>
                             <button id="app" class="btn btn-block btn-outline-secondary">Do you have any
                                 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
                                 <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="loop"
@@ -533,27 +611,5 @@
         window.open("https://docs.google.com/spreadsheets/d/1qa9TLGeHmk9xkv149TGDhru5AFHQ7Km5BgFyMq8bkPM/edit?usp=drivesdk", "_blank")
     })
 </script> -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 15,
-            loop: true,
-            loopedSlides: 5, // total number of slides
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                0: { slidesPerView: 2 },    // mobile
-                480: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                992: { slidesPerView: 4 },
-                1200: { slidesPerView: 5 },
-            },
-        });
-    });
-
-
-</script>
 
 </html>
