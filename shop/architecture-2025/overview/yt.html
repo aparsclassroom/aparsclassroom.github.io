@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel='stylesheet'>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="/shop/assets/css/shop.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="../assets/css/semantic.min.css">
+        <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
+        <style>
+            @font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/ASG_TARIQ.TTF');
+}
+
+.bangla {
+    font-family: Kalpurush !important;
+}
+.embed-responsive-16by9::before {
+     padding-top: 0 !important;
+}
+        </style>
+        <link rel="stylesheet" href="../assets/css/player.css">
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
+    <script src="/shop/assets/js/script.js" defer></script>
+    <script src="/shop/assets/js/key.js" defer></script>
+    <script src="../assets/info.js" defer></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1152515561798223&autoLogAppEvents=1" nonce="mc4BWDph"></script>
+ <!-- External API -->
+ <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=analytics' async='async'></script>
+ <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ff81af416f5060012ad190b&product=sop' async='async'></script>
+    <script src="/shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js" defer></script>
+    <script src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js" defer></script>
+    <script src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="../assets/js/semantic.min.js" defer></script>
+    <script src="../assets/js/player.js" defer></script>
+    <script src="../assets/yt.js" defer></script>
+</head>
+
+<body>
+    <header class="header clearfix">
+        <div class="col-md-3 logo">
+            <a href="./"><img src="/HSC-Full-Course/assets/images/1.png" alt="logo" width="120px"></a>
+        </div>
+        <div class="header_right">
+            <ul>
+                <li>
+                    <a href="./" class="upload_btn" title="Return">Return</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="sa4d25">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="section3125">
+                            <div class="live1452" id="video">
+                            </div>
+                            <div class="user_dt5">
+                                <div class="user_dt_left">
+                                    <div class="live_user_dt">
+                                        <div class="user_cntnt bangla">
+                                            <h4 id="title">Loading..</h4>
+                                            <p id="description"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user_dt_right">
+                                    <div class="sharethis-inline-reaction-buttons"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="right_side">
+                            <div class="fcrse_3">
+                                <div class="fb-comments" data-width="100%" data-order-by="reverse_time" data-numposts="10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-30">
+        <div class="row">
+            <div class="col-lg-4">
+                <p><strong>ASG Shop</strong> is the online shop of a popular Online Platform named
+                    Apar's Classroom. Currently more than 900K students of Bangladesh are learning and
+                    developing their skills using this online education platform.</p>
+                <ul class="d-flex list-unstyled mb-5 mb-lg-0">
+                    <li class="mr-2">
+                        <a href="https://www.facebook.com/aparsclassroom/" target="_blank"
+                            class="btn btn-icon-only btn-pill btn-primary" aria-label="facebook social link"
+                            data-toggle="tooltip" data-placement="top" title="Like @aparsclassroom on Facebook"><span
+                                aria-hidden="true" class="fab fa-facebook"></span></a>
+                    </li>
+                    <li class="mr-2">
+                        <a href="https://www.instagram.com/apars_classroom/" target="_blank"
+                            class="btn btn-icon-only btn-pill btn-outline-danger" aria-label="instagram social link"
+                            data-toggle="tooltip" data-placement="top" title="Follow @aparsclassroom on insta"><span
+                                aria-hidden="true" class="fab fa-instagram"></span></a>
+                    </li>
+                    <li class="mr-2">
+                        <a href="https://www.youtube.com/channel/aparsclassroom" target="_blank"
+                            class="btn btn-icon-only btn-pill btn-danger" aria-label="dribbble social link"
+                            data-toggle="tooltip" data-placement="top" title="Subscribe our Channel"><span
+                                aria-hidden="true" class="fab fa-youtube"></span></a>
+                    </li>
+                    <li class="mr-2"><a href="mailto:support@aparsclassroom.com"
+                            class="btn btn-icon-only btn-pill btn-dark" aria-label="dribbble social link"
+                            data-toggle="tooltip" data-placement="top" title="Email Us"><span aria-hidden="true"
+                                class="fas fa-envelope"></span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h5>Important Links</h5>
+                <ul class="footer-links list-unstyled mt-2">
+                    <li class="mb-1"><a class="p-2" target="_blank" href="/terms.html">Terms and
+                            Conditions</a></li>
+                    <li class="mb-1"><a class="p-2" target="_blank" href="/privacy.html">Privacy
+                            Policy</a></li>
+                    <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy.html">Return and
+                            Refund Policy</a></li>
+                    <li><a class="p-2" target="_blank" href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+                <h5>Disclaimer</h5>
+                <p class="text-gray font-small m-0">All the products are listed for sale in the shop,
+                    are owned by the Company. Anyone can buy personal license for the products. But
+                    Reselling are Strictly prohibited. Learn more about <a class="text-danger"
+                        href="/piracy.html">Anti-Piracy Laws</a> &amp; <a class="text-danger" href="/terms.html">Terms
+                        and Conditions</a>.
+                </p>
+            </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+            <div class="col">
+                <a href="/" target="_blank" class="d-flex justify-content-center"><img
+                        src="/HSC-Full-Course/assets/images/1.png" height="50" class="mb-3"
+                        alt="Apar's Classroom Logo"></a>
+                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                    <p class="font-weight-normal font-small mb-0">&copy; <span class="current-year">2018-2024</span> Apar's
+                        Classroom<br>All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
