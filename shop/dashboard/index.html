@@ -2,13 +2,16 @@
 <html lang="en">
 
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WL8MSKLC');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WL8MSKLC');</script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,10 +95,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL8MSKLC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL8MSKLC" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="container">
         <div class="row">
@@ -576,13 +579,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 fetch(`https://${shopName2}/logs`, requestOptions)
                     .then(response => response.json())
-
                     .then((loadedData) => {
                         if (loadedData.status === 200) {
                             var data = loadedData.info;
                             document.getElementById('title').innerHTML = "Payment History";
-                            if (data.length > 0) {
-                                data.forEach((element, idx) => {
+                            var validData = data.filter(element =>
+                                element.status === "VALID" || element.status === "VALIDATED"
+                            );
+
+                            if (validData.length > 0) {
+                                validData.forEach((element, idx) => {
                                     idx++
                                     var courseName = "";
                                     if (element.o2o == null) {
@@ -593,9 +599,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     } else {
                                         courseName = element.ProductName;
                                     }
-                                    if (element.status == "VALID" || element.status == "VALIDATED") {
-                                        if (element.Platform == "Digital") {
-                                            var content = `
+
+                                    if (element.Platform == "Digital") {
+                                        var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
@@ -613,10 +619,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                         `;
-
-
-                                        } else {
-                                            var content = `
+                                    } else {
+                                        var content = `
                         <div class="col-lg-4 mb-4">
                             <div class="card lift lift-sm h-100">
                                 <div class="card-body py-5">
@@ -635,74 +639,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                         `;
-                                        }
-
-                                    } else {
-                                        if (element.Platform == "Digital") {
-                                            var content = `
-                        <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100">
-                                <div class="card-body py-5">
-                                    <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                                    </h5>
-                                    <h4 class="text-success text-center">${courseName}</h4>
-                                    <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                                    <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                                        } else {
-                                            var content = `
-                        <div class="col-lg-4 mb-4">
-                            <div class="card lift lift-sm h-100">
-                                <div class="card-body py-5">
-                                    <h5 class="card-title text-primary text-center mb-2">
-                                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                                    </h5>
-                                    <h4 class="text-success text-center">Course : ${courseName}</h4>
-                                    <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
-                                    <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                                    <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                                    <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                                        }
-
                                     }
-                                    results.innerHTML += content;
 
+                                    results.innerHTML += content;
                                 });
                             } else {
                                 document.getElementById('title').innerText = "Oops 🙃";
                                 results.innerHTML = `
                     <div class="col-lg-6 mb-4">
-                    <a class="card lift lift-sm h-100" href="javascript:void(0)">
-                        <div class="card-body py-5">
-                            <h5 class="card-title text-primary text-center mb-2">
-                                <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp;Payment History not found !
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-                    `;
+                        <a class="card lift lift-sm h-100" href="javascript:void(0)">
+                            <div class="card-body py-5">
+                                <h5 class="card-title text-primary text-center mb-2">
+                                    <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp;Payment History not found !
+                                </h5>
+                            </div>
+                        </a>
+                    </div>
+                `;
                             }
-
                         } else {
                             document.getElementById('title').innerText = "Oops 🙃";
                             results.innerHTML = `
-                    <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-4">
                     <a class="card lift lift-sm h-100" href="javascript:void(0)">
                         <div class="card-body py-5">
                             <h5 class="card-title text-primary text-center mb-2">
@@ -711,7 +669,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </a>
                 </div>
-                    `;
+            `;
                         }
                     })
                     .catch((err) => {
@@ -1058,7 +1016,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 })
                 .then((data) => {
                     if (data.statusCode == 404) {
-                        swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info") 
+                        swal("Oops", "You are not eligible for the Exam App, Please enroll to a Course with Online Exam Feature !", "info")
                         document.getElementById('examBtn').innerHTML = "Exam App";
                         document.getElementById('examBtn').disabled = true;
                         return
