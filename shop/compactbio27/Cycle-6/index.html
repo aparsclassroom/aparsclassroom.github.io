@@ -103,6 +103,10 @@
             color: #444;
             margin: 0;
         }
+
+        .swal2-image.no-image-margin {
+            margin: 0 !important;
+        }
     </style>
 
     <!-- Firebase Scripts -->
@@ -113,6 +117,7 @@
 
     <!-- Scripts -->
     <script src="/assets/js/sweetalert.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
@@ -128,7 +133,7 @@
     <script src="assets/ss.js" defer></script>
 
     <!-- Custom Scripts -->
-    <script src="../assets/script.js" defer></script>
+    <script src="../assets/scriptswitch.js" defer></script>
 
 </head>
 
@@ -348,10 +353,13 @@
                                 <p class="text-center" id="how" style="display: none;"></p>
                             </div>
                         </div>
-                        <div class="text-center"
+                        <div class="text-center" id="addbooksdiv"
                             style="background-color: rgb(238, 245, 237); padding: 10px; margin-top: 10px; margin-bottom: 10px; border-radius: 1rem;">
-                            <h6>Free Books <span class="delivery-icon"> 📗 </span> <br>&nbsp; (For First 200 students)
-                            </h6>
+                            <input class="custom-checkbox" type="checkbox" id="addBooks" checked>
+                            <label class="checkbox-label" for="addBooks">
+                                <h6>Add Books (+250 TK) <span class="delivery-icon">🏠</span> <br>&nbsp; (Delivery
+                                    Charge
+                                    included) </h6>
                             </label>
 
                         </div>
@@ -375,7 +383,7 @@
                     <p>Apars Classroom <strong>(ASG Shop)</strong> is an online education center based in Dhaka,
                         Bangladesh, specializing in providing high-quality educational resources to students across the
                         country. Established in 2018, the platform has quickly gained popularity among Bangladeshi
-                        students, with over 1,000,000 students actively learning and developing their skills through its
+                        students, with over 900,000 students actively learning and developing their skills through its
                         diverse range of courses.</p>
                     <ul class="d-flex list-unstyled mb-5 mb-lg-0">
                         <li class="mr-2">

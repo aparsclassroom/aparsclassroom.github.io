@@ -1,10 +1,15 @@
-const product = "compactbio27wbook";
+const product2 = "compactbio27wbook";
+const product = "compactbio27";
 const productName = "ACS HSC 27 Compact Biology";
-const productCode = "472";
+const productName2 = "ACS HSC 27 Compact Biology with Books";
+const productCode2 = "472";
+const productCode = "573";
 const fix = 2000;
 const pls = 1000;
+const pls2 = 1250;
 const init = 0;
-let Platform = "Physical";
+let Platform = "Online";
+const Platform2 = "Physical";
 const Cycle = location.pathname.split('/')[3];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -39,23 +44,25 @@ var tag = document.createElement('script');
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+Promise.all([
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+])
+    .then(([data1, data2]) => {
+        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
+
         if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            const countUp = new CountUp('enrolled', totalEnrollment);
             if (!countUp.error) {
                 countUp.start();
             } else {
                 console.error(countUp.error);
             }
         }
-
     })
-    .catch((err) => {
-        console.log(err)
-    })
+    .catch(err => {
+        console.log("Enrollment fetch error:", err);
+    });
 
