@@ -2,6 +2,19 @@
 <html lang="en" id="doc">
 
 <head>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        
+        // Page View Event
+        dataLayer.push({
+            event: 'page_view',
+            page: {
+                title: 'ACS Achieve Engineering Exam Batch 2025',
+                location: window.location.href,
+                path: window.location.pathname
+            }
+        });
+    </script>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -449,6 +462,29 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+        <script>
+    // Scroll Depth Tracking
+    let scrollMarks = [25, 50, 75, 90, 100];
+    let marks = new Set();
+    
+    window.addEventListener('scroll', () => {
+        const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+        
+        scrollMarks.forEach(mark => {
+            if (scrollPercent >= mark && !marks.has(mark)) {
+                marks.add(mark);
+                dataLayer.push({
+                    event: 'scroll_depth',
+                    scroll_depth: {
+                        percent: mark,
+                        page_title: document.title,
+                        page_location: window.location.href
+                    }
+                });
+            }
+        });
+    });
+</script>
 </body>
 <!-- 
 <script>

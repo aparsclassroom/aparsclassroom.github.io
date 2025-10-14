@@ -188,23 +188,41 @@ firebase.auth().onAuthStateChanged(function (e) {
         };
 
         fetch(`https://${shopName2}/v3/purchase/multiple/`, requestOptions).then(res => res.json())
-        .then((result) => {
-            if (result.status === 200) {
-                swal({
-                    title: "Already Enrolled!",
-                    icon: "success",
-                    button: "View Informations"
-                }).then(() => {
-                    location.replace(result.invoices[0].invoice);
-                });
-            } else {
-                const form = document.forms['purchase'];
+            .then((result) => {
+                if (result.status === 200) {
+                    swal({
+                        title: "Already Enrolled!",
+                        icon: "success",
+                        button: "View Informations"
+                    }).then(() => {
+                        location.replace(result.invoices[0].invoice);
+                    });
+                } else {
+                    const form = document.forms['purchase'];
                     form.addEventListener('submit', em => {
                         em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
                         document.getElementById("buy").disabled = true;
                         const iswithbooks = document.getElementById('addBooks').checked;
+                        const currentPrice = iswithbooks ? pls : pls2;
+                        const discountAmount = document.getElementById('disC').value.trim() !== 'N/A' ? disOFF : 0;
+
+                        // Init Checkout Event
+                        dataLayer.push({
+                            event: 'init_checkout',
+                            ecommerce: {
+                                items: [{
+                                    item_id: iswithbooks ? productCode : productCode2,
+                                    item_name: iswithbooks ? product : product2,
+                                    price: currentPrice,
+                                    discount: discountAmount,
+                                    quantity: 1
+                                }],
+                                currency: 'BDT',
+                                value: currentPrice - discountAmount
+                            }
+                        });
 
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
@@ -278,6 +296,24 @@ firebase.auth().onAuthStateChanged(function (e) {
                     document.getElementById('buy').innerText = "Please wait...."
                     document.getElementById("buy").disabled = true;
                     const iswithbooks = document.getElementById('addBooks').checked;
+                    const currentPrice = iswithbooks ? pls : pls2;
+                    const discountAmount = document.getElementById('disC').value.trim() !== 'N/A' ? disOFF : 0;
+
+                    // Init Checkout Event
+                    dataLayer.push({
+                        event: 'init_checkout',
+                        ecommerce: {
+                            items: [{
+                                item_id: iswithbooks ? productCode : productCode2,
+                                item_name: iswithbooks ? product : product2,
+                                price: currentPrice,
+                                discount: discountAmount,
+                                quantity: 1
+                            }],
+                            currency: 'BDT',
+                            value: currentPrice - discountAmount
+                        }
+                    });
                     var product = iswithbooks ? productCode : productCode2;
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
@@ -312,8 +348,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                         body: raw,
                         redirect: 'follow'
                     };
-                     let currentproductCode = iswithbooks ? productCode : productCode2;
-                        fetch(`https://${shopName2}/v2/${currentproductCode}/init`, requestOptions)
+                    let currentproductCode = iswithbooks ? productCode : productCode2;
+                    fetch(`https://${shopName2}/v2/${currentproductCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
