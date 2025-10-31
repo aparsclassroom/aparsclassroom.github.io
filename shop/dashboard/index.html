@@ -622,17 +622,25 @@
           </div>
         `;
                                 document.getElementById("results").after(paginationContainer);
+                                function scrollToInvoices() {
+                                const invoiceDiv = document.getElementById("title");
+                                if (invoiceDiv) {
+                                    invoiceDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }
+                                }
 
                                 document.getElementById("prevBtn").onclick = () => {
                                     if (currentPage > 1) {
                                         currentPage--;
                                         renderPage();
+                                        scrollToInvoices();
                                     }
                                 };
                                 document.getElementById("nextBtn").onclick = () => {
                                     if (currentPage < totalPages) {
                                         currentPage++;
                                         renderPage();
+                                        scrollToInvoices();
                                     }
                                 };
                             }
