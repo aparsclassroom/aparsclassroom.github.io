@@ -193,7 +193,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
 
             })
-        document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+        //document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
@@ -225,15 +225,15 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
-        document.getElementById('moda').innerHTML = `
-        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
-        `;
+        // document.getElementById('moda').innerHTML = `
+        // কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+        // `;
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
-            document.getElementById('moda').addEventListener('click', () => {
-                sessionStorage.setItem(product + '_potential', 'true');
-                location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
-            })
+            // document.getElementById('moda').addEventListener('click', () => {
+            //     sessionStorage.setItem(product + '_potential', 'true');
+            //     location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
+            // })
         document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
     }
 })
