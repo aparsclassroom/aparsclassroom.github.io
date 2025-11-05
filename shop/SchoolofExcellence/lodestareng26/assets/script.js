@@ -15,7 +15,7 @@ document.getElementById('email').addEventListener("input", function (event) {
     }
   });
 document.title = productName + " (" + Cycle + ") | ASG Shop";
-document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
+document.getElementById('prod').innerHTML = `${productName}`;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
