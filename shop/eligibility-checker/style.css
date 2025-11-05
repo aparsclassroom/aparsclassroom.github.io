@@ -1,0 +1,83 @@
+.bangla {
+  font-family: Kalpurush;
+}
+
+.fc td,
+.fc th,
+.fc-scrollgrid,
+.fc-scrollgrid-section,
+.fc-scrollgrid-sync-table,
+.fc-scrollgrid-liquid,
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: 1px solid #e5e7eb !important;
+}
+
+.fc-daygrid-day-frame {
+  box-sizing: border-box;
+}
+
+
+.fc-daygrid-day:hover .fc-daygrid-day-frame:hover {
+  background-color: #e0e7ff !important;
+  border: #6693ec !important;
+}
+
+.fc-daygrid-day-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fc-daygrid-day-number {
+  display: block !important;
+  text-align: center;
+  line-height: 1.5rem;
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
+.fc-daygrid-day-number:hover {
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
+.fc-event {
+  text-align: center;
+  cursor: pointer;
+}
+
+.fc-toolbar-title {
+  font-size: medium !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fc-toolbar-chunk:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.fc-prev-button,
+.fc-next-button {
+  background: none !important;
+  border: none !important;
+  color: #111 !important;
+  font-size: 1.25rem;
+  padding: 0 6px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.fc-today-button {
+  display: none !important;
+}
+
+.fc-prev-button:focus,
+.fc-next-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
