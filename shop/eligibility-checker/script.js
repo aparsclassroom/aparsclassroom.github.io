@@ -337,7 +337,7 @@ async function handleAutoSubmit(formData) {
         autoSubmitButton.textContent = "Search Again";
 
       });
-      
+
       return;
     }
 
@@ -728,7 +728,11 @@ function renderTable() {
         dateValue = item[f];
         td.innerText = item[f] || "Not available";
       } else if (f === "apply_link") {
-        td.innerHTML = `<a href="${item[f]}" target="_blank" class="text-blue-500 underline">Link</a>`;
+        const link = item[f] && item[f].trim() !== ""
+          ? item[f]
+          : `https://www.google.com/search?q=${encodeURIComponent(item.university_name)}`;
+
+        td.innerHTML = `<a href="${link}" target="_blank" class="text-blue-500 underline">Link</a>`;
       } else {
         td.innerText = item[f] || "No information available";
       }
