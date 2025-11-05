@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
       Swal.fire({
         title: "Information not available",
         text: "Please try again later.",
-        icon: "info"
+        icon: "info",
+        confirmButtonText: '<a href="/shop" class="hover:no-underline hover:text-white">Visit Available Courses</a>',
       })
     });
 });
