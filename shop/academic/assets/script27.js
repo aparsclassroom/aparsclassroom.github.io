@@ -4,6 +4,7 @@ const periodApiMap = {
   weekly: "https://crm.apars.shop/api/total-enrolled/hsc27/weekly",
   monthly: "https://crm.apars.shop/api/total-enrolled/hsc27/monthly"
 };
+
 const periodLabelMap = {
   all: "Total Enrolled",
   daily: "Total Enrolled Today",
@@ -11,41 +12,20 @@ const periodLabelMap = {
   monthly: "Total Enrolled This Month"
 };
 
+let container, loader, templateContainer, filterButtons;
+let courseTemplates = new Map();
+
+function initializeCache() {
+  container = document.getElementById("course-container");
+  loader = document.getElementById("loader");
+  templateContainer = document.getElementById("all-course-templates");
+  filterButtons = document.querySelectorAll('#enroll-filter-group .btn');
+}
+
 function updateActiveButton(period) {
-  document.querySelectorAll('#enroll-filter-group .btn').forEach(btn => {
+  filterButtons.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.period === period);
   });
-}
-
-function clearCourseCounts() {
-  document.querySelectorAll('.inject-count').forEach(el => {
-    if (el.nextElementSibling && el.nextElementSibling.classList.contains('enroll-info')) {
-      el.nextElementSibling.remove();
-    }
-  });
-  // Remove trophies and top-course classes
-  document.querySelectorAll('.trophy-badge').forEach(el => el.remove());
-  document.querySelectorAll('.top-course, .top-course-1, .top-course-2, .top-course-3').forEach(el => {
-    el.classList.remove('top-course', 'top-course-1', 'top-course-2', 'top-course-3');
-  });
-}
-
-// Move all course divs into the template container on DOMContentLoaded
-function moveCourseDivsToTemplate() {
-  const container = document.getElementById("course-container");
-  const templateContainer = document.getElementById("all-course-templates");
-  // Move only direct children with id (course divs)
-  Array.from(container.children).forEach(child => {
-    if (child.id) {
-      templateContainer.appendChild(child);
-    }
-  });
-}
-
-function getCourseDivCloneById(id) {
-  const templateContainer = document.getElementById("all-course-templates");
-  const original = templateContainer.querySelector(`[id="${CSS.escape(id)}"]`);
-  return original ? original.cloneNode(true) : null;
 }
 
 function getOrdinalSuffix(n) {
@@ -56,102 +36,114 @@ function getOrdinalSuffix(n) {
   return "th";
 }
 
-function sortAndDisplayCourses(data, period) {
-  const container = document.getElementById("course-container");
-  const sortedDivs = [];
-  clearCourseCounts();
-  data.enrolled.forEach((item, index) => {
-    const div = getCourseDivCloneById(item.name);
-    if (div) {
-      const wrapper = div;
-      wrapper.classList.add("position-relative");
-
-      const placeLabel = document.createElement("span");
-      const placeText = `${item.place}${getOrdinalSuffix(item.place)} place`;
-
-      // For top 3 
-      if (index < 3 && period === 'all') {
-        const trophy = document.createElement("span");
-        trophy.classList.add("trophy-badge");
-
-        if (index === 0) {
-          wrapper.classList.add("top-course", "top-course-1");
-          trophy.classList.add("trophy-gold");
-          trophy.innerText = "🏆";
-        } else if (index === 1) {
-          wrapper.classList.add("top-course", "top-course-2");
-          trophy.classList.add("trophy-silver");
-          trophy.innerText = "🥈";
-        } else if (index === 2) {
-          wrapper.classList.add("top-course", "top-course-3");
-          trophy.classList.add("trophy-bronze");
-          trophy.innerText = "🥉";
-        }
-
-        wrapper.appendChild(trophy);
-        placeLabel.classList.add("place-text");
-        placeLabel.innerText = placeText;
-      } else {
-        // 4-20 or more idk
-        placeLabel.classList.add("place-text-no-trophy");
-        placeLabel.innerText = placeText;
-      }
-
-      wrapper.appendChild(placeLabel);
-
-      const titleAnchor = div.querySelector(".inject-count");
-      if (titleAnchor) {
-        const enrollmentInfo = document.createElement("div");
-        enrollmentInfo.classList.add("text-muted", "small", "mt-1", "enroll-info");
-        enrollmentInfo.innerHTML = `${periodLabelMap[period]}: <strong>${item.totalTransactions.toLocaleString()}</strong> students`;
-        titleAnchor.parentElement.insertBefore(enrollmentInfo, titleAnchor.nextSibling);
-      }
-
-      sortedDivs.push(wrapper);
+function cacheTemplates() {
+  const children = Array.from(container.children);
+  children.forEach(child => {
+    if (child.id) {
+      courseTemplates.set(child.id, child);
+      templateContainer.appendChild(child);
     }
   });
-  while (container.firstChild) container.removeChild(container.firstChild);
-  sortedDivs.forEach(div => container.appendChild(div));
 }
 
-let originalCourseContainerDisplay = null;
-function fetchAndDisplay(period) {
-  updateActiveButton(period);
-  const loader = document.getElementById("loader");
-  const container = document.getElementById("course-container");
-  // Store the original display value if not already stored
-  if (originalCourseContainerDisplay === null) {
-    originalCourseContainerDisplay = window.getComputedStyle(container).display;
+function buildCourseHTML(item, period, index) {
+  const template = courseTemplates.get(item.name);
+  if (!template) return '';
+  
+  const placeText = `${item.place}${getOrdinalSuffix(item.place)} place`;
+  let trophyHTML = '';
+  let topCourseClass = '';
+  let placeClass = 'place-text-no-trophy';
+  
+  // Top 3 courses styling
+  if (index < 3 && period === 'all') {
+    placeClass = 'place-text';
+    if (index === 0) {
+      topCourseClass = 'top-course top-course-1';
+      trophyHTML = '<span class="trophy-badge trophy-gold">🏆</span>';
+    } else if (index === 1) {
+      topCourseClass = 'top-course top-course-2';
+      trophyHTML = '<span class="trophy-badge trophy-silver">🥈</span>';
+    } else if (index === 2) {
+      topCourseClass = 'top-course top-course-3';
+      trophyHTML = '<span class="trophy-badge trophy-bronze">🥉</span>';
+    }
   }
-  // Remove all course divs immediately for better UX
-  while (container.firstChild) container.removeChild(container.firstChild);
-  loader.style.display = "block";
-  container.style.display = "none"; // Hide completely
-  container.style.visibility = "hidden"; // Also hide by visibility
-  fetch(periodApiMap[period])
-    .then(res => res.json())
-    .then(data => {
-      if (data.code === 200) {
-        sortAndDisplayCourses(data, period);
-        loader.style.display = "none";
-        container.style.display = originalCourseContainerDisplay; // Restore original display
-        container.style.visibility = "visible"; // Make visible
-      }
-    })
-    .catch(error => {
-      console.error("Failed to fetch course data:", error);
-      loader.innerText = "Failed to load courses.";
-    });
+  
+  const wrapper = template.cloneNode(true);
+  wrapper.classList.add('position-relative');
+  if (topCourseClass) {
+    topCourseClass.split(' ').forEach(cls => wrapper.classList.add(cls));
+  }
+  
+  const titleAnchor = wrapper.querySelector(".inject-count");
+  if (titleAnchor) {
+    const enrollmentInfo = `<div class="text-muted small mt-1 enroll-info">${periodLabelMap[period]}: <strong>${item.totalTransactions.toLocaleString()}</strong> students</div>`;
+    titleAnchor.insertAdjacentHTML('afterend', enrollmentInfo);
+  }
+  
+  wrapper.insertAdjacentHTML('beforeend', trophyHTML);
+  wrapper.insertAdjacentHTML('beforeend', `<span class="${placeClass}">${placeText}</span>`);
+  
+  return wrapper.outerHTML;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  moveCourseDivsToTemplate();
-  // Attach event listeners to filter buttons
-  document.querySelectorAll('#enroll-filter-group .btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-      const period = this.dataset.period;
+function renderCourses(data, period) {
+  const fragment = document.createDocumentFragment();
+  const tempDiv = document.createElement('div');
+  
+  const htmlParts = data.enrolled.map((item, index) => 
+    buildCourseHTML(item, period, index)
+  );
+  
+  tempDiv.innerHTML = htmlParts.join('');
+  while (tempDiv.firstChild) {
+    fragment.appendChild(tempDiv.firstChild);
+  }
+  
+  container.innerHTML = '';
+  container.appendChild(fragment);
+}
+
+async function fetchAndDisplay(period) {
+  updateActiveButton(period);
+
+  loader.style.display = "block";
+  container.style.cssText = "display: none; visibility: hidden;";
+  
+  try {
+    const response = await fetch(periodApiMap[period]);
+    const data = await response.json();
+    
+    if (data.code === 200) {
+      requestAnimationFrame(() => {
+        renderCourses(data, period);
+        loader.style.display = "none";
+        container.style.cssText = "";
+      });
+    }
+  } catch (error) {
+    console.error("Failed to fetch course data:", error);
+    loader.innerText = "Failed to load courses.";
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initializeCache();
+  loader.style.display = "block";
+  
+  cacheTemplates();
+  document.getElementById('enroll-filter-group')?.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn[data-period]');
+    if (btn) {
+      const period = btn.dataset.period;
       fetchAndDisplay(period);
-    });
+    }
   });
+  const link = document.createElement('link');
+  link.rel = 'preconnect';
+  link.href = 'https://crm.apars.shop';
+  document.head.appendChild(link);
+  
   fetchAndDisplay('all');
 });
