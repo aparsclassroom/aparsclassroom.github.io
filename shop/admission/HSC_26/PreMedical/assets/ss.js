@@ -41,7 +41,7 @@ tag.src = "https://www.youtube.com/iframe_api";
 // }
 
 //fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`)
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode}`)
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},567`)
     .then((res) => {
         return res.json()
     })
