@@ -548,6 +548,7 @@ function displayUniversityCards(universities, courses) {
           <h2 class="text-3xl font-bold text-gray-900 mb-2 text-center bangla">
             তোমার জন্য রেকমেন্ডেড কোর্সসমূহ
           </h2>
+          <br />
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             ${courses.map(course => `

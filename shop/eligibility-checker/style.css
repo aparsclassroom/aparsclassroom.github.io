@@ -1,5 +1,10 @@
+@font-face {
+    font-family: Kalpurush;
+    src: url('/Ambassador/assets/fonts/ASG_Font.TTF');
+}
+
 .bangla {
-  font-family: Kalpurush;
+    font-family: Kalpurush;
 }
 
 .fc td,
