@@ -52,7 +52,8 @@
   <meta property="og:site_name" content="ASG Shop">
   <meta property="og:description" content="Eligibility Checker for Admission">
   <meta property="og:image" content="https://i.postimg.cc/fymNj2S2/check-eligibility-meta-image-1200-x-628-px.jpg">
-  <meta property="og:image:secure_url" content="https://i.postimg.cc/fymNj2S2/check-eligibility-meta-image-1200-x-628-px.jpg">
+  <meta property="og:image:secure_url"
+    content="https://i.postimg.cc/fymNj2S2/check-eligibility-meta-image-1200-x-628-px.jpg">
   <meta property="og:image:type" content="image/jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="627">
@@ -135,13 +136,20 @@
   <!-- table -->
   <div class="max-w-6xl mx-auto rounded-xl my-12 px-6">
     <div class="flex flex-wrap gap-4 mb-4 items-center justify-center" id="toggle-buttons">
-      <button class="toggle-btn bg-blue-500 text-white px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="general">তথ্য</button>
-      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="exam-type">পরীক্ষার ধরন</button>
-      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="application-start">আবেদন শুরু</button>
-      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="apply-options">আবেদন করো</button>
-      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="admit">এডমিট</button>
-      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="exam-options">পরীক্ষা</button>
-      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none" data-tab="result">ফলাফল</button>
+      <button class="toggle-btn bg-blue-500 text-white px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="general">তথ্য</button>
+      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="exam-type">পরীক্ষার ধরন</button>
+      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="application-start">আবেদন শুরু</button>
+      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="apply-options">আবেদন করো</button>
+      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="admit">এডমিট</button>
+      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="exam-options">পরীক্ষা</button>
+      <button class="toggle-btn bg-gray-200 px-4 py-2 rounded-xl bangla focus:outline-none"
+        data-tab="result">ফলাফল</button>
     </div>
 
     <div id="table-container" class="overflow-x-auto">
@@ -150,7 +158,9 @@
           <tr id="table-headers" class="rounded-lg"></tr>
         </thead>
         <tbody id="table-body">
-          <tr><td colspan="100%" class="text-center p-4" id="table-loader">Loading data...</td></tr>
+          <tr>
+            <td colspan="100%" class="text-center p-4" id="table-loader">Loading data...</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -166,7 +176,8 @@
   <div class="max-w-6xl mx-auto rounded-xl p-6" id="checkerform">
     <div class="rounded-lg shadow-xl p-8 border-t-8 border-blue-500">
       <h1 class="text-2xl md:text-4xl font-bold text-center my-2 bangla">তোমার আবেদন যোগ্য বিশ্ববিদ্যালয়</h1>
-      <p class="text-center bangla w-full md:w-2/3 mx-auto">তোমার SSC ও HSC তথ্য পূরণ করো এবং জেনে নেও কোন বিশ্ববিদ্যালয়ে তুমি আবেদন করতে পারবে।
+      <p class="text-center bangla w-full md:w-2/3 mx-auto">তোমার SSC ও HSC তথ্য পূরণ করো এবং জেনে নেও কোন
+        বিশ্ববিদ্যালয়ে তুমি আবেদন করতে পারবে।
         সিস্টেম স্বয়ংক্রিয়ভাবে তোমার আবেদনযোগ্য বিশ্ববিদ্যালয় এবং সংশ্লিষ্ট সময়সূচি প্রদর্শন করবে।</p>
 
       <div class="flex items-center justify-center gap-8 mt-8">
@@ -182,7 +193,8 @@
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span
                     class="font-semibold">Examination of SSC<sup class="text-red-500 pl-2">*</sup></span></label><select
                   name="SSCexam"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                  required>
                   <option value="">Select One...</option>
                   <option value="ssc">SSC</option>
                   <option value="ssc_voc">SSC (Vocational)</option>
@@ -191,7 +203,8 @@
             <div class="w-full px-4 ">
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">SSC
                     Year<sup class="text-red-500 pl-2">*</sup></span></label><select name="SSCYear"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                  required>
                   <option value="">Select One...</option>
                   <option value="2025">2025</option>
                   <option value="2024">2024</option>
@@ -210,7 +223,8 @@
             <div class="w-full px-4 ">
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">SSC
                     Board<sup class="text-red-500 pl-2">*</sup></span></label><select name="SSCboard"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                  required>
                   <option value="">Select One...</option>
                   <option value="dhaka">Dhaka</option>
                   <option value="rajshahi">Rajshahi</option>
@@ -244,7 +258,8 @@
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span
                     class="font-semibold">Examination of HSC<sup class="text-red-500 pl-2">*</sup></span></label><select
                   name="HSCexam"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary"
+                  required>
                   <option value="">Select One...</option>
                   <option value="hsc">HSC</option>
                   <option value="hsc_voc">HSC (Vocational)</option>
@@ -255,7 +270,8 @@
             <div class="w-full px-4 ">
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                     Year<sup class="text-red-500 pl-2">*</sup></span></label><select name="HSCYear"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary"
+                  required>
                   <option value="">Select One...</option>
                   <option value="2025">2025</option>
                   <option value="2024">2024</option>
@@ -274,7 +290,8 @@
             <div class="w-full px-4 ">
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                     Board<sup class="text-red-500 pl-2">*</sup></span></label><select name="HSCboard"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary"
+                  required>
                   <option value="">Select One...</option>
                   <option value="dhaka">Dhaka</option>
                   <option value="rajshahi">Rajshahi</option>
@@ -299,7 +316,8 @@
             <div class="w-full px-4">
               <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">Are
                     You Second Timer ?<sup class="text-red-500 pl-2">*</sup></span></label><select name="secondTimer"
-                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary" required>
+                  class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary"
+                  required>
                   <option value="">Select One...</option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
@@ -317,7 +335,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">SSC
                   Year</span></label><select name="sscYear"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary"
+                required>
                 <option value="">Select One...</option>
                 <option value="2025">2025</option>
                 <option value="2024">2024</option>
@@ -335,7 +354,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   Year</span></label><select name="hscYear"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary"
+                required>
                 <option value="">Select One...</option>
                 <option value="2025">2025</option>
                 <option value="2024">2024</option>
@@ -365,7 +385,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   Physic GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="physicsGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -378,7 +399,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   Math GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="mathGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -391,7 +413,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   Chemistry GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="chemistryGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -404,7 +427,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   Biology GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="biologyGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -417,7 +441,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   English GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="englishGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -430,7 +455,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   ICT GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="ictGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -443,7 +469,8 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">HSC
                   Bangla GPA<sup class="text-red-500 pl-2">*</sup></span></label><select name="banglaGPA"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="5.00">A+</option>
                 <option value="4.00">A</option>
@@ -456,14 +483,16 @@
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
             <div class="mb-8"><label class="mb-3 block text-sm font-medium text-dark "><span class="font-semibold">Are
                   You Second Timer ?<sup class="text-red-500 pl-2">*</sup></span></label><select name="secondTimer"
-                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent" required>
+                class="border-stroke w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent"
+                required>
                 <option value="">Select One...</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select></div>
           </div>
           <div class="w-full px-4 text-center mt-6"><button type="submit"
-              class="shadow-submit rounded-sm bg-blue-500 px-4 py-2 text-base font-medium text-white duration-300 hover:bg-blue-500/90 disabled:opacity-7 cursor-pointer text-center lg:w-1/5 w-full focus:outline-none" id="manualsubbtn">Submit</button>
+              class="shadow-submit rounded-sm bg-blue-500 px-4 py-2 text-base font-medium text-white duration-300 hover:bg-blue-500/90 disabled:opacity-7 cursor-pointer text-center lg:w-1/5 w-full focus:outline-none"
+              id="manualsubbtn">Submit</button>
           </div>
         </div>
       </form>
@@ -472,6 +501,120 @@
   </div>
   <!-- Results Section -->
   <div id="results" class="mt-8 hidden">
+  </div>
+  <br>
+  <br>
+
+  <footer class="flex pb-5 pt-6 md:pt-6 border-t border-gray-200 bg-gray-50">
+    <div class="container mx-auto mt-4">
+
+      <div class="flex flex-wrap -mx-4">
+        <div class="w-full lg:w-1/3 text-gray-600 px-4">
+          <p>Apars Classroom <strong>(ASG Shop)</strong> is an online education center based in Dhaka,
+            Bangladesh, specializing in providing high-quality educational resources to students across
+            the country. Established in 2018, the platform has quickly gained popularity among
+            Bangladeshi students, with over 1,000,000 students actively learning and developing their
+            skills through its diverse range of courses.</p>
+          <ul class="flex list-none mb-5 mt-4">
+            <li class="mr-2">
+              <a href="https://www.facebook.com/aparsclassroom/" target="_blank"
+                class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white hover:no-underline"
+                aria-label="facebook social link" title="Like @aparsclassroom on Facebook"><span aria-hidden="true"
+                  class="fab fa-facebook"></span></a>
+            </li>
+            <li class="mr-2">
+              <a href="https://www.instagram.com/apars_classroom/" target="_blank"
+                class="hover:no-underline flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-tr from-pink-600 via-purple-500 to-yellow-400 text-white hover:opacity-90 transition"
+                aria-label="instagram social link" title="Follow @aparsclassroom on insta">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+
+            <li class="mr-2">
+              <a href="https://youtube.com/aparsclassroom" target="_blank"
+                class="hover:no-underline flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white"
+                aria-label="dribbble social link" title="Subscribe our Channel"><span aria-hidden="true"
+                  class="fab fa-youtube"></span></a>
+            </li>
+            <li class="mr-2">
+              <a href="tel:+8809677005588"
+                class="hover:no-underline flex items-center justify-center w-10 h-10 rounded-full bg-green-500 text-white"
+                aria-label="dribbble social link" title="Call Us"><span aria-hidden="true"
+                  class="fa fa-phone"></span></a>
+            </li>
+            <li class="mr-2">
+              <a href="mailto:support@aparsclassroom.com"
+                class="hover:no-underline flex items-center justify-center w-10 h-10 rounded-full bg-sky-400 text-white"
+                aria-label="dribbble social link" title="Email Us"><span aria-hidden="true"
+                  class="fas fa-envelope"></span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="w-1/2 lg:w-1/3 mb-5 lg:mb-0 px-4">
+          <h5 class="text-lg font-semibold mb-2">Important Links</h5>
+          <ul class="list-none mt-2">
+            <li class="mb-2 text-gray-600">
+              <a class="hover:text-gray-800 hover:no-underline block md:inline-block" target="_blank"
+                href="/terms.html">
+                Terms and Conditions
+              </a>
+            </li>
+            <li class="mb-2 text-gray-600">
+              <a class="hover:text-gray-800 hover:no-underline block md:inline-block" target="_blank"
+                href="/privacy.html">
+                Privacy Policy
+              </a>
+            </li>
+            <li class="mb-2 text-gray-600">
+              <a class="hover:text-gray-800 hover:no-underline block md:inline-block" target="_blank"
+                href="/return-and-refund-policy.html">
+                Return and Refund Policy
+              </a>
+            </li>
+            <li class="mb-2 text-gray-600">
+              <a class="hover:text-gray-800 hover:no-underline block md:inline-block" target="_blank"
+                href="/contact.html">
+                Contact Us
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="w-full lg:w-1/3 mb-5 lg:mb-0 px-4">
+          <h5 class="text-lg font-semibold mb-2">Disclaimer</h5>
+          <p class="text-gray-600 text-sm m-0 mt-2">All the products are listed for sale in the shop, are owned
+            by the Company. Anyone can buy personal license for the products. But Reselling are Strictly
+            prohibited. Learn more about <a class="text-red-500 hover:no-underline hover:text-red-700" href="/piracy.html">Anti-Piracy
+              Laws</a>
+            &amp; <a class="text-red-500 hover:no-underline hover:text-red-700" href="/terms.html">Terms and Conditions</a>.
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-5 border-gray-300">
+
+      <div class="flex flex-wrap -mx-4">
+        <div class="w-full px-4">
+          <a href="/" target="_blank" class="flex justify-center mb-3"><img loading="lazy"
+              src="/HSC-Full-Course/assets/images/1.png" class="h-10" alt="Apar's Classroom Logo"></a>
+          <div class="flex justify-center items-center text-center" role="contentinfo">
+            <p class="text-sm mb-0">&copy; <span class="current-year">2018-2025</span> Apar's Classroom<br>All rights
+              reserved.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div style="display: flex; justify-content: center;" class="bg-gray-50">
+    <span id="fvc_counter_wrapper">
+      <a href="http://www.freevisitorcounters.com">Visitor Counter</a>
+      <script src="https://www.freevisitorcounters.com/auth.php?id=7b074ae993a9f14cda1fa6cf5fee4bd0e06ca0dc"></script>
+      <script src="https://www.freevisitorcounters.com/en/home/counter/1435364/t/5"></script>
+    </span>
   </div>
 
   <!-- <script src="./assets/script.js"></script> -->
