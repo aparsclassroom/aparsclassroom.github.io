@@ -48,23 +48,22 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
 };
-fetch("https://crm.aparsclassroom.com/api/total-enrolled/FRB26", requestOptions)
-    .then(response => response.json())
-    .then(result => {
-        let total = 0; 
-        if (Array.isArray(result.enrolled) && result.enrolled.length > 0) {
-            total = result.enrolled[0].totalTransactions;
-        } else {
-            total = 0; 
-        }
-        total = total + init;
-        document.getElementById('enrolled').setAttribute('countTo', total);
-
-        const countUp = new CountUp('enrolled', total);
-        if (!countUp.error) {
-            countUp.start();
-        } else {
-            console.error(countUp.error);
-        }
+fetch(`https://${shopName2}/enrollment/combined?productCodes=563,564,565,566`, requestOptions)
+    .then((res) => {
+        return res.json()
     })
-    .catch(error => console.log('error', error));
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+
+    })
+    .catch((err) => {
+        console.log(err)
+    })

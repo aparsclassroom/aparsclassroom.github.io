@@ -5,6 +5,7 @@ const productName2 = "HSC 26 Final Revision Batch (Full Syllabus) - FRB	with Boo
 let productCode = "563";
 let productCode2 = "564";
 let productCode3 = "565";
+let productCode4 = "566";
 const fix = 6000;
 const pls = 2500;
 const pls2 = 5500;
