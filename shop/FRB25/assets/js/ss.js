@@ -48,10 +48,10 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
-fetch("https://crm.aparsclassroom.com/api/total-enrolled/FRB25", requestOptions)
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`, requestOptions)
     .then(response => response.json())
     .then(result => {
-        document.getElementById('enrolled').setAttribute('countTo', result.enrolled[0].totalTransactions + init);
+        document.getElementById('enrolled').setAttribute('countTo', result.count + init);
        // document.getElementById("thumImg").src = thumbImage + (result.enrolled[0].totalTransactions + init);
         const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
         if (!countUp.error) {
