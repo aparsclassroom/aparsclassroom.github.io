@@ -20,10 +20,10 @@ document.getElementById('email').addEventListener("input", function (event) {
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
-//document.getElementById('prevP').innerText = fix;
-//document.getElementById('nop').innerText = pls + "৳";
-//document.getElementById('sprice').innerText = pls;
-//document.getElementById('price').value = pls;
+document.getElementById('prevP').innerText = fix;
+document.getElementById('nop').innerText = pls + "৳";
+document.getElementById('sprice').innerText = pls;
+document.getElementById('price').value = pls;
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
