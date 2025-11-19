@@ -1,0 +1,9 @@
+const product = "Agri25";
+const product2 = "Agri25 (Special)"
+const productName = "Physics Hunters - ACS Agri Batch 2025-26";
+let productCode = "584";
+let productCode2 = "585";
+let fix = 2000;
+let pls = 1750;
+const Platform = "Online";
+const init = 0;
