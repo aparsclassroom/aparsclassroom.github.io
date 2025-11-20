@@ -8,8 +8,7 @@ let originalPricing = {
 
 let isPhysicsHuntersStudent = false;
 
-function showPhoneVerificationModal() {
-  console.log(document.getElementById('cupon').value);
+async function showPhoneVerificationModal() {
   if (!document.getElementById('cupon').value) {
     swal({
       title: 'Physics Hunters paid batch student verification',
@@ -74,6 +73,40 @@ function showPhoneVerificationModal() {
           closeOnClickOutside: false,
           closeOnEsc: false
         });
+
+        const phoneWithCountryCode = '+88' + phoneNumber;
+        try {
+          const purchaseCheck = await fetch('https://shop.aparsclassroom.com/query/phone', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ phone: phoneWithCountryCode })
+          });
+
+          const purchaseData = await purchaseCheck.json();
+
+          if (purchaseData.tranx && Array.isArray(purchaseData.tranx)) {
+            const hasAgri25Purchase = purchaseData.tranx.some(transaction => {
+              const isValidStatus = transaction.status === 'VALID' || transaction.status === 'VALIDATED';
+              const isAgri25Product = transaction.ProductName === 'Agri25 (Special)' || 
+                                     transaction.ProductName === 'Agri25';
+              return isValidStatus && isAgri25Product;
+            });
+
+            if (hasAgri25Purchase) {
+              swal({
+                title: 'Already Purchased',
+                text: 'This phone number has already been used to purchase this course.',
+                icon: 'error',
+                button: 'Ok'
+              });
+              return;
+            }
+          }
+        } catch (error) {
+          console.error('Error checking purchase history:', error);
+        }
 
         const result = await verifyPhoneNumber(phoneNumber);
 
