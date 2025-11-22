@@ -1,5 +1,5 @@
 const product = "galacticos2.0";
-const productName = "ACS 27 English by Crowning English";
+const productName = "HSC 27 English by Crowning English";
 const init = 0;
 const Platform = "Crowning";
 const productCode = "494";
