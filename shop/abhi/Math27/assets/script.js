@@ -199,7 +199,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
     }
 });
 
-// Rest of your existing code remains the same...
+ 
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
