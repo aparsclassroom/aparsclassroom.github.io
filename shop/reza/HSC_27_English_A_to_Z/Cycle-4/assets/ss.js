@@ -1,5 +1,5 @@
 const product = "HSC_27_English_A_to_Z";
-const productName = "HSC 27 English A to Z";
+const productName = "ACS HSC 27 English A to Z";
 const init = 0;
 const Platform = "Online";
 const productCode = "492";
