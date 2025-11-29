@@ -172,7 +172,7 @@
                             <div class="collapse text-justify" id="collapseExample" aria-expanded="false">
                                 <section>
                                     <p>HSC 26 ব্যাচের তোমরা যারা ইংরেজির একাডেমিক পূর্ণাঙ্গ প্রস্তুতির পাশাপাশি একাডেমিক
-                                        থেকেই এডমিশন প্রস্তুতি গুছিয়ে নিতে চাচ্ছো তাদের জন্য Lodestar English Academic
+                                        থেকেই এডমিশন প্রস্তুতি গুছিয়ে নিতে চাচ্ছো তাদের জন্য ACS English Revision Course
                                         26 Batch নিয়ে এসেছি School of Excellence (SoE) এর পক্ষ থেকে।</p>
 
                                     <p>SoE মূলত মানবিকের শিক্ষার্থীদের জন্য স্পেশালি কাজ করে যাচ্ছে, যেখানে সাইন্স ও
@@ -181,7 +181,8 @@
                                         এক্সামগুলো টপার শিক্ষার্থী ও ঢাকা বিশ্ববিদ্যালয়ে ইংরেজি রিটেনে সর্বোচ্চ নাম্বার
                                         পাওয়া শিক্ষার্থী আমাদেরই। গতবছরও ঢাবিতে আমাদের ২৬০+ শিক্ষার্থী সহ মোট পাবলিকিয়ান
                                         ছিলো ১৫৭০+ শিক্ষার্থী।
-                                        সেই অভিজ্ঞতার আলোকে আমরা Lodestar English Academic 26 Batch কে সাজিয়েছি তোমাদের
+                                        সেই অভিজ্ঞতার আলোকে আমরা ACS English Revision Course 26 Batch কে সাজিয়েছি
+                                        তোমাদের
                                         একাডেমিক ইংরেজিতে A+ সহ সর্বোচ্চ নাম্বার নিশ্চিত করা ও একাডেমিক থেকেই এডমিশনের
                                         প্রস্তুতি কীভাবে নেবে সেই ধারণা দেয়ার লক্ষ্যে। </p>
 
@@ -209,12 +210,15 @@
                                         </li>
                                         <li>
                                             <p>
-                                                ইংরেজি ২য় পত্রের (Full Syllabus) প্রতিটি টপিক আলাদা করে গভীরভাবে পড়ানো হবে।
+                                                ইংরেজি ২য় পত্রের (Full Syllabus) প্রতিটি টপিক আলাদা করে গভীরভাবে পড়ানো
+                                                হবে।
                                             </p>
                                         </li>
                                         <li>
                                             <p>
-                                                Academic Questions সলভের পাশাপাশি নির্দিষ্ট টপিক ভিত্তিক Admission Type Question ও সমাধান করানো হবে। যাতে, তুমি বুঝতে পারও একাডেমিকের পড়াশোনা কতটা রিলেটেড এডমিশনের সাথে।
+                                                Academic Questions সলভের পাশাপাশি নির্দিষ্ট টপিক ভিত্তিক Admission Type
+                                                Question ও সমাধান করানো হবে। যাতে, তুমি বুঝতে পারও একাডেমিকের পড়াশোনা
+                                                কতটা রিলেটেড এডমিশনের সাথে।
                                             </p>
                                         </li>
                                         <li>
@@ -229,7 +233,8 @@
                                                 পড়ানো যেকোনও ইস্যু নিয়ে সেখানে কথা বলতে পারবে।</p>
                                         </li>
                                         <li>
-                                            <p>এর বারেই মাসিক <strong>গাইডলাইন সেশন</strong> থাকবে, যেখানে তোমাদেরকে মোটিভেশন
+                                            <p>এর বারেই মাসিক <strong>গাইডলাইন সেশন</strong> থাকবে, যেখানে তোমাদেরকে
+                                                মোটিভেশন
                                                 দেয়ার জন্য জুম অ্যাপে সরাসরি যুক্ত থাকবে বিভিন্ন বিশ্ববিদ্যালয়ের বিগত
                                                 বছরগুলোর টপাররা। তাদের অভিজ্ঞতার আলোকে তুমিও নিজের সর্বোচ্চ প্রস্তুতি
                                                 নিতে পারবে, ইনশা আল্লাহ্‌।</p>
@@ -321,6 +326,10 @@
                         </div>
                         <div class="tag"><i class="fab fa-facebook" style="color:#4267B2;"></i>&nbsp; FB Live Class &
                             WebApp</div>
+                        <div class="text-center">
+                            <button id="routine" class="btn btn-outline-primary"><i class="fas fa-file-download"></i>
+                                Download Class Routine</button>
+                        </div>
                     </div>
                     <br>
                     <div id="clprc" class="cove">
@@ -510,6 +519,13 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <script>
+        let routine = document.getElementById("routine");
+
+        routine.addEventListener('click', function () {
+            window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTlBKl7M9bOvKyKjZsPSX4vJ-1U9dOhfxhZ8kni4b0hyS5kKC0xmx5L02FwmwGTzD2dy7RFfZ8ThTQb/pubhtml?gid=0&single=true", "_blank");
+        })
+    </script>
 </body>
 
 </html>
