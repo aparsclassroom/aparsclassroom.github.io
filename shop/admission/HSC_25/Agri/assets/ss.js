@@ -40,6 +40,12 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
+ document.getElementById('moda').addEventListener('click', function () {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+    }
+});
+
 fetch(`https://${shopName2}/enrollment/combined?productCodes=584,585`)
     .then((res) => {
         return res.json()

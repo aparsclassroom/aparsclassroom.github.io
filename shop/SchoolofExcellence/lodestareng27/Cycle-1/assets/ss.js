@@ -39,6 +39,13 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+
+ document.getElementById('moda').addEventListener('click', function () {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+    }
+});
+
 fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
