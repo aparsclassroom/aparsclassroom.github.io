@@ -244,7 +244,17 @@
                         </div>
                     </div>
             </section>
-            <h3 style="text-align: center;margin-top: 30px;" id="title">loading...</h3>
+            <h3 style="text-align: center;margin-top: 30px;" id="title" class="font-bold" >loading...</h3>
+            <div class="row justify-content-center mb-4">
+                <div class="col-12 text-center">
+                    <button id="filterValidBtn" class="btn btn-warning btn-sm" style="display: none;">
+                      <i class="fas fa-check-double"></i> Show All Valid Invoices
+                    </button>
+                    <button id="showAllBtn" class="btn btn-secondary btn-sm" style="display: none;">
+                        <i class="fas fa-list"></i> Show All Invoices
+                    </button>
+                </div>
+            </div>
             <hr class="mt-2 mb-4" />
             <div class="row" id="results">
             </div>
@@ -587,46 +597,59 @@
                             if (!data.length) {
                                 document.getElementById('title').innerText = "Oops 🙃";
                                 results.innerHTML = `
-          <div class="col-lg-6 mb-4">
-            <a class="card lift lift-sm h-100" href="javascript:void(0)">
-              <div class="card-body py-5">
-                <h5 class="card-title text-primary text-center mb-2">
-                  <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp;Payment History not found !
-                </h5>
-              </div>
-            </a>
-          </div>`;
+                    <div class="col-lg-6 mb-4">
+                        <a class="card lift lift-sm h-100" href="javascript:void(0)">
+                            <div class="card-body py-5">
+                                <h5 class="card-title text-primary text-center mb-2">
+                                    <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp;Payment History not found !
+                                </h5>
+                            </div>
+                        </a>
+                    </div>`;
                                 return;
                             }
+                            document.getElementById('filterValidBtn').style.display = 'inline-block';
 
-                            // pagination logic 
+                            // Separate valid and all invoices
+                            const validInvoices = data.filter(item => item.status === "VALID" || item.status === "VALIDATED");
+
+                            // Pagination logic
                             const pageSize = 12;
                             let currentPage = 1;
-                            const totalPages = Math.ceil(data.length / pageSize);
+                            let filteredData = data;
+                            let isFilteredView = false;
 
                             const paginationContainer = document.createElement("div");
                             paginationContainer.style.textAlign = "center";
                             paginationContainer.style.margin = "20px 0";
+                            paginationContainer.id = "paginationContainer";
 
+                            function getTotalPages() {
+                                return Math.ceil(filteredData.length / pageSize);
+                            }
 
                             function renderPagination() {
-                                  if (data.length < 10) {
+                                if (filteredData.length < 12) {
                                     paginationContainer.innerHTML = "";
                                     return;
-                                  }
-                                paginationContainer.innerHTML = `
-          <div style="display: inline-block; margin-bottom: 30px;">
-             <button id="prevBtn" class="btn btn-warning mx-2" ${currentPage === 1 ? 'disabled' : ''}>Prev</button>
-            <span style="font-weight: 500;">Page ${currentPage} of ${totalPages}</span>
-            <button id="nextBtn" class="btn btn-warning mx-2" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
-          </div>
-        `;
-                                document.getElementById("results").after(paginationContainer);
-                                function scrollToInvoices() {
-                                const invoiceDiv = document.getElementById("title");
-                                if (invoiceDiv) {
-                                    invoiceDiv.scrollIntoView({ behavior: "smooth", block: "start" });
                                 }
+
+                                const totalPages = getTotalPages();
+                                paginationContainer.innerHTML = `
+                    <div style="display: inline-block; margin-bottom: 30px;">
+                        <button id="prevBtn" class="btn btn-warning mx-2" ${currentPage === 1 ? 'disabled' : ''}>Prev</button>
+                        <span style="font-weight: 500;">Page ${currentPage} of ${totalPages}</span>
+                        <button id="nextBtn" class="btn btn-warning mx-2" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+                    </div>
+                `;
+
+                                document.getElementById("results").after(paginationContainer);
+
+                                function scrollToInvoices() {
+                                    const invoiceDiv = document.getElementById("title");
+                                    if (invoiceDiv) {
+                                        invoiceDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }
                                 }
 
                                 document.getElementById("prevBtn").onclick = () => {
@@ -636,8 +659,9 @@
                                         scrollToInvoices();
                                     }
                                 };
+
                                 document.getElementById("nextBtn").onclick = () => {
-                                    if (currentPage < totalPages) {
+                                    if (currentPage < getTotalPages()) {
                                         currentPage++;
                                         renderPage();
                                         scrollToInvoices();
@@ -648,7 +672,7 @@
                             function renderPage() {
                                 const start = (currentPage - 1) * pageSize;
                                 const end = start + pageSize;
-                                const sliced = data.slice(start, end);
+                                const sliced = filteredData.slice(start, end);
                                 results.innerHTML = "";
 
                                 sliced.forEach((element, idx) => {
@@ -660,92 +684,134 @@
                                     } else {
                                         courseName = element.ProductName;
                                     }
+
                                     if (element.status == "VALID" || element.status == "VALIDATED") {
                                         if (element.Platform == "Digital") {
                                             var content = `
-                <div class="col-lg-4 mb-4">
-                  <div class="card lift lift-sm h-100">
-                    <div class="card-body py-5">
-                      <h5 class="card-title text-primary text-center mb-2">
-                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                      </h5>
-                      <h4 class="text-success text-center">${courseName}</h4>
-                      <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
-                      <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                      <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                    </div>
-                    <div class="card-footer">
-                      <div class="small text-muted text-center"><a class="btn btn-success" id="viewBtn${element.tran_id}" href="javascript:viewKey('${element.assigned}','${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
-                    </div>
-                  </div>
-                </div>`;
+                            <div class="col-lg-4 mb-4">
+                                <div class="card lift lift-sm h-100">
+                                    <div class="card-body py-5">
+                                        <h5 class="card-title text-primary text-center mb-2">
+                                            <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                        </h5>
+                                        <h4 class="text-success text-center">${courseName}</h4>
+                                        <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
+                                        <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                        <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="small text-muted text-center"><a class="btn btn-success" id="viewBtn${element.tran_id}" href="javascript:viewKey('${element.assigned}','${element.tran_id}')">View Key</a><br>Time : ${element.Timestamp}</div>
+                                    </div>
+                                </div>
+                            </div>`;
                                         } else {
                                             var content = `
-                <div class="col-lg-4 mb-4">
-                  <div class="card lift lift-sm h-100">
-                    <div class="card-body py-5">
-                      <h5 class="card-title text-primary text-center mb-2">
-                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                      </h5>
-                      <h4 class="text-success text-center">Course : ${courseName}</h4>
-                      <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
-                      <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
-                      <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                      <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                    </div>
-                    <div class="card-footer">
-                      <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a || element.Product.Permalink + '/success/' + user.uid}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
-                    </div>
-                  </div>
-                </div>`;
+                            <div class="col-lg-4 mb-4">
+                                <div class="card lift lift-sm h-100">
+                                    <div class="card-body py-5">
+                                        <h5 class="card-title text-primary text-center mb-2">
+                                            <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                        </h5>
+                                        <h4 class="text-success text-center">Course : ${courseName}</h4>
+                                        <h4 class="text-danger text-center">Access Code : <span id="ps${idx}">${element.tran_id}</span></h4>
+                                        <h4 class="card-text text-center">Paid Amount : ${(element.currency_amount + Number(element.o2o))}৳</h4>
+                                        <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                        <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="small text-muted text-center"><a class="btn btn-success" target="_blank" href="${element.value_a || element.Product.Permalink + '/success/' + user.uid}">Digital Invoice</a><br>Time : ${element.Timestamp}</div>
+                                    </div>
+                                </div>
+                            </div>`;
                                         }
                                     } else {
                                         if (element.Platform == "Digital") {
                                             var content = `
-                <div class="col-lg-4 mb-4">
-                  <div class="card lift lift-sm h-100">
-                    <div class="card-body py-5">
-                      <h5 class="card-title text-primary text-center mb-2">
-                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                      </h5>
-                      <h4 class="text-success text-center">${courseName}</h4>
-                      <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
-                      <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                      <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                      <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
-                    </div>
-                    <div class="card-footer">
-                      <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
-                    </div>
-                  </div>
-                </div>`;
+                            <div class="col-lg-4 mb-4">
+                                <div class="card lift lift-sm h-100">
+                                    <div class="card-body py-5">
+                                        <h5 class="card-title text-primary text-center mb-2">
+                                            <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                        </h5>
+                                        <h4 class="text-success text-center">${courseName}</h4>
+                                        <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
+                                        <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                        <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                        <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
+                                    </div>
+                                </div>
+                            </div>`;
                                         } else {
                                             var content = `
-                <div class="col-lg-4 mb-4">
-                  <div class="card lift lift-sm h-100">
-                    <div class="card-body py-5">
-                      <h5 class="card-title text-primary text-center mb-2">
-                        <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
-                      </h5>
-                      <h4 class="text-success text-center">Course : ${courseName}</h4>
-                      <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
-                      <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
-                      <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
-                      <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
-                    </div>
-                    <div class="card-footer">
-                      <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
-                    </div>
-                  </div>
-                </div>`;
+                            <div class="col-lg-4 mb-4">
+                                <div class="card lift lift-sm h-100">
+                                    <div class="card-body py-5">
+                                        <h5 class="card-title text-primary text-center mb-2">
+                                            <img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp; Invoice No. ${idx}
+                                        </h5>
+                                        <h4 class="text-success text-center">Course : ${courseName}</h4>
+                                        <h4 class="card-text text-center">Amount : ${element.currency_amount + element.o2o}৳</h4>
+                                        <h3 class="card-text text-center">Discount Coupon : ${element.Coupon}</h3>
+                                        <h3 class="card-text text-center">Payment Status : ${element.status}</h3>
+                                        <h5 class="card-text text-danger text-center">Reason : ${element.error}</h5>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="small text-muted text-center">Time : ${element.Timestamp}</div>
+                                    </div>
+                                </div>
+                            </div>`;
                                         }
                                     }
                                     results.innerHTML += content;
                                 });
                                 renderPagination();
                             }
-
                             renderPage();
+
+                            
+                            document.getElementById('filterValidBtn').addEventListener('click', () => {
+                                isFilteredView = !isFilteredView;
+                                currentPage = 1;
+
+                                if (isFilteredView) {
+                                    if (validInvoices.length === 0) {
+                                        swal("No invoices found", "Please buy a course", "info");
+                                        isFilteredView = false;
+                                        return;
+                                    }
+
+                                    filteredData = validInvoices;
+                                    document.getElementById('title').innerHTML = `Payment History`;
+                                    document.getElementById('filterValidBtn').classList.add('active');
+                                    document.getElementById('filterValidBtn').style.color = 'white';
+                                    document.getElementById('showAllBtn').style.display = 'inline-block';
+                                } else {
+                                    filteredData = data;
+                                    document.getElementById('title').innerHTML = "Payment History";
+                                    document.getElementById('filterValidBtn').classList.remove('active');
+                                    document.getElementById('filterValidBtn').style.backgroundColor = '';
+                                    document.getElementById('filterValidBtn').style.color = '';
+                                    document.getElementById('showAllBtn').style.display = 'none';
+                                }
+
+                                renderPage();
+                            });
+
+                            document.getElementById('showAllBtn').addEventListener('click', () => {
+                                isFilteredView = false;
+                                currentPage = 1;
+                                filteredData = data;
+                                document.getElementById('title').innerHTML = "Payment History";
+                                document.getElementById('filterValidBtn').classList.remove('active');
+                                document.getElementById('filterValidBtn').style.backgroundColor = '';
+                                document.getElementById('filterValidBtn').style.color = '';
+                                document.getElementById('showAllBtn').style.display = 'none';
+                                renderPage();
+                            });
+
                         } else {
                             document.getElementById('title').innerText = "Oops 🙃";
                             results.innerHTML = `<div class="col-lg-6 mb-4"><a class="card lift lift-sm h-100" href="javascript:void(0)"><div class="card-body py-5"><h5 class="card-title text-primary text-center mb-2"><img src="../assets/images/mobile-payment.svg" height="50px">&nbsp;&nbsp;&nbsp;Payment History not found !</h5></div></a></div>`;
