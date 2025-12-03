@@ -51,6 +51,12 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+ document.getElementById('moda').addEventListener('click', function () {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+    }
+});
+
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
