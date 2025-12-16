@@ -181,7 +181,8 @@
                                         ক্লাসের রেকর্ডেড ভিডিও দেখে নিতে পারবে। তোমাদের HSC পরীক্ষা এবং Admission টেস্ট
                                         শেষ না হওয়া পর্যন্ত সবগুলো ক্লাস রেকর্ডেড থাকবে 😊</p>
 
-                                    <p>তো আর দেরি না করে English 2nd Paper এর সব টপিকগুলো Basic থেকে Advanced লেভেলে দফারফা করতে যুক্ত হয়ে যেতে পারো আমাদের এই সাইকেলে!!👊</p>
+                                    <p>তো আর দেরি না করে English 2nd Paper এর সব টপিকগুলো Basic থেকে Advanced লেভেলে
+                                        দফারফা করতে যুক্ত হয়ে যেতে পারো আমাদের এই সাইকেলে!!👊</p>
 
                                 </section>
 
@@ -272,6 +273,11 @@
                             <i class="fas fa-comments" style="color:#007bff;"></i>&nbsp; Discussion Group
                         </div>
 
+                        <div class="text-center">
+                        <button id="routine" class="btn btn-outline-primary"><i class="fas fa-file-download"></i>
+                           Course Outline</button>
+                    </div>
+
                     </div>
                     <br>
                     <div id="clprc" class="cove">
@@ -283,7 +289,9 @@
 
                         <div class="justify-content-center">
                             <center>
-                                <p>Use <strong class="copy-coupon" data-coupon="Unlockenglish1">"Unlockenglish1"</strong> Coupon For 250TAKA Discount</p>
+                                <p>Use <strong class="copy-coupon"
+                                        data-coupon="Unlockenglish1">"Unlockenglish1"</strong> Coupon For 250TAKA
+                                    Discount</p>
                             </center>
                             <button id="app" class="btn btn-block btn-outline-secondary">Do you have any
                                 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
@@ -417,7 +425,7 @@
                                 <select id="hscBatch" name="HSC Batch" required class="form-control">
                                     <option value="HSC 27">HSC'27</option>
                                     <option value="HSC 26">HSC'26</option>
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -462,8 +470,8 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-        <script>
-            // coupon copy code
+    <script>
+        // coupon copy code
         document.querySelectorAll('.copy-coupon').forEach(coupon => {
             coupon.addEventListener('click', function () {
                 document.querySelectorAll('.copy-coupon').forEach(c => {
@@ -505,7 +513,12 @@
                 });
             });
         });
-        </script>
+        let routine = document.getElementById("routine");
+
+        routine.addEventListener('click', function () {
+            window.open("https://drive.google.com/file/d/1twik7uo5dxx7HMcudDeEp406-NFe64va/view")
+        })
+    </script>
 </body>
 
 </html>
