@@ -53,11 +53,11 @@ function buildCourseHTML(item, period, index) {
   const placeText = `${item.place}${getOrdinalSuffix(item.place)} place`;
   let trophyHTML = '';
   let topCourseClass = '';
-  let placeClass = 'place-text-no-trophy';
+  let isTopCourse = false;
   
   // Top 3 courses styling
   if (index < 3 && period === 'all') {
-    placeClass = 'place-text';
+    isTopCourse = true;
     if (index === 0) {
       topCourseClass = 'top-course top-course-1';
       trophyHTML = '<span class="trophy-badge trophy-gold">🏆</span>';
@@ -83,7 +83,9 @@ function buildCourseHTML(item, period, index) {
   }
   
   wrapper.insertAdjacentHTML('beforeend', trophyHTML);
-  wrapper.insertAdjacentHTML('beforeend', `<span class="${placeClass}">${placeText}</span>`);
+  if (!isTopCourse) {
+    wrapper.insertAdjacentHTML('beforeend', `<span class="place-text-no-trophy">${placeText}</span>`);
+  }
   
   return wrapper.outerHTML;
 }
