@@ -4,6 +4,6 @@ const productName = "Physics Hunters - ACS Agri Batch 2025-26";
 let productCode = "584";
 let productCode2 = "585";
 let fix = 2000;
-let pls = 1750;
+let pls = 999;
 const Platform = "Online";
 const init = 0;
