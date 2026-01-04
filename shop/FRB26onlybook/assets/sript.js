@@ -306,7 +306,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
                 })
                 document.getElementById('moda').innerHTML = `
-                কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+                  কমপ্যাক্ট সিরিজের বই কিনো <i class="fas fa-arrow-right"></i>
                 `;
             })
             .catch(error => {
