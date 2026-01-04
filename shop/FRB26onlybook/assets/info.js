@@ -1,0 +1,9 @@
+const product = "frb26onlybook";
+const productName = "HSC 26 FRB Compact Series Books";
+let productCode = "590";
+let productCodefrb2 = "564";
+let productCodefrb4 = "566";
+const fix = 6000;
+const pls = 3200;
+const init = 0;
+const Platform = "Physical";
