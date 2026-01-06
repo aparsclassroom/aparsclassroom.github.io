@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Apars Classroom</title>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '430193434618183');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '430193434618183');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <meta name="description"
     content="ASG Shop is a online shop of a popular Online Platform named Apar's Classroom. Currently more than 1 million students of Bangladesh are learning and developing their skills using this online education platform.">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R4CMSFEBN"></script>
@@ -75,7 +77,8 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://i.postimg.cc/BQjt4jwk/1.png">
   <link rel="apple-touch-icon" href="https://i.postimg.cc/BQjt4jwk/1.png">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link href="output.css" rel="stylesheet">
   <link rel="stylesheet" href="/main.css">
   <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
@@ -85,71 +88,86 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
   <script src="/assets/js/stat.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <style>
+    @font-face {
+      font-family: Kalpurush;
+      src: url('/Ambassador/assets/fonts/ASG_Font.TTF');
+    }
+
+    .bangla {
+      font-family: Kalpurush;
+    }
+  </style>
+
 </head>
 
 <body>
   <nav class="bg-white shadow-xl">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-         <a href="/" class="flex items-center">
-              <img src="images/logo.png" class="h-8 mr-3" alt="Apars Classroom Logo" />
-         </a>
-         <div class="flex md:order-2">
-              <a type="button" href="/shop/dashboard/" id="prof"
-                   class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">Dashboard</a>
-              <button data-collapse-toggle="navbar-cta" type="button" id="menu"
-                   class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
-                   aria-controls="navbar-cta" aria-expanded="false">
-                   <span class="sr-only">Open main menu</span>
-                   <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                             stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                   </svg>
-              </button>
-         </div>
-         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-              <ul
-                   class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
-                   <li>
-                        <a href="/shop/"
-                             class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-500 md:p-0"
-                             aria-current="page">ASG Shop</a>
-                   </li>
-                   <li>
-                        <a href="/about-us"
-                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">About Us</a>
-                   </li>
-                   <li>
-                        <a href="/shop/future-tech-entrepreneur/season-1/registration"
-                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0 ">Future Tech
-                             Entrepreneur</a>
-                   </li>
-                   <li>
-                        <a href="/contact"
-                             class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Contact</a>
-                   </li>
-              </ul>
-         </div>
+      <a href="/" class="flex items-center">
+        <img src="images/logo.png" class="h-8 mr-3" alt="Apars Classroom Logo" />
+      </a>
+      <div class="flex md:order-2">
+        <a type="button" href="/shop/dashboard/" id="prof"
+          class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 ">Dashboard</a>
+        <button data-collapse-toggle="navbar-cta" type="button" id="menu"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+          aria-controls="navbar-cta" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+      </div>
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+        <ul
+          class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
+          <li>
+            <a href="/shop/"
+              class="block py-2 pl-3 pr-4 text-white bg-blue-500 rounded md:bg-transparent md:text-blue-500 md:p-0"
+              aria-current="page">ASG Shop</a>
+          </li>
+          <li>
+            <a href="/about-us"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">About
+              Us</a>
+          </li>
+          <li>
+            <a href="/shop/future-tech-entrepreneur/season-1/registration"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0 ">Future
+              Tech
+              Entrepreneur</a>
+          </li>
+          <li>
+            <a href="/contact"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
   <!-- Hero section  -->
   <div class='p-2 md:p-12'>
     <section class='pt-32 md:pt-40 md:pb-20 flex flex-col items-center justify-center'>
       <br>
-      <p class='text-center text-xl md:text-6xl px-4 md:px-28 font-medium leading-loose text-black mb-0 md:mb-8'>দেশের শীর্ষস্থানীয় <span class='text-blue-500'>এড-টেক </span> প্ল্যাটফর্ম </p>
-      <p class='text-center text-black text-xl md:text-6xl px-4 md:px-28 font-medium mb-8 md:mb-16' > এখন <span class='text-blue-500'>অনলাইন</span> এবং <span class='text-blue-500'>অফলাইনে</span>  !</p>
+      <p class='text-center text-xl md:text-6xl px-4 md:px-28 font-medium leading-loose text-black mb-0 md:mb-8 bangla'>দেশের
+        শীর্ষস্থানীয় <span class='text-blue-500'>এড-টেক </span> প্ল্যাটফর্ম </p>
+      <p class='text-center text-black text-xl md:text-6xl px-4 md:px-28 font-medium mb-8 md:mb-16 bangla'> এখন <span
+          class='text-blue-500'>অনলাইন</span> এবং <span class='text-blue-500'>অফলাইনে</span> !</p>
 
-      <p class='text-center text-gray-500 text-xs md:text-lg'>
-     একাডেমিক থেকে শুরু করে এডমিশন পর্যন্ত আমরা আছি তোমার সাথে </p>
-      <p class='text-center text-gray-500 text-xs md:text-lg'> এছাড়াও আমাদের রয়েছে বিভিন্ন স্কিল্ল ডেভেলপমেন্ট কোর্স যা তোমাকে সহায়তা করবে  ক্যারিয়ার গঠনে</p>
+      <p class='text-center text-gray-500 text-xs md:text-lg bangla'>
+        একাডেমিক থেকে শুরু করে এডমিশন পর্যন্ত আমরা আছি তোমার সাথে </p>
+      <p class='text-center text-gray-500 text-xs md:text-lg bangla'> এছাড়াও আমাদের রয়েছে বিভিন্ন স্কিল্ল ডেভেলপমেন্ট কোর্স যা
+        তোমাকে সহায়তা করবে ক্যারিয়ার গঠনে</p>
 
       <br>
       <div class='flex justify-center'>
-        <button class='bg-blue-500 text-white py-2 px-4 rounded-md'>
-          <a href="/shop/"> কোর্স গুলো ঘুরে দেখ  </a>
-          
-          </button>
+        <button class='bg-blue-500 text-white py-2 px-4 rounded-md bangla'>
+          <a href="/shop/"> কোর্স গুলো ঘুরে দেখ </a>
+
+        </button>
       </div>
       <br>
       <br>
@@ -158,325 +176,341 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
 
   <!-- promo section -->
   <div class='px-4 md:px-28 py-12 md:py-24'>
-    <p class="mb-4 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center" >এগিয়ে রাখ নিজেকে</p>
-    <p class="mb-12 text-sm md:text-lg text-gray-500 text-center">
-       দেশ সেরা টিচার প্যানেল নিয়ে আমরা আছি তোমাদের সাথে
-      </p>
+    <p class="mb-4 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center bangla">এগিয়ে রাখ
+      নিজেকে</p>
+    <p class="mb-12 text-sm md:text-lg text-gray-500 text-center bangla">
+      দেশ সেরা টিচার প্যানেল নিয়ে আমরা আছি তোমাদের সাথে
+    </p>
 
-      <div class='grid grid-cols-2 md:grid-cols-5 gap-8'>
-        <div class='col-span-2'>
-             <div
-                  class='rounded-3xl bg-blue-300 p-6' 
-                >
-              <img src="images/icons8-school-80.png"  >
-                  <h3 class='mt-4 text-lg font-semibold'>এইচএসসি লেভেল</h3>
-                  <p class='mt-2 text-sm text-gray-600'> আমাদের রয়েছে ফিজিক্স, কেমিস্ট্রি, ও ম্যাথ এর বিভিন্ন সাইকেল ভিত্তিক কোর্স ও ফাইনাল রিভিশন ব্যাচ, যা তোমার এইচএসসি এর প্রস্তুতি কে দৃঢ় করবে।  </p>
-                </div>
-        </div>
-        <div class='col-span-2 md:col-span-3'>
-              <div
-                    class='rounded-3xl bg-green-300 p-6' 
-                  >
-                     <img src="images/icons8-academic-64.png"
-                  alt="Picture of the author">
-                    <h3 class='mt-4 text-lg font-semibold'>এডমিশন</h3>
-                    <p class='mt-2 text-sm text-gray-600'>আমাদের রয়েছে  ভার্সিটি, ইঞ্জিনিয়ারিং ও মেডিকেল এডমিশন কোর্স যেখানে লাইভ ক্লাস, প্রাকটিস সীট ও ডিসকাশন গ্রুপ এর মাধ্যমে তোমার প্রস্তুতি কে অন্য মাত্রায় নিয়ে যেতে  পারো।  </p>
-                  </div>
-        </div>
-        <div class='col-span-2 md:col-span-3'>
-            <div
-                  class='rounded-3xl p-6 bg-purple-300' 
-                >
-                <img src="images/icons8-books-100.png"  >
-                 
-                  <h3 class='mt-4 text-lg font-semibold'> অফলাইন এক্সাম ব্যাচ</h3>
-                  <p class='mt-2 text-sm text-gray-600'> দেশজুড়ে ১৪ টি ব্রাঞ্চে ভার্সিটি, ইঞ্জিনিয়ারিং, মেডিকেল ও বিভিন্ন ভার্সিটির ভর্তি পরীক্ষার অনুরূপ পরীক্ষা দিয়ে নিজেকে যাচাই করে নাও। </p>
-                </div>
-        </div>
-        <div class="col-span-2">
-        <div
-      class='rounded-2xl p-6 bg-gray-300' 
-    >
-
-    <img src="images/icons8-skill-100.png"  >
-     
-      <h3 class='mt-4 text-lg font-semibold'>স্কিলস</h3>
-      <p class='mt-2 text-sm text-gray-600'> প্রোগ্রামিং এ ইচ্ছুক? আমাদের রয়েছে বুটক্যাম্প এবং কম্পিটিটিভ প্রোগ্রামিং এর কোর্স। </p>
-    </div>
+    <div class='grid grid-cols-2 md:grid-cols-5 gap-8'>
+      <div class='col-span-2'>
+        <div class='rounded-3xl bg-blue-300 p-6'>
+          <img src="images/icons8-school-80.png">
+          <h3 class='mt-4 text-lg font-semibold bangla'>এইচএসসি লেভেল</h3>
+          <p class='mt-2 text-sm text-gray-600 bangla'> আমাদের রয়েছে ফিজিক্স, কেমিস্ট্রি, ও ম্যাথ এর বিভিন্ন সাইকেল ভিত্তিক
+            কোর্স ও ফাইনাল রিভিশন ব্যাচ, যা তোমার এইচএসসি এর প্রস্তুতি কে দৃঢ় করবে। </p>
         </div>
       </div>
+      <div class='col-span-2 md:col-span-3'>
+        <div class='rounded-3xl bg-green-300 p-6'>
+          <img src="images/icons8-academic-64.png" alt="Picture of the author">
+          <h3 class='mt-4 text-lg font-semibold bangla'>এডমিশন</h3>
+          <p class='mt-2 text-sm text-gray-600 bangla'>আমাদের রয়েছে ভার্সিটি, ইঞ্জিনিয়ারিং ও মেডিকেল এডমিশন কোর্স যেখানে লাইভ
+            ক্লাস, প্রাকটিস সীট ও ডিসকাশন গ্রুপ এর মাধ্যমে তোমার প্রস্তুতি কে অন্য মাত্রায় নিয়ে যেতে পারো। </p>
+        </div>
+      </div>
+      <div class='col-span-2 md:col-span-3'>
+        <div class='rounded-3xl p-6 bg-purple-300'>
+          <img src="images/icons8-books-100.png">
+
+          <h3 class='mt-4 text-lg font-semibold bangla'> অফলাইন এক্সাম ব্যাচ</h3>
+          <p class='mt-2 text-sm text-gray-600 bangla'> দেশজুড়ে ১৪ টি ব্রাঞ্চে ভার্সিটি, ইঞ্জিনিয়ারিং, মেডিকেল ও বিভিন্ন
+            ভার্সিটির ভর্তি পরীক্ষার অনুরূপ পরীক্ষা দিয়ে নিজেকে যাচাই করে নাও। </p>
+        </div>
+      </div>
+      <div class="col-span-2">
+        <div class='rounded-2xl p-6 bg-gray-300'>
+
+          <img src="images/icons8-skill-100.png">
+
+          <h3 class='mt-4 text-lg font-semibold bangla'>স্কিলস</h3>
+          <p class='mt-2 text-sm text-gray-600 bangla'> প্রোগ্রামিং এ ইচ্ছুক? আমাদের রয়েছে বুটক্যাম্প এবং কম্পিটিটিভ
+            প্রোগ্রামিং এর কোর্স। </p>
+        </div>
+      </div>
+    </div>
   </div>
 
-    <!-- course section  -->
+  <!-- course section  -->
 
-    <div class='px-4 md:px-12 py-12 md:py-24'>
-      <p class="mb-4 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center" >জনপ্রিয় কোর্স </p>
-      <p class="mb-12 text-sm md:text-lg text-gray-500 text-center">
-         এনরোল কর ঝামেলাবিহীন ভাবে আমাদের সব কোর্স এ
+  <div class='px-4 md:px-12 py-12 md:py-24'>
+    <p class="mb-4 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center bangla">জনপ্রিয়
+      কোর্স </p>
+    <p class="mb-12 text-sm md:text-lg text-gray-500 text-center bangla">
+      এনরোল কর ঝামেলাবিহীন ভাবে আমাদের সব কোর্স এ
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8 px-4 md:px-16 py-8 bg-gray-50">
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
+        <img src="images/Red-Yellow-Modern-Simple-Big-Sale-Promotion-Instagram-Post.png" alt="Achieve Batch"
+          class="rounded-lg w-full h-[180px] object-cover">
+
+        <span class="inline-block mt-3 bg-red-100 text-red-600 text-xs font-semibold px-3 py-1 rounded-full">
+          Offline
+        </span>
+
+        <h2 class="text-lg font-bold mt-4">Achieve Offline Exam batch</h2>
+        <p class="text-gray-600 mt-2 text-sm leading-relaxed bangla">
+          ACS এর এবার এক্সাম ব্যাচ এমনভাবে ডিজাইন করা হয়েছে যেনো একজন স্টুডেন্ট আমাদের সাথে পড়াশোনা করে সেই আলোকে
+          পর্যাপ্ত সংখ্যক প্র‍্যাকটিস করতে পারে, নিজের অবস্থান যাচাই করতে পারে আর বাসায় প্র‍্যাকটিস এর জন্য বই আর বাসায়
+          প্র‍্যাকটিস এক্সাম শীট নিয়ে যেতে পারে।
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-8 px-4 md:px-16 py-8 bg-gray-50">
-  
-          <!-- Card 1 -->
-          <div class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
-            <img src="images/Red-Yellow-Modern-Simple-Big-Sale-Promotion-Instagram-Post.png" alt="Achieve Batch" class="rounded-lg w-full h-[180px] object-cover">
-            
-            <span class="inline-block mt-3 bg-red-100 text-red-600 text-xs font-semibold px-3 py-1 rounded-full">
-              Offline
-            </span>
-        
-            <h2 class="text-lg font-bold mt-4">Achieve Offline Exam batch</h2>
-            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
-              ACS এর এবার এক্সাম ব্যাচ এমনভাবে ডিজাইন করা হয়েছে যেনো একজন স্টুডেন্ট আমাদের সাথে পড়াশোনা করে সেই আলোকে পর্যাপ্ত সংখ্যক প্র‍্যাকটিস করতে পারে, নিজের অবস্থান যাচাই করতে পারে আর বাসায় প্র‍্যাকটিস এর জন্য বই আর বাসায় প্র‍্যাকটিস এক্সাম শীট নিয়ে যেতে পারে।
-            </p>
-        
-            <div class="flex items-center justify-end mt-4">
-             
-              <a href="https://aparsclassroom.com/shop/achieve/HSC_25/" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
-                Join Now
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        
-          <!-- Card 2 -->
-          <div class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
-            <img src="https://i.postimg.cc/BbWRvGQh/ACS-HSC-26-Final-Revision-Batch-all-teacher-1.png" alt="ACS FRB 26" class="rounded-lg w-full h-50 object-cover">
-            
-            <span class="inline-block mt-3 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
-              Online
-            </span>
-        
-            <h2 class="text-lg font-bold mt-4">HSC 2026 Final Revision Batch (Full Siyllabus) - FRB</h2>
-            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
-             এই ব্যাচে আমরা ফিজিক্স, কেমিস্ট্রি, ম্যাথ, বায়োলজি, বাংলা, ইংরেজি এবং আইসিটি প্রতি
-                                    চ্যাপ্টারে ব্যাসিক থেকে শুরু করে CQ~MCQ সহজ সমৃদ্ধ ক্লাস এবং প্র্যাকটিস এর জন্যে <span><a href="https://aparsclassroom.com/shop/FRB26" class="text-blue-500">Read more ...</a></span>
-            </p>
-           
-        
-            <div class="flex items-center justify-end mt-4">
-              <a href="https://aparsclassroom.com/shop/FRB26" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
-                Join Now
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        
-          <!-- Card 3 -->
-          <div class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
-            <img src="https://i.postimg.cc/769jmbcZ/HSC-26.png" alt="HSC 2026" class="rounded-lg w-full h-[180px] object-cover">
-            
-            <span class="inline-block mt-3 bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">
-              Online
-            </span>
-        
-            <h2 class="text-lg font-bold mt-4">HSC 2026 All Academic Cycles</h2>
-            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
-              পদার্থবিজ্ঞান, উচ্চতর গণিত, রসায়ন, জীববিজ্ঞান ও আইসিটি বিষয়গুলোর জন্য পৃথক ব্যাচ রয়েছে। প্রতিটি কোর্সে অধ্যায়ভিত্তিক ক্লাস, ম্যাথ সলভ ও লাইভ ক্লাস অন্তর্ভুক্ত।
-            </p>
-            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
-              বাংলা ও ইংরেজি বিষয়ের জন্য 'অনুশীলন' ও 'English A to Z' কোর্স রয়েছে, যা প্রথম ও দ্বিতীয় পত্র <span><a href="https://aparsclassroom.com/shop/academic/HSC_26/" class="text-blue-500">Read more ...</a></span>
-            </p>
-        
-            <div class="flex items-center justify-end mt-4">
-             
-              <a href="https://aparsclassroom.com/shop/academic/HSC_26/" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
-                Join Now
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+        <div class="flex items-center justify-end mt-4">
+
+          <a href="https://aparsclassroom.com/shop/achieve/HSC_25/"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
+            Join Now
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7" />
+            </svg>
+          </a>
         </div>
-        
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
+        <img src="https://i.postimg.cc/BbWRvGQh/ACS-HSC-26-Final-Revision-Batch-all-teacher-1.png" alt="ACS FRB 26"
+          class="rounded-lg w-full h-50 object-cover">
+
+        <span class="inline-block mt-3 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+          Online
+        </span>
+
+        <h2 class="text-lg font-bold mt-4">HSC 2026 Final Revision Batch (Full Siyllabus) - FRB</h2>
+        <p class="text-gray-600 mt-2 text-sm leading-relaxed bangla">
+          এই ব্যাচে আমরা ফিজিক্স, কেমিস্ট্রি, ম্যাথ, বায়োলজি, বাংলা, ইংরেজি এবং আইসিটি প্রতি
+          চ্যাপ্টারে ব্যাসিক থেকে শুরু করে CQ~MCQ সহজ সমৃদ্ধ ক্লাস এবং প্র্যাকটিস এর জন্যে <span><a
+              href="https://aparsclassroom.com/shop/FRB26" class="text-blue-500">Read more ...</a></span>
+        </p>
+
+
+        <div class="flex items-center justify-end mt-4">
+          <a href="https://aparsclassroom.com/shop/FRB26"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
+            Join Now
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
+        <img src="https://i.postimg.cc/Y2Wqjz0X/p.jpg" alt="HSC 2027"
+          class="rounded-lg w-full h-[180px] object-cover">
+
+        <span class="inline-block mt-3 bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">
+          Online
+        </span>
+
+        <h2 class="text-lg font-bold mt-4">HSC 2027 All Academic Cycles</h2>
+        <p class="text-gray-600 mt-2 text-sm leading-relaxed bangla">
+          পদার্থবিজ্ঞান, উচ্চতর গণিত, রসায়ন, জীববিজ্ঞান ও আইসিটি বিষয়গুলোর জন্য পৃথক ব্যাচ রয়েছে। প্রতিটি কোর্সে
+          অধ্যায়ভিত্তিক ক্লাস, ম্যাথ সলভ ও লাইভ ক্লাস অন্তর্ভুক্ত।
+        </p>
+        <p class="text-gray-600 mt-2 text-sm leading-relaxed bangla">
+          বাংলা ও ইংরেজি বিষয়ের জন্য 'অনুশীলন' ও 'English A to Z' কোর্স রয়েছে, যা প্রথম ও দ্বিতীয় পত্র <span><a
+              href="https://aparsclassroom.com/shop/academic/HSC_27/" class="text-blue-500">Read more ...</a></span>
+        </p>
+
+        <div class="flex items-center justify-end mt-4">
+
+          <a href="https://aparsclassroom.com/shop/academic/HSC_27/"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
+            Join Now
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7" />
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- testimonial -->
-    <div class="container my-4 md:my-24 relative flex flex-col justify-between h-full w-full px-10 mx-auto xl:px-0 mt-12">
-      <h2 class="mb-1 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center">
-        কেন আমরাই সেরা? 
-      </h2>
-      <p class="mb-12 text-sm md:text-lg text-gray-500 text-center">
-        দেখে নাও সারা দেশের স্টুডেন্টরা কেন আমাদেরই বেছে নেয়
-      </p>
-      <div class="w-full">
-        <div class="flex flex-col w-full mb-10 sm:flex-row">
-          <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
-            <div class="relative h-full ml-0 mr-0 sm:mr-10">
-              <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg"></span>
-              <div class="relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg">
-                <div class="flex items-center -mt-1">
-                  <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
-                     Academic to Admission
-                  </h3>
-                </div>
-                <p class="mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase">
-                  ------------
-                </p>
-                <p class="mb-2 text-gray-600">
-                  Apars Classroom (ASG Shop) boasts a diverse library of
-                  courses catering to students across various academic and
-                  professional domains. From essential subjects like
-                  mathematics, science, and English to advanced skills like
-                  competitive programming, the platform
-                  ensures there’s something for everyone.
-                </p>
+  </div>
+
+  <!-- testimonial -->
+  <div class="container my-4 md:my-24 relative flex flex-col justify-between h-full w-full px-10 mx-auto xl:px-0 mt-12">
+    <h2 class="mb-1 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center bangla">
+      কেন আমরাই সেরা?
+    </h2>
+    <p class="mb-12 text-sm md:text-lg text-gray-500 text-center bangla">
+      দেখে নাও সারা দেশের স্টুডেন্টরা কেন আমাদেরই বেছে নেয়
+    </p>
+    <div class="w-full">
+      <div class="flex flex-col w-full mb-10 sm:flex-row">
+        <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+          <div class="relative h-full ml-0 mr-0 sm:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg">
+              <div class="flex items-center -mt-1">
+                <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
+                  Academic to Admission
+                </h3>
               </div>
-            </div>
-          </div>
-          <div class="w-full sm:w-1/2">
-            <div class="relative h-full ml-0 md:mr-10">
-              <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-purple-500 rounded-lg"></span>
-              <div class="relative h-full p-5 bg-white border-2 border-purple-500 rounded-lg">
-                <div class="flex items-center -mt-1">
-                  <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
-                    Innovative Features for Better Engagement
-                  </h3>
-                </div>
-                <p class="mt-3 mb-1 text-xs font-medium text-purple-500 uppercase">
-                  ------------
-                </p>
-                <p class="mb-2 text-gray-600">
-                  The platform offers an array of interactive features,
-                  including quiz and model tests, live classes, practice sheet and revision
-                  recommendations. These features make learning enjoyable and
-                  personalized, fostering better engagement and results.
-                </p>
-              </div>
+              <p class="mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase">
+                ------------
+              </p>
+              <p class="mb-2 text-gray-600">
+                Apars Classroom (ASG Shop) boasts a diverse library of
+                courses catering to students across various academic and
+                professional domains. From essential subjects like
+                mathematics, science, and English to advanced skills like
+                competitive programming, the platform
+                ensures there’s something for everyone.
+              </p>
             </div>
           </div>
         </div>
-        <div class="flex flex-col w-full mb-5 sm:flex-row">
-          <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
-            <div class="relative h-full ml-0 mr-0 sm:mr-10">
-              <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-400 rounded-lg"></span>
-              <div class="relative h-full p-5 bg-white border-2 border-blue-400 rounded-lg">
-                <div class="flex items-center -mt-1">
-                  <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
-                    Flexible Learning Options
-                  </h3>
-                </div>
-                <p class="mt-3 mb-1 text-xs font-medium text-blue-400 uppercase">
-                  ------------
-                </p>
-                <p class="mb-2 text-gray-600">
-                  Understanding the varied needs of students, Apars Classroom
-                  provides both live interactive classes and recorded
-                  classes. This flexibility allows students to learn at their
-                  own pace, ensuring no one is left behind.
-                </p>
+        <div class="w-full sm:w-1/2">
+          <div class="relative h-full ml-0 md:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-purple-500 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-purple-500 rounded-lg">
+              <div class="flex items-center -mt-1">
+                <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
+                  Innovative Features for Better Engagement
+                </h3>
               </div>
+              <p class="mt-3 mb-1 text-xs font-medium text-purple-500 uppercase">
+                ------------
+              </p>
+              <p class="mb-2 text-gray-600">
+                The platform offers an array of interactive features,
+                including quiz and model tests, live classes, practice sheet and revision
+                recommendations. These features make learning enjoyable and
+                personalized, fostering better engagement and results.
+              </p>
             </div>
           </div>
-          <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
-            <div class="relative h-full ml-0 mr-0 sm:mr-10">
-              <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-yellow-400 rounded-lg"></span>
-              <div class="relative h-full p-5 bg-white border-2 border-yellow-400 rounded-lg">
-                <div class="flex items-center -mt-1">
-                  <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
-                    Affordable and Accessible Education
-                  </h3>
-                </div>
-                <p class="mt-3 mb-1 text-xs font-medium text-yellow-400 uppercase">
-                  ------------
-                </p>
-                <p class="mb-2 text-gray-600">
-                  Apars Classroom is committed to making high-quality
-                  education accessible to all. With competitive pricing,
-                  discount opportunities for previous students, and a user-friendly interface,
-                  the platform ensures learning is within reach for students
-                  from all backgrounds.
-                </p>
+        </div>
+      </div>
+      <div class="flex flex-col w-full mb-5 sm:flex-row">
+        <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+          <div class="relative h-full ml-0 mr-0 sm:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-400 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-blue-400 rounded-lg">
+              <div class="flex items-center -mt-1">
+                <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
+                  Flexible Learning Options
+                </h3>
               </div>
+              <p class="mt-3 mb-1 text-xs font-medium text-blue-400 uppercase">
+                ------------
+              </p>
+              <p class="mb-2 text-gray-600">
+                Understanding the varied needs of students, Apars Classroom
+                provides both live interactive classes and recorded
+                classes. This flexibility allows students to learn at their
+                own pace, ensuring no one is left behind.
+              </p>
             </div>
           </div>
-          <div class="w-full sm:w-1/2">
-            <div class="relative h-full ml-0 md:mr-10">
-              <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
-              <div class="relative h-full p-5 bg-white border-2 border-green-500 rounded-lg">
-                <div class="flex items-center -mt-1">
-                  <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
-                    Exam Preparation and Skill Development
-                  </h3>
-                </div>
-                <p class="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
-                  ------------
-                </p>
-                <p class="mb-2 text-gray-600">
-                  The platform is a trusted partner for students preparing for
-                  board exams and admission. Alongside, hands-on skill development courses empower
-                  students with practical knowledge in fields like Japanese language course, Biology drawing course, ICT, competitive programming and web development.
-                </p>
+        </div>
+        <div class="w-full mb-10 sm:mb-0 sm:w-1/2">
+          <div class="relative h-full ml-0 mr-0 sm:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-yellow-400 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-yellow-400 rounded-lg">
+              <div class="flex items-center -mt-1">
+                <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
+                  Affordable and Accessible Education
+                </h3>
               </div>
+              <p class="mt-3 mb-1 text-xs font-medium text-yellow-400 uppercase">
+                ------------
+              </p>
+              <p class="mb-2 text-gray-600">
+                Apars Classroom is committed to making high-quality
+                education accessible to all. With competitive pricing,
+                discount opportunities for previous students, and a user-friendly interface,
+                the platform ensures learning is within reach for students
+                from all backgrounds.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full sm:w-1/2">
+          <div class="relative h-full ml-0 md:mr-10">
+            <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-green-500 rounded-lg"></span>
+            <div class="relative h-full p-5 bg-white border-2 border-green-500 rounded-lg">
+              <div class="flex items-center -mt-1">
+                <h3 class="my-2 ml-3 text-lg font-bold text-gray-800">
+                  Exam Preparation and Skill Development
+                </h3>
+              </div>
+              <p class="mt-3 mb-1 text-xs font-medium text-green-500 uppercase">
+                ------------
+              </p>
+              <p class="mb-2 text-gray-600">
+                The platform is a trusted partner for students preparing for
+                board exams and admission. Alongside, hands-on skill development courses empower
+                students with practical knowledge in fields like Japanese language course, Biology drawing course, ICT,
+                competitive programming and web development.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  
-    <!-- footer  -->
-    <footer class="mt-12 md:mt-28  ">
-      <div class=" mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between">
-          <div class="mb-6 md:mb-0">
-            <a href="/">
-              <img src="https://i.postimg.cc/1gVhT9Mr/logo.png" class="h-8 mr-3" alt="apars classroom Logo" />
-            </a>
+
+  <!-- footer  -->
+  <footer class="mt-12 md:mt-28  ">
+    <div class=" mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+      <div class="md:flex md:justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="/">
+            <img src="https://i.postimg.cc/1gVhT9Mr/logo.png" class="h-8 mr-3" alt="apars classroom Logo" />
+          </a>
+          <br>
+          <div class="self-center">
+            <address class="">
+              Flat- B1,
+              House- 364,
+              Road 5,
+              Avenue 4,
+              Mirpur DOHS, Dhaka-1216
+            </address>
             <br>
-            <div class="self-center">
-              <address class="">
-                Flat- B1,
-                House- 364,
-                Road 5,
-                Avenue 4,
-                Mirpur DOHS, Dhaka-1216
-              </address>
-              <br>
-              <p class="font-medium" id="tradeLicense">Trade License Number : TRAD/DNCC/120031/2022</p>
-              <a href="tel:09677005588" class="text-blue-600 visited:text-purple-600">09677005588</a> <br>
-              <a href="mailto:support@aparsclassroom.com"
-                class="text-blue-600 visited:text-purple-600" id="supMail">support@aparsclassroom.com</a>
-            </div>
-  
+            <p class="font-medium" id="tradeLicense">Trade License Number : TRAD/DNCC/120031/2022</p>
+            <a href="tel:09677005588" class="text-blue-600 visited:text-purple-600">09677005588</a> <br>
+            <a href="mailto:support@aparsclassroom.com" class="text-blue-600 visited:text-purple-600"
+              id="supMail">support@aparsclassroom.com</a>
           </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-              <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Find us at
-              </h2>
-              <ul class="text-gray-500 font-medium">
-                <li><a href="https://www.facebook.com/aparsclassroom/" target="_blank">Facebook Page</a>
-                </li>
-                <li><a href="https://www.facebook.com/groups/aparsclassroom/" target="_blank">Facebook
-                    Group</a></li>
-                <li><a href="https://www.instagram.com/apars_classroom/" target="_blank">Instagram Account</a>
-                </li>
-                <li><a href="https://youtube.com/aparsclassroom">Youtube Channel</a></li>
-              </ul>
-            </div>
-            <div>
-              <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">About</h2>
-              <ul class="text-gray-500 font-medium">
-                <li><a class="text-muted" href="/about-us">About Us</a></li>
-                <li><a class="text-muted" href="https://maps.app.goo.gl/QxrQaeCLqKixtTG9A" target="_blank">Location</a></li>
-                <li><a class="text-muted" href="/privacy">Privacy</a></li>
-                <li><a class="text-muted" href="/terms">Terms</a></li>
-                <li><a class="text-muted" href="/return-and-refund-policy">Return and Refund
-                    Policy</a></li>
-                <li><a class="text-muted" href="/contact">Contact Us</a></li>
-              </ul>
-            </div>
+
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Find us at
+            </h2>
+            <ul class="text-gray-500 font-medium">
+              <li><a href="https://www.facebook.com/aparsclassroom/" target="_blank">Facebook Page</a>
+              </li>
+              <li><a href="https://www.facebook.com/groups/aparsclassroom/" target="_blank">Facebook
+                  Group</a></li>
+              <li><a href="https://www.instagram.com/apars_classroom/" target="_blank">Instagram Account</a>
+              </li>
+              <li><a href="https://youtube.com/aparsclassroom">Youtube Channel</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">About</h2>
+            <ul class="text-gray-500 font-medium">
+              <li><a class="text-muted" href="/about-us">About Us</a></li>
+              <li><a class="text-muted" href="https://maps.app.goo.gl/QxrQaeCLqKixtTG9A" target="_blank">Location</a>
+              </li>
+              <li><a class="text-muted" href="/privacy">Privacy</a></li>
+              <li><a class="text-muted" href="/terms">Terms</a></li>
+              <li><a class="text-muted" href="/return-and-refund-policy">Return and Refund
+                  Policy</a></li>
+              <li><a class="text-muted" href="/contact">Contact Us</a></li>
+            </ul>
           </div>
         </div>
       </div>
-    </footer>  
-    <div class="powr-hit-counter" id="aa1df614_1638119146"></div>
-    <script src="https://www.powr.io/powr.js?platform=jquery"></script>
+    </div>
+  </footer>
+  <div class="powr-hit-counter" id="aa1df614_1638119146"></div>
+  <script src="https://www.powr.io/powr.js?platform=jquery"></script>
   </footer>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
