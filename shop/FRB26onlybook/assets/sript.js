@@ -68,7 +68,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         fetch(`https://${shopName2}/v3/purchase/multiple`, eligibilityOptions)
             .then(response => response.json())
             .then(eligibilityResult => {
-                // If user hasn't purchased either 563 or 565, they're not eligible
+                //If user hasn't purchased either 563 or 565, they're not eligible
                 if (eligibilityResult.status !== 200) {
                     swal({
                         title: "Not Eligible",
@@ -356,7 +356,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    const isShipping = document.getElementById('addBooks').checked;
+    const isShipping = true;
     fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
         .then((res) => {
             return res.json();
