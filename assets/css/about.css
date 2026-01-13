@@ -6,7 +6,6 @@
 
 .mcontainer {
     position: relative;
-    margin-top: 50px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -16,7 +15,7 @@
 
  ::selection {
     color: #fff;
-    background: rgb(28, 50, 39);
+    background: rgba(90, 143, 234);
 }
 
 .wrapper {
@@ -70,7 +69,7 @@
     width: 150px;
     padding: 5px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(71, 115, 90), rgb(28, 50, 39));
+    background: radial-gradient(circle, rgb(47, 119, 182), rgba(90, 143, 234));
 }
 
 .wrapper .back-face .info {
@@ -94,14 +93,44 @@
     text-align: center;
     margin: 0 5px;
     line-height: 38px;
+}
+    /* 
     border: 2px solid transparent;
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(71, 115, 90), rgb(28, 50, 39));
+    background: radial-gradient(circle, rgb(71, 114, 201), rgb(44, 83, 197));
     transition: all 0.5s ease;
 }
 
 .back-face ul a:hover {
-    color: rgb(71, 115, 90);
-    border-color: rgb(28, 50, 39);
+    color: rgb(5, 110, 190);
+    border-color: rgb(52, 95, 181);
     background: radial-gradient(circle, transparent, transparent);
+} */
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.facebook { background-color: #1877F2; }
+.email    { background-color: #15d257; }
+.linkedin { background-color: #0A66C2; }
+.youtube  { background-color: #FF0000; }
+
+.subttl {
+    padding-left: 10px;
+    padding-right: 10px;
 }
