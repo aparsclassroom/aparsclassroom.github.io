@@ -885,8 +885,8 @@
 
         function ValidateSize(file) {
             var FileSize = file.files[0].size / 1024 / 1024;
-            if (FileSize > 2) {
-                alert('This Image size exceeds 2 MB\nPlease Select a smaller Image 😶');
+            if (FileSize > 10) {
+                alert('This Image size exceeds 10 MB\nPlease Select a smaller Image 😶');
                 $(file).val('');
                 return;
             }
