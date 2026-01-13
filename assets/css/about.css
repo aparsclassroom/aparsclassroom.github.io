@@ -129,6 +129,11 @@
 .email    { background-color: #15d257; }
 .linkedin { background-color: #0A66C2; }
 .youtube  { background-color: #FF0000; }
+.github  { background-color: #333; }
+.spotify  { background-color: #1DB954; }
+.instagram { background-color: #E1306C; }
+.line    { background-color: #00C300; }
+.discord { background-color: #5865F2; }
 
 .subttl {
     padding-left: 10px;
