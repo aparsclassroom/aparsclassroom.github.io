@@ -31,7 +31,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    padding: 5px;
+    padding: 20px;
     background: #fff;
     border-radius: 15px;
     transform: translateY(0deg);
@@ -58,6 +58,8 @@
     justify-content: space-evenly;
     flex-direction: column;
     transform: rotateY(180deg);
+    background: linear-gradient(to bottom, #e5e7eb 0%, #e5e7eb 30%, white 30%);
+    border-radius: 15px;
 }
 
 .wrapper:hover>.back-face {
@@ -67,9 +69,12 @@
 .wrapper .back-face img {
     height: 150px;
     width: 150px;
-    padding: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(47, 119, 182), rgba(90, 143, 234));
+    background-color: #fff;
+    border: 5px solid rgba(40, 120, 212, 0.5);
+    /* background: radial-gradient(circle, rgb(47, 119, 182), rgba(90, 143, 234)); */
+    object-fit: contain;  /* Shows full image without cropping */
 }
 
 .wrapper .back-face .info {
