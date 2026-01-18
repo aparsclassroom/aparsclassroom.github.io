@@ -1,0 +1,14 @@
+const product = "Engineering26";
+const product2 = "Engineering26wbooks";
+const productName = "ACS Engineering Private Batch 2026 (Full Syllabus)";
+const productName2 = "ACS Engineering Private Batch 2026 (Full Syllabus) with Books";
+const productCode = "591";
+const productCode3 = "592";
+const init = 0;
+let productCode2 = "596";
+let productCode4 = "597";
+const fix = 10000;
+const pls = 6000;
+const pls2 = 8250;
+const Platform = "Online";
+const Platform2 = "Physical";
