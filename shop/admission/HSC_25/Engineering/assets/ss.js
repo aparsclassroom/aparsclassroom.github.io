@@ -40,11 +40,11 @@ var player;
      event.target.playVideo();
  }
 
- document.getElementById('moda').addEventListener('click', function () {
-    if (player && typeof player.pauseVideo === 'function') {
-        player.pauseVideo();
-    }
-});
+//  document.getElementById('moda').addEventListener('click', function () {
+//     if (player && typeof player.pauseVideo === 'function') {
+//         player.pauseVideo();
+//     }
+// });
 
 fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`)
     .then((res) => {

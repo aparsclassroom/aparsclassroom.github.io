@@ -597,5 +597,25 @@
         window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQnaffd9zwFXbRudGHx2y7hawBbLltwuLuDN8iRTuzRmw4dWO-Uk9ehJa3lAcEaFR3dX7yAisGm5rL4/pubhtml")
     })
 </script>
+<script>
+    window.addEventListener('load', function() {
+        swal({
+            title: "Go to latest engineering admission course",
+            content: {
+                element: "img",
+                attributes: {
+                    src: "https://i.postimg.cc/BvwX6QJ1/ACS-Engineering-Batch-2026-V4-(1)-(1).jpg",
+                    style: "width: 100%; border-radius: 8px;"
+                }
+            },
+            button: {
+                text: "Proceed",
+                closeModal: true,
+            }
+        }).then(function() {
+            window.location.href = "../../HSC_26/Engineering/";
+        });
+    });
+</script>
 
 </html>
