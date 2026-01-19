@@ -66,23 +66,23 @@ if (urlProductCode === productCode) {
     shippingInputs.forEach(input => input.setAttribute('required', ''));
 } else {
     // Default state when no promo or unrecognized promo (books checked)
-    productcode = productCode2;
-    document.getElementById('addBooks').checked = true;
-    document.getElementById('shippingFields').style.display = 'block';
-    document.getElementById('sprice').innerText = pls2;
-    document.getElementById('price').value = pls2;
-    document.getElementById('nop').innerText = pls2 + "৳";
-    document.getElementById('prevP').innerText = fix2
+    productcode = productCode;
+    document.getElementById('addBooks').checked = false;
+    document.getElementById('shippingFields').style.display = 'none';
+    document.getElementById('sprice').innerText = pls;
+    document.getElementById('price').value = pls;
+    document.getElementById('nop').innerText = pls + "৳";
+    document.getElementById('prevP').innerText = fix;
     
     // Add required attributes to shipping fields
-    const shippingInputs = [
-        document.getElementById('ship_name'),
-        document.getElementById('ship_phone'),
-        document.getElementById('ship_add1'),
-        document.getElementById('ship_city'),
-        document.getElementById('ship_upzilla'),
-    ];
-    shippingInputs.forEach(input => input.setAttribute('required', ''));
+    // const shippingInputs = [
+    //     document.getElementById('ship_name'),
+    //     document.getElementById('ship_phone'),
+    //     document.getElementById('ship_add1'),
+    //     document.getElementById('ship_city'),
+    //     document.getElementById('ship_upzilla'),
+    // ];
+    // shippingInputs.forEach(input => input.setAttribute('required', ''));
 }
 
 document.getElementById('email').addEventListener("input", function (event) {
@@ -103,7 +103,7 @@ document.getElementById('email').addEventListener("input", function (event) {
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
-document.getElementById('prevP').innerText = fix2;
+document.getElementById('prevP').innerText = fix;
 
 const quotes = [
     "A reader lives a thousand lives before he dies.",
