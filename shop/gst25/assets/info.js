@@ -1,0 +1,13 @@
+const product = "gst25";
+const product2 = "gst25wbooks";
+const productName = "ACS Compact GST 2025";
+const productName2 = "ACS Compact GST 2025";
+let productCode = "599";
+let productCode2 = "600";
+const fix = 2000;
+const fix2 = 3500;
+const pls = 1000;
+const pls2 = 2500;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
