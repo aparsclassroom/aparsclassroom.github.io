@@ -149,12 +149,12 @@ document.getElementById('addBooks').addEventListener('change', function () {
         Swal.fire({
             title: 'Are you sure?',
             html: `
-                <div style="margin-top: 10px;">
+                <div>
                     <p>আমাদের কম্প্যাক্ট সিরিজের বইগুলো Engineering ব্যাচের লেকচার কন্টেন্ট এর পরিপূরক</p>
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
-            imageUrl: 'https://i.postimg.cc/7Z55hH1P/Screenshot-2026-01-17-at-10-47-06-PM.png',
+            imageUrl: 'https://i.postimg.cc/x1RJVb0j/engbk26.jpg',
             showCancelButton: true,
             confirmButtonText: 'না আমি বই নিতে চাইনা',
             cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
