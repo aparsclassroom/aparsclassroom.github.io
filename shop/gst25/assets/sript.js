@@ -32,8 +32,8 @@ if (urlProductCode === productCode) {
     document.getElementById('prevP').innerText = fix;
     document.getElementById('nop').innerText = pls + "৳";
 
-   document.getElementById('addbooksdiv').style.display = 'none'; // Hide the books checkbox
-    
+    document.getElementById('addbooksdiv').style.display = 'none'; // Hide the books checkbox
+
     // Remove required attributes from shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -53,8 +53,8 @@ if (urlProductCode === productCode) {
     document.getElementById('prevP').innerText = fix2;
     document.getElementById('nop').innerText = pls2 + "৳";
 
-     document.getElementById('addbooksdiv').style.display = 'none';
-    
+    document.getElementById('addbooksdiv').style.display = 'none';
+
     // Add required attributes to shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -73,7 +73,7 @@ if (urlProductCode === productCode) {
     document.getElementById('price').value = pls;
     document.getElementById('nop').innerText = pls + "৳";
     document.getElementById('prevP').innerText = fix;
-    
+
     // Add required attributes to shipping fields
     // const shippingInputs = [
     //     document.getElementById('ship_name'),
@@ -87,19 +87,19 @@ if (urlProductCode === productCode) {
 
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
@@ -186,7 +186,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
     }
 });
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -194,8 +194,10 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('uid').value = e.uid;
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
+
+        const varsityproducts = [productCode, productCode2, "555", "556", "557", "558", "420", "525", "530", "540", "547", "535", "545"];
+
         var raw = JSON.stringify({
-            "products": [productCode, productCode2, "555", "556", "557", "558", "420", "525", "530", "540", "547", "535", "545"],
             'uid': e.uid
         });
 
@@ -206,182 +208,39 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/v3/purchase/multiple`, requestOptions)
-            .then(response => {
-                return response.json()
-            })
+        fetch(`https://shop.aparsclassroom.com/logs`, requestOptions)
+            .then(response => response.json())
             .then(result => {
-                if (result.status === 200) {
-                    swal({
-                        title: "Already Enrolled !",
-                        icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        location.replace(result.invoices[0].invoice);
-                    })
-                } else {
-                    const form = document.forms['purchase']
-                    form.addEventListener('submit', em => {
-                        em.preventDefault();
-                        var mail = document.getElementById('email').value.toLowerCase().trim();
-                        document.getElementById('buy').innerText = "Please wait...."
-                        document.getElementById("buy").disabled = true;
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        const isShipping = document.getElementById('addBooks').checked;
-                        var rawData = {
-                            "productName": isShipping ? product2 : product,
-                            "Platform": isShipping ? Platform2 : Platform,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "cus_email": mail,
-                            "Institution": document.getElementById('college').value.trim(),
-                            "HSC": document.getElementById('hscBatch').value.trim(),
-                            "cus_phone": document.getElementById('phone').value.trim(),
-                            "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid,
-                            "affiliate": getCookie("affiliate"),
-                            "utm_id": getCookie("utm_id"),
-                            "utm_source": getCookie("utm_source"),
-                            "utm_medium": getCookie("utm_medium"),
-                            "utm_campaign": getCookie("utm_campaign"),
-                            "utm_term": getCookie("utm_term"),
-                            "utm_content": getCookie("utm_content"),
-                            "lead": getCookie("lead"),
-                            "Referrer": getCookie("Referrer"),
-                            "Ip": getCookie("ip"),
-                            "Referrer": getCookie("Platform")
-                        };
+                // check if student bought any of the varsity products
+                if (result.status === 200 && result.info && result.info.length > 0) {
+                    const validPurchase = result.info.find(item => {
+                        const isValidStatus = item.status === "VALID" || item.status === "VALIDATED";
+                        const hasMatchingProduct = item.Product &&
+                            varsityproducts.includes(item.Product.productId);
+                        return isValidStatus && hasMatchingProduct;
+                    });
 
-                        if (isShipping) {
-                            rawData.ship_name = document.getElementById('ship_name').value.trim();
-                            rawData.ship_phone = document.getElementById('ship_phone').value.trim();
-                            rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
-
-                            rawData.ship_city = document.getElementById('ship_city').value;
-                            rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
-                            rawData.ship_method = 'Courier'
-                        }
-                        var raw = JSON.stringify(rawData);
-
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
-
-                        fetch(`https://${shopName2}/${productcode}/init`, requestOptions)
-                            .then(response => {
-                                return response.text()
-                            })
-                            .then(result => {
-                                if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
-                                    document.getElementById('doc').innerHTML = result
-                                } else {
-                                    swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
-                                }
-                            })
-                            .catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                    button: "Ok"
-                                }).then(() => {
-                                    location.href = "/shop"
-                                })
-                            });
-                    })
-                }
-            }).catch(() => {
-                const mfs = document.forms['purchase']
-                mfs.addEventListener('submit', em => {
-                    em.preventDefault();
-                    var mail = document.getElementById('email').value.toLowerCase().trim();
-                    document.getElementById('buy').innerText = "Please wait...."
-                    document.getElementById("buy").disabled = true;
-                    var myHeaders = new Headers();
-                    myHeaders.append("Content-Type", "application/json");
-                    const isShipping = document.getElementById('addBooks').checked;
-                    var rawData = {
-                        "productName": isShipping ? product2 : product,
-                        "Platform": isShipping ? Platform2 : Platform,
-                        "cus_name": document.getElementById('name').value.trim(),
-                        "cus_email": mail,
-                        "Institution": document.getElementById('college').value.trim(),
-                        "HSC": document.getElementById('hscBatch').value.trim(),
-                        "cus_phone": document.getElementById('phone').value.trim(),
-                        "Cupon": document.getElementById('disC').value.trim(),
-                        'uid': e.uid,
-                        "affiliate": getCookie("affiliate"),
-                        "utm_id": getCookie("utm_id"),
-                        "utm_source": getCookie("utm_source"),
-                        "utm_medium": getCookie("utm_medium"),
-                        "utm_campaign": getCookie("utm_campaign"),
-                        "utm_term": getCookie("utm_term"),
-                        "utm_content": getCookie("utm_content"),
-                        "lead": getCookie("lead"),
-                        "Referrer": getCookie("Referrer"),
-                        "Ip": getCookie("ip"),
-                        "Referrer": getCookie("Platform")
-                    };
-
-                     if (isShipping) {
-                        rawData.ship_name = document.getElementById('ship_name').value.trim();
-                        rawData.ship_phone = document.getElementById('ship_phone').value.trim();
-                        rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
-
-                        rawData.ship_city = document.getElementById('ship_city').value;
-                        rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
-                        rawData.ship_method = 'Courier'
-                    }
-                    var raw = JSON.stringify(rawData);
-
-                    var requestOptions = {
-                        method: 'POST',
-                        headers: myHeaders,
-                        body: raw,
-                        redirect: 'follow'
-                    };
-
-                    fetch(`https://${shopName2}/${productcode}/init`, requestOptions)
-                        .then(response => {
-                            return response.text()
-                        })
-                        .then(result => {
-                            if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
-                                document.getElementById('doc').innerHTML = result
-                            } else {
-                                swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
-                            }
-                        })
-                        .catch(() => {
-                            swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                    if (validPurchase) {
+                        swal({
+                            title: "Already Enrolled !",
+                            icon: "success",
+                            button: "View Informations"
+                        }).then(() => {
+                            location.replace(validPurchase.value_a);
                         });
-                })
-
+                        return;
+                    }
+                }
+                
+                // No valid purchase found OR empty info array - setup form
+                setupPurchaseForm(e);
             })
+            .catch(() => {
+                // API error - still allow purchase
+                setupPurchaseForm(e);
+            });
+
+        // Setup user info fields (this runs immediately, doesn't wait for API)
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
@@ -392,7 +251,6 @@ firebase.auth().onAuthStateChanged(function(e) {
         }
         if (namex != null) {
             document.getElementById('name').value = namex;
-            // document.getElementById('name').setAttribute("readonly", true);
         }
         if (mail != null) {
             document.getElementById('email').value = mail
@@ -412,20 +270,106 @@ firebase.auth().onAuthStateChanged(function(e) {
                 console.error(error);
             });
         document.getElementById("app").addEventListener('click', () => {
-            document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
-        })
+            document.getElementById("app").style.display = "none";
+            document.getElementById("cup").style.display = "block";
+        });
         document.getElementById('moda').innerHTML = `
-        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
         `;
     } else {
-        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
-            document.getElementById('moda').addEventListener('click', () => {
-                sessionStorage.setItem(product + '_potential', 'true');
-                location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
-            })
-        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
+        document.getElementById("app").style.display = "none";
+        document.getElementById("cup").style.display = "none";
+        document.getElementById('moda').addEventListener('click', () => {
+            sessionStorage.setItem(product + '_potential', 'true');
+            location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href);
+        });
+        document.getElementById("app").addEventListener("click", e => {
+            e.preventDefault();
+            document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href);
+        });
     }
-})
+});
+
+// Separate function to setup purchase form
+function setupPurchaseForm(e) {
+    const form = document.forms['purchase'];
+    form.addEventListener('submit', em => {
+        em.preventDefault();
+        var mail = document.getElementById('email').value.toLowerCase().trim();
+        document.getElementById('buy').innerText = "Please wait....";
+        document.getElementById("buy").disabled = true;
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        const isShipping = document.getElementById('addBooks').checked;
+        
+        var rawData = {
+            "productName": isShipping ? product2 : product,
+            "Platform": isShipping ? Platform2 : Platform,
+            "cus_name": document.getElementById('name').value.trim(),
+            "cus_email": mail,
+            "Institution": document.getElementById('college').value.trim(),
+            "HSC": document.getElementById('hscBatch').value.trim(),
+            "cus_phone": document.getElementById('phone').value.trim(),
+            "Cupon": document.getElementById('disC').value.trim(),
+            'uid': e.uid,
+            "affiliate": getCookie("affiliate"),
+            "utm_id": getCookie("utm_id"),
+            "utm_source": getCookie("utm_source"),
+            "utm_medium": getCookie("utm_medium"),
+            "utm_campaign": getCookie("utm_campaign"),
+            "utm_term": getCookie("utm_term"),
+            "utm_content": getCookie("utm_content"),
+            "lead": getCookie("lead"),
+            "Referrer": getCookie("Referrer"),
+            "Ip": getCookie("ip"),
+        };
+
+        if (isShipping) {
+            rawData.ship_name = document.getElementById('ship_name').value.trim();
+            rawData.ship_phone = document.getElementById('ship_phone').value.trim();
+            rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
+            rawData.ship_city = document.getElementById('ship_city').value;
+            rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
+            rawData.ship_method = 'Courier';
+        }
+        
+        var raw = JSON.stringify(rawData);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(`https://${shopName2}/${productcode}/init`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                if (result != '{"status":404,"message":"Product Error"}' && result.status != 420) {
+                    document.getElementById('doc').innerHTML = result;
+                } else {
+                    swal({
+                        title: "Error",
+                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                        text: "Please visit after 10 pm tonight",
+                        button: "Ok"
+                    }).then(() => {
+                        location.href = "/shop";
+                    });
+                }
+            })
+            .catch(() => {
+                swal({
+                    title: "Error",
+                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                    text: "Please visit after 10 pm tonight",
+                    button: "Ok"
+                }).then(() => {
+                    location.href = "/shop";
+                });
+            });
+    });
+}
 var cupon, cpn = document.getElementById("cpnCheck");
 
 function func() {
@@ -452,7 +396,7 @@ cpn.addEventListener('click', (e) => {
     cupV.disabled = true;
     cpn.disabled = true;
     const isShipping = document.getElementById('addBooks').checked;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productcode)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productcode)
         .then((res) => {
             return res.json();
         })
@@ -475,7 +419,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
