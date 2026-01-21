@@ -58,9 +58,9 @@ if (screen.width <= 600) {
 //     .catch((err) => {
 //         console.log(err)
 //     })
-    document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; Live Classes`;
-    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; Problem Solving Classes`;
-    document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp; Online Exams `;
-    document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp; Guideline Session `;
-    document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
-    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Discussion Group`;
+    document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; 30 Live Classes`;
+    document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; Lecture sheets`;
+ //   document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp; Online Exams `;
+ //   document.getElementById('con5').innerHTML = `<i class="fas fa-calendar-check"></i>&nbsp; Guideline Session `;
+    // document.getElementById('con7').innerHTML = `<i class="fas fa-tablet-alt"></i>&nbsp; Dedicated Web App`;
+    document.getElementById('con9').innerHTML = `<i class="fab fa-facebook-square"></i></i>&nbsp; Dedicated Facebook Group`;
