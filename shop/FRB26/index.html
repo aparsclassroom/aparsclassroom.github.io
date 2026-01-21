@@ -15,8 +15,8 @@
 
     <!-- Site Meta -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script type="text/javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () {
                 (c[a].q = c[a].q || []).push(arguments)
@@ -27,7 +27,22 @@
             y = l.getElementsByTagName(r)[0];
             y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "8jcf2l88zu");
+    </script> -->
+    <script>
+        window.addEventListener('load', function () {
+            (function (c, l, a, r, i, t, y) {
+                c[a] = c[a] || function () {
+                    (c[a].q = c[a].q || []).push(arguments)
+                };
+                t = l.createElement(r);
+                t.async = true;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "8jcf2l88zu");
+        });
     </script>
+
 
 
     <!-- loader -->
@@ -35,6 +50,7 @@
 
     <!-- Site Title -->
     <title>HSC 26 Final Revision Batch (Full Syllabus) - FRB | ASG Shop</title>
+    <link rel="canonical" href="https://aparsclassroom.com/shop/FRB26/">
     <meta name="description"
         content="HSC 26 Final Revision Batch Full Syllabus FRB এ আমরা অনলাইনে একাডেমিক ও এডমিশনের সবচেয়ে জনপ্রিয় ও অভিজ্ঞ শিক্ষক মন্ডলীকে নিয়ে একটা কম্প্যাক্ট একাডেমিক কোর্স সাজাই।">
     <!-- Facebook Metas -->
@@ -140,6 +156,20 @@
     <script src="./assets/js/ss.js" defer></script>
     <!-- Custom Scripts -->
     <script src="./assets/sript.js" defer></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "HSC 26 Final Revision Batch (Full Syllabus)",
+  "description": "ACS final revision Full Syllebus course for HSC 2026 students by Apar’s Classroom.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Apar’s Classroom",
+    "url": "https://aparsclassroom.com/shop/"
+  }
+}
+</script>
+
 </head>
 
 <body>
@@ -404,7 +434,9 @@
                         <div class="embed-responsive-item">
                             <div id="thumb">
                                 <img src="https://i.postimg.cc/BbWRvGQh/ACS-HSC-26-Final-Revision-Batch-all-teacher-1.png"
-                                    id="thumImg" class="image-loaded">
+                                    id="thumImg"
+                                    alt="HSC 26 Final Revision Batch Full Syllabus Teachers Apar’s Classroom"
+                                    class="image-loaded">
                                 <!-- <script
                                         src="/assets/js/lottie-player.js"></script>
                                     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_aolblx3z.json"
@@ -445,12 +477,13 @@
                         <div class="tag noWrap"><i class="fas fa-check-circle"></i>&nbsp; World Class Exam System
                         </div>
                         <div class="text-center">
-                            <button id="routine" class="btn btn-outline-primary mb-2"><i class="fas fa-file-download"></i>
+                            <button id="routine" class="btn btn-outline-primary mb-2"><i
+                                    class="fas fa-file-download"></i>
                                 কম্প্যাক্ট সিরিজ বইয়ের ডেমো দেখো</button>
                         </div>
                         <div class="text-center">
                             <button id="routine2" class="btn btn-outline-info"><i class="fas fa-file-download"></i>
-                               Download Class Routine</button>
+                                Download Class Routine</button>
                         </div>
                     </div>
                     <br>
@@ -714,7 +747,7 @@
         })
 
         let routine2 = document.getElementById("routine2");
-        
+
         routine2.addEventListener('click', function () {
             window.open("https://docs.google.com/spreadsheets/d/1KjSvWi3UmyFR5pdIMmSj9wIqpTJ9lwbRgvHfW2P5_Iw/edit?usp=sharing")
         })
