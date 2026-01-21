@@ -16,7 +16,7 @@ document.getElementById('email').addEventListener("input", function (event) {
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}`;
 document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls + "৳";
+document.getElementById('nop').innerText = pls;
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
@@ -194,7 +194,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
 
             })
-        document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+        //document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
@@ -223,16 +223,16 @@ firebase.auth().onAuthStateChanged(function(e) {
             .catch((error) => {
                 console.error(error);
             });
-        document.getElementById("app").addEventListener('click', () => {
-            document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
-        })
+        // document.getElementById("app").addEventListener('click', () => {
+        //     document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
+        // })
     } else {
-        document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
-            document.getElementById('moda').addEventListener('click', () => {
-                sessionStorage.setItem(product + '_potential', 'true');
-                location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
-            })
-        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
+        // document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
+        //     document.getElementById('moda').addEventListener('click', () => {
+        //         sessionStorage.setItem(product + '_potential', 'true');
+        //         location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
+        //     })
+        // document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href) });
     }
 })
 var cupon, cpn = document.getElementById("cpnCheck");
@@ -243,78 +243,78 @@ function func() {
 }
 
 function notdis() {
-    if (document.getElementById('cupon').value != "") {
-        document.getElementById("cpnCheck").disabled = false;
-    } else {
-        document.getElementById("cpnCheck").disabled = true;
-    }
+    // if (document.getElementById('cupon').value != "") {
+    //     document.getElementById("cpnCheck").disabled = false;
+    // } else {
+    //     document.getElementById("cpnCheck").disabled = true;
+    // }
 }
 notdis()
 var disOFF = 0;
 
-function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
-cpn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const cupV = document.getElementById('cupon');
-    const cpnCode = cupV.value;
-    cpn.innerText = "Checking..";
-    cupV.disabled = true;
-    cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
-        .then((res) => {
-            return res.json();
-        })
-        .then((loadedData) => {
-            if (loadedData.status === "success") {
-                var nes = pls - loadedData.Off;
-                disOFF = loadedData.Off;
-                document.getElementById('price').value = nes;
-                document.getElementById('sprice').innerText = nes;
-                cpn.style.cursor = "not-allowed";
-                cupV.value = loadedData.Cupon;
-                document.getElementById('disC').value = loadedData.Cupon;
-                cupV.disabled = true;
-                cpn.innerText = "Applied ✔"
-                document.getElementById('coupnbosh').style.display = "none";
-                cpn.disabled = true;
-                var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
-                document.getElementById('how').style.display = "block";
-                document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-                document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
-                return;
-            } else {
-                cpn.innerText = "Apply";
-                cupV.disabled = false;
-                cpn.disabled = false;
-                document.getElementById('cupon').value = "";
-                swal({
-                    title: "Code not valid",
-                    icon: "error",
-                    button: "Ok"
-                }).then(() => {
-                    return notdis()
-                })
-            }
-        }).catch(() => {
-            document.getElementById('cupon').value = "";
-            swal({
-                title: "Cupon can't be Empty 😶",
-                icon: "error",
-                button: "Ok"
-            }).then(() => {
-                return notdis()
-            })
-        })
-})
-if (queryPromo != null) {
-    document.getElementById('cupon').value = getCookie("promo");
-    notdis()
-document.getElementById("app").style.display = "none"; 
-    cpn.click();
-} else {
+// function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
+// cpn.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     const cupV = document.getElementById('cupon');
+//     const cpnCode = cupV.value;
+//     cpn.innerText = "Checking..";
+//     cupV.disabled = true;
+//     cpn.disabled = true;
+//     fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
+//         .then((res) => {
+//             return res.json();
+//         })
+//         .then((loadedData) => {
+//             if (loadedData.status === "success") {
+//                 var nes = pls - loadedData.Off;
+//                 disOFF = loadedData.Off;
+//                 document.getElementById('price').value = nes;
+//                 document.getElementById('sprice').innerText = nes;
+//                 cpn.style.cursor = "not-allowed";
+//                 cupV.value = loadedData.Cupon;
+//                 document.getElementById('disC').value = loadedData.Cupon;
+//                 cupV.disabled = true;
+//                 cpn.innerText = "Applied ✔"
+//                 document.getElementById('coupnbosh').style.display = "none";
+//                 cpn.disabled = true;
+//                 var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
+//                 document.getElementById('how').style.display = "block";
+//                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
+//                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
+// document.getElementById("cup").style.display = "block"; 
+//                 return;
+//             } else {
+//                 cpn.innerText = "Apply";
+//                 cupV.disabled = false;
+//                 cpn.disabled = false;
+//                 document.getElementById('cupon').value = "";
+//                 swal({
+//                     title: "Code not valid",
+//                     icon: "error",
+//                     button: "Ok"
+//                 }).then(() => {
+//                     return notdis()
+//                 })
+//             }
+//         }).catch(() => {
+//             document.getElementById('cupon').value = "";
+//             swal({
+//                 title: "Cupon can't be Empty 😶",
+//                 icon: "error",
+//                 button: "Ok"
+//             }).then(() => {
+//                 return notdis()
+//             })
+//         })
+// })
+// if (queryPromo != null) {
+//     document.getElementById('cupon').value = getCookie("promo");
+//     notdis()
+// document.getElementById("app").style.display = "none"; 
+//     cpn.click();
+// } else {
 
-    document.getElementById("cup").style.display = "none"; 
-    delete_cookie("promo");
-    notdis()
-}
+//     document.getElementById("cup").style.display = "none"; 
+//     delete_cookie("promo");
+//     notdis()
+// }

@@ -1,8 +1,8 @@
 const product = "chem27aloron";
 const productName = "ACS HSC 27 Chemistry 1st Paper Comeback Course";
 const productCode = "598";
-const fix = 1500;
-const pls = 1000;
+const fix = 750;
+const pls = "FREE";
 const init = 0;
 const Platform = "Online";
 const Cycle = 'Cycle-6';
@@ -34,30 +34,30 @@ if (screen.width <= 600) {
 //     });
 // }
 
-function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
-    event.target.playVideo();
-}
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+// function onPlayerReady(event) {
+//     document.getElementById('thumb').style.display = "none";
+//     event.target.setVolume(100);
+//     event.target.playVideo();
+// }
+// fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
+//     .then((res) => {
+//         return res.json()
+//     })
+//     .then((data) => {
+//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+//         if (document.getElementById('enrolled')) {
+//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+//             if (!countUp.error) {
+//                 countUp.start();
+//             } else {
+//                 console.error(countUp.error);
+//             }
+//         }
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
     document.getElementById('con1').innerHTML = `<i class="fab fa-youtube"></i>&nbsp; Live Classes`;
     document.getElementById('con3').innerHTML = `<i class="fas fa-clinic-medical"></i>&nbsp; Problem Solving Classes`;
     document.getElementById('con4').innerHTML = `<i class="fas fa-question-circle"></i>&nbsp; Online Exams `;
