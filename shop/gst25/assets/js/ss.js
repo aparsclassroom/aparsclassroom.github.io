@@ -44,26 +44,26 @@ function onPlayerReady(event) {
 }
 
 //const thumbImage = "https://quickchart.io/watermark?mainImageUrl=https%3A%2F%2Fi.postimg.cc%2FhvwSF8BP%2Fwithout-pic-01.jpg&markRatio=.9&position=bottom&markImageUrl=https%3A%2F%2Fchart.googleapis.com%2Fchart%3Fchst%3Dd_text_outline%26chld%3DFFFFFF%7C70%7Ch%7C000000%7Cb%7CEnrolled%3A%20";
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
-fetch(`https://${shopName2}/enrollment/combined?productCodes=599,600`, requestOptions)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+// var requestOptions = {
+//     method: 'GET',
+//     redirect: 'follow'
+// };
+// fetch(`https://${shopName2}/enrollment/combined?productCodes=599,600`, requestOptions)
+//     .then((res) => {
+//         return res.json()
+//     })
+//     .then((data) => {
+//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+//         if (document.getElementById('enrolled')) {
+//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+//             if (!countUp.error) {
+//                 countUp.start();
+//             } else {
+//                 console.error(countUp.error);
+//             }
+//         }
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
