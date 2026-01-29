@@ -246,6 +246,37 @@
       </div>
     </section>
 
+    <section class="pb-16 pt-8 sm:pt-12">
+      <div class="text-center">
+        <h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl bangla">২০২৫-২০২৬ সেশনে ঢাবি 'ক' চান্সপ্রাপ্ত</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600 bangla">
+          চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন! তোমাদের সাফল্যের পেছনে আমাদের শুভকামনা এবং সমর্থন সবসময় থাকবে।
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 sm:p-6">
+          <!-- Track -->
+          <div class="overflow-hidden">
+            <div id="sliderTrackdu" class="flex transition-transform duration-700 ease-out will-change-transform"
+              style="transform: translateX(0px)">
+              <!-- Slides injected by JS -->
+            </div>
+          </div>
+
+          <!-- Optional tiny indicators -->
+          <div class="mt-5 flex justify-center gap-2" id="sliderDots2" aria-label="Slider indicators"></div>
+        </div>
+
+        <!-- <div class="mt-8 flex justify-center">
+          <a href="#"
+            class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-medium text-slate-900 hover:bg-slate-50">
+            View More Impacts <span class="ml-2">→</span>
+          </a>
+        </div> -->
+      </div>
+    </section>
+
     <!-- SECTION 2: detail stories -->
     <!-- <section class="py-10 sm:py-14">
       <div class="text-center">
@@ -479,7 +510,8 @@
 
           </div>
         </div>
-        <div class="mt-10 w-full flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          class="mt-10 w-full flex flex-col gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p class="text-xs text-slate-500">© 2026 Apars Classroom. All rights reserved.</p>
         </div>
       </div>
@@ -488,162 +520,185 @@
   </div>
 
   <script>
-    // ---- Simple auto-slider (10 placeholders) ----
+    // ---- Slider Data ----
     const slides = [
       {
-        title: `Impact Placeholder 1`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 1st Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/0j5Rq77z/buet1.jpg"
       },
       {
-        title: `Impact Placeholder 2`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 2nd Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/qqBVd22z/buet2.jpg"
       },
       {
-        title: `Impact Placeholder 3`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 3rd Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/0j5Rq77J/buet3.jpg"
       },
       {
-        title: `Impact Placeholder 4`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 5th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/sxfdR55Q/buet5.jpg"
       },
       {
-        title: `Impact Placeholder 5`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 6th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/mkZfG77M/buet6.jpg"
       },
       {
-        title: `Impact Placeholder 6`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 8th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/FzF5Q000/buet8.jpg"
       },
       {
-        title: `Impact Placeholder 7`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 9th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/6q6JNCCf/buet9.jpg"
       },
       {
-        title: `Impact Placeholder 8`,
-        desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
+        title: `BUET 10th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/sxfdR55w/buet10.jpg"
       },
-      // {
-      //   title: `Impact Placeholder 9`,
-      //   desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
-      //   image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=60"
-      // },
-      // {
-      //   title: `Impact Placeholder 10`,
-      //   desc: "Short description about how donations create measurable outcomes through programs, services, and community support.",
-      //   image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=60"
-      // }
     ];
 
-    const track = document.getElementById("sliderTrack");
-    const dotsWrap = document.getElementById("sliderDots");
+    const slides2 = [
+      {
+        title: `DU 1st Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/14x0L1gC/du1.jpg"
+      },
+      {
+        title: `DU 3rd Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/fk476Q38/du3.jpg"
+      },
+      {
+        title: `DU 4th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/vDR7pw1P/du4.jpg"
+      },
+      
+      {
+        title: `DU 5th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/PNGbBnLV/du5.jpg"
+      },
+      {
+        title: `DU 7th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/jCV6GYW1/du7.jpg"
+      },
+      {
+        title: `DU 9th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/z3mw9YLs/du9.jpg"
+      },
+      {
+        title: `DU 10th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/9z3PvH4v/du10.jpg"
+      },
+      {
+        title: `DU 20th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/PNGbBnpn/du20.jpg"
+      },
+      {
+        title: `DU 24th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/Rqr1jx69/du24.jpg"
+      },
+    ];
 
-    function visibleCount() {
-      // Tailwind md breakpoint ~= 768px
-      return window.matchMedia("(min-width: 768px)").matches ? 3 : 1;
-    }
+    // ---- Slider Function ----
+    function createSlider(trackId, dotsId, slidesData) {
+      const track = document.getElementById(trackId);
+      const dotsWrap = document.getElementById(dotsId);
 
-    function buildSlides() {
-      track.innerHTML = "";
-      dotsWrap.innerHTML = "";
+      let page = 0;
+      let timer = null;
 
-      const vc = visibleCount();
+      function visibleCount() {
+        return window.matchMedia("(min-width: 768px)").matches ? 3 : 1;
+      }
 
-      slides.forEach((s, idx) => {
-        const slide = document.createElement("div");
-        slide.className = "shrink-0 px-2";
-        slide.style.width = `${100 / vc}%`;
+      function buildSlides() {
+        track.innerHTML = "";
+        dotsWrap.innerHTML = "";
+        const vc = visibleCount();
 
-        slide.innerHTML = `
+        slidesData.forEach((s) => {
+          const slide = document.createElement("div");
+          slide.className = "shrink-0 px-2";
+          slide.style.width = `${100 / vc}%`;
+
+          slide.innerHTML = `
             <article class="h-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div class=" w-full overflow-hidden bg-slate-100 flex items-center justify-center">
-              <img src="${s.image}" alt="${s.title}" class="h-full w-full object-contain"/>
-            </div>
-
-              
+              <div class="w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+                <img src="${s.image}" alt="${s.title}" class="h-full w-full object-contain"/>
+              </div>
             </article>
           `;
-        track.appendChild(slide);
+          track.appendChild(slide);
+        });
 
-        // <div class="p-4">
-        //   <h3 class="text-sm font-bold">${s.title}</h3>
-        //   <p class="mt-2 text-xs leading-5 text-slate-600">${s.desc}</p>
-        // </div>
-
-        // dots (one per slide "page")
-        // pages = ceil(slides / vc)
-      });
-
-      const pages = Math.ceil(slides.length / vc);
-      for (let p = 0; p < pages; p++) {
-        const d = document.createElement("button");
-        d.type = "button";
-        d.className =
-          "h-2 w-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50";
-        d.setAttribute("aria-label", `Go to slide ${p + 1}`);
-        d.addEventListener("click", () => goToPage(p, true));
-        dotsWrap.appendChild(d);
+        const pages = Math.ceil(slidesData.length / vc);
+        for (let p = 0; p < pages; p++) {
+          const d = document.createElement("button");
+          d.type = "button";
+          d.className = "h-2 w-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50";
+          d.setAttribute("aria-label", `Go to slide ${p + 1}`);
+          d.addEventListener("click", () => goToPage(p, true));
+          dotsWrap.appendChild(d);
+        }
       }
-    }
 
-    let page = 0;
-    let timer = null;
+      function updateDots() {
+        const dots = [...dotsWrap.children];
+        dots.forEach((d, i) => {
+          if (i === page) d.className = "h-2 w-2 rounded-full bg-slate-900";
+          else d.className = "h-2 w-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50";
+        });
+      }
 
-    function updateDots() {
-      const dots = [...dotsWrap.children];
-      dots.forEach((d, i) => {
-        if (i === page) d.className = "h-2 w-2 rounded-full bg-slate-900";
-        else
-          d.className =
-            "h-2 w-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50";
+      function goToPage(p, userInitiated = false) {
+        const vc = visibleCount();
+        const pages = Math.ceil(slidesData.length / vc);
+        page = (p + pages) % pages;
+        track.style.transform = `translateX(-${page * 100}%)`;
+        updateDots();
+        if (userInitiated) restart();
+      }
+
+      function next() {
+        goToPage(page + 1);
+      }
+
+      function restart() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(next, 3000);
+      }
+
+      buildSlides();
+      goToPage(0);
+      restart();
+
+      window.addEventListener("resize", () => {
+        setTimeout(() => {
+          const current = page;
+          buildSlides();
+          goToPage(Math.min(current, Math.ceil(slidesData.length / visibleCount()) - 1));
+          restart();
+        }, 150);
       });
     }
 
-    function goToPage(p, userInitiated = false) {
-      const vc = visibleCount();
-      const pages = Math.ceil(slides.length / vc);
-
-      page = (p + pages) % pages;
-
-      // Translate by page * 100%
-      track.style.transform = `translateX(-${page * 100}%)`;
-      updateDots();
-
-      if (userInitiated) restart();
-    }
-
-    function next() {
-      goToPage(page + 1);
-    }
-
-    function restart() {
-      if (timer) clearInterval(timer);
-      timer = setInterval(next, 3000);
-    }
-
-    // Build + start
-    buildSlides();
-    goToPage(0);
-    restart();
-
-    // Rebuild on resize (keeps it responsive)
-    let resizeT;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeT);
-      resizeT = setTimeout(() => {
-        const current = page;
-        buildSlides();
-        goToPage(Math.min(current, Math.ceil(slides.length / visibleCount()) - 1));
-        restart();
-      }, 150);
-    });
+    // Initialize sliders
+    createSlider("sliderTrack", "sliderDots", slides);
+    createSlider("sliderTrackdu", "sliderDots2", slides2);
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
