@@ -86,32 +86,10 @@
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="/assets/css/about.css">
+  <link rel="stylesheet" href="./style.css">
 
   <style>
-    @font-face {
-      font-family: Kalpurush;
-      src: url('/Ambassador/assets/fonts/ASG_Font.TTF');
-    }
-
-    .bangla {
-      font-family: Kalpurush;
-    }
-
-    nav:has(#navbar-cta:not(.hidden)) {
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-      }
-    }
+   
   </style>
 
   <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
@@ -213,6 +191,97 @@
                 class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 bangla">
                 GST কোর্স দেখুন
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEST RESULTS SECTION -->
+    <section class="py-10 sm:py-16 relative overflow-hidden">
+      <!-- Animated Background -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+          <div class="shape shape-4"></div>
+          <div class="shape shape-5"></div>
+          <div class="shape shape-6"></div>
+          <div class="shape shape-7"></div>
+          <div class="shape shape-8"></div>
+        </div>
+      </div>
+
+      <div class="relative z-10">
+        <div class="text-center mb-6">
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 bangla mb-2">শিক্ষার্থীদের সেরা ফলাফল</h2>
+          <p class="text-slate-600 bangla">তোমাদের হার্ডওয়ার্ক, ডেডিকেশন এবং একাগ্রতার ফলেই এই সাফল্য অর্জিত হয়েছে। বুয়েট, ঢাবি, রুয়েট, চুয়েট, কুয়েট এবং বুটেক্স - টপ পজিশন গুলো তোমাদের দখলে!</p>
+        </div>
+
+        <!-- Images Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <!-- Card 1 -->
+          <div class="result-card group my-0 lg:my-8">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 aspect-[3/4] shadow-lg hover:shadow-xl transition-all duration-300">
+              <img src="https://i.postimg.cc/qMPD3c6D/buettop3.jpg" alt="BUET 1st Place"
+                class="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p class="text-white font-semibold text-sm bangla">বুয়েট টপ ৩ </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="result-card group my-0 lg:my-8">
+            <div
+              class="relative overflow-hidden rounded-2xl  bg-gradient-to-br from-purple-50 to-purple-100 aspect-[3/4] shadow-lg hover:shadow-xl transition-all duration-300">
+              <img src="https://i.postimg.cc/pXwcFQ56/ruet1.jpg" alt="রুয়েট ১ম"
+                class="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p class="text-white font-semibold text-sm bangla">রুয়েট ১ম স্থান</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="result-card group my-0 lg:my-8">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-green-100 aspect-[3/4] shadow-lg hover:shadow-xl transition-all duration-300">
+              <img src="https://i.postimg.cc/m2vpH31j/cuet1.jpg" alt="CUET 1st Place"
+                class="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p class="text-white font-semibold text-sm bangla">চুয়েট ১ম স্থান</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="result-card group my-0 lg:my-8">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100 aspect-[3/4] shadow-lg hover:shadow-xl transition-all duration-300">
+              <img src="https://i.postimg.cc/14x0L1gC/du1.jpg" alt="ঢাবি ১ম স্থান"
+                class="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              </div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p class="text-white font-semibold text-sm bangla">ঢাবি ১ম স্থান</p>
+              </div>
             </div>
           </div>
         </div>
@@ -567,6 +636,11 @@
         desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/sxfdR55w/buet10.jpg"
       },
+      {
+        title: `BUET 11th Place`,
+        desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে বুয়েটে চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
+        image: "https://i.postimg.cc/xCF8x1Kz/buet11_(1).jpg"
+      },
     ];
 
     const slides2 = [
@@ -585,7 +659,7 @@
         desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে ঢাবি চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",
         image: "https://i.postimg.cc/vDR7pw1P/du4.jpg"
       },
-      
+
       {
         title: `DU 5th Place`,
         desc: "আলহামদুলিল্লাহ! ২০২৫-২০২৬ সেশনে ঢাবি চান্সপ্রাপ্ত সব্বাইকে অনেক অনেক অভিনন্দন।",

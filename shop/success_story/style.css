@@ -1,0 +1,149 @@
+ @font-face {
+   font-family: Kalpurush;
+   src: url('/Ambassador/assets/fonts/ASG_Font.TTF');
+ }
+
+ .bangla {
+   font-family: Kalpurush;
+ }
+
+ nav:has(#navbar-cta:not(.hidden)) {
+   background: transparent !important;
+   box-shadow: none !important;
+ }
+
+ @media (max-width: 768px) {
+   nav {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 50;
+   }
+ }
+
+ .floating-shapes {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+ }
+
+ .shape {
+   position: absolute;
+   opacity: 0.1;
+   animation: float 25s infinite ease-in-out;
+ }
+
+ .shape-1 {
+   width: 60px;
+   height: 60px;
+   background: linear-gradient(135deg, #3b82f6, #60a5fa);
+   border-radius: 50%;
+   top: 10%;
+   left: 5%;
+   animation-delay: 0s;
+ }
+
+ .shape-2 {
+   width: 45px;
+   height: 45px;
+   background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+   border-radius: 30%;
+   top: 25%;
+   right: 8%;
+   animation-delay: 3s;
+ }
+
+ .shape-3 {
+   width: 70px;
+   height: 70px;
+   background: linear-gradient(135deg, #ec4899, #f472b6);
+   border-radius: 40%;
+   bottom: 25%;
+   left: 12%;
+   animation-delay: 6s;
+ }
+
+ .shape-4 {
+   width: 50px;
+   height: 50px;
+   background: linear-gradient(135deg, #10b981, #34d399);
+   border-radius: 50%;
+   top: 55%;
+   right: 15%;
+   animation-delay: 9s;
+ }
+
+ .shape-5 {
+   width: 55px;
+   height: 55px;
+   background: linear-gradient(135deg, #f59e0b, #fbbf24);
+   border-radius: 35%;
+   top: 35%;
+   left: 45%;
+   animation-delay: 2s;
+ }
+
+ .shape-6 {
+   width: 40px;
+   height: 40px;
+   background: linear-gradient(135deg, #6366f1, #818cf8);
+   border-radius: 50%;
+   bottom: 35%;
+   right: 7%;
+   animation-delay: 5s;
+ }
+
+ .shape-7 {
+   width: 52px;
+   height: 52px;
+   background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+   border-radius: 45%;
+   top: 75%;
+   left: 28%;
+   animation-delay: 8s;
+ }
+
+ .shape-8 {
+   width: 48px;
+   height: 48px;
+   background: linear-gradient(135deg, #ef4444, #f87171);
+   border-radius: 50%;
+   bottom: 15%;
+   right: 38%;
+   animation-delay: 11s;
+ }
+
+ @keyframes float {
+
+   0%,
+   100% {
+     transform: translate(0, 0) scale(1);
+     opacity: 0.1;
+   }
+
+   25% {
+     transform: translate(20px, -20px) scale(1.1);
+     opacity: 0.15;
+   }
+
+   50% {
+     transform: translate(-15px, 25px) scale(0.9);
+     opacity: 0.08;
+   }
+
+   75% {
+     transform: translate(25px, 15px) scale(1.05);
+     opacity: 0.12;
+   }
+ }
+
+ /* Result card styling */
+ .result-card {
+   transition: transform 0.3s ease;
+ }
+
+ .result-card:hover {
+   transform: translateY(-4px);
+ }
