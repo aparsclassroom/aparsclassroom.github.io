@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         closeOnClickOutside: true,
                         closeOnEsc: true
                     }).then(() => {
-                        location.href = "/shop/FRB26";
+                        location.href = "/shop/achieve/HSC_26/FRB/MT/";
                     });
                     return;
                 }
