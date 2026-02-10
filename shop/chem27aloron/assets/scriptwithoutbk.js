@@ -1,18 +1,31 @@
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
+
+// Normalize phone number to +88XXXXXXXXXXX format
+function normalizePhone(phone) {
+    phone = phone.replace(/[\s-]/g, '');
+    if (/^01[13-9]\d{8}$/.test(phone)) {
+        return '+88' + phone;
+    }
+    if (/^8801[13-9]\d{8}$/.test(phone)) {
+        return '+' + phone;
+    }
+    // already in correct format
+    return phone;
+}
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}`;
 document.getElementById('prevP').innerText = fix;
@@ -20,7 +33,7 @@ document.getElementById('nop').innerText = pls;
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -69,7 +82,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "cus_email": mail,
                             "Institution": document.getElementById('college').value.trim(),
                             "HSC": document.getElementById('hscBatch').value.trim(),
-                            "cus_phone": document.getElementById('phone').value.trim(),
+                            "cus_phone": normalizePhone(document.getElementById('phone').value.trim()),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
                             'Cycle': Cycle,
@@ -102,13 +115,13 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     document.getElementById('doc').innerHTML = result
                                 } else {
                                     swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                        title: "Error",
+                                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                        text: "Please visit after 10 pm tonight",
+                                        button: "Ok"
+                                    }).then(() => {
+                                        location.href = "/shop"
+                                    })
                                 }
                             })
                             .catch(() => {
@@ -139,7 +152,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "cus_email": mail,
                         "Institution": document.getElementById('college').value.trim(),
                         "HSC": document.getElementById('hscBatch').value.trim(),
-                        "cus_phone": document.getElementById('phone').value.trim(),
+                        "cus_phone": normalizePhone(document.getElementById('phone').value.trim()),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
                         'Cycle': Cycle,
@@ -172,20 +185,20 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 document.getElementById('doc').innerHTML = result
                             } else {
                                 swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    title: "Error",
+                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                    button: "Ok"
+                                }).then(() => {
+                                    location.href = "/shop"
+                                })
                             }
                         })
                         .catch(() => {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
                                 location.href = "/shop"
