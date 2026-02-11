@@ -92,12 +92,12 @@ Promise.all([
     .catch(err => {
         console.log("Enrollment fetch error:", err);
     });
-document.getElementById('con1').innerHTML = `<i class="fab fa-youtube" style="color:#FF0000;"></i>&nbsp; Live Classes`;
-document.getElementById('con2').innerHTML = `<i class="fas fa-book" style="color:#6f42c1;"></i>&nbsp; Archive Classes`;
-document.getElementById('con3').innerHTML = `<i class="fas fa-clipboard-check" style="color:#20c997;"></i>&nbsp; Weekly Exam`;
-document.getElementById('con4').innerHTML = `<i class="fas fa-pen-alt" style="color:#fd7e14;"></i>&nbsp; Chapter Ending Mega Exam`;
-document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt" style="color:#007bff;"></i>&nbsp; Dedicated Webapp`;
-document.getElementById('con6').innerHTML = `<i class="fas fa-file-alt" style="color:#28a745;"></i>&nbsp; Practice Sheet`;
-document.getElementById('con7').innerHTML = `<i class="fab fa-facebook" style="color:#3b5998;"></i>&nbsp; Facebook Group`;
-document.getElementById('con8').innerHTML = `<i class="fas fa-comments" style="color:#17a2b8;"></i>&nbsp; Discussion Group`;
+// document.getElementById('con1').innerHTML = `<i class="fab fa-youtube" style="color:#FF0000;"></i>&nbsp; Live Classes`;
+// document.getElementById('con2').innerHTML = `<i class="fas fa-book" style="color:#6f42c1;"></i>&nbsp; Archive Classes`;
+// document.getElementById('con3').innerHTML = `<i class="fas fa-clipboard-check" style="color:#20c997;"></i>&nbsp; Weekly Exam`;
+// document.getElementById('con4').innerHTML = `<i class="fas fa-pen-alt" style="color:#fd7e14;"></i>&nbsp; Chapter Ending Mega Exam`;
+// document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt" style="color:#007bff;"></i>&nbsp; Dedicated Webapp`;
+// document.getElementById('con6').innerHTML = `<i class="fas fa-file-alt" style="color:#28a745;"></i>&nbsp; Practice Sheet`;
+// document.getElementById('con7').innerHTML = `<i class="fab fa-facebook" style="color:#3b5998;"></i>&nbsp; Facebook Group`;
+// document.getElementById('con8').innerHTML = `<i class="fas fa-comments" style="color:#17a2b8;"></i>&nbsp; Discussion Group`;
 

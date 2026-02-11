@@ -395,7 +395,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                 })
 
             })
-        document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+        document.getElementById('moda')?.setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
