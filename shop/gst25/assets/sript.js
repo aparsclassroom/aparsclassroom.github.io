@@ -17,6 +17,19 @@ function getProductCodeFromURL() {
     return null;
 }
 
+// Normalize phone number to +88XXXXXXXXXXX format
+function normalizePhone(phone) {
+    phone = phone.replace(/[\s-]/g, '');
+    if (/^01[13-9]\d{8}$/.test(phone)) {
+        return '+88' + phone;
+    }
+    if (/^8801[13-9]\d{8}$/.test(phone)) {
+        return '+' + phone;
+    }
+    // already in correct format
+    return phone;
+}
+
 // Get product code from URL and set initial state
 const urlProductCode = getProductCodeFromURL();
 let productcode;
@@ -309,7 +322,7 @@ function setupPurchaseForm(e) {
             "cus_email": mail,
             "Institution": document.getElementById('college').value.trim(),
             "HSC": document.getElementById('hscBatch').value.trim(),
-            "cus_phone": document.getElementById('phone').value.trim(),
+            "cus_phone": normalizePhone(document.getElementById('phone').value.trim()),
             "Cupon": document.getElementById('disC').value.trim(),
             'uid': e.uid,
             "affiliate": getCookie("affiliate"),
@@ -326,7 +339,7 @@ function setupPurchaseForm(e) {
 
         if (isShipping) {
             rawData.ship_name = document.getElementById('ship_name').value.trim();
-            rawData.ship_phone = document.getElementById('ship_phone').value.trim();
+            rawData.ship_phone = normalizePhone(document.getElementById('ship_phone').value.trim());
             rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
             rawData.ship_city = document.getElementById('ship_city').value;
             rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
