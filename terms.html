@@ -10,7 +10,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -60,11 +60,12 @@
             font-family: 'Kalpurursh';
             src: url('/Ambassador/assets/fonts/kalpurush.ttf');
         }
+
         .text-bangla {
             font-family: 'Kalpurursh';
         }
     </style>
-    <link rel="shortcut icon" href="HSC-Full-Course/assets/images/Logo-with-Name.png">
+    <link rel="shortcut icon" href="assets/Logo.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -87,9 +88,41 @@
 
         gtag('config', 'G-7R4CMSFEBN');
     </script>
+    <style>
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #141313 !important;
+        }
+
+        /* Desktop pill navbar */
+        @media (min-width: 992px) {
+            .navbar {
+                border-radius: 999px;
+            }
+
+            .navbar-nav .nav-item {
+                margin-right: 1.25rem;
+            }
+
+            .navbar-nav .nav-item:last-child {
+                margin-right: 0;
+            }
+        }
+
+        /* Cleaner mobile dropdown */
+        @media (max-width: 991.98px) {
+            .navbar {
+                border-radius: 18px;
+            }
+
+            .navbar-nav .nav-link {
+                padding: .75rem 0;
+            }
+        }
+    </style>
 </head>
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark"
+<!-- <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark"
     style="background-image: linear-gradient(to left, rgb(71, 115, 90), #5375e2, rgb(28, 50, 39));">
     <a class="navbar-brand" href="/">
         <img src="HSC-Full-Course/assets/images/Logo-with-Name.png" height="30px" width="30px"> Apar's Classroom</a>
@@ -113,6 +146,40 @@
             </li>
         </ul>
         <a id="logST" class="btn btn-warning">Login</a>
+    </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow
+            mx-2 mx-lg-5 mb-3 mb-lg-4 mt-2
+            px-3 px-lg-5 py-2">
+
+    <a class="navbar-brand" href="/">
+        <img src="images/logo.png" height="30" width="110" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-lg-auto text-lg-center text-lg-left mt-3 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shop">ASG Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about-us">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact.html">Contact</a>
+            </li>
+        </ul>
+
+        <a id="logST" class="btn text-white px-4 py-2 rounded-pill mt-3 mt-lg-0 ml-lg-3"
+            style="background-color: cornflowerblue;">
+            Login
+        </a>
     </div>
 </nav>
 <div class="container">
@@ -155,7 +222,8 @@
         <h3><strong>Course Policy</strong></h3>
         <ul class="text-bangla">
             <li> এক কোর্স থেকে অন‍্য কোর্সে স্থানান্তর করা যাবে না।</li>
-            <li> একদম নতুন খোলা/ফেইক নেম এর আইডি গ্রহনযোগ্য না। বিশেষ ক্ষেত্রে গার্জিয়ান এর আইডি ব্যবহার করা যেতে পারে</li>
+            <li> একদম নতুন খোলা/ফেইক নেম এর আইডি গ্রহনযোগ্য না। বিশেষ ক্ষেত্রে গার্জিয়ান এর আইডি ব্যবহার করা যেতে পারে
+            </li>
             <li> একটি আইডি দিয়ে এপ্রুভালের পর কোনমতেই আইডি চেইঞ্জ করা যাবে না;</li>
             <li> ফেসবুক আইডি ব্যান হলে এর দায় কর্তৃপক্ষ নিবে না।</li>
             <li> তোমার আইপি ট্র্যাক করা হবে কোর্স চলাকালে।</li>
@@ -429,7 +497,8 @@
                             Page</a></li>
                     <li><a class="text-muted" href="https://www.facebook.com/groups/aparsclassroom/"
                             target="_blank">Facebook Group</a></li>
-                    <li><a class="text-muted" href="https://www.instagram.com/apars_classroom/" target="_blank">Instagram
+                    <li><a class="text-muted" href="https://www.instagram.com/apars_classroom/"
+                            target="_blank">Instagram
                             Account</a></li>
                     <li><a class="text-muted" href="https://youtube.com/aparsclassroom">Youtube Channel</a></li>
                 </ul>
