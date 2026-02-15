@@ -75,16 +75,22 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
     </script>
 </head>
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" style="background-image: linear-gradient(to left, rgb(71, 115, 90), #5375e2, rgb(28, 50, 39));">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow
+            mx-2 mx-lg-5 mb-3 mb-lg-4 mt-2
+            px-3 px-lg-5 py-2">
+
     <a class="navbar-brand" href="/">
-        <img src="HSC-Full-Course/assets/images/Logo-with-Name.png" height="30px" width="30px"> Apar's Classroom</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
+        <img src="images/logo.png" height="30" width="110" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item  active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <ul class="navbar-nav mx-lg-auto text-lg-center text-lg-left mt-3 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/shop">ASG Shop</a>
@@ -96,9 +102,50 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
                 <a class="nav-link" href="/contact.html">Contact</a>
             </li>
         </ul>
-        <a id="logST" class="btn btn-warning">Login</a>
+
+        <a id="logST"
+           class="btn text-white px-4 py-2 rounded-pill mt-3 mt-lg-0 ml-lg-3"
+           style="background-color: cornflowerblue;">
+           Login
+        </a>
     </div>
 </nav>
+
+
+<style>
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: #141313 !important;
+}
+
+/* Desktop pill navbar */
+@media (min-width: 992px) {
+    .navbar {
+        border-radius: 999px;
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 1.25rem;
+    }
+
+    .navbar-nav .nav-item:last-child {
+        margin-right: 0;
+    }
+}
+
+/* Cleaner mobile dropdown */
+@media (max-width: 991.98px) {
+    .navbar {
+        border-radius: 18px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: .75rem 0;
+    }
+}
+</style>
+
+
 <div class="container">
     <h1>Privacy Policy for Apar's Classroom</h1>
 
