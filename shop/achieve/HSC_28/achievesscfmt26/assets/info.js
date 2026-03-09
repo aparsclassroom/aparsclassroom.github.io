@@ -1,7 +1,7 @@
-const product = "achievesscfmt26";
+const product = "achievesscfmt26v2";
 const productName = "SSC 2026 Achieve Final Model Test";
-const productCode = "604";
-const fix = 4000;
-const pls = 3500;
+const productCode = "606";
+const fix = 2500;
+const pls = 2000;
 const Platform = "Offline";
 const init = 0;
