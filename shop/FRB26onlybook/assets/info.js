@@ -4,6 +4,6 @@ let productCode = "590";
 let productCodefrb2 = "564";
 let productCodefrb4 = "566";
 const fix = 4000;
-const pls = 3200;
+const pls = 3000;
 const init = 0;
 const Platform = "Physical";
