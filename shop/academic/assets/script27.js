@@ -15,6 +15,10 @@ const periodLabelMap = {
 let container, loader, templateContainer, filterButtons;
 let courseTemplates = new Map();
 
+function normalizeCourseKey(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
 function initializeCache() {
   container = document.getElementById("course-container");
   loader = document.getElementById("loader");
@@ -40,14 +44,14 @@ function cacheTemplates() {
   const children = Array.from(container.children);
   children.forEach(child => {
     if (child.id) {
-      courseTemplates.set(child.id, child);
+      courseTemplates.set(normalizeCourseKey(child.id), child);
       templateContainer.appendChild(child);
     }
   });
 }
 
 function buildCourseHTML(item, period, index) {
-  const template = courseTemplates.get(item.name);
+  const template = courseTemplates.get(normalizeCourseKey(item.name));
   if (!template) return '';
   
   const placeText = `${item.place}${getOrdinalSuffix(item.place)} place`;
