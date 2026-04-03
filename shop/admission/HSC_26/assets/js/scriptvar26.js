@@ -1,6 +1,99 @@
-//var link = 'http://localhost:8080';
-var link = 'https://' + shopName2;
+// Normalize phone number to +88XXXXXXXXXXX format
+function normalizePhone(phone) {
+    phone = phone.replace(/[\s-]/g, '');
+    if (/^01[13-9]\d{8}$/.test(phone)) {
+        return '+88' + phone;
+    }
+    if (/^8801[13-9]\d{8}$/.test(phone)) {
+        return '+' + phone;
+    }
+    // already in correct format
+    return phone;
+}
 
+// Function to get URL parameter value
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Function to extract product code from promo parameter
+function getProductCodeFromURL() {
+    const promoParam = getURLParameter('promo');
+    if (promoParam) {
+        // Extract the product code (part after 'C-' and before the next '-')
+        const match = promoParam.match(/C-(\d+)-/);
+        if (match) {
+            return match[1]; // Returns the captured group (the product code)
+        }
+    }
+    return null;
+}
+
+// Get product code from URL and set initial state
+const urlProductCode = getProductCodeFromURL();
+let productcode;
+
+// Set initial state based on URL product code
+if (urlProductCode === productCode) {
+    // If URL has productCode (407), start with books unchecked
+    productcode = productCode;
+    document.getElementById('addBooks').checked = false;
+    document.getElementById('shippingFields').style.display = 'none';
+    document.getElementById('sprice').innerText = pls;
+    document.getElementById('price').value = pls;
+    document.getElementById('nop').innerText = pls + "৳";
+
+   document.getElementById('addbooksdiv').style.display = 'none'; // Hide the books checkbox
+    
+    // Remove required attributes from shipping fields
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+    shippingInputs.forEach(input => input.removeAttribute('required'));
+} else if (urlProductCode === productCode2) {
+    // If URL has productCode2 (444), start with books checked
+    productcode = productCode2;
+    document.getElementById('addBooks').checked = true;
+    document.getElementById('shippingFields').style.display = 'block';
+    document.getElementById('sprice').innerText = pls2;
+    document.getElementById('price').value = pls2;
+    document.getElementById('nop').innerText = pls2 + "৳";
+
+     document.getElementById('addbooksdiv').style.display = 'none';
+    
+    // Add required attributes to shipping fields
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+    shippingInputs.forEach(input => input.setAttribute('required', ''));
+} else {
+    // Default state when no promo or unrecognized promo (books checked)
+    productcode = productCode2;
+    document.getElementById('addBooks').checked = true;
+    document.getElementById('shippingFields').style.display = 'block';
+    document.getElementById('sprice').innerText = pls2;
+    document.getElementById('price').value = pls2;
+    document.getElementById('nop').innerText = pls2 + "৳";
+    
+    // Add required attributes to shipping fields
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+    shippingInputs.forEach(input => input.setAttribute('required', ''));
+}
 
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
@@ -21,9 +114,85 @@ document.getElementById('email').addEventListener("input", function (event) {
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
 document.getElementById('prevP').innerText = fix;
-document.getElementById('nop').innerText = pls + "৳";
-document.getElementById('sprice').innerText = pls;
-document.getElementById('price').value = pls;
+
+const quotes = [
+    "A reader lives a thousand lives before he dies.",
+    "Books are a uniquely portable magic.",
+    "Reading is essential for those who seek to rise above the ordinary.",
+    "So many books, so little time.",
+    "Books are the quietest and most constant of friends.",
+    "A room without books is like a body without a soul.",
+    "The more that you read, the more things you will know.",
+    "Reading gives us someplace to go when we have to stay where we are."
+];
+
+// Add books checkbox event listener
+document.getElementById('addBooks').addEventListener('change', function () {
+    const shipFields = document.getElementById('shippingFields');
+    const isShipping = this.checked;
+    const shippingInputs = [
+        document.getElementById('ship_name'),
+        document.getElementById('ship_phone'),
+        document.getElementById('ship_add1'),
+        document.getElementById('ship_city'),
+        document.getElementById('ship_upzilla'),
+    ];
+
+    if (isShipping) {
+        // If checked, show fields and update pricing
+        shipFields.style.display = 'block';
+        document.getElementById('sprice').innerText = pls2;
+        document.getElementById('price').value = pls2;
+        document.getElementById('nop').innerText = pls2 + "৳";
+        productcode = productCode2;
+        shippingInputs.forEach(input => input.setAttribute('required', ''));
+
+        document.getElementById('ship_phone').addEventListener("input", function (event) {
+            if (this.validity.patternMismatch) {
+                this.setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+            } else {
+                this.setCustomValidity("");
+            }
+        });
+
+    } else {
+        // Show confirmation modal before hiding fields
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        Swal.fire({
+            title: 'Are you sure?',
+            html: `
+                <div>
+                    <p>আমাদের কম্প্যাক্ট সিরিজের বইগুলো Varsity ব্যাচের লেকচার কন্টেন্ট এর পরিপূরক</p>
+                    <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
+                </div>
+            `,
+            imageUrl: 'https://i.postimg.cc/LsWxWqRx/For-web-Book-presentation-(-8-Books-)-(1).jpg',
+            showCancelButton: true,
+            confirmButtonText: 'না আমি বই নিতে চাইনা',
+            cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
+            customClass: {
+                image: 'no-image-margin'
+            },
+            confirmButtonColor: '#e74c3c', // red button
+            cancelButtonColor: '#4CBB17', //  green button
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // User confirmed they don't want books
+                shipFields.style.display = 'none';
+                document.getElementById('sprice').innerText = pls;
+                document.getElementById('price').value = pls;
+                document.getElementById('nop').innerText = pls + "৳";
+                productcode = productCode;
+                shippingInputs.forEach(input => input.removeAttribute('required'));
+            } else {
+                // Re-check the checkbox if cancelled
+                document.getElementById('addBooks').checked = true;
+                document.getElementById('nop').innerText = pls2 + "৳";
+            }
+        });
+    }
+});
 
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
@@ -34,7 +203,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "products": [productCode, "614"],
+            "products": [productCode, productCode2, productCode3, productCode4],
             'uid': e.uid
         });
 
@@ -45,17 +214,20 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/v3/purchase/multiple/`, requestOptions).then(res => res.json())
-        .then((result) => {
-            if (result.status === 200) {
-                swal({
-                    title: "Already Enrolled!",
-                    icon: "success",
-                    button: "View Informations"
-                }).then(() => {
-                    location.replace(result.invoices[0].invoice);
-                });
-            } else {
+        fetch(`https://${shopName2}/v3/purchase/multiple`, requestOptions)
+            .then(response => {
+                return response.json()
+            })
+            .then(result => {
+                if (result.status === 200) {
+                    swal({
+                        title: "Already Enrolled !",
+                        icon: "success",
+                        button: "View Informations"
+                    }).then(() => {
+                        location.replace(result.invoices[0].invoice);
+                    })
+                } else {
                     const form = document.forms['purchase']
                     form.addEventListener('submit', em => {
                         em.preventDefault();
@@ -64,14 +236,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                         document.getElementById("buy").disabled = true;
                         var myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "productName": product,
-                            "Platform": Platform,
+                        const isShipping = document.getElementById('addBooks').checked;
+                        var rawData = {
+                            "productName": isShipping ? product2 : product,
+                            "Platform": isShipping ? Platform2 : Platform,
                             "cus_name": document.getElementById('name').value.trim(),
                             "cus_email": mail,
                             "Institution": document.getElementById('college').value.trim(),
                             "HSC": document.getElementById('hscBatch').value.trim(),
-                            "cus_phone": document.getElementById('phone').value.trim(),
+                            "cus_phone": normalizePhone(document.getElementById('phone').value.trim()),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
                             "affiliate": getCookie("affiliate"),
@@ -85,7 +258,18 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "Referrer": getCookie("Referrer"),
                             "Ip": getCookie("ip"),
                             "Referrer": getCookie("Platform")
-                        });
+                        };
+
+                        if (isShipping) {
+                            rawData.ship_name = document.getElementById('ship_name').value.trim();
+                            rawData.ship_phone = normalizePhone(document.getElementById('ship_phone').value.trim());
+                            rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
+
+                            rawData.ship_city = document.getElementById('ship_city').value;
+                            rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
+                            rawData.ship_method = 'Courier'
+                        }
+                        var raw = JSON.stringify(rawData);
 
                         var requestOptions = {
                             method: 'POST',
@@ -94,7 +278,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`${link}/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName2}/${productcode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -133,14 +317,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                     document.getElementById("buy").disabled = true;
                     var myHeaders = new Headers();
                     myHeaders.append("Content-Type", "application/json");
-                    var raw = JSON.stringify({
-                        "productName": product,
-                        "Platform": Platform,
+                    const isShipping = document.getElementById('addBooks').checked;
+                    var rawData = {
+                        "productName": isShipping ? product2 : product,
+                        "Platform": isShipping ? Platform2 : Platform,
                         "cus_name": document.getElementById('name').value.trim(),
                         "cus_email": mail,
                         "Institution": document.getElementById('college').value.trim(),
                         "HSC": document.getElementById('hscBatch').value.trim(),
-                        "cus_phone": document.getElementById('phone').value.trim(),
+                        "cus_phone": normalizePhone(document.getElementById('phone').value.trim()),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
                         "affiliate": getCookie("affiliate"),
@@ -154,7 +339,18 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "Referrer": getCookie("Referrer"),
                         "Ip": getCookie("ip"),
                         "Referrer": getCookie("Platform")
-                    });
+                    };
+
+                     if (isShipping) {
+                        rawData.ship_name = document.getElementById('ship_name').value.trim();
+                        rawData.ship_phone = normalizePhone(document.getElementById('ship_phone').value.trim());
+                        rawData.ship_add1 = document.getElementById('ship_add1').value.trim();
+
+                        rawData.ship_city = document.getElementById('ship_city').value;
+                        rawData.ship_upzilla = document.getElementById('ship_upzilla').value.trim();
+                        rawData.ship_method = 'Courier'
+                    }
+                    var raw = JSON.stringify(rawData);
 
                     var requestOptions = {
                         method: 'POST',
@@ -163,7 +359,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`${link}/${productCode}/init`, requestOptions)
+                    fetch(`https://${shopName2}/${productcode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
@@ -263,13 +459,16 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productCode)
+    const isShipping = document.getElementById('addBooks').checked;
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productcode)
         .then((res) => {
             return res.json();
         })
         .then((loadedData) => {
             if (loadedData.status === "success") {
-                var nes = pls - loadedData.Off;
+                document.getElementById('addbooksdiv').style.display = "none";
+                var nes;
+                isShipping ? nes = pls2 - loadedData.Off : nes = pls - loadedData.Off;
                 disOFF = loadedData.Off;
                 document.getElementById('price').value = nes;
                 document.getElementById('sprice').innerText = nes;
@@ -278,15 +477,15 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('disC').value = loadedData.Cupon;
                 cupV.disabled = true;
                 cpn.innerText = "Applied ✔"
+                if (document.getElementById('couponinfocenter')) document.getElementById('couponinfocenter').style.display = "none";
+                if (document.getElementById('couponinfocenter2')) document.getElementById('couponinfocenter2').style.display = "none";
                 document.getElementById('coupnbosh').style.display = "none";
-                if(document.getElementById('cpninfo')) document.getElementById('cpninfo').style.display = "none";
                 cpn.disabled = true;
                 var percent = Math.round(((parseInt(loadedData.Off) + (fix - pls)) / fix) * 100);
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
 document.getElementById("cup").style.display = "block"; 
-document.getElementById("cpninfo").style.display = "none";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -312,14 +511,25 @@ document.getElementById("cpninfo").style.display = "none";
             })
         })
 })
-if (queryPromo != null) {
-    document.getElementById('cupon').value = getCookie("promo");
+// if (queryPromo != null) {
+//     document.getElementById('cupon').value = getCookie("promo");
+//     notdis()
+// document.getElementById("app").style.display = "none"; 
+//     cpn.click();
+// } else {
+
+//     document.getElementById("cup").style.display = "none"; 
+//     delete_cookie("promo");
+//     notdis()
+// }
+
+const urlPromo = getURLParameter('promo');
+if (urlPromo) {
+    document.getElementById('cupon').value = urlPromo;
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
-
-    document.getElementById("cup").style.display = "none"; 
-    delete_cookie("promo");
+    document.getElementById("cup").style.display = "none";
     notdis()
 }

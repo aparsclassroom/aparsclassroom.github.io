@@ -1,7 +1,14 @@
 const product = "varsity26";
+const product2 = "varsity26wbooks";
 const productName = "ACS Varsity + GST Special Private Programme 2026";
+const productName2 = "ACS Varsity + GST Special Private Programme 2026 with Books";
 const productCode = "613";
-const fix = 5000;
+const productCode3 = "614";
+const fix = 8000;
 const pls = 4000;
-const Platform = "Online";
+const pls2 = 6500;
 const init = 0;
+let productCode2 = "615";
+let productCode4 = "616";
+const Platform = "Online";
+const Platform2 = "Physical";

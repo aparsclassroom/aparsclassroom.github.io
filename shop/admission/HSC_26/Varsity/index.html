@@ -43,7 +43,7 @@
     <meta property="og:description" content="By ACS ❤️">
     <meta property="og:image" content="https://i.postimg.cc/RZ91NSsy/VARSITY-THUMBNEIL-(1).jpg">
     <meta property="og:image:secure_url" content="https://i.postimg.cc/RZ91NSsy/VARSITY-THUMBNEIL-(1).jpg">
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:type" content="image/jpg">
 
     <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -77,6 +77,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/shop/assets/js/script.js" defer></script>
     <!-- Scripts -->
     <script src="/assets/js/sweetalert.min.js" defer></script>
@@ -113,6 +114,28 @@
             height: 10rem !important;
             overflow: hidden;
         }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #1ab942;
+        }
+
+        .checkbox-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #444;
+            margin: 0;
+        }
+
+        .swal2-image.no-image-margin {
+            margin: 0 !important;
+        }
     </style>
 
     <!-- Shop Scripts -->
@@ -122,7 +145,7 @@
     <script src="./assets/ss.js" defer></script>
 
     <!-- Custom Scripts -->
-    <script src="./assets/js/sript.js" defer></script>
+    <script src="../assets/js/scriptvar26.js" defer></script>
 </head>
 
 <body>
@@ -324,7 +347,7 @@
                     <div class="row">
                         <div id="content" class="col-md-6 mt-3">
                             <div id="module" class="container bangla">
-                                <h3 class="bangla">কোর্সটি সম্পর্কে</h3>
+                                <h3 class="">ACS Varsity + GST Special Private Programme 2026</h3>
                                 <div class="collapse text-justify" id="collapseExample" aria-expanded="false">
                                     <section>
                                         <p>
@@ -403,8 +426,7 @@
                         <div class="embed-responsive-item">
                             <div id="thumb">
                                 <img src="https://i.postimg.cc/RZ91NSsy/VARSITY-THUMBNEIL-(1).jpg" class="image-loaded">
-                                <!-- <script
-                                    src="/assets/js/lottie-player.js"></script>
+                                <!-- <script src="/assets/js/lottie-player.js"></script>
                                 <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_aolblx3z.json"
                                     background="transparent" speed="1"
                                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; opacity: 1;"
@@ -424,13 +446,11 @@
                             </div>
                             <div class="tag">
                                 <img src="/assets/revision_class2.svg" alt="time required">
-                                <div class="flt bangla">
-                                    <span>
-                                        কোর্স চলবে:</span> সর্বশেষ অ্যাডমিশন পরীক্ষা পর্যন্ত</strong>
+                                <div class="flt bangla"><strong id="duration">সর্বশেষ ভর্তি পরীক্ষা পর্যন্ত</strong>
                                 </div>
                             </div>
                         </div>
-                        <div class="tag noWrap"><i class="fas fa-video" style="color:#E74C3C;"></i>&nbsp; Live Classes
+                       <div class="tag noWrap"><i class="fas fa-video" style="color:#E74C3C;"></i>&nbsp; Live Classes
                         </div>
                         <div class="tag noWrap"><i class="fas fa-book" style="color:#6f42c1;"></i>&nbsp; Archive Classes
                         </div>
@@ -445,7 +465,12 @@
                         <div class="tag noWrap"><i class="fas fa-users" style="color:#17a2b8;"></i>&nbsp; Dedicated
                             Discussion Group</div>
                         <!-- <div class="text-center">
-                            <button id="routine" class="btn btn-outline-primary"><i class="fas fa-file-download"></i>
+                            <button id="routine" class="btn btn-outline-primary mb-2"><i
+                                    class="fas fa-file-download"></i>
+                                ইঞ্জিনিয়ারিং এডমিশন সিরিজ বইয়ের ডেমো দেখো</button>
+                        </div>
+                        <div class="text-center">
+                            <button id="routine2" class="btn btn-outline-info"><i class="fas fa-file-download"></i>
                                 Download Class Routine</button>
                         </div> -->
                     </div>
@@ -458,10 +483,15 @@
                         </h3>
 
                         <div class="justify-content-center">
-                            <center id="cpninfo">
-                                <small>Use <strong class="copy-coupon" data-coupon="VARSITY26"
-                                        style="cursor: pointer;">"VARSITY26"</strong> Coupon For 1000 TAKA
+                            <center id="couponinfocenter">
+                                <small id="couponinfo">Use <strong class="copy-coupon" data-coupon="Varsity26"
+                                        style="cursor: pointer;">"Varsity26"</strong> Coupon For 1000 TAKA
                                     Discount</small>
+                            </center>
+                            <center id="couponinfocenter2">
+                                <small>Use <strong class="copy-coupon" data-coupon="Varsity26book"
+                                        style="cursor: pointer;">"Varsity26book"</strong> Coupon For 1000
+                                    TAKA Discount (with Books)</small>
                             </center>
                             <button id="app" class="btn btn-block btn-outline-secondary">Do you have any
                                 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
@@ -478,6 +508,16 @@
                                     </div>
                                 </div>
                                 <p class="text-center" id="how" style="display: none;"></p>
+                            </div>
+                            <div class="text-center" id="addbooksdiv"
+                                style="background-color: rgb(238, 245, 237); padding: 10px; margin-top: 10px; margin-bottom: 5px; border-radius: 1rem;">
+                                <input class="custom-checkbox" type="checkbox" id="addBooks" checked>
+                                <label class="checkbox-label" for="addBooks">
+                                    <h6>Add Books (+2250 TK) <span class="delivery-icon">🏠</span> <br>&nbsp; (Delivery
+                                        Charge
+                                        included) </h6>
+                                </label>
+
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
@@ -527,19 +567,19 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h5>Important Links</h5>
                     <ul class="footer-links list-unstyled mt-2">
-                        <li class="mb-1"><a class="p-2" target="_blank" href="/terms">Terms and Conditions</a></li>
-                        <li class="mb-1"><a class="p-2" target="_blank" href="/privacy">Privacy Policy</a></li>
-                        <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy">Return and
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/terms.html">Terms and Conditions</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/privacy.html">Privacy Policy</a></li>
+                        <li class="mb-1"><a class="p-2" target="_blank" href="/return-and-refund-policy.html">Return and
                                 Refund Policy</a></li>
-                        <li><a class="p-2" target="_blank" href="/contact">Contact Us</a></li>
+                        <li><a class="p-2" target="_blank" href="/contact.html">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                     <h5>Disclaimer</h5>
                     <p class="text-gray font-small m-0">All the products are listed for sale in the shop, are owned by
                         the Company. Anyone can buy personal license for the products. But Reselling are Strictly
-                        prohibited. Learn more about <a class="text-danger" href="/piracy">Anti-Piracy Laws</a>
-                        &amp; <a class="text-danger" href="/terms">Terms and Conditions</a>.
+                        prohibited. Learn more about <a class="text-danger" href="/piracy.html">Anti-Piracy Laws</a>
+                        &amp; <a class="text-danger" href="/terms.html">Terms and Conditions</a>.
                     </p>
                 </div>
             </div>
@@ -613,16 +653,58 @@
                                 <input type="number" disabled class="form-control" id="price">
                             </div>
                         </div>
+                        <div id="shippingFields">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="ship_name">Student Name</label>
+                                    <input type="text" class="form-control" id="ship_name" placeholder="Full name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ship_phone">Contact number for delivery</label>
+                                    <input type="tel" class="form-control" id="ship_phone"
+                                        pattern="^(?:\+?88)?01[13-9]\d{8}$" placeholder="+8801XX XXX XXXX">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ship_add1">Address</label>
+                                <input type="text" class="form-control" id="ship_add1"
+                                    placeholder="Street address for delivery">
+                                <small style="background-color: #fff176; padding: 2px 4px; border-radius: 2px;"
+                                    class="bangla">
+                                    *অর্ডারকৃত বই আপনার ঠিকানায় কুরিয়ারের মাধ্যমে পাঠানো হবে। বই রিসিভ না করলে
+                                    দ্বিতীয়বার ডেলিভারির জন্য কুরিয়ার চার্জ প্রযোজ্য হবে। বই ডেলিভারি শুরু হবে HSC পরীক্ষা শেষ হওয়ার ১ম সপ্তাহ থেকে।
+                                </small>
+                            </div>
+
+                            <div class="form-row">
+                                <!-- District Dropdown -->
+                                <div class="form-group col-md-6">
+                                    <label for="ship_city">District</label>
+                                    <select class="form-control" id="ship_city">
+                                        <option value="">-- Select District --</option>
+                                    </select>
+                                </div>
+
+                                <!-- Sub-district Dropdown -->
+                                <div class="form-group col-md-6">
+                                    <label for="ship_upzilla">Upazila</label>
+                                    <select class="form-control" id="ship_upzilla">
+                                        <option value="">-- Select Upazila --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-row"><label style="color: red;">You have to pay <span id="sprice"></span> ৳
                             </label></div>
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" required type="checkbox" id="gridCheck">
                                 <label class="form-check-label" for="gridCheck">
-                                    All the informations are correct &amp; I agree all the <a href="/terms"
-                                        target="_blank">Terms &amp; conditions </a> and <a href="/privacy"
-                                        target="_blank">Privacy Policy </a> &amp; <a href="/return-and-refund-policy"
-                                        target="_blank">Return Policy</a> 🥰
+                                    All the informations are correct &amp; I agree all the <a href="/terms.html"
+                                        target="_blank">Terms &amp; conditions </a> and <a href="/privacy.html"
+                                        target="_blank">Privacy Policy </a> &amp; <a
+                                        href="/return-and-refund-policy.html" target="_blank">Return Policy</a> 🥰
                                 </label>
                             </div>
                         </div>
@@ -639,17 +721,33 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
-    <script>
-        // coupon copy code
-        document.querySelectorAll('.copy-coupon').forEach(coupon => {
-            coupon.addEventListener('click', function () {
-                document.querySelectorAll('.copy-coupon').forEach(c => {
-                    c.style.backgroundColor = '#ffffff';
-                });
-                const couponCode = this.getAttribute('data-coupon');
-                navigator.clipboard.writeText(couponCode).then(() => {
-                    const toast = document.createElement('div');
-                    toast.style.cssText = `
+</body>
+<script>
+    let routine = document.getElementById("routine");
+
+    routine.addEventListener('click', function () {
+        window.open("https://drive.google.com/drive/folders/15a4AE3AB1v-y1DozlL4gVHrsAKHhjmZ4")
+    })
+
+    let routine2 = document.getElementById("routine2");
+
+    routine2.addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1jUgLl7U5QAb_GnikPBWVO52lISquA9vhumifgJT39tM/edit?usp=sharing")
+    })
+
+</script>
+
+<script>
+    // coupon copy code
+    document.querySelectorAll('.copy-coupon').forEach(coupon => {
+        coupon.addEventListener('click', function () {
+            document.querySelectorAll('.copy-coupon').forEach(c => {
+                c.style.backgroundColor = '#ffffff';
+            });
+            const couponCode = this.getAttribute('data-coupon');
+            navigator.clipboard.writeText(couponCode).then(() => {
+                const toast = document.createElement('div');
+                toast.style.cssText = `
                 position: fixed;
                 top: 20px;
                 left: 50%; 
@@ -669,27 +767,733 @@
                 font-size: 14px;
                 white-space: nowrap;
             `;
-                    toast.textContent = 'Coupon copied ✓';
-                    document.body.appendChild(toast);
+                toast.textContent = 'Coupon copied ✓';
+                document.body.appendChild(toast);
 
-                    setTimeout(() => toast.style.opacity = '1', 10);
+                setTimeout(() => toast.style.opacity = '1', 10);
 
-                    setTimeout(() => {
-                        toast.style.opacity = '0';
-                        setTimeout(() => toast.remove(), 300);
-                    }, 2000);
-                    this.style.backgroundColor = '#e8f5e9';
-                });
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 300);
+                }, 2000);
+                this.style.backgroundColor = '#e8f5e9';
             });
         });
-    </script>
-</body>
-<!-- <script>
-    let routine = document.getElementById("routine");
+    });
+</script>
+<script>
+    const districtUpazilas = {
+        "BARGUNA": [
+            "AMTALI",
+            "BAMNA",
+            "BARGUNA SADAR",
+            "BETAGI",
+            "PATHARGHATA",
+            "TALTALI"
+        ],
+        "BARISAL": [
+            "AGAILJHARA",
+            "BABUGANJ",
+            "BAKERGANJ",
+            "BANARI PARA",
+            "GAURNADI",
+            "HIZLA",
+            "BARISAL SADAR (KOTWALI)",
+            "MHENDIGANJ",
+            "MULADI",
+            "WAZIRPUR"
+        ],
+        "BHOLA": [
+            "BHOLA SADAR",
+            "BURHANUDDIN",
+            "CHAR FASSON",
+            "DAULAT KHAN",
+            "LALMOHAN",
+            "MANPURA",
+            "TAZUMUDDIN"
+        ],
+        "JHALOKATI": [
+            "JHALOKATI SADAR",
+            "KANTHALIA",
+            "NALCHITY",
+            "RAJAPUR"
+        ],
+        "PATUAKHALI": [
+            "BAUPHAL",
+            "DASHMINA",
+            "DUMKI",
+            "GALACHIPA",
+            "KALAPARA",
+            "MIRZAGANJ",
+            "PATUAKHALI SADAR",
+            "RANGABALI"
+        ],
+        "PIROJPUR": [
+            "BHANDARIA",
+            "KAWKHALI",
+            "MATHBARIA",
+            "NAZIRPUR",
+            "PIROJPUR SADAR",
+            "NESARABAD (SWARUPKATI)",
+            "ZIANAGAR"
+        ],
+        "BANDARBAN": [
+            "ALIKADAM",
+            "BANDARBAN SADAR",
+            "LAMA",
+            "NAIKHONGCHHARI",
+            "ROWANGCHHARI",
+            "RUMA",
+            "THANCHI"
+        ],
+        "BRAHMANBARIA": [
+            "AKHAURA",
+            "BANCHHARAMPUR",
+            "BIJOYNAGAR",
+            "BRAHMANBARIA SADAR",
+            "ASHUGANJ",
+            "KASBA",
+            "NABINAGAR",
+            "NASIRNAGAR",
+            "SARAIL"
+        ],
+        "CHANDPUR": [
+            "CHANDPUR SADAR",
+            "FARIDGANJ",
+            "HAIM CHAR",
+            "HAJIGANJ",
+            "KACHUA",
+            "MATLAB DAKSHIN",
+            "MATLAB UTTAR",
+            "SHAHRASTI"
+        ],
+        "CHITTAGONG": [
+            "ANOWARA",
+            "BAYEJID BOSTAMI",
+            "BANSHKHALI",
+            "BAKALIA",
+            "BOALKHALI",
+            "CHANDANAISH",
+            "CHANDGAON",
+            "CHITTAGONG PORT",
+            "DOUBLE MOORING",
+            "FATIKCHHARI",
+            "HALISHAHAR",
+            "HATHAZARI",
+            "KOTWALI",
+            "KHULSHI",
+            "LOHAGARA",
+            "MIRSHARAI",
+            "PAHARTALI",
+            "PANCHLAISH",
+            "PATIYA",
+            "PATENGA",
+            "RANGUNIA",
+            "RAOZAN",
+            "SANDWIP",
+            "SATKANIA",
+            "SITAKUNDA"
+        ],
+        "COMILLA": [
+            "BARURA",
+            "BRAHMAN PARA",
+            "BURICHANG",
+            "CHANDINA",
+            "CHAUDDAGRAM",
+            "COMILLA SADAR DAKSHIN",
+            "DAUDKANDI",
+            "DEBIDWAR",
+            "HOMNA",
+            "COMILLA ADARSHA SADAR",
+            "LAKSAM",
+            "MANOHARGANJ",
+            "MEGHNA",
+            "MURADNAGAR",
+            "NANGALKOT",
+            "TITAS"
+        ],
+        "COX'S BAZAR": [
+            "CHAKARIA",
+            "COX'S BAZAR SADAR",
+            "KUTUBDIA",
+            "MAHESHKHALI",
+            "PEKUA",
+            "RAMU",
+            "TEKNAF",
+            "UKHIA"
+        ],
+        "FENI": [
+            "CHHAGALNAIYA",
+            "DAGANBHUIYAN",
+            "FENI SADAR",
+            "FULGAZI",
+            "PARSHURAM",
+            "SONAGAZI"
+        ],
+        "KHAGRACHHARI": [
+            "DIGHINALA",
+            "KHAGRACHHARI SADAR",
+            "LAKSHMICHHARI",
+            "MAHALCHHARI",
+            "MANIKCHHARI",
+            "MATIRANGA",
+            "PANCHHARI",
+            "RAMGARH"
+        ],
+        "LAKSHMIPUR": [
+            "KAMALNAGAR",
+            "LAKSHMIPUR SADAR",
+            "ROYPUR",
+            "RAMGANJ",
+            "RAMGATI"
+        ],
+        "NOAKHALI": [
+            "BEGUMGANJ",
+            "CHATKHIL",
+            "COMPANIGANJ",
+            "HATIYA",
+            "KABIRHAT",
+            "SENBAGH",
+            "SONAIMURI",
+            "SUBARNACHAR",
+            "NOAKHALI SADAR"
+        ],
+        "RANGAMATI": [
+            "BAGHAICHHARI",
+            "BARKAL UPAZILA",
+            "KAWKHALI (BETBUNIA)",
+            "BELAI CHHARI UPAZI",
+            "KAPTAI UPAZILA",
+            "JURAI CHHARI UPAZIL",
+            "LANGADU UPAZILA",
+            "NANIARCHAR UPAZILA",
+            "RAJASTHALI UPAZILA",
+            "RANGAMATI SADAR UP"
+        ],
+        "DHAKA": [
+            "ADABOR",
+            "BADDA",
+            "BANGSHAL",
+            "BIMAN BANDAR",
+            "BANANI",
+            "CANTONMENT",
+            "CHAK BAZAR",
+            "DAKSHINKHAN",
+            "DARUS SALAM",
+            "DEMRA",
+            "DHAMRAI",
+            "DHANMONDI",
+            "DOHAR",
+            "BHASAN TEK",
+            "BHATARA",
+            "GENDARIA",
+            "GULSHAN",
+            "HAZARIBAGH",
+            "JATRABARI",
+            "KAFRUL",
+            "KADAMTALI",
+            "KALABAGAN",
+            "KAMRANGIR CHAR",
+            "KHILGAON",
+            "KHILKHET",
+            "KERANIGANJ",
+            "KOTWALI",
+            "LALBAGH",
+            "MIRPUR",
+            "MOHAMMADPUR",
+            "MOTIJHEEL",
+            "MUGDA PARA",
+            "NAWABGANJ",
+            "NEW MARKET",
+            "PALLABI",
+            "PALTAN",
+            "RAMNA",
+            "RAMPURA",
+            "SABUJBAGH",
+            "RUPNAGAR",
+            "SAVAR",
+            "SHAHJAHANPUR",
+            "SHAH ALI",
+            "SHAHBAGH",
+            "SHYAMPUR",
+            "SHER-E-BANGLA NAGAR",
+            "SUTRAPUR",
+            "TEJGAON",
+            "TEJGAON IND. AREA",
+            "TURAG",
+            "UTTARA PASCHIM",
+            "UTTARA PURBA",
+            "UTTAR KHAN",
+            "WARI"
+        ],
+        "FARIDPUR": [
+            "ALFADANGA",
+            "BHANGA",
+            "BOALMARI",
+            "CHAR BHADRASAN",
+            "FARIDPUR SADAR",
+            "MADHUKHALI",
+            "NAGARKANDA",
+            "SADARPUR",
+            "SALTHA"
+        ],
+        "GAZIPUR": [
+            "GAZIPUR SADAR",
+            "KALIAKAIR",
+            "KALIGANJ",
+            "KAPASIA",
+            "SREEPUR"
+        ],
+        "GOPALGANJ": [
+            "GOPALGANJ SADAR",
+            "KASHIANI",
+            "KOTALIPARA",
+            "MUKSUDPUR",
+            "TUNGIPARA"
+        ],
+        "JAMALPUR": [
+            "BAKSHIGANJ",
+            "DEWANGANJ",
+            "ISLAMPUR",
+            "JAMALPUR SADAR",
+            "MADARGANJ",
+            "MELANDAHA",
+            "SARISHABARI UPAZILA"
+        ],
+        "KISHOREGONJ": [
+            "AUSTAGRAM",
+            "BAJITPUR",
+            "BHAIRAB",
+            "HOSSAINPUR",
+            "ITNA",
+            "KARIMGANJ",
+            "KATIADI",
+            "KISHOREGANJ SADAR",
+            "KULIAR CHAR",
+            "MITHAMAIN",
+            "NIKLI",
+            "PAKUNDIA",
+            "TARAIL"
+        ],
+        "MADARIPUR": [
+            "KALKINI",
+            "MADARIPUR SADAR",
+            "RAJOIR",
+            "SHIBCHAR"
+        ],
+        "MANIKGANJ": [
+            "DAULATPUR",
+            "GHIOR",
+            "HARIRAMPUR",
+            "MANIKGANJ SADAR",
+            "SATURIA",
+            "SHIBALAYA",
+            "SINGAIR"
+        ],
+        "MUNSHIGANJ": [
+            "GAZARIA",
+            "LOHAJANG",
+            "MUNSHIGANJ SADAR",
+            "SERAJDIKHAN",
+            "SREENAGAR",
+            "TONGIBARI"
+        ],
+        "MYMENSINGH": [
+            "BHALUKA",
+            "DHOBAURA",
+            "FULBARIA",
+            "GAFFARGAON",
+            "GAURIPUR",
+            "HALUAGHAT",
+            "ISHWARGANJ",
+            "MYMENSINGH SADAR",
+            "MUKTAGACHHA",
+            "NANDAIL",
+            "PHULPUR",
+            "TRISHAL"
+        ],
+        "NARAYANGANJ": [
+            "ARAIHAZAR",
+            "SONARGAON",
+            "BANDAR",
+            "NARAYANGANJ SADAR",
+            "RUPGANJ"
+        ],
+        "NARSINGDI": [
+            "BELABO",
+            "MANOHARDI",
+            "NARSINGDI SADAR",
+            "PALASH",
+            "ROYPURA",
+            "SHIBPUR"
+        ],
+        "NETRAKONA": [
+            "ATPARA",
+            "BARHATTA",
+            "DURGAPUR",
+            "KHALIAJURI",
+            "KALMAKANDA",
+            "KENDUA",
+            "MADAN",
+            "MOHANGANJ",
+            "NETROKONA SADAR",
+            "PURBADHALA"
+        ],
+        "RAJBARI": [
+            "BALIAKANDI",
+            "GOALANDA",
+            "KALUKHALI",
+            "PANGSHA",
+            "RAJBARI SADAR"
+        ],
+        "SHARIATPUR": [
+            "BHEDARGANJ",
+            "DAMUDYA",
+            "GOSAIRHAT",
+            "NARIA",
+            "SHARIATPUR SADAR",
+            "ZANJIRA"
+        ],
+        "SHERPUR": [
+            "JHENAIGATI",
+            "NAKLA",
+            "NALITABARI",
+            "SHERPUR SADAR",
+            "SREEBARDI"
+        ],
+        "TANGAIL": [
+            "BASAIL",
+            "BHUAPUR",
+            "DELDUAR",
+            "DHANBARI",
+            "GHATAIL",
+            "GOPALPUR",
+            "KALIHATI",
+            "MADHUPUR",
+            "MIRZAPUR",
+            "NAGARPUR",
+            "SAKHIPUR",
+            "TANGAIL SADAR"
+        ],
+        "BAGERHAT": [
+            "BAGERHAT SADAR",
+            "CHITALMARI",
+            "FAKIRHAT",
+            "KACHUA",
+            "MOLLAHAT",
+            "MONGLA",
+            "MORRELGANJ",
+            "RAMPAL",
+            "SARANKHOLA"
+        ],
+        "CHUADANGA": [
+            "ALAMDANGA",
+            "CHUADANGA SADAR",
+            "DAMURHUDA",
+            "JIBAN NAGAR"
+        ],
+        "JESSORE": [
+            "ABHAYNAGAR",
+            "BAGHER PARA",
+            "CHAUGACHHA",
+            "JHIKARGACHHA",
+            "KESHABPUR",
+            "JESSORE SADAR",
+            "MANIRAMPUR",
+            "SHARSHA"
+        ],
+        "JHENAIDAH": [
+            "HARINAKUNDA",
+            "JHENAIDAH SADAR",
+            "KALIGANJ",
+            "KOTCHANDPUR",
+            "MAHESHPUR",
+            "SHAILKUPA"
+        ],
+        "KHULNA": [
+            "BATIAGHATA",
+            "DACOPE",
+            "DAULATPUR",
+            "DUMURIA",
+            "DIGHALIA",
+            "KHALISHPUR",
+            "KHAN JAHAN ALI",
+            "KHULNA SADAR",
+            "KOYRA",
+            "PAIKGACHHA",
+            "PHULTALA",
+            "RUPSA",
+            "SONADANGA",
+            "TEROKHADA"
+        ],
+        "KUSHTIA": [
+            "BHERAMARA",
+            "DAULATPUR",
+            "KHOKSA",
+            "KUMARKHALI",
+            "KUSHTIA SADAR",
+            "MIRPUR"
+        ],
+        "MAGURA": [
+            "MAGURA SADAR",
+            "MOHAMMADPUR",
+            "SHALIKHA",
+            "SREEPUR"
+        ],
+        "MEHERPUR": [
+            "GANGNI",
+            "MUJIB NAGAR",
+            "MEHERPUR SADAR"
+        ],
+        "NARAIL": [
+            "KALIA",
+            "LOHAGARA",
+            "NARAIL SADAR"
+        ],
+        "SATKHIRA": [
+            "ASSASUNI",
+            "DEBHATA",
+            "KALAROA",
+            "KALIGANJ",
+            "SATKHIRA SADAR",
+            "SHYAMNAGAR",
+            "TALA"
+        ],
+        "BOGRA": [
+            "ADAMDIGHI",
+            "BOGRA SADAR",
+            "DHUNAT",
+            "DHUPCHANCHIA",
+            "GABTALI",
+            "KAHALOO",
+            "NANDIGRAM",
+            "SARIAKANDI",
+            "SHAJAHANPUR",
+            "SHERPUR",
+            "SHIBGANJ",
+            "SONATOLA"
+        ],
+        "JOYPURHAT": [
+            "AKKELPUR",
+            "JOYPURHAT SADAR",
+            "KALAI",
+            "KHETLAL",
+            "PANCHBIBI"
+        ],
+        "NAOGAON": [
+            "ATRAI",
+            "BADALGACHHI",
+            "DHAMOIRHAT",
+            "MANDA",
+            "MAHADEBPUR",
+            "NAOGAON SADAR",
+            "NIAMATPUR",
+            "PATNITALA",
+            "PORSHA",
+            "RANINAGAR",
+            "SAPAHAR"
+        ],
+        "NATORE": [
+            "BAGATIPARA",
+            "BARAIGRAM",
+            "GURUDASPUR",
+            "LALPUR",
+            "NATORE SADAR",
+            "SINGRA"
+        ],
+        "CHAPAI NABABGANJ": [
+            "BHOLAHAT",
+            "GOMASTAPUR",
+            "NACHOLE",
+            "CHAPAI NABABGANJ SADAR",
+            "SHIBGANJ"
+        ],
+        "PABNA": [
+            "ATGHARIA",
+            "BERA",
+            "BHANGURA",
+            "CHATMOHAR",
+            "FARIDPUR",
+            "ISHWARDI",
+            "PABNA SADAR",
+            "SANTHIA",
+            "SUJANAGAR"
+        ],
+        "RAJSHAHI": [
+            "BAGHA",
+            "BAGHMARA",
+            "BOALIA",
+            "CHARGHAT",
+            "DURGAPUR",
+            "GODAGARI",
+            "MATIHAR",
+            "MOHANPUR",
+            "PABA",
+            "PUTHIA",
+            "RAJPARA",
+            "SHAH MAKHDUM",
+            "TANORE"
+        ],
+        "SIRAJGANJ": [
+            "BELKUCHI",
+            "CHAUHALI",
+            "KAMARKHANDA",
+            "KAZIPUR",
+            "ROYGANJ",
+            "SHAHJADPUR",
+            "SIRAJGANJ SADAR",
+            "TARASH",
+            "ULLAH PARA"
+        ],
+        "DINAJPUR": [
+            "BIRAMPUR",
+            "BIRGANJ",
+            "BIRAL",
+            "BOCHAGANJ",
+            "CHIRIRBANDAR",
+            "FULBARI",
+            "GHORAGHAT",
+            "HAKIMPUR",
+            "KAHAROLE",
+            "KHANSAMA",
+            "DINAJPUR SADAR",
+            "NAWABGANJ",
+            "PARBATIPUR"
+        ],
+        "GAIBANDHA": [
+            "FULCHHARI",
+            "GAIBANDHA SADAR",
+            "GOBINDAGANJ",
+            "PALASHBARI",
+            "SADULLAPUR",
+            "SAGHATA",
+            "SUNDARGANJ"
+        ],
+        "KURIGRAM": [
+            "BHURUNGAMARI",
+            "CHAR RAJIBPUR",
+            "CHILMARI",
+            "PHULBARI",
+            "KURIGRAM SADAR",
+            "NAGESHWARI",
+            "RAJARHAT",
+            "RAUMARI",
+            "ULIPUR"
+        ],
+        "LALMONIRHAT": [
+            "ADITMARI",
+            "HATIBANDHA",
+            "KALIGANJ",
+            "LALMONIRHAT SADAR",
+            "PATGRAM"
+        ],
+        "NILPHAMARI": [
+            "DIMLA UPAZILA",
+            "DOMAR UPAZILA",
+            "JALDHAKA UPAZILA",
+            "KISHOREGANJ UPAZILA",
+            "NILPHAMARI SADAR UPAZ",
+            "SAIDPUR UPAZILA"
+        ],
+        "PANCHAGARH": [
+            "ATWARI",
+            "BODA",
+            "DEBIGANJ",
+            "PANCHAGARH SADAR",
+            "TENTULIA"
+        ],
+        "RANGPUR": [
+            "BADARGANJ",
+            "GANGACHARA",
+            "KAUNIA",
+            "RANGPUR SADAR",
+            "MITHA PUKUR",
+            "PIRGACHHA",
+            "PIRGANJ",
+            "TARAGANJ"
+        ],
+        "THAKURGAON": [
+            "BALIADANGI",
+            "HARIPUR",
+            "PIRGANJ",
+            "RANISANKAIL",
+            "THAKURGAON SADAR"
+        ],
+        "HABIGANJ": [
+            "AJMIRIGANJ",
+            "BAHUBAL",
+            "BANIACHONG",
+            "CHUNARUGHAT",
+            "HABIGANJ SADAR",
+            "LAKHAI",
+            "MADHABPUR",
+            "NABIGANJ"
+        ],
+        "MAULVIBAZAR": [
+            "BARLEKHA",
+            "JURI",
+            "KAMALGANJ",
+            "KULAURA",
+            "MAULVIBAZAR SADAR",
+            "RAJNAGAR",
+            "SREEMANGAL"
+        ],
+        "SUNAMGANJ": [
+            "BISHWAMBARPUR",
+            "CHHATAK",
+            "DAKSHIN SUNAMGANJ",
+            "DERAI",
+            "DHARAMPASHA",
+            "DOWARABAZAR",
+            "JAGANNATHPUR",
+            "JAMALGANJ",
+            "SULLA",
+            "SUNAMGANJ SADAR",
+            "TAHIRPUR"
+        ],
+        "SYLHET": [
+            "BALAGANJ",
+            "BEANI BAZAR",
+            "BISHWANATH",
+            "COMPANIGANJ",
+            "DAKSHIN SURMA",
+            "FENCHUGANJ",
+            "GOLAPGANJ",
+            "GOWAINGHAT",
+            "JAINTIAPUR",
+            "KANAIGHAT",
+            "SYLHET SADAR",
+            "ZAKIGANJ"
+        ]
+    }
 
-    routine.addEventListener('click', function () {
-        window.open("https://click.apars.shop/JV")
-    })
-</script> -->
+    const districtSelect = document.getElementById('ship_city');
+    const upazilaSelect = document.getElementById('ship_upzilla');
+
+    // Populate Districts
+    Object.keys(districtUpazilas).forEach(district => {
+        const option = document.createElement('option');
+        option.value = district;
+        option.textContent = district;
+        districtSelect.appendChild(option);
+    });
+
+    // Handle District Change
+    districtSelect.addEventListener('change', function () {
+        const selectedDistrict = this.value;
+        const upazilas = districtUpazilas[selectedDistrict] || [];
+
+        // Reset sub-district dropdown
+        upazilaSelect.innerHTML = '<option value="">-- Select Sub-district --</option>';
+
+        // Populate Sub-districts
+        upazilas.forEach(upazila => {
+            const option = document.createElement('option');
+            option.value = upazila;
+            option.textContent = upazila;
+            upazilaSelect.appendChild(option);
+        });
+    });
+</script>
 
 </html>

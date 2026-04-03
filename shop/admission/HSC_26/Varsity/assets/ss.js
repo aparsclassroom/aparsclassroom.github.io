@@ -1,9 +1,9 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 5,
-    spaceBetween: 3,
-    loop: true,
+    spaceBetween: 5,
+    loop: false,
     autoplay: {
-        delay: 2000,
+        delay: 4000,
     },
 });
 
@@ -17,33 +17,36 @@ if (screen.width <= 600) {
 }
 var tag = document.createElement('script');
 
-// tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// var player;
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
 
-// function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '390',
-//         width: '640',
-//         videoId: '',
-//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
-//         events: {
-//             'onReady': onPlayerReady
-//         }
-//     });
-// }
+//  function onYouTubeIframeAPIReady() {
+//      player = new YT.Player('player', {
+//          height: '390',
+//          width: '640',
+//          videoId: '5AH1rWbOr_o',
+//          playerVars: { 'autoplay': 1, 'playsinline': 1 },
+//          events: {
+//              'onReady': onPlayerReady
+//          }
+//      });
+//  }
 
-// function onPlayerReady(event) {
-//     document.getElementById('thumb').style.display = "none";
-//     event.target.setVolume(100);
-//     event.target.playVideo();
-// }
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},614`)
+ function onPlayerReady(event) {
+     document.getElementById('thumb').style.display = "none";
+     event.target.setVolume(100);
+     event.target.playVideo();
+ }
+
+ document.getElementById('moda').addEventListener('click', function () {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+    }
+});
+
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2},${productCode3},${productCode4}`)
     .then((res) => {
         return res.json()
     })

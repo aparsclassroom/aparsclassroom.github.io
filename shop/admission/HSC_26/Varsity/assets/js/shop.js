@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwxXnj-IrpF-dwJSGmlOeosjeH5p-9EFLbL-Gp1-fqz0dDb9Tn9yeOgEwUpRaGNS9PtFw/exec';
+const scriptURL = 'https://agri23.aparsclassroom.com/Engg25/';
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
@@ -38,13 +38,14 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
 
-        fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
+        fetch(scriptURL + "getUser?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
             })
             .then((dashboard) => {
 
                 if (dashboard.code != 200) {
+                    console.log(dashboard)
                     document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
                     if (document.getElementById('enrolled')) {
                         const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
@@ -59,7 +60,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     form.addEventListener('submit', e => {
                         document.getElementById('buy').innerText = "Please Wait...";
                         e.preventDefault()
-                        fetch(scriptURL, {
+                        fetch(scriptURL + "setUser", {
                                 method: 'POST',
                                 body: new FormData(form)
                             })
@@ -99,6 +100,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                 }
 
             }).catch((err => {
+                console.log(err)
                 document.getElementById('enrolled').innerHTML = `0 জন`;
                 swal({
                     title: "Welcome",
@@ -142,7 +144,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('moda').addEventListener('click', () => {
             location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
         })
-        fetch(scriptURL + "?q=Indivisual&uid=unknown")
+        fetch(scriptURL + "getUser?q=Indivisual&uid=unknown")
         .then((res) => {
             return res.json();
         })
