@@ -40,7 +40,7 @@ function onPlayerReady(event) {
     event.target.playVideo();
 }
 
-document.getElementById('moda').addEventListener('click', function () {
+document.getElementById('pauseBtn').addEventListener('click', function () {
     if (player && typeof player.pauseVideo === 'function') {
         player.pauseVideo();
     }
