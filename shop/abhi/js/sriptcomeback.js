@@ -21,178 +21,134 @@ document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
+// Function to check if user has valid payment history
+function checkValidPayment(uid) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("uid", uid);
+    
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+    };
+    
+    fetch(`https://${shopName2}/logs`, requestOptions)
+        .then(response => response.json())
+        .then((loadedData) => {
+            if (loadedData.status === 200 && loadedData.info && loadedData.info.length > 0) {
+                // Check if user has at least one valid payment
+                const hasValidPayment = loadedData.info.some(item => 
+                    item.status === "VALID" || item.status === "VALIDATED"
+                );
+                
+                if (hasValidPayment) {
+                    swal({
+                        title: "Congratulations!",
+                        text: "তুমি এই কোর্সে ফ্রি অ্যাক্সেস পেয়েছো। ওয়েব অ্যাপে যেয়ে লগইন করে কোর্স টি আনলক করে নাও। ",
+                        icon: "success",
+                        button: "Go to Web app"
+                    }).then(() => {
+                        window.location.href = "https://varsity.aparsclassroom.com/";
+                    });
+                }
+            }
+        })
+        .catch((error) => {
+            console.error("Error checking payment:", error);
+        });
+}
+
+// Function to process the purchase
+function processPurchase(uid) {
+    var mail = document.getElementById('email').value.toLowerCase().trim();
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+        "productName": product,
+        "Platform": Platform,
+        "cus_name": document.getElementById('name').value.trim(),
+        "cus_email": mail,
+        "Institution": document.getElementById('college').value.trim(),
+        "HSC": document.getElementById('hscBatch').value.trim(),
+        "cus_phone": document.getElementById('phone').value.trim(),
+        "Cupon": document.getElementById('disC').value.trim(),
+        'uid': uid,
+        "affiliate": getCookie("affiliate"),
+        "utm_id": getCookie("utm_id"),
+        "utm_source": getCookie("utm_source"),
+        "utm_medium": getCookie("utm_medium"),
+        "utm_campaign": getCookie("utm_campaign"),
+        "utm_term": getCookie("utm_term"),
+        "utm_content": getCookie("utm_content"),
+        "lead": getCookie("lead"),
+        "Referrer": getCookie("Referrer"),
+        "Ip": getCookie("ip"),
+        "Referrer": getCookie("Platform")
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    document.getElementById('buy').innerText = "Processing...";
+    
+    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
+        .then(response => {
+            return response.text()
+        })
+        .then(result => {
+            if (result != '{"status":404,"message":"Product Error"}' && result.status != 420) {
+                document.getElementById('doc').innerHTML = result
+            } else {
+                swal({
+                    title: "Error",
+                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                    text: "Please visit after 10 pm tonight",
+                    button: "Ok"
+                }).then(() => {
+                    location.href = "/shop"
+                });
+                document.getElementById('buy').innerText = "Buy Now";
+                document.getElementById("buy").disabled = false;
+            }
+        })
+        .catch(() => {
+            swal({
+                title: "Error",
+                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                text: "Please visit after 10 pm tonight",
+                button: "Ok"
+            }).then(() => {
+                location.href = "/shop"
+            });
+            document.getElementById('buy').innerText = "Buy Now";
+            document.getElementById("buy").disabled = false;
+        });
+}
+
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-            "product": productCode,
-            'uid': e.uid
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch(`https://${shopName2}/${productCode}/purchase`, requestOptions)
-            .then(response => {
-                return response.json()
-            })
-            .then(result => {
-                if (result.status === 200) {
-                    swal({
-                        title: "Already Enrolled !",
-                        icon: "success",
-                        button: "View Informations"
-                    }).then(() => {
-                        return location.replace(result.Invoice)
-                    })
-                } else {
-                    const form = document.forms['purchase']
-                    form.addEventListener('submit', em => {
-                        em.preventDefault();
-                        var mail = document.getElementById('email').value.toLowerCase().trim();
-                        document.getElementById('buy').innerText = "Please wait...."
-                        document.getElementById("buy").disabled = true;
-                        var myHeaders = new Headers();
-                        myHeaders.append("Content-Type", "application/json");
-                        var raw = JSON.stringify({
-                            "productName": product,
-                            "Platform": Platform,
-                            "cus_name": document.getElementById('name').value.trim(),
-                            "cus_email": mail,
-                            "Institution": document.getElementById('college').value.trim(),
-                            "HSC": document.getElementById('hscBatch').value.trim(),
-                            "cus_phone": document.getElementById('phone').value.trim(),
-                            "Cupon": document.getElementById('disC').value.trim(),
-                            'uid': e.uid,
-                            "affiliate": getCookie("affiliate"),
-                            "utm_id": getCookie("utm_id"),
-                            "utm_source": getCookie("utm_source"),
-                            "utm_medium": getCookie("utm_medium"),
-                            "utm_campaign": getCookie("utm_campaign"),
-                            "utm_term": getCookie("utm_term"),
-                            "utm_content": getCookie("utm_content"),
-                            "lead": getCookie("lead"),
-                            "Referrer": getCookie("Referrer"),
-                            "Ip": getCookie("ip"),
-                            "Referrer": getCookie("Platform")
-                        });
-
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: raw,
-                            redirect: 'follow'
-                        };
-
-                        fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
-                            .then(response => {
-                                return response.text()
-                            })
-                            .then(result => {
-                                if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
-                                    document.getElementById('doc').innerHTML = result
-                                } else {
-                                    swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
-                                }
-                            })
-                            .catch(() => {
-                                swal({
-                                    title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                    button: "Ok"
-                                }).then(() => {
-                                    location.href = "/shop"
-                                })
-                            });
-                    })
-                }
-            }).catch(() => {
-                const mfs = document.forms['purchase']
-                mfs.addEventListener('submit', em => {
-                    em.preventDefault();
-                    var mail = document.getElementById('email').value.toLowerCase().trim();
-                    document.getElementById('buy').innerText = "Please wait...."
-                    document.getElementById("buy").disabled = true;
-                    var myHeaders = new Headers();
-                    myHeaders.append("Content-Type", "application/json");
-                    var raw = JSON.stringify({
-                        "productName": product,
-                        "Platform": Platform,
-                        "cus_name": document.getElementById('name').value.trim(),
-                        "cus_email": mail,
-                        "Institution": document.getElementById('college').value.trim(),
-                        "HSC": document.getElementById('hscBatch').value.trim(),
-                        "cus_phone": document.getElementById('phone').value.trim(),
-                        "Cupon": document.getElementById('disC').value.trim(),
-                        'uid': e.uid,
-                        "affiliate": getCookie("affiliate"),
-                        "utm_id": getCookie("utm_id"),
-                        "utm_source": getCookie("utm_source"),
-                        "utm_medium": getCookie("utm_medium"),
-                        "utm_campaign": getCookie("utm_campaign"),
-                        "utm_term": getCookie("utm_term"),
-                        "utm_content": getCookie("utm_content"),
-                        "lead": getCookie("lead"),
-                        "Referrer": getCookie("Referrer"),
-                        "Ip": getCookie("ip"),
-                        "Referrer": getCookie("Platform")
-                    });
-
-                    var requestOptions = {
-                        method: 'POST',
-                        headers: myHeaders,
-                        body: raw,
-                        redirect: 'follow'
-                    };
-
-                    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
-                        .then(response => {
-                            return response.text()
-                        })
-                        .then(result => {
-                            if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
-                                document.getElementById('doc').innerHTML = result
-                            } else {
-                                swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
-                            }
-                        })
-                        .catch(() => {
-                            swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
-                        });
-                })
-
-            })
+        
+        const form = document.forms['purchase']
+        form.addEventListener('submit', em => {
+            em.preventDefault();
+            document.getElementById('buy').innerText = "Processing..."
+            document.getElementById("buy").disabled = true;
+            
+            processPurchase(e.uid);
+        })
+        
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
@@ -222,6 +178,10 @@ firebase.auth().onAuthStateChanged(function(e) {
             .catch((error) => {
                 console.error(error);
             });
+        
+        // Check if user has any valid payment history on page load
+        checkValidPayment(e.uid);
+        
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
