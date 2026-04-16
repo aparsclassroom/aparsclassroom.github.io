@@ -1,18 +1,18 @@
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 
 document.title = productName + " | ASG Shop";
 document.getElementById('prod').innerText = productName;
@@ -23,42 +23,59 @@ document.getElementById('price').value = pls;
 
 // Function to check if user has valid payment history
 function checkValidPayment(uid) {
+    // Show checking state
+    document.getElementById('moda').innerHTML = "Checking ...";
+    document.getElementById('moda').disabled = true;
+    
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    
+
     var urlencoded = new URLSearchParams();
     urlencoded.append("uid", uid);
-    
+
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: urlencoded,
         redirect: 'follow'
     };
-    
+
     fetch(`https://${shopName2}/logs`, requestOptions)
         .then(response => response.json())
         .then((loadedData) => {
             if (loadedData.status === 200 && loadedData.info && loadedData.info.length > 0) {
                 // Check if user has at least one valid payment
-                const hasValidPayment = loadedData.info.some(item => 
+                const hasValidPayment = loadedData.info.some(item =>
                     item.status === "VALID" || item.status === "VALIDATED"
                 );
-                
+
                 if (hasValidPayment) {
+                    // User already bought the course
                     swal({
                         title: "Congratulations!",
-                        text: "তুমি এই কোর্সে ফ্রি অ্যাক্সেস পেয়েছো। ওয়েব অ্যাপে যেয়ে লগইন করে কোর্স টি আনলক করে নাও। ",
+                        text: "তুমি এই কোর্সে ফ্রি অ্যাক্সেস পেয়েছো। ওয়েব অ্যাপে যেয়ে লগইন করে কোর্স টি আনলক করে নাও। ",
                         icon: "success",
                         button: "Go to Web app"
                     }).then(() => {
                         window.location.href = "https://varsity.aparsclassroom.com/";
                     });
+
+                    document.getElementById('moda').innerHTML = "Enrolled";
+                    document.getElementById('moda').disabled = true;
+                } else {
+                    document.getElementById('moda').innerHTML = `কোর্সটি কিনুন <i class="fas fa-arrow-right"></i>`;
+                    document.getElementById('moda').disabled = false;
                 }
+            } else {
+                document.getElementById('moda').innerHTML = `কোর্সটি কিনুন <i class="fas fa-arrow-right"></i>`;
+                document.getElementById('moda').disabled = false;
             }
         })
         .catch((error) => {
             console.error("Error checking payment:", error);
+            // On error, enable button to allow purchase
+            document.getElementById('moda').innerHTML = `কোর্সটি কিনুন <i class="fas fa-arrow-right"></i>`;
+            document.getElementById('moda').disabled = false;
         });
 }
 
@@ -98,7 +115,7 @@ function processPurchase(uid) {
     };
 
     document.getElementById('buy').innerText = "Processing...";
-    
+
     fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
         .then(response => {
             return response.text()
@@ -133,22 +150,22 @@ function processPurchase(uid) {
         });
 }
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        
+
         const form = document.forms['purchase']
         form.addEventListener('submit', em => {
             em.preventDefault();
             document.getElementById('buy').innerText = "Processing..."
             document.getElementById("buy").disabled = true;
-            
+
             processPurchase(e.uid);
         })
-        
+
         document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
@@ -178,10 +195,10 @@ firebase.auth().onAuthStateChanged(function(e) {
             .catch((error) => {
                 console.error(error);
             });
-        
+
         // Check if user has any valid payment history on page load
         checkValidPayment(e.uid);
-        
+
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
@@ -219,7 +236,7 @@ cpn.addEventListener('click', (e) => {
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productCode)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + productCode)
         .then((res) => {
             return res.json();
         })
@@ -240,7 +257,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -269,11 +286,11 @@ document.getElementById("cup").style.display = "block";
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
 
-    document.getElementById("cup").style.display = "none"; 
+    document.getElementById("cup").style.display = "none";
     delete_cookie("promo");
     notdis()
 }
