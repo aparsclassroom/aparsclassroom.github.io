@@ -64,12 +64,16 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
+fetch(`https://api.varsity.aparsclassroom.com/api/v1/course/webapp/enroll/stats/for-crm?productId=${productCode}`, {
+    headers: { 
+        'crmkey': 'LcHvYb3BwOdSv5FhODMPNUW6QgM2'
+    }
+})
     .then((res) => {
         return res.json()
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        document.getElementById('enrolled').setAttribute('countTo', data.data + init);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
