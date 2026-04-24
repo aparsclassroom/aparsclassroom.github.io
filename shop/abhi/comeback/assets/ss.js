@@ -9,29 +9,29 @@ var swiper = new Swiper(".mySwiper", {
         nextEl: '.swiper-button-next'
     },
 });
-const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
-if (!countUp.error) {
-    countUp.start();
-} else {
-    console.error(countUp.error);
-}
-if (document.getElementById("stds")) {
-    const countUps = new CountUp('stds', document.getElementById("stds").getAttribute("countTo"));
-    if (!countUps.error) {
-        countUps.start();
-    } else {
-        console.error(countUps.error);
-    }
-}
+// const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+// if (!countUp.error) {
+//     countUp.start();
+// } else {
+//     console.error(countUp.error);
+// }
+// if (document.getElementById("stds")) {
+//     const countUps = new CountUp('stds', document.getElementById("stds").getAttribute("countTo"));
+//     if (!countUps.error) {
+//         countUps.start();
+//     } else {
+//         console.error(countUps.error);
+//     }
+// }
 
-if (document.getElementById("stdss")) {
-    const countUps = new CountUp('stdss', document.getElementById("stdss").getAttribute("countTo"));
-    if (!countUps.error) {
-        countUps.start();
-    } else {
-        console.error(countUps.error);
-    }
-}
+// if (document.getElementById("stdss")) {
+//     const countUps = new CountUp('stdss', document.getElementById("stdss").getAttribute("countTo"));
+//     if (!countUps.error) {
+//         countUps.start();
+//     } else {
+//         console.error(countUps.error);
+//     }
+// }
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
