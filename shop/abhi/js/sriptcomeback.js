@@ -69,7 +69,7 @@ function checkValidPayment(uid) {
                         if (value === "tutorial") {
                             window.open("https://youtu.be/1bHP9m7fj2w", "_blank");
                         } else if (value === "webapp") {
-                            window.location.href = "https://varsity.aparsclassroom.com/";
+                            window.location.href = "https://varsity.aparsclassroom.com/?title=comeback";
                         }
                     });
 
