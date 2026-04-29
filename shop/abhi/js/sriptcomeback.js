@@ -44,9 +44,10 @@ function checkValidPayment(uid) {
         .then(response => response.json())
         .then((loadedData) => {
             if (loadedData.status === 200 && loadedData.info && loadedData.info.length > 0) {
-                // Check if user has at least one valid payment
+                // Check if user has at least one valid payment for online course
                 const hasValidPayment = loadedData.info.some(item =>
-                    item.status === "VALID" || item.status === "VALIDATED"
+                    (item.status === "VALID" || item.status === "VALIDATED") &&
+                    item.Product && item.Product.Platform !== "Offline"
                 );
 
                 if (hasValidPayment) {
