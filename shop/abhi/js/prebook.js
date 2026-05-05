@@ -1,5 +1,27 @@
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxm4Zw9EP5AFK77yZFSYScANQ25Pbs5WTNH6pSWtf-UkCFWhmHL2l-0v3xvwViS1Qk/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx7HDVJzLKurAITEGXgDg6RsdJbR064bzISsvvWQUivw3gzVmXDws7TOkjdNM2OHNxY/exec';
+
+function formatBookingTime(timestamp) {
+    if (!timestamp) return "Not available";
+
+    const value = String(timestamp).trim();
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return value;
+    }
+
+    return date.toLocaleString("en-GB", {
+        timeZone: "Asia/Dhaka",
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true
+    });
+}
+
 fetch('https://json.geoiplookup.io/')
     .then((r) => {
         return r.json();
@@ -89,10 +111,12 @@ firebase.auth().onAuthStateChanged(function(e) {
                         })
                     })
                 } else {
+                    const bookingTime = formatBookingTime(dashboard.message.timestamp);
+
                     swal({
                         title: "Already Booked! ✔",
                         icon: "info",
-                        text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + dashboard.message.timestamp,
+                        text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + bookingTime,
                         button: "Thank you"
                     }).then(() => {
                         return location.replace('/shop');
