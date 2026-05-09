@@ -18,13 +18,17 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://static.cloudflareinsights.com">
 
-    <link rel="stylesheet" href="../../assets/css/shop.min.css">
+    <link rel="preload" href="../../assets/css/shop.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/shop/assets/css/fontawesome/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../../assets/css/main.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
+        <link rel="stylesheet" href="../../assets/css/shop.min.css">
         <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="../../assets/css/main.css">
     </noscript>
-    <link rel="stylesheet" href="../../assets/css/main.css">
     <style>
         .course-thumb {
             aspect-ratio: 16 / 9;
