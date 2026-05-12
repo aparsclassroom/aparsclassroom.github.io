@@ -33,27 +33,27 @@ fetch('https://json.geoiplookup.io/')
     .catch(() => {
         document.getElementById("ip-details").value = "No Ip Address Found 💔";
     });
-    document.getElementById('email').addEventListener("input", function (event) {
-        if (document.getElementById('email').validity.typeMismatch) {
-          document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
-        } else {
-          document.getElementById('email').setCustomValidity("");
-        }
-      });
-      
-      document.getElementById('phone').addEventListener("input", function (event) {
-        if (document.getElementById('phone').validity.patternMismatch) {
-            document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
-        } else {
-            document.getElementById('phone').setCustomValidity("");
-        }
-      });
-    
+document.getElementById('email').addEventListener("input", function (event) {
+    if (document.getElementById('email').validity.typeMismatch) {
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+    } else {
+        document.getElementById('email').setCustomValidity("");
+    }
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
+    if (document.getElementById('phone').validity.patternMismatch) {
+        document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
+    } else {
+        document.getElementById('phone').setCustomValidity("");
+    }
+});
+
 
 document.title = "ACS - College Biology Course by BioMission" + " | ASG Shop";
 document.getElementById('prod').innerText = "ACS - College Biology Course by BioMission";
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
 
         var t = e.phoneNumber;
@@ -83,9 +83,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                         document.getElementById('buy').innerText = "Please Wait...";
                         e.preventDefault()
                         fetch(scriptURL, {
-                                method: 'POST',
-                                body: new FormData(form)
-                            })
+                            method: 'POST',
+                            body: new FormData(form)
+                        })
                             .then((res) => {
                                 return res.json();
                             })
@@ -97,18 +97,18 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     button: "Thank you"
                                 }).then(() => {
                                     form.reset();
-                                    return location.replace('/shop');
+                                    return location.replace('/shop/academic/HSC_28');
                                 })
                             })
 
-                        .catch(() => {
-                            swal({
-                                title: "Oh No 💔",
-                                icon: "error",
-                                text: "Your booking cancelled!\nPlease try again (later) 😶",
-                                button: "Okay ☹"
+                            .catch(() => {
+                                swal({
+                                    title: "Oh No 💔",
+                                    icon: "error",
+                                    text: "Your booking cancelled!\nPlease try again (later) 😶",
+                                    button: "Okay ☹"
+                                })
                             })
-                        })
                     })
                 } else {
                     const bookingTime = formatBookingTime(dashboard.message.timestamp);
@@ -116,7 +116,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already Booked! ✔",
                         icon: "info",
-                        text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + bookingTime,
+                        text: "Hello " + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + bookingTime,
                         button: "Thank you"
                     }).then(() => {
                         return location.replace('/shop');
@@ -165,20 +165,20 @@ firebase.auth().onAuthStateChanged(function(e) {
             location.href = "/shop/dashboard/login?signInSuccessUrl=" + encodeURIComponent(location.href)
         })
         fetch(scriptURL + "?q=Indivisual&uid=unknown")
-        .then((res) => {
-            return res.json();
-        })
-        .then((dashboard) => {
-            document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
-            if (document.getElementById('enrolled')) {
-                const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-                if (!countUp.error) {
-                    countUp.start();
-                } else {
-                    console.error(countUp.error);
+            .then((res) => {
+                return res.json();
+            })
+            .then((dashboard) => {
+                document.getElementById('enrolled').setAttribute('countTo', dashboard.enrolled.enrolled);
+                if (document.getElementById('enrolled')) {
+                    const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+                    if (!countUp.error) {
+                        countUp.start();
+                    } else {
+                        console.error(countUp.error);
+                    }
                 }
-            }
-        })
+            })
     }
 
 });

@@ -97,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                     button: "Thank you"
                                 }).then(() => {
                                     form.reset();
-                                    return location.replace('/shop');
+                                    return location.replace('/shop/academic/HSC_28');
                                 })
                             })
 
