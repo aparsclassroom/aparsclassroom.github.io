@@ -1,5 +1,5 @@
 const product = "tundraregion28";
-const productName = "HSC Biology 1st Paper \"All-in-One\" Course by DU Topper (From Bascis to Board & Admission Success)";
+const productName = "HSC Biology 1st Paper \"All-in-One\" Course by DU Topper";
 const productCode = "660";
 const fix = 4000;
 const pls = 3000;
