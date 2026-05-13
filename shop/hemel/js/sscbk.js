@@ -88,7 +88,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        document.getElementById('moda').innerHTML = 'প্রিবুক করতে ক্লিক করো <i class="fas fa-arrow-right"></i>';
+        document.getElementById('moda').innerHTML = 'ফ্রি কোর্সটি অ্যাক্সেস করো <i class="fas fa-arrow-right"></i>';
         fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
