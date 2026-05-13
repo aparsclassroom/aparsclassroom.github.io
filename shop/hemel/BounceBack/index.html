@@ -95,56 +95,42 @@
     </style>
 
     <style>
-        .teacher-section {
-            max-width: 100%;
-            padding: 6px;
-        }
-
-        .teacher-section h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #333;
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .teacher-card {
+            flex: 1 1 calc(50% - 20px);
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 15px;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
         }
 
         .teacher-card img {
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        .teacher-info h5 {
-            font-size: 18px;
-            margin: 0 0 8px;
-            font-weight: 600;
-            color: #2c3e50;
+        .teacher-info {
+            font-size: 15px;
         }
 
-        .teacher-info .content {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.6;
+        .teacher-info strong {
+            font-size: 16px;
+            display: block;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .teacher-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .teacher-info {
-                text-align: center;
+                flex: 1 1 100%;
             }
         }
     </style>
@@ -173,25 +159,25 @@
             <h3 class="text-center"><span id="prod"></span></h3>
             <div class="row">
                 <div id="teachers" class="col-md-7 first">
-                    <div class="row">
-                        <div class="teacher-section">
-                            <h2>Teachers:</h2>
-
-                            <div class="teachers">
-                                <div class="teacher-card">
-                                    <img src="https://i.postimg.cc/CKRfF4P6/Screenshot-43.png" alt="Hemel">
-                                    <div class="teacher-info">
-                                        <strong>Hemel</strong>
-                                        <br>
-                                        EEE’17, BUET <br>
-                                        8+ Years of Experience <br>
-                                        Founder, Learn with Hemel Bhai <br>
-                                        Chief Academic Officer, ACS
-
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="teacher-section">
+                                <h2>Teachers :</h2>
+                                <div class="teachers">
+                                    <div class="teacher-card">
+                                        <img src="https://i.postimg.cc/CKRfF4P6/Screenshot-43.png" alt="Hemel">
+                                        <div class="teacher-info">
+                                            <strong>Hemel</strong>
+                                            EEE’17, BUET <br>
+                                            8+ Years of Experience <br>
+                                            Founder, Founder, Learn with Hemel Bhai <br>
+                                            Chief Academic Officer, ACS
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
+                            <hr>
                         </div>
                     </div>
                     <div class="row">
