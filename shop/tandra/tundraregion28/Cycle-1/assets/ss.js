@@ -15,6 +15,16 @@ if (screen.width <= 600) {
     vidD.style.position = 'sticky';
 }
 
+// Initialize countup for teacher mentored students
+if (document.getElementById('stds')) {
+    const countUp = new CountUp('stds', 500000, { suffix: '+' });
+    if (!countUp.error) {
+        countUp.start();
+    } else {
+        console.error(countUp.error);
+    }
+}
+
 // var tag = document.createElement('script');
 
 // tag.src = "https://www.youtube.com/iframe_api";
