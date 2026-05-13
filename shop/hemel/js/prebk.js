@@ -1,5 +1,5 @@
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyv_0Phna_OD1IolvTrTNoXk3arqWlDpjucCibBvQFAIv_i_wAb5L74FlzNuHxiBw3x-g/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycby07G4i4FC7E7V4hzyowYTYfxSWReFNwpm0RfaVjmoItb98wF9gDX-MiH3Vg4sPi87K/exec';
 
 
 function formatBookingTime(timestamp) {
@@ -61,7 +61,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        document.getElementById('moda').innerHTML = 'কোর্সটি অ্যাক্সেস করো <i class="fas fa-arrow-right"></i>';
+        document.getElementById('moda').innerHTML = 'প্রিবুক করতে ক্লিক করো <i class="fas fa-arrow-right"></i>';
         fetch(scriptURL + "?q=Indivisual&uid=" + e.uid)
             .then((res) => {
                 return res.json();
@@ -120,7 +120,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         text: "Hello "  + dashboard.message.username + "\nYour Booking Number : " + dashboard.message.Serial + "\nTime : " + bookingTime,
                         button: "Thank you"
                     }).then(() => {
-                        return location.replace('https://www.facebook.com/groups/bounceback1.0');
+                        return location.replace('/shop');
                     })
                 }
 
