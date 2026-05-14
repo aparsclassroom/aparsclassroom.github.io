@@ -132,6 +132,253 @@
 
     <!-- Custom Scripts -->
     <script src="../assets/script.js" defer></script>
+
+    <style>
+        /* ── Biology Theme ── */
+        :root {
+            --bio-deep: #0f3d2e;
+            --bio-dark: #166534;
+            --bio-mid: #16a34a;
+            --bio-light: #22c55e;
+            --bio-pale: #dcfce7;
+            --bio-bg: #f0fdf4;
+            --bio-teal: #0d9488;
+        }
+
+        body {
+            background: linear-gradient(160deg, #f0fdf4 0%, #ecfdf5 60%, #f0fdfa 100%);
+            background-attachment: fixed;
+        }
+
+        /* ── Navbar ── */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(134, 239, 172, 0.35);
+            box-shadow: 0 2px 12px rgba(22, 101, 52, 0.08);
+        }
+
+        .navbar a {
+            color: #166534 !important;
+        }
+
+        /* ── Hero Banner ── */
+        .bio-hero {
+            position: relative;
+            background: linear-gradient(135deg, #0f3d2e 0%, #166534 45%, #0d9488 100%);
+            padding: 48px 20px 64px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .bio-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            background: #f0fdf4;
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .bio-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bio-badge-pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            color: #bbf7d0;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .bio-hero-title {
+            color: #ffffff;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            font-family: Kalpurush, sans-serif;
+        }
+
+        .bio-hero-sub {
+            color: #a7f3d0;
+            font-size: 1rem;
+            margin-bottom: 26px;
+            letter-spacing: 0.4px;
+        }
+
+        .bio-stats {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .bio-stat {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 9px 18px;
+            color: #d1fae5;
+            font-family: Kalpurush, sans-serif;
+            font-size: 0.95rem;
+        }
+
+        /* ── Floating background cells ── */
+        .bio-bg-anim {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bio-cell {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            animation: biofloat ease-in-out infinite;
+        }
+
+        .bc1 { width: 130px; height: 130px; left: 4%;  top: 8%;   animation-duration: 11s; }
+        .bc2 { width: 80px;  height: 80px;  right: 8%; top: 18%;  animation-duration: 8s;  animation-delay: -3s; }
+        .bc3 { width: 170px; height: 170px; left: 62%; bottom: 8%; animation-duration: 14s; animation-delay: -6s; }
+        .bc4 { width: 55px;  height: 55px;  left: 38%; top: 5%;   animation-duration: 9s;  animation-delay: -1s; }
+
+        .bio-leaf {
+            position: absolute;
+            background: rgba(134, 239, 172, 0.1);
+            border-radius: 0 100% 0 100%;
+            animation: biospin linear infinite;
+        }
+
+        .bl1 { width: 60px; height: 28px; right: 14%; top: 28%; animation-duration: 18s; }
+        .bl2 { width: 44px; height: 20px; left: 22%;  bottom: 22%; animation-duration: 14s; animation-delay: -4s; }
+        .bl3 { width: 36px; height: 18px; right: 32%; top: 12%; animation-duration: 22s; animation-delay: -9s; }
+
+        @keyframes biofloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50%       { transform: translateY(-18px) scale(1.04); }
+        }
+
+        @keyframes biospin {
+            from { transform: rotate(0deg) translateX(8px); }
+            to   { transform: rotate(360deg) translateX(8px); }
+        }
+
+        /* ── Main card ── */
+        .shopcontainer {
+            background: rgba(255, 255, 255, 0.88) !important;
+            backdrop-filter: blur(10px);
+            border-radius: 20px !important;
+            padding: 30px !important;
+            box-shadow: 0 8px 48px rgba(22, 101, 52, 0.09) !important;
+            border: 1px solid rgba(134, 239, 172, 0.22) !important;
+            margin: 0 auto 30px !important;
+        }
+
+        .shopcontainer > h2.text-center {
+            color: #166534 !important;
+        }
+
+        hr {
+            border-color: #bbf7d0 !important;
+        }
+
+        /* ── Teacher image ── */
+        #teachers .media img {
+            border-radius: 50%;
+            border: 3px solid #86efac;
+            box-shadow: 0 4px 16px rgba(22, 163, 74, 0.22);
+            width: 68px;
+            height: 68px;
+            object-fit: cover;
+        }
+
+        /* ── Feature tags ── */
+        .tag.noWrap {
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 8px 14px;
+            margin: 5px 0;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag.noWrap:hover {
+            background: linear-gradient(135deg, #dcfce7, #d1fae5);
+            border-color: #86efac;
+            transform: translateX(5px) !important;
+            box-shadow: 0 2px 10px rgba(22, 163, 74, 0.12);
+        }
+
+        /* ── contmeta box ── */
+        .contmeta {
+            background: linear-gradient(135deg, #f0fdf4, #f0fdfa);
+            border-radius: 14px;
+            padding: 14px;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* ── Enroll button ── */
+        .btn-success-mod {
+            background: linear-gradient(135deg, #16a34a, #0d9488) !important;
+            border: none !important;
+            border-radius: 14px !important;
+            font-size: 1.1rem !important;
+            padding: 14px 20px !important;
+            box-shadow: 0 4px 22px rgba(22, 163, 74, 0.3) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn-success-mod:hover {
+            transform: translateY(-3px) scale(1.01) !important;
+            box-shadow: 0 8px 28px rgba(22, 163, 74, 0.4) !important;
+            background: linear-gradient(135deg, #15803d, #0f766e) !important;
+        }
+
+        /* ── FAQ cards ── */
+        #Faq .card {
+            border: 1px solid #bbf7d0 !important;
+            border-radius: 12px !important;
+            overflow: hidden;
+        }
+
+        #Faq .card-header {
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5) !important;
+            border-bottom: 1px solid #bbf7d0 !important;
+        }
+
+        /* ── Bio section label ── */
+        .bio-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #dcfce7, #d1fae5);
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+            color: #166534;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+    </style>
 </head>
 
 <body>
@@ -144,6 +391,30 @@
         <a href="../" style="text-decoration: none;color: #5375e2;font-size: large;font-weight: bold;"><i
                 class="fas fa-store-alt"></i> ASG Shop</a>
     </nav>
+
+    <!-- Biology Hero Banner -->
+    <div class="bio-hero">
+        <div class="bio-bg-anim">
+            <div class="bio-cell bc1"></div>
+            <div class="bio-cell bc2"></div>
+            <div class="bio-cell bc3"></div>
+            <div class="bio-cell bc4"></div>
+            <div class="bio-leaf bl1"></div>
+            <div class="bio-leaf bl2"></div>
+            <div class="bio-leaf bl3"></div>
+        </div>
+        <div class="bio-hero-content">
+            <div class="bio-badge-pill">🧬 Cycle 0 &bull; Free Enrollment</div>
+            <h1 class="bio-hero-title">জীববিজ্ঞান কোর্স</h1>
+            <p class="bio-hero-sub">HSC Biology All-in-One &mdash; Tundra Region</p>
+            <div class="bio-stats">
+                <div class="bio-stat">🌿 উদ্ভিদবিজ্ঞান</div>
+                <div class="bio-stat">🦋 প্রাণীবিজ্ঞান</div>
+                <div class="bio-stat">🔬 সম্পূর্ণ বিনামূল্যে</div>
+            </div>
+        </div>
+    </div>
+
     <div class="main">
         <div class="shopcontainer container-fluid">
             <h2 class="text-center" style="color: darkslategray;">ASG Shop</h2>
@@ -152,6 +423,7 @@
                 <div id="teachers" class="col-md-7 first">
                     <div class="row">
                         <div class="col-md-6">
+                            <div class="bio-section-label">🌱 Course Instructor</div>
                             <h2>Teachers :</h2>
                             <div class="media">
                                 <p>
