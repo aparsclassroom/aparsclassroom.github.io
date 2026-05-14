@@ -362,6 +362,42 @@
             border-bottom: 1px solid #bbf7d0 !important;
         }
 
+        /* ── Floating CTA (mobile only) ── */
+        .bio-float-cta {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .bio-float-cta {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1050;
+                padding: 12px 16px;
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(12px);
+                border-top: 1px solid #bbf7d0;
+                box-shadow: 0 -4px 24px rgba(22, 101, 52, 0.15);
+            }
+
+            .bio-float-cta .btn-success-mod {
+                margin-top: 0 !important;
+                border-radius: 14px !important;
+            }
+
+            /* push page content up so button doesn't overlap */
+            body {
+                padding-bottom: 80px;
+            }
+
+            /* hide the inline button on mobile to avoid duplication */
+            #clprc .d-flex {
+                display: none !important;
+            }
+        }
+
         /* ── Bio section label ── */
         .bio-section-label {
             display: inline-flex;
@@ -793,6 +829,15 @@
             </div>
         </div>
     </div>
+    <!-- Floating CTA (mobile only) -->
+    <div class="bio-float-cta">
+        <button type="button" class="btn btn-block bangla btn-lg btn-success-mod">
+            <a href="https://www.facebook.com/groups/tundraregionfree28" style="color: white; text-decoration: none;">
+                কোর্সটি ফ্রি অ্যাক্সেস করো
+            </a> <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
