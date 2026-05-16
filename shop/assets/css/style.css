@@ -32,7 +32,9 @@ body {
 }
 
 .flex-column {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
