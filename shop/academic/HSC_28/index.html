@@ -35,6 +35,13 @@
         .course-thumb-square {
             aspect-ratio: 1 / 1;
         }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
     </style>
 
     <title>HSC 28 Academic Cycles | Apar's Classroom | ASG Shop</title>
@@ -1717,6 +1724,27 @@
         data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
     <script>
         document.querySelector('.current-year').textContent = new Date().getFullYear();
+
+        document.addEventListener('copy', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('cut', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+            const modKey = isMac ? event.metaKey : event.ctrlKey;
+
+            if (modKey && (event.key === 'c' || event.key === 'x' || event.key === 'a' || event.key === 'p')) {
+                event.preventDefault();
+            }
+        });
 
         window.addEventListener('load', function () {
             window.setTimeout(function () {
