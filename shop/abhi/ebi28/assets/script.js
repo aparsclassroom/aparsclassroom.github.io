@@ -118,7 +118,6 @@ let selectedSubjects = ebi28Subjects.map(subject => subject.id);
 let hasChosenCourse = false;
 let disOFF = 0;
 const purchasedCourses = {};
-let prebooked = false;
 let pendingPromoCode = null;
 
 function normalizePhone(phone) {
@@ -193,8 +192,7 @@ function updateCouponHint(course) {
     if (!hint) {
         return;
     }
-    // Only show coupon hint if user is prebooked and has a coupon code
-    if (!prebooked || !course.couponCode) {
+    if (!course.couponCode) {
         hint.innerHTML = "";
         return;
     }
@@ -475,8 +473,7 @@ function renderSubjectChooser() {
             return;
         }
         $('#ebi28SubjectModal').modal('hide');
-        // Now that the student has chosen a course, show the coupon button if they're prebooked
-        if (prebooked) {
+        if (selectedCourse.couponCode) {
             const appBtn = document.getElementById("app");
             if (appBtn) appBtn.style.display = "";
         }
@@ -724,16 +721,6 @@ firebase.auth().onAuthStateChanged(function (e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
         checkAllPurchases(e);
-        // verify whether this user pre-booked; we'll show the coupon button AFTER they choose a course
-        checkPrebook(e.uid).then(flag => {
-            prebooked = flag;
-            if (!prebooked) {
-                if (typeof delete_cookie === "function") {
-                    delete_cookie("promo");
-                }
-            }
-            // coupon button will be shown after course selection, not here
-        });
 
         const form = document.forms['purchase'];
         form.addEventListener('submit', em => {
@@ -778,8 +765,7 @@ firebase.auth().onAuthStateChanged(function (e) {
             const cup = document.getElementById("cup");
             if (appBtn) appBtn.style.display = "none";
             if (cup) cup.style.display = "block";
-            // apply pending promo only after user reveals the input and only if they're prebooked
-            if (pendingPromoCode && prebooked) {
+            if (pendingPromoCode) {
                 const cupInput = document.getElementById('cupon');
                 if (cupInput) cupInput.value = pendingPromoCode;
                 notdis();
@@ -804,19 +790,6 @@ firebase.auth().onAuthStateChanged(function (e) {
 });
 
 var cupon, cpn = document.getElementById("cpnCheck");
-
-// App Script endpoint used by prebook checks (same as used in prebook.js)
-const scriptURL = 'https://script.google.com/macros/s/AKfycbx7HDVJzLKurAITEGXgDg6RsdJbR064bzISsvvWQUivw3gzVmXDws7TOkjdNM2OHNxY/exec';
-
-function checkPrebook(uid) {
-    if (!uid) return Promise.resolve(false);
-    return fetch(scriptURL + "?q=Indivisual&uid=" + encodeURIComponent(uid))
-        .then(res => res.json())
-        .then(dashboard => {
-            return dashboard && dashboard.code === 200;
-        })
-        .catch(() => false);
-}
 
 function func() {
     cupon = document.getElementById("cupon").value;
@@ -892,7 +865,6 @@ cpn.addEventListener('click', (e) => {
 
 const promoCode = getPromoCode();
 if (promoCode) {
-    // defer applying promo until we verify the signed-in user's prebooking
     pendingPromoCode = promoCode;
 } else {
     document.getElementById("cup").style.display = "none";
@@ -900,18 +872,4 @@ if (promoCode) {
         delete_cookie("promo");
     }
     notdis();
-}
-
-// If user is already signed in, check prebooking (button will be shown after course selection)
-if (firebase && firebase.auth && firebase.auth().currentUser) {
-    const user = firebase.auth().currentUser;
-    checkPrebook(user.uid).then(flag => {
-        prebooked = flag;
-        if (!prebooked) {
-            if (typeof delete_cookie === "function") {
-                delete_cookie("promo");
-            }
-        }
-        // do not show the coupon button here; it will be shown after course selection
-    });
 }
