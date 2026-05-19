@@ -1,0 +1,9 @@
+const product = "ebi28";
+const productName = "ACS EBI Course for HSC 28";
+const productCode = "700";
+const productCode2 = "701";
+const fix = 2000;
+const pls = 1500;
+const pls2 = 500;
+const Platform = "Online";
+const init = 0;
