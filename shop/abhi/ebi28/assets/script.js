@@ -5,7 +5,7 @@ const ebi28Subjects = [
 ];
 
 const ebi28MultiCoursePrice = 3000;
-const ebi28MultiCourseCompareAt = 4500;
+const ebi28MultiCourseCompareAt = 6000;
 const ebi28SingleCoursePrice = 1500;
 const ebi28SingleCourseCompareAt = 2000;
 
@@ -20,8 +20,8 @@ const ebi28Options = [
         isCycleCourse: false,
         price: ebi28MultiCoursePrice,
         compareAt: ebi28MultiCourseCompareAt,
-        couponCode: "ACSEBI250",
-        couponDiscountText: "250 TAKA Discount",
+        couponCode: "ACSEBI500",
+        couponDiscountText: "500 TAKA Discount",
         platform: Platform
     },
     {
