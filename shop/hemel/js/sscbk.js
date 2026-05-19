@@ -1,6 +1,7 @@
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxSX5mO9mJZgYCWI5crxXyFuvxue0t6EULJqll0q9Qm_y7lSF7-LxJRzNLurmn3hHc_xQ/exec';
 
+let ipDetails = "";
 
 function formatBookingTime(timestamp) {
     if (!timestamp) return "Not available";
@@ -41,7 +42,7 @@ function buildBookingFormData(form) {
     formData.set("Phone", getInputValue("phone"));
     formData.set("UID", getInputValue("uid"));
     formData.set("Institute", getInputValue("college"));
-    formData.set("IP Address", getInputValue("ip-details"));
+    formData.set("IP Address", getInputValue("ip-details") || ipDetails);
 
     return formData;
 }
@@ -52,13 +53,15 @@ fetch('https://json.geoiplookup.io/')
     })
     .then((res) => {
         var a = ("IP Address : " + res.ip + "\n" + "ISP : " + res.isp + "\n" + "Organization : " + res.org + "\n" + "Hostname : " + res.hostname + "\n" + "Latitude : " + res.latitude + "\n" + "Longitude : " + res.longitude + "\n" + "Postal Code : " + res.postal_code + "\n" + "Neighbourhood : " + res.city + "\n" + "Region : " + res.region + "\n" + "District : " + res.district + "\n" + "Country Code : " + res.country_code + "\n" + "Country : " + res.country_name + "\n" + "Continent : " + res.continent_name + "\n" + "Timezone Name : " + res.timezone_name + "\n" + "Connection Tyoe : " + res.connection_type + "\n" + "ASN Organization : " + res.asn_org + "\n" + "ASN : " + res.asn + "\n" + "Currency Code : " + res.currency_code + "\n" + "Currency : " + res.currency_name);
+        ipDetails = a;
         if (document.getElementById("ip-details")) {
             document.getElementById("ip-details").value = a;
         }
     })
     .catch(() => {
+        ipDetails = "No Ip Address Found 💔";
         if (document.getElementById("ip-details")) {
-            document.getElementById("ip-details").value = "No Ip Address Found 💔";
+            document.getElementById("ip-details").value = ipDetails;
         }
     });
     document.getElementById('email').addEventListener("input", function (event) {
