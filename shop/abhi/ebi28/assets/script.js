@@ -6,8 +6,8 @@ const ebi28Subjects = [
 
 const ebi28MultiCoursePrice = 3000;
 const ebi28MultiCourseCompareAt = 6000;
-const ebi28SingleCoursePrice = 1500;
-const ebi28SingleCourseCompareAt = 2000;
+const ebi28SingleCoursePrice = 2000;
+const ebi28SingleCourseCompareAt = 3000;
 
 const ebi28Options = [
     {
@@ -77,8 +77,8 @@ const ebi28Options = [
         cycle: "Cycle-3",
         price: ebi28SingleCoursePrice,
         compareAt: ebi28SingleCourseCompareAt,
-        couponCode: "BANGLA250",
-        couponDiscountText: "250 TAKA Discount",
+        couponCode: "BANGLA750",
+        couponDiscountText: "750 TAKA Discount",
         platform: Platform
     },
     {
@@ -92,8 +92,8 @@ const ebi28Options = [
         cycle: "Cycle-2",
         price: ebi28SingleCoursePrice,
         compareAt: ebi28SingleCourseCompareAt,
-        couponCode: "ENGLISH250",
-        couponDiscountText: "250 TAKA Discount",
+        couponCode: "ENGLISH750",
+        couponDiscountText: "750 TAKA Discount",
         platform: Platform
     },
     {
@@ -107,8 +107,8 @@ const ebi28Options = [
         cycle: "Cycle-1",
         price: ebi28SingleCoursePrice,
         compareAt: ebi28SingleCourseCompareAt,
-        couponCode: "ICT250",
-        couponDiscountText: "250 TAKA Discount",
+        couponCode: "ICT750",
+        couponDiscountText: "750 TAKA Discount",
         platform: Platform
     }
 ];
