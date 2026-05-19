@@ -4,6 +4,11 @@ const ebi28Subjects = [
     { id: "ict", label: "ICT" }
 ];
 
+const ebi28MultiCoursePrice = 3000;
+const ebi28MultiCourseCompareAt = 4500;
+const ebi28SingleCoursePrice = 1500;
+const ebi28SingleCourseCompareAt = 2000;
+
 const ebi28Options = [
     {
         id: "bangla-english-ict",
@@ -13,8 +18,8 @@ const ebi28Options = [
         fullName: "ACS HSC 28 EBI Course",
         productCode: "665",
         isCycleCourse: false,
-        price: 3000,
-        compareAt: 3000,
+        price: ebi28MultiCoursePrice,
+        compareAt: ebi28MultiCourseCompareAt,
         couponCode: "ACSEBI250",
         couponDiscountText: "250 TAKA Discount",
         platform: Platform
@@ -27,8 +32,8 @@ const ebi28Options = [
         fullName: "ACS HSC 28 EBI Course (COMBO 1)",
         productCode: "669",
         isCycleCourse: false,
-        price: 3000,
-        compareAt: 3000,
+        price: ebi28MultiCoursePrice,
+        compareAt: ebi28MultiCourseCompareAt,
         couponCode: "ebi28combo1",
         couponDiscountText: "500 TAKA Discount",
         platform: Platform
@@ -41,8 +46,8 @@ const ebi28Options = [
         fullName: "ACS HSC 28 EBI Course (COMBO 2)",
         productCode: "670",
         isCycleCourse: false,
-        price: 3000,
-        compareAt: 3000,
+        price: ebi28MultiCoursePrice,
+        compareAt: ebi28MultiCourseCompareAt,
         couponCode: "ebi28combo2",
         couponDiscountText: "500 TAKA Discount",
         platform: Platform
@@ -55,8 +60,8 @@ const ebi28Options = [
         fullName: "ACS HSC 28 EBI Course (COMBO 3)",
         productCode: "671",
         isCycleCourse: false,
-        price: 3000,
-        compareAt: 3000,
+        price: ebi28MultiCoursePrice,
+        compareAt: ebi28MultiCourseCompareAt,
         couponCode: "ebi28combo3",
         couponDiscountText: "500 TAKA Discount",
         platform: Platform
@@ -70,8 +75,8 @@ const ebi28Options = [
         productCode: "668",
         isCycleCourse: true,
         cycle: "Cycle-3",
-        price: 1500,
-        compareAt: 1500,
+        price: ebi28SingleCoursePrice,
+        compareAt: ebi28SingleCourseCompareAt,
         couponCode: "BANGLA250",
         couponDiscountText: "250 TAKA Discount",
         platform: Platform
@@ -85,8 +90,8 @@ const ebi28Options = [
         productCode: "667",
         isCycleCourse: true,
         cycle: "Cycle-2",
-        price: 1500,
-        compareAt: 1500,
+        price: ebi28SingleCoursePrice,
+        compareAt: ebi28SingleCourseCompareAt,
         couponCode: "ENGLISH250",
         couponDiscountText: "250 TAKA Discount",
         platform: Platform
@@ -100,8 +105,8 @@ const ebi28Options = [
         productCode: "666",
         isCycleCourse: true,
         cycle: "Cycle-1",
-        price: 1500,
-        compareAt: 1500,
+        price: ebi28SingleCoursePrice,
+        compareAt: ebi28SingleCourseCompareAt,
         couponCode: "ICT250",
         couponDiscountText: "250 TAKA Discount",
         platform: Platform
