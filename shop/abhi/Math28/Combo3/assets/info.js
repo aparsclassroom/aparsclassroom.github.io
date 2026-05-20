@@ -1,0 +1,12 @@
+const product = "math28combo3";
+const product2 = "math28wbookscombo3";
+const productName = "ACS HSC 28 Higher Math Academic Total Combo";
+const productName2 = "ACS HSC 28 Higher Math Academic Total Combo 3 with books";
+let productCode = "689";
+let productCode2 = "690";
+const fix = 8000;
+const pls = 5000;
+const pls2 = 7000;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
