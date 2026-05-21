@@ -193,7 +193,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
                 reviewButton.style.backgroundColor = '#2778c4';
                 reviewButton.style.display = 'block';
                 reviewButton.style.margin = '0 auto 10px';
-                reviewButton.innerText = 'সাইকেলের বইয়ের রিভিউ দেখ';
+                reviewButton.innerText = 'গত বছরের সাইকেলের বইয়ের রিভিউ';
                 reviewButton.addEventListener('click', () => {
                     window.open(bookReviewUrl, '_blank', 'noopener');
                 });
