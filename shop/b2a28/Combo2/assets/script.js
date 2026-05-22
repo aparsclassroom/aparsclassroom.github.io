@@ -125,7 +125,6 @@ const quotes = [
     "The more that you read, the more things you will know.",
     "Reading gives us someplace to go when we have to stay where we are."
 ];
-const bookReviewUrl = 'https://youtu.be/iQ691aLgJN4?si=MQnDQVKwEBT-NNrc';
 
 // Add books checkbox event listener
 document.getElementById('addBooks').addEventListener('change', function () {
@@ -178,30 +177,6 @@ document.getElementById('addBooks').addEventListener('change', function () {
             },
             confirmButtonColor: '#f08a84', // faded red button
             cancelButtonColor: '#4CBB17', //  green button
-            didOpen: () => {
-                const actions = Swal.getActions();
-                const confirmButton = Swal.getConfirmButton();
-                const cancelButton = Swal.getCancelButton();
-                const reviewButton = document.createElement('button');
-
-                reviewButton.type = 'button';
-                reviewButton.className = 'swal2-confirm swal2-styled';
-                reviewButton.style.backgroundColor = '#2778c4';
-                reviewButton.style.display = 'block';
-                reviewButton.style.margin = '0 auto 10px';
-                reviewButton.innerText = 'গত বছরের সাইকেলের বইয়ের রিভিউ';
-                reviewButton.addEventListener('click', () => {
-                    window.open(bookReviewUrl, '_blank', 'noopener');
-                });
-
-                actions.style.display = 'block';
-                confirmButton.style.display = 'inline-block';
-                confirmButton.style.opacity = '0.72';
-                confirmButton.style.boxShadow = 'none';
-                cancelButton.style.display = 'inline-block';
-                cancelButton.style.boxShadow = '0 0 0 3px rgba(76, 187, 23, 0.35)';
-                actions.insertBefore(reviewButton, confirmButton);
-            },
         }).then((result) => {
             if (result.isConfirmed) {
                 // User confirmed they don't want books
