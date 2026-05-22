@@ -11,6 +11,8 @@ const productName = "ACS HSC 28 Basic to Advance Chemistry by Hemel";
 const productName2 = "ACS HSC 28 Basic to Advance Chemistry by Hemel with Books";
 let productCode = "640";
 let productCode2 = "645";
+let productCode3 = "694";
+let productCode4 = "696";
 const fix = 1500;
 const pls = 1000;
 const pls2 = 1350;
@@ -107,6 +109,5 @@ document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt" style=
 document.getElementById('con6').innerHTML = `<i class="fas fa-file-alt" style="color:#28a745;"></i>&nbsp; Practice Sheet`;
 document.getElementById('con7').innerHTML = `<i class="fab fa-facebook" style="color:#3b5998;"></i>&nbsp; Facebook Group`;
 document.getElementById('con8').innerHTML = `<i class="fas fa-comments" style="color:#17a2b8;"></i>&nbsp; Discussion Group`;
-
 
 

@@ -1,0 +1,12 @@
+const product = "b2a28combo2";
+const product2 = "b2a28combo2wbooks";
+const productName = "ACS HSC 28 Basic to Advance Chemistry by Hemel Combo 2";
+const productName2 = "ACS HSC 28 Basic to Advance Chemistry by Hemel with Books Combo 2";
+let productCode = "695";
+let productCode2 = "697";
+const fix = 4000;
+const pls = 2500;
+const pls2 = 3500;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";

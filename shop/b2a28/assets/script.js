@@ -634,35 +634,66 @@ document.getElementById('addBooks').addEventListener('change', function () {
 });
 
  
+function getConfiguredProductCodes(codes) {
+    return codes.filter(code => typeof code !== 'undefined' && code);
+}
+
+function checkPurchase(products, uid, cycle) {
+    if (!products.length) {
+        return Promise.resolve({ status: 404 });
+    }
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify({
+            products,
+            uid
+        }),
+        redirect: 'follow'
+    };
+
+    const purchaseCheckUrl = cycle
+        ? `https://${shopName2}/v3/purchase/multiple/${cycle}`
+        : `https://${shopName2}/v3/purchase/multiple`;
+
+    return fetch(purchaseCheckUrl, requestOptions).then(res => res.json());
+}
+
+function findExistingPurchase(results) {
+    return results
+        .filter(result => result.status === 'fulfilled')
+        .map(result => result.value)
+        .find(result => result.status === 200);
+}
+
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-            "products": [productCode, productCode2],
-            'uid': e.uid
-        });
+        const cycleProducts = getConfiguredProductCodes([productCode, productCode2]);
+        const comboProducts = getConfiguredProductCodes([
+            typeof productCode3 !== 'undefined' ? productCode3 : null,
+            typeof productCode4 !== 'undefined' ? productCode4 : null
+        ]);
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
-        .then((result) => {
-            if (result.status === 200) {
+        Promise.allSettled([
+            checkPurchase(cycleProducts, e.uid, Cycle),
+            checkPurchase(comboProducts, e.uid)
+        ]).then((results) => {
+            const existingPurchase = findExistingPurchase(results);
+            if (existingPurchase) {
                 swal({
                     title: "Already Enrolled!",
                     icon: "success",
                     button: "View Informations"
                 }).then(() => {
-                    location.replace(result.invoices[0].invoice);
+                    location.replace(existingPurchase.invoices[0].invoice);
                 });
             } else {
                 const form = document.forms['purchase'];
