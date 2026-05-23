@@ -17,10 +17,14 @@ const Cycle = location.pathname.split('/')[4];
 
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=684`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=686`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=685`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=687`).then(res => res.json())
 ])
-    .then(([data1, data2]) => {
-        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
         const enrolled = document.getElementById('enrolled');
 
         if (enrolled) {

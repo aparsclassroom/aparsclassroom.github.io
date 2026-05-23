@@ -84,10 +84,14 @@ var player;
 
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode3}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode5}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode6}`).then(res => res.json())
 ])
-.then(([data1, data2]) => {
-    const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+.then((enrollments) => {
+    const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
     
     document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
     
