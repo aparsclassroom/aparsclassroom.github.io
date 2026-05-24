@@ -82,10 +82,12 @@ var tag = document.createElement('script');
 
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode3}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json())
 ])
-    .then(([data1, data2]) => {
-        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
 
         document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
 
@@ -109,5 +111,4 @@ document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt" style=
 document.getElementById('con6').innerHTML = `<i class="fas fa-file-alt" style="color:#28a745;"></i>&nbsp; Practice Sheet`;
 document.getElementById('con7').innerHTML = `<i class="fab fa-facebook" style="color:#3b5998;"></i>&nbsp; Facebook Group`;
 document.getElementById('con8').innerHTML = `<i class="fas fa-comments" style="color:#17a2b8;"></i>&nbsp; Discussion Group`;
-
 
