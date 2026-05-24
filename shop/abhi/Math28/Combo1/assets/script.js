@@ -168,7 +168,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
-            imageUrl: 'https://i.postimg.cc/VNYBTDtZ/compact-series-1-1.jpg',
+            imageUrl: 'https://i.postimg.cc/wjh5kn8r/compressed-image.jpg',
             showCancelButton: true,
             confirmButtonText: 'না আমি বই নিতে চাইনা',
             cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
