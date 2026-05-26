@@ -208,8 +208,8 @@ document.getElementById('addBooks').addEventListener('change', function () {
 
 const blockedCyclePurchaseChecks = [
     { cycle: "Cycle-1", products: ["622", "628"] },
-    { cycle: "Cycle-2", products: ["623", "629"] },
-    { cycle: "Cycle-3", products: ["624", "630"] }
+    { cycle: "Cycle-3", products: ["624", "630"] },
+    { cycle: "Cycle-5", products: ["626", "632"] }
 ];
 
 function checkPurchase(products, uid, cycle) {

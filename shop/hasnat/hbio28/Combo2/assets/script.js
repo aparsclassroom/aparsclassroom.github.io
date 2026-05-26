@@ -207,8 +207,8 @@ document.getElementById('addBooks').addEventListener('change', function () {
 });
 
 const blockedCyclePurchaseChecks = [
+    { cycle: "Cycle-2", products: ["623", "629"] },
     { cycle: "Cycle-4", products: ["625", "631"] },
-    { cycle: "Cycle-5", products: ["626", "632"] },
     { cycle: "Cycle-6", products: ["627", "633"] }
 ];
 
