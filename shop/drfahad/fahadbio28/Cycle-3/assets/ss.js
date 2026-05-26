@@ -1,5 +1,5 @@
 const product = "fahadbio28";
-const productName = "ACS BIOLOGY ACADEMIC CYCLE: HSC 28";
+const productName = "ACS HSC 28 Biology Academic Cycle by Dr. Fahad";
 const productCode = "727";
 const fix = 1500;
 const pls = 1000;
