@@ -19,7 +19,7 @@ const pls2 = 1350;
 const init = 0;
 const Platform = "Online";
 const Platform2 = "Physical";
-const Cycle = location.pathname.split('/').filter(Boolean).pop();
+const Cycle = location.pathname.split('/').find(part => /^Cycle-\d+$/.test(part));
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -111,4 +111,3 @@ document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt" style=
 document.getElementById('con6').innerHTML = `<i class="fas fa-file-alt" style="color:#28a745;"></i>&nbsp; Practice Sheet`;
 document.getElementById('con7').innerHTML = `<i class="fab fa-facebook" style="color:#3b5998;"></i>&nbsp; Facebook Group`;
 document.getElementById('con8').innerHTML = `<i class="fas fa-comments" style="color:#17a2b8;"></i>&nbsp; Discussion Group`;
-

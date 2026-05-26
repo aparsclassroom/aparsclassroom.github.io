@@ -19,7 +19,7 @@ const pls2 = 1350;
 const init = 0;
 const Platform = "Online";
 const Platform2 = "Physical";
-const Cycle = location.pathname.split('/').filter(Boolean).pop();
+const Cycle = location.pathname.split('/').find(part => /^Cycle-\d+$/.test(part));
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {

@@ -13,7 +13,7 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
-const Cycle = location.pathname.split('/').filter(Boolean).pop();
+const Cycle = location.pathname.split('/').find(part => /^Combo\d+$/.test(part));
 
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),

@@ -76,15 +76,15 @@ if (urlProductCode === productCode) {
     ];
     shippingInputs.forEach(input => input.setAttribute('required', ''));
 } else {
-    // Default state when no promo or unrecognized promo (books checked)
-    productcode = productCode2;
-    document.getElementById('addBooks').checked = true;
-    document.getElementById('shippingFields').style.display = 'block';
-    document.getElementById('sprice').innerText = pls2;
-    document.getElementById('price').value = pls2;
-    document.getElementById('nop').innerText = pls2 + "৳";
+    // Default state when no promo or unrecognized promo (books unchecked)
+    productcode = productCode;
+    document.getElementById('addBooks').checked = false;
+    document.getElementById('shippingFields').style.display = 'none';
+    document.getElementById('sprice').innerText = pls;
+    document.getElementById('price').value = pls;
+    document.getElementById('nop').innerText = pls + "৳";
     
-    // Add required attributes to shipping fields
+    // Remove required attributes from shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
         document.getElementById('ship_phone'),
@@ -92,7 +92,7 @@ if (urlProductCode === productCode) {
         document.getElementById('ship_city'),
         document.getElementById('ship_upzilla'),
     ];
-    shippingInputs.forEach(input => input.setAttribute('required', ''));
+    shippingInputs.forEach(input => input.removeAttribute('required'));
 }
 
 document.getElementById('email').addEventListener("input", function (event) {
