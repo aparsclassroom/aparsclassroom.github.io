@@ -137,29 +137,56 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 10px;
+            width: min(88vw, 320px);
         }
 
         .buttonContainer a {
-            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            padding: 16px 20px;
             text-align: center;
             align-self: center !important;
-            background: darkred;
+            background: linear-gradient(135deg, #9f0d18 0%, #d92956 48%, #3b0a84 100%);
             outline: none;
-            border: 1px solid darkred;
-            margin: 10px;
-            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin: 0;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: bold;
             color: white;
             font-family: Gilroy-ExtraBold;
-            width: 300px;
+            width: 100%;
+            max-width: 520px;
+            font-size: clamp(15px, 1.9vw, 20px);
+            line-height: 1.25;
+            letter-spacing: 0;
+            box-shadow: 0 14px 30px rgba(49, 9, 117, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+            transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
         }
 
-        .buttonContainer a:hover {
-            border: 1px solid darkred;
-            background-color: white;
-            color: darkred;
+        .buttonContainer a::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.32), transparent 30%),
+                linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.22) 48%, transparent 62%);
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        .buttonContainer a:hover,
+        .buttonContainer a:focus {
+            color: white;
             cursor: pointer;
+            text-decoration: none;
+            filter: saturate(1.12) brightness(1.06);
+            transform: translateY(-2px);
+            box-shadow: 0 18px 36px rgba(49, 9, 117, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        }
+
+        .buttonContainer a:active {
+            transform: translateY(0);
         }
 
         p {
@@ -173,22 +200,44 @@
         }
 
         .green {
-            background: rgb(149, 20, 20) !important;
+            background: linear-gradient(135deg, #7f060b 0%, #b31620 48%, #520004 100%) !important;
+            border-color: rgba(255, 255, 255, 0.16) !important;
+            box-shadow: 0 12px 26px rgba(127, 6, 11, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18);
         }
 
-        .green:hover {
-            background: #fff !important;
+        .green:hover,
+        .green:focus {
+            background: linear-gradient(135deg, #b40d19 0%, #e13a45 48%, #7f060b 100%) !important;
+            color: #fff !important;
+            box-shadow: 0 17px 34px rgba(127, 6, 11, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.24);
         }
 
         .combo-group {
-            background: #1c4ca6 !important;
-            border-color: #1c4ca6 !important;
+            background: linear-gradient(135deg, #2513a6 0%, #2058b6 38%, #d61b63 100%) !important;
+            border-color: rgba(255, 255, 255, 0.18) !important;
         }
 
-        .combo-group:hover {
-            background: #fff !important;
-            border-color: #1c4ca6 !important;
-            color: #1c4ca6 !important;
+        .combo-group:hover,
+        .combo-group:focus {
+            background: linear-gradient(135deg, #6f12d6 0%, #255fd0 44%, #ff2d70 100%) !important;
+            color: #fff !important;
+        }
+
+        .free-cycle {
+            background: linear-gradient(135deg, #2a35b8 0%, #1f78c8 42%, #27b37d 100%) !important;
+        }
+
+        .free-cycle:hover,
+        .free-cycle:focus {
+            background: linear-gradient(135deg, #6948ff 0%, #1787dc 45%, #38d39a 100%) !important;
+        }
+
+        @media (max-width: 575.98px) {
+            .buttonContainer a {
+                padding: 14px 16px;
+                border-radius: 12px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
@@ -208,7 +257,7 @@
         </div>
         <p>ACS HSC 28 Biology Academic Cycle by Dr. Fahad</p>
         <div class="buttonContainer">
-            <a type="button" class="combo-group" href="./Free-Cycle/">Biology Root Words Magic by Dr. Fahad
+            <a type="button" class="combo-group free-cycle" href="./Free-Cycle/">Biology Root Words Magic by Dr. Fahad
                 <br>Free Cycle</a>
             <a type="button" class="combo-group" href="./Combo3/">THE ULTIMATE PACKAGE <br>(Cycle 1,2,3,4,5,6)
             </a>
