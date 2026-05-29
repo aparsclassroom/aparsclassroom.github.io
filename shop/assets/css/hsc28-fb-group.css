@@ -1,0 +1,41 @@
+.hsc28-fb-group-btn {
+    position: fixed;
+    top: 14px;
+    right: 16px;
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: #1877f2;
+    color: #fff !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none !important;
+    box-shadow: 0 8px 20px rgba(24, 119, 242, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hsc28-fb-group-btn:hover,
+.hsc28-fb-group-btn:focus {
+    background: #0f63d4;
+    color: #fff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(24, 119, 242, 0.34);
+}
+
+@media (max-width: 575.98px) {
+    .hsc28-fb-group-btn {
+        top: 10px;
+        right: 10px;
+        max-width: 44vw;
+        min-height: 36px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+}
