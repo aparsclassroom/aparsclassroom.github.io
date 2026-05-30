@@ -1,124 +1,83 @@
-const ebi28Subjects = [
-    { id: "bangla", label: "Bangla" },
-    { id: "english", label: "English" },
-    { id: "ict", label: "ICT" }
-];
-
-const ebi28MultiCoursePrice = 3000;
-const ebi28MultiCourseCompareAt = 6000;
-const ebi28SingleCoursePrice = 2000;
-const ebi28SingleCourseCompareAt = 3000;
-
-const ebi28Options = [
-    {
-        id: "bangla-english-ict",
-        subjects: ["bangla", "english", "ict"],
-        label: "Bangla + English + ICT",
+const ebi28Courses = {
+    combo: {
+        id: "all-cycle-combo",
         productName: "abhiebi28",
-        fullName: "ACS HSC 28 EBI Course",
+        fullName: "ACS HSC 28 EBI All Cycle Combo",
         productCode: "665",
         isCycleCourse: false,
-        price: ebi28MultiCoursePrice,
-        compareAt: ebi28MultiCourseCompareAt,
+        price: 3000,
+        compareAt: 6000,
         couponCode: "ACSEBI500",
         couponDiscountText: "500 TAKA Discount",
-        platform: Platform
+        platform: Platform,
+        blockedNormalProducts: ["665", "669", "670", "671"],
+        blockedCycleProducts: [
+            { cycle: "Cycle-1", products: ["666"] },
+            { cycle: "Cycle-2", products: ["667"] },
+            { cycle: "Cycle-3", products: ["668"] }
+        ]
     },
-    {
-        id: "bangla-english",
-        subjects: ["bangla", "english"],
-        label: "Bangla + English",
-        productName: "ebi28combo1",
-        fullName: "ACS HSC 28 EBI Course (COMBO 1)",
-        productCode: "669",
-        isCycleCourse: false,
-        price: ebi28MultiCoursePrice,
-        compareAt: ebi28MultiCourseCompareAt,
-        couponCode: "ebi28combo1",
-        couponDiscountText: "500 TAKA Discount",
-        platform: Platform
-    },
-    {
-        id: "bangla-ict",
-        subjects: ["bangla", "ict"],
-        label: "Bangla + ICT",
-        productName: "ebi28combo2",
-        fullName: "ACS HSC 28 EBI Course (COMBO 2)",
-        productCode: "670",
-        isCycleCourse: false,
-        price: ebi28MultiCoursePrice,
-        compareAt: ebi28MultiCourseCompareAt,
-        couponCode: "ebi28combo2",
-        couponDiscountText: "500 TAKA Discount",
-        platform: Platform
-    },
-    {
-        id: "english-ict",
-        subjects: ["english", "ict"],
-        label: "English + ICT",
-        productName: "ebi28combo3",
-        fullName: "ACS HSC 28 EBI Course (COMBO 3)",
-        productCode: "671",
-        isCycleCourse: false,
-        price: ebi28MultiCoursePrice,
-        compareAt: ebi28MultiCourseCompareAt,
-        couponCode: "ebi28combo3",
-        couponDiscountText: "500 TAKA Discount",
-        platform: Platform
-    },
-    {
-        id: "bangla",
-        subjects: ["bangla"],
-        label: "Bangla",
+    "Cycle-1": {
+        id: "cycle-1",
         productName: "singleebi28",
-        fullName: "ACS HSC 28 EBI Course (BANGLA)",
-        productCode: "668",
-        isCycleCourse: true,
-        cycle: "Cycle-3",
-        price: ebi28SingleCoursePrice,
-        compareAt: ebi28SingleCourseCompareAt,
-        couponCode: "BANGLA750",
-        couponDiscountText: "750 TAKA Discount",
-        platform: Platform
-    },
-    {
-        id: "english",
-        subjects: ["english"],
-        label: "English",
-        productName: "singleebi28",
-        fullName: "ACS HSC 28 EBI Course (ENGLISH)",
-        productCode: "667",
-        isCycleCourse: true,
-        cycle: "Cycle-2",
-        price: ebi28SingleCoursePrice,
-        compareAt: ebi28SingleCourseCompareAt,
-        couponCode: "ENGLISH750",
-        couponDiscountText: "750 TAKA Discount",
-        platform: Platform
-    },
-    {
-        id: "ict",
-        subjects: ["ict"],
-        label: "ICT",
-        productName: "singleebi28",
-        fullName: "ACS HSC 28 EBI Course (ICT)",
+        fullName: "ACS HSC 28 EBI Cycle 1 (ICT)",
         productCode: "666",
         isCycleCourse: true,
         cycle: "Cycle-1",
-        price: ebi28SingleCoursePrice,
-        compareAt: ebi28SingleCourseCompareAt,
+        price: 2000,
+        compareAt: 3000,
         couponCode: "ICT750",
         couponDiscountText: "750 TAKA Discount",
-        platform: Platform
+        platform: Platform,
+        blockedNormalProducts: ["665", "669", "670", "671"],
+        blockedCycleProducts: [
+            { cycle: "Cycle-1", products: ["666"] }
+        ]
+    },
+    "Cycle-2": {
+        id: "cycle-2",
+        productName: "singleebi28",
+        fullName: "ACS HSC 28 EBI Cycle 2 (English)",
+        productCode: "667",
+        isCycleCourse: true,
+        cycle: "Cycle-2",
+        price: 2000,
+        compareAt: 3000,
+        couponCode: "ENGLISH750",
+        couponDiscountText: "750 TAKA Discount",
+        platform: Platform,
+        blockedNormalProducts: ["665", "669", "670", "671"],
+        blockedCycleProducts: [
+            { cycle: "Cycle-2", products: ["667"] }
+        ]
+    },
+    "Cycle-3": {
+        id: "cycle-3",
+        productName: "singleebi28",
+        fullName: "ACS HSC 28 EBI Cycle 3 (Bangla)",
+        productCode: "668",
+        isCycleCourse: true,
+        cycle: "Cycle-3",
+        price: 2000,
+        compareAt: 3000,
+        couponCode: "BANGLA750",
+        couponDiscountText: "750 TAKA Discount",
+        platform: Platform,
+        blockedNormalProducts: ["665", "669", "670", "671"],
+        blockedCycleProducts: [
+            { cycle: "Cycle-3", products: ["668"] }
+        ]
     }
-];
+};
 
-let selectedCourse = ebi28Options[0];
-let selectedSubjects = ebi28Subjects.map(subject => subject.id);
-let hasChosenCourse = false;
+const currentPathParts = location.pathname.split("/").filter(Boolean);
+const currentCycle = currentPathParts.find(part => /^Cycle-\d+$/i.test(part));
+const selectedCourse = ebi28Courses[currentCycle] || ebi28Courses.combo;
+
 let disOFF = 0;
-const purchasedCourses = {};
 let pendingPromoCode = null;
+let existingPurchase = null;
+let purchaseFormBound = false;
 
 function normalizePhone(phone) {
     phone = phone.replace(/[\s-]/g, '');
@@ -199,8 +158,13 @@ function updateCouponHint(course) {
     hint.innerHTML = `Use <strong class="copy-coupon" data-coupon="${course.couponCode}" style="cursor: pointer;">"${course.couponCode}"</strong> Coupon For ${course.couponDiscountText}`;
 }
 
-function updatePriceDisplay(course, price) {
-    const finalPrice = Number(price);
+function updatePageForCourse() {
+    document.title = selectedCourse.fullName + " | ASG Shop";
+    document.getElementById('prod').innerText = selectedCourse.fullName;
+    document.querySelectorAll("[data-ebi-selected-product]").forEach(element => {
+        element.innerText = selectedCourse.fullName;
+    });
+
     const prevPriceEl = document.getElementById('prevP');
     const currentPriceEl = document.getElementById('nop');
     const payableTextEl = document.getElementById('sprice');
@@ -209,24 +173,22 @@ function updatePriceDisplay(course, price) {
     const cycleEl = document.getElementById('selectedCycle');
     const priceSummaryEl = document.getElementById('smp');
 
-    if (prevPriceEl) prevPriceEl.innerText = course.compareAt || course.price;
-    if (currentPriceEl) currentPriceEl.innerText = finalPrice + "৳";
-    if (payableTextEl) payableTextEl.innerText = finalPrice;
+    if (prevPriceEl) prevPriceEl.innerText = selectedCourse.compareAt || selectedCourse.price;
+    if (currentPriceEl) currentPriceEl.innerText = selectedCourse.price + "৳";
+    if (payableTextEl) payableTextEl.innerText = selectedCourse.price;
     if (priceInputEl) {
-        priceInputEl.value = finalPrice;
-        priceInputEl.setAttribute("value", finalPrice);
+        priceInputEl.value = selectedCourse.price;
+        priceInputEl.setAttribute("value", selectedCourse.price);
     }
-    if (productCodeEl) productCodeEl.value = course.productCode;
-    if (cycleEl) cycleEl.value = course.cycle || "";
-    if (priceSummaryEl) priceSummaryEl.innerHTML = buildPriceHtml(course, finalPrice);
-    updateCouponHint(course);
-    document.querySelectorAll("[data-ebi-selected-product]").forEach(element => {
-        element.innerText = course.fullName || course.label;
-    });
+    if (productCodeEl) productCodeEl.value = selectedCourse.productCode;
+    if (cycleEl) cycleEl.value = selectedCourse.cycle || "";
+    if (priceSummaryEl) priceSummaryEl.innerHTML = buildPriceHtml(selectedCourse, selectedCourse.price);
+    updateCouponHint(selectedCourse);
+
     if (window.jQuery) {
-        jQuery('#price').val(finalPrice);
-        jQuery('#sprice').text(finalPrice);
-        jQuery('#nop').text(finalPrice + "৳");
+        jQuery('#price').val(selectedCourse.price);
+        jQuery('#sprice').text(selectedCourse.price);
+        jQuery('#nop').text(selectedCourse.price + "৳");
     }
 }
 
@@ -246,324 +208,73 @@ function resetCoupon() {
     if (document.getElementById('disC')) document.getElementById('disC').value = "N/A";
     if (document.getElementById('coupnbosh')) document.getElementById('coupnbosh').style.display = "";
     if (document.getElementById('how')) document.getElementById('how').style.display = "none";
+    updatePageForCourse();
 }
 
-function getCourseBySubjects(subjects) {
-    const key = subjects.slice().sort().join("-");
-    return ebi28Options.find(course => course.subjects.slice().sort().join("-") === key) || ebi28Options[0];
+function getConfiguredProductCodes(codes) {
+    return codes.filter(code => typeof code !== 'undefined' && code);
 }
 
-function setSelectedSubjects(subjects, shouldCheckPurchase = true) {
-    const nextCourse = getCourseBySubjects(subjects);
-
-    selectedSubjects = nextCourse.subjects.slice();
-    selectedCourse = nextCourse;
-
-    document.querySelectorAll('input[name="ebi28Subject"]').forEach(input => {
-        input.checked = selectedSubjects.includes(input.value);
-    });
-
-    resetCoupon();
-    updatePriceDisplay(nextCourse, nextCourse.price);
-    updateSubjectChoiceSummary();
-
-    if (shouldCheckPurchase && firebase.auth().currentUser) {
-        checkAllPurchases(firebase.auth().currentUser);
-    }
-}
-
-function updateSubjectChoiceSummary() {
-    const summary = document.getElementById("ebi28SelectedSummary");
-    const status = document.getElementById("ebi28SelectedStatus");
-    const continueBtn = document.getElementById("ebi28ContinuePurchase");
-    const checkedSubjects = Array.from(document.querySelectorAll('input[name="ebi28Subject"]:checked')).map(input => input.value);
-    const nextCourse = checkedSubjects.length ? getCourseBySubjects(checkedSubjects) : null;
-
-    if (summary) {
-        summary.innerHTML = nextCourse
-            ? `<strong>${nextCourse.fullName}</strong><span>${nextCourse.price}৳</span>`
-            : "<strong>Please select at least one subject</strong><span>--</span>";
+function checkPurchase(products, uid, cycle) {
+    const filteredProducts = getConfiguredProductCodes(products);
+    if (!filteredProducts.length) {
+        return Promise.resolve({ status: 404 });
     }
 
-    if (status) {
-        const purchase = nextCourse ? purchasedCourses[nextCourse.id] : null;
-        const purchasedSubjects = getPurchasedSubjects();
-        const conflictingSubjects = nextCourse ? nextCourse.subjects.filter(s => purchasedSubjects.includes(s)) : [];
-        
-        if (conflictingSubjects.length > 0) {
-            status.innerHTML = `<span style="color: #dc3545;">⚠️ Conflict: You already purchased ${conflictingSubjects.join(", ")}. Cannot purchase overlapping subjects.</span>`;
-        } else if (purchase) {
-            status.innerHTML = purchase.invoice 
-                ? `Already purchased | <a href="${purchase.invoice}" target="_blank" rel="noopener noreferrer">View invoice</a>`
-                : "Already purchased";
-        } else {
-            status.innerHTML = "";
-        }
-    }
-
-    if (continueBtn) {
-        continueBtn.disabled = !nextCourse || (nextCourse && nextCourse.subjects.some(s => getPurchasedSubjects().includes(s)));
-    }
-}
-
-function setMainButtonForCourseChoice() {
-    const mainButton = document.getElementById('moda');
-    if (!mainButton) {
-        return;
-    }
-    mainButton.setAttribute("data-target", "#ebi28SubjectModal");
-    mainButton.innerHTML = 'Choose Course <i class="fas fa-arrow-right"></i>';
-}
-
-function setMainButtonForPayment() {
-    const mainButton = document.getElementById('moda');
-    if (!mainButton) {
-        return;
-    }
-    mainButton.setAttribute("data-target", "#purchaseFrm");
-    mainButton.innerHTML = 'Proceed Payment <i class="fas fa-arrow-right"></i>';
-}
-
-function renderSubjectChooser() {
-    if (document.getElementById("ebi28SubjectModal")) {
-        return;
-    }
-
-    const style = document.createElement("style");
-    style.innerHTML = `
-        .ebi28-subject-grid {
-            display: grid;
-            gap: 12px;
-        }
-        .ebi28-subject-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            border: 1px solid #d7dde8;
-            border-radius: 8px;
-            padding: 14px 16px;
-            margin: 0;
-            cursor: pointer;
-            background: #fff;
-        }
-        .ebi28-subject-option input {
-            width: 18px;
-            height: 18px;
-            flex: 0 0 auto;
-        }
-        .ebi28-subject-option span {
-            font-weight: 700;
-            color: #25324b;
-        }
-        .ebi28-subject-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            border: 1px solid #c7ead2;
-            border-radius: 8px;
-            padding: 12px 14px;
-            margin-top: 16px;
-            background: #f5fff8;
-        }
-        .ebi28-subject-summary strong,
-        .ebi28-subject-summary span {
-            display: block;
-        }
-        .ebi28-subject-summary span {
-            color: rgb(26, 185, 66);
-            font-weight: 800;
-            white-space: nowrap;
-        }
-        .ebi28-selected-status {
-            min-height: 20px;
-            margin-top: 10px;
-            color: #475569;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .ebi28-selected-status a {
-            color: #0d6efd;
-            text-decoration: underline;
-        }
-        @media only screen and (max-width: 600px) {
-            .ebi28-subject-summary {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-
-    const modal = document.createElement("div");
-    modal.className = "modal fade";
-    modal.id = "ebi28SubjectModal";
-    modal.tabIndex = -1;
-    modal.setAttribute("role", "dialog");
-    modal.setAttribute("aria-labelledby", "ebi28SubjectModalLabel");
-    modal.setAttribute("aria-hidden", "true");
-    modal.innerHTML = `
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ebi28SubjectModalLabel">Choose Course</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="ebi28-subject-grid">
-                        ${ebi28Subjects.map(subject => `
-                            <label class="ebi28-subject-option" for="ebi28-subject-${subject.id}">
-                                <span>${subject.label}</span>
-                                <input type="checkbox" name="ebi28Subject" id="ebi28-subject-${subject.id}" value="${subject.id}" checked>
-                            </label>
-                        `).join("")}
-                    </div>
-                    <div class="ebi28-subject-summary" id="ebi28SelectedSummary"></div>
-                    <div class="ebi28-selected-status" id="ebi28SelectedStatus"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="ebi28ContinuePurchase">Continue</button>
-                </div>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    modal.addEventListener("change", event => {
-        if (!event.target.matches('input[name="ebi28Subject"]')) {
-            return;
-        }
-        const checkedSubjects = Array.from(document.querySelectorAll('input[name="ebi28Subject"]:checked')).map(input => input.value);
-        if (checkedSubjects.length) {
-            selectedSubjects = checkedSubjects;
-        }
-        updateSubjectChoiceSummary();
-        disableConflictingSubjects();
-    });
-
-    document.getElementById("ebi28ContinuePurchase").addEventListener("click", () => {
-        const checkedSubjects = Array.from(document.querySelectorAll('input[name="ebi28Subject"]:checked')).map(input => input.value);
-        if (!checkedSubjects.length) {
-            swal({
-                title: "Select a subject",
-                text: "Please select at least one subject.",
-                icon: "warning",
-                button: "Ok"
-            });
-            return;
-        }
-        setSelectedSubjects(checkedSubjects);
-        hasChosenCourse = true;
-        if (purchasedCourses[selectedCourse.id]) {
-            const invoice = purchasedCourses[selectedCourse.id].invoice;
-            swal({
-                title: "Already Purchased",
-                text: "You already purchased this course.",
-                icon: "success",
-                button: invoice ? "View Invoice" : "Ok"
-            }).then(() => {
-                if (invoice) {
-                    location.href = invoice;
-                }
-            });
-            return;
-        }
-        $('#ebi28SubjectModal').modal('hide');
-        if (selectedCourse.couponCode) {
-            const appBtn = document.getElementById("app");
-            if (appBtn) appBtn.style.display = "";
-        }
-        setMainButtonForPayment();
-    });
-
-    setSelectedSubjects(selectedSubjects, false);
-    disableConflictingSubjects();
-}
-
-function checkPurchase(user, course) {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    const purchaseUrl = course.isCycleCourse
-        ? `https://${shopName2}/${course.productCode}/purchase/${course.cycle}`
-        : `https://${shopName2}/${course.productCode}/purchase`;
 
-    return fetch(purchaseUrl, {
+    const purchaseCheckUrl = cycle
+        ? `https://${shopName2}/v3/purchase/multiple/${cycle}`
+        : `https://${shopName2}/v3/purchase/multiple`;
+
+    return fetch(purchaseCheckUrl, {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify({
-            "product": course.productCode,
-            'uid': user.uid
+            products: filteredProducts,
+            uid
         }),
         redirect: 'follow'
-    })
-        .then(response => response.json())
-        .then(result => ({
-            course,
-            purchased: result.status === 200,
-            invoice: result.Invoice || result.invoice || ""
-        }))
-        .catch(() => ({
-            course,
-            purchased: false,
-            invoice: ""
-        }));
+    }).then(response => response.json());
 }
 
-function checkAllPurchases(user) {
-    return Promise.all(ebi28Options.map(course => checkPurchase(user, course)))
-        .then(results => {
-            results.forEach(result => {
-                if (result.purchased) {
-                    purchasedCourses[result.course.id] = result;
-                } else {
-                    delete purchasedCourses[result.course.id];
-                }
-            });
-            applyPurchaseStates();
-        });
+function findExistingPurchase(results) {
+    return results
+        .filter(result => result.status === 'fulfilled')
+        .map(result => result.value)
+        .find(result => result.status === 200);
 }
 
-function getPurchasedSubjects() {
-    const purchased = [];
-    Object.keys(purchasedCourses).forEach(courseId => {
-        const course = ebi28Options.find(c => c.id === courseId);
-        if (course && course.subjects) {
-            purchased.push(...course.subjects);
-        }
-    });
-    return [...new Set(purchased)]; // deduplicate
-}
+function checkBlockingPurchases(user) {
+    const purchaseChecks = [
+        checkPurchase(selectedCourse.blockedNormalProducts, user.uid),
+        ...selectedCourse.blockedCycleProducts.map(check => checkPurchase(check.products, user.uid, check.cycle))
+    ];
 
-function disableConflictingSubjects() {
-    const purchasedSubjects = getPurchasedSubjects();
-    document.querySelectorAll('input[name="ebi28Subject"]').forEach(input => {
-        if (purchasedSubjects.includes(input.value)) {
-            input.disabled = true;
-            const label = input.closest('.ebi28-subject-option');
-            if (label) {
-                label.style.opacity = '0.5';
-                label.style.cursor = 'not-allowed';
-                label.style.pointerEvents = 'none';
-            }
-        } else {
-            input.disabled = false;
-            const label = input.closest('.ebi28-subject-option');
-            if (label) {
-                label.style.opacity = '1';
-                label.style.cursor = 'pointer';
-                label.style.pointerEvents = 'auto';
-            }
-        }
+    return Promise.allSettled(purchaseChecks).then(results => {
+        existingPurchase = findExistingPurchase(results) || null;
+        return existingPurchase;
     });
 }
 
-function applyPurchaseStates() {
-    updateSubjectChoiceSummary();
-    disableConflictingSubjects();
+function showExistingPurchase() {
+    const invoice = existingPurchase && existingPurchase.invoices && existingPurchase.invoices[0]
+        ? existingPurchase.invoices[0].invoice
+        : "";
+
+    swal({
+        title: "Already Enrolled!",
+        text: selectedCourse.isCycleCourse
+            ? "You already purchased this cycle or the EBI all cycle combo."
+            : "You already purchased an EBI combo or cycle.",
+        icon: "success",
+        button: invoice ? "View Informations" : "Ok"
+    }).then(() => {
+        if (invoice) {
+            location.replace(invoice);
+        }
+    });
 }
 
 function buildPayload(user) {
@@ -589,25 +300,17 @@ function buildPayload(user) {
         "Referrer": getCookie("Platform"),
         "Ip": getCookie("ip")
     };
+
     if (selectedCourse.isCycleCourse) {
         payload.Cycle = selectedCourse.cycle;
     }
+
     return JSON.stringify(payload);
 }
 
 function submitPurchase(user) {
-    if (purchasedCourses[selectedCourse.id]) {
-        const invoice = purchasedCourses[selectedCourse.id].invoice;
-        swal({
-            title: "Already Purchased",
-            text: "You already purchased this course.",
-            icon: "success",
-            button: invoice ? "View Invoice" : "Ok"
-        }).then(() => {
-            if (invoice) {
-                location.href = invoice;
-            }
-        });
+    if (existingPurchase) {
+        showExistingPurchase();
         return;
     }
 
@@ -652,6 +355,18 @@ function submitPurchase(user) {
                 location.href = "/shop";
             });
         });
+}
+
+function bindPurchaseForm(user) {
+    if (purchaseFormBound) {
+        return;
+    }
+    purchaseFormBound = true;
+    const form = document.forms['purchase'];
+    form.addEventListener('submit', em => {
+        em.preventDefault();
+        submitPurchase(user);
+    });
 }
 
 document.getElementById('email').addEventListener("input", function () {
@@ -705,34 +420,30 @@ document.addEventListener('click', function (event) {
     markCopied();
 });
 
-document.title = productName + " | ASG Shop";
-document.getElementById('prod').innerText = productName;
-renderSubjectChooser();
-updatePriceDisplay(selectedCourse, selectedCourse.price);
+updatePageForCourse();
 
-// Hide coupon button and input initially; they show only after course selection
 document.getElementById("app").style.display = "none";
 document.getElementById("cup").style.display = "none";
+document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+document.getElementById('moda').innerHTML = 'Proceed Payment <i class="fas fa-arrow-right"></i>';
 
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
-        var t = e.phoneNumber;
-        var namex = e.displayName;
-        var mail = e.email;
+        const t = e.phoneNumber;
+        const namex = e.displayName;
+        const mail = e.email;
         document.getElementById('uid').value = e.uid;
-        checkAllPurchases(e);
+        bindPurchaseForm(e);
+        if (selectedCourse.couponCode) {
+            document.getElementById("app").style.display = "";
+        }
 
-        const form = document.forms['purchase'];
-        form.addEventListener('submit', em => {
-            em.preventDefault();
-            submitPurchase(e);
+        checkBlockingPurchases(e).then(purchase => {
+            if (purchase) {
+                showExistingPurchase();
+            }
         });
 
-        if (hasChosenCourse) {
-            setMainButtonForPayment();
-        } else {
-            setMainButtonForCourseChoice();
-        }
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
@@ -822,7 +533,7 @@ cpn.addEventListener('click', (e) => {
         .then((res) => res.json())
         .then((loadedData) => {
             if (loadedData.status === "success") {
-                var nes = selectedCourse.price - loadedData.Off;
+                const nes = selectedCourse.price - loadedData.Off;
                 disOFF = loadedData.Off;
                 document.getElementById('price').value = nes;
                 document.getElementById('sprice').innerText = nes;
@@ -833,7 +544,7 @@ cpn.addEventListener('click', (e) => {
                 cpn.innerText = "Applied";
                 document.getElementById('coupnbosh').style.display = "none";
                 cpn.disabled = true;
-                var percent = Math.round(((parseInt(loadedData.Off) + (selectedCourse.compareAt - selectedCourse.price)) / selectedCourse.compareAt) * 100);
+                const percent = Math.round(((parseInt(loadedData.Off) + (selectedCourse.compareAt - selectedCourse.price)) / selectedCourse.compareAt) * 100);
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = buildPriceHtml(selectedCourse, nes);

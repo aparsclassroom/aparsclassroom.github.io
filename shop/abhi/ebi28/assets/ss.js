@@ -55,22 +55,34 @@ var swiper = new Swiper(".mySwiper", {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/combined?productCodes=665,669,670,671,668,667,666`)
+const ebi28ComboProductCodes = ["665", "669", "670", "671"];
+const ebi28CycleProductCodes = {
+    "Cycle-1": "666",
+    "Cycle-2": "667",
+    "Cycle-3": "668"
+};
+const ebi28CurrentCycle = location.pathname.split("/").find(part => /^Cycle-\d+$/i.test(part));
+const ebi28EnrollmentProductCodes = ebi28CurrentCycle && ebi28CycleProductCodes[ebi28CurrentCycle]
+    ? ["665", ebi28CycleProductCodes[ebi28CurrentCycle]]
+    : ebi28ComboProductCodes;
+
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${ebi28EnrollmentProductCodes.join(",")}`)
     .then((res) => {
-        return res.json()
+        return res.json();
     })
     .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
+        const enrolled = document.getElementById('enrolled');
+        if (!enrolled) {
+            return;
         }
-
+        enrolled.setAttribute('countTo', data.count + init);
+        const countUp = new CountUp('enrolled', enrolled.getAttribute("countTo"));
+        if (!countUp.error) {
+            countUp.start();
+        } else {
+            console.error(countUp.error);
+        }
     })
     .catch((err) => {
-        console.log(err)
-    })
+        console.log(err);
+    });
