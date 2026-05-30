@@ -1,0 +1,12 @@
+const product = "b2m28combo2";
+const product2 = "b2m28combo2wbooks";
+const productName = "ACS Camp HSC 2028 Physics combo 2";
+const productName2 = "ACS Camp HSC 2028 Physics combo 2 with Books";
+let productCode = "747";
+let productCode2 = "750";
+const fix = 4000;
+const pls = 2750;
+const pls2 = 3750;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
