@@ -6,6 +6,15 @@ const pls = 1000;
 const init = 0;
 const Platform = "Online";
 const Cycle = location.pathname.split('/')[4];
+const fahadBio28ComboEnrollmentCodes = {
+    "Cycle-1": ["731", "733"],
+    "Cycle-2": ["732", "733"],
+    "Cycle-3": ["731", "733"],
+    "Cycle-4": ["732", "733"],
+    "Cycle-5": ["731", "733"],
+    "Cycle-6": ["732", "733"]
+};
+const comboEnrollmentCodes = fahadBio28ComboEnrollmentCodes[Cycle] || [];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -39,14 +48,15 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+Promise.all([
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
+    ...comboEnrollmentCodes.map(code => fetch(`https://${shopName2}/enrollment/?productCode=${code}`).then(res => res.json()))
+])
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
         if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            const countUp = new CountUp('enrolled', totalEnrollment);
             if (!countUp.error) {
                 countUp.start();
             } else {
@@ -56,5 +66,5 @@ fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
 
     })
     .catch((err) => {
-        console.log(err)
+        console.log("Enrollment fetch error:", err)
     })

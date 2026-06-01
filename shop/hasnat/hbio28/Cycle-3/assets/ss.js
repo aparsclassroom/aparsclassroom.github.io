@@ -11,6 +11,15 @@ const init = 0;
 let Platform = "Online";
 let Platform2 = "Physical";
 const Cycle = location.pathname.split('/')[4];
+const hbio28ComboEnrollmentCodes = {
+    "Cycle-1": ["703", "706", "705", "708"],
+    "Cycle-2": ["704", "707", "705", "708"],
+    "Cycle-3": ["703", "706", "705", "708"],
+    "Cycle-4": ["704", "707", "705", "708"],
+    "Cycle-5": ["703", "706", "705", "708"],
+    "Cycle-6": ["704", "707", "705", "708"]
+};
+const comboEnrollmentCodes = hbio28ComboEnrollmentCodes[Cycle] || [];
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -65,10 +74,11 @@ var tag = document.createElement('script');
 //     })
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
+    ...comboEnrollmentCodes.map(code => fetch(`https://${shopName2}/enrollment/?productCode=${code}`).then(res => res.json()))
 ])
-    .then(([data1, data2]) => {
-        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
 
         document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
 
