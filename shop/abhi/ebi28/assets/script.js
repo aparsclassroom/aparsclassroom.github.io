@@ -78,6 +78,9 @@ let disOFF = 0;
 let pendingPromoCode = null;
 let existingPurchase = null;
 let purchaseFormBound = false;
+let couponApplied = false;
+let couponApplying = false;
+let userCanPurchase = false;
 
 function normalizePhone(phone) {
     phone = phone.replace(/[\s-]/g, '');
@@ -196,6 +199,7 @@ function resetCoupon() {
     const cupV = document.getElementById('cupon');
     const cpn = document.getElementById("cpnCheck");
     disOFF = 0;
+    couponApplied = false;
     if (cupV) {
         cupV.value = "";
         cupV.disabled = false;
@@ -209,6 +213,150 @@ function resetCoupon() {
     if (document.getElementById('coupnbosh')) document.getElementById('coupnbosh').style.display = "";
     if (document.getElementById('how')) document.getElementById('how').style.display = "none";
     updatePageForCourse();
+    updatePurchaseButtonState();
+}
+
+function showCouponPanel() {
+    const appBtn = document.getElementById("app");
+    const cup = document.getElementById("cup");
+    if (appBtn) appBtn.style.display = "none";
+    if (cup) cup.style.display = "block";
+}
+
+function couponRequired() {
+    return Boolean(selectedCourse.couponCode);
+}
+
+function updatePurchaseButtonState() {
+    const buyBtn = document.getElementById('buy');
+    const shouldBlockPurchase = couponApplying || (couponRequired() && !couponApplied);
+    if (buyBtn) {
+        buyBtn.disabled = !userCanPurchase || shouldBlockPurchase;
+    }
+
+    const modalBtn = document.getElementById('moda');
+    if (modalBtn) {
+        modalBtn.disabled = userCanPurchase && shouldBlockPurchase;
+    }
+}
+
+function setCouponApplyingState(isApplying, couponCode) {
+    couponApplying = isApplying;
+    updatePurchaseButtonState();
+
+    if (!isApplying) {
+        return;
+    }
+
+    const how = document.getElementById('how');
+    if (how) {
+        how.style.display = "block";
+        how.innerHTML = `Applying coupon <span style="color:blue;">"${couponCode}"</span> ...`;
+    }
+}
+
+function hideCouponHint() {
+    const hint = document.getElementById("ebi28CouponHint");
+    if (hint) {
+        hint.innerHTML = "";
+    }
+}
+
+function applyCouponCode(couponCode, options = {}) {
+    if (!couponCode || couponApplied || couponApplying) {
+        return Promise.resolve(false);
+    }
+
+    const cupV = document.getElementById('cupon');
+    const cpnBtn = document.getElementById("cpnCheck");
+    if (!cupV || !cpnBtn) {
+        return Promise.resolve(false);
+    }
+
+    showCouponPanel();
+    cupV.value = couponCode;
+    cpnBtn.innerText = "Checking..";
+    cupV.disabled = true;
+    cpnBtn.disabled = true;
+    setCouponApplyingState(true, couponCode);
+
+    return fetch(cuponApi + '/' + couponCode.toUpperCase() + '/' + selectedCourse.productCode)
+        .then((res) => res.json())
+        .then((loadedData) => {
+            if (loadedData.status === "success") {
+                const nes = selectedCourse.price - loadedData.Off;
+                disOFF = loadedData.Off;
+                couponApplied = true;
+                document.getElementById('price').value = nes;
+                document.getElementById('sprice').innerText = nes;
+                cpnBtn.style.cursor = "not-allowed";
+                cupV.value = loadedData.Cupon;
+                document.getElementById('disC').value = loadedData.Cupon;
+                cupV.disabled = true;
+                cpnBtn.innerText = "Applied";
+                document.getElementById('coupnbosh').style.display = "none";
+                cpnBtn.disabled = true;
+                const percent = Math.round(((parseInt(loadedData.Off) + (selectedCourse.compareAt - selectedCourse.price)) / selectedCourse.compareAt) * 100);
+                document.getElementById('how').style.display = "block";
+                document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discount applied with coupon code <span style="color:blue;">"${loadedData.Cupon}"</span>`;
+                document.getElementById('smp').innerHTML = buildPriceHtml(selectedCourse, nes);
+                document.getElementById("cup").style.display = "block";
+                setCouponApplyingState(false);
+                hideCouponHint();
+                return true;
+            }
+
+            cpnBtn.innerText = "Apply";
+            cupV.disabled = false;
+            cpnBtn.disabled = false;
+            cupV.value = "";
+            setCouponApplyingState(false);
+            if (document.getElementById('how')) document.getElementById('how').style.display = "none";
+            if (options.showError !== false) {
+                swal({
+                    title: "Code not valid",
+                    icon: "error",
+                    button: "Ok"
+                }).then(() => {
+                    return notdis();
+                });
+            } else {
+                notdis();
+            }
+            return false;
+        }).catch(() => {
+            cupV.value = "";
+            cpnBtn.innerText = "Apply";
+            cupV.disabled = false;
+            cpnBtn.disabled = false;
+            setCouponApplyingState(false);
+            if (document.getElementById('how')) document.getElementById('how').style.display = "none";
+            if (options.showError !== false) {
+                swal({
+                    title: "Cupon can't be Empty",
+                    icon: "error",
+                    button: "Ok"
+                }).then(() => {
+                    return notdis();
+                });
+            } else {
+                notdis();
+            }
+            return false;
+        });
+}
+
+function autoApplyLoggedInCoupon() {
+    const couponCode = pendingPromoCode || selectedCourse.couponCode;
+    if (!couponCode) {
+        return;
+    }
+
+    applyCouponCode(couponCode, { showError: Boolean(pendingPromoCode) }).then(applied => {
+        if (applied) {
+            pendingPromoCode = null;
+        }
+    });
 }
 
 function getConfiguredProductCodes(codes) {
@@ -309,6 +457,17 @@ function buildPayload(user) {
 }
 
 function submitPurchase(user) {
+    if (couponApplying || (couponRequired() && !couponApplied)) {
+        swal({
+            title: "Applying coupon ...",
+            text: "Please wait until the discount is applied.",
+            icon: "info",
+            button: "Ok"
+        });
+        updatePurchaseButtonState();
+        return;
+    }
+
     if (existingPurchase) {
         showExistingPurchase();
         return;
@@ -425,7 +584,19 @@ updatePageForCourse();
 document.getElementById("app").style.display = "none";
 document.getElementById("cup").style.display = "none";
 document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
-document.getElementById('moda').innerHTML = 'Proceed Payment <i class="fas fa-arrow-right"></i>';
+document.getElementById('moda').innerHTML = 'এনরোল করো <i class="fas fa-arrow-right"></i>';
+updatePurchaseButtonState();
+
+const promoCode = getPromoCode();
+if (promoCode) {
+    pendingPromoCode = promoCode;
+} else {
+    document.getElementById("cup").style.display = "none";
+    if (typeof delete_cookie === "function") {
+        delete_cookie("promo");
+    }
+    notdis();
+}
 
 firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
@@ -437,6 +608,7 @@ firebase.auth().onAuthStateChanged(function (e) {
         if (selectedCourse.couponCode) {
             document.getElementById("app").style.display = "";
         }
+        autoApplyLoggedInCoupon();
 
         checkBlockingPurchases(e).then(purchase => {
             if (purchase) {
@@ -447,10 +619,12 @@ firebase.auth().onAuthStateChanged(function (e) {
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
-            document.getElementById('buy').disabled = false;
+            userCanPurchase = true;
         } else {
             document.getElementById('phone').value = "+880";
+            userCanPurchase = false;
         }
+        updatePurchaseButtonState();
         if (namex != null) {
             document.getElementById('name').value = namex;
         }
@@ -472,20 +646,24 @@ firebase.auth().onAuthStateChanged(function (e) {
                 console.error(error);
             });
         document.getElementById("app").addEventListener('click', () => {
-            const appBtn = document.getElementById("app");
-            const cup = document.getElementById("cup");
-            if (appBtn) appBtn.style.display = "none";
-            if (cup) cup.style.display = "block";
             if (pendingPromoCode) {
-                const cupInput = document.getElementById('cupon');
-                if (cupInput) cupInput.value = pendingPromoCode;
-                notdis();
-                const cpnEl = document.getElementById('cpnCheck');
-                if (cpnEl) cpnEl.click();
-                pendingPromoCode = null;
+                applyCouponCode(pendingPromoCode).then(applied => {
+                    if (applied) {
+                        pendingPromoCode = null;
+                    }
+                });
+                return;
             }
+            if (selectedCourse.couponCode) {
+                applyCouponCode(selectedCourse.couponCode);
+                pendingPromoCode = null;
+                return;
+            }
+            showCouponPanel();
         });
     } else {
+        userCanPurchase = false;
+        updatePurchaseButtonState();
         document.getElementById('moda').innerHTML = 'কোর্সটি কিনুন <i class="fas fa-arrow-right"></i>';
         document.getElementById("app").style.display = "none";
         document.getElementById("cup").style.display = "none";
@@ -525,62 +703,5 @@ cpn.addEventListener('click', (e) => {
     e.preventDefault();
     const cupV = document.getElementById('cupon');
     const cpnCode = cupV.value;
-    cpn.innerText = "Checking..";
-    cupV.disabled = true;
-    cpn.disabled = true;
-
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + selectedCourse.productCode)
-        .then((res) => res.json())
-        .then((loadedData) => {
-            if (loadedData.status === "success") {
-                const nes = selectedCourse.price - loadedData.Off;
-                disOFF = loadedData.Off;
-                document.getElementById('price').value = nes;
-                document.getElementById('sprice').innerText = nes;
-                cpn.style.cursor = "not-allowed";
-                cupV.value = loadedData.Cupon;
-                document.getElementById('disC').value = loadedData.Cupon;
-                cupV.disabled = true;
-                cpn.innerText = "Applied";
-                document.getElementById('coupnbosh').style.display = "none";
-                cpn.disabled = true;
-                const percent = Math.round(((parseInt(loadedData.Off) + (selectedCourse.compareAt - selectedCourse.price)) / selectedCourse.compareAt) * 100);
-                document.getElementById('how').style.display = "block";
-                document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
-                document.getElementById('smp').innerHTML = buildPriceHtml(selectedCourse, nes);
-                document.getElementById("cup").style.display = "block";
-                return;
-            }
-            cpn.innerText = "Apply";
-            cupV.disabled = false;
-            cpn.disabled = false;
-            document.getElementById('cupon').value = "";
-            swal({
-                title: "Code not valid",
-                icon: "error",
-                button: "Ok"
-            }).then(() => {
-                return notdis();
-            });
-        }).catch(() => {
-            document.getElementById('cupon').value = "";
-            swal({
-                title: "Cupon can't be Empty",
-                icon: "error",
-                button: "Ok"
-            }).then(() => {
-                return notdis();
-            });
-        });
+    applyCouponCode(cpnCode);
 });
-
-const promoCode = getPromoCode();
-if (promoCode) {
-    pendingPromoCode = promoCode;
-} else {
-    document.getElementById("cup").style.display = "none";
-    if (typeof delete_cookie === "function") {
-        delete_cookie("promo");
-    }
-    notdis();
-}
