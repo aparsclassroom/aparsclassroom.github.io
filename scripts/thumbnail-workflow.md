@@ -13,6 +13,13 @@ brew install webp
 If you want to download directly from a Google Drive folder URL, also install:
 
 ```sh
+python3 -m pip install --user gdown
+```
+
+If your Python blocks user installs, use:
+
+```sh
+brew install pipx
 pipx install gdown
 ```
 
@@ -50,7 +57,7 @@ shop/assets/images/course-thumbnails/<course-slug>/
 After pushing to GitHub Pages, the public URLs follow this pattern:
 
 ```text
-https://aparsclassroom.github.io/shop/assets/images/course-thumbnails/<course-slug>/<filename>.webp
+https://aparsclassroom.com/shop/assets/images/course-thumbnails/<course-slug>/<filename>.webp
 ```
 
 Raw downloads stay in `.thumbnail-work/` or `downloads/`, which are ignored by git.

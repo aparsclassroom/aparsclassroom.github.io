@@ -20,6 +20,10 @@ Requirements:
 
 Install hints:
   brew install webp
+  python3 -m pip install --user gdown
+
+If your Python blocks user installs, use:
+  brew install pipx
   pipx install gdown
 USAGE
 }
@@ -38,7 +42,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORK_DIR="$ROOT_DIR/.thumbnail-work/$COURSE_SLUG"
 RAW_DIR="$WORK_DIR/raw"
 OUT_DIR="$ROOT_DIR/shop/assets/images/course-thumbnails/$COURSE_SLUG"
-BASE_URL="https://aparsclassroom.github.io/shop/assets/images/course-thumbnails/$COURSE_SLUG"
+SITE_URL="${SITE_URL:-https://aparsclassroom.com}"
+BASE_URL="${SITE_URL%/}/shop/assets/images/course-thumbnails/$COURSE_SLUG"
 MANIFEST="$OUT_DIR/manifest.csv"
 TARGET_BYTES=$((TARGET_KB * 1024))
 
@@ -61,7 +66,9 @@ prepare_source() {
 
   if [[ "$SOURCE" =~ ^https?:// ]]; then
     if ! command -v gdown >/dev/null 2>&1; then
-      echo "Error: gdown is required for Google Drive folders. Install it with: pipx install gdown" >&2
+      echo "Error: gdown is required for Google Drive folders." >&2
+      echo "Install it with: python3 -m pip install --user gdown" >&2
+      echo "If that fails, run: brew install pipx && pipx install gdown" >&2
       exit 1
     fi
 
