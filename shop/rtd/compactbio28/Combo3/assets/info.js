@@ -1,0 +1,12 @@
+const product = "compactbio28combo3";
+const product2 = "compactbio28combo3wbook";
+const productName = "Compact Biology for HSC 28 Combo Total";
+const productName2 = "Compact Biology for HSC 28 Combo Total with books";
+let productCode = "767";
+let productCode2 = "770";
+const fix = 8000;
+const pls = 5000;
+const pls2 = 6500;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
