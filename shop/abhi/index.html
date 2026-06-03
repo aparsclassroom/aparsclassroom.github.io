@@ -61,6 +61,300 @@
     <link rel="stylesheet" href="../assets/css/shop.min.css">
     <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        :root {
+            --abhi-ink: #182033;
+            --abhi-muted: #5f6b7a;
+            --abhi-line: #dbe3ef;
+            --abhi-surface: #ffffff;
+            --abhi-soft: #f5f8fc;
+            --abhi-blue: #2454d6;
+            --abhi-green: #16865c;
+            --abhi-amber: #f0a51f;
+        }
+
+        body {
+            background: #eef3f8;
+            color: var(--abhi-ink);
+        }
+
+        .abhi-page {
+            padding-bottom: 3rem;
+        }
+
+        .abhi-hero {
+            background: linear-gradient(135deg, #f8fbff 0%, #e9f2ff 52%, #fff7e8 100%);
+            border: 1px solid var(--abhi-line);
+            border-radius: 8px;
+            box-shadow: 0 18px 45px rgba(24, 32, 51, 0.08);
+            margin: 1rem 0 1.35rem;
+            overflow: hidden;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .abhi-hero::after {
+            background: rgba(36, 84, 214, 0.08);
+            content: "";
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 32%;
+            clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .abhi-hero-content {
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .abhi-eyebrow {
+            color: var(--abhi-blue);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .abhi-hero h1 {
+            color: var(--abhi-ink);
+            font-size: 2.15rem;
+            font-weight: 800;
+            letter-spacing: 0;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        .abhi-hero p {
+            color: var(--abhi-muted);
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.65;
+            margin: 0.9rem 0 0;
+            max-width: 620px;
+        }
+
+        .abhi-filter-bar {
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid var(--abhi-line);
+            border-radius: 8px;
+            box-shadow: 0 10px 28px rgba(24, 32, 51, 0.06);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            padding: 0.75rem;
+            position: sticky;
+            top: 0.75rem;
+            z-index: 5;
+        }
+
+        .abhi-filter-bar .btn {
+            background: var(--abhi-surface);
+            border: 1px solid var(--abhi-line);
+            border-radius: 8px;
+            box-shadow: none;
+            color: var(--abhi-ink);
+            font-weight: 800;
+            min-height: 42px;
+            padding: 0.55rem 0.9rem;
+        }
+
+        .abhi-filter-bar .btn.active,
+        .abhi-filter-bar .btn:focus,
+        .abhi-filter-bar .btn:hover {
+            background: #eaf1ff;
+            border-color: #b9c9f4;
+            color: var(--abhi-blue);
+        }
+
+        .abhi-course-list {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        .abhi-course-list .course {
+            margin-bottom: 1rem !important;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .abhi-course-list .course > .card,
+        .abhi-course-list .course > .col-12 > .card {
+            background: var(--abhi-surface) !important;
+            border: 1px solid var(--abhi-line) !important;
+            border-radius: 8px;
+            box-shadow: 0 14px 35px rgba(24, 32, 51, 0.08) !important;
+            overflow: hidden;
+            padding: 1.15rem !important;
+            position: relative;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .abhi-course-list .course > .card:hover,
+        .abhi-course-list .course > .col-12 > .card:hover {
+            border-color: rgba(36, 84, 214, 0.32) !important;
+            box-shadow: 0 18px 42px rgba(24, 32, 51, 0.12) !important;
+            transform: translateY(-2px);
+        }
+
+        .abhi-course-list aside img {
+            aspect-ratio: 16 / 9;
+            border-radius: 8px !important;
+            box-shadow: 0 10px 24px rgba(24, 32, 51, 0.12);
+            display: block;
+            height: auto;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .abhi-course-list .title {
+            color: var(--abhi-ink);
+            display: inline-block;
+            font-size: 1.18rem;
+            font-weight: 850;
+            letter-spacing: 0;
+            line-height: 1.35;
+            padding-right: 0;
+        }
+
+        .abhi-course-list .title + .fa-circle-check {
+            color: var(--abhi-green);
+            font-size: 1rem;
+            margin-left: 0.35rem;
+            vertical-align: 0.08rem;
+        }
+
+        .abhi-course-list .info-main p,
+        .abhi-course-list .info-main li {
+            color: var(--abhi-muted);
+            font-weight: 500;
+            line-height: 1.65;
+        }
+
+        .abhi-course-list .info-main ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            list-style: none;
+            margin: 0.85rem 0 0;
+            padding: 0;
+        }
+
+        .abhi-course-list .info-main ul li {
+            background: #f3f7fb;
+            border: 1px solid var(--abhi-line);
+            border-radius: 8px;
+            color: var(--abhi-ink);
+            font-size: 0.9rem;
+            line-height: 1.35;
+            padding: 0.38rem 0.55rem;
+        }
+
+        .abhi-course-list .star {
+            color: var(--abhi-amber) !important;
+        }
+
+        .abhi-course-list .text-success {
+            color: var(--abhi-green) !important;
+            font-weight: 900;
+        }
+
+        .abhi-course-list .text-through {
+            opacity: 0.72;
+        }
+
+        .abhi-course-list .mt-4 {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 0 !important;
+        }
+
+        .abhi-course-list .btn {
+            align-items: center;
+            background: #f9fbff;
+            border: 1px solid var(--abhi-line);
+            border-radius: 8px;
+            box-shadow: none;
+            color: var(--abhi-ink);
+            display: flex;
+            font-size: 0.88rem;
+            font-weight: 750;
+            gap: 0.45rem;
+            justify-content: center;
+            line-height: 1.28;
+            margin-bottom: 0 !important;
+            min-height: 39px;
+            padding: 0.5rem 0.65rem;
+            white-space: normal;
+            width: 100%;
+        }
+
+        .abhi-course-list .btn:hover,
+        .abhi-course-list .btn:focus {
+            background: #eef5ff;
+            border-color: #c7d4ee;
+            color: var(--abhi-blue);
+            transform: translateY(-1px);
+        }
+
+        .abhi-course-list .btn i,
+        .abhi-course-list .btn span {
+            color: inherit;
+        }
+
+        footer.bg-primary {
+            background: #f8fbff !important;
+        }
+
+        @media (max-width: 767.98px) {
+            .abhi-page {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+
+            .abhi-hero {
+                padding: 1.35rem;
+            }
+
+            .abhi-hero::after {
+                display: none;
+            }
+
+            .abhi-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .abhi-filter-bar {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 0.65rem;
+                position: static;
+            }
+
+            .abhi-filter-bar .btn {
+                flex: 0 0 auto;
+            }
+
+            .abhi-course-list .course > .card,
+            .abhi-course-list .course > .col-12 > .card {
+                padding: 0.9rem !important;
+            }
+
+            .abhi-course-list .title {
+                font-size: 1.05rem;
+                margin-top: 0.95rem;
+            }
+
+        }
+    </style>
 
     <title>Abhi Datta Tushar Shop | Apar's Classroom</title>
 
@@ -113,18 +407,34 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container abhi-page">
         <div class="col-12 mb-3">
-            <h2 class="text-center mb-2 mt-4">All Listed Courses of Abhi Datta Tushar</h2>
-            <div class="card bg-primary shadow-soft border-light p-4">
+            <section class="abhi-hero">
+                <div class="abhi-hero-content">
+                    <div class="abhi-eyebrow">Academic and Admission Support</div>
+                    <h1>All Listed Courses of Abhi Datta Tushar</h1>
+                    <p class="bangla">Abhi Datta Tushar দীর্ঘদিন ধরে HSC শিক্ষার্থীদের Higher Math ও academic preparation-এ গাইড করে আসছেন, যেখানে তার ক্লাসগুলো বেসিক clear করা, exam-focused practice এবং confidence building-এর ওপর ফোকাস করে।</p>
+                </div>
+            </section>
+            <div class="abhi-filter-bar">
+                <button onclick="filterDivs('all')" class="btn btn-primary filter-btn active">All Courses</button>
+                <button onclick="filterDivs('HSC25')" class="btn btn-primary filter-btn">HSC 25</button>
+                <button onclick="filterDivs('HSC26')" class="btn btn-primary filter-btn">HSC 26</button>
+                <button onclick="filterDivs('HSC27')" class="btn btn-primary filter-btn">HSC 27</button>
+                <button onclick="filterDivs('HSC28')" class="btn btn-primary filter-btn">HSC 28</button>
+            </div>
+            <div class="card bg-primary shadow-soft border-light p-4 abhi-course-list">
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC28">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="./ebi28/">
-                                    <img src="https://i.postimg.cc/g0GxC1C3/compressed-image.jpg"
-                                        style="border-radius: 15px;" alt="poster" alt="poster">
+                                    <img src="/shop/academic/HSC_28/assets/images/ebi-480.webp"
+                                        srcset="/shop/academic/HSC_28/assets/images/ebi-320.webp 320w, /shop/academic/HSC_28/assets/images/ebi-480.webp 480w"
+                                        sizes="(max-width: 767px) 100vw, 25vw" width="480" height="270"
+                                        loading="lazy" decoding="async" style="border-radius: 15px; width: 100%; height: auto;"
+                                        alt="ACS EBI Course for HSC 28 English Bangla ICT">
                                 </a>
                             </aside>
                             <div class="col-md-6">
@@ -142,8 +452,15 @@
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
                                     <p class="bangla">
-                                       HSC সেগমেন্ট এর সবচেয়ে অভিজ্ঞ এবং দক্ষ টিচার প্যানেল এর সাথে English, Bangla এবং ICT এর সম্পূর্ণ প্রিপারেশন নিতে এখনই এনরোল করো!
+                                        HSC সেগমেন্ট এর সবচেয়ে অভিজ্ঞ এবং দক্ষ টিচার প্যানেল এর সাথে English, Bangla এবং
+                                        ICT এর সম্পূর্ণ প্রিপারেশন নিতে এখনই এনরোল করো
                                     </p>
+                                    <ul class="bangla">
+                                        <li>EBI Total Combo (Enrollment On)</li>
+                                        <li>English (Enrollment On)</li>
+                                        <li>Bangla (Enrollment On)</li>
+                                        <li>ICT (Enrollment On)</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -158,13 +475,29 @@
                                             class="fas fa-info-circle mr-1"></i>
                                         Enrollment Details
                                     </a>
+                                    <a class="btn btn-primary btn-sm btn-block mb-3" href="./ebi28/Combo/"><i
+                                            class="fas fa-info-circle mr-1"></i>
+                                        EBI Total Combo <br> Enrollment Details
+                                    </a>
+                                    <a class="btn btn-primary btn-sm btn-block mb-3" href="./ebi28/Cycle-2/"><i
+                                            class="fas fa-info-circle mr-1"></i>
+                                        English <br> Enrollment Details
+                                    </a>
+                                    <a class="btn btn-primary btn-sm btn-block mb-3" href="./ebi28/Cycle-3/"><i
+                                            class="fas fa-info-circle mr-1"></i>
+                                        Bangla <br> Enrollment Details
+                                    </a>
+                                    <a class="btn btn-primary btn-sm btn-block mb-3" href="./ebi28/Cycle-1/"><i
+                                            class="fas fa-info-circle mr-1"></i>
+                                        ICT <br> Enrollment Details
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC28">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -259,7 +592,7 @@
 
 
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC25">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -309,7 +642,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC27">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -433,7 +766,7 @@
                     </div>
                 </div> -->
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC26">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -511,7 +844,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC27">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -561,7 +894,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC26">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -611,7 +944,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-3 course" data-id="HSC25">
                     <div class="card bg-primary shadow-soft border-light p-4">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
@@ -675,7 +1008,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3 mt-3">
+                <div class="row mb-3 mt-3 course" data-id="HSC24">
                     <div class="col-12 mb-3">
                         <div class="card bg-primary shadow-soft border-light p-4">
                             <div class="row align-items-center">
@@ -1295,6 +1628,22 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
 <script src="../assets/js/script.js"></script>
+<script>
+    function filterDivs(id) {
+        const allDivs = document.querySelectorAll('.course');
+        allDivs.forEach(div => {
+            if (id === 'all' || div.dataset.id === id) {
+                div.style.display = 'block';
+            } else {
+                div.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.classList.toggle('active', button.getAttribute('onclick') === `filterDivs('${id}')`);
+        });
+    }
+</script>
 <script src="/shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js"></script>
 <script src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
