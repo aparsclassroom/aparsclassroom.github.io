@@ -283,7 +283,7 @@
 
         .abhi-course-list .btn {
             align-items: center;
-            background: #f9fbff;
+            background: linear-gradient(90deg, rgba(36, 84, 214, 0.08), rgba(22, 134, 92, 0.05));
             border: 1px solid var(--abhi-line);
             border-radius: 8px;
             box-shadow: none;
@@ -297,13 +297,26 @@
             margin-bottom: 0 !important;
             min-height: 39px;
             padding: 0.5rem 0.65rem;
+            position: relative;
             white-space: normal;
             width: 100%;
         }
 
+        .abhi-course-list .btn::before {
+            background: var(--abhi-blue);
+            border-radius: 8px 0 0 8px;
+            content: "";
+            height: 100%;
+            left: 0;
+            opacity: 0.75;
+            position: absolute;
+            top: 0;
+            width: 4px;
+        }
+
         .abhi-course-list .btn:hover,
         .abhi-course-list .btn:focus {
-            background: #eef5ff;
+            background: linear-gradient(90deg, rgba(36, 84, 214, 0.13), rgba(22, 134, 92, 0.08));
             border-color: #c7d4ee;
             color: var(--abhi-blue);
             transform: translateY(-1px);
@@ -422,10 +435,10 @@
             </section>
             <div class="abhi-filter-bar">
                 <button onclick="filterDivs('all')" class="btn btn-primary filter-btn active">All Courses</button>
+                <button onclick="filterDivs('HSC28')" class="btn btn-primary filter-btn">HSC 28</button>
+                <button onclick="filterDivs('HSC27')" class="btn btn-primary filter-btn">HSC 27</button>
                 <button onclick="filterDivs('HSC25')" class="btn btn-primary filter-btn">HSC 25</button>
                 <button onclick="filterDivs('HSC26')" class="btn btn-primary filter-btn">HSC 26</button>
-                <button onclick="filterDivs('HSC27')" class="btn btn-primary filter-btn">HSC 27</button>
-                <button onclick="filterDivs('HSC28')" class="btn btn-primary filter-btn">HSC 28</button>
             </div>
             <div class="card bg-primary shadow-soft border-light p-4 abhi-course-list">
 
@@ -536,7 +549,7 @@
                                         একাডেমিক ব্যাচে যুক্ত ছিলো। তারই ধারাবাহিকতায় ২৮ ব্যাচের স্টুডেন্ট দেরকেও আমরা
                                         সার্ভ করতে প্রস্তুত।
                                     </p>
-                                    
+
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
@@ -563,7 +576,7 @@
                                             class="fas fa-shopping-cart mr-1"></span>
                                         Combo 2 <br> Enrollment Details
                                     </a>
-                                   
+
                                     <a href="./Math28/Cycle-1/" class="btn btn-primary btn-sm btn-block"><span
                                             class="fas fa-shopping-cart mr-1"></span>
                                         Cycle-1 <br> Enrollment Details
