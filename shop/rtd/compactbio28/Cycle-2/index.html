@@ -108,6 +108,45 @@
         .swal2-image.no-image-margin {
             margin: 0 !important;
         }
+
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .teacher-card {
+            flex: 1 1 calc(50% - 20px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .teacher-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .teacher-info {
+            font-size: 15px;
+        }
+
+        .teacher-info strong {
+            font-size: 16px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .teacher-card {
+                flex: 1 1 100%;
+            }
+        }
     </style>
 
     <!-- Firebase Scripts -->
@@ -155,18 +194,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h2>Teachers :</h2>
-                            <div class="media">
-                                <p>
-                                    <img src="https://i.postimg.cc/t4T8trLj/Screenshot-2.png"
-                                        class="image is-64x64 media-left" alt="Dr.Rizvi Touhid (DMC)">
-                                <div class="media-content">
-                                    <h5 class="title.is-5 ">Dr.Rizvi Touhid (DMC)</h5>
-                                    <div class="content subtitle is-6 mb-1 collapsed">
-                                        Founder, RTDS, ROAD To DMC <br>
-                                        জাতীয় মেধায় ১ম,২০১৬-১৭ মেডিকেল ভর্তি পরীক্ষা
+                            <div class="teachers">
+                                <div class="teacher-card">
+                                    <img src="https://i.postimg.cc/t4T8trLj/Screenshot-2.png" alt="Dr.Rizvi Touhid (DMC)">
+                                    <div class="teacher-info">
+                                        <strong>Dr.Rizvi Touhid (DMC)</strong>
+                                        Founder, RTDS, ROAD To DMC<br>জাতীয় মেধায় ১ম,২০১৬-১৭ মেডিকেল ভর্তি পরীক্ষা
                                     </div>
                                 </div>
-                                </p>
+                                <div class="teacher-card">
+                                    <img src="https://i.postimg.cc/BvST7yKh/compressed-image-(2).jpg" alt="Shahin (DMC, Ex Cadet)">
+                                    <div class="teacher-info">
+                                        <strong>Shahin (DMC, Ex Cadet)</strong>
+                                        Instructor, RTDS, Road to DMC
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
