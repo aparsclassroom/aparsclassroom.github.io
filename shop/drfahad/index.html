@@ -80,9 +80,209 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/Logo.png">
     <link rel="apple-touch-icon" href="/assets/Logo.png">
+    <style>
+        body.bio-shop {
+            background:
+                radial-gradient(circle at 18px 18px, rgba(31, 122, 87, 0.07) 2px, transparent 2px),
+                linear-gradient(135deg, #f6fbf8 0%, #eef7f2 46%, #fffaf0 100%);
+            background-size: 34px 34px, auto;
+            color: #26352f;
+        }
+
+        .bio-shop .navbar-theme-primary,
+        .bio-shop footer.bg-primary {
+            background: rgba(247, 252, 249, 0.92) !important;
+            backdrop-filter: blur(12px);
+        }
+
+        .bio-shop-hero {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(31, 122, 87, 0.16);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(239, 249, 243, 0.9)),
+                url("https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 16px 40px rgba(31, 65, 48, 0.09);
+        }
+
+        .bio-shop-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(246, 251, 248, 0.98) 0%, rgba(246, 251, 248, 0.88) 62%, rgba(246, 251, 248, 0.58) 100%);
+            pointer-events: none;
+        }
+
+        .bio-leaf-field {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bio-leaf {
+            position: absolute;
+            width: 72px;
+            height: 34px;
+            border-radius: 72px 0;
+            border: 1px solid rgba(31, 122, 87, 0.16);
+            background: linear-gradient(135deg, rgba(31, 122, 87, 0.16), rgba(255, 255, 255, 0.02));
+            transform-origin: center;
+        }
+
+        .bio-leaf::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            top: 50%;
+            height: 1px;
+            background: rgba(31, 122, 87, 0.18);
+            transform: rotate(-18deg);
+        }
+
+        .bio-leaf.one {
+            right: 11%;
+            top: 20%;
+            transform: rotate(-22deg);
+        }
+
+        .bio-leaf.two {
+            right: 4%;
+            bottom: 18%;
+            width: 56px;
+            height: 27px;
+            opacity: 0.72;
+            transform: rotate(28deg);
+        }
+
+        .bio-leaf.three {
+            left: 42%;
+            bottom: 12%;
+            width: 46px;
+            height: 23px;
+            opacity: 0.5;
+            transform: rotate(-34deg);
+        }
+
+        .bio-shop-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bio-eyebrow {
+            color: #1f7a57;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .bio-shop-hero h1 {
+            color: #18392b;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .bio-shop-hero p {
+            max-width: 720px;
+            color: #486056;
+        }
+
+        .bio-list-panel {
+            border: 1px solid rgba(31, 122, 87, 0.14);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 18px 45px rgba(31, 65, 48, 0.08);
+        }
+
+        .bio-shop .course-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(31, 122, 87, 0.14) !important;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9) !important;
+            box-shadow: 0 12px 28px rgba(31, 65, 48, 0.07) !important;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .bio-shop .course-card::after {
+            content: "\f471";
+            position: absolute;
+            right: 1rem;
+            bottom: 0.8rem;
+            color: rgba(31, 122, 87, 0.08);
+            font-family: "Font Awesome 5 Free";
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .bio-shop .course-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bio-shop .course-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(31, 122, 87, 0.28) !important;
+            box-shadow: 0 18px 34px rgba(31, 65, 48, 0.11) !important;
+        }
+
+        .bio-shop .course-card img {
+            width: 100%;
+            border-radius: 8px !important;
+            border: 1px solid rgba(31, 122, 87, 0.12);
+        }
+
+        .bio-shop .title {
+            color: #173f2d;
+            line-height: 1.4;
+        }
+
+        .bio-shop .title:hover {
+            color: #1f7a57;
+            text-decoration: none;
+        }
+
+        .bio-shop .course-card .btn-primary {
+            border-color: #1f7a57;
+            background: #1f7a57;
+            color: #ffffff;
+            box-shadow: 0 8px 18px rgba(31, 122, 87, 0.18);
+        }
+
+        .bio-shop .course-card .btn-primary:hover {
+            border-color: #176243;
+            background: #176243;
+            color: #ffffff;
+        }
+
+        .bio-shop .fa-circle-check {
+            color: #1f7a57;
+        }
+
+        @media (max-width: 767.98px) {
+            .bio-shop-hero {
+                background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(239, 249, 243, 0.92));
+            }
+
+            .bio-leaf-field {
+                opacity: 0.45;
+            }
+
+            .bio-list-panel {
+                padding: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="bio-shop">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL8MSKLC" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -115,11 +315,25 @@
     </header>
     <div class="container">
         <div class="col-12 mb-3">
-            <h2 class="text-center mb-2 mt-4">All Listed Courses of Fahad academy</h2>
-            <div class="card bg-primary shadow-soft border-light p-4">
+            <section class="bio-shop-hero p-4 p-md-5 mb-4">
+                <div class="bio-leaf-field" aria-hidden="true">
+                    <span class="bio-leaf one"></span>
+                    <span class="bio-leaf two"></span>
+                    <span class="bio-leaf three"></span>
+                </div>
+                <div class="bio-eyebrow mb-2">
+                    <i class="fas fa-dna mr-2"></i>Biology Learning Hub
+                </div>
+                <h1 class="h2 mb-3">All Listed Courses of Fahad Academy</h1>
+                <p class="mb-0">
+                    Structured biology and medical admission courses by Dr. Fahad, organized for clear enrollment and
+                    focused preparation.
+                </p>
+            </section>
+            <div class="bio-list-panel p-4">
 
                 <div class="col-12 mb-3">
-                    <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="card bg-primary shadow-soft border-light p-4 course-card">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="./SignatureSeries/pre-book.html">
@@ -166,7 +380,7 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="card bg-primary shadow-soft border-light p-4 course-card">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="./SignatureSeries/">
@@ -223,7 +437,7 @@
                 </div>
 
                 <div class="col-12 mb-3">
-                    <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="card bg-primary shadow-soft border-light p-4 course-card">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="./ACS HSC 28 Biology Academic Cycle by Dr. Fahad/">
@@ -265,7 +479,7 @@
                 </div>
 
                 <div class="col-12 mb-3" id="Medical25">
-                    <div class="card bg-primary shadow-soft border-light p-4">
+                    <div class="card bg-primary shadow-soft border-light p-4 course-card">
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="../admission/HSC_26/PreMedical/">
