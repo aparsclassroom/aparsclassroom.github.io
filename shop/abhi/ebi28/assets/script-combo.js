@@ -148,7 +148,7 @@ function showCouponPanel() {
 }
 
 function couponRequired() {
-    return Boolean(couponCode);
+    return false;
 }
 
 function updatePurchaseButtonState() {
@@ -535,11 +535,10 @@ firebase.auth().onAuthStateChanged(function (e) {
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
-            userCanPurchase = true;
         } else {
             document.getElementById('phone').value = "+880";
-            userCanPurchase = false;
         }
+        userCanPurchase = true;
         updatePurchaseButtonState();
         if (namex != null) {
             document.getElementById('name').value = namex;
