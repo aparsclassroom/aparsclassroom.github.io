@@ -244,7 +244,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         })
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
-            document.getElementById("how").style.display = "none",
+           // document.getElementById("how").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');
                 location.href = "/shop/dashboard/login?&signInSuccessUrl="+ location.pathname;
