@@ -1,0 +1,12 @@
+const product = "b2b28combo2";
+const product2 = "b2b28combo2wbooks";
+const productName = "ACS Biology Cycle for HSC 28 by DMC Dreamers Combo 2";
+const productName2 = "ACS Biology Cycle for HSC 28 by DMC Dreamers Combo 2 with Books";
+let productCode = "787";
+let productCode2 = "790";
+const fix = 4000;
+const pls = 2600;
+const pls2 = 3450;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
