@@ -1,5 +1,5 @@
 const product = "tundraregion28combo";
-const productName = "HSC Biology \"All-in-One\" Course by DU Topper";
+const productName = "Toppers' Blueprint Bundle (Biology 1st Paper & 2nd Paper Combo)";
 const productCode = "792";
 const fix = 8000;
 const pls = 5000;
