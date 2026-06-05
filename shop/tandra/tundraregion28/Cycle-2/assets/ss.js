@@ -63,10 +63,11 @@ const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
 
 Promise.all([
     getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=792`),
     getEnrollmentCount(sisterEnrollmentCountApi, (data) => data.data && data.data.count)
-]).then(([originalCount, sisterCount]) => {
+]).then(([originalCount, comboCount, sisterCount]) => {
     if (document.getElementById('enrolled')) {
-        document.getElementById('enrolled').setAttribute('countTo', originalCount + sisterCount + init);
+        document.getElementById('enrolled').setAttribute('countTo', originalCount + comboCount + sisterCount + init);
         const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
         if (!countUp.error) {
             countUp.start();

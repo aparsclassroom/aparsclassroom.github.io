@@ -1,3 +1,18 @@
+// const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
+// if (!countUp.error) {
+//     countUp.start();
+// } else {
+//     console.error(countUp.error);
+// }
+// if (document.getElementById("stds")) {
+//     const countUps = new CountUp('stds', document.getElementById("stds").getAttribute("countTo"));
+//     if (!countUps.error) {
+//         countUps.start();
+//     } else {
+//         console.error(countUps.error);
+//     }
+// }
+
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
       document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
@@ -13,13 +28,25 @@ document.getElementById('email').addEventListener("input", function (event) {
         document.getElementById('phone').setCustomValidity("");
     }
   });
-document.title = productName + "(" + Cycle + ") | ASG Shop";
+document.title = productName + " | ASG Shop";
 // document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
  document.getElementById('prod').innerHTML = `${productName}`;
 document.getElementById('prevP').innerText = fix;
 document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
+
+const tundraRegion28ComboBlocks = {
+    "792": {
+        combos: [],
+        cycles: [
+            { cycle: "Cycle-1", products: ["660"] },
+            { cycle: "Cycle-2", products: ["661"] }
+        ]
+    }
+};
+
+let tundraRegion28EligibilityChecked = false;
 
 function tundraRegion28CheckPurchase(products, uid, cycle) {
     var myHeaders = new Headers();
@@ -49,16 +76,76 @@ function tundraRegion28FindExistingPurchase(results) {
         .find(result => result.status === 200);
 }
 
+function tundraRegion28InvoiceFromPurchase(result) {
+    return result?.invoices?.[0]?.invoice || result?.Invoice;
+}
+
+function tundraRegion28ShowExistingPurchase(result) {
+    swal({
+        title: "Already Enrolled !",
+        icon: "success",
+        button: "View Informations"
+    }).then(() => {
+        const invoice = tundraRegion28InvoiceFromPurchase(result);
+        if (invoice) {
+            return location.replace(invoice);
+        }
+    });
+}
+
+function tundraRegion28ValidateComboEligibility(uid) {
+    const blockConfig = tundraRegion28ComboBlocks[productCode];
+    if (!blockConfig) {
+        return Promise.resolve(null);
+    }
+
+    const purchaseChecks = [];
+    if (blockConfig.combos.length) {
+        purchaseChecks.push(tundraRegion28CheckPurchase(blockConfig.combos, uid));
+    }
+    blockConfig.cycles.forEach(check => {
+        purchaseChecks.push(tundraRegion28CheckPurchase(check.products, uid, check.cycle));
+    });
+
+    return Promise.allSettled(purchaseChecks).then(tundraRegion28FindExistingPurchase);
+}
+
+document.addEventListener('submit', function(event) {
+    if (!event.target || event.target.name !== 'purchase' || tundraRegion28EligibilityChecked) {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    const uid = document.getElementById('uid').value;
+    tundraRegion28ValidateComboEligibility(uid)
+        .then(existingPurchase => {
+            if (existingPurchase) {
+                tundraRegion28ShowExistingPurchase(existingPurchase);
+                return;
+            }
+
+            tundraRegion28EligibilityChecked = true;
+            event.target.requestSubmit();
+        })
+        .catch(() => {
+            tundraRegion28EligibilityChecked = true;
+            event.target.requestSubmit();
+        });
+}, true);
+
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
+        const tundraRegion28BlockConfig = tundraRegion28ComboBlocks[productCode] || { combos: [], cycles: [] };
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "product": productCode,
+            "products": [productCode].concat(tundraRegion28BlockConfig.combos),
             'uid': e.uid
         });
 
@@ -69,10 +156,15 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        Promise.allSettled([
-            fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions).then(response => response.json()),
-            tundraRegion28CheckPurchase(["792"], e.uid)
-        ])
+        const purchaseChecks = [
+            fetch(`https://${shopName2}/v3/purchase/multiple`, requestOptions)
+                .then(response => response.json()),
+            ...tundraRegion28BlockConfig.cycles.map(check => {
+                return tundraRegion28CheckPurchase(check.products, e.uid, check.cycle);
+            })
+        ];
+
+        Promise.allSettled(purchaseChecks)
             .then(result => {
                 result = tundraRegion28FindExistingPurchase(result) || { status: 404 };
                 if (result.status === 200) {
@@ -102,7 +194,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                             "cus_phone": document.getElementById('phone').value.trim(),
                             "Cupon": document.getElementById('disC').value.trim(),
                             'uid': e.uid,
-                            'Cycle': Cycle,
                             "affiliate": getCookie("affiliate"),
                             "utm_id": getCookie("utm_id"),
                             "utm_source": getCookie("utm_source"),
@@ -123,7 +214,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
+                        fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -172,7 +263,6 @@ firebase.auth().onAuthStateChanged(function(e) {
                         "cus_phone": document.getElementById('phone').value.trim(),
                         "Cupon": document.getElementById('disC').value.trim(),
                         'uid': e.uid,
-                        'Cycle': Cycle,
                         "affiliate": getCookie("affiliate"),
                         "utm_id": getCookie("utm_id"),
                         "utm_source": getCookie("utm_source"),
@@ -193,7 +283,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
+                    fetch(`https://${shopName2}/${productCode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
