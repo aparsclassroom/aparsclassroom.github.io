@@ -1,6 +1,6 @@
 const product = "SignatureSeries";
-const productName = "HSC 27 Academic Comeback Bio Survical Code - Botany";
-const productCode = "793";
+const productName = "HSC 27 Academic Comeback Bio Survical Code - Zoology";
+const productCode = "794";
 const fix = 3000;
 const pls = 1499;
 const init = 0;
