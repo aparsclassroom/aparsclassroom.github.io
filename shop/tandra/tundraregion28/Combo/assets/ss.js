@@ -1,5 +1,5 @@
 const product = "tundraregion28combo";
-const productName = "Toppers' Blueprint Bundle (Biology 1st Paper & 2nd Paper Combo)";
+const productName = "🥇 Toppers' Blueprint Bundle (Biology 1st Paper + 2nd Paper)";
 const productCode = "792";
 const fix = 8000;
 const pls = 5000;
