@@ -76,15 +76,15 @@ if (urlProductCode === productCode) {
     ];
     shippingInputs.forEach(input => input.setAttribute('required', ''));
 } else {
-    // Default state when no promo or unrecognized promo (books unchecked)
-    productcode = productCode;
-    document.getElementById('addBooks').checked = false;
-    document.getElementById('shippingFields').style.display = 'none';
-    document.getElementById('sprice').innerText = pls;
-    document.getElementById('price').value = pls;
-    document.getElementById('nop').innerText = pls + "৳";
+    // Default state when no promo or unrecognized promo (books checked)
+    productcode = productCode2;
+    document.getElementById('addBooks').checked = true;
+    document.getElementById('shippingFields').style.display = 'block';
+    document.getElementById('sprice').innerText = pls2;
+    document.getElementById('price').value = pls2;
+    document.getElementById('nop').innerText = pls2 + "৳";
     
-    // Remove required attributes from shipping fields
+    // Add required attributes to shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
         document.getElementById('ship_phone'),
@@ -92,7 +92,7 @@ if (urlProductCode === productCode) {
         document.getElementById('ship_city'),
         document.getElementById('ship_upzilla'),
     ];
-    shippingInputs.forEach(input => input.removeAttribute('required'));
+    shippingInputs.forEach(input => input.setAttribute('required', ''));
 }
 
 document.getElementById('email').addEventListener("input", function (event) {
@@ -221,6 +221,9 @@ document.getElementById('addBooks').addEventListener('change', function () {
 });
 
 const blockedCyclePurchaseChecks = [
+    { cycle: "Cycle-1", products: ["640", "645"] },
+    { cycle: "Cycle-2", products: ["641", "646"] },
+    { cycle: "Cycle-3", products: ["642", "647"] },
     { cycle: "Cycle-4", products: ["643", "648"] },
     { cycle: "Cycle-5", products: ["644", "649"] },
     { cycle: "Cycle-6", products: ["692", "693"] }
@@ -261,8 +264,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
         const purchaseChecks = [
-            checkPurchase([productCode, productCode2], e.uid),
-            checkPurchase(["798", "799"], e.uid),
+            checkPurchase([productCode, productCode2, "694", "696", "695", "697"], e.uid),
             ...blockedCyclePurchaseChecks.map(check => checkPurchase(check.products, e.uid, check.cycle))
         ];
 

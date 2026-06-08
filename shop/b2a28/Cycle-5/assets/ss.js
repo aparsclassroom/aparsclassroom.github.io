@@ -13,6 +13,8 @@ let productCode = "644";
 let productCode2 = "649";
 let productCode3 = "695";
 let productCode4 = "697";
+let productCode5 = "798";
+let productCode6 = "799";
 const fix = 1500;
 const pls = 1000;
 const pls2 = 1350;
@@ -77,7 +79,9 @@ Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode3}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode5}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode6}`).then(res => res.json())
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
