@@ -690,7 +690,9 @@ firebase.auth().onAuthStateChanged(function (e) {
         const cycleProducts = getConfiguredProductCodes([productCode, productCode2]);
         const comboProducts = getConfiguredProductCodes([
             typeof productCode3 !== 'undefined' ? productCode3 : null,
-            typeof productCode4 !== 'undefined' ? productCode4 : null
+            typeof productCode4 !== 'undefined' ? productCode4 : null,
+            typeof productCode5 !== 'undefined' ? productCode5 : null,
+            typeof productCode6 !== 'undefined' ? productCode6 : null
         ]);
 
         Promise.allSettled([
