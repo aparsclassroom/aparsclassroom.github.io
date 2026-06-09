@@ -51,6 +51,9 @@ let redirectUrl = params.signInSuccessUrl;
                 provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 clientId: "374714320984-7r0b3i1s39tapmudaa4poe2b3qkpksst.apps.googleusercontent.com"
             },
+            {
+                provider: 'apple.com'
+            },
             // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
             // {
             //     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
