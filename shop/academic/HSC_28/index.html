@@ -44,25 +44,25 @@
         }
 
         .course-enrollment-count {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(26, 185, 66, 0.35);
+            background: rgba(255, 255, 255, 0.48);
+            border: 1px solid rgba(49, 52, 78, 0.16);
             border-radius: 999px;
-            color: #0f7b32;
+            color: #3d405f;
             display: inline-block;
             font-size: 0.78rem;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.2;
             margin: 0.35rem 0 0.8rem;
             padding: 0.35rem 0.7rem;
         }
 
         .course-enrollment-count.is-loading {
-            color: #6b7280;
+            color: #6b6f85;
         }
 
         .course-enrollment-count.is-error {
-            border-color: rgba(220, 53, 69, 0.35);
-            color: #b42318;
+            border-color: rgba(132, 54, 61, 0.24);
+            color: #84363d;
         }
     </style>
 
@@ -2383,41 +2383,48 @@
             const shopApi = 'https://shop.aparsclassroom.com';
             const sourceCache = new Map();
             const countCache = new Map();
+            const countStoragePrefix = 'hsc28EnrollmentCount:';
+            const countCacheTtl = 10 * 60 * 1000;
             const explicitEnrollmentGroups = [
+                {
+                    paths: ['/shop/abhi/ebi28/'],
+                    groups: [
+                        { cycle: null, cycleCodes: ['666'], comboCodes: ['665', '670', '671'] },
+                        { cycle: null, cycleCodes: ['667'], comboCodes: ['665', '669', '671'] },
+                        { cycle: null, cycleCodes: ['668'], comboCodes: ['665', '669', '670'] }
+                    ]
+                },
                 {
                     paths: ['/shop/abhi/Math28/'],
                     groups: [
-                        { cycle: 'Cycle-1', codes: ['672', '678'] },
-                        { cycle: 'Cycle-2', codes: ['673', '679'] },
-                        { cycle: 'Cycle-3', codes: ['674', '680'] },
-                        { cycle: 'Cycle-4', codes: ['675', '681'] },
-                        { cycle: 'Cycle-5', codes: ['676', '682'] },
-                        { cycle: 'Cycle-6', codes: ['677', '683'] },
-                        { cycle: null, codes: ['684', '686', '685', '687', '689', '690'] }
+                        { cycle: 'Cycle-1', cycleCodes: ['672', '678'], comboCodes: ['684', '686', '689', '690'] },
+                        { cycle: 'Cycle-2', cycleCodes: ['673', '679'], comboCodes: ['684', '686', '689', '690'] },
+                        { cycle: 'Cycle-3', cycleCodes: ['674', '680'], comboCodes: ['684', '686', '689', '690'] },
+                        { cycle: 'Cycle-4', cycleCodes: ['675', '681'], comboCodes: ['685', '687', '689', '690'] },
+                        { cycle: 'Cycle-5', cycleCodes: ['676', '682'], comboCodes: ['685', '687', '689', '690'] },
+                        { cycle: 'Cycle-6', cycleCodes: ['677', '683'], comboCodes: ['685', '687', '689', '690'] }
                     ]
                 },
                 {
                     paths: ['/shop/physics/b2m28/'],
                     groups: [
-                        { cycle: 'Cycle-1', codes: ['734', '740'] },
-                        { cycle: 'Cycle-2', codes: ['735', '741'] },
-                        { cycle: 'Cycle-3', codes: ['736', '742'] },
-                        { cycle: 'Cycle-4', codes: ['737', '743'] },
-                        { cycle: 'Cycle-5', codes: ['738', '744'] },
-                        { cycle: 'Cycle-6', codes: ['739', '745'] },
-                        { cycle: null, codes: ['746', '749', '747', '750', '748', '751'] }
+                        { cycle: 'Cycle-1', cycleCodes: ['734', '740'], comboCodes: ['746', '749', '748', '751'] },
+                        { cycle: 'Cycle-2', cycleCodes: ['735', '741'], comboCodes: ['746', '749', '748', '751'] },
+                        { cycle: 'Cycle-3', cycleCodes: ['736', '742'], comboCodes: ['746', '749', '748', '751'] },
+                        { cycle: 'Cycle-4', cycleCodes: ['737', '743'], comboCodes: ['747', '750', '748', '751'] },
+                        { cycle: 'Cycle-5', cycleCodes: ['738', '744'], comboCodes: ['747', '750', '748', '751'] },
+                        { cycle: 'Cycle-6', cycleCodes: ['739', '745'], comboCodes: ['747', '750', '748', '751'] }
                     ]
                 },
                 {
                     paths: ['/shop/b2a28/'],
                     groups: [
-                        { cycle: 'Cycle-1', codes: ['640', '645'] },
-                        { cycle: 'Cycle-2', codes: ['641', '646'] },
-                        { cycle: 'Cycle-3', codes: ['642', '647'] },
-                        { cycle: 'Cycle-4', codes: ['643', '648'] },
-                        { cycle: 'Cycle-5', codes: ['644', '649'] },
-                        { cycle: 'Cycle-6', codes: ['692', '693'] },
-                        { cycle: null, codes: ['694', '696', '695', '697', '798', '799'] }
+                        { cycle: 'Cycle-1', cycleCodes: ['640', '645'], comboCodes: ['694', '696', '798', '799'] },
+                        { cycle: 'Cycle-2', cycleCodes: ['641', '646'], comboCodes: ['694', '696', '798', '799'] },
+                        { cycle: 'Cycle-3', cycleCodes: ['642', '647'], comboCodes: ['694', '696', '798', '799'] },
+                        { cycle: 'Cycle-4', cycleCodes: ['643', '648'], comboCodes: ['695', '697', '798', '799'] },
+                        { cycle: 'Cycle-5', cycleCodes: ['644', '649'], comboCodes: ['695', '697', '798', '799'] },
+                        { cycle: 'Cycle-6', cycleCodes: ['692', '693'], comboCodes: ['695', '697', '798', '799'] }
                     ]
                 }
             ];
@@ -2434,6 +2441,10 @@
 
             function createBadge(card) {
                 const target = card.querySelector('.info-main') || card;
+                const existingBadge = target.querySelector('.course-enrollment-count');
+                if (existingBadge) {
+                    existingBadge.remove();
+                }
                 const badge = document.createElement('span');
                 badge.className = 'course-enrollment-count is-loading';
                 badge.textContent = 'Total enrolled: loading...';
@@ -2484,15 +2495,24 @@
                 const url = cycle
                     ? `${shopApi}/enrollment/${cycle}?productCode=${code}`
                     : `${shopApi}/enrollment/?productCode=${code}`;
-                endpoints.add(url);
+                if (typeof endpoints.add === 'function') {
+                    endpoints.add(url);
+                } else {
+                    endpoints.push(url);
+                }
             }
 
             function addFutureSchoolEndpoint(endpoints, code) {
                 if (!code) return;
-                endpoints.add(`https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${code}`);
+                const url = `https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${code}`;
+                if (typeof endpoints.add === 'function') {
+                    endpoints.add(url);
+                } else {
+                    endpoints.push(url);
+                }
             }
 
-            function addExplicitEndpoints(endpoints, card) {
+            function getExplicitEndpoints(card) {
                 const paths = Array.from(card.querySelectorAll('a[href]'), anchor => {
                     return new URL(anchor.href, location.href).pathname;
                 });
@@ -2500,16 +2520,26 @@
                     return item.paths.some(basePath => paths.some(path => path === basePath || path.startsWith(basePath)));
                 });
 
-                if (!group) return false;
+                if (!group) return null;
 
-                group.groups.forEach(({ cycle, codes }) => {
-                    codes.forEach(code => {
+                const endpoints = [];
+                const includeFutureSchool = group.includeFutureSchool !== false;
+                group.groups.forEach(({ cycle, cycleCodes, comboCodes }) => {
+                    cycleCodes.forEach(code => {
                         addEndpoint(endpoints, cycle, code);
-                        addFutureSchoolEndpoint(endpoints, code);
+                        if (includeFutureSchool) {
+                            addFutureSchoolEndpoint(endpoints, code);
+                        }
+                    });
+                    comboCodes.forEach(code => {
+                        addEndpoint(endpoints, null, code);
+                        if (includeFutureSchool) {
+                            addFutureSchoolEndpoint(endpoints, code);
+                        }
                     });
                 });
 
-                return true;
+                return endpoints;
             }
 
             function extractEnrollmentEndpoints(source, pageUrl) {
@@ -2592,9 +2622,36 @@
                     return countCache.get(endpoint);
                 }
 
+                const cacheKey = countStoragePrefix + endpoint;
+                try {
+                    const cached = JSON.parse(localStorage.getItem(cacheKey));
+                    if (cached && Date.now() - cached.timestamp < countCacheTtl) {
+                        const cachedPromise = Promise.resolve(Number(cached.count) || 0);
+                        countCache.set(endpoint, cachedPromise);
+                        return cachedPromise;
+                    }
+                } catch (error) {
+                    try {
+                        localStorage.removeItem(cacheKey);
+                    } catch (storageError) {
+                        console.error('Enrollment count cache read failed:', storageError);
+                    }
+                }
+
                 const countPromise = fetch(endpoint)
                     .then(response => response.json())
-                    .then(data => Number(data.count ?? (data.data && data.data.count)) || 0)
+                    .then(data => {
+                        const count = Number(data.count ?? (data.data && data.data.count)) || 0;
+                        try {
+                            localStorage.setItem(cacheKey, JSON.stringify({
+                                count,
+                                timestamp: Date.now()
+                            }));
+                        } catch (error) {
+                            console.error('Enrollment count cache write failed:', error);
+                        }
+                        return count;
+                    })
                     .catch(error => {
                         console.error('Enrollment count endpoint failed:', endpoint, error);
                         return 0;
@@ -2607,27 +2664,32 @@
             async function updateCard(card) {
                 const buttons = Array.from(card.querySelectorAll('a.btn[href]'));
                 const countableLinks = buttons.filter(isCountableCourseLink);
-                const links = countableLinks.length ? countableLinks : buttons.slice(0, 1);
+                const cycleLinks = countableLinks.filter(anchor => {
+                    return /\/Cycle-\d+\/?$/.test(new URL(anchor.href, location.href).pathname);
+                });
+                const selectedLinks = cycleLinks.length ? cycleLinks : (countableLinks.length ? countableLinks : buttons.slice(0, 1));
+                const links = Array.from(new Map(selectedLinks.map(anchor => {
+                    return [new URL(anchor.href, location.href).href, anchor];
+                })).values());
                 if (!links.length) {
                     return;
                 }
 
                 const badge = createBadge(card);
                 try {
-                    const endpointSet = new Set();
-                    const hasExplicitEndpoints = addExplicitEndpoints(endpointSet, card);
-                    if (!hasExplicitEndpoints) {
+                    let endpoints = getExplicitEndpoints(card);
+                    if (!endpoints) {
+                        endpoints = [];
                         const sources = await Promise.all(links.map(async anchor => {
                             const source = await getLinkedPageSource(anchor.href);
                             return { source, href: anchor.href };
                         }));
 
                         sources.forEach(({ source, href }) => {
-                            extractEnrollmentEndpoints(source, href).forEach(endpoint => endpointSet.add(endpoint));
+                            extractEnrollmentEndpoints(source, href).forEach(endpoint => endpoints.push(endpoint));
                         });
                     }
 
-                    const endpoints = Array.from(endpointSet);
                     if (!endpoints.length) {
                         badge.remove();
                         return;
@@ -2645,7 +2707,12 @@
                 }
             }
 
-            document.querySelectorAll('.col-12.mb-3 > .card').forEach(updateCard);
+            document.querySelectorAll('.col-12.mb-3 > .card').forEach(card => {
+                if (card.querySelector('.col-12.mb-3 > .card')) {
+                    return;
+                }
+                updateCard(card);
+            });
         })();
 
         window.addEventListener('load', function () {

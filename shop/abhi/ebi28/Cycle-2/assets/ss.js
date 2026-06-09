@@ -27,16 +27,32 @@ var swiper = new Swiper(".mySwiper", {
 
 const ebi28EnrollmentProductCodes = ["665", productCode, "669", "671"];
 
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${ebi28EnrollmentProductCodes.join(",")}`)
-    .then((res) => {
-        return res.json();
-    })
-    .then((data) => {
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
+const getAfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
+
+Promise.all([
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/combined?productCodes=" + ebi28EnrollmentProductCodes.join(",")),
+    ...ebi28EnrollmentProductCodes.map(getAfsEnrollmentCount)
+])
+    .then((counts) => {
         const enrolled = document.getElementById('enrolled');
         if (!enrolled) {
             return;
         }
-        enrolled.setAttribute('countTo', data.count + init);
+        const totalEnrollment = counts.reduce((total, count) => total + count, init);
+        enrolled.setAttribute('countTo', totalEnrollment);
         const countUp = new CountUp('enrolled', enrolled.getAttribute("countTo"));
         if (!countUp.error) {
             countUp.start();
