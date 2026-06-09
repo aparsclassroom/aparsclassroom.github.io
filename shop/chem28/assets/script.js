@@ -218,8 +218,29 @@ firebase.auth().onAuthStateChanged(function (e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
-        .then((result) => {
+        const comboPurchaseCheckOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify({
+                "products": ["771"],
+                'uid': e.uid
+            }),
+            redirect: 'follow'
+        };
+
+        const purchaseChecks = [
+            fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
+        ];
+        if (Cycle !== "Cycle-1") {
+            purchaseChecks.push(fetch(`https://${shopName2}/v3/purchase/multiple`, comboPurchaseCheckOptions).then(res => res.json()));
+        }
+
+        Promise.allSettled(purchaseChecks)
+        .then((results) => {
+            const result = results
+                .filter(check => check.status === 'fulfilled')
+                .map(check => check.value)
+                .find(check => check.status === 200) || { status: 404 };
             if (result.status === 200) {
                 swal({
                     title: "Already Enrolled!",

@@ -111,8 +111,7 @@ function attachPurchaseSubmit(user) {
 }
 
 const blockedCyclePurchaseChecks = [
-    { cycle: "Cycle-1", products: ["650", "465"] },
-    { cycle: "Cycle-2", products: ["652", "656"] },
+    { cycle: "Cycle-2", products: ["651", "655"] },
     { cycle: "Cycle-3", products: ["652", "656"] },
     { cycle: "Cycle-4", products: ["653"] },
     { cycle: "Cycle-5", products: ["654", "657"] },

@@ -72,11 +72,12 @@ function onPlayerReady(event) {
 //         console.log(err)
 //     })
 Promise.all([
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+    fetch("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode).then(res => res.json()),
+    fetch("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode2).then(res => res.json()),
+    fetch("https://" + shopName2 + "/enrollment/?productCode=771").then(res => res.json())
 ])
-    .then(([data1, data2]) => {
-        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
 
         document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
 

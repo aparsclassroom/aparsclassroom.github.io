@@ -40,18 +40,32 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions)
-            .then(response => {
-                return response.json()
-            })
-            .then(result => {
+        const comboPurchaseCheckOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify({
+                "products": ["771"],
+                'uid': e.uid
+            }),
+            redirect: 'follow'
+        };
+
+        Promise.allSettled([
+            fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions).then(response => response.json()),
+            fetch(`https://${shopName2}/v3/purchase/multiple`, comboPurchaseCheckOptions).then(response => response.json())
+        ])
+            .then(results => {
+                const result = results
+                    .filter(check => check.status === 'fulfilled')
+                    .map(check => check.value)
+                    .find(check => check.status === 200) || { status: 404 };
                 if (result.status === 200) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
-                        return location.replace(result.Invoice)
+                        return location.replace(result.Invoice || (result.invoices && result.invoices[0] && result.invoices[0].invoice))
                     })
                 } else {
                     const form = document.forms['purchase']

@@ -2419,6 +2419,64 @@
                 return values;
             }
 
+            function stripJavaScriptComments(source) {
+                let output = '';
+                let state = 'code';
+                for (let index = 0; index < source.length; index++) {
+                    const char = source[index];
+                    const next = source[index + 1];
+                    const prev = source[index - 1];
+
+                    if (state === 'lineComment') {
+                        if (char === '\n') {
+                            output += char;
+                            state = 'code';
+                        }
+                        continue;
+                    }
+
+                    if (state === 'blockComment') {
+                        if (char === '*' && next === '/') {
+                            index++;
+                            state = 'code';
+                        }
+                        continue;
+                    }
+
+                    if (state === 'singleQuote' || state === 'doubleQuote' || state === 'template') {
+                        output += char;
+                        const quote = state === 'singleQuote' ? "'" : (state === 'doubleQuote' ? '"' : '`');
+                        if (char === quote && prev !== '\\') {
+                            state = 'code';
+                        }
+                        continue;
+                    }
+
+                    if (char === '/' && next === '/') {
+                        index++;
+                        state = 'lineComment';
+                        continue;
+                    }
+
+                    if (char === '/' && next === '*') {
+                        index++;
+                        state = 'blockComment';
+                        continue;
+                    }
+
+                    if (char === "'") {
+                        state = 'singleQuote';
+                    } else if (char === '"') {
+                        state = 'doubleQuote';
+                    } else if (char === '`') {
+                        state = 'template';
+                    }
+
+                    output += char;
+                }
+                return output;
+            }
+
             function parseArrays(source, values) {
                 const arrays = {};
                 const arrayPattern = /\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*\[([^\]]*)\]/g;
@@ -2491,8 +2549,9 @@
             }
 
             function extractEnrollmentEndpoints(source, pageUrl) {
-                const values = parseAssignments(source);
-                const arrays = parseArrays(source, values);
+                const activeSource = stripJavaScriptComments(source);
+                const values = parseAssignments(activeSource);
+                const arrays = parseArrays(activeSource, values);
                 const pathCycle = getPathCycle(pageUrl);
                 const endpoints = new Set();
                 const fetchTemplatePattern = /fetch\(\s*`([^`]*\/enrollment[^`]*)`/g;
@@ -2501,13 +2560,13 @@
                 const templates = [];
                 let match;
 
-                while ((match = fetchTemplatePattern.exec(source)) !== null) {
+                while ((match = fetchTemplatePattern.exec(activeSource)) !== null) {
                     templates.push(match[1]);
                 }
-                while ((match = fetchStringPattern.exec(source)) !== null) {
+                while ((match = fetchStringPattern.exec(activeSource)) !== null) {
                     templates.push(match[1]);
                 }
-                while ((match = enrollmentTemplatePattern.exec(source)) !== null) {
+                while ((match = enrollmentTemplatePattern.exec(activeSource)) !== null) {
                     templates.push(match[1]);
                 }
 
@@ -2534,34 +2593,34 @@
                     }
                 });
 
-                if (/comboEnrollmentCodes\.map\(\s*code\s*=>\s*fetch\(/.test(source) && pathCycle) {
-                    parseCycleCodeMaps(source).forEach(map => {
+                if (/comboEnrollmentCodes\.map\(\s*code\s*=>\s*fetch\(/.test(activeSource) && pathCycle) {
+                    parseCycleCodeMaps(activeSource).forEach(map => {
                         (map[pathCycle] || []).forEach(code => addEndpoint(endpoints, null, code));
                     });
                 }
 
-                Array.from(source.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
+                Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
                     .forEach(match => addEndpoint(endpoints, readCycleValue(match[1], values, pathCycle), readTokenValue(match[2], values)));
-                Array.from(source.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode="\s*\+\s*([^)]+)\)/g))
+                Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode="\s*\+\s*([^)]+)\)/g))
                     .forEach(match => addEndpoint(endpoints, null, readTokenValue(match[1], values)));
-                Array.from(source.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/combined\?productCodes="\s*\+\s*([A-Za-z_$][\w$]*)\.join\(["'],["']\)\)/g))
+                Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/combined\?productCodes="\s*\+\s*([A-Za-z_$][\w$]*)\.join\(["'],["']\)\)/g))
                     .forEach(match => {
                         if (arrays[match[1]]) {
                             endpoints.add(`${shopApi}/enrollment/combined?productCodes=${arrays[match[1]].join(',')}`);
                         }
                     });
 
-                Array.from(source.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=\$\{([A-Za-z_$][\w$]*)\}/g))
+                Array.from(activeSource.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=\$\{([A-Za-z_$][\w$]*)\}/g))
                     .forEach(match => addFutureSchoolEndpoint(endpoints, values[match[1]]));
-                Array.from(source.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=(\d+)/g))
+                Array.from(activeSource.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=(\d+)/g))
                     .forEach(match => addFutureSchoolEndpoint(endpoints, match[1]));
-                Array.from(source.matchAll(/getAfsEnrollmentCount\(([^)]+)\)/g))
+                Array.from(activeSource.matchAll(/getAfsEnrollmentCount\(([^)]+)\)/g))
                     .forEach(match => {
                         const expression = match[1].trim();
                         if (expression.endsWith('.map(getAfsEnrollmentCount')) return;
                         addFutureSchoolEndpoint(endpoints, readTokenValue(expression, values));
                     });
-                Array.from(source.matchAll(/\.\.\.([A-Za-z_$][\w$]*)\.map\(getAfsEnrollmentCount\)/g))
+                Array.from(activeSource.matchAll(/\.\.\.([A-Za-z_$][\w$]*)\.map\(getAfsEnrollmentCount\)/g))
                     .forEach(match => {
                         (arrays[match[1]] || []).forEach(code => addFutureSchoolEndpoint(endpoints, code));
                     });

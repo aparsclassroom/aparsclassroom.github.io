@@ -68,14 +68,16 @@ function onPlayerReady(event) {
 //         console.log(err)
 //     })
 
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', (data.count || 0) + init);
+Promise.all([
+    fetch("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode).then(res => res.json()),
+    fetch("https://" + shopName2 + "/enrollment/?productCode=771").then(res => res.json())
+])
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
+
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
         if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            const countUp = new CountUp('enrolled', totalEnrollment);
             if (!countUp.error) {
                 countUp.start();
             } else {
@@ -95,4 +97,3 @@ document.getElementById('con5').innerHTML = `<i class="fas fa-tablet-alt" style=
 document.getElementById('con6').innerHTML = `<i class="fas fa-file-alt" style="color:#28a745;"></i>&nbsp; Practice Sheet`;
 document.getElementById('con7').innerHTML = `<i class="fab fa-facebook" style="color:#3b5998;"></i>&nbsp; Facebook Group`;
 document.getElementById('con8').innerHTML = `<i class="fas fa-comments" style="color:#17a2b8;"></i>&nbsp; Discussion Group`;
-
