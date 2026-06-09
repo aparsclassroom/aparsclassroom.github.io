@@ -42,6 +42,28 @@
             -ms-user-select: none;
             user-select: none;
         }
+
+        .course-enrollment-count {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(26, 185, 66, 0.35);
+            border-radius: 999px;
+            color: #0f7b32;
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0.35rem 0 0.8rem;
+            padding: 0.35rem 0.7rem;
+        }
+
+        .course-enrollment-count.is-loading {
+            color: #6b7280;
+        }
+
+        .course-enrollment-count.is-error {
+            border-color: rgba(220, 53, 69, 0.35);
+            color: #b42318;
+        }
     </style>
 
     <title>HSC 28 Academic Cycles | Apar's Classroom | ASG Shop</title>
@@ -1124,6 +1146,7 @@
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
                                     <ul>
+                                        <li>Total Combo: Cycle 1, 2, 3, 4, 5, 6 (Enrollment On)</li>
                                         <li>Combo 1: Cycle 1, 2, 3 (Enrollment On)</li>
                                         <li>Combo 2: Cycle 4, 5, 6 (Enrollment On)</li>
                                         <li>Cycle-1 (Enrollment On)</li>
@@ -1143,6 +1166,10 @@
                                     <a class="btn btn-primary btn-sm btn-block mb-3" href="/shop/b2a28/"><i
                                             class="fas fa-info-circle mr-1"></i>
                                         Enrollment Details
+                                    </a>
+                                    <a href="/shop/b2a28/Combo3/" class="btn btn-primary btn-sm btn-block"><span
+                                            class="fas fa-shopping-cart mr-1"></span>
+                                        Total Combo <br> Enrollment Details
                                     </a>
                                     <a href="/shop/b2a28/Combo1/" class="btn btn-primary btn-sm btn-block"><span
                                             class="fas fa-shopping-cart mr-1"></span>
@@ -1209,6 +1236,7 @@
                                             style="--fa-beat-scale: 0.5;"></span>
                                     </div>
                                     <ul class="bangla">
+                                        <li>Total Combo: রসায়ন ১ম + ২য় পত্রের সব সাইকেল</li>
                                         <li>Combo 1: রসায়ন ১ম পত্রের ৫ টি অধ্যায় কমপ্লিট</li>
                                         <li>Combo 2: রসায়ন ১ম পত্রের ৫ টি অধ্যায় কমপ্লিট</li>
                                         <li>Cycle-1: ১ম পত্র - অধ্যায় ১, ২</li>
@@ -1228,6 +1256,11 @@
                                     <a class="btn btn-primary btn-sm btn-block mb-3"
                                         href="../../aloronxyz/chem28aloron/"><i class="fas fa-info-circle mr-1"></i>
                                         Enrollment Details
+                                    </a>
+                                    <a href="../../aloronxyz/chem28aloron/Combo3/"
+                                        class="btn btn-primary btn-sm btn-block"><span
+                                            class="fas fa-shopping-cart mr-1"></span>
+                                        Total Combo <br> Enrollment Details
                                     </a>
                                     <a href="../../aloronxyz/chem28aloron/Combo1/"
                                         class="btn btn-primary btn-sm btn-block"><span
@@ -2345,6 +2378,275 @@
                 event.preventDefault();
             }
         });
+
+        (function showEnrollmentCounts() {
+            const shopApi = 'https://shop.aparsclassroom.com';
+            const sourceCache = new Map();
+            const countCache = new Map();
+            const explicitEnrollmentGroups = [
+                {
+                    paths: ['/shop/abhi/Math28/'],
+                    groups: [
+                        { cycle: 'Cycle-1', codes: ['672', '678'] },
+                        { cycle: 'Cycle-2', codes: ['673', '679'] },
+                        { cycle: 'Cycle-3', codes: ['674', '680'] },
+                        { cycle: 'Cycle-4', codes: ['675', '681'] },
+                        { cycle: 'Cycle-5', codes: ['676', '682'] },
+                        { cycle: 'Cycle-6', codes: ['677', '683'] },
+                        { cycle: null, codes: ['684', '686', '685', '687', '689', '690'] }
+                    ]
+                },
+                {
+                    paths: ['/shop/physics/b2m28/'],
+                    groups: [
+                        { cycle: 'Cycle-1', codes: ['734', '740'] },
+                        { cycle: 'Cycle-2', codes: ['735', '741'] },
+                        { cycle: 'Cycle-3', codes: ['736', '742'] },
+                        { cycle: 'Cycle-4', codes: ['737', '743'] },
+                        { cycle: 'Cycle-5', codes: ['738', '744'] },
+                        { cycle: 'Cycle-6', codes: ['739', '745'] },
+                        { cycle: null, codes: ['746', '749', '747', '750', '748', '751'] }
+                    ]
+                },
+                {
+                    paths: ['/shop/b2a28/'],
+                    groups: [
+                        { cycle: 'Cycle-1', codes: ['640', '645'] },
+                        { cycle: 'Cycle-2', codes: ['641', '646'] },
+                        { cycle: 'Cycle-3', codes: ['642', '647'] },
+                        { cycle: 'Cycle-4', codes: ['643', '648'] },
+                        { cycle: 'Cycle-5', codes: ['644', '649'] },
+                        { cycle: 'Cycle-6', codes: ['692', '693'] },
+                        { cycle: null, codes: ['694', '696', '695', '697', '798', '799'] }
+                    ]
+                }
+            ];
+
+            function isCountableCourseLink(anchor) {
+                const path = new URL(anchor.href, location.href).pathname;
+                return /\/(?:Cycle-\d+|Combo\d*|Combo)\/?$/.test(path);
+            }
+
+            function getPathCycle(url) {
+                const parts = new URL(url, location.href).pathname.split('/').filter(Boolean);
+                return parts.find(part => /^Cycle-\d+$/.test(part)) || null;
+            }
+
+            function createBadge(card) {
+                const target = card.querySelector('.info-main') || card;
+                const badge = document.createElement('span');
+                badge.className = 'course-enrollment-count is-loading';
+                badge.textContent = 'Total enrolled: loading...';
+                target.appendChild(badge);
+                return badge;
+            }
+
+            function parseAssignments(source) {
+                const values = {};
+                const assignmentPattern = /\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*["']([^"']+)["']/g;
+                let match;
+                while ((match = assignmentPattern.exec(source)) !== null) {
+                    values[match[1]] = match[2];
+                }
+                return values;
+            }
+
+            function parseCycleCodeMaps(source) {
+                const maps = [];
+                const mapPattern = /\b(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*\{([\s\S]*?)\};/g;
+                let mapMatch;
+                while ((mapMatch = mapPattern.exec(source)) !== null) {
+                    const entries = {};
+                    const entryPattern = /["'](Cycle-\d+)["']\s*:\s*\[([^\]]*)\]/g;
+                    let entryMatch;
+                    while ((entryMatch = entryPattern.exec(mapMatch[1])) !== null) {
+                        entries[entryMatch[1]] = Array.from(entryMatch[2].matchAll(/["'](\d+)["']/g), codeMatch => codeMatch[1]);
+                    }
+                    if (Object.keys(entries).length) {
+                        maps.push(entries);
+                    }
+                }
+                return maps;
+            }
+
+            function readTokenValue(token, values) {
+                const expression = token.trim();
+                const templateVar = expression.match(/^\$\{([A-Za-z_$][\w$]*)\}$/);
+                if (templateVar) {
+                    return values[templateVar[1]] || null;
+                }
+                const literal = expression.match(/\d+/);
+                return literal ? literal[0] : null;
+            }
+
+            function addEndpoint(endpoints, cycle, code) {
+                if (!code) return;
+                const url = cycle
+                    ? `${shopApi}/enrollment/${cycle}?productCode=${code}`
+                    : `${shopApi}/enrollment/?productCode=${code}`;
+                endpoints.add(url);
+            }
+
+            function addFutureSchoolEndpoint(endpoints, code) {
+                if (!code) return;
+                endpoints.add(`https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${code}`);
+            }
+
+            function addExplicitEndpoints(endpoints, card) {
+                const paths = Array.from(card.querySelectorAll('a[href]'), anchor => {
+                    return new URL(anchor.href, location.href).pathname;
+                });
+                const group = explicitEnrollmentGroups.find(item => {
+                    return item.paths.some(basePath => paths.some(path => path === basePath || path.startsWith(basePath)));
+                });
+
+                if (!group) return false;
+
+                group.groups.forEach(({ cycle, codes }) => {
+                    codes.forEach(code => {
+                        addEndpoint(endpoints, cycle, code);
+                        addFutureSchoolEndpoint(endpoints, code);
+                    });
+                });
+
+                return true;
+            }
+
+            function extractEnrollmentEndpoints(source, pageUrl) {
+                const values = parseAssignments(source);
+                const pathCycle = getPathCycle(pageUrl);
+                const endpoints = new Set();
+                const fetchTemplatePattern = /fetch\(\s*`([^`]*\/enrollment[^`]*)`/g;
+                const fetchStringPattern = /fetch\(\s*["']([^"']*\/enrollment[^"']*)["']/g;
+                const enrollmentTemplatePattern = /`([^`]*\/enrollment[^`]*)`/g;
+                const templates = [];
+                let match;
+
+                while ((match = fetchTemplatePattern.exec(source)) !== null) {
+                    templates.push(match[1]);
+                }
+                while ((match = fetchStringPattern.exec(source)) !== null) {
+                    templates.push(match[1]);
+                }
+                while ((match = enrollmentTemplatePattern.exec(source)) !== null) {
+                    templates.push(match[1]);
+                }
+
+                templates.forEach(template => {
+                    const cycleVarMatch = template.match(/\/enrollment\/\$\{([A-Za-z_$][\w$]*)\}/);
+                    const literalCycleMatch = template.match(/\/enrollment\/(Cycle-\d+)/);
+                    const cycle = cycleVarMatch
+                        ? (values[cycleVarMatch[1]] || pathCycle)
+                        : (literalCycleMatch ? literalCycleMatch[1] : null);
+
+                    const productCodesMatch = template.match(/[?&]productCodes=([^`&]+)/);
+                    if (productCodesMatch) {
+                        productCodesMatch[1].split(',').forEach(token => addEndpoint(endpoints, cycle, readTokenValue(token, values)));
+                    }
+
+                    const productCodeMatch = template.match(/[?&]productCode=([^`&]+)/);
+                    if (productCodeMatch) {
+                        addEndpoint(endpoints, cycle, readTokenValue(productCodeMatch[1], values));
+                    }
+                });
+
+                if (/comboEnrollmentCodes\.map\(\s*code\s*=>\s*fetch\(/.test(source) && pathCycle) {
+                    parseCycleCodeMaps(source).forEach(map => {
+                        (map[pathCycle] || []).forEach(code => addEndpoint(endpoints, null, code));
+                    });
+                }
+
+                Array.from(source.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=\$\{([A-Za-z_$][\w$]*)\}/g))
+                    .forEach(match => addFutureSchoolEndpoint(endpoints, values[match[1]]));
+                Array.from(source.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=(\d+)/g))
+                    .forEach(match => addFutureSchoolEndpoint(endpoints, match[1]));
+
+                return Array.from(endpoints);
+            }
+
+            async function getLinkedPageSource(url) {
+                const key = new URL(url, location.href).href;
+                if (sourceCache.has(key)) {
+                    return sourceCache.get(key);
+                }
+
+                const sourcePromise = (async () => {
+                    const response = await fetch(key);
+                    const html = await response.text();
+                    const scriptSources = Array.from(html.matchAll(/<script[^>]+src=["']([^"']*assets\/(?:info|ss)\.js[^"']*)["']/gi), match => match[1]);
+                    const fallbackSources = scriptSources.length ? scriptSources : ['assets/info.js', 'assets/ss.js'];
+                    const scripts = await Promise.all(fallbackSources.map(async src => {
+                        const scriptUrl = new URL(src, key).href;
+                        const scriptResponse = await fetch(scriptUrl);
+                        return scriptResponse.ok ? scriptResponse.text() : '';
+                    }));
+                    return scripts.join('\n');
+                })();
+
+                sourceCache.set(key, sourcePromise);
+                return sourcePromise;
+            }
+
+            async function fetchCount(endpoint) {
+                if (countCache.has(endpoint)) {
+                    return countCache.get(endpoint);
+                }
+
+                const countPromise = fetch(endpoint)
+                    .then(response => response.json())
+                    .then(data => Number(data.count ?? (data.data && data.data.count)) || 0)
+                    .catch(error => {
+                        console.error('Enrollment count endpoint failed:', endpoint, error);
+                        return 0;
+                    });
+
+                countCache.set(endpoint, countPromise);
+                return countPromise;
+            }
+
+            async function updateCard(card) {
+                const buttons = Array.from(card.querySelectorAll('a.btn[href]'));
+                const countableLinks = buttons.filter(isCountableCourseLink);
+                const links = countableLinks.length ? countableLinks : buttons.slice(0, 1);
+                if (!links.length) {
+                    return;
+                }
+
+                const badge = createBadge(card);
+                try {
+                    const endpointSet = new Set();
+                    const hasExplicitEndpoints = addExplicitEndpoints(endpointSet, card);
+                    if (!hasExplicitEndpoints) {
+                        const sources = await Promise.all(links.map(async anchor => {
+                            const source = await getLinkedPageSource(anchor.href);
+                            return { source, href: anchor.href };
+                        }));
+
+                        sources.forEach(({ source, href }) => {
+                            extractEnrollmentEndpoints(source, href).forEach(endpoint => endpointSet.add(endpoint));
+                        });
+                    }
+
+                    const endpoints = Array.from(endpointSet);
+                    if (!endpoints.length) {
+                        badge.remove();
+                        return;
+                    }
+
+                    const counts = await Promise.all(endpoints.map(fetchCount));
+                    const total = counts.reduce((sum, count) => sum + count, 0);
+                    badge.classList.remove('is-loading');
+                    badge.textContent = `Total enrolled: ${total.toLocaleString('en-US')}`;
+                } catch (error) {
+                    badge.classList.remove('is-loading');
+                    badge.classList.add('is-error');
+                    badge.textContent = 'Enrollment unavailable';
+                    console.error('Course enrollment count load failed:', card, error);
+                }
+            }
+
+            document.querySelectorAll('.col-12.mb-3 > .card').forEach(updateCard);
+        })();
 
         window.addEventListener('load', function () {
             window.setTimeout(function () {
