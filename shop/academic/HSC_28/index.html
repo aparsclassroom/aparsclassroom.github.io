@@ -2385,49 +2385,6 @@
             const countCache = new Map();
             const countStoragePrefix = 'hsc28EnrollmentCount:';
             const countCacheTtl = 10 * 60 * 1000;
-            const explicitEnrollmentGroups = [
-                {
-                    paths: ['/shop/abhi/ebi28/'],
-                    groups: [
-                        { cycle: null, cycleCodes: ['666'], comboCodes: ['665', '670', '671'] },
-                        { cycle: null, cycleCodes: ['667'], comboCodes: ['665', '669', '671'] },
-                        { cycle: null, cycleCodes: ['668'], comboCodes: ['665', '669', '670'] }
-                    ]
-                },
-                {
-                    paths: ['/shop/abhi/Math28/'],
-                    groups: [
-                        { cycle: 'Cycle-1', cycleCodes: ['672', '678'], comboCodes: ['684', '686', '689', '690'] },
-                        { cycle: 'Cycle-2', cycleCodes: ['673', '679'], comboCodes: ['684', '686', '689', '690'] },
-                        { cycle: 'Cycle-3', cycleCodes: ['674', '680'], comboCodes: ['684', '686', '689', '690'] },
-                        { cycle: 'Cycle-4', cycleCodes: ['675', '681'], comboCodes: ['685', '687', '689', '690'] },
-                        { cycle: 'Cycle-5', cycleCodes: ['676', '682'], comboCodes: ['685', '687', '689', '690'] },
-                        { cycle: 'Cycle-6', cycleCodes: ['677', '683'], comboCodes: ['685', '687', '689', '690'] }
-                    ]
-                },
-                {
-                    paths: ['/shop/physics/b2m28/'],
-                    groups: [
-                        { cycle: 'Cycle-1', cycleCodes: ['734', '740'], comboCodes: ['746', '749', '748', '751'] },
-                        { cycle: 'Cycle-2', cycleCodes: ['735', '741'], comboCodes: ['746', '749', '748', '751'] },
-                        { cycle: 'Cycle-3', cycleCodes: ['736', '742'], comboCodes: ['746', '749', '748', '751'] },
-                        { cycle: 'Cycle-4', cycleCodes: ['737', '743'], comboCodes: ['747', '750', '748', '751'] },
-                        { cycle: 'Cycle-5', cycleCodes: ['738', '744'], comboCodes: ['747', '750', '748', '751'] },
-                        { cycle: 'Cycle-6', cycleCodes: ['739', '745'], comboCodes: ['747', '750', '748', '751'] }
-                    ]
-                },
-                {
-                    paths: ['/shop/b2a28/'],
-                    groups: [
-                        { cycle: 'Cycle-1', cycleCodes: ['640', '645'], comboCodes: ['694', '696', '798', '799'] },
-                        { cycle: 'Cycle-2', cycleCodes: ['641', '646'], comboCodes: ['694', '696', '798', '799'] },
-                        { cycle: 'Cycle-3', cycleCodes: ['642', '647'], comboCodes: ['694', '696', '798', '799'] },
-                        { cycle: 'Cycle-4', cycleCodes: ['643', '648'], comboCodes: ['695', '697', '798', '799'] },
-                        { cycle: 'Cycle-5', cycleCodes: ['644', '649'], comboCodes: ['695', '697', '798', '799'] },
-                        { cycle: 'Cycle-6', cycleCodes: ['692', '693'], comboCodes: ['695', '697', '798', '799'] }
-                    ]
-                }
-            ];
 
             function isCountableCourseLink(anchor) {
                 const path = new URL(anchor.href, location.href).pathname;
@@ -2462,6 +2419,19 @@
                 return values;
             }
 
+            function parseArrays(source, values) {
+                const arrays = {};
+                const arrayPattern = /\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*\[([^\]]*)\]/g;
+                let match;
+                while ((match = arrayPattern.exec(source)) !== null) {
+                    arrays[match[1]] = match[2]
+                        .split(',')
+                        .map(token => readTokenValue(token, values))
+                        .filter(Boolean);
+                }
+                return arrays;
+            }
+
             function parseCycleCodeMaps(source) {
                 const maps = [];
                 const mapPattern = /\b(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*\{([\s\S]*?)\};/g;
@@ -2486,8 +2456,16 @@
                 if (templateVar) {
                     return values[templateVar[1]] || null;
                 }
+                if (values[expression]) {
+                    return values[expression];
+                }
                 const literal = expression.match(/\d+/);
                 return literal ? literal[0] : null;
+            }
+
+            function readCycleValue(token, values, pathCycle) {
+                const expression = token.trim();
+                return values[expression] || (expression === 'Cycle' ? pathCycle : null);
             }
 
             function addEndpoint(endpoints, cycle, code) {
@@ -2512,38 +2490,9 @@
                 }
             }
 
-            function getExplicitEndpoints(card) {
-                const paths = Array.from(card.querySelectorAll('a[href]'), anchor => {
-                    return new URL(anchor.href, location.href).pathname;
-                });
-                const group = explicitEnrollmentGroups.find(item => {
-                    return item.paths.some(basePath => paths.some(path => path === basePath || path.startsWith(basePath)));
-                });
-
-                if (!group) return null;
-
-                const endpoints = [];
-                const includeFutureSchool = group.includeFutureSchool !== false;
-                group.groups.forEach(({ cycle, cycleCodes, comboCodes }) => {
-                    cycleCodes.forEach(code => {
-                        addEndpoint(endpoints, cycle, code);
-                        if (includeFutureSchool) {
-                            addFutureSchoolEndpoint(endpoints, code);
-                        }
-                    });
-                    comboCodes.forEach(code => {
-                        addEndpoint(endpoints, null, code);
-                        if (includeFutureSchool) {
-                            addFutureSchoolEndpoint(endpoints, code);
-                        }
-                    });
-                });
-
-                return endpoints;
-            }
-
             function extractEnrollmentEndpoints(source, pageUrl) {
                 const values = parseAssignments(source);
+                const arrays = parseArrays(source, values);
                 const pathCycle = getPathCycle(pageUrl);
                 const endpoints = new Set();
                 const fetchTemplatePattern = /fetch\(\s*`([^`]*\/enrollment[^`]*)`/g;
@@ -2571,7 +2520,12 @@
 
                     const productCodesMatch = template.match(/[?&]productCodes=([^`&]+)/);
                     if (productCodesMatch) {
-                        productCodesMatch[1].split(',').forEach(token => addEndpoint(endpoints, cycle, readTokenValue(token, values)));
+                        const joinedArray = productCodesMatch[1].match(/\$\{([A-Za-z_$][\w$]*)\.join\(["'],["']\)\}/);
+                        if (joinedArray && arrays[joinedArray[1]]) {
+                            endpoints.add(`${shopApi}/enrollment/combined?productCodes=${arrays[joinedArray[1]].join(',')}`);
+                        } else {
+                            productCodesMatch[1].split(',').forEach(token => addEndpoint(endpoints, cycle, readTokenValue(token, values)));
+                        }
                     }
 
                     const productCodeMatch = template.match(/[?&]productCode=([^`&]+)/);
@@ -2586,10 +2540,31 @@
                     });
                 }
 
+                Array.from(source.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(match => addEndpoint(endpoints, readCycleValue(match[1], values, pathCycle), readTokenValue(match[2], values)));
+                Array.from(source.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(match => addEndpoint(endpoints, null, readTokenValue(match[1], values)));
+                Array.from(source.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/combined\?productCodes="\s*\+\s*([A-Za-z_$][\w$]*)\.join\(["'],["']\)\)/g))
+                    .forEach(match => {
+                        if (arrays[match[1]]) {
+                            endpoints.add(`${shopApi}/enrollment/combined?productCodes=${arrays[match[1]].join(',')}`);
+                        }
+                    });
+
                 Array.from(source.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=\$\{([A-Za-z_$][\w$]*)\}/g))
                     .forEach(match => addFutureSchoolEndpoint(endpoints, values[match[1]]));
                 Array.from(source.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=(\d+)/g))
                     .forEach(match => addFutureSchoolEndpoint(endpoints, match[1]));
+                Array.from(source.matchAll(/getAfsEnrollmentCount\(([^)]+)\)/g))
+                    .forEach(match => {
+                        const expression = match[1].trim();
+                        if (expression.endsWith('.map(getAfsEnrollmentCount')) return;
+                        addFutureSchoolEndpoint(endpoints, readTokenValue(expression, values));
+                    });
+                Array.from(source.matchAll(/\.\.\.([A-Za-z_$][\w$]*)\.map\(getAfsEnrollmentCount\)/g))
+                    .forEach(match => {
+                        (arrays[match[1]] || []).forEach(code => addFutureSchoolEndpoint(endpoints, code));
+                    });
 
                 return Array.from(endpoints);
             }
@@ -2677,18 +2652,15 @@
 
                 const badge = createBadge(card);
                 try {
-                    let endpoints = getExplicitEndpoints(card);
-                    if (!endpoints) {
-                        endpoints = [];
-                        const sources = await Promise.all(links.map(async anchor => {
-                            const source = await getLinkedPageSource(anchor.href);
-                            return { source, href: anchor.href };
-                        }));
+                    const endpoints = [];
+                    const sources = await Promise.all(links.map(async anchor => {
+                        const source = await getLinkedPageSource(anchor.href);
+                        return { source, href: anchor.href };
+                    }));
 
-                        sources.forEach(({ source, href }) => {
-                            extractEnrollmentEndpoints(source, href).forEach(endpoint => endpoints.push(endpoint));
-                        });
-                    }
+                    sources.forEach(({ source, href }) => {
+                        extractEnrollmentEndpoints(source, href).forEach(endpoint => endpoints.push(endpoint));
+                    });
 
                     if (!endpoints.length) {
                         badge.remove();
