@@ -109,6 +109,7 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
             height: auto;
             margin-top: 50px;
             margin-bottom: 50px;
+            padding: 0 20px;
         }
         
         .logo {
@@ -118,6 +119,11 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
             width: 100%;
             margin-bottom: 25px;
             object-fit: contain;
+        }
+
+        .logo img {
+            width: min(360px, 86vw);
+            height: auto;
         }
         
         .logo>image {
@@ -130,29 +136,67 @@ src="https://www.facebook.com/tr?id=430193434618183&ev=PageView&noscript=1"
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: min(340px, 100%);
+            gap: 14px;
         }
         
         .buttonContainer a {
-            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 72px;
+            padding: 14px 18px;
             text-align: center;
             align-self: center !important;
-            background: #06174f;
+            background: linear-gradient(135deg, #9f0f16 0%, #c9161f 48%, #7c0b12 100%);
             outline: none;
-            border: 1px solid #06174f;
-            margin: 10px;
+            border: 2px solid #ffd21a;
+            margin: 0;
             border-radius: 10px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 900;
             color: white;
             font-family: Gilroy-ExtraBold;
-            width: 300px;
+            font-size: 18px;
+            line-height: 1.18;
+            letter-spacing: 0;
+            width: 100%;
+            box-shadow: 0 5px 0 #ffd21a, 0 10px 18px rgba(117, 8, 15, 0.18);
+            text-shadow: 0 2px 0 rgba(68, 0, 0, 0.32);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
         }
         
         .buttonContainer a:hover {
-            border: 1px solid #06174f;
-            background-color: white;
-            color: #06174f;
+            border-color: #c9161f;
+            background: linear-gradient(135deg, #ffd21a 0%, #ffeb69 48%, #ffc400 100%);
+            color: #8a0d14;
+            text-shadow: none;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 0 #8a0d14, 0 10px 18px rgba(117, 8, 15, 0.2);
             cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                margin-top: 36px;
+                margin-bottom: 40px;
+                padding: 0 16px;
+            }
+
+            .logo {
+                margin-bottom: 25px;
+            }
+
+            .buttonContainer {
+                gap: 12px;
+            }
+
+            .buttonContainer a {
+                min-height: 66px;
+                padding: 13px 14px;
+                border-radius: 10px;
+                font-size: 17px;
+            }
         }
         
         p {
