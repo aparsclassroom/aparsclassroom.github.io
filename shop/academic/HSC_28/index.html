@@ -2609,6 +2609,12 @@
                             endpoints.add(`${shopApi}/enrollment/combined?productCodes=${arrays[match[1]].join(',')}`);
                         }
                     });
+                Array.from(activeSource.matchAll(/fetch\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(match => addEndpoint(endpoints, readCycleValue(match[1], values, pathCycle), readTokenValue(match[2], values)));
+                Array.from(activeSource.matchAll(/fetch\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode=(\d+)"\s*\)/g))
+                    .forEach(match => addEndpoint(endpoints, null, match[1]));
+                Array.from(activeSource.matchAll(/fetch\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(match => addEndpoint(endpoints, null, readTokenValue(match[1], values)));
 
                 Array.from(activeSource.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=\$\{([A-Za-z_$][\w$]*)\}/g))
                     .forEach(match => addFutureSchoolEndpoint(endpoints, values[match[1]]));
