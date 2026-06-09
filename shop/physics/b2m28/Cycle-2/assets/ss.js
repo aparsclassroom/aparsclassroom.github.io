@@ -75,16 +75,37 @@ var player;
 //         console.log(err)
 //     })
 
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
+const getAfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
+
 Promise.all([
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode3}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode5}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode6}`).then(res => res.json())
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode2),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode3),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode4),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode5),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode6),
+    getAfsEnrollmentCount(productCode),
+    getAfsEnrollmentCount(productCode2),
+    getAfsEnrollmentCount(productCode3),
+    getAfsEnrollmentCount(productCode4),
+    getAfsEnrollmentCount(productCode5),
+    getAfsEnrollmentCount(productCode6)
 ])
 .then((enrollments) => {
-    const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
+    const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
     
     document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
     
