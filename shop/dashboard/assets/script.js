@@ -214,16 +214,22 @@ function copyToClipboard() {
         setSendLoading(true);
         hideError(phoneError);
         try {
+            var sendPayload = { phone: phone };
+            var currentUser = firebase.auth().currentUser;
+            if (currentUser) sendPayload.uid = currentUser.uid;
             var res = await fetch(API + '/otp/send', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ phone: phone })
+                body: JSON.stringify(sendPayload)
             });
             var data = await res.json();
-            if (data.status === 200) {
-                showOtpStep(phone);
-            } else {
-                showError(phoneError, data.message || 'Failed to send OTP.');
+            switch (data.status) {
+                case 200: showOtpStep(phone); break;
+                case 400: showError(phoneError, data.message); break;
+                case 409: showError(phoneError, data.message); break;
+                case 429: showError(phoneError, data.message); break;
+                case 500: showError(phoneError, 'Failed to send OTP. Try again.'); break;
+                default:  showError(phoneError, data.message || 'Failed to send OTP.'); break;
             }
         } catch (e) {
             showError(phoneError, 'Network error. Please try again.');
