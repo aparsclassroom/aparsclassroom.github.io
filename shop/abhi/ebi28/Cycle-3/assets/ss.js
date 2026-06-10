@@ -44,7 +44,7 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
 
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/combined?productCodes=" + ebi28EnrollmentProductCodes.join(",")),
-    ...ebi28EnrollmentProductCodes.map(getAfsEnrollmentCount)
+    getAfsEnrollmentCount(productCode)
 ])
     .then((counts) => {
         const enrolled = document.getElementById('enrolled');
