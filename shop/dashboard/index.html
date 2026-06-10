@@ -411,6 +411,11 @@
                 </div>
                 <div class="modal-body">
                     <form id="passwordForm" novalidate>
+                        <div class="form-group" id="emailForPasswordGroup" style="display:none;">
+                            <label for="emailForPassword">Email Address</label>
+                            <input type="email" class="form-control" id="emailForPassword" placeholder="Enter your email address">
+                            <small class="form-text text-muted">Required to set a password for your account.</small>
+                        </div>
                         <div class="form-group" id="currentPasswordGroup" style="display:none;">
                             <label for="currentPassword">Current Password</label>
                             <input type="password" class="form-control" id="currentPassword" placeholder="Enter your current password">
@@ -1340,9 +1345,24 @@
             document.getElementById('passwordSaveBtn').innerText = 'Add Password';
             document.getElementById('passwordSaveBtn').removeAttribute('disabled');
 
+            // Phone-only users have no email — show the email input so they can provide one
+            var emailGroup = document.getElementById('emailForPasswordGroup');
+            var emailInput = document.getElementById('emailForPassword');
+            if (!userEmail) {
+                emailGroup.style.display = 'block';
+                emailInput.value = '';
+            } else {
+                emailGroup.style.display = 'none';
+                emailInput.value = userEmail;
+            }
+
             document.getElementById('passwordSaveBtn').onclick = function() {
+                var emailToUse = userEmail || emailInput.value.trim();
                 var newPass = document.getElementById('newPassword').value;
                 var confirmPass = document.getElementById('confirmPassword').value;
+                if (!emailToUse || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToUse)) {
+                    swal("Email Required", "Please enter a valid email address.", "error"); return;
+                }
                 if (newPass.length < 6) {
                     swal("Too Short", "Password must be at least 6 characters.", "error"); return;
                 }
@@ -1352,7 +1372,7 @@
                 var saveBtn = document.getElementById('passwordSaveBtn');
                 saveBtn.setAttribute('disabled', 'true');
                 saveBtn.innerText = 'Saving...';
-                var credential = firebase.auth.EmailAuthProvider.credential(userEmail, newPass);
+                var credential = firebase.auth.EmailAuthProvider.credential(emailToUse, newPass);
                 firebase.auth().currentUser.linkWithCredential(credential)
                     .then(function(result) {
                         $('#passwordModal').modal('hide');
