@@ -511,25 +511,35 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="newEmailInput">New Email Address</label>
-                        <input type="email" class="form-control" id="newEmailInput"
-                            placeholder="Enter new email address">
+                    <div id="emailChangeStep1">
+                        <div class="form-group mb-0">
+                            <label for="newEmailInput">New Email Address</label>
+                            <input type="email" class="form-control" id="newEmailInput"
+                                placeholder="Enter new email address">
+                            <div id="newEmailError" class="text-danger small mt-1" style="display:none;"></div>
+                        </div>
                     </div>
-                    <div class="form-group" id="emailCurrentPasswordGroup" style="display:none;">
-                        <label for="emailCurrentPassword">Current Password</label>
-                        <input type="password" class="form-control" id="emailCurrentPassword"
-                            placeholder="Enter your current password">
-                        <small class="form-text text-muted">Required to verify your identity.</small>
+                    <div id="emailChangeStep2" style="display:none;">
+                        <p class="mb-2 small text-muted">OTP sent to <strong id="newEmailDisplay"></strong> &mdash;
+                            <button type="button" class="btn btn-link btn-sm p-0" id="changeEmailBtn">Change</button>
+                        </p>
+                        <div class="form-group mb-0">
+                            <label for="emailOtpInput">Enter OTP Code</label>
+                            <input type="text" class="form-control" id="emailOtpInput" placeholder="6-digit code"
+                                maxlength="6" inputmode="numeric">
+                            <div class="d-flex justify-content-between mt-1">
+                                <small id="emailOtpCountdown" class="text-info"></small>
+                                <button type="button" id="emailResendBtn" class="btn btn-link btn-sm p-0"
+                                    disabled>Resend OTP</button>
+                            </div>
+                            <div id="emailOtpError" class="text-danger small mt-1" style="display:none;"></div>
+                        </div>
                     </div>
-                    <div id="emailReauthInfo" class="alert alert-info mb-0" style="display:none;">
-                        <small>You will be asked to re-authenticate with your linked account to confirm this
-                            change.</small>
-                    </div>
-                    <div id="newEmailError" class="text-danger small mt-2" style="display:none;"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="emailSaveBtn" class="btn btn-primary">Update Email</button>
+                    <button type="button" id="sendEmailOtpBtn" class="btn btn-primary">Send OTP</button>
+                    <button type="button" id="verifyEmailOtpBtn" class="btn btn-primary"
+                        style="display:none;">Verify &amp; Update</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -1743,114 +1753,177 @@
             $('#phoneChangeModal').modal('show');
         }
 
-        async function updateBackendEmail(newEmail, user) {
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-            var urlencoded = new URLSearchParams();
-            urlencoded.append("uid", user.uid);
-            urlencoded.append("Name", document.getElementById('pname').value);
-            urlencoded.append("FbName", document.getElementById('pFbName').value);
-            urlencoded.append("FbLink", document.getElementById('pFbLink').value);
-            urlencoded.append("Email", newEmail);
-            urlencoded.append("Phone", document.getElementById('pnum').value);
-            urlencoded.append("Parent", document.getElementById('pParent').value);
-            urlencoded.append("Institution", document.getElementById('pInstitution').value);
-            urlencoded.append("HSC", document.getElementById('pHSC').value);
-            urlencoded.append("Address", document.getElementById('pAddress').value);
-            var requestOptions = { method: "POST", headers: myHeaders, body: urlencoded, redirect: "follow" };
-            var response = await fetch("https://profile.aparsclassroom.com/profile/update", requestOptions);
-            var result = await response.json();
-            if (result.status !== 200) throw new Error(result.message || 'Profile update failed.');
-        }
-
         function showChangeEmailModal() {
-            var user = firebase.auth().currentUser;
-            var providers = user.providerData.map(function (p) { return p.providerId; });
-            var hasPassword = providers.indexOf('password') !== -1;
-            var hasGoogle = providers.indexOf('google.com') !== -1;
-            var hasApple = providers.indexOf('apple.com') !== -1;
+            var API = 'https://secure.apars.shop';
+            var OTP_EXPIRY = 300;
+            var currentNewEmail = '';
+            var countdown = 0;
+            var countdownTimer = null;
 
+            document.getElementById('emailChangeStep1').style.display = 'block';
+            document.getElementById('emailChangeStep2').style.display = 'none';
+            document.getElementById('sendEmailOtpBtn').style.display = 'inline-block';
+            document.getElementById('sendEmailOtpBtn').disabled = false;
+            document.getElementById('sendEmailOtpBtn').textContent = 'Send OTP';
+            document.getElementById('verifyEmailOtpBtn').style.display = 'none';
             document.getElementById('newEmailInput').value = '';
-            document.getElementById('emailCurrentPassword').value = '';
+            document.getElementById('emailOtpInput').value = '';
             document.getElementById('newEmailError').style.display = 'none';
-            document.getElementById('emailCurrentPasswordGroup').style.display = hasPassword ? 'block' : 'none';
-            document.getElementById('emailReauthInfo').style.display = (!hasPassword && (hasGoogle || hasApple)) ? 'block' : 'none';
-            var saveBtn = document.getElementById('emailSaveBtn');
-            saveBtn.disabled = false;
-            saveBtn.innerText = 'Update Email';
+            document.getElementById('emailOtpError').style.display = 'none';
 
-            function showErr(msg) {
-                var el = document.getElementById('newEmailError');
-                el.textContent = msg;
-                el.style.display = 'block';
+            function showErr(id, msg) { var el = document.getElementById(id); el.textContent = msg; el.style.display = 'block'; }
+            function hideErr(id) { document.getElementById(id).style.display = 'none'; }
+            function formatTime(s) { return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+
+            function stopCountdown() {
+                if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
             }
-            function hideErr() { document.getElementById('newEmailError').style.display = 'none'; }
 
-            async function performEmailUpdate(newEmail) {
+            function updateCountdownUI() {
+                var el = document.getElementById('emailOtpCountdown');
+                var resendBtn = document.getElementById('emailResendBtn');
+                var verifyBtn = document.getElementById('verifyEmailOtpBtn');
+                var otpInput = document.getElementById('emailOtpInput');
+                if (countdown > 0) {
+                    el.textContent = 'Expires in: ' + formatTime(countdown);
+                    el.style.color = '#17a2b8';
+                    otpInput.disabled = false;
+                    resendBtn.disabled = true;
+                    verifyBtn.disabled = otpInput.value.length !== 6;
+                } else {
+                    el.textContent = 'OTP expired. Request a new one.';
+                    el.style.color = '#fd7e14';
+                    otpInput.disabled = true;
+                    resendBtn.disabled = false;
+                    verifyBtn.disabled = true;
+                }
+            }
+
+            function startCountdown() {
+                stopCountdown();
+                countdown = OTP_EXPIRY;
+                updateCountdownUI();
+                countdownTimer = setInterval(function () {
+                    countdown--;
+                    updateCountdownUI();
+                    if (countdown <= 0) stopCountdown();
+                }, 1000);
+            }
+
+            function goToStep1() {
+                stopCountdown();
+                document.getElementById('emailChangeStep2').style.display = 'none';
+                document.getElementById('emailChangeStep1').style.display = 'block';
+                document.getElementById('sendEmailOtpBtn').style.display = 'inline-block';
+                document.getElementById('sendEmailOtpBtn').disabled = false;
+                document.getElementById('sendEmailOtpBtn').textContent = 'Send OTP';
+                document.getElementById('verifyEmailOtpBtn').style.display = 'none';
+            }
+
+            async function doSendOTP(email) {
+                var btn = document.getElementById('sendEmailOtpBtn');
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+                hideErr('newEmailError');
                 try {
-                    await user.updateEmail(newEmail);
-                    await updateBackendEmail(newEmail, user);
-                    $('#emailChangeModal').modal('hide');
-                    swal("Email Updated", "Your email has been updated to " + newEmail + ".", "success")
-                        .then(function () { window.location.reload(); });
-                } catch (error) {
-                    saveBtn.disabled = false;
-                    saveBtn.innerText = 'Update Email';
-                    if (error.code === 'auth/email-already-in-use') {
-                        showErr('This email is already associated with another account.');
-                    } else if (error.code === 'auth/requires-recent-login') {
-                        showErr('Session expired. Please sign out and sign in again, then try again.');
+                    var res = await fetch(API + '/otp/send-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email, uid: firebase.auth().currentUser.uid })
+                    });
+                    var data = await res.json();
+                    if (data.status === 200) {
+                        currentNewEmail = email;
+                        document.getElementById('newEmailDisplay').textContent = email;
+                        document.getElementById('emailChangeStep1').style.display = 'none';
+                        document.getElementById('emailChangeStep2').style.display = 'block';
+                        document.getElementById('sendEmailOtpBtn').style.display = 'none';
+                        document.getElementById('verifyEmailOtpBtn').style.display = 'inline-block';
+                        document.getElementById('verifyEmailOtpBtn').disabled = true;
+                        document.getElementById('emailOtpInput').value = '';
+                        hideErr('emailOtpError');
+                        startCountdown();
                     } else {
-                        showErr(error.message);
+                        showErr('newEmailError', data.message || 'Failed to send OTP.');
+                        btn.disabled = false;
+                        btn.textContent = 'Send OTP';
                     }
+                } catch (e) {
+                    showErr('newEmailError', 'Network error. Please try again.');
+                    btn.disabled = false;
+                    btn.textContent = 'Send OTP';
                 }
             }
 
-            saveBtn.onclick = async function () {
-                var newEmail = document.getElementById('newEmailInput').value.trim();
-                if (!newEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)) {
-                    showErr('Please enter a valid email address.'); return;
-                }
-                if (newEmail === user.email) {
-                    showErr('New email must be different from your current email.'); return;
-                }
-                hideErr();
-                saveBtn.disabled = true;
-                saveBtn.innerText = 'Updating...';
-
+            async function doVerifyOTP(email, otp) {
+                var btn = document.getElementById('verifyEmailOtpBtn');
+                btn.disabled = true;
+                btn.textContent = 'Verifying...';
+                hideErr('emailOtpError');
+                var uid = firebase.auth().currentUser.uid;
                 try {
-                    if (hasPassword) {
-                        var currentPass = document.getElementById('emailCurrentPassword').value;
-                        if (!currentPass) {
-                            showErr('Please enter your current password.');
-                            saveBtn.disabled = false;
-                            saveBtn.innerText = 'Update Email';
-                            return;
-                        }
-                        var credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPass);
-                        await user.reauthenticateWithCredential(credential);
-                    } else if (hasGoogle) {
-                        var googleProvider = new firebase.auth.GoogleAuthProvider();
-                        await user.reauthenticateWithPopup(googleProvider);
-                    } else if (hasApple) {
-                        var appleProvider = new firebase.auth.OAuthProvider('apple.com');
-                        await user.reauthenticateWithPopup(appleProvider);
+                    var res = await fetch(API + '/otp/verify-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email, otp: otp, uid: uid })
+                    });
+                    var data = await res.json();
+                    if (data.status === 200) {
+                        stopCountdown();
+                        await firebase.auth().signInWithCustomToken(data.token);
+                        $('#emailChangeModal').modal('hide');
+                        swal("Email Updated", "Your email has been updated to " + email + ".", "success")
+                            .then(function () { window.location.reload(); });
+                    } else if (data.status === 409) {
+                        stopCountdown();
+                        showErr('emailOtpError', data.message || 'This email is already linked to another account.');
+                        btn.disabled = false;
+                        btn.textContent = 'Verify & Update';
+                    } else if (data.status === 429) {
+                        goToStep1();
+                        showErr('newEmailError', data.message || 'Too many attempts. Please try again later.');
+                    } else {
+                        showErr('emailOtpError', data.message || 'Invalid or expired OTP.');
+                        btn.disabled = false;
+                        btn.textContent = 'Verify & Update';
                     }
-                    await performEmailUpdate(newEmail);
-                } catch (error) {
-                    saveBtn.disabled = false;
-                    saveBtn.innerText = 'Update Email';
-                    if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
-                        showErr('Incorrect password. Please try again.');
-                    } else if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
-                        // user dismissed popup — do nothing
-                    } else if (error.code === 'auth/email-already-in-use') {
-                        showErr('This email is already associated with another account.');
-                    } else if (error.code !== 'auth/requires-recent-login') {
-                        showErr(error.message);
-                    }
+                } catch (e) {
+                    showErr('emailOtpError', 'Network error. Please try again.');
+                    btn.disabled = false;
+                    btn.textContent = 'Verify & Update';
                 }
+            }
+
+            document.getElementById('sendEmailOtpBtn').onclick = function () {
+                var email = document.getElementById('newEmailInput').value.trim();
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showErr('newEmailError', 'Please enter a valid email address.'); return;
+                }
+                if (email === firebase.auth().currentUser.email) {
+                    showErr('newEmailError', 'New email must be different from your current email.'); return;
+                }
+                doSendOTP(email);
             };
+
+            document.getElementById('verifyEmailOtpBtn').onclick = function () {
+                var otp = document.getElementById('emailOtpInput').value;
+                if (otp.length === 6 && countdown > 0) doVerifyOTP(currentNewEmail, otp);
+            };
+
+            document.getElementById('emailResendBtn').onclick = function () {
+                if (countdown === 0) doSendOTP(currentNewEmail);
+            };
+
+            document.getElementById('changeEmailBtn').onclick = goToStep1;
+
+            document.getElementById('emailOtpInput').oninput = function () {
+                this.value = this.value.replace(/\D/g, '');
+                document.getElementById('verifyEmailOtpBtn').disabled = this.value.length !== 6 || countdown === 0;
+            };
+
+            $('#emailChangeModal').off('hidden.bs.modal').on('hidden.bs.modal', function () {
+                stopCountdown();
+            });
 
             $('#emailChangeModal').modal('show');
         }
