@@ -126,9 +126,8 @@
                         <div class="card mb-4">
                             <div class="card-body text-center">
                                 <a data-toggle="modal" data-target="#imageModal" type="button">
-                                    <img class="avatar"
-                                        src="https://cdn.aparsclassroom.com/anon.jpg"
-                                        id="avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                    <img class="avatar" src="https://cdn.aparsclassroom.com/anon.jpg" id="avatar"
+                                        alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 </a>
                                 <h5 class="my-3" id="name2">...</h5>
                                 <p class="text-bold mb-1" id="roll">Student</p>
@@ -170,19 +169,23 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <span><i class="fab fa-google" style="color: #db4437;"></i>&nbsp; Google</span>
-                                        <button class="btn btn-sm btn-outline-secondary" id="googleLinkBtn" disabled>Loading...</button>
+                                        <button class="btn btn-sm btn-outline-secondary" id="googleLinkBtn"
+                                            disabled>Loading...</button>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <span><i class="fab fa-apple"></i>&nbsp; Apple</span>
-                                        <button class="btn btn-sm btn-outline-secondary" id="appleLinkBtn" disabled>Loading...</button>
+                                        <button class="btn btn-sm btn-outline-secondary" id="appleLinkBtn"
+                                            disabled>Loading...</button>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <span><i class="fas fa-lock" style="color:#6c757d;"></i>&nbsp; Password</span>
-                                        <button class="btn btn-sm btn-outline-secondary" id="passwordLinkBtn" disabled>Loading...</button>
+                                        <button class="btn btn-sm btn-outline-secondary" id="passwordLinkBtn"
+                                            disabled>Loading...</button>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <span><i class="fas fa-phone" style="color:#28a745;"></i>&nbsp; Phone</span>
-                                        <button class="btn btn-sm btn-outline-secondary" id="phoneLinkBtn" disabled>Loading...</button>
+                                        <button class="btn btn-sm btn-outline-secondary" id="phoneLinkBtn"
+                                            disabled>Loading...</button>
                                     </li>
                                 </ul>
                             </div>
@@ -269,11 +272,11 @@
                         </div>
                     </div>
             </section>
-            <h3 style="text-align: center;margin-top: 30px;" id="title" class="font-bold" >loading...</h3>
+            <h3 style="text-align: center;margin-top: 30px;" id="title" class="font-bold">loading...</h3>
             <div class="row justify-content-center mb-4">
                 <div class="col-12 text-center">
                     <button id="filterValidBtn" class="btn btn-warning btn-sm" style="display: none;">
-                      <i class="fas fa-check-double"></i> Show All Valid Invoices
+                        <i class="fas fa-check-double"></i> Show All Valid Invoices
                     </button>
                     <button id="showAllBtn" class="btn btn-secondary btn-sm" style="display: none;">
                         <i class="fas fa-list"></i> Show All Invoices
@@ -404,7 +407,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -417,20 +421,24 @@
                     <form id="passwordForm" novalidate>
                         <div class="form-group" id="emailForPasswordGroup" style="display:none;">
                             <label for="emailForPassword">Email Address</label>
-                            <input type="email" class="form-control" id="emailForPassword" placeholder="Enter your email address">
+                            <input type="email" class="form-control" id="emailForPassword"
+                                placeholder="Enter your email address">
                             <small class="form-text text-muted">Required to set a password for your account.</small>
                         </div>
                         <div class="form-group" id="currentPasswordGroup" style="display:none;">
                             <label for="currentPassword">Current Password</label>
-                            <input type="password" class="form-control" id="currentPassword" placeholder="Enter your current password">
+                            <input type="password" class="form-control" id="currentPassword"
+                                placeholder="Enter your current password">
                         </div>
                         <div class="form-group">
                             <label for="newPassword">New Password</label>
-                            <input type="password" class="form-control" id="newPassword" placeholder="At least 6 characters" minlength="6">
+                            <input type="password" class="form-control" id="newPassword"
+                                placeholder="At least 6 characters" minlength="6">
                         </div>
                         <div class="form-group">
                             <label for="confirmPassword">Confirm New Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Repeat new password">
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Repeat new password">
                         </div>
                     </form>
                 </div>
@@ -442,7 +450,8 @@
         </div>
     </div>
     <!-- Phone Change Modal -->
-    <div class="modal fade" id="phoneChangeModal" tabindex="-1" role="dialog" aria-labelledby="phoneChangeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="phoneChangeModal" tabindex="-1" role="dialog" aria-labelledby="phoneChangeModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -460,13 +469,16 @@
                         </div>
                     </div>
                     <div id="phoneChangeStep2" style="display:none;">
-                        <p class="mb-2 small text-muted">OTP sent to <strong id="newPhoneDisplay"></strong> &mdash; <button type="button" class="btn btn-link btn-sm p-0" id="changeNumBtn">Change</button></p>
+                        <p class="mb-2 small text-muted">OTP sent to <strong id="newPhoneDisplay"></strong> &mdash;
+                            <button type="button" class="btn btn-link btn-sm p-0" id="changeNumBtn">Change</button></p>
                         <div class="form-group mb-0">
                             <label for="phoneOtpInput">Enter OTP Code</label>
-                            <input type="text" class="form-control" id="phoneOtpInput" placeholder="6-digit code" maxlength="6" inputmode="numeric">
+                            <input type="text" class="form-control" id="phoneOtpInput" placeholder="6-digit code"
+                                maxlength="6" inputmode="numeric">
                             <div class="d-flex justify-content-between mt-1">
                                 <small id="phoneOtpCountdown" class="text-info"></small>
-                                <button type="button" id="phoneResendBtn" class="btn btn-link btn-sm p-0" disabled>Resend OTP</button>
+                                <button type="button" id="phoneResendBtn" class="btn btn-link btn-sm p-0"
+                                    disabled>Resend OTP</button>
                             </div>
                             <div id="phoneOtpError" class="text-danger small mt-1" style="display:none;"></div>
                         </div>
@@ -474,7 +486,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="sendPhoneOtpBtn" class="btn btn-primary">Send OTP</button>
-                    <button type="button" id="verifyPhoneOtpBtn" class="btn btn-primary" style="display:none;">Verify &amp; Update</button>
+                    <button type="button" id="verifyPhoneOtpBtn" class="btn btn-primary" style="display:none;">Verify
+                        &amp; Update</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -874,7 +887,7 @@
                             }
                             renderPage();
 
-                            
+
                             document.getElementById('filterValidBtn').addEventListener('click', () => {
                                 isFilteredView = !isFilteredView;
                                 currentPage = 1;
@@ -1246,7 +1259,7 @@
         }
 
         function updateLinkedAccountsUI(user) {
-            var providers = user.providerData.map(function(p) { return p.providerId; });
+            var providers = user.providerData.map(function (p) { return p.providerId; });
             var isGoogleLinked = providers.indexOf('google.com') !== -1;
             var isAppleLinked = providers.indexOf('apple.com') !== -1;
 
@@ -1255,11 +1268,11 @@
             if (isGoogleLinked) {
                 googleBtn.className = 'btn btn-sm btn-outline-danger';
                 googleBtn.innerText = 'Unlink';
-                googleBtn.onclick = function() { unlinkProvider('google.com', providers.length); };
+                googleBtn.onclick = function () { unlinkProvider('google.com', providers.length); };
             } else {
                 googleBtn.className = 'btn btn-sm btn-outline-success';
                 googleBtn.innerText = 'Link';
-                googleBtn.onclick = function() { linkWithGoogle(); };
+                googleBtn.onclick = function () { linkWithGoogle(); };
             }
 
             var appleBtn = document.getElementById('appleLinkBtn');
@@ -1267,11 +1280,11 @@
             if (isAppleLinked) {
                 appleBtn.className = 'btn btn-sm btn-outline-danger';
                 appleBtn.innerText = 'Unlink';
-                appleBtn.onclick = function() { unlinkProvider('apple.com', providers.length); };
+                appleBtn.onclick = function () { unlinkProvider('apple.com', providers.length); };
             } else {
                 appleBtn.className = 'btn btn-sm btn-outline-success';
                 appleBtn.innerText = 'Link';
-                appleBtn.onclick = function() { linkWithApple(); };
+                appleBtn.onclick = function () { linkWithApple(); };
             }
 
             var hasPassword = providers.indexOf('password') !== -1;
@@ -1280,11 +1293,11 @@
             if (hasPassword) {
                 passwordBtn.className = 'btn btn-sm btn-outline-primary';
                 passwordBtn.innerText = 'Change';
-                passwordBtn.onclick = function() { showChangePasswordModal(); };
+                passwordBtn.onclick = function () { showChangePasswordModal(); };
             } else {
                 passwordBtn.className = 'btn btn-sm btn-outline-success';
                 passwordBtn.innerText = 'Add';
-                passwordBtn.onclick = function() { showAddPasswordModal(); };
+                passwordBtn.onclick = function () { showAddPasswordModal(); };
             }
 
             var hasPhone = providers.indexOf('phone') !== -1;
@@ -1293,7 +1306,7 @@
             if (hasPhone) {
                 phoneBtn.className = 'btn btn-sm btn-outline-primary';
                 phoneBtn.innerText = 'Change';
-                phoneBtn.onclick = function() { showChangePhoneModal(); };
+                phoneBtn.onclick = function () { showChangePhoneModal(); };
             } else {
                 phoneBtn.className = 'btn btn-sm btn-outline-secondary';
                 phoneBtn.innerText = 'N/A';
@@ -1307,13 +1320,13 @@
                 text: "This " + providerName + " account belongs to a separate ASG SHOP account. Switch to that account? You can then link your other sign-in methods from there.",
                 icon: "warning",
                 buttons: ["Stay Here", "Switch Account"],
-            }).then(function(willSwitch) {
+            }).then(function (willSwitch) {
                 if (willSwitch && credential) {
                     firebase.auth().signInWithCredential(credential)
-                        .then(function() {
+                        .then(function () {
                             window.location.href = '/shop/dashboard';
                         })
-                        .catch(function(err) {
+                        .catch(function (err) {
                             swal("Oops", err.message, "error");
                         });
                 }
@@ -1326,11 +1339,11 @@
             googleBtn.innerText = 'Linking...';
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().currentUser.linkWithPopup(provider)
-                .then(function(result) {
+                .then(function (result) {
                     swal("Linked!", "Your account has been linked with Google successfully.", "success");
                     updateLinkedAccountsUI(result.user);
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     googleBtn.removeAttribute('disabled');
                     googleBtn.innerText = 'Link';
                     if (error.code === 'auth/credential-already-in-use' || error.code === 'auth/account-exists-with-different-credential') {
@@ -1349,11 +1362,11 @@
             appleBtn.innerText = 'Linking...';
             var provider = new firebase.auth.OAuthProvider('apple.com');
             firebase.auth().currentUser.linkWithPopup(provider)
-                .then(function(result) {
+                .then(function (result) {
                     swal("Linked!", "Your account has been linked with Apple successfully.", "success");
                     updateLinkedAccountsUI(result.user);
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     appleBtn.removeAttribute('disabled');
                     appleBtn.innerText = 'Link';
                     if (error.code === 'auth/credential-already-in-use' || error.code === 'auth/account-exists-with-different-credential') {
@@ -1378,14 +1391,14 @@
                 icon: "warning",
                 buttons: ["Cancel", "Yes, Unlink"],
                 dangerMode: true
-            }).then(function(confirmed) {
+            }).then(function (confirmed) {
                 if (confirmed) {
                     firebase.auth().currentUser.unlink(providerId)
-                        .then(function(user) {
+                        .then(function (user) {
                             swal("Unlinked", providerName + " has been unlinked from your account.", "success");
                             updateLinkedAccountsUI(user);
                         })
-                        .catch(function(error) {
+                        .catch(function (error) {
                             swal("Oops", error.message, "error");
                         });
                 }
@@ -1413,7 +1426,7 @@
                 emailInput.value = userEmail;
             }
 
-            document.getElementById('passwordSaveBtn').onclick = function() {
+            document.getElementById('passwordSaveBtn').onclick = function () {
                 var emailToUse = userEmail || emailInput.value.trim();
                 var newPass = document.getElementById('newPassword').value;
                 var confirmPass = document.getElementById('confirmPassword').value;
@@ -1431,12 +1444,12 @@
                 saveBtn.innerText = 'Saving...';
                 var credential = firebase.auth.EmailAuthProvider.credential(emailToUse, newPass);
                 firebase.auth().currentUser.linkWithCredential(credential)
-                    .then(function(result) {
+                    .then(function (result) {
                         $('#passwordModal').modal('hide');
                         swal("Password Added", "You can now sign in with your email and password.", "success");
                         updateLinkedAccountsUI(result.user);
                     })
-                    .catch(function(error) {
+                    .catch(function (error) {
                         saveBtn.removeAttribute('disabled');
                         saveBtn.innerText = 'Add Password';
                         if (error.code === 'auth/requires-recent-login') {
@@ -1461,7 +1474,7 @@
             document.getElementById('passwordSaveBtn').innerText = 'Change Password';
             document.getElementById('passwordSaveBtn').removeAttribute('disabled');
 
-            document.getElementById('passwordSaveBtn').onclick = function() {
+            document.getElementById('passwordSaveBtn').onclick = function () {
                 var userEmail = firebase.auth().currentUser.email;
                 var currentPass = document.getElementById('currentPassword').value;
                 var newPass = document.getElementById('newPassword').value;
@@ -1480,14 +1493,14 @@
                 saveBtn.innerText = 'Saving...';
                 var credential = firebase.auth.EmailAuthProvider.credential(userEmail, currentPass);
                 firebase.auth().currentUser.reauthenticateWithCredential(credential)
-                    .then(function() {
+                    .then(function () {
                         return firebase.auth().currentUser.updatePassword(newPass);
                     })
-                    .then(function() {
+                    .then(function () {
                         $('#passwordModal').modal('hide');
                         swal("Password Changed", "Your password has been updated successfully.", "success");
                     })
-                    .catch(function(error) {
+                    .catch(function (error) {
                         saveBtn.removeAttribute('disabled');
                         saveBtn.innerText = 'Change Password';
                         if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
@@ -1526,7 +1539,7 @@
 
             function showErr(id, msg) { var el = document.getElementById(id); el.textContent = msg; el.style.display = 'block'; }
             function hideErr(id) { document.getElementById(id).style.display = 'none'; }
-            function formatTime(s) { return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0'); }
+            function formatTime(s) { return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
 
             function stopCountdown() {
                 if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
@@ -1556,7 +1569,7 @@
                 stopCountdown();
                 countdown = OTP_EXPIRY;
                 updateCountdownUI();
-                countdownTimer = setInterval(function() {
+                countdownTimer = setInterval(function () {
                     countdown--;
                     updateCountdownUI();
                     if (countdown <= 0) stopCountdown();
@@ -1579,7 +1592,6 @@
                 btn.textContent = 'Sending...';
                 hideErr('newPhoneError');
                 try {
-                    await firebase.auth().authStateReady();
                     var res = await fetch(API + '/otp/send', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -1627,7 +1639,7 @@
                         await firebase.auth().signInWithCustomToken(data.token);
                         $('#phoneChangeModal').modal('hide');
                         swal("Phone Updated", "Your phone number has been updated to " + phone + ".", "success")
-                            .then(function() { window.location.reload(); });
+                            .then(function () { window.location.reload(); });
                     } else if (data.status === 409) {
                         stopCountdown();
                         showErr('phoneOtpError', data.message || 'This number is already linked to another account.');
@@ -1648,30 +1660,30 @@
                 }
             }
 
-            document.getElementById('sendPhoneOtpBtn').onclick = function() {
+            document.getElementById('sendPhoneOtpBtn').onclick = function () {
                 var phone = document.getElementById('newPhoneInput').value.trim();
                 if (!phone) { showErr('newPhoneError', 'Please enter a phone number.'); return; }
                 doSendOTP(phone);
             };
 
-            document.getElementById('verifyPhoneOtpBtn').onclick = function() {
+            document.getElementById('verifyPhoneOtpBtn').onclick = function () {
                 var otp = document.getElementById('phoneOtpInput').value;
                 if (otp.length === 6 && countdown > 0) doVerifyOTP(currentNewPhone, otp);
             };
 
-            document.getElementById('phoneResendBtn').onclick = function() {
+            document.getElementById('phoneResendBtn').onclick = function () {
                 if (countdown === 0) doSendOTP(currentNewPhone);
             };
 
             document.getElementById('changeNumBtn').onclick = goToStep1;
 
-            document.getElementById('phoneOtpInput').oninput = function() {
+            document.getElementById('phoneOtpInput').oninput = function () {
                 this.value = this.value.replace(/\D/g, '');
                 document.getElementById('verifyPhoneOtpBtn').disabled = this.value.length !== 6 || countdown === 0;
             };
 
             // Clean up countdown when modal is dismissed
-            $('#phoneChangeModal').off('hidden.bs.modal').on('hidden.bs.modal', function() {
+            $('#phoneChangeModal').off('hidden.bs.modal').on('hidden.bs.modal', function () {
                 stopCountdown();
             });
 
