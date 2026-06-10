@@ -438,18 +438,6 @@
         var pnum = document.getElementById('pnum').value;
         var pHSC = document.getElementById('pHSC').value;
 
-        function isPrivateRelayEmail(email) {
-            return email && email.toLowerCase().endsWith('@privaterelay.appleid.com');
-        }
-
-        function showPrivateRelayWarning() {
-            swal({
-                title: "Update Your Email Address",
-                text: "You signed in with Apple using a Private Relay email address. We need your real email to send you important updates and receipts. Please enter your actual email address below.",
-                icon: "warning",
-                button: { text: "OK, I'll update it", closeModal: true }
-            });
-        }
         if (params.logout == "true") {
             firebase.auth().signOut()
         }
@@ -472,8 +460,6 @@
         document.getElementById('email').addEventListener("input", function (event) {
             if (document.getElementById('email').validity.typeMismatch) {
                 document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
-            } else if (isPrivateRelayEmail(document.getElementById('email').value)) {
-                document.getElementById('email').setCustomValidity("Apple Private Relay emails are not accepted. Please enter your real email address.");
             } else {
                 document.getElementById('email').setCustomValidity("");
             }
@@ -500,11 +486,9 @@
                 }
 
                 if (mail != null) {
-                    document.getElementById('mail').innerText = isPrivateRelayEmail(mail) ? mail + ' (Private Relay — needs update)' : mail;
-                    if (!isPrivateRelayEmail(mail)) {
-                        document.getElementById('email').value = mail;
-                        document.getElementById('email').setAttribute('readonly', 'true');
-                    }
+                    document.getElementById('mail').innerText = mail;
+                    document.getElementById('email').value = mail;
+                    document.getElementById('email').setAttribute('readonly', 'true');
                 }
                 if (num != null) {
                     document.getElementById('num').innerText = num;
@@ -549,7 +533,7 @@
                                 $('#imageModal').modal('show');
                             }
                             document.getElementById('pname').value = data.Name;
-                            document.getElementById('email').value = isPrivateRelayEmail(data.Email) ? '' : data.Email;
+                            document.getElementById('email').value = data.Email;
                             document.getElementById('pnum').value = data.Phone;
                             document.getElementById('pHSC').value = data.HSC;
                             document.getElementById('pFbName').value = data.FbName ? data.FbName : "";
@@ -559,33 +543,8 @@
                             document.getElementById('pAddress').value = data.Address ? data.Address : "";
                             document.getElementById('saveBtn').innerText = "Update";
                             document.getElementById('saveBtn').removeAttribute('disabled');
-
-                            if (isPrivateRelayEmail(data.Email)) {
-                                document.getElementById('email').removeAttribute('readonly');
-                                var pendingEmail = sessionStorage.getItem('pendingRealEmail');
-                                if (pendingEmail) {
-                                    document.getElementById('email').value = pendingEmail;
-                                } else {
-                                    document.getElementById('email').value = '';
-                                    document.getElementById('email').placeholder = 'Enter your real email address';
-                                }
-                                document.getElementById('profileLabel').innerHTML = '&#9888; Update Your Email Address';
-                                document.querySelector('#profile .close').style.display = 'none';
-                                showPrivateRelayWarning();
-                                $('#profile').modal('show');
-                            }
                         } else if (loadedData.status === 201) {
-                            if (isPrivateRelayEmail(user.email)) {
-                                document.getElementById('email').removeAttribute('readonly');
-                                var pendingEmail = sessionStorage.getItem('pendingRealEmail');
-                                document.getElementById('email').value = pendingEmail || '';
-                                document.getElementById('email').placeholder = 'Enter your real email address';
-                                document.getElementById('profileLabel').innerHTML = '&#9888; Update Your Email Address';
-                                document.querySelector('#profile .close').style.display = 'none';
-                                swal("Action Required", "You signed in with an Apple Private Relay email. Please enter your real email address to continue.", "warning");
-                            } else {
-                                swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
-                            }
+                            swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
                             $('#profile').modal('show');
                             var data = loadedData.data;
                             if (data.photo != null) {
@@ -604,11 +563,6 @@
                     })
                 document.getElementById('profileForm').addEventListener('submit', (e) => {
                     e.preventDefault();
-
-                    if (isPrivateRelayEmail(document.getElementById('email').value)) {
-                        swal("Invalid Email", "Apple Private Relay emails are not accepted. Please enter your real email address.", "error");
-                        return;
-                    }
 
                     if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('pFbName').value != "" && document.getElementById('pFbLink').value != "" && document.getElementById('pParent').value != "" && document.getElementById('pInstitution').value != "") {
 
@@ -642,7 +596,6 @@
                             .then(response => response.json())
                             .then((result) => {
                                 if (result.status === 200) {
-                                    sessionStorage.removeItem('pendingRealEmail');
                                     swal("Profile Updated", "Your Profile has been updated successfully", "success")
                                         .then((information) => {
                                             firebase.auth().currentUser.getIdTokenResult(true)
@@ -1379,10 +1332,6 @@
 
         function showAddPasswordModal() {
             var userEmail = firebase.auth().currentUser.email;
-            if (isPrivateRelayEmail(userEmail)) {
-                swal("Update Email First", "Please update your email address to a real address before adding a password.", "warning");
-                return;
-            }
             document.getElementById('passwordModalLabel').innerText = 'Add Password';
             document.getElementById('currentPasswordGroup').style.display = 'none';
             document.getElementById('currentPassword').value = '';
