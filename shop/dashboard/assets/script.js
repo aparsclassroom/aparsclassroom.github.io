@@ -214,15 +214,10 @@ function copyToClipboard() {
         setSendLoading(true);
         hideError(phoneError);
         try {
-            var currentUser = await new Promise(function(resolve) {
-                var unsub = firebase.auth().onAuthStateChanged(function(user) { unsub(); resolve(user); });
-            });
-            var sendPayload = { phone: phone, uid: currentUser ? currentUser.uid : null };
-            console.log('[DEBUG] sendOTP uid:', sendPayload.uid);
             var res = await fetch(API + '/otp/send', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(sendPayload)
+                body: JSON.stringify({ phone: phone })
             });
             var data = await res.json();
             switch (data.status) {
