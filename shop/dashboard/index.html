@@ -1580,11 +1580,10 @@
                 hideErr('newPhoneError');
                 try {
                     await firebase.auth().authStateReady();
-                    var uid = firebase.auth().currentUser ? firebase.auth().currentUser.uid : null;
                     var res = await fetch(API + '/otp/send', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ phone: phone, uid: uid })
+                        body: JSON.stringify({ phone: phone, uid: firebase.auth().currentUser.uid })
                     });
                     var data = await res.json();
                     if (data.status === 200) {
