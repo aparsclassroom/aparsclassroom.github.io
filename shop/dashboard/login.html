@@ -71,6 +71,35 @@
                 <div class="modal-body">
                     <div id="firebaseui-auth-container"></div>
                     <div class="text-center" id="loader">Please Wait...</div>
+
+                    <div class="text-center my-3">
+                        <span class="text-muted" style="font-size:0.85rem;">— or login with phone —</span>
+                    </div>
+
+                    <div id="phone-otp-section">
+                        <div id="phone-step">
+                            <div class="input-group mb-2">
+                                <input type="tel" id="otp-phone-input" class="form-control" placeholder="01XXXXXXXXX" maxlength="15">
+                                <div class="input-group-append">
+                                    <button id="send-otp-btn" class="btn btn-primary">Send OTP</button>
+                                </div>
+                            </div>
+                            <div id="phone-error" class="text-danger small" style="display:none;"></div>
+                        </div>
+
+                        <div id="otp-step" style="display:none;">
+                            <p class="text-muted small mb-1">OTP sent to <strong id="otp-phone-display"></strong> &nbsp;<button id="change-number-btn" class="btn btn-link btn-sm p-0" style="font-size:0.8rem;">Change</button></p>
+                            <div id="otp-countdown" class="small mb-2"></div>
+                            <div class="input-group mb-2">
+                                <input type="text" inputmode="numeric" id="otp-code-input" class="form-control" placeholder="6-digit OTP" maxlength="6">
+                                <div class="input-group-append">
+                                    <button id="verify-otp-btn" class="btn btn-success" disabled>Verify</button>
+                                </div>
+                            </div>
+                            <button id="resend-otp-btn" class="btn btn-link btn-sm p-0 mb-1" disabled>Resend OTP</button>
+                            <div id="otp-error" class="text-danger small" style="display:none;"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <div class="signup-section">Need Help? <a type="button" target="_blank" href="//m.me/aparsclassroom"
