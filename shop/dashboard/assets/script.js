@@ -93,31 +93,39 @@ var user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         if (isPrivateRelayEmail(user.email) && !sessionStorage.getItem('pendingRealEmail')) {
-            Swal.fire({
-                title: 'Update Your Email Address',
-                icon: 'warning',
-                html: `
-                    <p>You signed in with Apple using a <strong>Private Relay</strong> address:</p>
-                    <p style="font-size:13px;color:#888;word-break:break-all;">${user.email}</p>
-                    <p>We need your <strong>real email</strong> to send receipts and important updates.<br>Please enter it below to continue.</p>
-                `,
-                input: 'email',
-                inputLabel: 'Your real email address',
-                inputPlaceholder: 'example@gmail.com',
-                confirmButtonText: 'Continue &rarr;',
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                showCancelButton: false,
-                inputValidator: (value) => {
-                    if (!value) return 'Please enter your email address.';
-                    if (isPrivateRelayEmail(value)) return 'Please enter a real email address, not an Apple Private Relay address.';
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    sessionStorage.setItem('pendingRealEmail', result.value);
-                    doRedirect();
-                }
-            });
+            // Hide the Bootstrap login modal first — its focus trap blocks typing in Swal inputs
+            $('#loginModal').modal('hide');
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'Update Your Email Address',
+                    icon: 'warning',
+                    html: `
+                        <p>You signed in with Apple using a <strong>Private Relay</strong> address:</p>
+                        <p style="font-size:13px;color:#888;word-break:break-all;">${user.email}</p>
+                        <p>We need your <strong>real email</strong> to send receipts and important updates.<br>Please enter it below to continue.</p>
+                    `,
+                    input: 'email',
+                    inputLabel: 'Your real email address',
+                    inputPlaceholder: 'example@gmail.com',
+                    confirmButtonText: 'Continue →',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showCancelButton: false,
+                    didOpen: function () {
+                        var input = Swal.getInput();
+                        if (input) input.focus();
+                    },
+                    inputValidator: function (value) {
+                        if (!value) return 'Please enter your email address.';
+                        if (isPrivateRelayEmail(value)) return 'Please enter a real email address, not an Apple Private Relay address.';
+                    }
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        sessionStorage.setItem('pendingRealEmail', result.value);
+                        doRedirect();
+                    }
+                });
+            }, 400);
         } else {
             doRedirect();
         }
