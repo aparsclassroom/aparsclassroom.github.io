@@ -1,0 +1,14 @@
+const product = "biochem28combo";
+const product2 = "biochem28combowbooks";
+const productName = "ACS Chemistry + Biology Academic Courses, HSC-2028 (2 Subjects Combo)";
+const productName2 = "ACS Chemistry + Biology Academic Courses, HSC-2028 (2 Subjects Combo) with books";
+let productCode = "805";
+let productCode2 = "806";
+const enrollmentCountEndpoint = `https://${shopName2}/enrollment/?productCode=${productCode}`;
+const enrollmentCountEndpoint2 = `https://${shopName2}/enrollment/?productCode=${productCode2}`;
+const fix = 16000;
+const pls = 9000;
+const pls2 = 12700;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";

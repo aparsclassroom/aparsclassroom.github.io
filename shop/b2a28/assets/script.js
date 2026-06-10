@@ -711,7 +711,8 @@ firebase.auth().onAuthStateChanged(function (e) {
 
         Promise.allSettled([
             checkPurchase(cycleProducts, e.uid, Cycle),
-            checkPurchase(comboProducts, e.uid)
+            checkPurchase(comboProducts, e.uid),
+            checkPurchase(["805", "806"], e.uid)
         ]).then((results) => {
             const existingPurchase = findExistingPurchase(results);
             if (existingPurchase) {

@@ -36,7 +36,7 @@ let productcode;
 
 // Set initial state based on URL product code
 if (urlProductCode === productCode) {
-    // If URL has productCode (productCode), start with books unchecked
+    // If URL has productCode, start with books unchecked
     productcode = productCode;
     document.getElementById('addBooks').checked = false;
     document.getElementById('shippingFields').style.display = 'none';
@@ -56,7 +56,7 @@ if (urlProductCode === productCode) {
     ];
     shippingInputs.forEach(input => input.removeAttribute('required'));
 } else if (urlProductCode === productCode2) {
-    // If URL has productCode2 (productCode2), start with books checked
+    // If URL has productCode2, start with books checked
     productcode = productCode2;
     document.getElementById('addBooks').checked = true;
     document.getElementById('shippingFields').style.display = 'block';
@@ -76,14 +76,14 @@ if (urlProductCode === productCode) {
     ];
     shippingInputs.forEach(input => input.setAttribute('required', ''));
 } else {
-    // Default state when no promo or unrecognized promo (without books)
+    // Default state when no promo or unrecognized promo (books unchecked)
     productcode = productCode;
     document.getElementById('addBooks').checked = false;
     document.getElementById('shippingFields').style.display = 'none';
     document.getElementById('sprice').innerText = pls;
     document.getElementById('price').value = pls;
     document.getElementById('nop').innerText = pls + "৳";
-
+    
     // Remove required attributes from shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -125,6 +125,7 @@ const quotes = [
     "The more that you read, the more things you will know.",
     "Reading gives us someplace to go when we have to stay where we are."
 ];
+
 // Add books checkbox event listener
 document.getElementById('addBooks').addEventListener('change', function () {
     const shipFields = document.getElementById('shippingFields');
@@ -162,32 +163,19 @@ document.getElementById('addBooks').addEventListener('change', function () {
             title: 'Are you sure?',
             html: `
                 <div style="margin-top: 10px;">
-                    <p>আমাদের বইগুলো কোর্সের লেকচার কন্টেন্টের পরিপূরক</p>
+                    <p>এই Combo Package-এর বইগুলো Biology ও Chemistry প্রস্তুতিকে আরও গোছানো করবে।</p>
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
-            imageUrl: 'https://i.postimg.cc/wjh5kn8r/compressed-image.jpg',
+            imageUrl: 'https://i.postimg.cc/VNYBTDtZ/compact-series-1-1.jpg',
             showCancelButton: true,
             confirmButtonText: 'না আমি বই নিতে চাইনা',
             cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
-            focusCancel: true,
             customClass: {
                 image: 'no-image-margin'
             },
-            confirmButtonColor: '#f08a84', // faded red button
+            confirmButtonColor: '#e74c3c', // red button
             cancelButtonColor: '#4CBB17', //  green button
-            didOpen: () => {
-                const actions = Swal.getActions();
-                const confirmButton = Swal.getConfirmButton();
-                const cancelButton = Swal.getCancelButton();
-
-                actions.style.display = 'block';
-                confirmButton.style.display = 'inline-block';
-                confirmButton.style.opacity = '0.72';
-                confirmButton.style.boxShadow = 'none';
-                cancelButton.style.display = 'inline-block';
-                cancelButton.style.boxShadow = '0 0 0 3px rgba(76, 187, 23, 0.35)';
-            },
         }).then((result) => {
             if (result.isConfirmed) {
                 // User confirmed they don't want books
@@ -206,10 +194,18 @@ document.getElementById('addBooks').addEventListener('change', function () {
     }
 });
 
-const blockedCyclePurchaseChecks = [
-    { cycle: "Cycle-1", products: ["622", "628"] },
-    { cycle: "Cycle-3", products: ["624", "630"] },
-    { cycle: "Cycle-5", products: ["626", "632"] }
+const includedCyclePurchaseChecks = [
+    { cycle: "Cycle-1", products: ["622", "628", "640", "645"] },
+    { cycle: "Cycle-2", products: ["623", "629", "641", "646"] },
+    { cycle: "Cycle-3", products: ["624", "630", "642", "647"] },
+    { cycle: "Cycle-4", products: ["625", "631", "643", "648"] },
+    { cycle: "Cycle-5", products: ["626", "632", "644", "649"] },
+    { cycle: "Cycle-6", products: ["627", "633", "692", "693"] }
+];
+
+const includedComboProducts = [
+    "703", "706", "704", "707", "705", "708",
+    "694", "696", "695", "697", "798", "799"
 ];
 
 function checkPurchase(products, uid, cycle) {
@@ -245,12 +241,25 @@ firebase.auth().onAuthStateChanged(function(e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
         var mail = e.email;
+        const enrollButton = document.getElementById('moda');
+        const buyButton = document.getElementById('buy');
+        const enablePurchaseForm = () => {
+            enrollButton.disabled = false;
+            enrollButton.setAttribute("data-target", "#purchaseFrm");
+            enrollButton.innerHTML = `
+            কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+            `;
+            buyButton.disabled = false;
+        };
+        enrollButton.disabled = true;
+        enrollButton.removeAttribute("data-target");
+        enrollButton.innerHTML = `Checking enrollment...`;
+        buyButton.disabled = true;
         document.getElementById('uid').value = e.uid;
         const purchaseChecks = [
             checkPurchase([productCode, productCode2], e.uid),
-            checkPurchase(["805", "806"], e.uid),
-            checkPurchase(["705", "708"], e.uid),
-            ...blockedCyclePurchaseChecks.map(check => checkPurchase(check.products, e.uid, check.cycle))
+            checkPurchase(includedComboProducts, e.uid),
+            ...includedCyclePurchaseChecks.map(check => checkPurchase(check.products, e.uid, check.cycle))
         ];
 
         Promise.allSettled(purchaseChecks)
@@ -264,9 +273,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                     }).then(() => {
                         location.replace(existingPurchase.invoices[0].invoice);
                     })
-                } else {
-                    const form = document.forms['purchase']
-                    form.addEventListener('submit', em => {
+	                } else {
+                    enablePurchaseForm();
+	                    const form = document.forms['purchase']
+	                    form.addEventListener('submit', em => {
                         em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
                         document.getElementById('buy').innerText = "Please wait...."
@@ -345,8 +355,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                             });
                     })
                 }
-            }).catch(() => {
-                const mfs = document.forms['purchase']
+	            }).catch(() => {
+                enablePurchaseForm();
+	                const mfs = document.forms['purchase']
                 mfs.addEventListener('submit', em => {
                     em.preventDefault();
                     var mail = document.getElementById('email').value.toLowerCase().trim();
@@ -427,12 +438,10 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
 
             })
-        document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
-        if (t != null) {
-            document.getElementById('phone').value = t;
-            document.getElementById('phone').setAttribute("readonly", true);
-            document.getElementById('buy').disabled = false;
-        } else {
+	        if (t != null) {
+	            document.getElementById('phone').value = t;
+	            document.getElementById('phone').setAttribute("readonly", true);
+	        } else {
             document.getElementById('phone').value = "+880";
         }
         if (namex != null) {
@@ -459,10 +468,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
-        document.getElementById('moda').innerHTML = `
-        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
-        `;
-    } else {
+	    } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');

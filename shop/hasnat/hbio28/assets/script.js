@@ -257,7 +257,8 @@ firebase.auth().onAuthStateChanged(function (e) {
         };
 
         const purchaseChecks = [
-            fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
+            fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json()),
+            hbio28CheckPurchase(["805", "806"], e.uid)
         ];
 
         if (blockedComboProducts.length) {
