@@ -180,6 +180,10 @@
                                         <span><i class="fas fa-lock" style="color:#6c757d;"></i>&nbsp; Password</span>
                                         <button class="btn btn-sm btn-outline-secondary" id="passwordLinkBtn" disabled>Loading...</button>
                                     </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><i class="fas fa-phone" style="color:#28a745;"></i>&nbsp; Phone</span>
+                                        <button class="btn btn-sm btn-outline-secondary" id="phoneLinkBtn" disabled>Loading...</button>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -437,6 +441,46 @@
             </div>
         </div>
     </div>
+    <!-- Phone Change Modal -->
+    <div class="modal fade" id="phoneChangeModal" tabindex="-1" role="dialog" aria-labelledby="phoneChangeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="phoneChangeModalLabel">Change Phone Number</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="phoneChangeStep1">
+                        <div class="form-group mb-0">
+                            <label for="newPhoneInput">New Phone Number</label>
+                            <input type="tel" class="form-control" id="newPhoneInput" placeholder="+8801XXXXXXXXX">
+                            <div id="newPhoneError" class="text-danger small mt-1" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div id="phoneChangeStep2" style="display:none;">
+                        <p class="mb-2 small text-muted">OTP sent to <strong id="newPhoneDisplay"></strong> &mdash; <button type="button" class="btn btn-link btn-sm p-0" id="changeNumBtn">Change</button></p>
+                        <div class="form-group mb-0">
+                            <label for="phoneOtpInput">Enter OTP Code</label>
+                            <input type="text" class="form-control" id="phoneOtpInput" placeholder="6-digit code" maxlength="6" inputmode="numeric">
+                            <div class="d-flex justify-content-between mt-1">
+                                <small id="phoneOtpCountdown" class="text-info"></small>
+                                <button type="button" id="phoneResendBtn" class="btn btn-link btn-sm p-0" disabled>Resend OTP</button>
+                            </div>
+                            <div id="phoneOtpError" class="text-danger small mt-1" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="sendPhoneOtpBtn" class="btn btn-primary">Send OTP</button>
+                    <button type="button" id="verifyPhoneOtpBtn" class="btn btn-primary" style="display:none;">Verify &amp; Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         var pname = document.getElementById('pname').value;
         var email = document.getElementById('email').value;
@@ -1242,6 +1286,19 @@
                 passwordBtn.innerText = 'Add';
                 passwordBtn.onclick = function() { showAddPasswordModal(); };
             }
+
+            var hasPhone = providers.indexOf('phone') !== -1;
+            var phoneBtn = document.getElementById('phoneLinkBtn');
+            phoneBtn.removeAttribute('disabled');
+            if (hasPhone) {
+                phoneBtn.className = 'btn btn-sm btn-outline-primary';
+                phoneBtn.innerText = 'Change';
+                phoneBtn.onclick = function() { showChangePhoneModal(); };
+            } else {
+                phoneBtn.className = 'btn btn-sm btn-outline-secondary';
+                phoneBtn.innerText = 'N/A';
+                phoneBtn.setAttribute('disabled', 'true');
+            }
         }
 
         function handleCredentialConflict(providerName, credential) {
@@ -1446,6 +1503,178 @@
                     });
             };
             $('#passwordModal').modal('show');
+        }
+
+        function showChangePhoneModal() {
+            var API = 'https://secure.apars.shop';
+            var OTP_EXPIRY = 300;
+            var currentNewPhone = '';
+            var countdown = 0;
+            var countdownTimer = null;
+
+            // Reset to step 1
+            document.getElementById('phoneChangeStep1').style.display = 'block';
+            document.getElementById('phoneChangeStep2').style.display = 'none';
+            document.getElementById('sendPhoneOtpBtn').style.display = 'inline-block';
+            document.getElementById('sendPhoneOtpBtn').disabled = false;
+            document.getElementById('sendPhoneOtpBtn').textContent = 'Send OTP';
+            document.getElementById('verifyPhoneOtpBtn').style.display = 'none';
+            document.getElementById('newPhoneInput').value = '';
+            document.getElementById('phoneOtpInput').value = '';
+            document.getElementById('newPhoneError').style.display = 'none';
+            document.getElementById('phoneOtpError').style.display = 'none';
+
+            function showErr(id, msg) { var el = document.getElementById(id); el.textContent = msg; el.style.display = 'block'; }
+            function hideErr(id) { document.getElementById(id).style.display = 'none'; }
+            function formatTime(s) { return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0'); }
+
+            function stopCountdown() {
+                if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+            }
+
+            function updateCountdownUI() {
+                var el = document.getElementById('phoneOtpCountdown');
+                var resendBtn = document.getElementById('phoneResendBtn');
+                var verifyBtn = document.getElementById('verifyPhoneOtpBtn');
+                var otpInput = document.getElementById('phoneOtpInput');
+                if (countdown > 0) {
+                    el.textContent = 'Expires in: ' + formatTime(countdown);
+                    el.style.color = '#17a2b8';
+                    otpInput.disabled = false;
+                    resendBtn.disabled = true;
+                    verifyBtn.disabled = otpInput.value.length !== 6;
+                } else {
+                    el.textContent = 'OTP expired. Request a new one.';
+                    el.style.color = '#fd7e14';
+                    otpInput.disabled = true;
+                    resendBtn.disabled = false;
+                    verifyBtn.disabled = true;
+                }
+            }
+
+            function startCountdown() {
+                stopCountdown();
+                countdown = OTP_EXPIRY;
+                updateCountdownUI();
+                countdownTimer = setInterval(function() {
+                    countdown--;
+                    updateCountdownUI();
+                    if (countdown <= 0) stopCountdown();
+                }, 1000);
+            }
+
+            function goToStep1() {
+                stopCountdown();
+                document.getElementById('phoneChangeStep2').style.display = 'none';
+                document.getElementById('phoneChangeStep1').style.display = 'block';
+                document.getElementById('sendPhoneOtpBtn').style.display = 'inline-block';
+                document.getElementById('sendPhoneOtpBtn').disabled = false;
+                document.getElementById('sendPhoneOtpBtn').textContent = 'Send OTP';
+                document.getElementById('verifyPhoneOtpBtn').style.display = 'none';
+            }
+
+            async function doSendOTP(phone) {
+                var btn = document.getElementById('sendPhoneOtpBtn');
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+                hideErr('newPhoneError');
+                try {
+                    var res = await fetch(API + '/otp/send', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone: phone })
+                    });
+                    var data = await res.json();
+                    if (data.status === 200) {
+                        currentNewPhone = phone;
+                        document.getElementById('newPhoneDisplay').textContent = phone;
+                        document.getElementById('phoneChangeStep1').style.display = 'none';
+                        document.getElementById('phoneChangeStep2').style.display = 'block';
+                        document.getElementById('sendPhoneOtpBtn').style.display = 'none';
+                        document.getElementById('verifyPhoneOtpBtn').style.display = 'inline-block';
+                        document.getElementById('verifyPhoneOtpBtn').disabled = true;
+                        document.getElementById('phoneOtpInput').value = '';
+                        hideErr('phoneOtpError');
+                        startCountdown();
+                    } else {
+                        showErr('newPhoneError', data.message || 'Failed to send OTP.');
+                        btn.disabled = false;
+                        btn.textContent = 'Send OTP';
+                    }
+                } catch (e) {
+                    showErr('newPhoneError', 'Network error. Please try again.');
+                    btn.disabled = false;
+                    btn.textContent = 'Send OTP';
+                }
+            }
+
+            async function doVerifyOTP(phone, otp) {
+                var btn = document.getElementById('verifyPhoneOtpBtn');
+                btn.disabled = true;
+                btn.textContent = 'Verifying...';
+                hideErr('phoneOtpError');
+                var uid = firebase.auth().currentUser.uid;
+                try {
+                    var res = await fetch(API + '/otp/verify', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone: phone, otp: otp, uid: uid })
+                    });
+                    var data = await res.json();
+                    if (data.status === 200) {
+                        stopCountdown();
+                        await firebase.auth().signInWithCustomToken(data.token);
+                        $('#phoneChangeModal').modal('hide');
+                        swal("Phone Updated", "Your phone number has been updated to " + phone + ".", "success")
+                            .then(function() { window.location.reload(); });
+                    } else if (data.status === 409) {
+                        stopCountdown();
+                        showErr('phoneOtpError', data.message || 'This number is already linked to another account.');
+                        btn.disabled = false;
+                        btn.textContent = 'Verify & Update';
+                    } else if (data.status === 429) {
+                        goToStep1();
+                        showErr('newPhoneError', data.message || 'Too many attempts. Please try again later.');
+                    } else {
+                        showErr('phoneOtpError', data.message || 'Invalid or expired OTP.');
+                        btn.disabled = false;
+                        btn.textContent = 'Verify & Update';
+                    }
+                } catch (e) {
+                    showErr('phoneOtpError', 'Network error. Please try again.');
+                    btn.disabled = false;
+                    btn.textContent = 'Verify & Update';
+                }
+            }
+
+            document.getElementById('sendPhoneOtpBtn').onclick = function() {
+                var phone = document.getElementById('newPhoneInput').value.trim();
+                if (!phone) { showErr('newPhoneError', 'Please enter a phone number.'); return; }
+                doSendOTP(phone);
+            };
+
+            document.getElementById('verifyPhoneOtpBtn').onclick = function() {
+                var otp = document.getElementById('phoneOtpInput').value;
+                if (otp.length === 6 && countdown > 0) doVerifyOTP(currentNewPhone, otp);
+            };
+
+            document.getElementById('phoneResendBtn').onclick = function() {
+                if (countdown === 0) doSendOTP(currentNewPhone);
+            };
+
+            document.getElementById('changeNumBtn').onclick = goToStep1;
+
+            document.getElementById('phoneOtpInput').oninput = function() {
+                this.value = this.value.replace(/\D/g, '');
+                document.getElementById('verifyPhoneOtpBtn').disabled = this.value.length !== 6 || countdown === 0;
+            };
+
+            // Clean up countdown when modal is dismissed
+            $('#phoneChangeModal').off('hidden.bs.modal').on('hidden.bs.modal', function() {
+                stopCountdown();
+            });
+
+            $('#phoneChangeModal').modal('show');
         }
 
         function openExam() {
