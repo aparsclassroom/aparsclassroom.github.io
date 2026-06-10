@@ -187,6 +187,11 @@
                                         <button class="btn btn-sm btn-outline-secondary" id="phoneLinkBtn"
                                             disabled>Loading...</button>
                                     </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><i class="fas fa-envelope" style="color:#007bff;"></i>&nbsp; Email</span>
+                                        <button class="btn btn-sm btn-outline-secondary" id="emailChangeBtn"
+                                            disabled>Loading...</button>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -488,6 +493,43 @@
                     <button type="button" id="sendPhoneOtpBtn" class="btn btn-primary">Send OTP</button>
                     <button type="button" id="verifyPhoneOtpBtn" class="btn btn-primary" style="display:none;">Verify
                         &amp; Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Change Modal -->
+    <div class="modal fade" id="emailChangeModal" tabindex="-1" role="dialog" aria-labelledby="emailChangeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="emailChangeModalLabel">Change Email Address</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="newEmailInput">New Email Address</label>
+                        <input type="email" class="form-control" id="newEmailInput"
+                            placeholder="Enter new email address">
+                    </div>
+                    <div class="form-group" id="emailCurrentPasswordGroup" style="display:none;">
+                        <label for="emailCurrentPassword">Current Password</label>
+                        <input type="password" class="form-control" id="emailCurrentPassword"
+                            placeholder="Enter your current password">
+                        <small class="form-text text-muted">Required to verify your identity.</small>
+                    </div>
+                    <div id="emailReauthInfo" class="alert alert-info mb-0" style="display:none;">
+                        <small>You will be asked to re-authenticate with your linked account to confirm this
+                            change.</small>
+                    </div>
+                    <div id="newEmailError" class="text-danger small mt-2" style="display:none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="emailSaveBtn" class="btn btn-primary">Update Email</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -1312,6 +1354,17 @@
                 phoneBtn.innerText = 'N/A';
                 phoneBtn.setAttribute('disabled', 'true');
             }
+
+            var emailBtn = document.getElementById('emailChangeBtn');
+            emailBtn.removeAttribute('disabled');
+            if (user.email) {
+                emailBtn.className = 'btn btn-sm btn-outline-primary';
+                emailBtn.innerText = 'Change';
+            } else {
+                emailBtn.className = 'btn btn-sm btn-outline-success';
+                emailBtn.innerText = 'Add';
+            }
+            emailBtn.onclick = function () { showChangeEmailModal(); };
         }
 
         function handleCredentialConflict(providerName, credential) {
@@ -1688,6 +1741,118 @@
             });
 
             $('#phoneChangeModal').modal('show');
+        }
+
+        async function updateBackendEmail(newEmail, user) {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("uid", user.uid);
+            urlencoded.append("Name", document.getElementById('pname').value);
+            urlencoded.append("FbName", document.getElementById('pFbName').value);
+            urlencoded.append("FbLink", document.getElementById('pFbLink').value);
+            urlencoded.append("Email", newEmail);
+            urlencoded.append("Phone", document.getElementById('pnum').value);
+            urlencoded.append("Parent", document.getElementById('pParent').value);
+            urlencoded.append("Institution", document.getElementById('pInstitution').value);
+            urlencoded.append("HSC", document.getElementById('pHSC').value);
+            urlencoded.append("Address", document.getElementById('pAddress').value);
+            var requestOptions = { method: "POST", headers: myHeaders, body: urlencoded, redirect: "follow" };
+            var response = await fetch("https://profile.aparsclassroom.com/profile/update", requestOptions);
+            var result = await response.json();
+            if (result.status !== 200) throw new Error(result.message || 'Profile update failed.');
+        }
+
+        function showChangeEmailModal() {
+            var user = firebase.auth().currentUser;
+            var providers = user.providerData.map(function (p) { return p.providerId; });
+            var hasPassword = providers.indexOf('password') !== -1;
+            var hasGoogle = providers.indexOf('google.com') !== -1;
+            var hasApple = providers.indexOf('apple.com') !== -1;
+
+            document.getElementById('newEmailInput').value = '';
+            document.getElementById('emailCurrentPassword').value = '';
+            document.getElementById('newEmailError').style.display = 'none';
+            document.getElementById('emailCurrentPasswordGroup').style.display = hasPassword ? 'block' : 'none';
+            document.getElementById('emailReauthInfo').style.display = (!hasPassword && (hasGoogle || hasApple)) ? 'block' : 'none';
+            var saveBtn = document.getElementById('emailSaveBtn');
+            saveBtn.disabled = false;
+            saveBtn.innerText = 'Update Email';
+
+            function showErr(msg) {
+                var el = document.getElementById('newEmailError');
+                el.textContent = msg;
+                el.style.display = 'block';
+            }
+            function hideErr() { document.getElementById('newEmailError').style.display = 'none'; }
+
+            async function performEmailUpdate(newEmail) {
+                try {
+                    await user.updateEmail(newEmail);
+                    await updateBackendEmail(newEmail, user);
+                    $('#emailChangeModal').modal('hide');
+                    swal("Email Updated", "Your email has been updated to " + newEmail + ".", "success")
+                        .then(function () { window.location.reload(); });
+                } catch (error) {
+                    saveBtn.disabled = false;
+                    saveBtn.innerText = 'Update Email';
+                    if (error.code === 'auth/email-already-in-use') {
+                        showErr('This email is already associated with another account.');
+                    } else if (error.code === 'auth/requires-recent-login') {
+                        showErr('Session expired. Please sign out and sign in again, then try again.');
+                    } else {
+                        showErr(error.message);
+                    }
+                }
+            }
+
+            saveBtn.onclick = async function () {
+                var newEmail = document.getElementById('newEmailInput').value.trim();
+                if (!newEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)) {
+                    showErr('Please enter a valid email address.'); return;
+                }
+                if (newEmail === user.email) {
+                    showErr('New email must be different from your current email.'); return;
+                }
+                hideErr();
+                saveBtn.disabled = true;
+                saveBtn.innerText = 'Updating...';
+
+                try {
+                    if (hasPassword) {
+                        var currentPass = document.getElementById('emailCurrentPassword').value;
+                        if (!currentPass) {
+                            showErr('Please enter your current password.');
+                            saveBtn.disabled = false;
+                            saveBtn.innerText = 'Update Email';
+                            return;
+                        }
+                        var credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPass);
+                        await user.reauthenticateWithCredential(credential);
+                    } else if (hasGoogle) {
+                        var googleProvider = new firebase.auth.GoogleAuthProvider();
+                        await user.reauthenticateWithPopup(googleProvider);
+                    } else if (hasApple) {
+                        var appleProvider = new firebase.auth.OAuthProvider('apple.com');
+                        await user.reauthenticateWithPopup(appleProvider);
+                    }
+                    await performEmailUpdate(newEmail);
+                } catch (error) {
+                    saveBtn.disabled = false;
+                    saveBtn.innerText = 'Update Email';
+                    if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                        showErr('Incorrect password. Please try again.');
+                    } else if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+                        // user dismissed popup — do nothing
+                    } else if (error.code === 'auth/email-already-in-use') {
+                        showErr('This email is already associated with another account.');
+                    } else if (error.code !== 'auth/requires-recent-login') {
+                        showErr(error.message);
+                    }
+                }
+            };
+
+            $('#emailChangeModal').modal('show');
         }
 
         function openExam() {
