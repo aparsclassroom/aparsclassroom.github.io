@@ -248,6 +248,10 @@ function copyToClipboard() {
                 stopCountdown();
                 await firebase.auth().signInWithCustomToken(data.token);
                 // onAuthStateChanged handles redirect
+            } else if (data.status === 409) {
+                // Phone belongs to a different account — hard stop, user must change number
+                stopCountdown();
+                showError(otpError, data.message || 'This phone number is already linked to another account.');
             } else if (data.status === 429) {
                 stopCountdown();
                 showPhoneStep();
