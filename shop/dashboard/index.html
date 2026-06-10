@@ -127,7 +127,7 @@
                             <div class="card-body text-center">
                                 <a data-toggle="modal" data-target="#imageModal" type="button">
                                     <img class="avatar"
-                                        src="https://cdn.aparsclassroom.com/anon.webp"
+                                        src="https://cdn.aparsclassroom.com/anon.jpg"
                                         id="avatar" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 </a>
                                 <h5 class="my-3" id="name2">...</h5>
@@ -158,6 +158,27 @@
                                         <i class="fas fa-address-card" style="color: green;"></i>
                                         <button class="btn btn-success" id="admitCard">Achieve Card
                                         </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card mt-4 mb-4">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush rounded-3">
+                                    <li class="list-group-item">
+                                        <strong><i class="fas fa-link"></i>&nbsp; Linked Accounts</strong>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><i class="fab fa-google" style="color: #db4437;"></i>&nbsp; Google</span>
+                                        <button class="btn btn-sm btn-outline-secondary" id="googleLinkBtn" disabled>Loading...</button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><i class="fab fa-apple"></i>&nbsp; Apple</span>
+                                        <button class="btn btn-sm btn-outline-secondary" id="appleLinkBtn" disabled>Loading...</button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><i class="fas fa-lock" style="color:#6c757d;"></i>&nbsp; Password</span>
+                                        <button class="btn btn-sm btn-outline-secondary" id="passwordLinkBtn" disabled>Loading...</button>
                                     </li>
                                 </ul>
                             </div>
@@ -379,11 +400,56 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passwordModalLabel">Manage Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="passwordForm" novalidate>
+                        <div class="form-group" id="currentPasswordGroup" style="display:none;">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" placeholder="Enter your current password">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="At least 6 characters" minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Repeat new password">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="passwordSaveBtn" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         var pname = document.getElementById('pname').value;
         var email = document.getElementById('email').value;
         var pnum = document.getElementById('pnum').value;
         var pHSC = document.getElementById('pHSC').value;
+
+        function isPrivateRelayEmail(email) {
+            return email && email.toLowerCase().endsWith('@privaterelay.appleid.com');
+        }
+
+        function showPrivateRelayWarning() {
+            swal({
+                title: "Update Your Email Address",
+                text: "You signed in with Apple using a Private Relay email address. We need your real email to send you important updates and receipts. Please enter your actual email address below.",
+                icon: "warning",
+                button: { text: "OK, I'll update it", closeModal: true }
+            });
+        }
         if (params.logout == "true") {
             firebase.auth().signOut()
         }
@@ -406,6 +472,8 @@
         document.getElementById('email').addEventListener("input", function (event) {
             if (document.getElementById('email').validity.typeMismatch) {
                 document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+            } else if (isPrivateRelayEmail(document.getElementById('email').value)) {
+                document.getElementById('email').setCustomValidity("Apple Private Relay emails are not accepted. Please enter your real email address.");
             } else {
                 document.getElementById('email').setCustomValidity("");
             }
@@ -420,6 +488,7 @@
         });
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
+                updateLinkedAccountsUI(user);
                 var name = user.displayName;
                 var mail = user.email;
                 var num = user.phoneNumber;
@@ -431,9 +500,11 @@
                 }
 
                 if (mail != null) {
-                    document.getElementById('mail').innerText = mail;
-                    document.getElementById('email').value = mail;
-                    document.getElementById('email').setAttribute('readonly', 'true');
+                    document.getElementById('mail').innerText = isPrivateRelayEmail(mail) ? mail + ' (Private Relay — needs update)' : mail;
+                    if (!isPrivateRelayEmail(mail)) {
+                        document.getElementById('email').value = mail;
+                        document.getElementById('email').setAttribute('readonly', 'true');
+                    }
                 }
                 if (num != null) {
                     document.getElementById('num').innerText = num;
@@ -478,7 +549,7 @@
                                 $('#imageModal').modal('show');
                             }
                             document.getElementById('pname').value = data.Name;
-                            document.getElementById('email').value = data.Email;
+                            document.getElementById('email').value = isPrivateRelayEmail(data.Email) ? '' : data.Email;
                             document.getElementById('pnum').value = data.Phone;
                             document.getElementById('pHSC').value = data.HSC;
                             document.getElementById('pFbName').value = data.FbName ? data.FbName : "";
@@ -488,8 +559,33 @@
                             document.getElementById('pAddress').value = data.Address ? data.Address : "";
                             document.getElementById('saveBtn').innerText = "Update";
                             document.getElementById('saveBtn').removeAttribute('disabled');
+
+                            if (isPrivateRelayEmail(data.Email)) {
+                                document.getElementById('email').removeAttribute('readonly');
+                                var pendingEmail = sessionStorage.getItem('pendingRealEmail');
+                                if (pendingEmail) {
+                                    document.getElementById('email').value = pendingEmail;
+                                } else {
+                                    document.getElementById('email').value = '';
+                                    document.getElementById('email').placeholder = 'Enter your real email address';
+                                }
+                                document.getElementById('profileLabel').innerHTML = '&#9888; Update Your Email Address';
+                                document.querySelector('#profile .close').style.display = 'none';
+                                showPrivateRelayWarning();
+                                $('#profile').modal('show');
+                            }
                         } else if (loadedData.status === 201) {
-                            swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
+                            if (isPrivateRelayEmail(user.email)) {
+                                document.getElementById('email').removeAttribute('readonly');
+                                var pendingEmail = sessionStorage.getItem('pendingRealEmail');
+                                document.getElementById('email').value = pendingEmail || '';
+                                document.getElementById('email').placeholder = 'Enter your real email address';
+                                document.getElementById('profileLabel').innerHTML = '&#9888; Update Your Email Address';
+                                document.querySelector('#profile .close').style.display = 'none';
+                                swal("Action Required", "You signed in with an Apple Private Relay email. Please enter your real email address to continue.", "warning");
+                            } else {
+                                swal("Oops", "You haven't updated your profile yet, Please update your profile to access advanced features !", "info")
+                            }
                             $('#profile').modal('show');
                             var data = loadedData.data;
                             if (data.photo != null) {
@@ -510,6 +606,11 @@
                     $('#profile').modal('show');
                     document.getElementById('profileForm').addEventListener('submit', (e) => {
                         e.preventDefault();
+
+                        if (isPrivateRelayEmail(document.getElementById('email').value)) {
+                            swal("Invalid Email", "Apple Private Relay emails are not accepted. Please enter your real email address.", "error");
+                            return;
+                        }
 
                         if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('pFbName').value != "" && document.getElementById('pFbLink').value != "" && document.getElementById('pParent').value != "" && document.getElementById('pInstitution').value != "") {
 
@@ -543,6 +644,7 @@
                                 .then(response => response.json())
                                 .then((result) => {
                                     if (result.status === 200) {
+                                        sessionStorage.removeItem('pendingRealEmail');
                                         swal("Profile Updated", "Your Profile has been updated successfully", "success")
                                             .then((information) => {
                                                 firebase.auth().currentUser.getIdTokenResult(true)
@@ -1137,6 +1239,223 @@
             }
 
 
+        }
+
+        function updateLinkedAccountsUI(user) {
+            var providers = user.providerData.map(function(p) { return p.providerId; });
+            var isGoogleLinked = providers.indexOf('google.com') !== -1;
+            var isAppleLinked = providers.indexOf('apple.com') !== -1;
+
+            var googleBtn = document.getElementById('googleLinkBtn');
+            googleBtn.removeAttribute('disabled');
+            if (isGoogleLinked) {
+                googleBtn.className = 'btn btn-sm btn-outline-danger';
+                googleBtn.innerText = 'Unlink';
+                googleBtn.onclick = function() { unlinkProvider('google.com', providers.length); };
+            } else {
+                googleBtn.className = 'btn btn-sm btn-outline-success';
+                googleBtn.innerText = 'Link';
+                googleBtn.onclick = function() { linkWithGoogle(); };
+            }
+
+            var appleBtn = document.getElementById('appleLinkBtn');
+            appleBtn.removeAttribute('disabled');
+            if (isAppleLinked) {
+                appleBtn.className = 'btn btn-sm btn-outline-danger';
+                appleBtn.innerText = 'Unlink';
+                appleBtn.onclick = function() { unlinkProvider('apple.com', providers.length); };
+            } else {
+                appleBtn.className = 'btn btn-sm btn-outline-success';
+                appleBtn.innerText = 'Link';
+                appleBtn.onclick = function() { linkWithApple(); };
+            }
+
+            var hasPassword = providers.indexOf('password') !== -1;
+            var passwordBtn = document.getElementById('passwordLinkBtn');
+            passwordBtn.removeAttribute('disabled');
+            if (hasPassword) {
+                passwordBtn.className = 'btn btn-sm btn-outline-primary';
+                passwordBtn.innerText = 'Change';
+                passwordBtn.onclick = function() { showChangePasswordModal(); };
+            } else {
+                passwordBtn.className = 'btn btn-sm btn-outline-success';
+                passwordBtn.innerText = 'Add';
+                passwordBtn.onclick = function() { showAddPasswordModal(); };
+            }
+        }
+
+        function linkWithGoogle() {
+            var googleBtn = document.getElementById('googleLinkBtn');
+            googleBtn.setAttribute('disabled', 'true');
+            googleBtn.innerText = 'Linking...';
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().currentUser.linkWithPopup(provider)
+                .then(function(result) {
+                    swal("Linked!", "Your account has been linked with Google successfully.", "success");
+                    updateLinkedAccountsUI(result.user);
+                })
+                .catch(function(error) {
+                    if (error.code === 'auth/credential-already-in-use') {
+                        swal("Already in use", "This Google account is already linked to another ASG SHOP account.", "error");
+                    } else if (error.code === 'auth/popup-closed-by-user') {
+                        // silently ignore
+                    } else {
+                        swal("Oops", error.message, "error");
+                    }
+                    googleBtn.removeAttribute('disabled');
+                    googleBtn.innerText = 'Link';
+                });
+        }
+
+        function linkWithApple() {
+            var appleBtn = document.getElementById('appleLinkBtn');
+            appleBtn.setAttribute('disabled', 'true');
+            appleBtn.innerText = 'Linking...';
+            var provider = new firebase.auth.OAuthProvider('apple.com');
+            firebase.auth().currentUser.linkWithPopup(provider)
+                .then(function(result) {
+                    swal("Linked!", "Your account has been linked with Apple successfully.", "success");
+                    updateLinkedAccountsUI(result.user);
+                })
+                .catch(function(error) {
+                    if (error.code === 'auth/credential-already-in-use') {
+                        swal("Already in use", "This Apple account is already linked to another ASG SHOP account.", "error");
+                    } else if (error.code === 'auth/popup-closed-by-user') {
+                        // silently ignore
+                    } else {
+                        swal("Oops", error.message, "error");
+                    }
+                    appleBtn.removeAttribute('disabled');
+                    appleBtn.innerText = 'Link';
+                });
+        }
+
+        function unlinkProvider(providerId, totalProviders) {
+            if (totalProviders <= 1) {
+                swal("Cannot Unlink", "You need at least one sign-in method. Link another account before unlinking this one.", "warning");
+                return;
+            }
+            var providerName = providerId === 'google.com' ? 'Google' : 'Apple';
+            swal({
+                title: "Unlink " + providerName + "?",
+                text: "You will no longer be able to sign in to ASG SHOP with " + providerName + ".",
+                icon: "warning",
+                buttons: ["Cancel", "Yes, Unlink"],
+                dangerMode: true
+            }).then(function(confirmed) {
+                if (confirmed) {
+                    firebase.auth().currentUser.unlink(providerId)
+                        .then(function(user) {
+                            swal("Unlinked", providerName + " has been unlinked from your account.", "success");
+                            updateLinkedAccountsUI(user);
+                        })
+                        .catch(function(error) {
+                            swal("Oops", error.message, "error");
+                        });
+                }
+            });
+        }
+
+        function showAddPasswordModal() {
+            var userEmail = firebase.auth().currentUser.email;
+            if (isPrivateRelayEmail(userEmail)) {
+                swal("Update Email First", "Please update your email address to a real address before adding a password.", "warning");
+                return;
+            }
+            document.getElementById('passwordModalLabel').innerText = 'Add Password';
+            document.getElementById('currentPasswordGroup').style.display = 'none';
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            document.getElementById('passwordSaveBtn').innerText = 'Add Password';
+            document.getElementById('passwordSaveBtn').removeAttribute('disabled');
+
+            document.getElementById('passwordSaveBtn').onclick = function() {
+                var newPass = document.getElementById('newPassword').value;
+                var confirmPass = document.getElementById('confirmPassword').value;
+                if (newPass.length < 6) {
+                    swal("Too Short", "Password must be at least 6 characters.", "error"); return;
+                }
+                if (newPass !== confirmPass) {
+                    swal("Mismatch", "Passwords do not match.", "error"); return;
+                }
+                var saveBtn = document.getElementById('passwordSaveBtn');
+                saveBtn.setAttribute('disabled', 'true');
+                saveBtn.innerText = 'Saving...';
+                var credential = firebase.auth.EmailAuthProvider.credential(userEmail, newPass);
+                firebase.auth().currentUser.linkWithCredential(credential)
+                    .then(function(result) {
+                        $('#passwordModal').modal('hide');
+                        swal("Password Added", "You can now sign in with your email and password.", "success");
+                        updateLinkedAccountsUI(result.user);
+                    })
+                    .catch(function(error) {
+                        saveBtn.removeAttribute('disabled');
+                        saveBtn.innerText = 'Add Password';
+                        if (error.code === 'auth/requires-recent-login') {
+                            $('#passwordModal').modal('hide');
+                            swal("Session Expired", "Please sign out and sign in again, then try adding a password.", "warning");
+                        } else if (error.code === 'auth/email-already-in-use') {
+                            swal("Already in Use", "A password account with this email already exists.", "error");
+                        } else {
+                            swal("Oops", error.message, "error");
+                        }
+                    });
+            };
+            $('#passwordModal').modal('show');
+        }
+
+        function showChangePasswordModal() {
+            document.getElementById('passwordModalLabel').innerText = 'Change Password';
+            document.getElementById('currentPasswordGroup').style.display = 'block';
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            document.getElementById('passwordSaveBtn').innerText = 'Change Password';
+            document.getElementById('passwordSaveBtn').removeAttribute('disabled');
+
+            document.getElementById('passwordSaveBtn').onclick = function() {
+                var userEmail = firebase.auth().currentUser.email;
+                var currentPass = document.getElementById('currentPassword').value;
+                var newPass = document.getElementById('newPassword').value;
+                var confirmPass = document.getElementById('confirmPassword').value;
+                if (!currentPass) {
+                    swal("Required", "Please enter your current password.", "error"); return;
+                }
+                if (newPass.length < 6) {
+                    swal("Too Short", "New password must be at least 6 characters.", "error"); return;
+                }
+                if (newPass !== confirmPass) {
+                    swal("Mismatch", "New passwords do not match.", "error"); return;
+                }
+                var saveBtn = document.getElementById('passwordSaveBtn');
+                saveBtn.setAttribute('disabled', 'true');
+                saveBtn.innerText = 'Saving...';
+                var credential = firebase.auth.EmailAuthProvider.credential(userEmail, currentPass);
+                firebase.auth().currentUser.reauthenticateWithCredential(credential)
+                    .then(function() {
+                        return firebase.auth().currentUser.updatePassword(newPass);
+                    })
+                    .then(function() {
+                        $('#passwordModal').modal('hide');
+                        swal("Password Changed", "Your password has been updated successfully.", "success");
+                    })
+                    .catch(function(error) {
+                        saveBtn.removeAttribute('disabled');
+                        saveBtn.innerText = 'Change Password';
+                        if (error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                            swal("Wrong Password", "The current password you entered is incorrect.", "error");
+                        } else if (error.code === 'auth/weak-password') {
+                            swal("Weak Password", "New password must be at least 6 characters.", "error");
+                        } else if (error.code === 'auth/requires-recent-login') {
+                            $('#passwordModal').modal('hide');
+                            swal("Session Expired", "Please sign out and sign in again, then try changing your password.", "warning");
+                        } else {
+                            swal("Oops", error.message, "error");
+                        }
+                    });
+            };
+            $('#passwordModal').modal('show');
         }
 
         function openExam() {
