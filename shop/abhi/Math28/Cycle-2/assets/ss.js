@@ -105,11 +105,6 @@ Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode5),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode6),
     getAfsEnrollmentCount(productCode),
-    getAfsEnrollmentCount(productCode2),
-    getAfsEnrollmentCount(productCode3),
-    getAfsEnrollmentCount(productCode4),
-    getAfsEnrollmentCount(productCode5),
-    getAfsEnrollmentCount(productCode6)
 ])
 .then((enrollments) => {
     const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
