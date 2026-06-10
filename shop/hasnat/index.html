@@ -47,9 +47,127 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/Logo.png">
     <link rel="apple-touch-icon" href="/assets/Logo.png">
+    <style>
+        .hasnat-shop-page {
+            background: #f4f9f7;
+            color: #1f2f2c;
+        }
+
+        .hasnat-shop-page .navbar-theme-primary {
+            background: rgba(244, 249, 247, 0.92);
+            border-bottom: 1px solid rgba(31, 93, 74, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .hasnat-shop-page #prof {
+            color: #185b49;
+            font-weight: 700;
+        }
+
+        .hasnat-shop-page #Carousel {
+            padding: 10px !important;
+            border-color: rgba(38, 125, 95, 0.18) !important;
+            border-radius: 8px !important;
+            background: #ffffff;
+            box-shadow: 0 18px 45px rgba(24, 91, 73, 0.12) !important;
+        }
+
+        .hasnat-shop-page #Carousel img {
+            aspect-ratio: 16 / 6;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .hasnat-shop-page .course-list-title {
+            color: #143d34;
+            font-weight: 800;
+        }
+
+        .hasnat-shop-page .course-list-subtitle {
+            max-width: 760px;
+            margin: 0 auto 22px;
+            color: #516660;
+            line-height: 1.6;
+        }
+
+        .hasnat-shop-page .course-list-shell {
+            background: #e8f3ef !important;
+            border: 1px solid rgba(38, 125, 95, 0.16) !important;
+            border-radius: 8px;
+            box-shadow: none !important;
+        }
+
+        .hasnat-shop-page .course-list-shell .card {
+            background: #ffffff !important;
+            border: 1px solid rgba(38, 125, 95, 0.14) !important;
+            border-radius: 8px;
+            box-shadow: 0 12px 28px rgba(31, 78, 64, 0.08) !important;
+        }
+
+        .hasnat-shop-page .course-list-shell aside img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 8px !important;
+            box-shadow: 0 10px 24px rgba(24, 91, 73, 0.14);
+        }
+
+        .hasnat-shop-page .info-main .title,
+        .hasnat-shop-page .info-main > a.h5 {
+            color: #174c3e;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+
+        .hasnat-shop-page .bangla {
+            color: #344f48;
+        }
+
+        .hasnat-shop-page .info-main ul.bangla {
+            padding-left: 1.15rem;
+            margin-bottom: 0;
+        }
+
+        .hasnat-shop-page .text-success {
+            color: #1b8b5f !important;
+        }
+
+        .hasnat-shop-page .btn-primary {
+            background: #edf7f3;
+            border-color: rgba(31, 111, 86, 0.22);
+            color: #185b49;
+            border-radius: 8px;
+            box-shadow: none;
+            font-weight: 700;
+        }
+
+        .hasnat-shop-page .btn-primary:hover {
+            background: #dceee8;
+            border-color: rgba(31, 111, 86, 0.34);
+            color: #143d34;
+        }
+
+        .hasnat-shop-page .star {
+            color: #f0b429 !important;
+        }
+
+        @media (max-width: 767.98px) {
+            .hasnat-shop-page #Carousel img {
+                aspect-ratio: 16 / 9;
+            }
+
+            .hasnat-shop-page .course-list-shell {
+                padding: 1rem !important;
+            }
+
+            .hasnat-shop-page .course-list-shell .card {
+                padding: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="hasnat-shop-page">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL8MSKLC"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -90,8 +208,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
         <div class="col-12 mb-3">
-            <h2 class="text-center mb-2 mt-4">All Listed Courses</h2>
-           <div class="card bg-primary shadow-soft border-light p-4">
+            <h2 class="text-center mb-2 mt-4 course-list-title">Biology Courses by Hasnat Shuvro</h2>
+            <p class="text-center course-list-subtitle">Academic biology course listings for current and previous HSC batches, with cycle-wise enrollment and combo options.</p>
+           <div class="card bg-primary shadow-soft border-light p-4 course-list-shell">
 
              <div class="col-12 mb-3" id="hbio28">
                     <div class="card bg-primary shadow-soft border-light p-4">
