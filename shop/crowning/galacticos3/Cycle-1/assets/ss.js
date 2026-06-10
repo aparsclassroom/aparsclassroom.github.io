@@ -7,7 +7,7 @@ const comboEnrollmentProducts = [
     { cycle: "Cycle-4", productCode: "803" },
     { cycle: "Cycle-5", productCode: "804" }
 ];
-const fix = 1199;
+const fix = 3000;
 const pls = 1199;
 const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
