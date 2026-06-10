@@ -602,76 +602,78 @@
                     .catch((err) => {
                         console.log(err)
                     })
-                document.getElementById('upProf').addEventListener('click', () => {
-                    $('#profile').modal('show');
-                    document.getElementById('profileForm').addEventListener('submit', (e) => {
-                        e.preventDefault();
+                document.getElementById('profileForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
 
-                        if (isPrivateRelayEmail(document.getElementById('email').value)) {
-                            swal("Invalid Email", "Apple Private Relay emails are not accepted. Please enter your real email address.", "error");
-                            return;
-                        }
+                    if (isPrivateRelayEmail(document.getElementById('email').value)) {
+                        swal("Invalid Email", "Apple Private Relay emails are not accepted. Please enter your real email address.", "error");
+                        return;
+                    }
 
-                        if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('pFbName').value != "" && document.getElementById('pFbLink').value != "" && document.getElementById('pParent').value != "" && document.getElementById('pInstitution').value != "") {
+                    if (document.getElementById('pname').value != "" && document.getElementById('email').value != "" && document.getElementById('pnum').value != "" && document.getElementById('pHSC').value != "" && document.getElementById('pFbName').value != "" && document.getElementById('pFbLink').value != "" && document.getElementById('pParent').value != "" && document.getElementById('pInstitution').value != "") {
 
-                            document.getElementById('saveBtn').setAttribute('disabled', 'true');
-                            document.getElementById('saveBtn').innerText = "Saving...";
+                        document.getElementById('saveBtn').setAttribute('disabled', 'true');
+                        document.getElementById('saveBtn').innerText = "Saving...";
 
-                            const myHeaders = new Headers();
-                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                        const myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                            const urlencoded = new URLSearchParams();
+                        const urlencoded = new URLSearchParams();
 
-                            urlencoded.append("uid", user.uid);
-                            urlencoded.append("Name", document.getElementById('pname').value);
-                            urlencoded.append("FbName", document.getElementById('pFbName').value);
-                            urlencoded.append("FbLink", document.getElementById('pFbLink').value);
-                            urlencoded.append("Email", document.getElementById('email').value);
-                            urlencoded.append("Phone", document.getElementById('pnum').value);
-                            urlencoded.append("Parent", document.getElementById('pParent').value);
-                            urlencoded.append("Institution", document.getElementById('pInstitution').value);
-                            urlencoded.append("HSC", document.getElementById('pHSC').value);
-                            urlencoded.append("Address", document.getElementById('pAddress').value);
+                        urlencoded.append("uid", user.uid);
+                        urlencoded.append("Name", document.getElementById('pname').value);
+                        urlencoded.append("FbName", document.getElementById('pFbName').value);
+                        urlencoded.append("FbLink", document.getElementById('pFbLink').value);
+                        urlencoded.append("Email", document.getElementById('email').value);
+                        urlencoded.append("Phone", document.getElementById('pnum').value);
+                        urlencoded.append("Parent", document.getElementById('pParent').value);
+                        urlencoded.append("Institution", document.getElementById('pInstitution').value);
+                        urlencoded.append("HSC", document.getElementById('pHSC').value);
+                        urlencoded.append("Address", document.getElementById('pAddress').value);
 
-                            const requestOptions = {
-                                method: "POST",
-                                headers: myHeaders,
-                                body: urlencoded,
-                                redirect: "follow"
-                            };
+                        const requestOptions = {
+                            method: "POST",
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: "follow"
+                        };
 
-                            fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
-                                .then(response => response.json())
-                                .then((result) => {
-                                    if (result.status === 200) {
-                                        sessionStorage.removeItem('pendingRealEmail');
-                                        swal("Profile Updated", "Your Profile has been updated successfully", "success")
-                                            .then((information) => {
-                                                firebase.auth().currentUser.getIdTokenResult(true)
-                                                    .then(() => {
-                                                        if (params.returnToCourse) {
-                                                            location.replace(`${params.returnToCourse}`);
-                                                        } else {
-                                                            location.reload();
-                                                        }
-                                                    })
-                                            })
-                                    } else {
-                                        swal("Oops", result.message, "error")
-                                        document.getElementById('saveBtn').removeAttribute('disabled');
-                                        document.getElementById('saveBtn').innerText = "Save";
-                                    }
-                                })
-                                .catch(error => {
-                                    swal("Oops", error.message, "error")
+                        fetch("https://profile.aparsclassroom.com/profile/update", requestOptions)
+                            .then(response => response.json())
+                            .then((result) => {
+                                if (result.status === 200) {
+                                    sessionStorage.removeItem('pendingRealEmail');
+                                    swal("Profile Updated", "Your Profile has been updated successfully", "success")
+                                        .then((information) => {
+                                            firebase.auth().currentUser.getIdTokenResult(true)
+                                                .then(() => {
+                                                    if (params.returnToCourse) {
+                                                        location.replace(`${params.returnToCourse}`);
+                                                    } else {
+                                                        location.reload();
+                                                    }
+                                                })
+                                        })
+                                } else {
+                                    swal("Oops", result.message, "error")
                                     document.getElementById('saveBtn').removeAttribute('disabled');
                                     document.getElementById('saveBtn').innerText = "Save";
-                                });
-                        } else {
-                            swal("Oops", "Please fill up all the fields", "error")
-                        }
-                    })
-                })
+                                }
+                            })
+                            .catch(error => {
+                                swal("Oops", error.message, "error")
+                                document.getElementById('saveBtn').removeAttribute('disabled');
+                                document.getElementById('saveBtn').innerText = "Save";
+                            });
+                    } else {
+                        swal("Oops", "Please fill up all the fields", "error")
+                    }
+                });
+
+                document.getElementById('upProf').addEventListener('click', () => {
+                    document.querySelector('#profile .close').style.display = '';
+                    $('#profile').modal('show');
+                });
 
                 var myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -1284,6 +1286,25 @@
             }
         }
 
+        function handleCredentialConflict(providerName, credential) {
+            swal({
+                title: "Separate Account Found",
+                text: "This " + providerName + " account belongs to a separate ASG SHOP account. Switch to that account? You can then link your other sign-in methods from there.",
+                icon: "warning",
+                buttons: ["Stay Here", "Switch Account"],
+            }).then(function(willSwitch) {
+                if (willSwitch && credential) {
+                    firebase.auth().signInWithCredential(credential)
+                        .then(function() {
+                            window.location.href = '/shop/dashboard';
+                        })
+                        .catch(function(err) {
+                            swal("Oops", err.message, "error");
+                        });
+                }
+            });
+        }
+
         function linkWithGoogle() {
             var googleBtn = document.getElementById('googleLinkBtn');
             googleBtn.setAttribute('disabled', 'true');
@@ -1295,15 +1316,15 @@
                     updateLinkedAccountsUI(result.user);
                 })
                 .catch(function(error) {
-                    if (error.code === 'auth/credential-already-in-use') {
-                        swal("Already in use", "This Google account is already linked to another ASG SHOP account.", "error");
+                    googleBtn.removeAttribute('disabled');
+                    googleBtn.innerText = 'Link';
+                    if (error.code === 'auth/credential-already-in-use' || error.code === 'auth/account-exists-with-different-credential') {
+                        handleCredentialConflict('Google', error.credential);
                     } else if (error.code === 'auth/popup-closed-by-user') {
                         // silently ignore
                     } else {
                         swal("Oops", error.message, "error");
                     }
-                    googleBtn.removeAttribute('disabled');
-                    googleBtn.innerText = 'Link';
                 });
         }
 
@@ -1318,15 +1339,15 @@
                     updateLinkedAccountsUI(result.user);
                 })
                 .catch(function(error) {
-                    if (error.code === 'auth/credential-already-in-use') {
-                        swal("Already in use", "This Apple account is already linked to another ASG SHOP account.", "error");
+                    appleBtn.removeAttribute('disabled');
+                    appleBtn.innerText = 'Link';
+                    if (error.code === 'auth/credential-already-in-use' || error.code === 'auth/account-exists-with-different-credential') {
+                        handleCredentialConflict('Apple', error.credential);
                     } else if (error.code === 'auth/popup-closed-by-user') {
                         // silently ignore
                     } else {
                         swal("Oops", error.message, "error");
                     }
-                    appleBtn.removeAttribute('disabled');
-                    appleBtn.innerText = 'Link';
                 });
         }
 
