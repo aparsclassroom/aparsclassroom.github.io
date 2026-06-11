@@ -17,7 +17,9 @@ const Cycle = location.pathname.split('/')[4];
 
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=805`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/?productCode=806`).then(res => res.json())
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);

@@ -33,6 +33,8 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode2),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=805"),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=806"),
     getAfsEnrollmentCount(productCode),
     getAfsEnrollmentCount(productCode2)
 ])

@@ -12,12 +12,12 @@ let Platform = "Online";
 let Platform2 = "Physical";
 const Cycle = location.pathname.split('/')[4];
 const hbio28ComboEnrollmentCodes = {
-    "Cycle-1": ["703", "706", "705", "708"],
-    "Cycle-2": ["704", "707", "705", "708"],
-    "Cycle-3": ["703", "706", "705", "708"],
-    "Cycle-4": ["704", "707", "705", "708"],
-    "Cycle-5": ["703", "706", "705", "708"],
-    "Cycle-6": ["704", "707", "705", "708"]
+    "Cycle-1": ["703", "706", "705", "708", "805", "806"],
+    "Cycle-2": ["704", "707", "705", "708", "805", "806"],
+    "Cycle-3": ["703", "706", "705", "708", "805", "806"],
+    "Cycle-4": ["704", "707", "705", "708", "805", "806"],
+    "Cycle-5": ["703", "706", "705", "708", "805", "806"],
+    "Cycle-6": ["704", "707", "705", "708", "805", "806"]
 };
 const comboEnrollmentCodes = hbio28ComboEnrollmentCodes[Cycle] || [];
 const vidD = document.getElementById('video');
@@ -95,4 +95,3 @@ Promise.all([
     .catch(err => {
         console.log("Enrollment fetch error:", err);
     });
-

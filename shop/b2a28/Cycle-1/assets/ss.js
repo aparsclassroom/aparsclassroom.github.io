@@ -104,6 +104,8 @@ Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode4),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode5),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode6),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=805"),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=806"),
     getAfsEnrollmentCount(productCode),
     getAfsEnrollmentCount(productCode2),
     getAfsEnrollmentCount(productCode3),
