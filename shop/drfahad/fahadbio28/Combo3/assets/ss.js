@@ -39,6 +39,15 @@ function onPlayerReady(event) {
     event.target.setVolume(100);
     event.target.playVideo();
 }
+
+function pauseYouTubeVideo() {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+    }
+}
+
+document.getElementById('moda').addEventListener('click', pauseYouTubeVideo);
+
 fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`)
     .then((res) => {
         return res.json()
