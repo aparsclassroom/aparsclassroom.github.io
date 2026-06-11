@@ -30,12 +30,33 @@ var player;
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
+async function getAchieveEnrollCount() {
+    if (!achieveID) {
+        return 0;
+    }
+
+    try {
+        const res = await fetch(
+            `https://achieveacs.com/api/v1/b2b/enroll-count?courseId=${achieveID}`
+        );
+        const data = await res.json();
+        console.log(data.enrollCount);
+        return Number(data.enrollCount) || 0;
+    } catch (err) {
+        console.log(err);
+        return 0;
+    }
+}
+
 fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+    .then(async (data) => {
+        const achieveEnrollCount = await getAchieveEnrollCount();
+        const totalEnrollCount = (Number(data.count) || 0) + achieveEnrollCount + init;
+
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollCount);
         if (document.getElementById('enrolled')) {
             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
             if (!countUp.error) {
