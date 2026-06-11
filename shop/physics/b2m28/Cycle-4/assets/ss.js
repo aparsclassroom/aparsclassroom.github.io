@@ -83,6 +83,32 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     (data) => data.data && data.data.count
 );
 
+const getAcsCampEnrollmentCount = () => {
+    const cycleNumber = Number(Cycle.replace("Cycle-", ""));
+    const acsCampProductCode = String(1000 + cycleNumber);
+
+    if (!cycleNumber) {
+        return Promise.resolve(0);
+    }
+
+    return fetch("https://api.acscamp.com/v1/products/sales-count", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            productGroup: "phy28",
+            productCode: acsCampProductCode,
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => Number(data.count || data.salesCount || data.total || (data.data && (data.data.count || data.data.salesCount || data.data.total))) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode2),
@@ -91,6 +117,7 @@ Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode5),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode6),
     getAfsEnrollmentCount(productCode),
+    getAcsCampEnrollmentCount(),
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
