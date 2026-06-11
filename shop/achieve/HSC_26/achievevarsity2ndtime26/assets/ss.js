@@ -44,12 +44,11 @@ const getAchieveEnrollCount = () => {
         });
 };
 
-Promise.all([
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then((res) => res.json()),
-    getAchieveEnrollCount(),
-])
-    .then(([data, achieveEnrollCount]) => {
-        const totalEnrollCount = (Number(data.count) || 0) + achieveEnrollCount + init;
+// ASG shop count is temporarily disabled.
+// fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then((res) => res.json())
+getAchieveEnrollCount()
+    .then((achieveEnrollCount) => {
+        const totalEnrollCount = achieveEnrollCount + init;
 
         document.getElementById('enrolled').setAttribute('countTo', totalEnrollCount);
         if (document.getElementById('enrolled')) {
