@@ -42,7 +42,7 @@ var tag = document.createElement('script');
 //     event.target.playVideo();
 // }
 Promise.all([
-    fetch(`https://${shopName2}/enrollment?productCode=${productCode}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${comboEnrollmentCode}`).then(res => res.json())
 ])
     .then((enrollments) => {

@@ -5,7 +5,7 @@ const Platform = "Online";
 const productCode = "807";
 const fix = 2000;
 //const pls = 1290;
-const pls = 790;
+const pls = 1190;
 const comboEnrollmentCode = "809";
 const Cycle = location.pathname.split('/')[4];
 const vidD = document.getElementById('video');
@@ -49,7 +49,7 @@ var player;
 // });
 
 Promise.all([
-    fetch(`https://${shopName2}/enrollment?productCode=${productCode}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${comboEnrollmentCode}`).then(res => res.json())
 ])
     .then((enrollments) => {
