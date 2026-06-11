@@ -9,6 +9,7 @@ Usage:
 Examples:
   scripts/process-thumbnails.sh "https://drive.google.com/drive/folders/..." compactbio28
   scripts/process-thumbnails.sh downloads/compactbio28 compactbio28 200 1400
+  scripts/process-thumbnails.sh shop/SchoolofExcellence/lodestareng28/thumb lodestareng28
 
 Output:
   Optimized thumbnails are written to:
