@@ -1,6 +1,7 @@
 const product = "achievevarsity2ndtime26";
 const productName = "ACHIEVE Varsity 2nd Time Exam Batch 2026";
 const productCode = "635";
+const achieveID = "69e8b4bbb5612186952e5162";
 const fix = 10000;
 const pls = 6000;
 const Platform = "Offline";
