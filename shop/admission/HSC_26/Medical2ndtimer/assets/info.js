@@ -1,6 +1,7 @@
 const product = "medi2ndtimer26";
 const productName = "ACS Second Timers Medical Admission Private Batch 2026";
 const productCode = "593";
+const achieveID = "69eddd7ffc28cb5e0e0b1623";
 //const productCode2 = "369";
 const fix = 6000;
 const pls = 5500;
