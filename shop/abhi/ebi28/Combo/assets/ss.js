@@ -43,9 +43,29 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     (data) => data.data && data.data.count
 );
 
+const getAcsCampEnrollmentCount = () => {
+    return fetch("https://api.acscamp.com/v1/products/sales-count", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            productGroup: "ebi28combo",
+            productCode: "1040",
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => Number(data.count || data.salesCount || data.total || (data.data && (data.data.count || data.data.salesCount || data.data.total))) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/combined?productCodes=" + ebi28EnrollmentProductCodes.join(",")),
-    getAfsEnrollmentCount(productCode)
+    getAfsEnrollmentCount(productCode),
+    getAcsCampEnrollmentCount()
 ])
     .then((counts) => {
         const enrolled = document.getElementById('enrolled');

@@ -2864,6 +2864,13 @@
                             productCode: String(1018 + cycleNumber)
                         });
                     }
+
+                    if (cycleNumber && /productGroup\s*:\s*["']ebi28["']/.test(activeSource)) {
+                        addAcsCampEndpoint(endpoints, {
+                            productGroup: 'ebi28',
+                            productCode: String(1036 + cycleNumber)
+                        });
+                    }
                 }
 
                 return Array.from(endpoints);
