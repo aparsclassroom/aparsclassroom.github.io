@@ -2577,6 +2577,8 @@
 
         (function showEnrollmentCounts() {
             const shopApi = 'https://shop.aparsclassroom.com';
+            const acsCampApi = 'https://api.acscamp.com/v1/products/sales-count';
+            const acsCampEndpointPrefix = 'acsCamp:';
             const sourceCache = new Map();
             const countCache = new Map();
             const countStoragePrefix = 'hsc28EnrollmentCount:';
@@ -2744,6 +2746,16 @@
                 }
             }
 
+            function addAcsCampEndpoint(endpoints, payload) {
+                if (!payload || !payload.productGroup || !payload.productCode) return;
+                const endpoint = acsCampEndpointPrefix + JSON.stringify(payload);
+                if (typeof endpoints.add === 'function') {
+                    endpoints.add(endpoint);
+                } else {
+                    endpoints.push(endpoint);
+                }
+            }
+
             function extractEnrollmentEndpoints(source, pageUrl) {
                 const activeSource = stripJavaScriptComments(source);
                 const values = parseAssignments(activeSource);
@@ -2827,6 +2839,20 @@
                         (arrays[match[1]] || []).forEach(code => addFutureSchoolEndpoint(endpoints, code));
                     });
 
+                if (/api\.acscamp\.com\/v1\/products\/sales-count/.test(activeSource)) {
+                    const productGroupMatch = activeSource.match(/productGroup\s*:\s*["']([^"']+)["']/);
+                    const literalProductCodeMatch = activeSource.match(/productCode\s*:\s*["'](\d+)["']/);
+                    const cycleNumber = pathCycle ? Number(pathCycle.replace('Cycle-', '')) : 0;
+                    const productCode = literalProductCodeMatch
+                        ? literalProductCodeMatch[1]
+                        : (cycleNumber ? String(1000 + cycleNumber) : null);
+
+                    addAcsCampEndpoint(endpoints, {
+                        productGroup: productGroupMatch ? productGroupMatch[1] : null,
+                        productCode
+                    });
+                }
+
                 return Array.from(endpoints);
             }
 
@@ -2874,10 +2900,20 @@
                     }
                 }
 
-                const countPromise = fetch(endpoint)
+                const isAcsCampEndpoint = endpoint.startsWith(acsCampEndpointPrefix);
+                const countPromise = (isAcsCampEndpoint
+                    ? fetch(acsCampApi, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: endpoint.slice(acsCampEndpointPrefix.length),
+                    })
+                    : fetch(endpoint)
+                )
                     .then(response => response.json())
                     .then(data => {
-                        const count = Number(data.count ?? (data.data && data.data.count)) || 0;
+                        const count = Number(data.count ?? data.salesCount ?? data.total ?? (data.data && (data.data.count ?? data.data.salesCount ?? data.data.total))) || 0;
                         try {
                             localStorage.setItem(cacheKey, JSON.stringify({
                                 count,
