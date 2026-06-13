@@ -2840,17 +2840,30 @@
                     });
 
                 if (/api\.acscamp\.com\/v1\/products\/sales-count/.test(activeSource)) {
-                    const productGroupMatch = activeSource.match(/productGroup\s*:\s*["']([^"']+)["']/);
-                    const literalProductCodeMatch = activeSource.match(/productCode\s*:\s*["'](\d+)["']/);
                     const cycleNumber = pathCycle ? Number(pathCycle.replace('Cycle-', '')) : 0;
-                    const productCode = literalProductCodeMatch
-                        ? literalProductCodeMatch[1]
-                        : (cycleNumber ? String(1000 + cycleNumber) : null);
+                    const literalPayloadPattern = /productGroup\s*:\s*["']([^"']+)["'][^}]*?productCode\s*:\s*["'](\d+)["']/g;
+                    let payloadMatch;
 
-                    addAcsCampEndpoint(endpoints, {
-                        productGroup: productGroupMatch ? productGroupMatch[1] : null,
-                        productCode
-                    });
+                    while ((payloadMatch = literalPayloadPattern.exec(activeSource)) !== null) {
+                        addAcsCampEndpoint(endpoints, {
+                            productGroup: payloadMatch[1],
+                            productCode: payloadMatch[2]
+                        });
+                    }
+
+                    if (cycleNumber && /productGroup\s*:\s*["']phy28["']/.test(activeSource)) {
+                        addAcsCampEndpoint(endpoints, {
+                            productGroup: 'phy28',
+                            productCode: String(1000 + cycleNumber)
+                        });
+                    }
+
+                    if (cycleNumber && /productGroup\s*:\s*["']math28["']/.test(activeSource)) {
+                        addAcsCampEndpoint(endpoints, {
+                            productGroup: 'math28',
+                            productCode: String(1018 + cycleNumber)
+                        });
+                    }
                 }
 
                 return Array.from(endpoints);

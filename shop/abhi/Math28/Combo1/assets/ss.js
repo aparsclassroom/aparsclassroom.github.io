@@ -30,12 +30,32 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     (data) => data.data && data.data.count
 );
 
+const getAcsCampEnrollmentCount = () => {
+    return fetch("https://api.acscamp.com/v1/products/sales-count", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            productGroup: "math28combo1",
+            productCode: "1031",
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => Number(data.count || data.salesCount || data.total || (data.data && (data.data.count || data.data.salesCount || data.data.total))) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode2),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=689"),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=690"),
     getAfsEnrollmentCount(productCode),
+    getAcsCampEnrollmentCount(),
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
