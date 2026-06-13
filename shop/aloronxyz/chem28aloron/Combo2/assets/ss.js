@@ -15,11 +15,33 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 const Cycle = location.pathname.split('/').find(part => /^Combo\d+$/.test(part));
 
+const getAcsCampEnrollmentCount = () => {
+    return fetch("https://api.acscamp.com/v1/products/sales-count", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            productGroup: "chem28aloroncombo2",
+            productCode: "1048",
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => ({
+            count: Number(data.count || data.salesCount || data.total || (data.data && (data.data.count || data.data.salesCount || data.data.total))) || 0,
+        }))
+        .catch((err) => {
+            console.log(err);
+            return { count: 0 };
+        });
+};
+
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=796`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=797`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/?productCode=797`).then(res => res.json()),
+    getAcsCampEnrollmentCount()
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);

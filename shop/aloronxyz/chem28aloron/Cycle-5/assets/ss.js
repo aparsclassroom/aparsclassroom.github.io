@@ -75,13 +75,42 @@ function onPlayerReady(event) {
 //         console.log(err)
 //     })
 
+const getAcsCampEnrollmentCount = () => {
+    const cycleNumber = Number(Cycle.replace("Cycle-", ""));
+    const acsCampProductCode = String(1040 + cycleNumber);
+
+    if (!cycleNumber) {
+        return Promise.resolve({ count: 0 });
+    }
+
+    return fetch("https://api.acscamp.com/v1/products/sales-count", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            productGroup: "chem28aloron",
+            productCode: acsCampProductCode,
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => ({
+            count: Number(data.count || data.salesCount || data.total || (data.data && (data.data.count || data.data.salesCount || data.data.total))) || 0,
+        }))
+        .catch((err) => {
+            console.log(err);
+            return { count: 0 };
+        });
+};
+
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode3}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode5}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode6}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode6}`).then(res => res.json()),
+    getAcsCampEnrollmentCount()
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);

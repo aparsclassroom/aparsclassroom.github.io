@@ -2871,6 +2871,13 @@
                             productCode: String(1036 + cycleNumber)
                         });
                     }
+
+                    if (cycleNumber && /productGroup\s*:\s*["']chem28aloron["']/.test(activeSource)) {
+                        addAcsCampEndpoint(endpoints, {
+                            productGroup: 'chem28aloron',
+                            productCode: String(1040 + cycleNumber)
+                        });
+                    }
                 }
 
                 return Array.from(endpoints);
