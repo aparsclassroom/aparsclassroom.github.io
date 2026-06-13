@@ -5,4 +5,4 @@ const achieveID = "69eddd7ffc28cb5e0e0b1623";
 const fix = 10000;
 const pls = 7000;
 const Platform = "Offline";
-const init = 24;
+const init = 0;
