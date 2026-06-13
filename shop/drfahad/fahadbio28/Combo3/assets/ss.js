@@ -48,14 +48,36 @@ function pauseYouTubeVideo() {
 
 document.getElementById('moda').addEventListener('click', pauseYouTubeVideo);
 
-fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
+const getAcsCampEnrollmentCount = () => {
+    return fetch("https://api.acscamp.com/v1/products/sales-count", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            productGroup: "fahadbio28combo3",
+            productCode: "1065",
+        }),
     })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        .then((res) => res.json())
+        .then((data) => ({
+            count: Number(data.count || data.salesCount || data.total || (data.data && (data.data.count || data.data.salesCount || data.data.total))) || 0,
+        }))
+        .catch((err) => {
+            console.log(err);
+            return { count: 0 };
+        });
+};
+
+Promise.all([
+    fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
+    getAcsCampEnrollmentCount()
+])
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
         if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            const countUp = new CountUp('enrolled', totalEnrollment);
             if (!countUp.error) {
                 countUp.start();
             } else {
