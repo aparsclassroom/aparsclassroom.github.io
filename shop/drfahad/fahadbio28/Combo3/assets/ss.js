@@ -69,9 +69,22 @@ const getAcsCampEnrollmentCount = () => {
         });
 };
 
+const getAfsEnrollmentCount = (code) => {
+    return fetch("https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code)
+        .then((res) => res.json())
+        .then((data) => ({
+            count: Number(data.data && data.data.count) || 0,
+        }))
+        .catch((err) => {
+            console.log(err);
+            return { count: 0 };
+        });
+};
+
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
-    getAcsCampEnrollmentCount()
+    getAcsCampEnrollmentCount(),
+    getAfsEnrollmentCount(productCode)
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
