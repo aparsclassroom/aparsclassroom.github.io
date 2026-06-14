@@ -98,59 +98,170 @@
       font-family: Kalpurush;
     }
 
-  nav:has(#navbar-cta:not(.hidden)) {
-    background: transparent !important;
-    box-shadow: none !important;
-  }
+    nav:has(#navbar-cta:not(.hidden)) {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
 
-  @media (max-width: 768px) {
-    nav {
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+      }
+    }
+
+    .section-shell {
+      width: min(100%, 1280px);
+      margin-inline: auto;
+    }
+
+    /* Hero gradient background */
+    .hero-bg {
+      background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 50%, #ecfdf5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg::before {
+      content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
-  }
 
-  @keyframes sparkle {
-    0%, 100% {
-      box-shadow: 
-        0 0 0 0 rgba(255, 255, 255, 0.8),
-        8px 8px 0 -2px rgba(255, 215, 0, 0.6),
-        -8px 8px 0 -2px rgba(255, 105, 180, 0.6),
-        8px -8px 0 -2px rgba(100, 200, 255, 0.6),
-        -8px -8px 0 -2px rgba(255, 165, 0, 0.6),
-        12px 0 0 -3px rgba(255, 255, 0, 0.4),
-        -12px 0 0 -3px rgba(200, 100, 255, 0.4);
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
-    50% {
-      box-shadow: 
-        0 0 20px 5px rgba(255, 255, 255, 0.4),
-        8px 8px 15px -2px rgba(255, 215, 0, 1),
-        -8px 8px 15px -2px rgba(255, 105, 180, 1),
-        8px -8px 15px -2px rgba(100, 200, 255, 1),
-        -8px -8px 15px -2px rgba(255, 165, 0, 1),
-        12px 0 15px -3px rgba(255, 255, 0, 0.8),
-        -12px 0 15px -3px rgba(200, 100, 255, 0.8);
+
+    /* Google Play button */
+    .gplay-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1a1a2e;
+      color: #fff;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid #333;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
-  }
 
-  .sparkle-link {
-    animation: sparkle 2s ease-in-out infinite;
-    position: relative;
-  }
+    .gplay-btn:hover {
+      background: #16213e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
 
-  .section-shell {
-    width: min(100%, 1280px);
-    margin-inline: auto;
-  }
+    .gplay-btn svg {
+      flex-shrink: 0;
+    }
+
+    /* Primary CTA button */
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(99,102,241,0.4);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99,102,241,0.5);
+    }
+
+    /* Secondary CTA button */
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #374151;
+      border-radius: 50px;
+      padding: 11px 28px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      border: 1.5px solid #e5e7eb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .cta-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border-color: #c7d2fe;
+    }
+
+    /* Stat pill */
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border: 1px solid #f3f4f6;
+    }
+
+    /* Modern feature card */
+    .feature-card {
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+
+    /* Floating badge animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .float-badge {
+      animation: float 3s ease-in-out infinite;
+    }
   </style>
 
 </head>
 
 <body>
-  <nav class="bg-white shadow-xl rounded-full px-6 py-3 mx-8 md:mx-12 my-4">
+  <nav class="bg-white/80 backdrop-blur-md shadow-lg rounded-full px-6 py-3 mx-4 md:mx-12 my-4 sticky top-4 z-50">
     <div class="section-shell flex flex-wrap items-center justify-between mx-auto">
       <a href="/" class="flex items-center">
         <img src="images/logo.png" class="h-8 mr-3" alt="Apars Classroom Logo" />
@@ -208,79 +319,106 @@
   </nav>
 
   <!-- Hero section  -->
-  <div class='section-shell px-4 md:px-12'>
-    <section class='pt-32 md:pt-32 flex flex-col items-center justify-center'>
-      <br>
-      <p class='text-center text-xl md:text-5xl xl:text-6xl px-4 xl:px-28 font-medium leading-loose text-black mb-0 xl:mb-4 bangla'>
-        দেশের
-        শীর্ষস্থানীয় <span class='text-blue-500'>এড-টেক </span> প্ল্যাটফর্ম </p>
-      <p class='text-center text-black text-xl md:text-5xl xl:text-6xl px-4 md:px-28 font-medium mb-8 md:mb-12 bangla'> এখন <span
-          class='text-blue-500'>অনলাইন</span> এবং <span class='text-blue-500'>অফলাইনে</span> !</p>
+  <div class='hero-bg'>
+    <div class='section-shell px-4 md:px-12'>
+      <section class='pt-16 md:pt-24 pb-20 md:pb-28 flex flex-col items-center justify-center relative z-10'>
 
-      <p class='text-center text-gray-500 text-xs md:text-lg bangla'>
-        একাডেমিক থেকে শুরু করে এডমিশন পর্যন্ত আমরা আছি তোমার সাথে </p>
-      <p class='text-center text-gray-500 text-xs md:text-lg bangla'> এছাড়াও আমাদের রয়েছে বিভিন্ন স্কিল ডেভেলপমেন্ট
-        কোর্স যা
-        তোমাকে সহায়তা করবে ক্যারিয়ার গঠনে</p>
+        <!-- trust badges -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <span class="stat-pill float-badge">
+            <span class="w-2 h-2 bg-green-500 rounded-full inline-block"></span>
+            ১০ লক্ষ+ শিক্ষার্থী
+          </span>
+          <span class="stat-pill" style="animation: float 3s ease-in-out 0.5s infinite;">
+            <span class="w-2 h-2 bg-blue-500 rounded-full inline-block"></span>
+            ১৪টি অফলাইন ব্রাঞ্চ
+          </span>
+          <span class="stat-pill" style="animation: float 3s ease-in-out 1s infinite;">
+            <span class="w-2 h-2 bg-purple-500 rounded-full inline-block"></span>
+            দেশ সেরা টিচার প্যানেল
+          </span>
+        </div>
 
-      <div class='flex flex-col md:flex-row justify-center items-center mt-8 xl:mt-12'>
-        <button class='bg-blue-500 text-white py-2 px-4 rounded-md bangla sparkle-link'>
-          <a href="/shop/"> কোর্স গুলো ঘুরে দেখ </a>
-        </button>
-        <button class='bg-blue-500 md:ml-6 mt-3 md:mt-0 text-white py-2 px-4 rounded-md bangla'>
-          <a href="/shop/success_story"> আমাদের শিক্ষার্থীদের সাফল্য </a>
-        </button>
-      </div>
-      <br>
-      <br>
-    </section>
+        <h1 class='text-center text-3xl md:text-5xl xl:text-6xl px-4 xl:px-20 font-bold leading-tight text-gray-900 mb-4 bangla'>
+          দেশের শীর্ষস্থানীয়
+          <span style="background: linear-gradient(135deg, #3b82f6, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">এড-টেক</span>
+          প্ল্যাটফর্ম
+        </h1>
+        <h2 class='text-center text-gray-800 text-2xl md:text-4xl xl:text-5xl px-4 md:px-28 font-semibold mb-6 bangla'>
+          এখন <span class='text-blue-500'>অনলাইন</span> এবং <span class='text-emerald-500'>অফলাইনে</span>!
+        </h2>
+
+        <p class='text-center text-gray-500 text-sm md:text-lg mb-1 bangla' style="max-width:640px">
+          একাডেমিক থেকে শুরু করে এডমিশন পর্যন্ত আমরা আছি তোমার সাথে।
+        </p>
+        <p class='text-center text-gray-500 text-sm md:text-lg bangla' style="max-width:640px">
+          এছাড়াও আমাদের রয়েছে বিভিন্ন স্কিল ডেভেলপমেন্ট কোর্স যা তোমাকে সহায়তা করবে ক্যারিয়ার গঠনে।
+        </p>
+
+        <!-- CTA buttons -->
+        <div class='flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mt-10'>
+          <a href="/shop/" class="cta-primary bangla">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            কোর্স গুলো ঘুরে দেখ
+          </a>
+          <a href="/shop/success_story" class="cta-secondary bangla">
+            আমাদের শিক্ষার্থীদের সাফল্য
+          </a>
+        </div>
+
+        <!-- Google Play Store button -->
+        <div class="mt-6">
+          <a href="https://play.google.com/store/apps/details?id=com.asgshop.acs" target="_blank" rel="noopener"
+            style="display:inline-block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
+            onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
+            onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg"
+              alt="Get it on Google Play"
+              style="height:56px;display:block;">
+          </a>
+        </div>
+
+      </section>
+    </div>
   </div>
 
   <!-- promo section -->
   <div class='section-shell px-4 md:px-12 py-12 md:py-24'>
-    <p class="mb-2 text-xl md:text-3xl font-medium md:font-extrabold leading-tight text-gray-900 text-center bangla">
-      এগিয়ে রাখ
-      নিজেকে</p>
+    <p class="mb-2 text-xl md:text-3xl font-bold leading-tight text-gray-900 text-center bangla">
+      এগিয়ে রাখ নিজেকে</p>
     <p class="mb-12 text-sm md:text-lg text-gray-500 text-center bangla">
-      দেশ সেরা টিচার প্যানেল নিয়ে আমরা আছি তোমাদের সাথে
+      দেশ সেরা টিচার প্যানেল নিয়ে আমরা আছি তোমাদের সাথে
     </p>
 
-    <div class='grid grid-cols-2 md:grid-cols-5 gap-8'>
+    <div class='grid grid-cols-2 md:grid-cols-5 gap-6'>
       <div class='col-span-2'>
-        <div class='rounded-3xl bg-blue-300 p-6'>
-          <img src="images/icons8-school-80.png">
-          <h3 class='mt-4 text-lg font-semibold bangla'>এইচএসসি লেভেল</h3>
-          <p class='mt-2 text-sm text-gray-600 bangla'> আমাদের রয়েছে ফিজিক্স, কেমিস্ট্রি, ও ম্যাথ এর বিভিন্ন সাইকেল
-            ভিত্তিক
-            কোর্স ও ফাইনাল রিভিশন ব্যাচ, যা তোমার এইচএসসি এর প্রস্তুতি কে দৃঢ় করবে। </p>
+        <div class='feature-card h-full' style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); box-shadow: 0 4px 20px rgba(59,130,246,0.15);">
+          <img src="images/icons8-school-80.png" class="w-14 h-14 object-contain">
+          <h3 class='mt-5 text-lg font-bold bangla'>এইচএসসি লেভেল</h3>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> আমাদের রয়েছে ফিজিক্স, কেমিস্ট্রি, ও ম্যাথ এর বিভিন্ন সাইকেল ভিত্তিক কোর্স ও ফাইনাল রিভিশন ব্যাচ, যা তোমার এইচএসসি এর প্রস্তুতি কে দৃঢ় করবে। </p>
         </div>
       </div>
       <div class='col-span-2 md:col-span-3'>
-        <div class='rounded-3xl bg-green-300 p-6'>
-          <img src="images/icons8-academic-64.png" alt="Picture of the author">
-          <h3 class='mt-4 text-lg font-semibold bangla'>এডমিশন</h3>
-          <p class='mt-2 text-sm text-gray-600 bangla'>আমাদের রয়েছে ভার্সিটি, ইঞ্জিনিয়ারিং ও মেডিকেল এডমিশন কোর্স
-            যেখানে লাইভ
-            ক্লাস, প্রাকটিস সীট ও ডিসকাশন গ্রুপ এর মাধ্যমে তোমার প্রস্তুতি কে অন্য মাত্রায় নিয়ে যেতে পারো। </p>
+        <div class='feature-card h-full' style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); box-shadow: 0 4px 20px rgba(16,185,129,0.15);">
+          <img src="images/icons8-academic-64.png" alt="Admission" class="w-14 h-14 object-contain">
+          <h3 class='mt-5 text-lg font-bold bangla'>এডমিশন</h3>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'>আমাদের রয়েছে ভার্সিটি, ইঞ্জিনিয়ারিং ও মেডিকেল এডমিশন কোর্স যেখানে লাইভ ক্লাস, প্রাকটিস সীট ও ডিসকাশন গ্রুপ এর মাধ্যমে তোমার প্রস্তুতি কে অন্য মাত্রায় নিয়ে যেতে পারো। </p>
         </div>
       </div>
       <div class='col-span-2 md:col-span-3'>
-        <div class='rounded-3xl p-6 bg-purple-300'>
-          <img src="images/icons8-books-100.png">
-
-          <h3 class='mt-4 text-lg font-semibold bangla'> অফলাইন এক্সাম ব্যাচ</h3>
-          <p class='mt-2 text-sm text-gray-600 bangla'> দেশজুড়ে ১৪ টি ব্রাঞ্চে ভার্সিটি, ইঞ্জিনিয়ারিং, মেডিকেল ও বিভিন্ন
-            ভার্সিটির ভর্তি পরীক্ষার অনুরূপ পরীক্ষা দিয়ে নিজেকে যাচাই করে নাও। </p>
+        <div class='feature-card h-full' style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); box-shadow: 0 4px 20px rgba(139,92,246,0.15);">
+          <img src="images/icons8-books-100.png" class="w-14 h-14 object-contain">
+          <h3 class='mt-5 text-lg font-bold bangla'>অফলাইন এক্সাম ব্যাচ</h3>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> দেশজুড়ে ১৪ টি ব্রাঞ্চে ভার্সিটি, ইঞ্জিনিয়ারিং, মেডিকেল ও বিভিন্ন ভার্সিটির ভর্তি পরীক্ষার অনুরূপ পরীক্ষা দিয়ে নিজেকে যাচাই করে নাও। </p>
         </div>
       </div>
       <div class="col-span-2">
-        <div class='rounded-2xl p-6 bg-gray-300'>
-
-          <img src="images/icons8-skill-100.png">
-
-          <h3 class='mt-4 text-lg font-semibold bangla'>স্কিলস</h3>
-          <p class='mt-2 text-sm text-gray-600 bangla'> প্রোগ্রামিং এ ইচ্ছুক? আমাদের রয়েছে বুটক্যাম্প এবং কম্পিটিটিভ
-            প্রোগ্রামিং এর কোর্স। </p>
+        <div class='feature-card h-full' style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+          <img src="images/icons8-skill-100.png" class="w-14 h-14 object-contain">
+          <h3 class='mt-5 text-lg font-bold bangla'>স্কিলস</h3>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> প্রোগ্রামিং এ ইচ্ছুক? আমাদের রয়েছে বুটক্যাম্প এবং কম্পিটিটিভ প্রোগ্রামিং এর কোর্স। </p>
         </div>
       </div>
     </div>
@@ -540,6 +678,15 @@
             <a href="tel:09677005588" class="text-blue-600 visited:text-purple-600">+880 96 77 00 55 88</a> <br>
             <a href="mailto:support@aparsclassroom.com" class="text-blue-600 visited:text-purple-600"
               id="supMail">support@aparsclassroom.com</a>
+            <br><br>
+            <a href="https://play.google.com/store/apps/details?id=com.asgshop.acs" target="_blank" rel="noopener"
+              style="display:inline-block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
+              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
+              onmouseout="this.style.transform='';this.style.boxShadow=''">
+              <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg"
+                alt="Get it on Google Play"
+                style="height:48px;display:block;">
+            </a>
           </div>
 
         </div>
