@@ -351,3 +351,47 @@ document.getElementById("app").style.display = "none";
     delete_cookie("promo");
     notdis()
 }
+
+document.querySelectorAll('.copy-coupon').forEach(coupon => {
+    coupon.addEventListener('click', function () {
+        document.querySelectorAll('.copy-coupon').forEach(c => {
+            c.style.backgroundColor = '#ffffff';
+        });
+
+        const couponCode = this.getAttribute('data-coupon');
+        navigator.clipboard.writeText(couponCode).then(() => {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #28a745;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                text-align: center;
+                min-width: 200px;
+                max-width: 90%;
+                margin: 0 auto;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                font-size: 14px;
+                white-space: nowrap;
+            `;
+            toast.textContent = 'Coupon copied ✓';
+            document.body.appendChild(toast);
+
+            setTimeout(() => toast.style.opacity = '1', 10);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+
+            this.style.backgroundColor = '#e8f5e9';
+        });
+    });
+});
