@@ -38,9 +38,7 @@ Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=805"),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=806"),
     getAfsEnrollmentCount(productCode),
-    getAfsEnrollmentCount(productCode2),
-    getAfsEnrollmentCount("798"),
-    getAfsEnrollmentCount("799")
+
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
