@@ -2526,7 +2526,7 @@
             const acsCampEndpointPrefix = 'acsCamp:';
             const sourceCache = new Map();
             const countCache = new Map();
-            const countStoragePrefix = 'hsc28EnrollmentCount:';
+            const countStoragePrefix = 'hsc28EnrollmentCount:v2:';
             const countCacheTtl = 10 * 60 * 1000;
 
             function isCountableCourseLink(anchor) {
@@ -2779,6 +2779,16 @@
                         if (expression.endsWith('.map(getAfsEnrollmentCount')) return;
                         addFutureSchoolEndpoint(endpoints, readTokenValue(expression, values));
                     });
+                Array.from(activeSource.matchAll(/getB2a28EnrollmentCount\(\s*([^,\)]+)(?:\s*,\s*([^)]+))?\)/g))
+                    .forEach(match => {
+                        addEndpoint(
+                            endpoints,
+                            match[2] ? readCycleValue(match[2], values, pathCycle) : null,
+                            readTokenValue(match[1], values)
+                        );
+                    });
+                Array.from(activeSource.matchAll(/getB2a28AfsEnrollmentCount\(([^)]+)\)/g))
+                    .forEach(match => addFutureSchoolEndpoint(endpoints, readTokenValue(match[1], values)));
                 Array.from(activeSource.matchAll(/\.\.\.([A-Za-z_$][\w$]*)\.map\(getAfsEnrollmentCount\)/g))
                     .forEach(match => {
                         (arrays[match[1]] || []).forEach(code => addFutureSchoolEndpoint(endpoints, code));
