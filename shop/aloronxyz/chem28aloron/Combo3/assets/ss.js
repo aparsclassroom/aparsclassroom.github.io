@@ -15,6 +15,26 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 const Cycle = location.pathname.split('/').find(part => /^Combo\d+$/.test(part));
 
+
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => ({ count: Number(dataPath(data)) || 0 }))
+        .catch((err) => {
+            console.log(err);
+            return { count: 0 };
+        });
+};
+
+const getB2a28AfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
+
+const getB2a28EnrollmentCount = (code) => getEnrollmentCount(
+    "https://" + shopName2 + "/enrollment/?productCode=" + code
+);
+
 const getAcsCampEnrollmentCount = () => {
     return fetch("https://api.acscamp.com/v1/products/sales-count", {
         method: "POST",
@@ -39,7 +59,13 @@ const getAcsCampEnrollmentCount = () => {
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json()),
-    getAcsCampEnrollmentCount()
+    getAcsCampEnrollmentCount(),
+    getB2a28EnrollmentCount("798"),
+    getB2a28EnrollmentCount("799"),
+    getB2a28EnrollmentCount("805"),
+    getB2a28EnrollmentCount("806"),
+    getB2a28AfsEnrollmentCount("798"),
+    getB2a28AfsEnrollmentCount("799"),
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);

@@ -82,6 +82,28 @@ var tag = document.createElement('script');
 //         console.log(err)
 //     })
 
+
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => ({ count: Number(dataPath(data)) || 0 }))
+        .catch((err) => {
+            console.log(err);
+            return { count: 0 };
+        });
+};
+
+const getB2a28AfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
+
+const getB2a28EnrollmentCount = (code, cycle) => getEnrollmentCount(
+    cycle
+        ? "https://" + shopName2 + "/enrollment/" + cycle + "?productCode=" + code
+        : "https://" + shopName2 + "/enrollment/?productCode=" + code
+);
+
 const getAcsCampEnrollmentCount = () => {
     const cycleNumber = Number(Cycle.replace("Cycle-", ""));
     const acsCampProductCode = String(1040 + cycleNumber);
@@ -117,7 +139,21 @@ Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode4}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode5}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode6}`).then(res => res.json()),
-    getAcsCampEnrollmentCount()
+    getAcsCampEnrollmentCount(),
+    getB2a28EnrollmentCount("640", Cycle),
+    getB2a28EnrollmentCount("645", Cycle),
+    getB2a28EnrollmentCount("694"),
+    getB2a28EnrollmentCount("696"),
+    getB2a28EnrollmentCount("798"),
+    getB2a28EnrollmentCount("799"),
+    getB2a28EnrollmentCount("805"),
+    getB2a28EnrollmentCount("806"),
+    getB2a28AfsEnrollmentCount("640"),
+    getB2a28AfsEnrollmentCount("645"),
+    getB2a28AfsEnrollmentCount("694"),
+    getB2a28AfsEnrollmentCount("696"),
+    getB2a28AfsEnrollmentCount("798"),
+    getB2a28AfsEnrollmentCount("799"),
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);

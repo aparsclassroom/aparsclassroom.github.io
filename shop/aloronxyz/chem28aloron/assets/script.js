@@ -674,6 +674,24 @@ function checkPurchase(products, uid, cycle) {
     return fetch(purchaseCheckUrl, requestOptions).then(res => res.json());
 }
 
+const b2a28CycleProductsByCycle = {
+    "Cycle-1": ["640", "645"],
+    "Cycle-2": ["641", "646"],
+    "Cycle-3": ["642", "647"],
+    "Cycle-4": ["643", "648"],
+    "Cycle-5": ["644", "649"],
+    "Cycle-6": ["692", "693"]
+};
+
+const b2a28ComboProductsByCycle = {
+    "Cycle-1": ["694", "696", "798", "799", "805", "806"],
+    "Cycle-2": ["694", "696", "798", "799", "805", "806"],
+    "Cycle-3": ["694", "696", "798", "799", "805", "806"],
+    "Cycle-4": ["695", "697", "798", "799", "805", "806"],
+    "Cycle-5": ["695", "697", "798", "799", "805", "806"],
+    "Cycle-6": ["695", "697", "798", "799", "805", "806"]
+};
+
 function findExistingPurchase(results) {
     return results
         .filter(result => result.status === 'fulfilled')
@@ -697,7 +715,9 @@ firebase.auth().onAuthStateChanged(function (e) {
 
         Promise.allSettled([
             checkPurchase(cycleProducts, e.uid, Cycle),
-            checkPurchase(comboProducts, e.uid)
+            checkPurchase(comboProducts, e.uid),
+            checkPurchase(getConfiguredProductCodes(b2a28CycleProductsByCycle[Cycle] || []), e.uid, Cycle),
+            checkPurchase(getConfiguredProductCodes(b2a28ComboProductsByCycle[Cycle] || []), e.uid)
         ]).then((results) => {
             const existingPurchase = findExistingPurchase(results);
             if (existingPurchase) {
