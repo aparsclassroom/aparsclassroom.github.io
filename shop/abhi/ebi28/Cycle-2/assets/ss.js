@@ -1,5 +1,5 @@
 const product = "singleebi28";
-const productName = "ACS HSC 28 EBI Cycle 2 (English)";
+const productName = "ACS HSC 28 English Academic Private Batch";
 const productCode = "667";
 const fix = 3000;
 const pls = 2000;
