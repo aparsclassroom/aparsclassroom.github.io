@@ -33,6 +33,113 @@ body.modal-open .hsc28-fb-group-btn {
     display: none !important;
 }
 
+.hsc28-shop-header {
+    background: #fff;
+    border-bottom: 1px solid #e7eaf2;
+    box-shadow: 0 6px 18px rgba(49, 52, 75, 0.06);
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.hsc28-shop-header .navbar {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 58px;
+    margin-bottom: 0 !important;
+    min-height: 0 !important;
+    padding: 0 18px !important;
+}
+
+.hsc28-shop-header .container {
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: row !important;
+    height: auto !important;
+    justify-content: space-between !important;
+    margin: 0 auto !important;
+    max-width: 1225px;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.hsc28-shop-header .navbar > .container {
+    height: 100%;
+    min-height: 0 !important;
+    padding: 0;
+}
+
+.hsc28-shop-header .navbar-brand {
+    align-items: center;
+    display: inline-flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.hsc28-shop-header .navbar-brand img {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block;
+    height: 30px;
+    max-width: 121px;
+    object-fit: contain;
+    width: 106px;
+}
+
+.hsc28-shop-header .nav-link-inner-text {
+    align-items: center;
+    background: #f6f8ff;
+    border: 1px solid #d8e0ff;
+    border-radius: 999px;
+    color: #31344b;
+    display: inline-flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 8px;
+    height: 36px;
+    line-height: 1;
+    min-height: 0;
+    padding: 0 13px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.hsc28-shop-header .hsc28-nav-actions {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.hsc28-shop-header .hsc28-fb-group-btn {
+    border: 1px solid rgba(24, 119, 242, 0.2);
+    box-shadow: 0 8px 18px rgba(24, 119, 242, 0.18);
+    height: 36px;
+    min-height: 0;
+    padding: 0 16px;
+    position: static;
+}
+
+.hsc28-shop-header .hsc28-fb-group-btn::before {
+    content: "\f082";
+    display: none;
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400;
+}
+
+.hsc28-shop-header .nav-link-inner-text:hover,
+.hsc28-shop-header .nav-link-inner-text:focus {
+    background: #edf2ff;
+    border-color: #c4d0ff;
+    color: #2d4cc8;
+    text-decoration: none;
+}
+
 @media (max-width: 575.98px) {
     .hsc28-fb-group-btn {
         top: 10px;
@@ -41,5 +148,74 @@ body.modal-open .hsc28-fb-group-btn {
         min-height: 36px;
         padding: 8px 10px;
         font-size: 11px;
+    }
+
+    .hsc28-shop-header .navbar {
+        height: 50px;
+        margin-bottom: 0 !important;
+        min-height: 0 !important;
+        padding: 0 12px !important;
+    }
+
+    .hsc28-shop-header .container {
+        gap: 8px;
+    }
+
+    .hsc28-shop-header .navbar > .container {
+        height: 100%;
+        min-height: 0 !important;
+        padding: 0;
+    }
+
+    .hsc28-shop-header .navbar-brand img {
+        height: 24px;
+        width: 84px;
+    }
+
+    .hsc28-shop-header .nav-link-inner-text {
+        align-items: center;
+        border-radius: 999px;
+        display: inline-flex;
+        font-size: 0;
+        height: 36px;
+        justify-content: center;
+        line-height: 1;
+        min-height: 0;
+        padding: 0;
+        position: relative;
+        width: 36px;
+    }
+
+    .hsc28-shop-header .nav-link-inner-text i {
+        display: block;
+        font-size: 16px;
+        left: 50%;
+        line-height: 1;
+        margin: 0 !important;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hsc28-shop-header .hsc28-nav-actions {
+        gap: 7px;
+    }
+
+    .hsc28-shop-header .hsc28-fb-group-btn {
+        align-items: center;
+        display: inline-flex;
+        font-size: 0;
+        height: 36px;
+        justify-content: center;
+        line-height: 1;
+        max-width: none;
+        min-height: 0;
+        padding: 0;
+        width: 36px;
+    }
+
+    .hsc28-shop-header .hsc28-fb-group-btn::before {
+        display: inline-block;
+        font-size: 17px;
     }
 }
