@@ -490,6 +490,15 @@ function notdis() {
 notdis()
 var disOFF = 0;
 
+function hideCouponInfoBlocks() {
+    document.querySelectorAll('.copy-coupon').forEach(coupon => {
+        const block = coupon.closest('center');
+        if (block) {
+            block.style.display = "none";
+        }
+    });
+}
+
 function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
 cpn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -505,6 +514,7 @@ cpn.addEventListener('click', (e) => {
         })
         .then((loadedData) => {
             if (loadedData.status === "success") {
+                hideCouponInfoBlocks();
                 document.getElementById('addbooksdiv').style.display = "none";
                 var nes;
                 isShipping ? nes = pls2 - loadedData.Off : nes = pls - loadedData.Off;
