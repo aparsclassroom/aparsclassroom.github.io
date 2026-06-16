@@ -29,6 +29,10 @@
     box-shadow: 0 10px 24px rgba(24, 119, 242, 0.34);
 }
 
+body.modal-open .hsc28-fb-group-btn {
+    display: none !important;
+}
+
 @media (max-width: 575.98px) {
     .hsc28-fb-group-btn {
         top: 10px;
