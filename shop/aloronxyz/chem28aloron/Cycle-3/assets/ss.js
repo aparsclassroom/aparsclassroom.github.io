@@ -7,8 +7,8 @@
 // const Platform = "Online";
 const product = "chem28aloron";
 const product2 = "chem28aloronwbooks";
-const productName = "ACS HSC 28 Chemistry by Mottasin Pahlovi";
-const productName2 = "ACS HSC 28 Chemistry by Mottasin Pahlovi with Books";
+const productName = "ACS HSC 28 Academic Chemistry";
+const productName2 = "ACS HSC 28 Academic Chemistry with Books";
 let productCode = "711";
 let productCode2 = "717";
 let productCode3 = "721";

@@ -1,7 +1,7 @@
 const product = "chem28aloroncombo3";
 const product2 = "chem28aloroncombo3wbooks";
-const productName = "ACS HSC 28 Chemistry by Mottasin Pahlovi Full Combo";
-const productName2 = "ACS HSC 28 Chemistry by Mottasin Pahlovi Full Combo with books";
+const productName = "ACS HSC 28 Academic Chemistry Full Combo";
+const productName2 = "ACS HSC 28 Academic Chemistry Full Combo with books";
 let productCode = "796";
 let productCode2 = "797";
 const fix = 8000;
