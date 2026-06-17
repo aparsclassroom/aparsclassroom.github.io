@@ -1,5 +1,5 @@
 const product = "physicsqs";
-const productName = "Physics Saviour 2000 Selected Problems in Physics";
+const productName = "Physics Saviour 1000 Selected Problems in Physics";
 const init = 0;
 const Platform = "Online";
 const productCode = "810";
