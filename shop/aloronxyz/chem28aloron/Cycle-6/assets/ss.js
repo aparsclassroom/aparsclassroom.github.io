@@ -145,8 +145,7 @@ Promise.all([
     getB2a28AfsEnrollmentCount("693"),
     getB2a28AfsEnrollmentCount("695"),
     getB2a28AfsEnrollmentCount("697"),
-    getB2a28AfsEnrollmentCount("798"),
-    getB2a28AfsEnrollmentCount("799"),
+    
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
