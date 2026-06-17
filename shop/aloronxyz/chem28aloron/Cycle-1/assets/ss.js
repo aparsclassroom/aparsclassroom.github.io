@@ -93,7 +93,7 @@ const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
         });
 };
 
-const getB2a28AfsEnrollmentCount = (code) => getEnrollmentCount(
+const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
     (data) => data.data && data.data.count
 );
@@ -148,8 +148,8 @@ Promise.all([
     getB2a28EnrollmentCount("799"),
     getB2a28EnrollmentCount("805"),
     getB2a28EnrollmentCount("806"),
-    getB2a28AfsEnrollmentCount("640"),
-    getB2a28AfsEnrollmentCount("694"),
+    getAfsEnrollmentCount(productCode),
+    getAfsEnrollmentCount("640"),
     
 ])
     .then((enrollments) => {
