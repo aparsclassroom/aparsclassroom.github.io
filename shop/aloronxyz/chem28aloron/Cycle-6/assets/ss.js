@@ -142,7 +142,6 @@ Promise.all([
     getB2a28EnrollmentCount("805"),
     getB2a28EnrollmentCount("806"),
     getB2a28AfsEnrollmentCount("692"),
-    getB2a28AfsEnrollmentCount("693"),
     getB2a28AfsEnrollmentCount("695"),
     getB2a28AfsEnrollmentCount("697"),
     
