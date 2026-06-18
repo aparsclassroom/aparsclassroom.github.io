@@ -30,6 +30,73 @@ function getProductCodeFromURL() {
     return null;
 }
 
+const purchaseBlockRules = {
+    "Cycle-4": [
+        { cycle: "Cycle-7", products: ["812", "813"], name: "Cycle 7" }
+    ],
+    "Cycle-5": [
+        { cycle: "Cycle-7", products: ["812", "813"], name: "Cycle 7" }
+    ],
+    "Cycle-7": [
+        { cycle: "Cycle-4", products: ["424", "443"], name: "Cycle 4" },
+        { cycle: "Cycle-5", products: ["477", "478"], name: "Cycle 5" }
+    ]
+};
+
+function checkConflictingPurchase(uid) {
+    const rules = purchaseBlockRules[Cycle] || [];
+
+    if (!rules.length) {
+        return Promise.resolve(null);
+    }
+
+    const checks = rules.map(rule => {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        const raw = JSON.stringify({
+            "products": rule.products,
+            "uid": uid
+        });
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        return fetch(`https://${shopName2}/v3/purchase/multiple/${rule.cycle}`, requestOptions)
+            .then(res => res.json())
+            .then(result => result.status === 200 ? rule : null);
+    });
+
+    return Promise.all(checks).then(results => results.find(Boolean) || null);
+}
+
+function blockConflictingPurchase(conflict) {
+    const moda = document.getElementById('moda');
+    const buy = document.getElementById('buy');
+
+    if (moda) {
+        moda.removeAttribute("data-target");
+        moda.disabled = true;
+        moda.innerText = "Already Enrolled in " + conflict.name;
+    }
+    if (buy) {
+        buy.disabled = true;
+    }
+
+    swal({
+        title: "Enrollment Restricted",
+        icon: "warning",
+        text: `You are already enrolled in ${conflict.name}, so you cannot purchase ${Cycle}.`,
+        button: "Ok"
+    });
+}
+
+function allowPurchaseForm() {
+    document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+}
+
 // Get product code from URL and set initial state
 const urlProductCode = getProductCodeFromURL();
 let productcode;
@@ -229,7 +296,14 @@ firebase.auth().onAuthStateChanged(function (e) {
                     location.replace(result.invoices[0].invoice);
                 });
             } else {
-                const form = document.forms['purchase'];
+                checkConflictingPurchase(e.uid).then(conflict => {
+                    if (conflict) {
+                        blockConflictingPurchase(conflict);
+                        return;
+                    }
+
+                    allowPurchaseForm();
+                    const form = document.forms['purchase'];
                     form.addEventListener('submit', em => {
                         em.preventDefault();
                         var mail = document.getElementById('email').value.toLowerCase().trim();
@@ -310,9 +384,24 @@ firebase.auth().onAuthStateChanged(function (e) {
                                 })
                             });
                     })
+                }).catch(() => {
+                    swal({
+                        title: "Error",
+                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                        text: "Could not verify your previous enrollments. Please try again later.",
+                        button: "Ok"
+                    });
+                })
                 }
             }).catch(() => {
-                const mfs = document.forms['purchase']
+                checkConflictingPurchase(e.uid).then(conflict => {
+                    if (conflict) {
+                        blockConflictingPurchase(conflict);
+                        return;
+                    }
+
+                    allowPurchaseForm();
+                    const mfs = document.forms['purchase']
                 mfs.addEventListener('submit', em => {
                     em.preventDefault();
                     var mail = document.getElementById('email').value.toLowerCase().trim();
@@ -393,9 +482,16 @@ firebase.auth().onAuthStateChanged(function (e) {
                             })
                         });
                 })
+                }).catch(() => {
+                    swal({
+                        title: "Error",
+                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                        text: "Could not verify your previous enrollments. Please try again later.",
+                        button: "Ok"
+                    });
+                })
 
             })
-        document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
