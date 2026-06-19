@@ -258,6 +258,16 @@
                 const expression = item[1].trim();
                 if (!expression.endsWith('.map(getAfsEnrollmentCount')) addFutureSchoolEndpoint(endpoints, readTokenValue(expression, values));
             });
+        Array.from(activeSource.matchAll(/getB2a28EnrollmentCount\(\s*([^,\)]+)(?:\s*,\s*([^)]+))?\)/g))
+            .forEach(item => {
+                addEndpoint(
+                    endpoints,
+                    item[2] ? readCycleValue(item[2], values, pathCycle) : null,
+                    readTokenValue(item[1], values)
+                );
+            });
+        Array.from(activeSource.matchAll(/getB2a28AfsEnrollmentCount\(([^)]+)\)/g))
+            .forEach(item => addFutureSchoolEndpoint(endpoints, readTokenValue(item[1], values)));
         Array.from(activeSource.matchAll(/\.\.\.([A-Za-z_$][\w$]*)\.map\(getAfsEnrollmentCount\)/g))
             .forEach(item => (arrays[item[1]] || []).forEach(code => addFutureSchoolEndpoint(endpoints, code)));
 
@@ -369,22 +379,22 @@
 
         const badge = createBadge(container);
         try {
-            const endpoints = new Set();
+            const endpoints = [];
             const sources = await Promise.all(links.map(async anchor => ({
                 href: anchor.href,
                 source: await getLinkedPageSource(anchor.href)
             })));
 
             sources.forEach(({ source, href }) => {
-                extractEnrollmentEndpoints(source, href).forEach(endpoint => endpoints.add(endpoint));
+                extractEnrollmentEndpoints(source, href).forEach(endpoint => endpoints.push(endpoint));
             });
 
-            if (!endpoints.size) {
+            if (!endpoints.length) {
                 badge.remove();
                 return;
             }
 
-            const counts = await Promise.all(Array.from(endpoints).map(fetchCount));
+            const counts = await Promise.all(endpoints.map(fetchCount));
             const total = counts.reduce((sum, count) => sum + count, 0);
             badge.classList.remove('is-loading');
             badge.textContent = `Total enrolled: ${total.toLocaleString('en-US')}`;
