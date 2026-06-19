@@ -44,25 +44,42 @@
         }
 
         .course-enrollment-count {
-            background: rgba(255, 255, 255, 0.48);
-            border: 1px solid rgba(49, 52, 78, 0.16);
-            border-radius: 999px;
-            color: #3d405f;
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 600;
-            line-height: 1.2;
-            margin: 0.35rem 0 0.8rem;
-            padding: 0.35rem 0.7rem;
+            background: transparent;
+            border: 1px solid rgba(49, 52, 78, 0.2);
+            border-radius: 6px;
+            color: #2f3348;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.86rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin: 0.4rem 0 0.85rem;
+            padding: 0.45rem 0.65rem;
+        }
+
+        .course-enrollment-count::before {
+            color: #4f566b;
+            content: "\f500";
+            font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 0.82rem;
         }
 
         .course-enrollment-count.is-loading {
-            color: #6b6f85;
+            border-color: rgba(49, 52, 78, 0.14);
+            color: #5f667e;
         }
 
         .course-enrollment-count.is-error {
+            background: transparent;
             border-color: rgba(132, 54, 61, 0.24);
             color: #84363d;
+        }
+
+        .course-enrollment-count.is-error::before {
+            color: #a91e2c;
+            content: "\f071";
         }
     </style>
 
