@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>HSC 28 Enrollment Dashboard | Apar's Classroom</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/Logo.png">
+    <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --panel: #ffffff;
+            --ink: #172033;
+            --muted: #667085;
+            --line: #d9e2ef;
+            --shop: #2157c5;
+            --camp: #0f8f7a;
+            --future: #c65f18;
+            --danger: #b42318;
+            --shadow: 0 18px 45px rgba(23, 32, 51, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.45;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .auth-screen {
+            align-items: center;
+            display: flex;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .auth-box {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin: 0 auto;
+            max-width: 420px;
+            padding: 28px;
+            width: 100%;
+        }
+
+        .auth-box h1,
+        .page-title h1 {
+            font-size: 28px;
+            letter-spacing: 0;
+            line-height: 1.15;
+            margin: 0 0 10px;
+        }
+
+        .auth-box p,
+        .page-title p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .field {
+            margin-top: 22px;
+        }
+
+        .field label {
+            color: #344054;
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .password-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .password-row input {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            min-width: 0;
+            padding: 12px 14px;
+            width: 100%;
+        }
+
+        .icon-button,
+        .primary-button {
+            align-items: center;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            font-weight: 800;
+            justify-content: center;
+            min-height: 44px;
+        }
+
+        .icon-button {
+            background: #eef3fb;
+            color: #26364f;
+            min-width: 44px;
+        }
+
+        .primary-button {
+            background: #172033;
+            color: #ffffff;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 0 18px;
+            width: 100%;
+        }
+
+        .error-text {
+            color: var(--danger);
+            font-size: 14px;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        .dashboard {
+            display: none;
+            padding: 26px;
+        }
+
+        .dashboard.is-visible {
+            display: block;
+        }
+
+        .topbar {
+            align-items: flex-start;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            margin: 0 auto 22px;
+            max-width: 1440px;
+        }
+
+        .actions {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .action-button {
+            align-items: center;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            color: #26364f;
+            cursor: pointer;
+            display: inline-flex;
+            font-weight: 800;
+            gap: 8px;
+            min-height: 42px;
+            padding: 0 14px;
+        }
+
+        .status {
+            color: var(--muted);
+            font-size: 14px;
+            min-width: 210px;
+            text-align: right;
+        }
+
+        .summary-grid {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin: 0 auto 18px;
+            max-width: 1440px;
+        }
+
+        .metric,
+        .table-wrap {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: 0 8px 28px rgba(23, 32, 51, 0.06);
+        }
+
+        .metric {
+            min-height: 118px;
+            padding: 18px;
+        }
+
+        .metric-label {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 1;
+            margin-top: 10px;
+        }
+
+        .metric-sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 9px;
+        }
+
+        .controls {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+            margin: 0 auto 14px;
+            max-width: 1440px;
+        }
+
+        .controls input,
+        .controls select {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            color: var(--ink);
+            min-height: 42px;
+            padding: 0 12px;
+        }
+
+        .controls input {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .table-wrap {
+            margin: 0 auto;
+            max-width: 1440px;
+            overflow: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            min-width: 1120px;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid var(--line);
+            padding: 13px 14px;
+            text-align: right;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        th {
+            background: #f8fafd;
+            color: #475467;
+            font-size: 12px;
+            letter-spacing: 0;
+            position: sticky;
+            text-transform: uppercase;
+            top: 0;
+            z-index: 1;
+        }
+
+        th:first-child,
+        td:first-child {
+            min-width: 310px;
+            text-align: left;
+            white-space: normal;
+        }
+
+        tbody tr:hover {
+            background: #fbfcff;
+        }
+
+        .course-name {
+            color: var(--ink);
+            display: block;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .course-meta {
+            color: var(--muted);
+            display: block;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .percent {
+            color: var(--muted);
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        .source-cell[data-source="shop"] strong {
+            color: var(--shop);
+        }
+
+        .source-cell[data-source="camp"] strong {
+            color: var(--camp);
+        }
+
+        .source-cell[data-source="future"] strong {
+            color: var(--future);
+        }
+
+        .bar {
+            background: #eef3fb;
+            border-radius: 999px;
+            display: flex;
+            height: 10px;
+            min-width: 150px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+        }
+
+        .bar-shop {
+            background: var(--shop);
+        }
+
+        .bar-camp {
+            background: var(--camp);
+        }
+
+        .bar-future {
+            background: var(--future);
+        }
+
+        .loading {
+            animation: pulse 1.1s ease-in-out infinite alternate;
+            color: var(--muted);
+        }
+
+        .row-error {
+            color: var(--danger);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 0.45;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .dashboard {
+                padding: 18px;
+            }
+
+            .topbar,
+            .controls {
+                display: block;
+            }
+
+            .actions {
+                justify-content: flex-start;
+                margin-top: 14px;
+            }
+
+            .status {
+                margin-top: 8px;
+                text-align: left;
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .controls input,
+            .controls select {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main id="authScreen" class="auth-screen">
+        <section class="auth-box">
+            <h1>Enrollment Dashboard</h1>
+            <p>HSC 28 course-wise ASG Shop, ACS Camp and Future School comparison.</p>
+            <form id="authForm">
+                <div class="field">
+                    <label for="passwordInput">Password</label>
+                    <div class="password-row">
+                        <input id="passwordInput" type="password" autocomplete="current-password" required>
+                        <button class="icon-button" type="button" id="togglePassword" aria-label="Show password"
+                            title="Show password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="primary-button" type="submit">
+                    <i class="fas fa-lock-open"></i>
+                    Open Dashboard
+                </button>
+                <div id="authError" class="error-text" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+
+    <main id="dashboard" class="dashboard">
+        <header class="topbar">
+            <div class="page-title">
+                <h1>HSC 28 Enrollment Dashboard</h1>
+                <p>Live comparison by source. Percentages are each source's share of that course total.</p>
+            </div>
+            <div class="actions">
+                <button id="refreshButton" class="action-button" type="button">
+                    <i class="fas fa-rotate-right"></i>
+                    Refresh
+                </button>
+                <button id="logoutButton" class="action-button" type="button">
+                    <i class="fas fa-lock"></i>
+                    Lock
+                </button>
+                <div id="statusText" class="status">Ready</div>
+            </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Enrollment totals">
+            <article class="metric">
+                <div class="metric-label">Total Enrollment</div>
+                <div id="totalMetric" class="metric-value loading">...</div>
+                <div id="totalSub" class="metric-sub">Across all listed HSC 28 courses</div>
+            </article>
+            <article class="metric">
+                <div class="metric-label">ASG Shop</div>
+                <div id="shopMetric" class="metric-value loading">...</div>
+                <div id="shopSub" class="metric-sub">0%</div>
+            </article>
+            <article class="metric">
+                <div class="metric-label">ACS Camp</div>
+                <div id="campMetric" class="metric-value loading">...</div>
+                <div id="campSub" class="metric-sub">0%</div>
+            </article>
+            <article class="metric">
+                <div class="metric-label">Future School</div>
+                <div id="futureMetric" class="metric-value loading">...</div>
+                <div id="futureSub" class="metric-sub">0%</div>
+            </article>
+        </section>
+
+        <section class="controls" aria-label="Dashboard controls">
+            <input id="searchInput" type="search" placeholder="Search course">
+            <select id="sortSelect" aria-label="Sort courses">
+                <option value="total-desc">Total high to low</option>
+                <option value="total-asc">Total low to high</option>
+                <option value="name-asc">Course A to Z</option>
+                <option value="shop-desc">ASG Shop high to low</option>
+                <option value="camp-desc">ACS Camp high to low</option>
+                <option value="future-desc">Future School high to low</option>
+            </select>
+        </section>
+
+        <section class="table-wrap" aria-label="Course-wise enrollment comparison">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Total</th>
+                        <th>ASG Shop</th>
+                        <th>ACS Camp</th>
+                        <th>Future School</th>
+                        <th>Source Split</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="courseRows"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        (function () {
+            'use strict';
+
+            const passwordHash = 'e23ddbbd8e0f940d38594bf2b1a3c889e4baa35637a3d0e2c9560677d9cbfe4f';
+            const sessionKey = 'hsc28EnrollmentDashboardUnlocked';
+            const shopApi = 'https://shop.aparsclassroom.com';
+            const acsCampApi = 'https://api.acscamp.com/v1/products/sales-count';
+            const futureSchoolApi = 'https://hsc.acsfutureschool.com/api/enrollments/count?product_code=';
+            const acsCampEndpointPrefix = 'acsCamp:';
+            const countCacheTtl = 5 * 60 * 1000;
+            const countStoragePrefix = 'hsc28DashboardCount:v1:';
+            const countCache = new Map();
+            const sourceCache = new Map();
+
+            const courses = [
+                { name: 'ACS HSC 28 Higher Math Academic', category: 'Higher Math', url: '/shop/abhi/Math28/' },
+                { name: 'ACS Camp HSC 2028 Physics', category: 'Physics', url: '/shop/physics/b2m28/' },
+                { name: 'ACS HSC 28 Academic Chemistry Cycle', category: 'Chemistry', url: '/shop/aloronxyz/chem28aloron/' },
+                { name: 'ACS EBI Course', category: 'English, Bangla, ICT', url: '/shop/abhi/ebi28/' },
+                { name: 'HSC Biology All-in-One', category: 'Biology', url: '/shop/tandra/tundraregion28/' },
+                { name: 'ACS HSC 28 Basic to Advance Chemistry by Hemel', category: 'Chemistry', url: '/shop/b2a28/' },
+                { name: 'ACS HSC 28 Biology Academic by Dr. Fahad', category: 'Biology', url: '/shop/drfahad/fahadbio28/' },
+                { name: 'ACS College Biology Course by BioMission', category: 'Biology', url: '/shop/hasnat/hbio28/' },
+                { name: 'ACS Biology Cycle for HSC 28 by DMC Dreamers', category: 'Biology', url: '/shop/dmc-dreamers/b2b28/' },
+                { name: 'ACS Chemistry by ChemShifu with books', category: 'Chemistry', url: '/shop/chem28/' },
+                { name: 'Compact Biology for HSC 28', category: 'Biology', url: '/shop/rtd/compactbio28/' },
+                { name: 'HSC 28 Bangla Bodh 1.0', category: 'Bangla', url: '/shop/tanvir/banglabodh28/' },
+                { name: 'HSC 28 Bangla Benjon 5.0', category: 'Bangla', url: '/shop/sakib/benjon28/' },
+                { name: 'HSC 28 English Mastery by Aziz Ibnay Fahad', category: 'English', url: '/shop/afsFahad/afseng28/' },
+                { name: 'ACS Chemistry + Biology Academic', category: 'Chemistry, Biology', url: '/shop/biochem28/' },
+                { name: 'HSC Crowning English Academic', category: 'English', url: '/shop/crowning/galacticos3/' },
+                { name: 'ACS Lodestar English', category: 'English', url: '/shop/SchoolofExcellence/lodestareng28/' }
+            ];
+
+            const authScreen = document.getElementById('authScreen');
+            const dashboard = document.getElementById('dashboard');
+            const authForm = document.getElementById('authForm');
+            const passwordInput = document.getElementById('passwordInput');
+            const authError = document.getElementById('authError');
+            const togglePassword = document.getElementById('togglePassword');
+            const refreshButton = document.getElementById('refreshButton');
+            const logoutButton = document.getElementById('logoutButton');
+            const statusText = document.getElementById('statusText');
+            const rowsBody = document.getElementById('courseRows');
+            const searchInput = document.getElementById('searchInput');
+            const sortSelect = document.getElementById('sortSelect');
+            const state = { rows: [], loading: false };
+
+            async function sha256(value) {
+                const data = new TextEncoder().encode(value);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                return Array.from(new Uint8Array(hashBuffer)).map(byte => byte.toString(16).padStart(2, '0')).join('');
+            }
+
+            function unlock() {
+                authScreen.style.display = 'none';
+                dashboard.classList.add('is-visible');
+                loadDashboard();
+            }
+
+            function lock() {
+                sessionStorage.removeItem(sessionKey);
+                dashboard.classList.remove('is-visible');
+                authScreen.style.display = 'flex';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+
+            function formatNumber(value) {
+                return Number(value || 0).toLocaleString('en-US');
+            }
+
+            function formatPercent(value, total) {
+                if (!total) return '0%';
+                return `${((value / total) * 100).toFixed(1)}%`;
+            }
+
+            function getPathCycle(url) {
+                const parts = new URL(url, location.href).pathname.split('/').filter(Boolean);
+                return parts.find(part => /^Cycle-\d+$/.test(part)) || null;
+            }
+
+            function isCountableCourseLink(anchor, baseUrl) {
+                const href = anchor.getAttribute('href');
+                if (!href) return false;
+                const path = new URL(href, baseUrl || location.href).pathname;
+                return /\/(?:Cycle-\d+|Combo\d*|Combo|Free-Cycle)\/?$/.test(path);
+            }
+
+            function parseAssignments(source) {
+                const values = {};
+                const pattern = /\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*["']([^"']+)["']/g;
+                let match;
+                while ((match = pattern.exec(source)) !== null) values[match[1]] = match[2];
+                return values;
+            }
+
+            function stripJavaScriptComments(source) {
+                let output = '';
+                let stateName = 'code';
+                for (let index = 0; index < source.length; index++) {
+                    const char = source[index];
+                    const next = source[index + 1];
+                    const prev = source[index - 1];
+                    if (stateName === 'lineComment') {
+                        if (char === '\n') {
+                            output += char;
+                            stateName = 'code';
+                        }
+                        continue;
+                    }
+                    if (stateName === 'blockComment') {
+                        if (char === '*' && next === '/') {
+                            index++;
+                            stateName = 'code';
+                        }
+                        continue;
+                    }
+                    if (stateName === 'singleQuote' || stateName === 'doubleQuote' || stateName === 'template') {
+                        output += char;
+                        const quote = stateName === 'singleQuote' ? "'" : (stateName === 'doubleQuote' ? '"' : '`');
+                        if (char === quote && prev !== '\\') stateName = 'code';
+                        continue;
+                    }
+                    if (char === '/' && next === '/') {
+                        index++;
+                        stateName = 'lineComment';
+                        continue;
+                    }
+                    if (char === '/' && next === '*') {
+                        index++;
+                        stateName = 'blockComment';
+                        continue;
+                    }
+                    if (char === "'") stateName = 'singleQuote';
+                    if (char === '"') stateName = 'doubleQuote';
+                    if (char === '`') stateName = 'template';
+                    output += char;
+                }
+                return output;
+            }
+
+            function readTokenValue(token, values) {
+                const expression = token.trim();
+                const templateVar = expression.match(/^\$\{([A-Za-z_$][\w$]*)\}$/);
+                if (templateVar) return values[templateVar[1]] || null;
+                if (values[expression]) return values[expression];
+                const literal = expression.match(/\d+/);
+                return literal ? literal[0] : null;
+            }
+
+            function readCycleValue(token, values, pathCycle) {
+                const expression = token.trim();
+                return values[expression] || (expression === 'Cycle' ? pathCycle : null);
+            }
+
+            function parseArrays(source, values) {
+                const arrays = {};
+                const pattern = /\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*\[([^\]]*)\]/g;
+                let match;
+                while ((match = pattern.exec(source)) !== null) {
+                    arrays[match[1]] = match[2].split(',').map(token => readTokenValue(token, values)).filter(Boolean);
+                }
+                return arrays;
+            }
+
+            function parseCycleCodeMaps(source) {
+                const maps = [];
+                const mapPattern = /\b(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*\{([\s\S]*?)\};/g;
+                let mapMatch;
+                while ((mapMatch = mapPattern.exec(source)) !== null) {
+                    const entries = {};
+                    const entryPattern = /["'](Cycle-\d+)["']\s*:\s*\[([^\]]*)\]/g;
+                    let entryMatch;
+                    while ((entryMatch = entryPattern.exec(mapMatch[1])) !== null) {
+                        entries[entryMatch[1]] = Array.from(entryMatch[2].matchAll(/["'](\d+)["']/g), codeMatch => codeMatch[1]);
+                    }
+                    if (Object.keys(entries).length) maps.push(entries);
+                }
+                return maps;
+            }
+
+            function addEndpoint(groups, source, endpoint) {
+                if (!endpoint) return;
+                groups[source].add(endpoint);
+            }
+
+            function addShopEndpoint(groups, cycle, code) {
+                if (!code) return;
+                addEndpoint(groups, 'shop', cycle ? `${shopApi}/enrollment/${cycle}?productCode=${code}` : `${shopApi}/enrollment/?productCode=${code}`);
+            }
+
+            function addFutureEndpoint(groups, code) {
+                if (!code) return;
+                addEndpoint(groups, 'future', `${futureSchoolApi}${code}`);
+            }
+
+            function addCampEndpoint(groups, payload) {
+                if (!payload || !payload.productGroup || !payload.productCode) return;
+                addEndpoint(groups, 'camp', acsCampEndpointPrefix + JSON.stringify(payload));
+            }
+
+            function extractEnrollmentEndpoints(source, pageUrl) {
+                const activeSource = stripJavaScriptComments(source);
+                const values = parseAssignments(activeSource);
+                const arrays = parseArrays(activeSource, values);
+                const pathCycle = getPathCycle(pageUrl);
+                const groups = { shop: new Set(), camp: new Set(), future: new Set() };
+                const templates = [];
+                let match;
+
+                [
+                    /fetch\(\s*`([^`]*\/enrollment[^`]*)`/g,
+                    /fetch\(\s*["']([^"']*\/enrollment[^"']*)["']/g,
+                    /`([^`]*\/enrollment[^`]*)`/g
+                ].forEach(pattern => {
+                    while ((match = pattern.exec(activeSource)) !== null) templates.push(match[1]);
+                });
+
+                templates.forEach(template => {
+                    const cycleVarMatch = template.match(/\/enrollment\/\$\{([A-Za-z_$][\w$]*)\}/);
+                    const literalCycleMatch = template.match(/\/enrollment\/(Cycle-\d+)/);
+                    const cycle = cycleVarMatch ? (values[cycleVarMatch[1]] || pathCycle) : (literalCycleMatch ? literalCycleMatch[1] : null);
+                    const productCodesMatch = template.match(/[?&]productCodes=([^`&]+)/);
+                    if (productCodesMatch) {
+                        const joinedArray = productCodesMatch[1].match(/\$\{([A-Za-z_$][\w$]*)\.join\(["'],["']\)\}/);
+                        if (joinedArray && arrays[joinedArray[1]]) {
+                            addEndpoint(groups, 'shop', `${shopApi}/enrollment/combined?productCodes=${arrays[joinedArray[1]].join(',')}`);
+                        } else {
+                            productCodesMatch[1].split(',').forEach(token => addShopEndpoint(groups, cycle, readTokenValue(token, values)));
+                        }
+                    }
+                    const productCodeMatch = template.match(/[?&]productCode=([^`&]+)/);
+                    if (productCodeMatch) addShopEndpoint(groups, cycle, readTokenValue(productCodeMatch[1], values));
+                });
+
+                if (/comboEnrollmentCodes\.map\(\s*code\s*=>\s*fetch\(/.test(activeSource) && pathCycle) {
+                    parseCycleCodeMaps(activeSource).forEach(map => {
+                        (map[pathCycle] || []).forEach(code => addShopEndpoint(groups, null, code));
+                    });
+                }
+
+                Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(item => addShopEndpoint(groups, readCycleValue(item[1], values, pathCycle), readTokenValue(item[2], values)));
+                Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(item => addShopEndpoint(groups, null, readTokenValue(item[1], values)));
+                Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/combined\?productCodes="\s*\+\s*([A-Za-z_$][\w$]*)\.join\(["'],["']\)\)/g))
+                    .forEach(item => {
+                        if (arrays[item[1]]) addEndpoint(groups, 'shop', `${shopApi}/enrollment/combined?productCodes=${arrays[item[1]].join(',')}`);
+                    });
+                Array.from(activeSource.matchAll(/fetch\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(item => addShopEndpoint(groups, readCycleValue(item[1], values, pathCycle), readTokenValue(item[2], values)));
+                Array.from(activeSource.matchAll(/fetch\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode=(\d+)"\s*\)/g))
+                    .forEach(item => addShopEndpoint(groups, null, item[1]));
+                Array.from(activeSource.matchAll(/fetch\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/\?productCode="\s*\+\s*([^)]+)\)/g))
+                    .forEach(item => addShopEndpoint(groups, null, readTokenValue(item[1], values)));
+                Array.from(activeSource.matchAll(/getB2a28EnrollmentCount\(\s*([^,\)]+)(?:\s*,\s*([^)]+))?\)/g))
+                    .forEach(item => addShopEndpoint(groups, item[2] ? readCycleValue(item[2], values, pathCycle) : null, readTokenValue(item[1], values)));
+
+                Array.from(activeSource.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=\$\{([A-Za-z_$][\w$]*)\}/g))
+                    .forEach(item => addFutureEndpoint(groups, values[item[1]]));
+                Array.from(activeSource.matchAll(/hsc\.acsfutureschool\.com\/api\/enrollments\/count\?product_code=(\d+)/g))
+                    .forEach(item => addFutureEndpoint(groups, item[1]));
+                Array.from(activeSource.matchAll(/getAfsEnrollmentCount\(([^)]+)\)/g))
+                    .forEach(item => {
+                        const expression = item[1].trim();
+                        if (!expression.endsWith('.map(getAfsEnrollmentCount')) addFutureEndpoint(groups, readTokenValue(expression, values));
+                    });
+                Array.from(activeSource.matchAll(/getB2a28AfsEnrollmentCount\(([^)]+)\)/g))
+                    .forEach(item => addFutureEndpoint(groups, readTokenValue(item[1], values)));
+                Array.from(activeSource.matchAll(/\.\.\.([A-Za-z_$][\w$]*)\.map\(getAfsEnrollmentCount\)/g))
+                    .forEach(item => (arrays[item[1]] || []).forEach(code => addFutureEndpoint(groups, code)));
+
+                if (/api\.acscamp\.com\/v1\/products\/sales-count/.test(activeSource)) {
+                    const cycleNumber = pathCycle ? Number(pathCycle.replace('Cycle-', '')) : 0;
+                    const literalPayloadPattern = /productGroup\s*:\s*["']([^"']+)["'][^}]*?productCode\s*:\s*["'](\d+)["']/g;
+                    let payloadMatch;
+                    while ((payloadMatch = literalPayloadPattern.exec(activeSource)) !== null) {
+                        addCampEndpoint(groups, { productGroup: payloadMatch[1], productCode: payloadMatch[2] });
+                    }
+                    [
+                        ['phy28', 1000],
+                        ['math28', 1018],
+                        ['ebi28', 1036],
+                        ['chem28aloron', 1040],
+                        ['fahadbio28', 1056]
+                    ].forEach(([group, offset]) => {
+                        if (cycleNumber && new RegExp(`productGroup\\s*:\\s*["']${group}["']`).test(activeSource)) {
+                            addCampEndpoint(groups, { productGroup: group, productCode: String(offset + cycleNumber) });
+                        }
+                    });
+                }
+
+                return {
+                    shop: Array.from(groups.shop),
+                    camp: Array.from(groups.camp),
+                    future: Array.from(groups.future)
+                };
+            }
+
+            async function getCourseLinks(course) {
+                const url = new URL(course.url, location.href).href;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Course page failed: ${response.status}`);
+                const html = await response.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const links = Array.from(doc.querySelectorAll('a[href]')).filter(anchor => isCountableCourseLink(anchor, url));
+                const cycleLinks = links.filter(anchor => /\/Cycle-\d+\/?$/.test(new URL(anchor.getAttribute('href'), url).pathname));
+                const selected = cycleLinks.length ? cycleLinks : links;
+                return Array.from(new Map(selected.map(anchor => [new URL(anchor.getAttribute('href'), url).href, anchor])).keys());
+            }
+
+            async function getLinkedPageSource(url) {
+                const key = new URL(url, location.href).href;
+                if (sourceCache.has(key)) return sourceCache.get(key);
+                const promise = (async () => {
+                    const response = await fetch(key);
+                    if (!response.ok) return '';
+                    const html = await response.text();
+                    const scriptSources = Array.from(html.matchAll(/<script[^>]+src=["']([^"']*assets\/(?:info|ss|js\/ss)\.js[^"']*)["']/gi), item => item[1]);
+                    const fallbackSources = scriptSources.length ? scriptSources : ['assets/info.js', 'assets/ss.js', 'assets/js/ss.js'];
+                    const scripts = await Promise.all(fallbackSources.map(async src => {
+                        const scriptUrl = new URL(src, key).href;
+                        const scriptResponse = await fetch(scriptUrl);
+                        return scriptResponse.ok ? scriptResponse.text() : '';
+                    }));
+                    return scripts.join('\n');
+                })();
+                sourceCache.set(key, promise);
+                return promise;
+            }
+
+            async function fetchCount(endpoint, forceRefresh) {
+                if (!forceRefresh && countCache.has(endpoint)) return countCache.get(endpoint);
+                const cacheKey = countStoragePrefix + endpoint;
+                if (!forceRefresh) {
+                    try {
+                        const cached = JSON.parse(localStorage.getItem(cacheKey));
+                        if (cached && Date.now() - cached.timestamp < countCacheTtl) {
+                            const cachedPromise = Promise.resolve(Number(cached.count) || 0);
+                            countCache.set(endpoint, cachedPromise);
+                            return cachedPromise;
+                        }
+                    } catch (error) {
+                        localStorage.removeItem(cacheKey);
+                    }
+                }
+                const promise = (endpoint.startsWith(acsCampEndpointPrefix)
+                    ? fetch(acsCampApi, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: endpoint.slice(acsCampEndpointPrefix.length)
+                    })
+                    : fetch(endpoint))
+                    .then(response => response.json())
+                    .then(data => {
+                        const count = Number(data.count ?? data.salesCount ?? data.total ?? (data.data && (data.data.count ?? data.data.salesCount ?? data.data.total))) || 0;
+                        localStorage.setItem(cacheKey, JSON.stringify({ count, timestamp: Date.now() }));
+                        return count;
+                    });
+                countCache.set(endpoint, promise);
+                return promise;
+            }
+
+            async function sumEndpoints(endpoints, forceRefresh) {
+                const counts = await Promise.all(endpoints.map(endpoint => fetchCount(endpoint, forceRefresh).catch(() => 0)));
+                return counts.reduce((total, count) => total + count, 0);
+            }
+
+            async function loadCourse(course, forceRefresh) {
+                const links = await getCourseLinks(course);
+                const grouped = { shop: new Set(), camp: new Set(), future: new Set() };
+                const sources = await Promise.all(links.map(async link => ({ link, source: await getLinkedPageSource(link) })));
+                sources.forEach(({ link, source }) => {
+                    const endpoints = extractEnrollmentEndpoints(source, link);
+                    endpoints.shop.forEach(endpoint => grouped.shop.add(endpoint));
+                    endpoints.camp.forEach(endpoint => grouped.camp.add(endpoint));
+                    endpoints.future.forEach(endpoint => grouped.future.add(endpoint));
+                });
+                const shop = await sumEndpoints(Array.from(grouped.shop), forceRefresh);
+                const camp = await sumEndpoints(Array.from(grouped.camp), forceRefresh);
+                const future = await sumEndpoints(Array.from(grouped.future), forceRefresh);
+                return {
+                    ...course,
+                    shop,
+                    camp,
+                    future,
+                    total: shop + camp + future,
+                    endpointCount: grouped.shop.size + grouped.camp.size + grouped.future.size,
+                    status: grouped.shop.size + grouped.camp.size + grouped.future.size ? 'Loaded' : 'No endpoints found'
+                };
+            }
+
+            function setMetric(id, subId, value, total) {
+                const metric = document.getElementById(id);
+                const sub = document.getElementById(subId);
+                metric.classList.remove('loading');
+                metric.textContent = formatNumber(value);
+                sub.textContent = total === null ? 'Across all listed HSC 28 courses' : `${formatPercent(value, total)} of total`;
+            }
+
+            function updateSummary(rows) {
+                const total = rows.reduce((sum, row) => sum + row.total, 0);
+                const shop = rows.reduce((sum, row) => sum + row.shop, 0);
+                const camp = rows.reduce((sum, row) => sum + row.camp, 0);
+                const future = rows.reduce((sum, row) => sum + row.future, 0);
+                setMetric('totalMetric', 'totalSub', total, null);
+                setMetric('shopMetric', 'shopSub', shop, total);
+                setMetric('campMetric', 'campSub', camp, total);
+                setMetric('futureMetric', 'futureSub', future, total);
+            }
+
+            function compareRows(a, b, sortValue) {
+                if (sortValue === 'name-asc') return a.name.localeCompare(b.name);
+                if (sortValue === 'total-asc') return a.total - b.total;
+                if (sortValue === 'shop-desc') return b.shop - a.shop;
+                if (sortValue === 'camp-desc') return b.camp - a.camp;
+                if (sortValue === 'future-desc') return b.future - a.future;
+                return b.total - a.total;
+            }
+
+            function renderRows() {
+                const search = searchInput.value.trim().toLowerCase();
+                const rows = state.rows
+                    .filter(row => `${row.name} ${row.category}`.toLowerCase().includes(search))
+                    .sort((a, b) => compareRows(a, b, sortSelect.value));
+                rowsBody.innerHTML = rows.map(row => {
+                    const shopPercent = formatPercent(row.shop, row.total);
+                    const campPercent = formatPercent(row.camp, row.total);
+                    const futurePercent = formatPercent(row.future, row.total);
+                    const status = row.error ? `<span class="row-error">${row.error}</span>` : `${row.status} (${row.endpointCount} endpoints)`;
+                    return `
+                        <tr>
+                            <td>
+                                <a class="course-name" href="${row.url}" target="_blank" rel="noopener">${row.name}</a>
+                                <span class="course-meta">${row.category}</span>
+                            </td>
+                            <td><strong>${formatNumber(row.total)}</strong></td>
+                            <td class="source-cell" data-source="shop"><strong>${formatNumber(row.shop)}</strong><span class="percent">${shopPercent}</span></td>
+                            <td class="source-cell" data-source="camp"><strong>${formatNumber(row.camp)}</strong><span class="percent">${campPercent}</span></td>
+                            <td class="source-cell" data-source="future"><strong>${formatNumber(row.future)}</strong><span class="percent">${futurePercent}</span></td>
+                            <td>
+                                <div class="bar" title="ASG Shop ${shopPercent}, ACS Camp ${campPercent}, Future School ${futurePercent}">
+                                    <span class="bar-shop" style="width:${shopPercent}"></span>
+                                    <span class="bar-camp" style="width:${campPercent}"></span>
+                                    <span class="bar-future" style="width:${futurePercent}"></span>
+                                </div>
+                            </td>
+                            <td>${status}</td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            function renderLoadingRows() {
+                rowsBody.innerHTML = courses.map(course => `
+                    <tr>
+                        <td>
+                            <span class="course-name">${course.name}</span>
+                            <span class="course-meta">${course.category}</span>
+                        </td>
+                        <td colspan="6" class="loading">Loading counts...</td>
+                    </tr>
+                `).join('');
+            }
+
+            async function loadDashboard(forceRefresh) {
+                if (state.loading) return;
+                state.loading = true;
+                renderLoadingRows();
+                statusText.textContent = 'Loading live enrollment counts...';
+                const metricIds = ['totalMetric', 'shopMetric', 'campMetric', 'futureMetric'];
+                metricIds.forEach(id => {
+                    const item = document.getElementById(id);
+                    item.classList.add('loading');
+                    item.textContent = '...';
+                });
+                try {
+                    const rows = await Promise.all(courses.map(course => loadCourse(course, forceRefresh)
+                        .catch(error => ({
+                            ...course,
+                            shop: 0,
+                            camp: 0,
+                            future: 0,
+                            total: 0,
+                            endpointCount: 0,
+                            status: 'Failed',
+                            error: error.message || 'Load failed'
+                        }))));
+                    state.rows = rows;
+                    updateSummary(rows);
+                    renderRows();
+                    statusText.textContent = `Updated ${new Date().toLocaleString('en-US', { hour12: true })}`;
+                } finally {
+                    state.loading = false;
+                }
+            }
+
+            authForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                authError.textContent = '';
+                const hash = await sha256(passwordInput.value);
+                if (hash === passwordHash) {
+                    sessionStorage.setItem(sessionKey, '1');
+                    unlock();
+                } else {
+                    authError.textContent = 'Incorrect password.';
+                }
+            });
+
+            togglePassword.addEventListener('click', () => {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                togglePassword.innerHTML = isPassword ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
+                togglePassword.title = isPassword ? 'Hide password' : 'Show password';
+            });
+
+            refreshButton.addEventListener('click', () => loadDashboard(true));
+            logoutButton.addEventListener('click', lock);
+            searchInput.addEventListener('input', renderRows);
+            sortSelect.addEventListener('change', renderRows);
+
+            if (sessionStorage.getItem(sessionKey) === '1') {
+                unlock();
+            } else {
+                passwordInput.focus();
+            }
+        })();
+    </script>
+</body>
+
+</html>
