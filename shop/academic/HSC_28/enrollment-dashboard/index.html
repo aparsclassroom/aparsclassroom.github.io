@@ -918,25 +918,26 @@
 
             async function loadCourse(course, forceRefresh) {
                 const links = await getCourseLinks(course);
-                const grouped = { shop: new Set(), camp: new Set(), future: new Set() };
+                const grouped = { shop: [], camp: [], future: [] };
                 const sources = await Promise.all(links.map(async link => ({ link, source: await getLinkedPageSource(link) })));
                 sources.forEach(({ link, source }) => {
                     const endpoints = extractEnrollmentEndpoints(source, link);
-                    endpoints.shop.forEach(endpoint => grouped.shop.add(endpoint));
-                    endpoints.camp.forEach(endpoint => grouped.camp.add(endpoint));
-                    endpoints.future.forEach(endpoint => grouped.future.add(endpoint));
+                    endpoints.shop.forEach(endpoint => grouped.shop.push(endpoint));
+                    endpoints.camp.forEach(endpoint => grouped.camp.push(endpoint));
+                    endpoints.future.forEach(endpoint => grouped.future.push(endpoint));
                 });
-                const shop = await sumEndpoints(Array.from(grouped.shop), forceRefresh);
-                const camp = await sumEndpoints(Array.from(grouped.camp), forceRefresh);
-                const future = await sumEndpoints(Array.from(grouped.future), forceRefresh);
+                const shop = await sumEndpoints(grouped.shop, forceRefresh);
+                const camp = await sumEndpoints(grouped.camp, forceRefresh);
+                const future = await sumEndpoints(grouped.future, forceRefresh);
+                const endpointCount = grouped.shop.length + grouped.camp.length + grouped.future.length;
                 return {
                     ...course,
                     shop,
                     camp,
                     future,
                     total: shop + camp + future,
-                    endpointCount: grouped.shop.size + grouped.camp.size + grouped.future.size,
-                    status: grouped.shop.size + grouped.camp.size + grouped.future.size ? 'Loaded' : 'No endpoints found'
+                    endpointCount,
+                    status: endpointCount ? 'Loaded' : 'No endpoints found'
                 };
             }
 
