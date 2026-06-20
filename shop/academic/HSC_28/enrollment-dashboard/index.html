@@ -522,7 +522,7 @@
             const countCache = new Map();
             const sourceCache = new Map();
 
-            const courses = [
+            const fallbackCourses = [
                 { name: 'ACS HSC 28 Higher Math Academic', category: 'Higher Math', url: '/shop/abhi/Math28/' },
                 { name: 'ACS Camp HSC 2028 Physics', category: 'Physics', url: '/shop/physics/b2m28/' },
                 { name: 'ACS HSC 28 Academic Chemistry Cycle', category: 'Chemistry', url: '/shop/aloronxyz/chem28aloron/' },
@@ -554,7 +554,7 @@
             const rowsBody = document.getElementById('courseRows');
             const searchInput = document.getElementById('searchInput');
             const sortSelect = document.getElementById('sortSelect');
-            const state = { rows: [], loading: false };
+            const state = { rows: [], courses: fallbackCourses, loading: false };
 
             async function sha256(value) {
                 const data = new TextEncoder().encode(value);
@@ -594,7 +594,7 @@
                 const href = anchor.getAttribute('href');
                 if (!href) return false;
                 const path = new URL(href, baseUrl || location.href).pathname;
-                return /\/(?:Cycle-\d+|Combo\d*|Combo|Free-Cycle)\/?$/.test(path);
+                return /\/(?:Cycle-\d+|Combo\d*|Combo)\/?$/.test(path);
             }
 
             function parseAssignments(source) {
@@ -808,7 +808,46 @@
                 };
             }
 
+            async function discoverCourses() {
+                try {
+                    const hscPageUrl = new URL('/shop/academic/HSC_28/', location.href).href;
+                    const response = await fetch(hscPageUrl);
+                    if (!response.ok) throw new Error(`HSC 28 page failed: ${response.status}`);
+                    const html = await response.text();
+                    const doc = new DOMParser().parseFromString(html, 'text/html');
+                    const cards = Array.from(doc.querySelectorAll('.col-12.mb-3 > .card')).filter(card => {
+                        return !card.querySelector('.col-12.mb-3 > .card');
+                    });
+                    const discovered = cards.map((card, index) => {
+                        const buttons = Array.from(card.querySelectorAll('a.btn[href]'));
+                        const countableLinks = buttons.filter(anchor => isCountableCourseLink(anchor, hscPageUrl));
+                        const cycleLinks = countableLinks.filter(anchor => {
+                            return /\/Cycle-\d+\/?$/.test(new URL(anchor.getAttribute('href'), hscPageUrl).pathname);
+                        });
+                        const selectedLinks = cycleLinks.length ? cycleLinks : (countableLinks.length ? countableLinks : buttons.slice(0, 1));
+                        const links = Array.from(new Map(selectedLinks.map(anchor => {
+                            return [new URL(anchor.getAttribute('href'), hscPageUrl).href, anchor];
+                        })).keys());
+                        const title = card.querySelector('.h5.title');
+                        const imageLink = card.querySelector('aside a[href], .info-main a[href]');
+                        const name = title ? title.textContent.replace(/\s+/g, ' ').trim() : `HSC 28 Course ${index + 1}`;
+                        const url = title ? new URL(title.getAttribute('href'), hscPageUrl).pathname : (imageLink ? new URL(imageLink.getAttribute('href'), hscPageUrl).pathname : links[0]);
+                        return {
+                            name,
+                            category: new URL(url || links[0] || hscPageUrl, hscPageUrl).pathname.replace(/^\/shop\//, '').replace(/\/$/, ''),
+                            url,
+                            links
+                        };
+                    }).filter(course => course.links.length);
+                    return discovered.length ? discovered : fallbackCourses;
+                } catch (error) {
+                    console.error('HSC 28 course discovery failed:', error);
+                    return fallbackCourses;
+                }
+            }
+
             async function getCourseLinks(course) {
+                if (Array.isArray(course.links)) return course.links;
                 const url = new URL(course.url, location.href).href;
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(`Course page failed: ${response.status}`);
@@ -963,7 +1002,7 @@
             }
 
             function renderLoadingRows() {
-                rowsBody.innerHTML = courses.map(course => `
+                rowsBody.innerHTML = state.courses.map(course => `
                     <tr>
                         <td>
                             <span class="course-name">${course.name}</span>
@@ -977,6 +1016,7 @@
             async function loadDashboard(forceRefresh) {
                 if (state.loading) return;
                 state.loading = true;
+                state.courses = await discoverCourses();
                 renderLoadingRows();
                 statusText.textContent = 'Loading live enrollment counts...';
                 const metricIds = ['totalMetric', 'shopMetric', 'campMetric', 'futureMetric'];
@@ -986,7 +1026,7 @@
                     item.textContent = '...';
                 });
                 try {
-                    const rows = await Promise.all(courses.map(course => loadCourse(course, forceRefresh)
+                    const rows = await Promise.all(state.courses.map(course => loadCourse(course, forceRefresh)
                         .catch(error => ({
                             ...course,
                             shop: 0,
