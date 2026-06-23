@@ -279,6 +279,10 @@
                         <div class="tag"><i class="fas fa-trophy" style="color:#e1306c;"></i>&nbsp; Mega Exams</div>
                         <div class="tag"><i class="fas fa-comments" style="color:#4267B2;"></i>&nbsp; Discussion Support</div>
                         <div class="tag"><i class="fas fa-award" style="color:#027536;"></i>&nbsp; World-Class Examination System</div>
+                        <div class="text-center">
+                            <button id="routine" class="btn btn-outline-primary"><i class="fas fa-file-download"></i>
+                                Course Routine</button>
+                        </div>
                     </div>
                     <br>
                     <div id="clprc" class="cove">
@@ -478,6 +482,15 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33325d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
+    <script>
+        let routine = document.getElementById("routine");
+
+        if (routine) {
+            routine.addEventListener('click', function () {
+                window.open("https://docs.google.com/spreadsheets/d/1YywwxirkqMFBwRkFssb4OyqEwIzHxYFBcnvRuQNIISQ/edit?usp=drivesdk", "_blank");
+            })
+        }
+    </script>
 </body>
 
 </html>
