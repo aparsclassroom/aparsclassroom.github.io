@@ -1,9 +1,23 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 3,
+    slidesPerView: 1.35,
+    spaceBetween: 12,
     loop: true,
     autoplay: {
         delay: 2000,
+    },
+    breakpoints: {
+        480: {
+            slidesPerView: 2,
+            spaceBetween: 12,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+        },
+        992: {
+            slidesPerView: 5,
+            spaceBetween: 3,
+        },
     },
 });
 
