@@ -3,7 +3,7 @@ const productName = "HSC 28 English Ultimate Preparation by Mokarrom Jamil";
 const init = 0;
 const Platform = "Online";
 const productCode = "817";
-const fix = 2000;
+const fix = 1200;
 // const regular discount price is configured below;
 const pls = 1500;
 const comboEnrollmentCode = "819";
