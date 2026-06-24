@@ -690,6 +690,31 @@
                 return maps;
             }
 
+            function parseEnrollmentProductMaps(source) {
+                const maps = {};
+                const arrayPattern = /\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*\[([\s\S]*?)\];/g;
+                let arrayMatch;
+                while ((arrayMatch = arrayPattern.exec(source)) !== null) {
+                    const entries = [];
+                    const objectPattern = /\{([\s\S]*?)\}/g;
+                    let objectMatch;
+                    while ((objectMatch = objectPattern.exec(arrayMatch[2])) !== null) {
+                        const cycleMatch = objectMatch[1].match(/\bcycle\s*:\s*["'](Cycle-\d+)["']/);
+                        const codeMatch = objectMatch[1].match(/\bproductCode\s*:\s*["'](\d+)["']/);
+                        if (cycleMatch && codeMatch) {
+                            entries.push({
+                                cycle: cycleMatch[1],
+                                productCode: codeMatch[1]
+                            });
+                        }
+                    }
+                    if (entries.length) {
+                        maps[arrayMatch[1]] = entries;
+                    }
+                }
+                return maps;
+            }
+
             function addEndpoint(groups, source, endpoint) {
                 if (!endpoint) return;
                 groups[source].add(endpoint);
@@ -714,6 +739,7 @@
                 const activeSource = stripJavaScriptComments(source);
                 const values = parseAssignments(activeSource);
                 const arrays = parseArrays(activeSource, values);
+                const enrollmentProductMaps = parseEnrollmentProductMaps(activeSource);
                 const pathCycle = getPathCycle(pageUrl);
                 const groups = { shop: new Set(), camp: new Set(), future: new Set() };
                 const templates = [];
@@ -749,6 +775,11 @@
                         (map[pathCycle] || []).forEach(code => addShopEndpoint(groups, null, code));
                     });
                 }
+
+                Array.from(activeSource.matchAll(/([A-Za-z_$][\w$]*)\.map\(\s*\(?\s*([A-Za-z_$][\w$]*)\s*\)?\s*=>[\s\S]*?\/enrollment\/\$\{\2\.cycle\}[\s\S]*?productCode=\$\{\2\.productCode\}/g))
+                    .forEach(item => {
+                        (enrollmentProductMaps[item[1]] || []).forEach(product => addShopEndpoint(groups, product.cycle, product.productCode));
+                    });
 
                 Array.from(activeSource.matchAll(/getEnrollmentCount\(\s*"https:\/\/"\s*\+\s*shopName2\s*\+\s*"\/enrollment\/"\s*\+\s*([A-Za-z_$][\w$]*)\s*\+\s*"\?productCode="\s*\+\s*([^)]+)\)/g))
                     .forEach(item => addShopEndpoint(groups, readCycleValue(item[1], values, pathCycle), readTokenValue(item[2], values)));
@@ -824,7 +855,16 @@
                         const cycleLinks = countableLinks.filter(anchor => {
                             return /\/Cycle-\d+\/?$/.test(new URL(anchor.getAttribute('href'), hscPageUrl).pathname);
                         });
-                        const selectedLinks = cycleLinks.length ? cycleLinks : (countableLinks.length ? countableLinks : buttons.slice(0, 1));
+                        const totalCycleFilter = (card.dataset.countTotalCycles || '')
+                            .split(',')
+                            .map(cycle => cycle.trim())
+                            .filter(Boolean);
+                        const filteredCycleLinks = totalCycleFilter.length
+                            ? cycleLinks.filter(anchor => totalCycleFilter.includes(getPathCycle(new URL(anchor.getAttribute('href'), hscPageUrl).href)))
+                            : cycleLinks;
+                        const selectedLinks = totalCycleFilter.length
+                            ? filteredCycleLinks
+                            : (cycleLinks.length ? cycleLinks : (countableLinks.length ? countableLinks : buttons.slice(0, 1)));
                         const links = Array.from(new Map(selectedLinks.map(anchor => {
                             return [new URL(anchor.getAttribute('href'), hscPageUrl).href, anchor];
                         })).keys());
