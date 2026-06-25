@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACS App | Learn With Apar's Classroom</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --surface-strong: #eef4ff;
+      --text: #101624;
+      --muted: #5b687c;
+      --line: rgba(18, 30, 50, 0.12);
+      --brand: #1768e8;
+      --brand-strong: #0f4fc0;
+      --mint: #17b890;
+      --sun: #f4b942;
+      --shadow: 0 24px 80px rgba(26, 45, 84, 0.16);
+      --phone-shadow: 0 30px 90px rgba(11, 33, 74, 0.22);
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #080d14;
+      --surface: #111925;
+      --surface-strong: #172335;
+      --text: #eef4ff;
+      --muted: #a5b2c7;
+      --line: rgba(219, 230, 255, 0.14);
+      --brand: #68a1ff;
+      --brand-strong: #9ac0ff;
+      --mint: #43d6ae;
+      --sun: #ffd166;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --phone-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 30rem),
+        radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--mint) 12%, transparent), transparent 26rem),
+        linear-gradient(180deg, var(--surface-strong), var(--bg) 36rem);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      transition: background-color 220ms ease, color 220ms ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: auto;
+      max-width: 132px;
+      max-height: 42px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .theme-tabs {
+      display: flex;
+      width: max-content;
+      padding: 5px;
+      gap: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 82%, transparent);
+      box-shadow: 0 10px 34px rgba(15, 23, 42, 0.08);
+    }
+
+    .theme-tab {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 800;
+      min-height: 38px;
+      min-width: 88px;
+      padding: 0 18px;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .theme-tab:hover {
+      color: var(--text);
+    }
+
+    .theme-tab[aria-selected="true"] {
+      background: var(--text);
+      color: var(--bg);
+      box-shadow: 0 10px 22px color-mix(in srgb, var(--text) 22%, transparent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+      align-items: center;
+      gap: clamp(36px, 7vw, 90px);
+      min-height: calc(100svh - 72px);
+      padding: clamp(48px, 8vw, 94px) 0 clamp(34px, 5vw, 60px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 76%, transparent);
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--mint) 16%, transparent);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(3rem, 8vw, 6.75rem);
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      margin: 26px 0 0;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.24rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .play-badge {
+      display: inline-block;
+      border-radius: 10px;
+      transition: transform 150ms ease, box-shadow 200ms ease;
+    }
+
+    .play-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .play-badge img {
+      height: 60px;
+      width: auto;
+    }
+
+    .visitor-counter {
+      display: inline-grid;
+      min-height: 60px;
+      align-content: center;
+      padding: 8px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--surface) 76%, transparent);
+      box-shadow: 0 12px 34px color-mix(in srgb, var(--text) 8%, transparent);
+    }
+
+    .visitor-counter strong {
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .visitor-counter span {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 60px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      padding: 0 28px;
+      font-weight: 850;
+      white-space: nowrap;
+      transition: transform 150ms ease, box-shadow 200ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      border-color: color-mix(in srgb, var(--brand) 72%, transparent);
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 18px 46px color-mix(in srgb, var(--brand) 30%, transparent);
+    }
+
+    .button.secondary {
+      border-color: color-mix(in srgb, var(--text) 24%, transparent);
+      background: #05070a;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    [data-theme="dark"] .button.secondary {
+      border-color: rgba(255, 255, 255, 0.32);
+      background: #ffffff;
+      color: #080d14;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 650px;
+      margin-top: 44px;
+    }
+
+    .stat {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .phone-stage {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      min-height: 640px;
+      isolation: isolate;
+    }
+
+    .phone-stage::before {
+      content: "";
+      position: absolute;
+      inset: 12% -6% 8%;
+      z-index: -2;
+      border-radius: 999px;
+      background:
+        linear-gradient(140deg, color-mix(in srgb, var(--brand) 38%, transparent), color-mix(in srgb, var(--mint) 24%, transparent)),
+        color-mix(in srgb, var(--surface) 40%, transparent);
+      filter: blur(4px);
+      transform: rotate(-7deg);
+    }
+
+    .phone-stage::after {
+      content: "";
+      position: absolute;
+      right: 4%;
+      bottom: 6%;
+      z-index: -1;
+      width: 72%;
+      height: 28%;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--text) 22%, transparent);
+      filter: blur(34px);
+      opacity: 0.35;
+    }
+
+    .phone {
+      position: relative;
+      width: min(360px, 86vw);
+      aspect-ratio: 697 / 1507;
+      overflow: hidden;
+      border: 10px solid color-mix(in srgb, var(--text) 88%, #222);
+      border-radius: 42px;
+      background: #05070a;
+      box-shadow: var(--phone-shadow);
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      z-index: 2;
+      width: 34%;
+      height: 20px;
+      border-radius: 999px;
+      background: #05070a;
+      transform: translateX(-50%);
+    }
+
+    .phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .float-badge {
+      position: absolute;
+      left: -4px;
+      bottom: 112px;
+      max-width: 210px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .float-badge strong {
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .float-badge span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .section-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(260px, 0.65fr);
+      gap: 30px;
+      align-items: end;
+      padding: 30px 0 52px;
+    }
+
+    .section-intro h2 {
+      margin: 0;
+      font-size: clamp(2.25rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .section-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+
+    .journey {
+      display: grid;
+      gap: 26px;
+      padding-bottom: 70px;
+    }
+
+    .journey-step {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.72fr);
+      align-items: center;
+      gap: clamp(28px, 5vw, 72px);
+      min-height: 560px;
+      padding: clamp(24px, 4vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 94%, transparent), color-mix(in srgb, var(--surface-strong) 74%, transparent));
+      box-shadow: 0 18px 70px color-mix(in srgb, var(--text) 8%, transparent);
+      overflow: hidden;
+    }
+
+    .journey-step:nth-child(even) {
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 0.9fr);
+    }
+
+    .journey-step:nth-child(even) .step-copy {
+      order: 2;
+    }
+
+    .step-kicker {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: var(--brand-strong);
+      font-size: 0.84rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .step-copy h3 {
+      margin: 0;
+      max-width: 600px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .step-copy p {
+      max-width: 560px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    .step-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step-points li {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 65%, transparent);
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      padding: 9px 13px;
+    }
+
+    .shot-wrap {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      min-width: 0;
+    }
+
+    .shot-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 13% 4% 8%;
+      border-radius: 38px;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--brand) 30%, transparent), color-mix(in srgb, var(--sun) 18%, transparent));
+      filter: blur(26px);
+      opacity: 0.72;
+    }
+
+    .shot-phone {
+      position: relative;
+      width: min(295px, 68vw);
+      aspect-ratio: 697 / 1507;
+      overflow: hidden;
+      border: 8px solid color-mix(in srgb, var(--text) 88%, #222);
+      border-radius: 36px;
+      background: #05070a;
+      box-shadow: var(--phone-shadow);
+    }
+
+    .shot-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .final-band {
+      margin: 14px 0 76px;
+      padding: clamp(32px, 5vw, 56px);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--mint) 76%, var(--brand)));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .final-band h2 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .final-band p {
+      max-width: 700px;
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .section-intro,
+      .journey-step,
+      .journey-step:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .phone-stage {
+        min-height: auto;
+        padding: 22px 0 8px;
+      }
+
+      .journey-step:nth-child(even) .step-copy {
+        order: 0;
+      }
+
+      .journey-step {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .nav {
+        min-height: 82px;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .theme-tabs {
+        width: 100%;
+      }
+
+      .theme-tab {
+        flex: 1;
+        min-width: 0;
+        padding: 0 10px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 15vw, 4.7rem);
+      }
+
+      .hero-actions,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .play-badge,
+      .play-badge img,
+      .visitor-counter {
+        width: 100%;
+      }
+
+      .play-badge img {
+        height: auto;
+        max-height: 62px;
+      }
+
+      .visitor-counter {
+        justify-items: center;
+        text-align: center;
+      }
+
+      .footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .float-badge {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        margin-top: -24px;
+      }
+
+      .journey-step,
+      .final-band {
+        border-radius: 24px;
+      }
+
+      .shot-phone {
+        width: min(260px, 76vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="shell nav" aria-label="Main">
+      <a class="brand" href="#top" aria-label="ACS App home">
+        <img class="brand-logo" src="ACS%20APP%20SS/applogo.png" alt="ACS App" />
+      </a>
+
+      <div class="theme-tabs" role="tablist" aria-label="Preview theme">
+        <button class="theme-tab" type="button" role="tab" aria-selected="true" data-theme-choice="light">Light</button>
+        <button class="theme-tab" type="button" role="tab" aria-selected="false" data-theme-choice="dark">Dark</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="shell hero">
+      <div>
+        <span class="eyebrow">A complete learning journey in one app</span>
+        <h1>ACS App</h1>
+        <p class="hero-copy">
+          From signing in to joining live classes, replaying recorded lessons, bookmarking important topics, and tracking study history, ACS App keeps students moving through their course with clarity.
+        </p>
+        <div class="hero-actions">
+          <a class="button secondary" href="#journey">Explore the journey</a>
+          <!-- <a class="button secondary" href="#screens">View app screens</a> -->
+          <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Get ACS App on Google Play">
+            <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" />
+          </a>
+        </div>
+        <div class="hero-stats" aria-label="App highlights">
+          <div class="stat">
+            <strong>Live</strong>
+            <span>Classroom sessions with clear previews</span>
+          </div>
+          <div class="stat">
+            <strong>Offline</strong>
+            <span>Downloads and quality controls</span>
+          </div>
+          <div class="stat">
+            <strong>Personal</strong>
+            <span>Bookmarks, history, and profile</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-stage" aria-hidden="true">
+        <div class="phone">
+          <img
+            class="theme-image"
+            src="ACS%20APP%20SS/Login/login.png"
+            data-light="ACS%20APP%20SS/Login/login.png"
+            data-dark="ACS%20APP%20SS/Login/login_dark.png"
+            alt=""
+          />
+        </div>
+        <!-- <div class="float-badge">
+          <strong>Theme-aware preview</strong>
+          <span>Use the tabs above to switch the entire journey between normal and dark screenshots.</span>
+        </div> -->
+      </div>
+    </section>
+
+    <section class="shell section-intro" id="journey">
+      <h2>One flow, every study moment.</h2>
+      <p>
+        The page follows a student from their first login through course access, live class discovery, teacher streaming, recorded revision, video quality selection, saved lessons, and their personal study space.
+      </p>
+    </section>
+
+    <section class="shell journey" id="screens" aria-label="ACS App user journey">
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 01</span>
+          <h3>Start with a clean sign-in.</h3>
+          <p>Students enter the app through a focused login screen that keeps the first touch simple and direct.</p>
+          <ul class="step-points">
+            <li>Fast access</li>
+            <li>Focused entry</li>
+            <li>Student-first UI</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Login/login.png" data-light="ACS%20APP%20SS/Login/login.png" data-dark="ACS%20APP%20SS/Login/login_dark.png" alt="ACS App login screen" />
+          </div>
+        </div>
+      </article>
+
+        <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 02</span>
+          <h3>Land on the home and find the right courses for you.</h3>
+          <p>The home screen provides a clear overview of available courses, making it easy for students to navigate and select the ones that match their needs.</p>
+          <ul class="step-points">
+            <li>Course discovery</li>
+            <li>Personalized recommendations</li>
+            <li>Easy navigation</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Live/live.png" data-light="ACS%20APP%20SS/Live/live.png" data-dark="ACS%20APP%20SS/Live/live_dark.png" alt="ACS App live class screen" />
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 03</span>
+          <h3>Pick up the right course instantly.</h3>
+          <p>The My Course view brings enrolled classes into one place so students can jump back into learning without searching around.</p>
+          <ul class="step-points">
+            <li>Course dashboard</li>
+            <li>Pin Feature for easy access</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Mycourse/myCourse.png" data-light="ACS%20APP%20SS/Mycourse/myCourse.png" data-dark="ACS%20APP%20SS/Mycourse/mycourse_dark.png" alt="ACS App my course screen" />
+          </div>
+        </div>
+      </article>
+
+    
+
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 04</span>
+          <h3>Enter the classroom as it happens.</h3>
+          <p>The live stream view brings the teacher, class content, and student comments together so the session feels active and connected.</p>
+          <ul class="step-points">
+            <li>Teacher stream</li>
+            <li>Student comments</li>
+            <li>Real-time learning</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Live%20class%20Preview/liveClassPreview.png" data-light="ACS%20APP%20SS/Live%20class%20Preview/liveClassPreview.png" data-dark="ACS%20APP%20SS/Live%20class%20Preview/liveClassPreview.png" alt="ACS App teacher live stream with student comments" />
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 05</span>
+          <h3>Replay lessons whenever revision starts.</h3>
+          <p>Recorded classes keep previous lessons available for focused catch-up, exam preparation, and repeat practice.</p>
+          <ul class="step-points">
+            <li>Recorded lessons</li>
+            <li>Revision friendly</li>
+            <li>Always available</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Recorded/recordedView.png" data-light="ACS%20APP%20SS/Recorded/recordedView.png" data-dark="ACS%20APP%20SS/Recorded/recorded_dark.png" alt="ACS App recorded lesson screen" />
+          </div>
+        </div>
+      </article>
+
+        <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 06</span>
+          <h3>Choose the video quality that fits.</h3>
+          <p>Before saving a class, students can pick Original, 480p, 780p, or 1080p based on their storage, data, and study needs.</p>
+          <ul class="step-points">
+            <li>Original</li>
+            <li>480p</li>
+            <li>780p</li>
+            <li>1080p</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Download%20Quality/dowloadQuality.png" data-light="ACS%20APP%20SS/Download%20Quality/dowloadQuality.png" data-dark="ACS%20APP%20SS/Download%20Quality/downloadQuality_dark.png" alt="ACS App download quality choices" />
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 07</span>
+          <h3>Download, save, and study on your schedule.</h3>
+          <p>Students can keep class videos ready for later and manage downloaded lessons from one simple place.</p>
+          <ul class="step-points">
+            <li>Downloads</li>
+            <li>Offline access</li>
+            <li>Study anywhere</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Downloads/downloads.png" data-light="ACS%20APP%20SS/Downloads/downloads.png" data-dark="ACS%20APP%20SS/Downloads/download_dark.png" alt="ACS App downloads screen" />
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 08</span>
+          <h3>Keep important lessons close.</h3>
+          <p>Bookmarks and watch history make the app feel personal, giving students a natural way to return to the lessons that matter most.</p>
+          <ul class="step-points">
+            <li>Bookmarks</li>
+            <li>Watch history</li>
+            <li>Personal library</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Bookmark/bookmarked.png" data-light="ACS%20APP%20SS/Bookmark/bookmarked.png" data-dark="ACS%20APP%20SS/Bookmark/bookmarked_dark.png" alt="ACS App bookmarked lessons screen" />
+          </div>
+        </div>
+      </article>
+
+      <article class="journey-step">
+        <div class="step-copy">
+          <span class="step-kicker">Step 09</span>
+          <h3>Finish inside a complete student space.</h3>
+          <p>The profile and learning utility screens round out the experience with account context and dedicated study sections.</p>
+          <ul class="step-points">
+            <li>Profile</li>
+            <li>Study sections</li>
+            <li>Account clarity</li>
+          </ul>
+        </div>
+        <div class="shot-wrap">
+          <div class="shot-phone">
+            <img class="theme-image" src="ACS%20APP%20SS/Profile/profile.png" data-light="ACS%20APP%20SS/Profile/profile.png" data-dark="ACS%20APP%20SS/Profile/profile_dark.png" alt="ACS App profile screen" />
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="shell final-band">
+      <h2>A polished app experience built around the way students actually study.</h2>
+      <p>Light or dark, live or recorded, online or offline, ACS App gives each learner a clear path from class discovery to consistent revision.</p>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span>ACS App by ASG SHOP TEAM ❤️</span>
+    <div class="visitor-counter" aria-live="polite">
+      <strong data-visitor-count>...</strong>
+      <span data-visitor-label>page views</span>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const tabs = Array.from(document.querySelectorAll(".theme-tab"));
+    const images = Array.from(document.querySelectorAll(".theme-image"));
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      tabs.forEach((tab) => {
+        tab.setAttribute("aria-selected", String(tab.dataset.themeChoice === theme));
+      });
+      images.forEach((image) => {
+        image.src = image.dataset[theme];
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => setTheme(tab.dataset.themeChoice));
+    });
+
+    const visitorCount = document.querySelector("[data-visitor-count]");
+    const visitorLabel = document.querySelector("[data-visitor-label]");
+
+    function showLocalVisitCount() {
+      const key = "acsappLocalVisitCount";
+      const count = Number(localStorage.getItem(key) || "0") + 1;
+      localStorage.setItem(key, String(count));
+      visitorCount.textContent = count.toLocaleString();
+      visitorLabel.textContent = "visits here";
+    }
+
+    async function updateVisitorCounter() {
+      showLocalVisitCount();
+
+      try {
+        const response = await fetch("https://api.countapi.xyz/hit/aparsclassroom-acsapp/visits", {
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("Counter unavailable");
+        }
+
+        const data = await response.json();
+
+        if (typeof data.value === "number") {
+          visitorCount.textContent = data.value.toLocaleString();
+          visitorLabel.textContent = "page views";
+        }
+      } catch (error) {
+        visitorLabel.textContent = "visits here";
+      }
+    }
+
+    updateVisitorCounter();
+  </script>
+</body>
+</html>
