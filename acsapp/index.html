@@ -141,6 +141,114 @@
       box-shadow: 0 10px 22px color-mix(in srgb, var(--text) 22%, transparent);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-download {
+      position: relative;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid color-mix(in srgb, var(--mint) 48%, transparent);
+      border-radius: 999px;
+      padding: 0 18px;
+      background: #05070a;
+      color: #fff;
+      box-shadow:
+        0 10px 26px color-mix(in srgb, var(--brand) 20%, transparent),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      font-size: 0.9rem;
+      font-weight: 900;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px) scale(0.96);
+      transition: opacity 180ms ease, transform 180ms ease, box-shadow 220ms ease;
+      white-space: nowrap;
+    }
+
+    .nav-download::before {
+      content: "";
+      position: absolute;
+      inset: -9px;
+      z-index: -1;
+      border-radius: inherit;
+      background: radial-gradient(circle, color-mix(in srgb, var(--mint) 42%, transparent), color-mix(in srgb, var(--brand) 18%, transparent) 54%, transparent 72%);
+      filter: blur(10px);
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .topbar.is-scrolled .nav-download {
+      animation: downloadGlow 2.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .topbar.is-scrolled .nav-download::before {
+      animation: downloadHalo 2.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+    }
+
+    .nav-download:hover {
+      animation-play-state: paused;
+      box-shadow:
+        0 16px 40px color-mix(in srgb, var(--brand) 34%, transparent),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .nav-download:hover::before {
+      animation-play-state: paused;
+      opacity: 0.72;
+      transform: scale(1.08);
+    }
+
+    .nav-download .play-mark {
+      width: 18px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    @keyframes downloadGlow {
+      0%,
+      100% {
+        box-shadow:
+          0 10px 26px color-mix(in srgb, var(--brand) 20%, transparent),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+      45% {
+        box-shadow:
+          0 15px 40px color-mix(in srgb, var(--brand) 32%, transparent),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+      }
+      65% {
+        box-shadow:
+          0 13px 34px color-mix(in srgb, var(--brand) 26%, transparent),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    @keyframes downloadHalo {
+      0%,
+      100% {
+        opacity: 0.26;
+        transform: scale(0.96);
+      }
+      48% {
+        opacity: 0.82;
+        transform: scale(1.1);
+      }
+      72% {
+        opacity: 0.48;
+        transform: scale(1.03);
+      }
+    }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
@@ -613,6 +721,14 @@
         padding: 10px 0;
       }
 
+      .nav-actions {
+        gap: 10px;
+      }
+
+      .nav-download {
+        display: none;
+      }
+
       .brand-logo {
         max-width: 108px;
         max-height: 34px;
@@ -905,9 +1021,20 @@
         <img class="brand-logo" src="ACS%20APP%20SS/applogo.png" alt="ACS App" />
       </a>
 
-      <div class="theme-tabs" role="tablist" aria-label="Preview theme">
-        <button class="theme-tab" type="button" role="tab" aria-selected="true" data-theme-choice="light">Light</button>
-        <button class="theme-tab" type="button" role="tab" aria-selected="false" data-theme-choice="dark">Dark</button>
+      <div class="nav-actions">
+        <a class="nav-download" href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Get ACS App on Google Play">
+          <svg class="play-mark" viewBox="16 12 43 48" aria-hidden="true" focusable="false">
+            <path fill="#ea4335" d="M36.6,34.41l-18.86,20.02s0,0,0,.01c.58,2.17,2.56,3.77,4.92,3.77.94,0,1.83-.26,2.58-.7l.06-.04,21.23-12.25-9.94-10.82Z" />
+            <path fill="#fbbc04" d="M55.68,31h-.02s-9.17-5.33-9.17-5.33l-10.33,9.19,10.36,10.36,9.12-5.26c1.6-.86,2.68-2.55,2.68-4.49s-1.07-3.61-2.65-4.47h0Z" />
+            <path fill="#4285f4" d="M17.73,16.44c-.11.42-.17.86-.17,1.31v35.38c0,.45.06.89.17,1.31l19.51-19.51-19.51-18.49Z" />
+            <path fill="#34a853" d="M36.74,35.43l9.76-9.76-21.21-12.3c-.77-.46-1.67-.73-2.63-.73-2.36,0-4.34,1.6-4.92,3.78h0s19,19,19,19h0Z" />
+          </svg>
+          <span>Download</span>
+        </a>
+        <div class="theme-tabs" role="tablist" aria-label="Preview theme">
+          <button class="theme-tab" type="button" role="tab" aria-selected="true" data-theme-choice="light">Light</button>
+          <button class="theme-tab" type="button" role="tab" aria-selected="false" data-theme-choice="dark">Dark</button>
+        </div>
       </div>
     </nav>
   </header>
@@ -1161,8 +1288,13 @@
 
   <script>
     const root = document.documentElement;
+    const topbar = document.querySelector(".topbar");
     const tabs = Array.from(document.querySelectorAll(".theme-tab"));
     const images = Array.from(document.querySelectorAll(".theme-image"));
+
+    function updateNavDownload() {
+      topbar.classList.toggle("is-scrolled", window.scrollY > 140);
+    }
 
     function setTheme(theme) {
       root.dataset.theme = theme;
@@ -1177,6 +1309,9 @@
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => setTheme(tab.dataset.themeChoice));
     });
+
+    updateNavDownload();
+    window.addEventListener("scroll", updateNavDownload, { passive: true });
 
     const visitorCount = document.querySelector("[data-visitor-count]");
     const visitorLabel = document.querySelector("[data-visitor-label]");
