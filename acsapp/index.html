@@ -633,29 +633,70 @@
     }
 
     .final-band {
-      margin: 14px 0 76px;
-      padding: clamp(32px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 28px;
+      margin: 14px 0 46px;
+      padding: clamp(26px, 4vw, 44px);
       border: 1px solid var(--line);
-      border-radius: 32px;
-      background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--mint) 76%, var(--brand)));
-      color: #fff;
-      box-shadow: var(--shadow);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 94%, transparent), color-mix(in srgb, var(--surface-strong) 72%, transparent));
+      box-shadow: 0 18px 70px color-mix(in srgb, var(--text) 8%, transparent);
+    }
+
+    .final-band::before {
+      content: "";
+      width: 54px;
+      height: 54px;
+      align-self: start;
+      grid-column: 1;
+      grid-row: 1;
+      border: 1px solid color-mix(in srgb, var(--brand) 36%, var(--line));
+      border-radius: 16px;
+      background:
+        url("ACS%20APP%20SS/applogo.png") center / 78% auto no-repeat,
+        color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow: 0 14px 34px color-mix(in srgb, var(--brand) 12%, transparent);
+    }
+
+    .final-copy {
+      grid-column: 1;
+      grid-row: 1;
+      padding-left: 76px;
     }
 
     .final-band h2 {
       margin: 0;
       max-width: 780px;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 1;
+      font-size: clamp(2rem, 4vw, 3.55rem);
+      line-height: 1.04;
       letter-spacing: 0;
     }
 
     .final-band p {
       max-width: 700px;
       margin: 18px 0 0;
-      color: rgba(255, 255, 255, 0.86);
+      color: var(--muted);
       font-size: 1.05rem;
       line-height: 1.7;
+    }
+
+    .final-download {
+      display: inline-block;
+      border-radius: 10px;
+      transition: transform 150ms ease, box-shadow 200ms ease;
+    }
+
+    .final-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .final-download img {
+      width: auto;
+      height: 58px;
     }
 
     .footer {
@@ -663,7 +704,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 28px 0 42px;
+      padding: 24px 0 42px;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.95rem;
@@ -914,8 +955,22 @@
       }
 
       .final-band {
+        grid-template-columns: 1fr;
+        gap: 22px;
         margin-bottom: 46px;
         padding: 28px 20px;
+      }
+
+      .final-band::before {
+        width: 48px;
+        height: 48px;
+        grid-row: auto;
+      }
+
+      .final-copy {
+        grid-column: 1;
+        grid-row: auto;
+        padding-left: 0;
       }
 
       .final-band h2 {
@@ -926,6 +981,14 @@
       .final-band p {
         font-size: 0.98rem;
         line-height: 1.62;
+      }
+
+      .final-download {
+        justify-self: start;
+      }
+
+      .final-download img {
+        height: 52px;
       }
 
       .mobile-download-cta {
@@ -1260,10 +1323,15 @@
       </article>
     </section>
 
-    <section class="shell final-band">
-      <h2>A polished app experience built around the way students actually study.</h2>
-      <p>Light or dark, live or recorded, online or offline, ACS App gives each learner a clear path from class discovery to consistent revision.</p>
-    </section>
+    <!-- <section class="shell final-band">
+      <div class="final-copy">
+        <h2>A polished app experience built around the way students actually study.</h2>
+        <p>Light or dark, live or recorded, online or offline, ACS App gives each learner a clear path from class discovery to consistent revision.</p>
+      </div>
+      <a class="final-download" href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Get ACS App on Google Play">
+        <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" />
+      </a>
+    </section> -->
   </main>
 
   <footer class="shell footer">
