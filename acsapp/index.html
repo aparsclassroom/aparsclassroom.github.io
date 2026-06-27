@@ -562,6 +562,10 @@
       font-weight: 700;
     }
 
+    .mobile-download-cta {
+      display: none;
+    }
+
     @media (max-width: 900px) {
       .hero,
       .section-intro,
@@ -595,6 +599,10 @@
     }
 
     @media (max-width: 640px) {
+      body {
+        padding-bottom: calc(92px + env(safe-area-inset-bottom));
+      }
+
       .shell {
         width: min(100% - 28px, 1180px);
       }
@@ -662,6 +670,7 @@
 
       .play-badge {
         justify-self: center;
+        order: -1;
       }
 
       .play-badge img {
@@ -730,7 +739,7 @@
 
       .journey {
         gap: 18px;
-        padding-bottom: 44px;
+        padding-bottom: 50px;
       }
 
       .journey-step {
@@ -801,6 +810,47 @@
       .final-band p {
         font-size: 0.98rem;
         line-height: 1.62;
+      }
+
+      .mobile-download-cta {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--line);
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        box-shadow: 0 -18px 46px color-mix(in srgb, var(--text) 14%, transparent);
+        backdrop-filter: blur(18px);
+      }
+
+      .mobile-download-cta a {
+        display: inline-flex;
+        width: min(100%, 360px);
+        min-height: 58px;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        border-radius: 14px;
+        background: #05070a;
+        color: #fff;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+        font-weight: 850;
+      }
+
+      .mobile-download-cta .play-mark {
+        width: 28px;
+        height: 30px;
+        flex: 0 0 auto;
+      }
+
+      .mobile-download-cta span:last-child {
+        font-size: 1rem;
+        line-height: 1;
       }
     }
 
@@ -1096,6 +1146,18 @@
       <span data-visitor-label>page views</span>
     </div>
   </footer>
+
+  <div class="mobile-download-cta" aria-label="Download ACS App">
+    <a href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Get ACS App on Google Play">
+      <svg class="play-mark" viewBox="16 12 43 48" aria-hidden="true" focusable="false">
+        <path fill="#ea4335" d="M36.6,34.41l-18.86,20.02s0,0,0,.01c.58,2.17,2.56,3.77,4.92,3.77.94,0,1.83-.26,2.58-.7l.06-.04,21.23-12.25-9.94-10.82Z" />
+        <path fill="#fbbc04" d="M55.68,31h-.02s-9.17-5.33-9.17-5.33l-10.33,9.19,10.36,10.36,9.12-5.26c1.6-.86,2.68-2.55,2.68-4.49s-1.07-3.61-2.65-4.47h0Z" />
+        <path fill="#4285f4" d="M17.73,16.44c-.11.42-.17.86-.17,1.31v35.38c0,.45.06.89.17,1.31l19.51-19.51-19.51-18.49Z" />
+        <path fill="#34a853" d="M36.74,35.43l9.76-9.76-21.21-12.3c-.77-.46-1.67-.73-2.63-.73-2.36,0-4.34,1.6-4.92,3.78h0s19,19,19,19h0Z" />
+      </svg>
+      <span>Get it on Google Play</span>
+    </a>
+  </div>
 
   <script>
     const root = document.documentElement;
