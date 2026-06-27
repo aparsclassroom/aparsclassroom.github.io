@@ -403,7 +403,7 @@
       showLocalVisitCount();
 
       try {
-        const response = await fetch("https://api.countapi.xyz/hit/aparsclassroom-acsapp/visits", {
+        const response = await fetch("https://api.counterapi.dev/v1/aparsclassroom/acsapp/up", {
           cache: "no-store"
         });
 
@@ -413,8 +413,10 @@
 
         const data = await response.json();
 
-        if (typeof data.value === "number") {
-          visitorCount.textContent = data.value.toLocaleString();
+        const count = typeof data.count === "number" ? data.count : data.value;
+
+        if (typeof count === "number") {
+          visitorCount.textContent = count.toLocaleString();
           visitorLabel.textContent = "page views";
         }
       } catch (error) {
