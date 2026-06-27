@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACS App | Learn With Apar's Classroom</title>
   <title>ACS App Download | Apar's Classroom Learning App</title>
   <meta name="description"
     content="Download ACS App by Apar's Classroom to join live classes, watch recorded lessons, manage downloads, bookmarks, watch history, exams, invoices, and your student profile." />
@@ -22,14 +21,17 @@
   <meta name="twitter:description"
     content="Download the ACS App for live classes, recorded lessons, downloads, bookmarks, and study history." />
   <meta name="twitter:image" content="https://aparsclassroom.com/shop/assets/images/course-thumbnails/acsapp/applogo.webp" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="/shop/assets/images/course-thumbnails/acsapp/login.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="style.css" /></noscript>
 </head>
 
 <body>
   <header class="topbar">
     <nav class="shell nav" aria-label="Main">
       <a class="brand" href="#top" aria-label="ACS App home">
-        <img class="brand-logo" src="/shop/assets/images/course-thumbnails/acsapp/applogo.webp" alt="ACS App" />
+        <img class="brand-logo" src="/shop/assets/images/course-thumbnails/acsapp/applogo.webp" width="720" height="297" alt="ACS App" />
       </a>
 
       <div class="nav-actions">
@@ -73,7 +75,7 @@
           <a class="play-badge"
             href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share" target="_blank"
             rel="noopener" aria-label="Get ACS App on Google Play">
-            <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" />
+            <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" width="239" height="71" alt="Get it on Google Play" />
           </a>
         </div>
         <div class="hero-stats" aria-label="App highlights">
@@ -95,7 +97,7 @@
       <div class="phone-stage" aria-hidden="true">
         <div class="phone">
           <img class="theme-image" src="/shop/assets/images/course-thumbnails/acsapp/login.webp" data-light="/shop/assets/images/course-thumbnails/acsapp/login.webp"
-            data-dark="/shop/assets/images/course-thumbnails/acsapp/login-dark.webp" alt="" />
+            data-dark="/shop/assets/images/course-thumbnails/acsapp/login-dark.webp" width="720" height="1557" fetchpriority="high" decoding="async" alt="" />
         </div>
         <!-- <div class="float-badge">
           <strong>Theme-aware preview</strong>
@@ -127,7 +129,7 @@
         <div class="shot-wrap">
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/login.webp" data-light="/shop/assets/images/course-thumbnails/acsapp/login.webp"
-              data-dark="/shop/assets/images/course-thumbnails/acsapp/login-dark.webp" alt="ACS App login screen" />
+              data-dark="/shop/assets/images/course-thumbnails/acsapp/login-dark.webp" width="720" height="1557" alt="ACS App login screen" />
           </div>
         </div>
       </article>
@@ -147,7 +149,7 @@
         <div class="shot-wrap">
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/live.webp" data-light="/shop/assets/images/course-thumbnails/acsapp/live.webp"
-              data-dark="/shop/assets/images/course-thumbnails/acsapp/live-dark.webp" alt="ACS App live class screen" />
+              data-dark="/shop/assets/images/course-thumbnails/acsapp/live-dark.webp" width="720" height="1565" alt="ACS App live class screen" />
           </div>
         </div>
       </article>
@@ -167,7 +169,7 @@
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/mycourse.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/mycourse.webp" data-dark="/shop/assets/images/course-thumbnails/acsapp/mycourse-dark.webp"
-              alt="ACS App my course screen" />
+              width="720" height="1572" alt="ACS App my course screen" />
           </div>
         </div>
       </article>
@@ -191,7 +193,7 @@
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/liveclasspreview.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/liveclasspreview.webp"
               data-dark="/shop/assets/images/course-thumbnails/acsapp/liveclasspreview.webp"
-              alt="ACS App teacher live stream with student comments" />
+              width="720" height="1553" alt="ACS App teacher live stream with student comments" />
           </div>
         </div>
       </article>
@@ -212,7 +214,7 @@
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/recordedview.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/recordedview.webp"
-              data-dark="/shop/assets/images/course-thumbnails/acsapp/recorded-dark.webp" alt="ACS App recorded lesson screen" />
+              data-dark="/shop/assets/images/course-thumbnails/acsapp/recorded-dark.webp" width="720" height="1548" alt="ACS App recorded lesson screen" />
           </div>
         </div>
       </article>
@@ -235,7 +237,7 @@
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/dowloadquality.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/dowloadquality.webp"
               data-dark="/shop/assets/images/course-thumbnails/acsapp/downloadquality-dark.webp"
-              alt="ACS App download quality choices" />
+              width="720" height="1554" alt="ACS App download quality choices" />
           </div>
         </div>
       </article>
@@ -256,7 +258,7 @@
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/downloads.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/downloads.webp" data-dark="/shop/assets/images/course-thumbnails/acsapp/download-dark.webp"
-              alt="ACS App downloads screen" />
+              width="720" height="1553" alt="ACS App downloads screen" />
           </div>
         </div>
       </article>
@@ -277,7 +279,7 @@
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/watchhistory.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/watchhistory.webp"
-              data-dark="/shop/assets/images/course-thumbnails/acsapp/watchhistory-dark.webp" alt="ACS App watch history screen" />
+              data-dark="/shop/assets/images/course-thumbnails/acsapp/watchhistory-dark.webp" width="720" height="1566" alt="ACS App watch history screen" />
           </div>
         </div>
       </article>
@@ -298,7 +300,7 @@
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/bookmarked.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/bookmarked.webp"
-              data-dark="/shop/assets/images/course-thumbnails/acsapp/bookmarked-dark.webp" alt="ACS App bookmarked lessons screen" />
+              data-dark="/shop/assets/images/course-thumbnails/acsapp/bookmarked-dark.webp" width="720" height="1551" alt="ACS App bookmarked lessons screen" />
           </div>
         </div>
       </article>
@@ -319,7 +321,7 @@
           <div class="shot-phone">
             <img class="theme-image" loading="lazy" decoding="async" src="/shop/assets/images/course-thumbnails/acsapp/profile.webp"
               data-light="/shop/assets/images/course-thumbnails/acsapp/profile.webp" data-dark="/shop/assets/images/course-thumbnails/acsapp/profile-dark.webp"
-              alt="ACS App profile screen" />
+              width="720" height="1539" alt="ACS App profile screen" />
           </div>
         </div>
       </article>
@@ -331,7 +333,7 @@
         <p>Light or dark, live or recorded, online or offline, ACS App gives each learner a clear path from class discovery to consistent revision.</p>
       </div>
       <a class="final-download" href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Get ACS App on Google Play">
-        <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" />
+        <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" width="239" height="71" alt="Get it on Google Play" />
       </a>
     </section> -->
   </main>
