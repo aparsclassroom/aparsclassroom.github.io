@@ -572,6 +572,7 @@
 
       .hero {
         min-height: auto;
+        gap: 34px;
       }
 
       .phone-stage {
@@ -586,61 +587,182 @@
       .journey-step {
         min-height: auto;
       }
+
+      .step-copy h3,
+      .step-copy p {
+        max-width: none;
+      }
     }
 
     @media (max-width: 640px) {
       .shell {
-        width: min(100% - 24px, 1180px);
+        width: min(100% - 28px, 1180px);
       }
 
       .nav {
-        min-height: 82px;
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 14px 0;
+        min-height: 64px;
+        gap: 12px;
+        padding: 10px 0;
       }
 
-      .theme-tabs {
-        width: 100%;
+      .brand-logo {
+        max-width: 108px;
+        max-height: 34px;
       }
 
       .theme-tab {
-        flex: 1;
-        min-width: 0;
-        padding: 0 10px;
+        min-height: 34px;
+        min-width: 68px;
+        padding: 0 12px;
+        font-size: 0.8rem;
       }
 
       .hero {
-        padding-top: 42px;
+        padding: 34px 0 30px;
       }
 
       h1 {
-        font-size: clamp(2.7rem, 15vw, 4.7rem);
+        font-size: clamp(3rem, 18vw, 4.25rem);
+        line-height: 0.94;
       }
 
-      .hero-actions,
+      .eyebrow {
+        margin-bottom: 16px;
+        padding: 8px 12px;
+        font-size: 0.76rem;
+      }
+
+      .hero-copy {
+        margin-top: 18px;
+        font-size: 1rem;
+        line-height: 1.62;
+      }
+
+      .hero-actions {
+        display: grid;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
       .hero-stats {
         grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 28px;
       }
 
       .button {
         width: 100%;
+        min-height: 54px;
+        padding: 0 18px;
       }
 
-      .play-badge,
-      .play-badge img,
       .visitor-counter {
         width: 100%;
       }
 
+      .play-badge {
+        justify-self: center;
+      }
+
       .play-badge img {
+        width: auto;
         height: auto;
-        max-height: 62px;
+        max-height: 54px;
+        object-fit: contain;
       }
 
       .visitor-counter {
         justify-items: center;
         text-align: center;
+      }
+
+      .stat {
+        padding-top: 12px;
+      }
+
+      .stat strong {
+        font-size: 1.34rem;
+      }
+
+      .stat span {
+        font-size: 0.84rem;
+      }
+
+      .phone-stage {
+        padding: 4px 0 0;
+      }
+
+      .phone-stage::before {
+        inset: 10% 7% 8%;
+      }
+
+      .phone-stage::after {
+        right: 12%;
+        bottom: 2%;
+        width: 62%;
+      }
+
+      .phone {
+        width: min(255px, 74vw);
+        border-width: 7px;
+        border-radius: 32px;
+      }
+
+      .phone::before {
+        top: 8px;
+        height: 14px;
+      }
+
+      .section-intro {
+        gap: 16px;
+        padding: 16px 0 28px;
+      }
+
+      .section-intro h2 {
+        font-size: clamp(2.05rem, 12vw, 3rem);
+        line-height: 1.02;
+      }
+
+      .section-intro p {
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+
+      .journey {
+        gap: 18px;
+        padding-bottom: 44px;
+      }
+
+      .journey-step {
+        gap: 28px;
+        padding: 24px 18px 28px;
+      }
+
+      .step-kicker {
+        margin-bottom: 12px;
+        font-size: 0.76rem;
+      }
+
+      .step-copy h3 {
+        font-size: clamp(1.85rem, 10vw, 2.7rem);
+        line-height: 1.04;
+      }
+
+      .step-copy p {
+        margin-top: 16px;
+        font-size: 0.96rem;
+        line-height: 1.62;
+      }
+
+      .step-points {
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .step-points li {
+        border-radius: 12px;
+        font-size: 0.78rem;
+        padding: 8px 10px;
       }
 
       .footer {
@@ -657,11 +779,71 @@
 
       .journey-step,
       .final-band {
-        border-radius: 24px;
+        border-radius: 20px;
       }
 
       .shot-phone {
-        width: min(260px, 76vw);
+        width: min(230px, 68vw);
+        border-width: 7px;
+        border-radius: 30px;
+      }
+
+      .final-band {
+        margin-bottom: 46px;
+        padding: 28px 20px;
+      }
+
+      .final-band h2 {
+        font-size: clamp(2rem, 11vw, 2.85rem);
+        line-height: 1.04;
+      }
+
+      .final-band p {
+        font-size: 0.98rem;
+        line-height: 1.62;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .shell {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .brand-logo {
+        max-width: 98px;
+      }
+
+      .theme-tabs {
+        padding: 4px;
+      }
+
+      .theme-tab {
+        min-width: 58px;
+        padding: 0 8px;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      h1 {
+        font-size: clamp(2.65rem, 17vw, 3.45rem);
+      }
+
+      .phone {
+        width: min(230px, 72vw);
+      }
+
+      .journey-step {
+        padding: 22px 14px 24px;
+      }
+
+      .shot-phone {
+        width: min(210px, 66vw);
       }
     }
   </style>
@@ -849,17 +1031,17 @@
       <article class="journey-step">
         <div class="step-copy">
           <span class="step-kicker">Step 07</span>
-          <h3>Download, save, and study on your schedule.</h3>
-          <p>Students can keep class videos ready for later and manage downloaded lessons from one simple place.</p>
+          <h3>Return to recent lessons without losing momentum.</h3>
+          <p>Watch history keeps recently opened classes easy to find, helping students continue revision from the right place.</p>
           <ul class="step-points">
-            <li>Downloads</li>
-            <li>Offline access</li>
-            <li>Study anywhere</li>
+            <li>Recent lessons</li>
+            <li>Quick return</li>
+            <li>Revision flow</li>
           </ul>
         </div>
         <div class="shot-wrap">
           <div class="shot-phone">
-            <img class="theme-image" src="ACS%20APP%20SS/Downloads/downloads.png" data-light="ACS%20APP%20SS/Downloads/downloads.png" data-dark="ACS%20APP%20SS/Downloads/download_dark.png" alt="ACS App downloads screen" />
+            <img class="theme-image" src="ACS%20APP%20SS/Watch%20History/watchHistory.png" data-light="ACS%20APP%20SS/Watch%20History/watchHistory.png" data-dark="ACS%20APP%20SS/Watch%20History/watchHistory_dark.png" alt="ACS App watch history screen" />
           </div>
         </div>
       </article>
