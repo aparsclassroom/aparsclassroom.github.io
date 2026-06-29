@@ -11,6 +11,8 @@ const productName = "ACS HSC 27 Chemistry by Mottasin Pahlovi";
 const productName2 = "ACS HSC 27 Chemistry by Mottasin Pahlovi with Books";
 let productCode = "424";
 let productCode2 = "443";
+const cycle7ProductCode = "812";
+const cycle7ProductCode2 = "813";
 const fix = 1500;
 const pls = 1000;
 const pls2 = 1350;
@@ -73,10 +75,12 @@ function onPlayerReady(event) {
 
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/Cycle-7?productCode=${cycle7ProductCode}`).then(res => res.json()),
+    fetch(`https://${shopName2}/enrollment/Cycle-7?productCode=${cycle7ProductCode2}`).then(res => res.json())
 ])
-    .then(([data1, data2]) => {
-        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + init;
+    .then(([data1, data2, data3, data4]) => {
+        const totalEnrollment = (data1.count || 0) + (data2.count || 0) + (data3.count || 0) + (data4.count || 0) + init;
 
         document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
 
