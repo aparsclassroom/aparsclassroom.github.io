@@ -39,22 +39,29 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+const sisterEnrollmentCountApi = `https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${productCode}`;
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
+Promise.all([
+    getEnrollmentCount(`https://${shopName2}/enrollment?productCode=${productCode}`),
+    getEnrollmentCount(sisterEnrollmentCountApi, (data) => data.data && data.data.count)
+]).then(([originalCount, sisterCount]) => {
+    if (document.getElementById('enrolled')) {
+        document.getElementById('enrolled').setAttribute('countTo', originalCount + sisterCount + init);
+        const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+        if (!countUp.error) {
+            countUp.start();
+        } else {
+            console.error(countUp.error);
+        }
+    }
+});

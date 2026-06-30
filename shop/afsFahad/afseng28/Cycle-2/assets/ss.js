@@ -40,23 +40,31 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-Promise.all([
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment?productCode=${comboProductCode}`).then(res => res.json())
-])
-    .then((enrollments) => {
-        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
-        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', totalEnrollment);
-            if (!countUp.error) {
-                countUp.start();
-            } else {
-                console.error(countUp.error);
-            }
-        }
+const sisterEnrollmentCountApi = `https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${productCode}`;
 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
+Promise.all([
+    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`),
+    getEnrollmentCount(`https://${shopName2}/enrollment?productCode=${comboProductCode}`),
+    getEnrollmentCount(sisterEnrollmentCountApi, (data) => data.data && data.data.count)
+]).then(([originalCount, comboCount, sisterCount]) => {
+    if (document.getElementById('enrolled')) {
+        const totalEnrollment = originalCount + comboCount + sisterCount + init;
+        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
+        const countUp = new CountUp('enrolled', totalEnrollment);
+        if (!countUp.error) {
+            countUp.start();
+        } else {
+            console.error(countUp.error);
+        }
+    }
+});
