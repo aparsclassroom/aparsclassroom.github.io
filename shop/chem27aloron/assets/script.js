@@ -182,7 +182,11 @@ document.getElementById('phone').addEventListener("input", function (event) {
 
 // Set page title and product info
 document.title = productName + "(" + Cycle + ") | ASG Shop";
-document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
+const prodElement = document.getElementById('prod');
+
+if (prodElement) {
+    prodElement.innerHTML = `${productName}<br>(${Cycle})`;
+}
 document.getElementById('prevP').innerText = fix;
 
 const quotes = [
