@@ -14,17 +14,31 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 const Cycle = location.pathname.split('/')[4];
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+const getAfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
 
 Promise.all([
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=705`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=708`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=805`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=806`).then(res => res.json())
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=${productCode}`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=${productCode2}`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=705`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=708`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=805`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=806`),
+    getAfsEnrollmentCount(productCode)
 ])
     .then((enrollments) => {
-        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
+        const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
         const enrolled = document.getElementById('enrolled');
 
         if (enrolled) {

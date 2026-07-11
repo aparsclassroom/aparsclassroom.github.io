@@ -20,6 +20,19 @@ const hbio28ComboEnrollmentCodes = {
     "Cycle-6": ["704", "707", "705", "708", "805", "806"]
 };
 const comboEnrollmentCodes = hbio28ComboEnrollmentCodes[Cycle] || [];
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+const getAfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -74,12 +87,13 @@ tag.src = "https://www.youtube.com/iframe_api";
 //     })
 
 Promise.all([
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
-    ...comboEnrollmentCodes.map(code => fetch(`https://${shopName2}/enrollment/?productCode=${code}`).then(res => res.json()))
+    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`),
+    ...comboEnrollmentCodes.map(code => getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=${code}`)),
+    getAfsEnrollmentCount(productCode)
 ])
     .then((enrollments) => {
-        const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
+        const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
 
         document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
 
