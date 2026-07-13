@@ -2,3 +2,5 @@ User-Agent: *
 Disallow: /shop/bundle27/
 Disallow: /shop/bundle26/
 Disallow: /shop/admission/HSC_25/Varsityspecial
+
+Sitemap: https://aparsclassroom.com/websitemapv1.xml
