@@ -54,7 +54,7 @@ let redirectUrl = params.signInSuccessUrl;
             {
                 provider: 'apple.com'
             },
-            // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
             // {
             //     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
             //     recaptchaParameters: {
