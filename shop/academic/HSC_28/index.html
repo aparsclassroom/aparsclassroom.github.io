@@ -17,11 +17,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://static.cloudflareinsights.com">
+    <link rel="preconnect" href="https://apars.b-cdn.net">
+    <link rel="preload" as="image" href="https://apars.b-cdn.net/asgshopthumbnails/abhi/math28/main.jpeg"
+        fetchpriority="high">
 
-    <link rel="stylesheet" href="../../assets/css/shop.min.css">
-    <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="preload" href="../../assets/css/shop.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/shop/assets/css/fontawesome/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="../../assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="../../assets/css/shop.min.css">
+        <link rel="stylesheet" href="/shop/assets/css/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="../../assets/css/main.css">
+    </noscript>
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e6e7ee;
+            color: #44476a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            text-align: left;
+        }
+
+        a {
+            color: #31344b;
+            text-decoration: none;
+        }
+
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1140px;
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .col-12,
+        .col-md-3,
+        .col-md-6 {
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .col-md-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        .navbar {
+            align-items: center;
+            display: flex;
+            min-height: 56px;
+            padding: 0.5rem 1rem;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem;
+        }
+
+        .p-4 {
+            padding: 1.5rem;
+        }
+
+        .card {
+            background-clip: border-box;
+            border-radius: 0.55rem;
+            min-width: 0;
+            overflow-wrap: break-word;
+            position: relative;
+        }
+
+        .bg-primary {
+            background-color: #e6e7ee;
+        }
+
+        .shadow-soft {
+            box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff;
+        }
+
+        .border-light {
+            border: 1px solid #d1d9e6;
+        }
+
+        .h5,
+        h1 {
+            color: #31344b;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .h5 {
+            font-size: 1.25rem;
+        }
+
+        .btn {
+            border-radius: 0.55rem;
+            display: inline-block;
+            font-weight: 600;
+            line-height: 1.5;
+            padding: 0.55rem 0.95rem;
+            text-align: center;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: #e6e7ee;
+            color: #31344b;
+        }
+
+        .navbar-brand-light {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
         .course-thumb {
             aspect-ratio: 16 / 9;
             border-radius: 15px;
@@ -546,8 +717,10 @@
                         <div class="row align-items-center">
                             <aside class="col-md-3">
                                 <a href="../../abhi/Math28/">
-                                    <img decoding="async" sizes="(max-width: 767px) calc(100vw - 64px), (max-width: 1199px) 25vw, 270px" src="https://apars.b-cdn.net/asgshopthumbnails/abhi/math28/main.jpeg"
-                                        loading="lazy" class="course-thumb course-thumb-square"
+                                    <img decoding="async" fetchpriority="high" loading="eager"
+                                        sizes="(max-width: 767px) calc(100vw - 64px), (max-width: 1199px) 25vw, 270px"
+                                        src="https://apars.b-cdn.net/asgshopthumbnails/abhi/math28/main.jpeg"
+                                        class="course-thumb course-thumb-square"
                                         alt="ACS Higher Math Academic Cycle HSC 28">
                                 </a>
                             </aside>
@@ -3257,11 +3430,23 @@
                 }
             }
 
-            document.querySelectorAll('.col-12.mb-3 > .card').forEach(card => {
-                if (card.querySelector('.col-12.mb-3 > .card')) {
-                    return;
-                }
-                updateCard(card);
+            function runEnrollmentCounts() {
+                document.querySelectorAll('.col-12.mb-3 > .card').forEach(card => {
+                    if (card.querySelector('.col-12.mb-3 > .card')) {
+                        return;
+                    }
+                    updateCard(card);
+                });
+            }
+
+            window.addEventListener('load', function () {
+                window.setTimeout(function () {
+                    if ('requestIdleCallback' in window) {
+                        window.requestIdleCallback(runEnrollmentCounts, { timeout: 5000 });
+                    } else {
+                        runEnrollmentCounts();
+                    }
+                }, 1000);
             });
         })();
 
