@@ -118,6 +118,43 @@ document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
 
+const hbio27CycleComboBlocks = {
+    "Cycle-1": ["829"],
+    "Cycle-2": ["830"],
+    "Cycle-3": ["829"],
+    "Cycle-4": ["830"],
+    "Cycle-5": ["829"],
+    "Cycle-6": ["830"]
+};
+
+function hbio27CheckPurchase(products, uid, cycle) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify({
+            products,
+            uid
+        }),
+        redirect: 'follow'
+    };
+
+    const purchaseCheckUrl = cycle
+        ? `https://${shopName2}/v3/purchase/multiple/${cycle}`
+        : `https://${shopName2}/v3/purchase/multiple`;
+
+    return fetch(purchaseCheckUrl, requestOptions).then(response => response.json());
+}
+
+function hbio27FindExistingPurchase(results) {
+    return results
+        .filter(result => result.status === 'fulfilled')
+        .map(result => result.value)
+        .find(result => result.status === 200);
+}
+
 const quotes = [
     "A reader lives a thousand lives before he dies.",
     "Books are a uniquely portable magic.",
@@ -204,6 +241,7 @@ firebase.auth().onAuthStateChanged(function (e) {
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
+        const blockedComboProducts = hbio27CycleComboBlocks[Cycle] || [];
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
@@ -218,8 +256,17 @@ firebase.auth().onAuthStateChanged(function (e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
+        const purchaseChecks = [
+            fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
+        ];
+
+        if (blockedComboProducts.length) {
+            purchaseChecks.push(hbio27CheckPurchase(blockedComboProducts, e.uid));
+        }
+
+        Promise.allSettled(purchaseChecks)
         .then((result) => {
+            result = hbio27FindExistingPurchase(result) || { status: 404 };
             if (result.status === 200) {
                 swal({
                     title: "Already Enrolled!",
