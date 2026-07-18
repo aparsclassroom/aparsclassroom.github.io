@@ -37,6 +37,28 @@ var LAST_METHOD_KEY = 'asg_last_login_method';
 function saveLastLoginMethod(m) { try { localStorage.setItem(LAST_METHOD_KEY, m); } catch (e) {} }
 function getLastLoginMethod() { try { return localStorage.getItem(LAST_METHOD_KEY); } catch (e) { return null; } }
 
+// ---- Auth loading / success overlay ----
+// justLoggedIn distinguishes a login that just happened (show success + brief pause)
+// from a restored session on page load (redirect instantly, no overlay).
+var justLoggedIn = false;
+function showAuthOverlay(text, isSuccess) {
+    var overlay = document.getElementById('auth-overlay');
+    if (!overlay) return;
+    var textEl = document.getElementById('auth-overlay-text');
+    var spinner = overlay.querySelector('.auth-spinner');
+    var check = overlay.querySelector('.auth-check');
+    if (textEl) textEl.textContent = text;
+    if (spinner) spinner.style.display = isSuccess ? 'none' : 'block';
+    if (check) check.style.display = isSuccess ? 'flex' : 'none';
+    overlay.style.display = 'flex';
+}
+function hideAuthOverlay() {
+    var overlay = document.getElementById('auth-overlay');
+    if (overlay) overlay.style.display = 'none';
+}
+function beginAuth(msg) { justLoggedIn = true; showAuthOverlay(msg || 'Signing you in…', false); }
+function endAuthFailure() { justLoggedIn = false; hideAuthOverlay(); }
+
 // Custom social + email auth (replaces FirebaseUI). onAuthStateChanged below
 // handles the post-login redirect for every method.
 (function () {
@@ -59,7 +81,7 @@ function getLastLoginMethod() { try { return localStorage.getItem(LAST_METHOD_KE
 
     function socialLogin(provider, method) {
         firebase.auth().signInWithPopup(provider)
-            .then(function () { saveLastLoginMethod(method); })
+            .then(function () { beginAuth(); saveLastLoginMethod(method); })
             .catch(function (err) {
                 Swal.fire({ position: 'center', icon: 'error', text: friendlyError(err) });
             });
@@ -123,16 +145,21 @@ function getLastLoginMethod() { try { return localStorage.getItem(LAST_METHOD_KE
         if (subtitleEl) subtitleEl.textContent = 'Log in to continue your checkout';
     }
 
-    // Platform suggestion: Apple on Apple devices, Google elsewhere.
-    setMethodBadge(isApplePlatform() ? 'apple' : 'google', 'Recommended', false);
+    // Platform suggestion: on Apple devices, Apple is recommended and Google is
+    // flagged as the fastest; elsewhere Google is the recommended option.
+    if (isApplePlatform()) {
+        setMethodBadge('apple', 'Recommended', false);
+        setMethodBadge('google', 'Fastest', false);
+    } else {
+        setMethodBadge('google', 'Recommended', false);
+    }
 
-    // Personal suggestion overrides "Recommended" on its button, and jumps straight to it.
+    // Personal suggestion overrides "Recommended" on its button. We always land on
+    // the main method list (never auto-open a panel), just badge the last-used one.
     (function applyLastMethod() {
         var last = getLastLoginMethod();
         if (!last) return;
         setMethodBadge(last, 'Last used', true);
-        if (last === 'email') showPanel(emailPanel);
-        else if (last === 'phone') showPanel(phonePanel);
     })();
 
     var googleBtn = document.getElementById('google-login-btn');
@@ -203,18 +230,20 @@ function getLastLoginMethod() { try { return localStorage.getItem(LAST_METHOD_KE
     }
 
     function doLogin(email, pass) {
+        beginAuth();
         firebase.auth().signInWithEmailAndPassword(email, pass)
             .then(function () { saveLastLoginMethod('email'); })
-            .catch(function (err) { showEmailError(friendlyError(err)); });
+            .catch(function (err) { endAuthFailure(); showEmailError(friendlyError(err)); });
     }
 
     function doSignup(name, email, pass) {
+        beginAuth();
         firebase.auth().createUserWithEmailAndPassword(email, pass)
             .then(function (cred) {
                 saveLastLoginMethod('email');
                 return cred.user.updateProfile({ displayName: name });
             })
-            .catch(function (err) { showEmailError(friendlyError(err)); });
+            .catch(function (err) { endAuthFailure(); showEmailError(friendlyError(err)); });
     }
 
     function doReset(email) {
@@ -322,10 +351,14 @@ function getLastLoginMethod() { try { return localStorage.getItem(LAST_METHOD_KE
 var user = firebase.auth().currentUser;
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        if (redirectUrl) {
-            window.location.href = redirectUrl;
+        var target = redirectUrl || "/shop/dashboard";
+        if (justLoggedIn) {
+            // Fresh login — confirm success, then redirect after a brief beat.
+            showAuthOverlay('Login successful! Redirecting…', true);
+            setTimeout(function () { window.location.href = target; }, 800);
         } else {
-            window.location.href = "/shop/dashboard";
+            // Restored session on page load — go straight through.
+            window.location.href = target;
         }
     } else {
         checkAndRedirect();
@@ -602,6 +635,7 @@ function legacyCopy(text) {
             var data = await res.json();
             if (data.status === 200) {
                 stopCountdown();
+                beginAuth();
                 await firebase.auth().signInWithCustomToken(data.token);
                 saveLastLoginMethod('phone');
                 // onAuthStateChanged handles redirect
@@ -624,6 +658,7 @@ function legacyCopy(text) {
             }
         } catch (e) {
             submitting = false;
+            endAuthFailure();
             showError(otpError, 'Network error. Please try again.');
             setVerifyLoading(false);
         }
