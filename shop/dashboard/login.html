@@ -46,16 +46,262 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="627">
 
-    <!-- Firebase JS -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app-check.js"></script>
+    <!-- Firebase JS (compat builds — namespaced firebase.* API) -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-check-compat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Firebase UI JS and CSS -->
-    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css">
 
+    <!-- Custom login UI styles -->
+    <style>
+        :root {
+            --brand: #588de9;
+            --brand-dark: #3f74d6;
+            --ink: #1a1d1f;
+            --muted: #6b7280;
+            --line: #e8eaed;
+            --field-bg: #f6f7f9;
+            --radius: 14px;
+        }
+
+        /* ---- Modal shell ---- */
+        #loginModal .modal-dialog { max-width: 420px; }
+        #loginModal .modal-content {
+            border: none;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px -12px rgba(16, 24, 40, .28);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--ink);
+        }
+        #loginModal .modal-body { padding: 8px 28px 24px; }
+
+        /* ---- Header ---- */
+        .login-header {
+            position: relative;
+            display: block;
+            text-align: center;
+            border: none;
+            padding: 30px 28px 8px;
+        }
+        .login-header .back-link {
+            position: absolute;
+            top: 20px; left: 20px;
+            width: 38px; height: 38px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            color: var(--muted);
+            background: var(--field-bg);
+            text-decoration: none;
+            transition: background .15s ease, color .15s ease;
+        }
+        .login-header .back-link:hover { background: #ececf0; color: var(--ink); }
+        .login-logo {
+            width: 60px; height: 60px;
+            object-fit: contain;
+            border-radius: 14px;
+            margin-bottom: 12px;
+        }
+        .login-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+        .login-subtitle {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 4px 0 0;
+        }
+
+        /* ---- Method buttons ---- */
+        /* Follows Google & Apple sign-in branding guidelines:
+           Google = white #FFF, #747775 1px stroke, #1F1F1F 14px text, unaltered "G".
+           Apple  = black fill, white unmodified logo, SF Pro label, >=44pt tall. */
+        .social-btn {
+            position: relative;
+            width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            height: 48px;
+            padding: 0 48px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: .01em;
+            color: #1F1F1F;
+            margin-bottom: 10px;
+            background: #fff;
+            border: 1px solid #747775;
+            cursor: pointer;
+            transition: background .15s ease, box-shadow .15s ease;
+        }
+        .social-btn:hover { background: #f7f8f8; box-shadow: 0 1px 2px rgba(60,64,67,.15); }
+        .social-btn:active { background: #eef0f1; }
+        .social-btn:disabled { opacity: .55; cursor: default; box-shadow: none; }
+        .social-btn svg {
+            position: absolute;
+            left: 14px; top: 50%; transform: translateY(-50%);
+            width: 20px; height: 20px;
+        }
+        .social-btn .ico-neutral { color: #5f6572; }
+        .social-label { white-space: nowrap; }
+
+        /* Subtle, quiet badge — readable but not attention-grabbing */
+        .method-badge {
+            position: absolute;
+            right: 12px; top: 50%; transform: translateY(-50%);
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-size: 10px; font-weight: 600; line-height: 1;
+            letter-spacing: .02em;
+            background: rgba(120, 125, 135, .13);
+            color: #5f6572;
+        }
+        .apple-btn .method-badge { background: rgba(255, 255, 255, .13); color: #cfd2d8; }
+        .method-badge.badge-lastused { background: rgba(88, 141, 233, .14); color: var(--brand); }
+        .social-btn.has-badge { padding-right: 92px; }
+
+        /* Apple — black variant */
+        .apple-btn { background: #000; color: #fff; border-color: #000; }
+        .apple-btn:hover { background: #1a1a1a; box-shadow: 0 1px 2px rgba(0,0,0,.3); }
+        .apple-btn:active { background: #262626; }
+
+        /* ---- Back to methods ---- */
+        .back-to-methods {
+            background: none; border: none; padding: 4px 0 12px;
+            color: var(--muted); font-size: 0.85rem; font-weight: 600;
+            cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .back-to-methods:hover { color: var(--brand-dark); }
+
+        /* ---- Divider ---- */
+        .login-divider {
+            display: flex; align-items: center; text-align: center;
+            color: var(--muted); font-size: 0.8rem; margin: 18px 0;
+            text-transform: none;
+        }
+        .login-divider::before, .login-divider::after {
+            content: ""; flex: 1; border-bottom: 1px solid var(--line);
+        }
+        .login-divider:not(:empty)::before { margin-right: .8em; }
+        .login-divider:not(:empty)::after { margin-left: .8em; }
+
+        /* ---- Phone number field ---- */
+        .phone-field { position: relative; margin-bottom: 14px; }
+        .phone-field-ico {
+            position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+            width: 18px; height: 18px; color: #5f6572; pointer-events: none;
+        }
+        .phone-input {
+            width: 100%; height: 52px;
+            padding: 0 14px 0 42px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--field-bg);
+            font-size: 1rem; color: var(--ink);
+            transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+        }
+        .phone-input:focus {
+            border-color: var(--brand-dark);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(88, 141, 233, .22);
+            outline: none;
+        }
+
+        /* ---- Invalid field state ---- */
+        #loginModal .form-control.is-invalid,
+        .phone-input.is-invalid,
+        .otp-box.is-invalid {
+            border-color: #dc3545 !important;
+            background: #fff;
+        }
+        #loginModal .form-control.is-invalid:focus,
+        .phone-input.is-invalid:focus {
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, .2);
+        }
+
+        /* ---- OTP segmented input ---- */
+        .otp-sent-to { text-align: center; color: var(--muted); font-size: .9rem; line-height: 1.5; margin: 4px 0 10px; }
+        .otp-inputs { display: flex; gap: 8px; margin: 6px 0 14px; }
+        .otp-box {
+            flex: 1 1 0; min-width: 0;
+            height: 54px;
+            text-align: center;
+            font-size: 22px; font-weight: 600;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--field-bg);
+            transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+        }
+        .otp-box:focus {
+            border-color: var(--brand-dark);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(88, 141, 233, .22);
+            outline: none;
+        }
+        .otp-box.filled { border-color: var(--brand); background: #fff; }
+        .otp-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+        .btn-linklike {
+            background: none; border: none; padding: 0;
+            color: var(--brand-dark); font-weight: 600; font-size: .85rem; cursor: pointer;
+        }
+        .btn-linklike:disabled { color: var(--muted); cursor: default; }
+        .btn-linklike:hover:not(:disabled) { text-decoration: underline; }
+        .email-links { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 12px; }
+        #email-success { color: #1a8a3a; }
+
+        /* ---- Inputs ---- */
+        #loginModal .form-control {
+            height: auto;
+            padding: 12px 14px;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: var(--field-bg);
+            font-size: 0.95rem;
+            transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+        }
+        #loginModal .form-control:focus {
+            border-color: var(--brand-dark);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(88, 141, 233, .25);
+            outline: none;
+        }
+        #loginModal .input-group .form-control { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+
+        /* ---- Primary / accent buttons ---- */
+        #loginModal .btn-primary,
+        #loginModal .btn-success {
+            background: var(--brand);
+            border-color: var(--brand);
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            transition: background .15s ease, transform .12s ease, box-shadow .15s ease;
+        }
+        #loginModal .btn-primary:hover,
+        #loginModal .btn-success:hover {
+            background: var(--brand-dark);
+            border-color: var(--brand-dark);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px -6px rgba(88, 141, 233, .6);
+        }
+        #loginModal .btn-primary:disabled,
+        #loginModal .btn-success:disabled { opacity: .55; transform: none; box-shadow: none; }
+        #loginModal .input-group-append .btn { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+
+        /* ---- Links ---- */
+        #loginModal .btn-link { color: var(--muted); font-weight: 600; text-decoration: none; }
+        #loginModal .btn-link:hover { color: var(--brand-dark); text-decoration: underline; }
+
+        /* ---- Footer ---- */
+        #loginModal .modal-footer { border: none; padding: 4px 28px 24px; }
+        #loginModal .signup-section { font-size: 0.85rem; color: var(--muted); }
+    </style>
 </head>
 
 <body>
@@ -63,53 +309,103 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header border-bottom-1">
-                    <a style="text-align: center; text-decoration: none;" class="btn btn-outline-primary"
-                            href="/shop"><i class="fas fa-hand-point-left"></i></a><h4>Choose any Method to login ⚡
-                    </h4>
+                <div class="modal-header login-header">
+                    <a class="back-link" href="/shop" title="Back to shop"><i class="fas fa-arrow-left"></i></a>
+                    <img src="/assets/Logo.png" alt="ASG Shop" class="login-logo">
+                    <h4 class="login-title">Welcome</h4>
+                    <p class="login-subtitle">Log in or sign up to continue your checkout</p>
                 </div>
                 <div class="modal-body">
-                    <div id="firebaseui-auth-container"></div>
-                    <div class="text-center" id="loader">Please Wait...</div>
-
-                    <div class="text-center my-3">
-                        <span class="text-muted" style="font-size:0.85rem;">— or login with phone —</span>
+                    <!-- Method chooser -->
+                    <div id="method-list">
+                        <button id="google-login-btn" class="social-btn google-btn" type="button">
+                            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                            <span class="social-label">Continue with Google</span>
+                        </button>
+                        <button id="apple-login-btn" class="social-btn apple-btn" type="button">
+                            <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                            <span class="social-label">Continue with Apple</span>
+                        </button>
+                        <button id="email-method-btn" class="social-btn email-btn" type="button">
+                            <svg class="ico-neutral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                            <span class="social-label">Continue with Email</span>
+                        </button>
+                        <button id="phone-method-btn" class="social-btn phone-btn" type="button">
+                            <svg class="ico-neutral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2" width="11" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+                            <span class="social-label">Continue with Phone</span>
+                        </button>
                     </div>
 
-                    <div id="phone-otp-section">
-                        <div id="phone-step">
-                            <div class="input-group mb-2">
-                                <input type="tel" id="otp-phone-input" class="form-control" placeholder="01XXXXXXXXX" maxlength="15">
-                                <div class="input-group-append">
-                                    <button id="send-otp-btn" class="btn btn-primary">Send OTP</button>
-                                </div>
+                    <!-- Email / password panel -->
+                    <div id="email-panel" style="display:none;">
+                        <button class="back-to-methods" type="button"><i class="fas fa-arrow-left"></i> All login options</button>
+                        <div id="email-step">
+                            <p class="otp-sent-to" id="email-helper" style="display:none;">Enter your email and we'll send you a link to reset your password.</p>
+                            <input type="text" id="name-input" class="form-control mb-2" placeholder="Full name" autocomplete="name" style="display:none;">
+                            <input type="email" id="email-input" class="form-control mb-2" placeholder="Email address" autocomplete="email">
+                            <input type="password" id="password-input" class="form-control mb-2" placeholder="Password" autocomplete="current-password">
+                            <button id="email-primary-btn" class="btn btn-primary btn-block" type="button">Log in</button>
+                            <div class="email-links">
+                                <button id="email-toggle-btn" class="btn-linklike" type="button">Create account</button>
+                                <button id="forgot-password-btn" class="btn-linklike" type="button">Forgot password?</button>
                             </div>
-                            <div id="phone-error" class="text-danger small" style="display:none;"></div>
+                            <div id="email-error" class="text-danger small mt-2" style="display:none;"></div>
+                            <div id="email-success" class="small mt-2" style="display:none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone / OTP panel -->
+                    <div id="phone-panel" style="display:none;">
+                        <button class="back-to-methods" type="button"><i class="fas fa-arrow-left"></i> All login options</button>
+                        <div id="phone-otp-section">
+                        <div id="phone-step">
+                            <div class="phone-field">
+                                <svg class="phone-field-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <input type="tel" id="otp-phone-input" class="phone-input" placeholder="01XXXXXXXXX" maxlength="11" inputmode="numeric" autocomplete="tel">
+                            </div>
+                            <div id="phone-error" class="text-danger small mt-2 mb-2" style="display:none;"></div>
+                            <button id="send-otp-btn" class="btn btn-primary btn-block">Send code</button>
                         </div>
 
                         <div id="otp-step" style="display:none;">
-                            <p class="text-muted small mb-1">OTP sent to <strong id="otp-phone-display"></strong> &nbsp;<button id="change-number-btn" class="btn btn-link btn-sm p-0" style="font-size:0.8rem;">Change</button></p>
-                            <div id="otp-countdown" class="small mb-2"></div>
-                            <div class="input-group mb-2">
-                                <input type="text" inputmode="numeric" id="otp-code-input" class="form-control" placeholder="6-digit OTP" maxlength="6">
-                                <div class="input-group-append">
-                                    <button id="verify-otp-btn" class="btn btn-success" disabled>Verify</button>
-                                </div>
+                            <p class="otp-sent-to">Enter the 6-digit code sent to<br>
+                                <strong id="otp-phone-display"></strong>
+                                <button id="change-number-btn" type="button" class="btn-linklike">Change</button>
+                            </p>
+                            <div class="otp-inputs" id="otp-inputs">
+                                <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1" class="otp-box" aria-label="Digit 1">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-box" aria-label="Digit 2">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-box" aria-label="Digit 3">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-box" aria-label="Digit 4">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-box" aria-label="Digit 5">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-box" aria-label="Digit 6">
                             </div>
-                            <button id="resend-otp-btn" class="btn btn-link btn-sm p-0 mb-1" disabled>Resend OTP</button>
-                            <div id="otp-error" class="text-danger small" style="display:none;"></div>
+                            <div id="otp-error" class="text-danger small text-center mb-2" style="display:none;"></div>
+                            <button id="verify-otp-btn" class="btn btn-primary btn-block" disabled>Verify</button>
+                            <div class="otp-footer">
+                                <span id="otp-countdown" class="small"></span>
+                                <button id="resend-otp-btn" type="button" class="btn-linklike" disabled>Resend code</button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-center">
+                <div class="modal-footer d-flex flex-column align-items-center">
+                    <div class="text-muted text-center small mb-2" style="font-size:0.78rem;">
+                        By continuing you agree to our
+                        <a href="/terms" target="_blank" class="text-info">Terms</a> and
+                        <a href="/privacy" target="_blank" class="text-info">Privacy Policy</a>.
+                    </div>
                     <div class="signup-section">Need Help? <a type="button" target="_blank" href="//m.me/aparsclassroom"
                             class="text-info"> Help Desk</a></div>
                 </div>
             </div>
         </div>
     </div>
-    <button class="g-recaptcha" data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-callback='onSubmit'
-        data-action='submit'></button>
+    <div id="recaptcha-container" class="g-recaptcha"
+        data-sitekey="6Lf0LO8ZAAAAAJIoAsd13Ld2Dp5GyXUPmB9cZj7v" data-size="invisible"
+        data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaReset"
+        data-error-callback="onRecaptchaReset" data-badge="bottomright"></div>
     <script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/popper.min.js"></script>
     <script src="/HSC-Full-Course/assets/js/bootstrap.min.js"></script>
