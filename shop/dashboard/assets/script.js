@@ -55,7 +55,7 @@ let redirectUrl = params.signInSuccessUrl;
                 provider: 'apple.com'
             }
         ],
-        // credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
+        credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
         tosUrl: '/terms',
         privacyPolicyUrl: '/privacy'
     };
