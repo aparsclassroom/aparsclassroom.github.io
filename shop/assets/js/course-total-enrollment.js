@@ -254,7 +254,7 @@
             if (productCodeMatch) addEndpoint(endpoints, cycle, readTokenValue(productCodeMatch[1], values));
         });
 
-        if (/comboEnrollmentCodes\.map\(\s*code\s*=>\s*fetch\(/.test(activeSource) && pathCycle) {
+        if (/comboEnrollmentCodes\.map\(\s*code\s*=>\s*(?:fetch|getEnrollmentCount)\(/.test(activeSource) && pathCycle) {
             parseCycleCodeMaps(activeSource).forEach(map => {
                 (map[pathCycle] || []).forEach(code => addEndpoint(endpoints, null, code));
             });
