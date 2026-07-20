@@ -132,7 +132,7 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -144,7 +144,7 @@
       left: -5%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -163,13 +163,13 @@
       text-decoration: none;
       border: 1.5px solid #333;
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
     }
 
     .gplay-btn:hover {
       background: #16213e;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
     .gplay-btn svg {
@@ -188,13 +188,13 @@
       font-weight: 600;
       font-size: 15px;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(99,102,241,0.4);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
       transition: transform 0.15s, box-shadow 0.2s;
     }
 
     .cta-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(99,102,241,0.5);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
     }
 
     /* Secondary CTA button */
@@ -210,13 +210,13 @@
       font-size: 15px;
       text-decoration: none;
       border: 1.5px solid #e5e7eb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
     }
 
     .cta-secondary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       border-color: #c7d2fe;
     }
 
@@ -231,7 +231,7 @@
       font-size: 13px;
       font-weight: 600;
       color: #374151;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       border: 1px solid #f3f4f6;
     }
 
@@ -244,13 +244,20 @@
 
     .feature-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
     }
 
     /* Floating badge animation */
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
     }
 
     .float-badge {
@@ -339,9 +346,11 @@
           </span>
         </div>
 
-        <h1 class='text-center text-3xl md:text-5xl xl:text-6xl px-4 xl:px-20 font-bold leading-tight text-gray-900 mb-4 bangla'>
+        <h1
+          class='text-center text-3xl md:text-5xl xl:text-6xl px-4 xl:px-20 font-bold leading-tight text-gray-900 mb-4 bangla'>
           দেশের শীর্ষস্থানীয়
-          <span style="background: linear-gradient(135deg, #3b82f6, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">এড-টেক</span>
+          <span
+            style="background: linear-gradient(135deg, #3b82f6, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">এড-টেক</span>
           প্ল্যাটফর্ম
         </h1>
         <h2 class='text-center text-gray-800 text-2xl md:text-4xl xl:text-5xl px-4 md:px-28 font-semibold mb-6 bangla'>
@@ -358,8 +367,10 @@
         <!-- CTA buttons -->
         <div class='flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 mt-10'>
           <a href="/shop/" class="cta-primary bangla">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
             কোর্স গুলো ঘুরে দেখ
           </a>
@@ -374,8 +385,7 @@
             style="display:inline-block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
             onmouseout="this.style.transform='';this.style.boxShadow=''">
-            <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg"
-              alt="Get it on Google Play"
+            <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play"
               style="height:56px;display:block;">
           </a>
         </div>
@@ -394,31 +404,40 @@
 
     <div class='grid grid-cols-2 md:grid-cols-5 gap-6'>
       <div class='col-span-2'>
-        <div class='feature-card h-full' style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); box-shadow: 0 4px 20px rgba(59,130,246,0.15);">
+        <div class='feature-card h-full'
+          style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); box-shadow: 0 4px 20px rgba(59,130,246,0.15);">
           <img src="images/icons8-school-80.png" class="w-14 h-14 object-contain">
           <h3 class='mt-5 text-lg font-bold bangla'>এইচএসসি লেভেল</h3>
-          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> আমাদের রয়েছে ফিজিক্স, কেমিস্ট্রি, ও ম্যাথ এর বিভিন্ন সাইকেল ভিত্তিক কোর্স ও ফাইনাল রিভিশন ব্যাচ, যা তোমার এইচএসসি এর প্রস্তুতি কে দৃঢ় করবে। </p>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> আমাদের রয়েছে ফিজিক্স, কেমিস্ট্রি, ও ম্যাথ এর
+            বিভিন্ন সাইকেল ভিত্তিক কোর্স ও ফাইনাল রিভিশন ব্যাচ, যা তোমার এইচএসসি এর প্রস্তুতি কে দৃঢ় করবে। </p>
         </div>
       </div>
       <div class='col-span-2 md:col-span-3'>
-        <div class='feature-card h-full' style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); box-shadow: 0 4px 20px rgba(16,185,129,0.15);">
+        <div class='feature-card h-full'
+          style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); box-shadow: 0 4px 20px rgba(16,185,129,0.15);">
           <img src="images/icons8-academic-64.png" alt="Admission" class="w-14 h-14 object-contain">
           <h3 class='mt-5 text-lg font-bold bangla'>এডমিশন</h3>
-          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'>আমাদের রয়েছে ভার্সিটি, ইঞ্জিনিয়ারিং ও মেডিকেল এডমিশন কোর্স যেখানে লাইভ ক্লাস, প্রাকটিস সীট ও ডিসকাশন গ্রুপ এর মাধ্যমে তোমার প্রস্তুতি কে অন্য মাত্রায় নিয়ে যেতে পারো। </p>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'>আমাদের রয়েছে ভার্সিটি, ইঞ্জিনিয়ারিং ও মেডিকেল
+            এডমিশন কোর্স যেখানে লাইভ ক্লাস, প্রাকটিস সীট ও ডিসকাশন গ্রুপ এর মাধ্যমে তোমার প্রস্তুতি কে অন্য মাত্রায়
+            নিয়ে যেতে পারো। </p>
         </div>
       </div>
       <div class='col-span-2 md:col-span-3'>
-        <div class='feature-card h-full' style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); box-shadow: 0 4px 20px rgba(139,92,246,0.15);">
+        <div class='feature-card h-full'
+          style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); box-shadow: 0 4px 20px rgba(139,92,246,0.15);">
           <img src="images/icons8-books-100.png" class="w-14 h-14 object-contain">
           <h3 class='mt-5 text-lg font-bold bangla'>অফলাইন এক্সাম ব্যাচ</h3>
-          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> দেশজুড়ে ১৪ টি ব্রাঞ্চে ভার্সিটি, ইঞ্জিনিয়ারিং, মেডিকেল ও বিভিন্ন ভার্সিটির ভর্তি পরীক্ষার অনুরূপ পরীক্ষা দিয়ে নিজেকে যাচাই করে নাও। </p>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> দেশজুড়ে ১৪ টি ব্রাঞ্চে ভার্সিটি, ইঞ্জিনিয়ারিং,
+            মেডিকেল ও বিভিন্ন ভার্সিটির ভর্তি পরীক্ষার অনুরূপ পরীক্ষা দিয়ে নিজেকে যাচাই করে নাও। </p>
         </div>
       </div>
       <div class="col-span-2">
-        <div class='feature-card h-full' style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+        <div class='feature-card h-full'
+          style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
           <img src="images/icons8-skill-100.png" class="w-14 h-14 object-contain">
           <h3 class='mt-5 text-lg font-bold bangla'>স্কিলস</h3>
-          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> প্রোগ্রামিং এ ইচ্ছুক? আমাদের রয়েছে বুটক্যাম্প এবং কম্পিটিটিভ প্রোগ্রামিং এর কোর্স। </p>
+          <p class='mt-2 text-sm text-gray-700 bangla leading-relaxed'> প্রোগ্রামিং এ ইচ্ছুক? আমাদের রয়েছে বুটক্যাম্প
+            এবং কম্পিটিটিভ প্রোগ্রামিং এর কোর্স। </p>
         </div>
       </div>
     </div>
@@ -467,8 +486,9 @@
       </div>
 
       <!-- Card 2 -->
-      <div
-        class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
+      <a href="https://aparsclassroom.com/shop/academic/HSC_28/"
+        class="block bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
+
         <img src="https://apars.b-cdn.net/asgshopthumbnails/hsc28.jpeg" alt="Academic Cycles HSC 2028"
           class="rounded-lg w-full h-50 object-cover">
 
@@ -477,29 +497,31 @@
         </span>
 
         <h2 class="text-lg font-bold mt-4">HSC 2028 Academic Cycles</h2>
+
         <p class="text-gray-600 mt-2 text-sm leading-relaxed bangla">
-         HSC 2028 (SSC 2026) ব্যাচের শিক্ষার্থীদের জন্য Apar's Classroom-এর Academic Courses:
-        Physics, Higher Math, Chemistry, Biology, English, Bangla ও ICT কোর্সের enrollment details <span><a
-              href="https://aparsclassroom.com/shop/academic/HSC_28/" class="text-blue-500">Read more ...</a></span>
+          HSC 2028 (SSC 2026) ব্যাচের শিক্ষার্থীদের জন্য Apar's Classroom-এর Academic Courses:
+          Physics, Higher Math, Chemistry, Biology, English, Bangla ও ICT কোর্সের enrollment details
+          <span class="text-blue-500">Read more ...</span>
         </p>
 
-
         <div class="flex items-center justify-end mt-4">
-          <a href="https://aparsclassroom.com/shop/academic/HSC_28/"
+          <span
             class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 text-sm">
             Join Now
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 16l4-4m0 0l-4-4m4 4H7" />
             </svg>
-          </a>
+          </span>
         </div>
-      </div>
+
+      </a>
 
       <!-- Card 3 -->
       <div
         class="bg-white rounded-2xl shadow-lg p-6 w-full hover:scale-[1.02] transition-transform border border-gray-200">
-        <img src="https://apars.b-cdn.net/asgshopthumbnails/HSC-27-ACADEMIC-(1).jpg" alt="HSC 2027" class="rounded-lg w-full h-[180px] object-cover">
+        <img src="https://apars.b-cdn.net/asgshopthumbnails/HSC-27-ACADEMIC-(1).jpg" alt="HSC 2027"
+          class="rounded-lg w-full h-[180px] object-cover">
 
         <span class="inline-block mt-3 bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">
           Online
@@ -683,8 +705,7 @@
               style="display:inline-block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
               onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
               onmouseout="this.style.transform='';this.style.boxShadow=''">
-              <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg"
-                alt="Get it on Google Play"
+              <img src="/assets/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play"
                 style="height:48px;display:block;">
             </a>
           </div>
