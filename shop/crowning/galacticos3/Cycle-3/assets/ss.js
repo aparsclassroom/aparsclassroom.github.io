@@ -18,8 +18,6 @@ if (screen.width <= 600) {
     vidD.style.position = 'sticky';
 }
 
-const sisterEnrollmentCountApi = `https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${productCode}`;
-
 const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
     return fetch(url)
         .then((res) => res.json())
@@ -30,14 +28,43 @@ const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
         });
 };
 
+
+const getAfsEnrollmentCount = (productCode) => {
+    return getEnrollmentCount(
+        `https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${productCode}`,
+        (data) => data.data && data.data.count
+    );
+};
+
 Promise.all([
-    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`),
-    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=804`),
-    getEnrollmentCount(sisterEnrollmentCountApi, (data) => data.data && data.data.count)
-]).then(([originalCount, comboCount, sisterCount]) => {
+    getEnrollmentCount(
+        `https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`
+    ),
+
+    ...comboEnrollmentProducts.map((item) =>
+        getEnrollmentCount(
+            `https://${shopName2}/enrollment/${item.cycle}?productCode=${item.productCode}`
+        )
+    ),
+
+    getAfsEnrollmentCount(productCode)
+
+]).then((counts) => {
+    const totalEnrollment = counts.reduce(
+        (total, count) => total + count,
+        init
+    );
+
     if (document.getElementById('enrolled')) {
-        document.getElementById('enrolled').setAttribute('countTo', originalCount + comboCount + sisterCount + init);
-        const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+        document
+            .getElementById('enrolled')
+            .setAttribute('countTo', totalEnrollment);
+
+        const countUp = new CountUp(
+            'enrolled',
+            document.getElementById('enrolled').getAttribute('countTo')
+        );
+
         if (!countUp.error) {
             countUp.start();
         } else {
