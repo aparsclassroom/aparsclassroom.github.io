@@ -19,10 +19,12 @@ if (screen.width <= 600) {
     vidD.style.position = 'sticky';
 }
 
-const getEnrollmentCount = (url) => {
+const sisterEnrollmentCountApi = `https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${productCode}`;
+
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
     return fetch(url)
         .then((res) => res.json())
-        .then((data) => Number(data.count) || 0)
+        .then((data) => Number(dataPath(data)) || 0)
         .catch((err) => {
             console.log(err);
             return 0;
@@ -31,11 +33,12 @@ const getEnrollmentCount = (url) => {
 
 Promise.all([
     getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`),
-    ...comboEnrollmentProducts.map((item) => getEnrollmentCount(`https://${shopName2}/enrollment/${item.cycle}?productCode=${item.productCode}`))
-]).then((counts) => {
-    const totalEnrollment = counts.reduce((total, count) => total + count, init);
+    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=803`),
+    getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=804`),
+    getEnrollmentCount(sisterEnrollmentCountApi, (data) => data.data && data.data.count)
+]).then(([originalCount, comboCount, sisterCount]) => {
     if (document.getElementById('enrolled')) {
-        document.getElementById('enrolled').setAttribute('countTo', totalEnrollment);
+        document.getElementById('enrolled').setAttribute('countTo', originalCount + comboCount + sisterCount + init);
         const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
         if (!countUp.error) {
             countUp.start();
