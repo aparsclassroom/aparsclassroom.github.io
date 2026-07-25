@@ -15,11 +15,24 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 const Cycle = location.pathname.split('/')[4];
 
+const getAfsEnrollmentCount = (code) => {
+    return fetch(
+        "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code
+    )
+        .then(res => res.json())
+        .then(data => Number(data.data?.count) || 0)
+        .catch(err => {
+            console.log(err);
+            return 0;
+        });
+};
+
 Promise.all([
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=${productCode2}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/?productCode=788`).then(res => res.json()),
-    fetch(`https://${shopName2}/enrollment/?productCode=791`).then(res => res.json())
+    fetch(`https://${shopName2}/enrollment/?productCode=791`).then(res => res.json()),
+    getAfsEnrollmentCount(productCode)
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, data) => total + (data.count || 0), init);
