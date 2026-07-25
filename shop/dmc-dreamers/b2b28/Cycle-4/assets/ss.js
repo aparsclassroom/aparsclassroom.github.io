@@ -72,9 +72,23 @@ var tag = document.createElement('script');
 //     .catch((err) => {
 //         console.log(err)
 //     })
+
+const getAfsEnrollmentCount = (code) => {
+    return fetch(
+        "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code
+    )
+        .then(res => res.json())
+        .then(data => Number(data.data?.count) || 0)
+        .catch(err => {
+            console.log(err);
+            return 0;
+        });
+};
+
 Promise.all([
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`).then(res => res.json()),
     fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`).then(res => res.json()),
+    getAfsEnrollmentCount(productCode),
     ...comboEnrollmentCodes.map(code => fetch(`https://${shopName2}/enrollment/?productCode=${code}`).then(res => res.json()))
 ])
     .then((enrollments) => {
