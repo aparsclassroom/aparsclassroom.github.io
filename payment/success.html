@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0fff6, #eef7ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, .08);
+    }
+
+    .icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: #16a34a;
+      font-size: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #111827;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #6b7280;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .secondary {
+      background: #eef2ff;
+      color: #2563eb;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .transaction {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 15px;
+      color: #16a34a;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="icon">✓</div>
+
+    <h1>Payment Successful!</h1>
+
+    <p>
+      Thank you for your purchase. Your payment has been received successfully.
+      Your course will be available in your dashboard shortly.
+    </p>
+
+    <div class="buttons">
+      <a href="../../dashboard/" class="btn primary">Go to Dashboard</a>
+      <a href="#" id="courseBtn" class="btn secondary">View Course</a>
+      <a href="#" id="invoiceBtn" class="btn secondary" style="display:none;">
+        See Invoice
+      </a>
+    </div>
+
+    <div class="note">
+      Thank you for choosing Apar's Classroom ❤️
+    </div>
+
+    <div class="transaction">
+      <div id="tranId"></div>
+    </div>
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const tranId = params.get("tran_id");
+    const productID = params.get("productID");
+    const invoice = params.get("Invoice");
+
+    if (tranId) {
+      document.getElementById("tranId").textContent =
+        "Transaction ID: " + tranId;
+    }
+
+    // View Course button
+    const courseBtn = document.getElementById("courseBtn");
+    if (productID) {
+      courseBtn.href = `https://shop.aparsclassroom.com/${encodeURIComponent(productID)}`;
+    } else {
+      courseBtn.style.display = "none";
+    }
+
+    // Invoice button
+    if (invoice) {
+      const invoiceBtn = document.getElementById("invoiceBtn");
+      invoiceBtn.href = decodeURIComponent(invoice);
+      invoiceBtn.style.display = "inline-block";
+    }
+  </script>
+
+</body>
+
+</html>
