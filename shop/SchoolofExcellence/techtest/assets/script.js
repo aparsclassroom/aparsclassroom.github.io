@@ -125,7 +125,7 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         // v2/:productId/:cycle/
 
-                        fetch(`https://${shopName2}/v2/${productCode}/${Cycle}/init`, requestOptions)
+                        fetch(`https://${shopName2}/${productCode}/${Cycle}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
