@@ -1,8 +1,8 @@
-const product = "testpayment";
+const product = "testcourse";
 const productName = "ACS Lodestar Academic English 28 Batch Combo";
 const init = 0;
 const Platform = "Online";
-const productCode = "836";
+const productCode = "837";
 const fix = 2380;
 //const pls = 1290;
 const pls = 1290;
