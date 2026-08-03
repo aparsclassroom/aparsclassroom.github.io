@@ -1,19 +1,19 @@
 
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
-      document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
+        document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
     } else {
-      document.getElementById('email').setCustomValidity("");
+        document.getElementById('email').setCustomValidity("");
     }
-  });
-  
-  document.getElementById('phone').addEventListener("input", function (event) {
+});
+
+document.getElementById('phone').addEventListener("input", function (event) {
     if (document.getElementById('phone').validity.patternMismatch) {
         document.getElementById('phone').setCustomValidity("Please enter a valid phone number (+8801XX XXX XXXX)!");
     } else {
         document.getElementById('phone').setCustomValidity("");
     }
-  });
+});
 document.title = productName + " (" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
@@ -49,7 +49,7 @@ function lodestarEng28FindExistingPurchase(results) {
         .find(result => result.status === 200);
 }
 
-firebase.auth().onAuthStateChanged(function(e) {
+firebase.auth().onAuthStateChanged(function (e) {
     if (e) {
         var t = e.phoneNumber;
         var namex = e.displayName;
@@ -125,34 +125,46 @@ firebase.auth().onAuthStateChanged(function(e) {
 
                         // v2/:productId/:cycle/
 
-                        fetch(`https://${shopName2}/${productCode}/${Cycle}/init`, requestOptions)
-                            .then(response => {
-                                return response.text()
-                            })
-                            .then(result => {
-                                if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
-                                    document.getElementById('doc').innerHTML = result
+                        const checkoutPayload = {
+                            items: [
+                                {
+                                    productId: productCode
+                                }
+                            ],
+                            provider: "bkash"
+                        };
+
+                        fetch(`https://${shopName2}/api/checkout`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(checkoutPayload)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (
+                                    data.orders &&
+                                    data.orders.length &&
+                                    data.orders[0].redirectUrl
+                                ) {
+                                    window.location.href = data.orders[0].redirectUrl;
                                 } else {
-                                    swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                    throw new Error("Checkout failed");
                                 }
                             })
                             .catch(() => {
                                 swal({
                                     title: "Error",
                                     icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                    text: "Unable to initialize payment.",
                                     button: "Ok"
                                 }).then(() => {
-                                    location.href = "/shop"
-                                })
+                                    location.href = "/shop";
+                                });
                             });
+
+
                     })
                 }
             }).catch(() => {
@@ -195,33 +207,43 @@ firebase.auth().onAuthStateChanged(function(e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${Cycle}/${productCode}/init`, requestOptions)
-                        .then(response => {
-                            return response.text()
-                        })
-                        .then(result => {
-                            if (result != '{"status":404,"message":"Product Error"}' || result.status != 420) {
-                                document.getElementById('doc').innerHTML = result
+                    const checkoutPayload = {
+                        items: [
+                            {
+                                productId: productCode
+                            }
+                        ],
+                        provider: "bkash"
+                    };
+
+                    fetch(`https://${shopName2}/api/checkout`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(checkoutPayload)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (
+                                data.orders &&
+                                data.orders.length &&
+                                data.orders[0].redirectUrl
+                            ) {
+                                window.location.href = data.orders[0].redirectUrl;
                             } else {
-                                swal({
-                                title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
-                                button: "Ok"
-                            }).then(() => {
-                                location.href = "/shop"
-                            })
+                                throw new Error("Checkout failed");
                             }
                         })
                         .catch(() => {
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
-                                    text: "Please visit after 10 pm tonight",
+                                text: "Unable to initialize payment.",
                                 button: "Ok"
                             }).then(() => {
-                                location.href = "/shop"
-                            })
+                                location.href = "/shop";
+                            });
                         });
                 })
 
@@ -265,9 +287,9 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');
-                location.href = "/shop/dashboard/login?&signInSuccessUrl="+ location.pathname;
+                location.href = "/shop/dashboard/login?&signInSuccessUrl=" + location.pathname;
             })
-        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?&signInSuccessUrl="+ location.pathname; });
+        document.getElementById("app").addEventListener("click", e => { e.preventDefault(), document.location.href = "/shop/dashboard/login?&signInSuccessUrl=" + location.pathname; });
     }
 })
 var cupon, cpn = document.getElementById("cpnCheck");
@@ -316,7 +338,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-document.getElementById("cup").style.display = "block"; 
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
@@ -345,11 +367,11 @@ document.getElementById("cup").style.display = "block";
 if (queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
-document.getElementById("app").style.display = "none"; 
+    document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
 
-    document.getElementById("cup").style.display = "none"; 
+    document.getElementById("cup").style.display = "none";
     delete_cookie("promo");
     notdis()
 }
