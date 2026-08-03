@@ -125,35 +125,39 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                         // v2/:productId/:cycle/
 
-                        const checkoutPayload = {
-                            items: [
-                                {
-                                    productId: productCode
-                                }
-                            ],
-                            provider: "bkash"
-                        };
+                        firebase.auth().currentUser
+                            .getIdToken(true)
+                            .then(function (idToken) {
 
-                        fetch(`https://${shopName2}/api/checkout`, {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify(checkoutPayload)
-                        })
-                            .then(res => res.json())
+                                const checkoutPayload = {
+                                    items: [
+                                        {
+                                            productId: productCode
+                                        }
+                                    ],
+                                    provider: "bkash"
+                                };
+
+                                return fetch(`https://${shopName2}/api/checkout`, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                        "Authorization": `Bearer ${idToken}`
+                                    },
+                                    body: JSON.stringify(checkoutPayload)
+                                });
+                            })
+                            .then(response => response.json())
                             .then(data => {
-                                if (
-                                    data.orders &&
-                                    data.orders.length &&
-                                    data.orders[0].redirectUrl
-                                ) {
+                                if (data.orders?.length && data.orders[0].redirectUrl) {
                                     window.location.href = data.orders[0].redirectUrl;
                                 } else {
                                     throw new Error("Checkout failed");
                                 }
                             })
-                            .catch(() => {
+                            .catch(error => {
+                                console.error(error);
+
                                 swal({
                                     title: "Error",
                                     icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
@@ -163,6 +167,8 @@ firebase.auth().onAuthStateChanged(function (e) {
                                     location.href = "/shop";
                                 });
                             });
+
+
 
 
                     })
@@ -207,35 +213,41 @@ firebase.auth().onAuthStateChanged(function (e) {
                         redirect: 'follow'
                     };
 
-                    const checkoutPayload = {
-                        items: [
-                            {
-                                productId: productCode
-                            }
-                        ],
-                        provider: "bkash"
-                    };
 
-                    fetch(`https://${shopName2}/api/checkout`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(checkoutPayload)
-                    })
-                        .then(res => res.json())
+
+                    firebase.auth().currentUser
+                        .getIdToken(true)
+                        .then(function (idToken) {
+
+                            const checkoutPayload = {
+                                items: [
+                                    {
+                                        productId: productCode
+                                    }
+                                ],
+                                provider: "bkash"
+                            };
+
+                            return fetch(`https://${shopName2}/api/checkout`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Authorization": `Bearer ${idToken}`
+                                },
+                                body: JSON.stringify(checkoutPayload)
+                            });
+                        })
+                        .then(response => response.json())
                         .then(data => {
-                            if (
-                                data.orders &&
-                                data.orders.length &&
-                                data.orders[0].redirectUrl
-                            ) {
+                            if (data.orders?.length && data.orders[0].redirectUrl) {
                                 window.location.href = data.orders[0].redirectUrl;
                             } else {
                                 throw new Error("Checkout failed");
                             }
                         })
-                        .catch(() => {
+                        .catch(error => {
+                            console.error(error);
+
                             swal({
                                 title: "Error",
                                 icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
