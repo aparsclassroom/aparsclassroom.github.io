@@ -110,6 +110,7 @@
 
     <div class="buttons">
         <a href="javascript:history.back()" class="btn primary">Try Again</a>
+        <a href="#" id="courseBtn" class="btn secondary">View Course</a>
         <a href="../../dashboard/" class="btn secondary">Dashboard</a>
         <a href="../../shop/" class="btn secondary">All Courses</a>
     </div>
@@ -125,6 +126,14 @@
     if (tranId) {
         document.getElementById("tranId").textContent =
             "Transaction ID: " + tranId;
+    }
+    // View Course button
+    const courseBtn = document.getElementById("courseBtn");
+    const productID = params.get("productID");
+    if (productID) {
+        courseBtn.href = `https://shop.aparsclassroom.com/${encodeURIComponent(productID)}`;
+    } else {
+        courseBtn.style.display = "none";
     }
 </script>
 

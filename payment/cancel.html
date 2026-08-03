@@ -2,127 +2,136 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Cancelled</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Cancelled</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        body {
-            background: #f4f6fb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    body {
+      background: #f4f6fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-        .card {
-            width: 100%;
-            max-width: 520px;
-            background: #fff;
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 12px 30px rgba(0,0,0,.08);
-        }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+    }
 
-        .icon {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 24px;
-            border-radius: 50%;
-            background: #ffe9e9;
-            color: #d32f2f;
-            font-size: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .icon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: #ffe9e9;
+      color: #d32f2f;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        h1 {
-            margin-bottom: 12px;
-            color: #222;
-        }
+    h1 {
+      margin-bottom: 12px;
+      color: #222;
+    }
 
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
+    p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
 
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
 
-        .btn {
-            text-decoration: none;
-            padding: 12px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: .2s;
-        }
+    .btn {
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: .2s;
+    }
 
-        .primary {
-            background: #2563eb;
-            color: white;
-        }
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
 
-        .secondary {
-            background: #eef2ff;
-            color: #2563eb;
-        }
+    .secondary {
+      background: #eef2ff;
+      color: #2563eb;
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
-        #tranId {
-            margin-top: 18px;
-            color: #888;
-            font-size: 14px;
-        }
-    </style>
+    #tranId {
+      margin-top: 18px;
+      color: #888;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="card">
-        <div class="icon">✕</div>
+  <div class="card">
+    <div class="icon">✕</div>
 
-        <h1>Payment Cancelled</h1>
+    <h1>Payment Cancelled</h1>
 
-        <p>
-            Your payment was cancelled. No payment has been processed.
-            You can return to your dashboard or browse all available courses.
-        </p>
+    <p>
+      Your payment was cancelled. No payment has been processed.
+      You can return to your dashboard or browse all available courses.
+    </p>
 
-        <div class="buttons">
-            <a class="btn primary" href="../../shop/dashboard/">Dashboard</a>
-            <a class="btn secondary" href="../../shop/">All Courses</a>
-        </div>
-
-        <div id="tranId"></div>
+    <div class="buttons">
+      <a class="btn primary" href="../../shop/dashboard/">Dashboard</a>
+      <a href="#" id="courseBtn" class="btn warning">Try Again</a>
+      <a class="btn secondary" href="../../shop/">All Courses</a>
     </div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const tranId = params.get("tran_id");
+    <div id="tranId"></div>
+  </div>
 
-        if (tranId) {
-            document.getElementById("tranId").textContent =
-                "Transaction ID: " + tranId;
-        }
-    </script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const tranId = params.get("tran_id");
+    const productID = params.get("productID");
+
+    if (tranId) {
+      document.getElementById("tranId").textContent =
+        "Transaction ID: " + tranId;
+    }
+    // View Course button
+    const courseBtn = document.getElementById("courseBtn");
+    if (productID) {
+      courseBtn.href = `https://shop.aparsclassroom.com/${encodeURIComponent(productID)}`;
+    } else {
+      courseBtn.style.display = "none";
+    }
+  </script>
 
 </body>
 
