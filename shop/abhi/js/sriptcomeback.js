@@ -40,7 +40,7 @@ function checkValidPayment(uid) {
         redirect: 'follow'
     };
 
-    fetch(`https://${shopName2}/logs`, requestOptions)
+    fetch(`https://${shopName}/logs`, requestOptions)
         .then(response => response.json())
         .then((loadedData) => {
             if (loadedData.status === 200 && loadedData.info && loadedData.info.length > 0) {
