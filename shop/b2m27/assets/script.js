@@ -218,7 +218,7 @@ firebase.auth().onAuthStateChanged(function (e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
+        fetch(`https://${shopName}/v3/purchase/multiple/${Cycle}`, requestOptions).then(res => res.json())
         .then((result) => {
             if (result.status === 200) {
                 swal({
@@ -281,7 +281,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             redirect: 'follow'
                         };
 
-                        fetch(`https://${shopName2}/${Cycle}/${productcode}/init`, requestOptions)
+                        fetch(`https://${shopName}/${Cycle}/${productcode}/init`, requestOptions)
                             .then(response => {
                                 return response.text()
                             })
@@ -364,7 +364,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         redirect: 'follow'
                     };
 
-                    fetch(`https://${shopName2}/${Cycle}/${productcode}/init`, requestOptions)
+                    fetch(`https://${shopName}/${Cycle}/${productcode}/init`, requestOptions)
                         .then(response => {
                             return response.text()
                         })
