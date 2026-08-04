@@ -297,8 +297,8 @@ function checkPurchase(products, uid, cycle) {
     myHeaders.append("Content-Type", "application/json");
 
     const purchaseCheckUrl = cycle
-        ? `https://${shopName2}/v3/purchase/multiple/${cycle}`
-        : `https://${shopName2}/v3/purchase/multiple`;
+        ? `https://${shopName}/v3/purchase/multiple/${cycle}`
+        : `https://${shopName}/v3/purchase/multiple`;
 
     return fetch(purchaseCheckUrl, {
         method: 'POST',
@@ -397,7 +397,7 @@ function submitPurchase(user) {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    const initUrl = `https://${shopName2}/${productCode}/init`;
+    const initUrl = `https://${shopName}/${productCode}/init`;
 
     fetch(initUrl, {
         method: 'POST',
