@@ -27,7 +27,7 @@
 
 /* ---- endpoints ---------------------------------------------------------- */
 
-const API = `https://${shopName2}`;
+const API = `https://${shopName3}`;
 const seg = encodeURIComponent;
 
 /** true = badge counts this cycle only; false = every cycle of the product. */
