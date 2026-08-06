@@ -70,4 +70,3 @@ if (document.getElementById('enrolled')) {
         console.error(countUp.error);
     }
 }
-
