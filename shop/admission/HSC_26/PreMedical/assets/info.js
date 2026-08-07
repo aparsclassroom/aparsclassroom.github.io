@@ -5,4 +5,4 @@ const productCode = "560";
 const fix = 6000;
 const pls = 5500;
 const Platform = "Online";
-const init = 12;
+const init = 156;
