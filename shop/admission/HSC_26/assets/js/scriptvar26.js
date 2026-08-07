@@ -46,8 +46,6 @@ if (urlProductCode === productCode) {
     document.getElementById('price').value = pls;
     document.getElementById('nop').innerText = pls + "৳";
 
-   document.getElementById('addbooksdiv').style.display = 'none'; // Hide the books checkbox
-    
     // Remove required attributes from shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -66,8 +64,6 @@ if (urlProductCode === productCode) {
     document.getElementById('price').value = pls2;
     document.getElementById('nop').innerText = pls2 + "৳";
 
-     document.getElementById('addbooksdiv').style.display = 'none';
-    
     // Add required attributes to shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
