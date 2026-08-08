@@ -1,8 +1,8 @@
 const product = "SignatureSeries";
 const productName = "HSC Biology MCQ Hacks: The Test Paper Killing Series";
 const productCode = "612";
-const fix = 499;
-const pls = 199;
+const fix = 1000;
+const pls = 499;
 const init = 0;
 const Platform = "Online";
 const Cycle = location.pathname.split('/')[4];
