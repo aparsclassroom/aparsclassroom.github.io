@@ -82,7 +82,7 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
 );
 
 Promise.all([
-    getEnrollmentCount("https://" + shopName + "/enrollment/combined?productCodes=" + ebi28EnrollmentProductCodes.join(",")),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/combined?productCodes=" + ebi28EnrollmentProductCodes.join(",")),
     getAfsEnrollmentCount(productCode)
 ])
     .then((counts) => {
