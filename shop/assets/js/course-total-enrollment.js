@@ -425,17 +425,32 @@
                 source: await getLinkedPageSource(anchor.href)
             })));
 
+            console.log('[CTE] Selected links for counting:', links.map(l => l.href));
+            
             sources.forEach(({ source, href }) => {
-                extractEnrollmentEndpoints(source, href).forEach(endpoint => endpoints.push(endpoint));
+                const pageEndpoints = extractEnrollmentEndpoints(source, href);
+                console.log(`[CTE] Endpoints from ${href}:`, pageEndpoints);
+                pageEndpoints.forEach(endpoint => endpoints.push(endpoint));
             });
 
-            if (!endpoints.length) {
+            console.log('[CTE] All endpoints (may have duplicates):', endpoints);
+            
+            // Deduplicate endpoints for counting
+            const uniqueEndpoints = Array.from(new Set(endpoints));
+            console.log('[CTE] Unique endpoints:', uniqueEndpoints);
+
+            if (!uniqueEndpoints.length) {
                 badge.remove();
                 return;
             }
 
-            const counts = await Promise.all(endpoints.map(fetchCount));
+            const counts = await Promise.all(uniqueEndpoints.map(async endpoint => {
+                const count = await fetchCount(endpoint);
+                console.log(`[CTE] ${endpoint} = ${count}`);
+                return count;
+            }));
             const total = counts.reduce((sum, count) => sum + count, 0);
+            console.log('[CTE] Total enrollment:', total);
             badge.classList.remove('is-loading');
             badge.textContent = `Total enrolled: ${total.toLocaleString('en-US')}`;
         } catch (error) {
