@@ -41,32 +41,22 @@ tag.src = "https://www.youtube.com/iframe_api";
 // }
 
 //fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`)
-// fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},567`)
-//     .then((res) => {
-//         return res.json()
-//     })
-//     .then((data) => {
-//         document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-//         if (document.getElementById('enrolled')) {
-//             const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-//             if (!countUp.error) {
-//                 countUp.start();
-//             } else {
-//                 console.error(countUp.error);
-//             }
-//         }
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},567`)
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
+        if (document.getElementById('enrolled')) {
+            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
 
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//     })
-
-document.getElementById('enrolled').setAttribute('countTo', init);
-if (document.getElementById('enrolled')) {
-    const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
-    if (!countUp.error) {
-        countUp.start();
-    } else {
-        console.error(countUp.error);
-    }
-}
+    })
+    .catch((err) => {
+        console.log(err)
+    })
