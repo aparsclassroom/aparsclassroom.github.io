@@ -33,8 +33,6 @@ function getProductCodeFromURL() {
 // Get product code from URL and set initial state
 const urlProductCode = getProductCodeFromURL();
 let productcode;
-let couponIsApplying = false;
-let couponRequestId = 0;
 
 // Set initial state based on URL product code
 if (urlProductCode === productCode) {
@@ -46,6 +44,8 @@ if (urlProductCode === productCode) {
     document.getElementById('price').value = pls;
     document.getElementById('nop').innerText = pls + "৳";
 
+   document.getElementById('addbooksdiv').style.display = 'none'; // Hide the books checkbox
+    
     // Remove required attributes from shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -64,6 +64,8 @@ if (urlProductCode === productCode) {
     document.getElementById('price').value = pls2;
     document.getElementById('nop').innerText = pls2 + "৳";
 
+     document.getElementById('addbooksdiv').style.display = 'none';
+    
     // Add required attributes to shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -74,14 +76,16 @@ if (urlProductCode === productCode) {
     ];
     shippingInputs.forEach(input => input.setAttribute('required', ''));
 } else {
-    // Default state when no promo or an unrecognized promo: course only.
+    // Default state when no promo or unrecognized promo (books checked)
     productcode = productCode2;
     document.getElementById('addBooks').checked = true;
     document.getElementById('shippingFields').style.display = 'block';
     document.getElementById('sprice').innerText = pls2;
     document.getElementById('price').value = pls2;
     document.getElementById('nop').innerText = pls2 + "৳";
-
+    document.getElementById('couponinfocenter').style.display = 'none'; // Show the books checkbox
+    document.getElementById('couponinfocenter2').style.display = 'block'; // Show the books checkbox
+    
     // Add required attributes to shipping fields
     const shippingInputs = [
         document.getElementById('ship_name'),
@@ -124,20 +128,6 @@ const quotes = [
     "Reading gives us someplace to go when we have to stay where we are."
 ];
 
-function setPackagePrice(amount) {
-    document.getElementById('sprice').innerText = amount;
-    document.getElementById('price').value = amount;
-
-    const regularPrice = document.getElementById('nop');
-    if (regularPrice) {
-        regularPrice.innerText = amount + "৳";
-    } else {
-        document.getElementById('smp').innerHTML =
-            "<del style='color:red'> " + fix + "৳</del> " +
-            " <span style='color:rgb(26, 185, 66);'>" + amount + " ৳</span>";
-    }
-}
-
 // Add books checkbox event listener
 document.getElementById('addBooks').addEventListener('change', function () {
     const shipFields = document.getElementById('shippingFields');
@@ -153,10 +143,13 @@ document.getElementById('addBooks').addEventListener('change', function () {
     if (isShipping) {
         // If checked, show fields and update pricing
         shipFields.style.display = 'block';
-        setPackagePrice(pls2);
+        document.getElementById('sprice').innerText = pls2;
+        document.getElementById('price').value = pls2;
+        document.getElementById('nop').innerText = pls2 + "৳";
         productcode = productCode2;
+        document.getElementById('couponinfocenter').style.display = 'none'; // Hide the normal coupon info
+        document.getElementById('couponinfocenter2').style.display = 'block'; // Show books coupon info
         shippingInputs.forEach(input => input.setAttribute('required', ''));
-        applyAutomaticCoupon('Eng26book');
 
         document.getElementById('ship_phone').addEventListener("input", function (event) {
             if (this.validity.patternMismatch) {
@@ -191,14 +184,17 @@ document.getElementById('addBooks').addEventListener('change', function () {
             if (result.isConfirmed) {
                 // User confirmed they don't want books
                 shipFields.style.display = 'none';
-                setPackagePrice(pls);
+                document.getElementById('sprice').innerText = pls;
+                document.getElementById('price').value = pls;
+                document.getElementById('nop').innerText = pls + "৳";
                 productcode = productCode;
+                document.getElementById('couponinfocenter').style.display = 'block'; // Hide the books checkbox
+                document.getElementById('couponinfocenter2').style.display = 'none'; // Show the books checkbox
                 shippingInputs.forEach(input => input.removeAttribute('required'));
-                applyAutomaticCoupon('Eng26');
             } else {
                 // Re-check the checkbox if cancelled
                 document.getElementById('addBooks').checked = true;
-                setPackagePrice(pls2);
+                document.getElementById('nop').innerText = pls2 + "৳";
             }
         });
     }
@@ -432,12 +428,9 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
-        const enrollmentLabel = `কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>`;
-        if (couponIsApplying) {
-            document.getElementById('moda').dataset.couponApplyLabel = enrollmentLabel;
-        } else {
-            document.getElementById('moda').innerHTML = enrollmentLabel;
-        }
+        document.getElementById('moda').innerHTML = `
+        কোর্সটিতে এনরোল করো <i class="fas fa-arrow-right"></i>
+        `;
     } else {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
@@ -464,68 +457,22 @@ function notdis() {
 notdis()
 var disOFF = 0;
 
-function setCouponApplying(isApplying) {
-    const enrollButton = document.getElementById('moda');
-
-    if (isApplying) {
-        if (!couponIsApplying) {
-            enrollButton.dataset.couponApplyLabel = enrollButton.innerHTML;
-        }
-        couponIsApplying = true;
-        enrollButton.disabled = true;
-        enrollButton.innerText = 'Coupon applying ..';
-    } else {
-        couponIsApplying = false;
-        enrollButton.disabled = false;
-        if (enrollButton.dataset.couponApplyLabel) {
-            enrollButton.innerHTML = enrollButton.dataset.couponApplyLabel;
-            delete enrollButton.dataset.couponApplyLabel;
-        }
-    }
-}
-
-function resetCouponForm() {
-    const cupV = document.getElementById('cupon');
-
-    disOFF = 0;
-    cupV.value = '';
-    cupV.disabled = false;
-    document.getElementById('disC').value = '';
-    cpn.innerText = 'Apply';
-    cpn.disabled = true;
-    cpn.style.cursor = 'pointer';
-    document.getElementById('coupnbosh').style.display = 'flex';
-    document.getElementById('how').style.display = 'none';
-    document.getElementById('cup').style.display = 'block';
-    document.getElementById('app').style.display = 'none';
-}
-
-function applyAutomaticCoupon(couponCode) {
-    resetCouponForm();
-    document.getElementById('cupon').value = couponCode;
-    notdis();
-    cpn.click();
-}
-
 function suc() { "" === document.getElementById("cupon").value ? document.getElementById("cpnCheck").disabled = !0 : document.getElementById("cpnCheck").disabled = !1 }
 cpn.addEventListener('click', (e) => {
     e.preventDefault();
     const cupV = document.getElementById('cupon');
     const cpnCode = cupV.value;
-    const couponProductCode = productcode;
-    const requestId = ++couponRequestId;
     cpn.innerText = "Checking..";
     cupV.disabled = true;
     cpn.disabled = true;
-    setCouponApplying(true);
     const isShipping = document.getElementById('addBooks').checked;
-    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' + couponProductCode)
+    fetch(cuponApi + '/' + cpnCode.toUpperCase() + '/' +productcode)
         .then((res) => {
             return res.json();
         })
         .then((loadedData) => {
-            if (requestId !== couponRequestId) return;
             if (loadedData.status === "success") {
+                document.getElementById('addbooksdiv').style.display = "none";
                 var nes;
                 isShipping ? nes = pls2 - loadedData.Off : nes = pls - loadedData.Off;
                 disOFF = loadedData.Off;
@@ -544,15 +491,13 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + fix + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-                document.getElementById("cup").style.display = "block";
-                setCouponApplying(false);
+document.getElementById("cup").style.display = "block"; 
                 return;
             } else {
                 cpn.innerText = "Apply";
                 cupV.disabled = false;
                 cpn.disabled = false;
                 document.getElementById('cupon').value = "";
-                setCouponApplying(false);
                 swal({
                     title: "Code not valid",
                     icon: "error",
@@ -562,9 +507,7 @@ cpn.addEventListener('click', (e) => {
                 })
             }
         }).catch(() => {
-            if (requestId !== couponRequestId) return;
             document.getElementById('cupon').value = "";
-            setCouponApplying(false);
             swal({
                 title: "Cupon can't be Empty 😶",
                 icon: "error",
@@ -593,5 +536,6 @@ if (urlPromo) {
     document.getElementById("app").style.display = "none";
     cpn.click();
 } else {
-    applyAutomaticCoupon(productcode === productCode2 ? 'Eng26book' : 'Eng26');
+    document.getElementById("cup").style.display = "none";
+    notdis()
 }
