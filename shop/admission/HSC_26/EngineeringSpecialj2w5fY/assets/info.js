@@ -1,0 +1,16 @@
+const product = "Engineering26 (CX special)";
+const product2 = "Engineering26wbooks (CX special)";
+const productName = "ACS Engineering Batch 2026 (Full Syllabus | CX special)";
+const productName2 = "ACS Engineering Batch 2026 with Books (Full Syllabus | CX special)";
+const productCode = "837";
+const productCode3 = "592";
+const init = 0;
+let productCode2 = "838";
+let productCode4 = "597";
+let productCode5 = "591";
+let productCode6 = "597";
+const fix = 10000;
+const pls = 4000;
+const pls2 = 7250;
+const Platform = "Online";
+const Platform2 = "Physical";
