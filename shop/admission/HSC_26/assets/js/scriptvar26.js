@@ -213,7 +213,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = JSON.stringify({
-            "products": [productCode, productCode2, productCode3, productCode4],
+            "products": [productCode, productCode2, productCode3, productCode4, 834, 835],
             'uid': e.uid
         });
 
