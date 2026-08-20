@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbzezOx1KeJaJL6Nn0WkAFc0KYLaIAVBUZqTQYhoxleM4NMom1GvsS_qro9QkvuTYuh5/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbw1xnkOBaxyd9uTKVHJYvpkve_TwoMQChiL_VySqbmme68SwzlgN9p5CHOPWZi11bV8/exec";
 
 document.title = productName + " | ASG Shop";
 document.getElementById("prod").innerText = productName;
@@ -77,7 +77,10 @@ firebase.auth().onAuthStateChanged((user) => {
         submit.disabled = true;
         submit.innerText = "Please Wait...";
 
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+        const formData = new FormData(form);
+        formData.set("HSC Group", document.getElementById("hscGroup").value);
+
+        fetch(scriptURL, { method: "POST", body: formData })
             .then((response) => response.json())
             .then((data) => {
                 const serial = bookingNumber(data);
