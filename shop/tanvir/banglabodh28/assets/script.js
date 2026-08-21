@@ -1,18 +1,3 @@
-// const countUp = new CountUp('std', document.getElementById("std").getAttribute("countTo"));
-// if (!countUp.error) {
-//     countUp.start();
-// } else {
-//     console.error(countUp.error);
-// }
-// if (document.getElementById("stds")) {
-//     const countUps = new CountUp('stds', document.getElementById("stds").getAttribute("countTo"));
-//     if (!countUps.error) {
-//         countUps.start();
-//     } else {
-//         console.error(countUps.error);
-//     }
-// }
-
 document.getElementById('email').addEventListener("input", function (event) {
     if (document.getElementById('email').validity.typeMismatch) {
       document.getElementById('email').setCustomValidity("We are expecting an e-mail address!");
@@ -36,6 +21,34 @@ document.getElementById('nop').innerText = pls + "৳";
 document.getElementById('sprice').innerText = pls;
 document.getElementById('price').value = pls;
 
+function tundraRegion28CheckPurchase(products, uid, cycle) {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify({
+            products,
+            uid
+        }),
+        redirect: 'follow'
+    };
+
+    const purchaseCheckUrl = cycle
+        ? `https://${shopName2}/v3/purchase/multiple/${cycle}`
+        : `https://${shopName2}/v3/purchase/multiple`;
+
+    return fetch(purchaseCheckUrl, requestOptions).then(response => response.json());
+}
+
+function tundraRegion28FindExistingPurchase(results) {
+    return results
+        .filter(result => result.status === 'fulfilled')
+        .map(result => result.value)
+        .find(result => result.status === 200);
+}
+
 firebase.auth().onAuthStateChanged(function(e) {
     if (e) {
         var t = e.phoneNumber;
@@ -56,18 +69,19 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions)
-            .then(response => {
-                return response.json()
-            })
+        Promise.allSettled([
+            fetch(`https://${shopName2}/${productCode}/purchase/${Cycle}`, requestOptions).then(response => response.json()),
+            tundraRegion28CheckPurchase(["839"], e.uid)
+        ])
             .then(result => {
+                result = tundraRegion28FindExistingPurchase(result) || { status: 404 };
                 if (result.status === 200) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
-                        return location.replace(result.Invoice)
+                        return location.replace(result.invoices?.[0]?.invoice || result.Invoice)
                     })
                 } else {
                     const form = document.forms['purchase']
