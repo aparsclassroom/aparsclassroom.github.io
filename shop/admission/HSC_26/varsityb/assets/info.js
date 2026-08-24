@@ -3,6 +3,6 @@ const productName = "ACS ভার্সিটি ‘খ’ + বিভাগ �
 const productCode = "841";
 //const productCode2 = "369";
 const fix = 3000;
-const pls = 2500;
+const pls = 1750;
 const Platform = "Online";
 const init = 0;
