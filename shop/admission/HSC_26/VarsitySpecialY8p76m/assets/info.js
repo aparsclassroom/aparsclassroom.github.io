@@ -1,0 +1,16 @@
+const product = "varsity26 (CX Special)";
+const product2 = "varsity26wbooks";
+const productName = "ACS Varsity + GST Special Private Programme 2026 (CX Special)";
+const productName2 = "ACS Varsity + GST Special Private Programme 2026 with Books";
+const productCode = "842";
+const productCode3 = "614";
+const fix = 4000;
+const pls = 3250;
+const pls2 = 6500;
+const init = 0;
+let productCode2 = "615";
+let productCode4 = "616";
+let productCode5 = "613";
+//let productCode6 = "618";
+const Platform = "Online";
+const Platform2 = "Physical";
