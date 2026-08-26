@@ -46,7 +46,7 @@ var player;
     }
 });
 
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2},${productCode3},${productCode4}`)
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2},${productCode3},${productCode4},${productCode5},${productCode6}`)
     .then((res) => {
         return res.json()
     })
