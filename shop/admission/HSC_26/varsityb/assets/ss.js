@@ -1,11 +1,11 @@
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
-    spaceBetween: 5,
-    loop: false,
-    autoplay: {
-        delay: 4000,
-    },
-});
+// var swiper = new Swiper(".mySwiper", {
+//     slidesPerView: 5,
+//     spaceBetween: 5,
+//     loop: false,
+//     autoplay: {
+//         delay: 4000,
+//     },
+// });
 
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
@@ -41,7 +41,7 @@ tag.src = "https://www.youtube.com/iframe_api";
 // }
 
 //fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`)
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},567`)
+fetch(`https://${shopName2}/enrollment/?productCode=${productCode}`)
     .then((res) => {
         return res.json()
     })
