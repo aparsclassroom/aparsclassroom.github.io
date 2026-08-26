@@ -1,11 +1,12 @@
-// var swiper = new Swiper(".mySwiper", {
-//     slidesPerView: 5,
-//     spaceBetween: 5,
-//     loop: false,
-//     autoplay: {
-//         delay: 4000,
-//     },
-// });
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 5,
+    loop: true,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+});
 
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
