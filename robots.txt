@@ -4,5 +4,7 @@ Disallow: /shop/bundle26/
 Disallow: /shop/admission/HSC_25/Varsityspecial
 Disallow: /shop/admission/HSC_26/EngineeringSpecialj2w5fY
 Disallow: /shop/admission/HSC_26/VarsitySpecialY8p76m
+Disallow: /shop/admission/HSC_26/PreMedicalSpecial1fH5fS
+Disallow: /shop/admission/HSC_26/IBASpecialXeBm6Q
 
 Sitemap: https://aparsclassroom.com/websitemapv1.xml
