@@ -33,8 +33,16 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById('uid').value = e.uid;
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
+        // A course can be sold as several variants (with books, CX special, etc.).
+        // Buying any of them counts as already enrolled, so check them all.
+        var products = [
+            productCode,
+            typeof productCode2 !== 'undefined' ? productCode2 : null,
+            typeof productCode3 !== 'undefined' ? productCode3 : null,
+            typeof productCode4 !== 'undefined' ? productCode4 : null
+        ].filter(Boolean);
         var raw = JSON.stringify({
-            "product": productCode,
+            "products": products,
             'uid': e.uid
         });
 
@@ -45,7 +53,7 @@ firebase.auth().onAuthStateChanged(function(e) {
             redirect: 'follow'
         };
 
-        fetch(`${link}/${productCode}/purchase`, requestOptions)
+        fetch(`${link}/v3/purchase/multiple`, requestOptions)
             .then(response => {
                 return response.json()
             })
@@ -54,17 +62,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
-                        buttons:  ["Exam Dashboard", "View Invoice"]
-                    }).then((a,b) => {
-                        if (a) {
-                            location.replace(result.Invoice)
-                        } else {
-                            if (result.Exam) {
-                                location.replace(result.Exam)
-                            } else {
-                                location.replace("http://exam.aparsclassroom.com/?uid="+ e.uid)
-                            }
-                        }
+                        button: "View Informations"
+                    }).then(() => {
+                        location.replace(result.invoices[0].invoice);
                     })
                 } else {
                     const form = document.forms['purchase']

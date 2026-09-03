@@ -1,6 +1,8 @@
 const product = "medical26";
 const productName = "ACS Medical Batch 2026";
 const productCode = "560";
+const productCode2 = "567";
+const productCode3 = "845";
 //const productCode2 = "369";
 const fix = 6000;
 const pls = 5500;
