@@ -1,0 +1,13 @@
+const product = "fahadmed27";
+const product2 = "fahadmed27wbooks";
+const productName = "ACS Medi Master: ACS Advanced Pre-Medical 27 by Dr Fahad DMC";
+const productName2 = "ACS Medi Master: ACS Advanced Pre-Medical 27 by Dr Fahad DMC with Books";
+const productCode = "843";
+let productCode2 = "844";
+const init = 0;
+const fix = 6000;
+const fix2 = 9000;
+const pls = 5500;
+const pls2 = 8250;
+const Platform = "Online";
+const Platform2 = "Physical";
