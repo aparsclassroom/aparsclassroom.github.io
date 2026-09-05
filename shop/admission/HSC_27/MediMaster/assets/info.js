@@ -1,7 +1,7 @@
 const product = "fahadmed27";
 const product2 = "fahadmed27wbooks";
-const productName = "ACS Medi Master: ACS Advanced Pre-Medical 27 by Dr Fahad DMC";
-const productName2 = "ACS Medi Master: ACS Advanced Pre-Medical 27 by Dr Fahad DMC with Books";
+const productName = "ACS Medi Master: Advanced Pre-Medical 27 by Dr Fahad DMC";
+const productName2 = "ACS Medi Master: Advanced Pre-Medical 27 by Dr Fahad DMC with Books";
 const productCode = "843";
 let productCode2 = "844";
 const init = 0;
