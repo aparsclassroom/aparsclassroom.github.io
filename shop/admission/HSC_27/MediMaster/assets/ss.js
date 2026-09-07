@@ -7,7 +7,7 @@ if (screen.width <= 600) {
     vidD.style.position = 'sticky';
 }
 
-fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2}`)
+fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},${productCode2},847,848`)
     .then((res) => {
         return res.json()
     })
