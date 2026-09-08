@@ -68,8 +68,8 @@ if (urlProductCode === productCode) {
     applyBooksState(true);
     document.getElementById('addbooksdiv').style.display = 'none';
 } else {
-    // Default state when no promo or unrecognized promo (books checked)
-    applyBooksState(true);
+    // Default to the course without books when no promo or an unrecognized promo is provided.
+    applyBooksState(false);
 }
 
 document.getElementById('email').addEventListener("input", function (event) {
