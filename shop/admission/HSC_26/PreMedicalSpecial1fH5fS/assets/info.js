@@ -9,3 +9,5 @@ const init = 0;
 // detected on this page too.
 let productCode2 = "560";
 let productCode3 = "567";
+let productCode4 = "850";
+let productCode5 = "851";
