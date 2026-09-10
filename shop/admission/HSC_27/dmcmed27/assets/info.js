@@ -1,0 +1,15 @@
+const product = "dmcmed27";
+const product2 = "dmcmed27wbooks";
+const productName = "ACS Pre-Medical Course 27 DMC DREAMERS BATCH";
+const productName2 = "ACS Pre-Medical Course 27 DMC DREAMERS BATCH with Books";
+const productCode = "852";
+let productCode2 = "853";
+const init = 0;
+const fix = 6000;
+const fix2 = 8000;
+const pls = 5000;
+const pls2 = 7200;
+const Platform = "Online";
+const Platform2 = "Physical";
+// Students enrolled in these courses cannot buy this batch
+const blockedProductCodes = ["854", "855"];
