@@ -11,5 +11,5 @@ const pls = 5000;
 const pls2 = 7200;
 const Platform = "Online";
 const Platform2 = "Physical";
-// Students enrolled in these courses cannot buy this batch
-const blockedProductCodes = ["854", "855"];
+const productCode3 = "854"
+ const productCode4 ="855";

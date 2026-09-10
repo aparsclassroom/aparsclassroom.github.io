@@ -186,58 +186,6 @@ function buildOrderPayload(uid) {
     return rawData;
 }
 
-function checkPurchase(products, uid) {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: JSON.stringify({
-            "products": products,
-            'uid': uid
-        }),
-        redirect: 'follow'
-    };
-
-    return fetch(`https://${shopName2}/v3/purchase/multiple`, requestOptions)
-        .then(response => {
-            return response.json()
-        });
-}
-
-function settledResult(settled) {
-    return settled.status === 'fulfilled' && settled.value ? settled.value : { status: 404 };
-}
-
-// Students already enrolled in a blocked course can't buy this batch
-let purchaseBlocked = false;
-
-function blockPurchase(result) {
-    purchaseBlocked = true;
-    const moda = document.getElementById('moda');
-    moda.removeAttribute('data-target');
-    moda.disabled = true;
-    moda.innerHTML = `তুমি অন্য একটি ব্যাচে এনরোল করেছ`;
-    if (window.jQuery) {
-        jQuery('#purchaseFrm').modal('hide');
-    }
-    document.getElementById("app").style.display = "none";
-    document.getElementById("cup").style.display = "none";
-    document.getElementById("buy").disabled = true;
-    swal({
-        title: "এনরোল করা যাবে না",
-        icon: "error",
-        text: "তুমি ইতোমধ্যে ACS-এর অন্য একটি প্রি-মেডিকেল ব্যাচে এনরোল করেছ। তাই এই ব্যাচটিতে এনরোল করা যাবে না।",
-        button: "View Informations"
-    }).then(() => {
-        const invoice = result.invoices && result.invoices[0] ? result.invoices[0].invoice : null;
-        if (invoice) {
-            location.replace(invoice);
-        }
-    })
-}
-
 function attachPurchaseHandler(uid) {
     const form = document.forms['purchase'];
     form.addEventListener('submit', em => {
@@ -292,23 +240,33 @@ firebase.auth().onAuthStateChanged(function (e) {
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        Promise.allSettled([
-            checkPurchase([productCode, productCode2], e.uid),
-            checkPurchase(blockedProductCodes, e.uid)
-        ])
-            .then(([enrolled, blocked]) => {
-                const enrolledResult = settledResult(enrolled);
-                const blockedResult = settledResult(blocked);
-                if (enrolledResult.status === 200) {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = JSON.stringify({
+            "products": [productCode, productCode2, productCode3, productCode4],
+            'uid': e.uid
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(`https://${shopName2}/v3/purchase/multiple`, requestOptions)
+            .then(response => {
+                return response.json()
+            })
+            .then(result => {
+                if (result.status === 200) {
                     swal({
                         title: "Already Enrolled !",
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
-                        location.replace(enrolledResult.invoices[0].invoice);
+                        location.replace(result.invoices[0].invoice);
                     })
-                } else if (blockedResult.status === 200) {
-                    blockPurchase(blockedResult);
                 } else {
                     attachPurchaseHandler(e.uid);
                 }
@@ -412,9 +370,7 @@ cpn.addEventListener('click', (e) => {
                 document.getElementById('how').style.display = "block";
                 document.getElementById('how').innerHTML = `<span style="color:red;">${percent}%</span> discounted by <span style="color:blue;">"${loadedData.Cupon}"</span> promo code`;
                 document.getElementById('smp').innerHTML = "<del style='color:red'> " + basePrice + "৳</del> " + " <span style='color:rgb(26, 185, 66);;'>" + nes + " ৳</span>";
-                if (!purchaseBlocked) {
-                    document.getElementById("cup").style.display = "block";
-                }
+                document.getElementById("cup").style.display = "block";
                 return;
             } else {
                 cpn.innerText = "Apply";
