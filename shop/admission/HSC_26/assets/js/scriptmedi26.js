@@ -156,7 +156,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
-        imageUrl: 'https://i.postimg.cc/wv4Fk16m/compressed-image.jpg',
+        imageUrl: '/assets/postimg/wv4Fk16m/compressed-image.jpg',
         showCancelButton: true,
         confirmButtonText: 'না আমি বই নিতে চাইনা',
         cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
@@ -331,7 +331,7 @@ function submitPurchase(e) {
 function maintenance() {
     swal({
         title: "Error",
-        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+        icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
         text: "Please visit after 10 pm tonight",
         button: "Ok"
     }).then(() => {
