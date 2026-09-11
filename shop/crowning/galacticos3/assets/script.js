@@ -166,7 +166,7 @@ function galacticos3AttachPurchaseSubmit(uid) {
                 } else {
                     swal({
                         title: "Error",
-                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                        icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                         text: "Please visit after 10 pm tonight",
                         button: "Ok"
                     }).then(() => {
@@ -177,7 +177,7 @@ function galacticos3AttachPurchaseSubmit(uid) {
             .catch(() => {
                 swal({
                     title: "Error",
-                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                    icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                     text: "Please visit after 10 pm tonight",
                     button: "Ok"
                 }).then(() => {

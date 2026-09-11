@@ -171,7 +171,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
-            imageUrl: 'https://i.postimg.cc/RVVVJ3VK/Screenshot-2026-01-19-at-10-01-09-PM.png',
+            imageUrl: '/assets/postimg/RVVVJ3VK/Screenshot-2026-01-19-at-10-01-09-PM.png',
             showCancelButton: true,
             confirmButtonText: 'না আমি বই নিতে চাইনা',
             cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
@@ -363,7 +363,7 @@ function setupPurchaseForm(e) {
                 } else {
                     swal({
                         title: "Error",
-                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                        icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                         text: "Please visit after 10 pm tonight",
                         button: "Ok"
                     }).then(() => {
@@ -374,7 +374,7 @@ function setupPurchaseForm(e) {
             .catch(() => {
                 swal({
                     title: "Error",
-                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                    icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                     text: "Please visit after 10 pm tonight",
                     button: "Ok"
                 }).then(() => {

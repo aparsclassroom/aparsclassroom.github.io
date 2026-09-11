@@ -117,7 +117,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                                 } else {
                                     swal({
                                 title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
@@ -128,7 +128,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             .catch(() => {
                                 swal({
                                     title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
                                     button: "Ok"
                                 }).then(() => {
@@ -187,7 +187,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                             } else {
                                 swal({
                                 title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
@@ -198,7 +198,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         .catch(() => {
                             swal({
                                 title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {

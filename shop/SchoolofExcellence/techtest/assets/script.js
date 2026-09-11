@@ -160,7 +160,7 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                                 swal({
                                     title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Unable to initialize payment.",
                                     button: "Ok"
                                 }).then(() => {
@@ -250,7 +250,7 @@ firebase.auth().onAuthStateChanged(function (e) {
 
                             swal({
                                 title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                 text: "Unable to initialize payment.",
                                 button: "Ok"
                             }).then(() => {

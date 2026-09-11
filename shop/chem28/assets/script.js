@@ -170,7 +170,7 @@ document.getElementById('addBooks').addEventListener('change', function () {
                     <blockquote style="font-style: italic; color: #444;">"${randomQuote}"</blockquote>
                 </div>
             `,
-            imageUrl: 'https://i.postimg.cc/VNYBTDtZ/compact-series-1-1.jpg',
+            imageUrl: '/assets/postimg/VNYBTDtZ/compact-series-1-1.jpg',
             showCancelButton: true,
             confirmButtonText: 'না আমি বই নিতে চাইনা',
             cancelButtonText: 'হ্যাঁ আমি বই নিতে চাই',
@@ -312,7 +312,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                                 } else {
                                     swal({
                                         title: "Error",
-                                        icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                        icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                         text: "Please visit after 10 pm tonight",
                                         button: "Ok"
                                     }).then(() => {
@@ -323,7 +323,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             .catch(() => {
                                 swal({
                                     title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
                                     button: "Ok"
                                 }).then(() => {
@@ -395,7 +395,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                             } else {
                                 swal({
                                     title: "Error",
-                                    icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                    icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                     text: "Please visit after 10 pm tonight",
                                     button: "Ok"
                                 }).then(() => {
@@ -406,7 +406,7 @@ firebase.auth().onAuthStateChanged(function (e) {
                         .catch(() => {
                             swal({
                                 title: "Error",
-                                icon: "https://i.postimg.cc/ncNLJcGR/under-maintenance.png",
+                                icon: "/assets/postimg/ncNLJcGR/under-maintenance.png",
                                 text: "Please visit after 10 pm tonight",
                                 button: "Ok"
                             }).then(() => {
