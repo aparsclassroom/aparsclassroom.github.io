@@ -61,3 +61,10 @@ a:hover {
     color: #ecf0f3;
     text-align: center
 }
+/* Card images now carry intrinsic width/height attributes so the browser can
+   reserve space before they load (prevents layout shift). .card-img-top only
+   sets width, so without this the height attribute would fix their rendered
+   height and squash them. Avatars with an inline width/height are unaffected. */
+.card-img-top[width] {
+    height: auto;
+}
