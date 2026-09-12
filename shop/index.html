@@ -127,17 +127,6 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <header class="header-global">
-        <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || []; w[l].push({
-                    'gtm.start':
-                        new Date().getTime(), event: 'gtm.js'
-                }); var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-WL8MSKLC');</script>
-        <!-- End Google Tag Manager -->
-
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-light shadow-soft navbar-theme-primary mb-4">
             <div class="container position-relative">
                 <a class="navbar-brand mr-lg-5" href="/shop">
@@ -3213,11 +3202,22 @@
         <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
             data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script>
         <!-- End Cloudflare Web Analytics -->
-</body>
-<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
-<script src="./assets/js/script.js"></script>
+
+    <!-- Deferred so parsing is never blocked. `defer` preserves execution
+         order, so firebase-app -> auth -> analytics -> script.js and
+         jquery -> popper -> bootstrap -> owl -> smooth -> main all hold. -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+    <script defer src="./assets/js/script.js"></script>
+
+    <script defer src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
+    <script defer src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js"></script>
+    <script defer src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/owl.js"></script>
+    <script defer src="/assets/js/smooth.js"></script>
+    <script defer src="./assets/js/main.js"></script>
+
 <script>
     function filterDivs(id) {
         const allDivs = document.querySelectorAll('.course');
@@ -3230,14 +3230,6 @@
         });
     }
 </script>
-<!-- <script src="/shuchipotro-assets/vendor/jquery/jquery-3.2.1.min.js"></script> -->
-<script src="/HSC-Full-Course/assets/js/jquery-3.2.1.min.js"></script>
-<script src="/shuchipotro-assets/vendor/bootstrap/js/popper.min.js"></script>
-<script src="/shuchipotro-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.js"></script>
-<script src="/assets/js/head.js"></script>
-<script src="/assets/js/smooth.js"></script>
-<script src="/assets/js/jarallax.js"></script>
-<script src="./assets/js/main.js"></script>
+</body>
 
 </html>
