@@ -22,23 +22,46 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
+var trailerVideoId = 'l7CfN4QBSZY';
+var thumb = document.getElementById('thumb');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: 'l7CfN4QBSZY',
-        playerVars: { 'autoplay': 1, 'playsinline': 1 },
+        videoId: trailerVideoId,
+        playerVars: { 'autoplay': 1, 'playsinline': 1, 'controls': 1, 'rel': 0 },
         events: {
-            'onReady': onPlayerReady
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
         }
     });
 }
 
 function onPlayerReady(event) {
-    document.getElementById('thumb').style.display = "none";
-    event.target.setVolume(100);
+    event.target.mute();
     event.target.playVideo();
+}
+
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING && thumb) {
+        thumb.style.display = "none";
+    }
+}
+
+if (thumb) {
+    thumb.style.cursor = 'pointer';
+    thumb.addEventListener('click', function () {
+        thumb.style.display = "none";
+
+        if (player && typeof player.playVideo === 'function') {
+            player.unMute();
+            player.setVolume(100);
+            player.playVideo();
+        } else {
+            document.getElementById('player').outerHTML = '<iframe id="player" class="embed-responsive-item" src="https://www.youtube.com/embed/' + trailerVideoId + '?autoplay=1&playsinline=1&rel=0" title="ACS Varsity B Unit trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        }
+    });
 }
 
 fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},832`)
