@@ -19,27 +19,27 @@ if (screen.width <= 600) {
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0];
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// var player;
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
 
-// function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '390',
-//         width: '640',
-//         videoId: 'BpO3x4Ww-GA',
-//         playerVars: { 'autoplay': 1, 'playsinline': 1 },
-//         events: {
-//             'onReady': onPlayerReady
-//         }
-//     });
-// }
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'l7CfN4QBSZY',
+        playerVars: { 'autoplay': 1, 'playsinline': 1 },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
 
-// function onPlayerReady(event) {
-//     document.getElementById('thumb').style.display = "none";
-//     event.target.setVolume(100);
-//     event.target.playVideo();
-// }
+function onPlayerReady(event) {
+    document.getElementById('thumb').style.display = "none";
+    event.target.setVolume(100);
+    event.target.playVideo();
+}
 
 fetch(`https://${shopName2}/enrollment/combined?productCodes=${productCode},832`)
     .then((res) => {
