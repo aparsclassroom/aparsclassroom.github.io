@@ -13,6 +13,24 @@ document.getElementById('email').addEventListener("input", function (event) {
         document.getElementById('phone').setCustomValidity("");
     }
   });
+// Enrollment is closed for this course: the buy flow is turned off.
+// Enrollment count, invoice view and everything else keep working.
+const courseClosed = true;
+const closedText = "কোর্সটি সমাপ্ত হয়েছে";
+
+function markCourseClosed() {
+    const moda = document.getElementById('moda');
+    moda.innerHTML = closedText;
+    moda.classList.remove('btn-success');
+    moda.classList.add('btn-secondary');
+    moda.disabled = true;
+    moda.removeAttribute('data-toggle');
+    moda.removeAttribute('data-target');
+    document.getElementById('app').style.display = "none";
+    document.getElementById('cup').style.display = "none";
+    document.getElementById('buy').disabled = true;
+}
+
 document.title = productName + "(" + Cycle + ") | ASG Shop";
 document.getElementById('prod').innerHTML = `${productName}<br>(${Cycle})`;
 document.getElementById('prevP').innerText = fix;
@@ -53,7 +71,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                     }).then(() => {
                         return location.replace(result.Invoice)
                     })
-                } else {
+                } else if (!courseClosed) {
                     const form = document.forms['purchase']
                     form.addEventListener('submit', em => {
                         em.preventDefault();
@@ -124,6 +142,9 @@ firebase.auth().onAuthStateChanged(function(e) {
                     })
                 }
             }).catch(() => {
+                if (courseClosed) {
+                    return;
+                }
                 const mfs = document.forms['purchase']
                 mfs.addEventListener('submit', em => {
                     em.preventDefault();
@@ -194,11 +215,15 @@ firebase.auth().onAuthStateChanged(function(e) {
                 })
 
             })
-        document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+        if (!courseClosed) {
+            document.getElementById('moda').setAttribute("data-target", "#purchaseFrm");
+        }
         if (t != null) {
             document.getElementById('phone').value = t;
             document.getElementById('phone').setAttribute("readonly", true);
-            document.getElementById('buy').disabled = false;
+            if (!courseClosed) {
+                document.getElementById('buy').disabled = false;
+            }
         } else {
             document.getElementById('phone').value = "+880";
         }
@@ -226,7 +251,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         document.getElementById("app").addEventListener('click', () => {
             document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "block"
         })
-    } else {
+    } else if (!courseClosed) {
         document.getElementById("app").style.display = "none", document.getElementById("cup").style.display = "none",
             document.getElementById('moda').addEventListener('click', () => {
                 sessionStorage.setItem(product + '_potential', 'true');
@@ -307,7 +332,7 @@ document.getElementById("cup").style.display = "block";
             })
         })
 })
-if (queryPromo != null) {
+if (!courseClosed && queryPromo != null) {
     document.getElementById('cupon').value = getCookie("promo");
     notdis()
 document.getElementById("app").style.display = "none"; 
@@ -317,4 +342,8 @@ document.getElementById("app").style.display = "none";
     document.getElementById("cup").style.display = "none"; 
     delete_cookie("promo");
     notdis()
+}
+
+if (courseClosed) {
+    markCourseClosed();
 }
