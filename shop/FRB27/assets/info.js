@@ -1,0 +1,14 @@
+const product = "FRB27";
+const product2 = "FRB27wbooks";
+const productName = "ACS HSC 27 Final Revision Batch (FRB 27)";
+const productName2 = "ACS HSC 27 Final Revision Batch (FRB 27) -	with Books";
+let productCode = "859";
+let productCode2 = "861";
+let productCode3 = "860";
+let productCode4 = "862";
+const fix = 6000;
+const pls = 2000;
+const pls2 = 5000;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
