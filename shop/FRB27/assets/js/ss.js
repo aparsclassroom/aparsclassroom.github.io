@@ -1,6 +1,15 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 5,
+    slidesPerView: 3,
     spaceBetween: 10,
+    breakpointsBase: 'container',
+    breakpoints: {
+        400: {
+            slidesPerView: 4,
+        },
+        500: {
+            slidesPerView: 5,
+        },
+    },
     loop: false,
     autoplay: {
         delay: 4000,
