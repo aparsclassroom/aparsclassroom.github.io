@@ -91,6 +91,83 @@
     <link rel="apple-touch-icon" href="https://aparsclassroom.com/HSC-Full-Course/assets/images/1.png" />
     <!-- end IOS title -->
     <style>
+        .btn-frb27 {
+            position: relative;
+            color: #31344b;
+            font-weight: 700;
+            border-color: #e6e7ee;
+            background: linear-gradient(110deg, #e6e7ee 40%, #f7f8fc 50%, #e6e7ee 60%) #e6e7ee;
+            background-size: 250% 100%;
+            box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff;
+            animation: frb27-shine 3s linear infinite;
+        }
+
+        .btn-frb27:hover {
+            color: #31344b;
+            animation: none;
+            background: #e6e7ee;
+            box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+        }
+
+        .btn-frb27 .fa-fire {
+            background: linear-gradient(to top, #A91E2C 10%, #fd7e14 55%, #F0B400 95%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            filter: drop-shadow(0 0 2px rgba(253, 126, 20, .55));
+            transform-origin: 50% 90%;
+            animation: frb27-flicker 1.4s ease-in-out infinite;
+        }
+
+        .btn-frb27:hover .fa-fire {
+            animation-play-state: paused;
+        }
+
+        @keyframes frb27-flicker {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            25% {
+                transform: scale(1.08, 1.12) rotate(-3deg);
+            }
+
+            50% {
+                transform: scale(.97, 1.03) rotate(2deg);
+            }
+
+            75% {
+                transform: scale(1.05, 1.1) rotate(-1deg);
+            }
+        }
+
+        .btn-frb27 .frb27-badge {
+            position: absolute;
+            top: -9px;
+            right: -9px;
+            padding: 1px 7px;
+            font-size: .65rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #fff;
+            background: #A91E2C;
+            border-radius: 1rem;
+            box-shadow: 2px 2px 4px #b8b9be;
+        }
+
+        @keyframes frb27-shine {
+            from {
+                background-position: 100% 0;
+            }
+
+            to {
+                background-position: -150% 0;
+            }
+        }
+
         .course img {
             width: 100%;
             height: auto;
@@ -189,6 +266,7 @@
             <br>
             <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px">
                 <button onclick="filterDivs('all')" class="btn btn-primary">All Courses</button>
+                <a href="./FRB27/" class="btn btn-frb27"><!-- <i class="fa-solid fa-fire mr-1"></i> -->HSC 27 FRB<span class="frb27-badge">NEW</span></a>
                 <button onclick="filterDivs('HSC26')" class="btn btn-primary">HSC 26</button>
                 <button onclick="filterDivs('HSC27')" class="btn btn-primary">HSC 27</button>
                 <button onclick="filterDivs('HSC28')" class="btn btn-primary">HSC 28</button>
@@ -199,6 +277,61 @@
                 <button onclick="filterDivs('others')" class="btn btn-primary">Others</button>
             </div>
             <br>
+
+            <div class="row mb-3 mt-3 course" data-id="HSC27">
+                <div class="col-12 mb-3">
+                    <div class="card bg-primary shadow-soft border-light p-4">
+                        <div class="row align-items-center">
+                            <aside class="col-md-3">
+                                <a href="./FRB27/">
+                                    <img loading="lazy"
+                                        src="./FRB27/Frb-27%20images/compressed_image%20(8).jpeg"
+                                        style="border-radius: 15px;"
+                                        alt="ACS HSC 27 Final Revision Batch (FRB 27)">
+                                </a>
+                            </aside>
+                            <div class="col-md-6">
+                                <div class="info-main">
+                                    <a href="./FRB27/" class="h5 title bangla">ACS HSC 27 Final Revision
+                                        Batch (FRB 27) <i title="Recommended Course"
+                                            class="fa-solid fa-circle-check"></i></a>
+                                    <div class="d-flex my-3">
+                                        <span class="star fas fa-star text-warning fa-beat mr-1"></span>
+                                        <span class="star fas fa-star text-warning fa-beat mr-1"
+                                            style="--fa-animation-duration: 0.5s;"></span>
+                                        <span class="star fas fa-star text-warning fa-beat mr-1"
+                                            style="--fa-animation-duration: 2s;"></span>
+                                        <span class="star fas fa-star text-warning fa-beat mr-1"
+                                            style="--fa-beat-scale: 1.1;"></span>
+                                        <span class="star fas fa-star text-warning fa-beat"
+                                            style="--fa-beat-scale: 0.5;"></span>
+                                    </div>
+                                    <p class="card-text my-3 bangla">
+                                       HSC-এর শেষ দিকের প্রস্তুতিতে ACS-এর Final Revision Batch বা FRB অনেক শিক্ষার্থীর চেনা
+                                    নাম। প্রতি বছর একাডেমিক ও অ্যাডমিশনের অভিজ্ঞ শিক্ষকদের নিয়ে আমরা এই ব্যাচ সাজাই,
+                                    যাতে কলেজের পড়া গুছিয়ে নেওয়া থেকে শুরু করে বোর্ড পরীক্ষার চূড়ান্ত রিভিশন—পুরো পথটায়
+                                    শিক্ষার্থীরা একটা পরিষ্কার দিকনির্দেশনা পায়।
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <!-- <div class="d-flex align-items-center">
+                                    <span class="h5 mb-0 text-danger bangla text-through mr-3">
+                                        ৬০০০৳
+                                    </span>
+                                    <span class="h2 mb-0 text-success bangla">২০০০৳</span>
+                                </div> -->
+                                <div class="mt-4">
+                                    <a href="./FRB27/" class="btn btn-primary btn-sm btn-block"><span
+                                            class="fas fa-shopping-cart mr-1"></span>
+                                        Enrollment Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row mb-3 mt-3 course" data-id="HSC28">
                 <div class="col-12 mb-3">
