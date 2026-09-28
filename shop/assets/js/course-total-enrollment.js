@@ -4,6 +4,8 @@
     const shopApi = 'https://shop.aparsclassroom.com';
     const acsCampApi = 'https://api.acscamp.com/v1/products/sales-count';
     const acsCampEndpointPrefix = 'acsCamp:';
+    const rakibsClassroomApi = 'https://rakibsclassroom.com/api/enrollments/count';
+    const rakibsClassroomKey = 'RC-Crm-8Ul25v5uZ-FxFIYFwmYG92gD';
     const sourceCache = new Map();
     const countCache = new Map();
     const countStoragePrefix = 'courseTotalEnrollment:v1:';
@@ -210,6 +212,10 @@
         if (code) endpoints.add(`https://hsc.acsfutureschool.com/api/enrollments/count?product_code=${code}`);
     }
 
+    function addRakibsClassroomEndpoint(endpoints, code) {
+        if (code) endpoints.add(`${rakibsClassroomApi}?product_code=${code}&key=${rakibsClassroomKey}`);
+    }
+
     function addAcsCampEndpoint(endpoints, payload) {
         if (payload && payload.productGroup && payload.productCode) {
             endpoints.add(acsCampEndpointPrefix + JSON.stringify(payload));
@@ -289,6 +295,8 @@
                 const expression = item[1].trim();
                 if (!expression.endsWith('.map(getAfsEnrollmentCount')) addFutureSchoolEndpoint(endpoints, readTokenValue(expression, values));
             });
+        Array.from(activeSource.matchAll(/getRcEnrollmentCount\(([^)]+)\)/g))
+            .forEach(item => addRakibsClassroomEndpoint(endpoints, readTokenValue(item[1], values)));
         Array.from(activeSource.matchAll(/getB2a28EnrollmentCount\(\s*([^,\)]+)(?:\s*,\s*([^)]+))?\)/g))
             .forEach(item => {
                 addEndpoint(

@@ -33,6 +33,12 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
     (data) => data.data && data.data.count
 );
+
+const getRcEnrollmentCount = (code) => getEnrollmentCount(
+    "https://rakibsclassroom.com/api/enrollments/count?product_code=" + code + "&key=RC-Crm-8Ul25v5uZ-FxFIYFwmYG92gD",
+    (data) => data.data && data.data.count
+);
+
 const vidD = document.getElementById('video');
 const clprc = document.getElementById('clprc');
 if (screen.width <= 600) {
@@ -90,7 +96,8 @@ Promise.all([
     getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`),
     getEnrollmentCount(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode2}`),
     ...comboEnrollmentCodes.map(code => getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=${code}`)),
-    getAfsEnrollmentCount(productCode)
+    getAfsEnrollmentCount(productCode),
+    getRcEnrollmentCount(productCode)
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, count) => total + count, init);

@@ -83,6 +83,11 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     (data) => data.data && data.data.count
 );
 
+const getRcEnrollmentCount = (code) => getEnrollmentCount(
+    "https://rakibsclassroom.com/api/enrollments/count?product_code=" + code + "&key=RC-Crm-8Ul25v5uZ-FxFIYFwmYG92gD",
+    (data) => data.data && data.data.count
+);
+
 const getAcsCampEnrollmentCount = () => {
     const cycleNumber = Number(Cycle.replace("Cycle-", ""));
     const acsCampProductCode = String(1000 + cycleNumber);
@@ -117,6 +122,7 @@ Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode5),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode6),
     getAfsEnrollmentCount(productCode),
+    getRcEnrollmentCount(productCode),
     getAcsCampEnrollmentCount(),
 ])
     .then((enrollments) => {
