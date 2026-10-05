@@ -1,0 +1,525 @@
+# Product registry snapshot — generated 2026-10-05 by scripts/registry.py (re-run for current data)
+# columns: folder (under shop/) | slug / books-slug | code,books-code | fix pls pls2 | BOOKS | config+purchase scripts
+2ndtimeadv25 | 2ndtimeadv25  | code 520 | fix 6000 pls 5000 |  | assets/info.js assets/sript.js
+2ndtimegrooming | 2ndtimegrooming  | code 527 | fix 0 pls 0 |  | assets/info.js
+Beginner_2_Master_Physics_Batch_for_HSC_23/Cycle-2 | Beginner 2 Master Physics Batch for HSC 23  | code 155 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+Beginner_2_Master_Physics_Batch_for_HSC_23/Cycle-3 | Beginner 2 Master Physics Batch for HSC 23  | code 180 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+Beginner_2_Master_Physics_Batch_for_HSC_23/Cycle-4 | Beginner 2 Master Physics Batch for HSC 23  | code 195 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+Beginner_2_Master_Physics_Batch_for_HSC_23/Cycle-6 | Beginner 2 Master Physics Batch for HSC 23  | code 187 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+Beginner_2_Master_Physics_Batch_for_HSC_23/Cycle-7 | Beginner 2 Master Physics Batch for HSC 23  | code 199 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+BioDictionary | BioDictionary  | code 111 | fix 550 pls 450 |  | assets/info.js ../assets/js/shop.js
+Commerce-FRB25 | CommerceFRB25  | code 360,360 | fix 3000 pls 1000 |  | assets/info.js assets/sript.js
+ExamApp | examapp  | code 376 | fix 2000 pls 1000 |  | assets/info.js assets/sript.js
+FRB23 | FRB23  | code 218 | fix 5000 pls 2000 |  | assets/info.js assets/sript.js
+FRB24 | FRB24  | code 284,285 | fix 5000 pls 2000 |  | assets/info.js assets/sript.js
+FRB25 | FRB25  | code 350,351 | fix 5000 pls 2250 |  | assets/info.js assets/sript.js
+FRB26 | FRB26 / FRB26wbooks | code 563,564 | fix 6000 pls 2500 pls2 5500 | BOOKS | assets/info.js assets/sript.js
+FRB26onlybook | frb26onlybook  | code 590 | fix 4000 pls 3000 |  | assets/info.js assets/sript.js
+FRB27 | FRB27 / FRB27wbooks | code 859,861 | fix 6000 pls 2000 pls2 5000 | BOOKS | assets/info.js assets/sript.js
+IELTS | ielts  | code 338 | fix 10000 pls 4000 |  | assets/info.js assets/sript.js
+Japanese | Japanese  | code 367 | fix 5000 pls 4000 |  | assets/info.js assets/sript.js
+PhysicsSaviour/physicsqs/Cycle-1 | physicsqs  | code 810 | fix 500 pls 250 |  | assets/ss.js ../assets/script.js
+SSC-FRB24 | ACSSSCFRB25  | code 236 | fix 2000 pls 1250 |  | assets/info.js assets/sript.js
+SSC-FRB25 | ACS_SSC_FRB25  | code 336 | fix 1500 pls 1250 |  | assets/info.js assets/sript.js
+SchoolofExcellence/lodestareng26/Cycle-1 | lodestareng26  | code 538 | fix 2000 pls 500 |  | assets/ss.js ../assets/script.js
+SchoolofExcellence/lodestareng26/Cycle-2 | lodestareng26  | code 539 | fix 2000 pls 1290 |  | assets/ss.js ../assets/script.js
+SchoolofExcellence/lodestareng27/Cycle-1 | lodestareng27  | code 542 | fix 2000 pls 999 |  | assets/ss.js ../assets/script.js
+SchoolofExcellence/lodestareng27/Cycle-2 | lodestareng27  | code 543 | fix 2000 pls 999 |  | assets/ss.js ../assets/script.js
+SchoolofExcellence/lodestareng28/Combo | lodestareng28combo  | code 809 | fix 2380 pls 1290 |  | assets/ss.js assets/script.js
+SchoolofExcellence/lodestareng28/Cycle-0 | lodestareng28  | code 0 | fix 0 pls 0 |  | assets/ss.js
+SchoolofExcellence/lodestareng28/Cycle-1 | lodestareng28  | code 807 | fix 2000 pls 1190 |  | assets/ss.js ../assets/script.js
+SchoolofExcellence/lodestareng28/Cycle-2 | lodestareng28  | code 808 | fix 2000 pls 1190 |  | assets/ss.js ../assets/script.js
+SchoolofExcellence/soebunit | soebunit  | code 820 | fix 4000 pls 2950 |  | assets/info.js ../../assets/js/shop.js
+SchoolofExcellence/soebunit1st | soebunit1st  | code 821 | fix 5000 pls 3500 |  | assets/info.js ../../assets/js/shop.js
+SchoolofExcellence/techtest/Combo | testcourse  | code 837 | fix 2380 pls 1290 |  | assets/ss.js assets/script.js
+SchoolofExcellence/techtest/Cycle-0 | lodestareng28  | code 0 | fix 0 pls 0 |  | assets/ss.js
+SchoolofExcellence/techtest/Cycle-1 | testcourse  | code 837 | fix 2000 pls 1190 |  | assets/ss.js
+SchoolofExcellence/techtest/Cycle-2 | lodestareng28  | code 808 | fix 2000 pls 1190 |  | assets/ss.js
+SchoolofExcellence/uddomi27 | uddomi27  | code 586 | fix 2000 pls 990 |  | assets/info.js ../assets/js/sript.js
+The_U_Academy/ICT24 | uAcaICT24  | code 235 | fix 1000 pls 450 |  | assets/info.js ../js/sript.js
+The_U_Academy/SSC_Physics | sscPhy  | code 216 | fix 2500 pls 2000 |  | assets/info.js ../js/sript.js
+Unlockenglish/unlockeng27/Cycle-1 | unlockeng27  | code 587 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+Unlockenglish/unlockeng27/Cycle-2 | unlockeng27  | code 588 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Engineering_Foundation_Batch_(HSC_22) | H22Foundation  | code 183 | fix 3500 pls 3000 |  | assets/info.js ../js/sript.js
+abhi/Higher_Math_1st_Paper_Platinum_Batch | H22Platinum  | code 181 | fix 3000 pls 1250 |  | assets/info.js ../js/sript.js
+abhi/Higher_Math_1st_Paper_Titanium_Batch_(Cycle-2) | abhiH23P1C2  | code 176 | fix 1500 pls 1250 |  | assets/info.js ../js/sript.js
+abhi/Higher_Math_1st_Paper_Titanium_Batch_(Cycle_1) | abhiH23P1C1  | code 175 | fix 1500 pls 1000 |  | assets/info.js ../js/sript.js
+abhi/Higher_Math_2nd_Paper_Premium_Batch_(HSC_22) | H22Premium  | code 182 | fix 3000 pls 1250 |  | assets/info.js ../js/sript.js
+abhi/Higher_Math_2nd_Paper_Rolls_Royce_(Cycle-2) | abhiH23P2C2  | code 178 | fix 2000 pls 1500 |  | assets/info.js ../js/sript.js
+abhi/ICT_Binary_2_Hexa_Batch | H2324_ICT  | code 203 | fix 600 pls 499 |  | assets/info.js ../js/sript.js
+abhi/MCQ_Booster_Course | H22MCQ  | code 184 | fix 600 pls 400 |  | assets/info.js ../js/sript.js
+abhi/Math24/Cycle-1 | Math24  | code 198 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math24/Cycle-2 | Math24  | code 225 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math24/Cycle-3 | Math24  | code 215 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math24/Cycle-4 | Math24  | code 256 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math25/Cycle-1 | Math25  | code 254 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math25/Cycle-2 | Math25  | code 274 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math25/Cycle-3 | Math25  | code 275 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math25/Cycle-4 | Math25  | code 266 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math26/Cycle-1 | Math26  | code 311 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math26/Cycle-2 | Math26  | code 312 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math26/Cycle-3 | Math26  | code 313 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math26/Cycle-4 | Math26  | code 314 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math26/Cycle-5 | Math26  | code 315 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math26/Cycle-6 | Math26  | code 316 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+abhi/Math27/Cycle-1 | Math27 / math27wbooks | code 395,425 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math27/Cycle-2 | Math27 / math27wbooks | code 396,427 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math27/Cycle-3 | Math27 / math27wbooks | code 397,428 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math27/Cycle-4 | Math27 / math27wbooks | code 398,429 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math27/Cycle-5 | Math27 / math27wbooks | code 399,430 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math27/Cycle-6 | Math27 / math27wbooks | code 400,431 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math28/Combo1 | math28combo1 / math28wbookscombo1 | code 684,686 | fix 4000 pls 2750 pls2 3750 | BOOKS | assets/info.js assets/script.js
+abhi/Math28/Combo2 | math28combo2 / math28wbookscombo2 | code 685,687 | fix 4000 pls 2750 pls2 3750 | BOOKS | assets/info.js assets/script.js
+abhi/Math28/Combo3 | math28combo3 / math28wbookscombo3 | code 689,690 | fix 8000 pls 5000 pls2 7000 | BOOKS | assets/info.js assets/script.js
+abhi/Math28/Cycle-1 | Math28 / math28wbooks | code 672,678 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math28/Cycle-2 | Math28 / math28wbooks | code 673,679 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math28/Cycle-3 | Math28 / math28wbooks | code 674,680 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math28/Cycle-4 | Math28 / math28wbooks | code 675,681 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math28/Cycle-5 | Math28 / math28wbooks | code 676,682 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/Math28/Cycle-6 | Math28 / math28wbooks | code 677,683 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+abhi/comeback | COMEBACK2425  | code 621 | fix 2000 pls 1250 |  | assets/info.js ../js/sript.js
+abhi/decoder | decoder  | code 261 | fix 1500 pls 1000 |  | assets/info.js ../js/sript.js
+abhi/decoder_26 | decoder_26  | code 303 | fix 2000 pls 1500 |  | assets/info.js ../js/sript.js
+abhi/decoder_27 | decoder_27  | code 470 | fix 2000 pls 1500 |  | assets/info.js ../js/sript.js
+abhi/ebi28/Combo | abhiebi28  | code 665 | fix 6000 pls 3000 |  | assets/ss.js ../assets/script-combo.js
+abhi/ebi28/Cycle-1 | singleebi28  | code 666 | fix 3000 pls 2000 |  | assets/ss.js ../assets/script-cycle.js
+abhi/ebi28/Cycle-2 | singleebi28  | code 667 | fix 3000 pls 2000 |  | assets/ss.js ../assets/script-cycle.js
+abhi/ebi28/Cycle-3 | singleebi28  | code 668 | fix 3000 pls 2000 |  | assets/ss.js ../assets/script-cycle.js
+abhi/varsitymath25 | medimath25  | code 530 | fix 2000 pls 1250 |  | assets/info.js ../js/sript.js
+abrotune | abrotune  | code 407 | fix 12500 pls 5000 |  | assets/info.js assets/sript.js
+achieve/HSC_23/Agriculture | AchieveAgriculture24  | code 345 | fix 1500 pls 999 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24-Potential/Dhabian-off | AchieveVarsity24  | code 302 | fix 15000 pls 10000 |  | assets/info.js
+achieve/HSC_24-Potential/Engineering | potentialBUET24  | code 333 | fix 0 pls 0 |  | assets/info.js
+achieve/HSC_24-Potential/Medical | AchieveMedical24  | code 340 | fix 15000 pls 8000 |  | assets/info.js
+achieve/HSC_24-Potential/Varsity | AchieveVarsity24  | code 302 | fix 15000 pls 10000 |  | assets/info.js
+achieve/HSC_24/Engineering | AchieveEngineering24  | code 300 | fix 15000 pls 10000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/FMT/Engineering/MT | AchieveEngg24FMT  | code 356 | fix 5000 pls 4000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/FMT/Engineering/MT+Books | AchieveEngg24FMTwithBooks  | code 357 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/FMT/Medical | AchieveMedical24FMT  | code 354 | fix 2000 pls 1500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/FMT/Varsity/MT | AchieveVarsity24FMT  | code 352 | fix 10000 pls 2000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/FMT/Varsity/MT+Books | AchieveVarsity24FMTwithBooks  | code 353 | fix 12000 pls 5500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/IBA | AchieveIBA  | code 355 | fix 5000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/Medical | AchieveMedical24  | code 301 | fix 15000 pls 8000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_24/Varsity | AchieveVarsity24  | code 302 | fix 15000 pls 10000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Agriculture | AchieveAgriculture25  | code 381 | fix 2000 pls 999 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Engineering | achieveeng25 / achieveeng25nobook | code 404,522 | fix 15000 pls 12000 pls2 10000 | BOOKS | assets/info.js ../assets/js/sript3.js
+achieve/HSC_25/Engineering25FMT | achieveEng25FMT  | code 583 | fix 4000 pls 3500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/EngineeringLite | achieveengglite25  | code 571 | fix 8000 pls 6500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Engineeringcombo | achieveeng25combo  | code 403 | fix 20000 pls 15000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/FRB/FMT | AchieveFrb25FMT  | code 382 | fix 3000 pls 2500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/FRB/MT | AchieveFRB  | code 358 | fix 10000 pls 8000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/FRB/MT+Books | AchieveFRBwithBooks  | code 359 | fix 12000 pls 10000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/IBA | achieveIBA25  | code 550 | fix 3500 pls 1500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Medical | achievemedical25 / achievemedical25nobook | code 402,523 | fix 13000 pls 10000 pls2 8000 | BOOKS | assets/info.js ../assets/js/medi2ndscript.js
+achieve/HSC_25/Medical2ndTimer | achieve2ndtimemedi25 / achieve2ndtimemedi25nobook | code 497,527 | fix 10000 pls 9000 pls2 7000 | BOOKS | assets/info.js ../assets/js/medi2ndscript.js
+achieve/HSC_25/MedicalFMT | achievertdmedi25fmt  | code 580 | fix 5000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Medicalcombo | achievemedical25combo  | code 401 | fix 17000 pls 13000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Varsity | achievevarsity25 / achievevarsity25nobook | code 406,521 | fix 15000 pls 12000 pls2 10000 | BOOKS | assets/info.js ../assets/js/sript3.js
+achieve/HSC_25/Varsity25FMT | achievevar25fmt  | code 581 | fix 3500 pls 3000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Varsity2ndTimer | achieve2ndtimevarsity25  | code 496 | fix 10000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/VarsityFMT | achievevarsityfmt25  | code 568 | fix 5000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/VarsityLite | achievevarsitylite25  | code 570 | fix 8000 pls 6500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/Varsitycombo | achievevarsity25combo  | code 405 | fix 19000 pls 15000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_25/achievegst25 | achievegst25  | code 594 | fix 3000 pls 2500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/AchieveFrb26FMT | AchieveFrb26FMTnew  | code 634 | fix 3500 pls 2500 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/AchieveSSC27 | AchieveSSC27  | code 825 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/Achievemedimaster26 | Achievemedimaster26  | code 856 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/Engineering | achieveEngg26  | code 608 | fix 10500 pls 8000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/FRB/MT | achievefrb26  | code 579 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/FRB/MTspecial | achievefrb26 (Special)  | code 603 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sriptachievespecial.js
+achieve/HSC_26/IBA | achieveIBA26  | code 831 | fix 10000 pls 7000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/Medical | AchieveMedical26  | code 752 | fix 9500 pls 7000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/Medical2ndTimer | achieve2ndtimemedi26  | code 609 | fix 10000 pls 7000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/Varsity | achievevarsity26  | code 607 | fix 10500 pls 8000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/VarsityB | achievevarsityB26  | code 824 | fix 7000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/achievehscEBI26 | achievehscEBI26  | code 595 | fix 2500 pls 2000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/achievesscfrb27 | achievesscfrb27  | code 863 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_26/achievevarsity2ndtime26 | achievevarsity2ndtime26  | code 635 | fix 10000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_27/achievefrb27 | achievefrb27  | code 864 | fix 9000 pls 7000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_28/achievesscfmt26 | achievesscfmt26v2  | code 606 | fix 2500 pls 2000 |  | assets/info.js ../assets/js/sript.js
+achieve/HSC_28/sscfrb26 | achievesscfrb26  | code 559 | fix 8000 pls 7000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_21/Biology | Hasnat  | code 141 | fix 3999 pls 1250 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_21/Chemistry | Apar Chinmoy Engineering Chemistry Course  | code 139 | fix 3999 pls 1250 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_21/Higher_Math | Apar-Chinmoy Engineering Admission Math Course  | code 140 | fix 3999 pls 1250 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_21/admission-bundle | Apar-Chinmoy Engineering Admission Course + Hasnat  | code 148 | fix 12200 pls 6600 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_21/engineering-bundle | Apar-Chinmoy Engineering Admission Course 2021  | code 151 | fix 10000 pls 4000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_21/jay-english21 | Engineering English 2022  | code 152 | fix 2000 pls 1500 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_22/Engineering | Engineering22  | code 173 | fix 4000 pls 3000 |  | assets/info.js ../assets/js/sript2.js
+admission/HSC_22/Engineering_Exam_Batch | ACSEEB22  | code 230 | fix 2000 pls 1000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_22/IBA | iba22  | code 210 | fix 4000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_22/Medical | Medical 22  | code 159 | fix 4000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_22/Medical_Exam_Batch | ACSMAT22  | code 213 | fix 2000 pls 999 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_23/Engineering | Engineering23  | code 231 | fix 5000 pls 4000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_23/IBA | iba23  | code 270 | fix 4000 pls 2500 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_23/Medical | Medical23  | code 239 | fix 10000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_23/Medical_Exam_Batch | ACSMAT23  | code 287 | fix 999 pls 500 |  | assets/info.js assets/js/sript.js
+admission/HSC_23/Varsity | Varsity23  | code 240 | fix 5000 pls 4000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/Agri | Agri24  | code 370 | fix 2999 pls 1250 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/B_Unit | bunit  | code 343 | fix 5000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/C_Unit | cunit  | code 344 | fix 5000 pls 3500 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/Engineering | Engineering24  | code 293 | fix 10000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/EngineeringBiology | engineeringBiology  | code 348 | fix 5000 pls 1000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/IBA | iba24  | code 337 | fix 8000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/Medical | Medical24  | code 291 | fix 6000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/MedicalSecondTimer | MedicalSecondTimer25  | code 372 | fix 8000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_24/Varsity | varsity24  | code 334 | fix 10000 pls 4000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/Agri | Agri25 / Agri25 (Special) | code 584,585 | fix 2000 pls 999 | BOOKS | assets/info.js ../assets/js/scriptagri.js
+admission/HSC_25/Engineering | Engineering25  | code 368,361 | fix 10000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/Engvarsitybio25 | engvarsitybio25  | code 535 | fix 2000 pls 1750 |  | assets/info.js ../assets/js/sript3.js
+admission/HSC_25/IBA | iba25  | code 383 | fix 8000 pls 6000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/PreMedical | Medical25  | code 366,369 | fix 8000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/Varsitycombo | varsity25combo1  | code 555,556 | fix 5000 pls 4250 |  | assets/info.js ../assets/js/sriptcombo.js
+admission/HSC_25/Varsityspecial | varsity25 (FRB Special)  | code 420,525 | fix 10000 pls 5000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/acsenglishvar25 | acsenglishvar25  | code 549 | fix 1000 pls 499 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/medicalfrb | medicalfrb25  | code 562 | fix 999 pls 499 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/varsityaloron25 | varsityaloron25  | code 547 | fix 2000 pls 1250 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/varsitybangla25 | varsitybangla25  | code 546 | fix 2000 pls 1000 |  | assets/info.js ../assets/js/sript2.js
+admission/HSC_25/varsitybio25 | varsitybio25  | code 545 | fix 2000 pls 1250 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_25/xfactor | factor25  | code 561 | fix 2000 pls 1000 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_26/Engineering | Engineering26 / Engineering26wbooks | code 591,596 | fix 10000 pls 5000 pls2 7250 | BOOKS | assets/info.js ../assets/js/scripteng26.js
+admission/HSC_26/EngineeringSpecialj2w5fY | Engineering26 (CX special) / Engineering26wbooks (CX special) | code 837,838 | fix 10000 pls 4500 pls2 7250 | BOOKS | assets/info.js ../assets/js/scripteng26special.js
+admission/HSC_26/IBA | iba26  | code 811 | fix 10000 pls 8000 |  | assets/info.js ../assets/js/scriptiba.js
+admission/HSC_26/IBASpecialXeBm6Q | iba26 (CX Special)  | code 846,811 | fix 10000 pls 6000 |  | assets/info.js ../assets/js/scriptiba26special.js
+admission/HSC_26/Medical2ndtimer | medi2ndtimer26  | code 593 | fix 6000 pls 5500 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_26/PreMedical | medical26 / medical26wbooks | code 560,850 | fix 6000 pls 5500 pls2 7700 | BOOKS | assets/info.js ../assets/js/scriptmedi26.js
+admission/HSC_26/PreMedicalSpecial1fH5fS | medical26 (CX Special)  | code 845,560 | fix 6000 pls 5500 |  | assets/info.js ../assets/js/scriptmedi26special.js
+admission/HSC_26/Varsity | varsity26 / varsity26wbooks | code 613,615 | fix 8000 pls 4000 pls2 6500 | BOOKS | assets/info.js ../assets/js/scriptvar26.js
+admission/HSC_26/VarsitySpecialY8p76m | varsity26 (CX Special) / varsity26wbooks | code 842,615 | fix 4000 pls 3250 pls2 6500 | BOOKS | assets/info.js ../assets/js/scriptvar26special.js
+admission/HSC_26/soeadmission26 | soeadmission26  | code 833 | fix 1190 pls 690 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_26/unlockeng26admission | unlockeng26admission  | code 832 | fix 1000 pls 800 |  | assets/info.js ../assets/js/scriptiba.js
+admission/HSC_26/varsityb | varsityb26  | code 841 | fix 3000 pls 1750 |  | assets/info.js ../assets/js/sript copy.js
+admission/HSC_27/MediMaster | fahadmed27 / fahadmed27wbooks | code 843,844 | fix 6000 pls 5500 pls2 8250 | BOOKS | assets/info.js ../assets/js/scriptmedi27.js
+admission/HSC_27/PreMedical | medical27  | code 620 | fix 6000 pls 5500 |  | assets/info.js ../assets/js/sript.js
+admission/HSC_27/dmcmed27 | dmcmed27 / dmcmed27wbooks | code 852,853 | fix 6000 pls 5500 pls2 7700 | BOOKS | assets/info.js assets/coupon.js
+afsFahad/afseng28/Combo | afseng28combo  | code 702 | fix 2400 pls 2000 |  | assets/ss.js assets/script.js
+afsFahad/afseng28/Cycle-1 | afseng28  | code 700 | fix 1500 pls 1200 |  | assets/ss.js ../assets/script.js
+afsFahad/afseng28/Cycle-2 | afseng28  | code 701 | fix 1500 pls 1200 |  | assets/ss.js ../assets/script.js
+aloronxyz/chem28aloron/Combo1 | chem28aloroncombo1 / chem28aloroncombo1wbooks | code 721,723 | fix 4000 pls 2750 pls2 3750 | BOOKS | assets/info.js assets/script.js
+aloronxyz/chem28aloron/Combo2 | chem28aloroncombo2 / chem28aloroncombo2wbooks | code 722,724 | fix 4000 pls 2750 pls2 3750 | BOOKS | assets/info.js assets/script.js
+aloronxyz/chem28aloron/Combo3 | chem28aloroncombo3 / chem28aloroncombo3wbooks | code 796,797 | fix 8000 pls 5000 pls2 7000 | BOOKS | assets/info.js assets/script.js
+aloronxyz/chem28aloron/Cycle-1 | chem28aloron / chem28aloronwbooks | code 709,715 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+aloronxyz/chem28aloron/Cycle-2 | chem28aloron / chem28aloronwbooks | code 710,716 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+aloronxyz/chem28aloron/Cycle-3 | chem28aloron / chem28aloronwbooks | code 711,717 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+aloronxyz/chem28aloron/Cycle-4 | chem28aloron / chem28aloronwbooks | code 712,718 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+aloronxyz/chem28aloron/Cycle-5 | chem28aloron / chem28aloronwbooks | code 713,719 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+aloronxyz/chem28aloron/Cycle-6 | chem28aloron / chem28aloronwbooks | code 714,720 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+architecture-2023 | Architecture23  | code 288 | fix 5000 pls 2000 |  | assets/info.js assets/sript.js
+architecture-2023/overview | Architecture23  | code 288 | fix 5000 pls 2000 |  | ../assets/info.js
+architecture-2024 | Architecture24  | code 347 | fix 5000 pls 2000 |  | assets/info.js assets/sript.js
+architecture-2024/overview | Architecture24  | code 347 | fix 5000 pls 2000 |  | ../assets/info.js
+architecture-2025 | Architecture25  | code 569 | fix 3000 pls 2000 |  | assets/info.js assets/sript.js
+architecture-2025/overview | Architecture25  | code 569 | fix 3000 pls 2000 |  | ../assets/info.js
+architecture-2026 | Architecture26  | code 840 | fix 4000 pls 2500 |  | assets/info.js assets/sript.js
+at-tadrees/quran-shikkha | atQuranShikkha  | code 205 | fix 2000 pls 1200 |  | assets/info.js ../js/sript.js
+at-tadrees/quran-shikkha/overview | atQuranShikkha  | code 205 | fix 2000 pls 1200 |  | ../assets/info.js
+b2a27/Cycle-1 | b2a27 / b2a27wbooks | code 450,455 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a27/Cycle-2 | b2a27 / b2a27wbooks | code 451,456 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a27/Cycle-3 | b2a27 / b2a27wbooks | code 452,457 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a27/Cycle-4 | b2a27 / b2a27wbooks | code 453,458 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a27/Cycle-5 | b2a27 / b2a27wbooks | code 454,459 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a28/Combo1 | b2a28combo1 / b2a28combo1wbooks | code 694,696 | fix 4000 pls 2500 pls2 3500 | BOOKS | assets/info.js assets/script.js
+b2a28/Combo2 | b2a28combo2 / b2a28combo2wbooks | code 695,697 | fix 4000 pls 2500 pls2 3500 | BOOKS | assets/info.js assets/script.js
+b2a28/Combo3 | b2a28combo3 / b2a28combo3wbooks | code 798,799 | fix 8000 pls 5000 pls2 7000 | BOOKS | assets/info.js assets/script.js
+b2a28/Cycle-1 | b2a28 / b2a28wbooks | code 640,645 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a28/Cycle-2 | b2a28 / b2a28wbooks | code 641,646 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a28/Cycle-3 | b2a28 / b2a28wbooks | code 642,647 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a28/Cycle-4 | b2a28 / b2a28wbooks | code 643,648 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a28/Cycle-5 | b2a28 / b2a28wbooks | code 644,649 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2a28/Cycle-6 | b2a28 / b2a28wbooks | code 692,693 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2m24/Cycle-1 | b2m24  | code 200 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+b2m24/Cycle-2 | b2m24  | code 217 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+b2m24/Cycle-3 | b2m24  | code 222 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+b2m24/Cycle-4 | b2m24  | code 208 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+b2m24/Cycle-5 | b2m24  | code 223 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+b2m25/Cycle-1 | b2m25  | code 248 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m25/Cycle-2 | b2m25  | code 249 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m25/Cycle-3 | b2m25  | code 250 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m25/Cycle-4 | b2m25  | code 251 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m25/Cycle-6 | b2m25  | code 253 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m26/Cycle-1 | b2m26  | code 305 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m26/Cycle-2 | b2m26  | code 306 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m26/Cycle-3 | b2m26  | code 307 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m26/Cycle-4 | b2m26  | code 308 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m26/Cycle-5 | b2m26  | code 309 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m26/Cycle-6 | b2m26  | code 310 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+b2m27/Cycle-1 | b2m27 / b2m27wbooks | code 407,444 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2m27/Cycle-2 | b2m27 / b2m27wbooks | code 408,445 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2m27/Cycle-3 | b2m27 / b2m27wbooks | code 409,446 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2m27/Cycle-4 | b2m27 / b2m27wbooks | code 410,447 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2m27/Cycle-5 | b2m27 / b2m27wbooks | code 411,448 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+b2m27/Cycle-6 | b2m27 / b2m27wbooks | code 412,449 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+bio26/Cycle-1 | bio26  | code 326 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+bio26/Cycle-2 | bio26  | code 327 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+bio26/Cycle-3 | bio26  | code 328 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+bio26/Cycle-4 | bio26  | code 329 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+bio26/Cycle-5 | bio26  | code 330 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+bio26/Cycle-6 | bio26  | code 331 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+bio27/Combo1 | hbio27combo1  | code 829 | fix 3000 pls 2500 pls2 2500 |  | assets/info.js assets/script.js
+bio27/Combo2 | hbio27combo2  | code 830 | fix 3000 pls 2500 |  | assets/info.js assets/script.js
+bio27/Cycle-1 | hbio27 / hbio27wbook | code 389,432 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/script.js
+bio27/Cycle-2 | hbio27 / hbio27wbook | code 390,433 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/script.js
+bio27/Cycle-3 | hbio27 / hbio27wbook | code 391,434 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/script.js
+bio27/Cycle-4 | hbio27 / hbio27wbook | code 392,435 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/script.js
+bio27/Cycle-5 | hbio27 / hbio27wbook | code 393,436 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/script.js
+bio27/Cycle-6 | hbio27 / hbio27wbook | code 394,437 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/script.js
+bio27/Cycle-7 | hbio27  | code 601,602 | fix 2000 pls 1299 |  | assets/ss.js ../assets/scriptnobook.js
+biochem28 | biochem28combo / biochem28combowbooks | code 805,806 | fix 16000 pls 9000 pls2 12700 | BOOKS | assets/info.js assets/sript.js
+biology-haters/bh25/Cycle-1 | bh25  | code 281 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+biology-haters/bh25/Cycle-2 | bh25  | code 282 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+biology-haters/bh25/Cycle-3 | bh25  | code 323 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+biology-haters/bh25/Cycle-4 | bh25  | code 324 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+biology-haters/drawing-biology | BioHat Drawing  | code 289 | fix 5000 pls 2500 |  | assets/info.js assets/sript.js
+biology-haters/drawing-biology/overview | BioHat Drawing  | code 289 | fix 5000 pls 2500 |  | ../assets/info.js
+bundle26/HSC_26_English_A_to_Z_bundle1 | HSC_26_English_A_to_Z_bundle1  | code 532 | fix 1600 pls 1450 |  | assets/info.js ../js/sript.js
+bundle26/HSC_26_English_A_to_Z_bundle2 | HSC_26_English_A_to_Z_bundle2  | code 533 | fix 1600 pls 1450 |  | assets/info.js ../js/sript.js
+bundle27/b2a27bundle | b2a27bundle  | code 503 | fix 5000 pls 4000 |  | assets/info.js ../js/sript.js
+bundle27/b2b27bundle | b2b27bundle  | code 505 | fix 6000 pls 5000 |  | assets/info.js ../js/sript.js
+bundle27/b2m27bundle | b2m27bundle  | code 499 | fix 6000 pls 5000 |  | assets/info.js ../js/sript.js
+bundle27/chem27aloronbundle | chem27aloronbundle  | code 501 | fix 5000 pls 4000 |  | assets/info.js ../js/sript.js
+bundle27/chem27bundle | chem27bundle  | code 502 | fix 5000 pls 4000 |  | assets/info.js ../js/sript.js
+bundle27/compactbio27bundle | compactbio27bundle  | code 506 | fix 6000 pls 5000 |  | assets/info.js ../js/sript.js
+bundle27/hbio27bundle | hbio27bundle  | code 504 | fix 6000 pls 5000 |  | assets/info.js ../js/sript.js
+bundle27/math27bundle | Math27Bundle  | code 500 | fix 6000 pls 5000 |  | assets/info.js ../js/sript.js
+chem25/Cycle-1 | chem25  | code 259 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem25/Cycle-2 | chem25  | code 278 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem25/Cycle-3 | chem25  | code 279 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem25/Cycle-4 | chem25  | code 294 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26/Cycle-1 | chem26  | code 317 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26/Cycle-2 | chem26  | code 318 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26/Cycle-3 | chem26  | code 319 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26/Cycle-4 | chem26  | code 320 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26/Cycle-5 | chem26  | code 321 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26Aloron/Cycle-1 | chem26Aloron  | code 363 | fix 1500 pls 750 |  | assets/ss.js ../assets/script.js
+chem26Aloron/Cycle-2 | chem26Aloron  | code 364 | fix 1500 pls 750 |  | assets/ss.js ../assets/script.js
+chem26Aloron/Cycle-3 | chem26Aloron  | code 373 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem26Aloron/Cycle-4 | chem26Aloron  | code 374 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+chem27/Cycle-1 | chem27 / chem27wbooks | code 460,465 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27/Cycle-2 | chem27 / chem27wbooks | code 461,466 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27/Cycle-3 | chem27 / chem27wbooks | code 462,467 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27/Cycle-4 | chem27 / chem27wbooks | code 463,468 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/scriptnobk.js
+chem27/Cycle-5 | chem27 / chem27wbooks | code 464,469 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/Cycle-1 | chem27aloron / chem27aloronwbooks | code 421,440 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/Cycle-2 | chem27aloron / chem27aloronwbooks | code 422,441 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/Cycle-3 | chem27aloron / chem27aloronwbooks | code 423,442 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/Cycle-4 | chem27aloron / chem27aloronwbooks | code 424,443 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/Cycle-5 | chem27aloron / chem27aloronwbooks | code 477,478 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/Cycle-7 | chem27aloron / chem27aloronwbooks | code 812,813 | fix 3000 pls 2000 pls2 2700 | BOOKS | assets/ss.js ../assets/script.js
+chem27aloron/revisionp1 | chem27aloron  | code 598 | fix 750 pls FREE |  | assets/ss.js ../assets/scriptwithoutbk.js
+chem28/Combo | chem28combo  | code 771 | fix 6000 pls 3000 |  | assets/ss.js assets/script.js
+chem28/Cycle-1 | chem28 / chem28wbooks | code 650,465 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem28/Cycle-2 | chem28 / chem28wbooks | code 651,655 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem28/Cycle-3 | chem28 / chem28wbooks | code 652,656 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem28/Cycle-4 | chem28  | code 653 | fix 1500 pls 1000 |  | assets/ss.js ../assets/scriptnobk.js
+chem28/Cycle-5 | chem28 / chem28wbooks | code 654,657 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+chem28/Cycle-6 | chem28 / chem28wbooks | code 772,773 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+codervai/codervaiict27 | codervaiict27  | code 524 | fix 1000 pls 750 |  | assets/info.js ../js/sript.js
+compactbio/Cycle-1 | compactbio  | code 384 | fix 1500 pls 850 |  | assets/ss.js ../assets/script.js
+compactbio/Cycle-2 | compactbio  | code 385 | fix 1500 pls 850 |  | assets/ss.js ../assets/script.js
+compactbio/Cycle-3 | compactbio  | code 386 | fix 1500 pls 850 |  | assets/ss.js ../assets/script.js
+compactbio27/Cycle-1 | compactbio27wbook  | code 471 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+compactbio27/Cycle-2 | compactbio27wbook  | code 472,573 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+compactbio27/Cycle-3 | compactbio27wbook / compactbio27 | code 473,574 | fix 2000 pls 1000 | BOOKS | assets/ss.js ../assets/script.js
+compactbio27/Cycle-4 | compactbio27 / compactbio27wbook | code 575,474 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/scriptswitch.js
+compactbio27/Cycle-5 | compactbio27 / compactbio27wbook | code 576,475 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/scriptswitch.js
+compactbio27/Cycle-6 | compactbio27 / compactbio27wbook | code 577,476 | fix 2000 pls 1000 pls2 1250 | BOOKS | assets/ss.js ../assets/scriptswitch.js
+competitive-programming | CP101  | code 196 | fix 10000 pls 5000 |  | assets/info.js assets/sript.js
+crowning/English/Cycle-1 | galacticos1.0  | code 349 | fix 3000 pls 1500 |  | assets/ss.js ../assets/script.js
+crowning/English/Cycle-3 | galacticos1.0  | code 619 | fix 526 pls 226 |  | assets/ss.js ../assets/script.js
+crowning/crowningcomeback26 | crowningcomeback26  | code 589 | fix 2000 pls 800 |  | assets/info.js assets/sript.js
+crowning/galacticos2/Cycle-0 | galacticos1.0  | code 495 | fix 0 pls 0 |  | assets/ss.js ../assets/script.js
+crowning/galacticos2/Cycle-1 | galacticos2.0  | code 494 | fix 3000 pls 1199 |  | assets/ss.js ../assets/script.js
+crowning/galacticos2/Cycle-2 | galacticos1.0  | code 495 | fix 3000 pls 1199 |  | assets/ss.js ../assets/script.js
+crowning/galacticos2/Cycle-4 | galacticos2.0  | code 605 | fix 3000 pls 750 |  | assets/ss.js ../assets/script.js
+crowning/galacticos3/Cycle-0 | galacticos3.0  | code 805 | fix 3000 pls 0 |  | assets/ss.js
+crowning/galacticos3/Cycle-1 | galacticos3.0  | code 800 | fix 3000 pls 1199 |  | assets/ss.js ../assets/script.js
+crowning/galacticos3/Cycle-2 | galacticos3.0  | code 801 | fix 3000 pls 1199 |  | assets/ss.js ../assets/script.js
+crowning/galacticos3/Cycle-3 | galacticos3.0  | code 802 | fix 3000 pls 750 |  | assets/ss.js ../assets/script.js
+crowning/galacticos3/Cycle-4 | galacticos3.0  | code 803 | fix 3000 pls 1999 |  | assets/ss.js ../assets/script.js
+crowning/galacticos3/Cycle-5 | galacticos3.0  | code 804 | fix 3148 pls 2399 |  | assets/ss.js ../assets/script.js
+crowning/goalhackers25 | goalhackers25  | code 534 | fix 1500 pls 800 |  | assets/info.js assets/sript.js
+crowning/goalhackers26 | GOALHACKERS26  | code 636 | fix 1500 pls 800 |  | assets/info.js assets/sript.js
+dmc-dreamers/Medicup | Medicup26  | code 701 | fix 2000 pls 1500 |  | assets/info.js
+dmc-dreamers/b2b24/Cycle-0 | b2b24  | code  | fix  pls  |  | assets/ss.js
+dmc-dreamers/b2b24/Cycle-1 | b2b24  | code 241 | fix 2000 pls 1500 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b24/Cycle-2 | b2b24  | code 271 | fix 2000 pls 1500 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b24/Cycle-3 | b2b24  | code 272 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b25/Cycle-0 | b2b25  | code  | fix  pls  |  | assets/ss.js
+dmc-dreamers/b2b25/Cycle-1 | b2b25  | code 264 | fix 2000 pls 1200 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b25/Cycle-2 | b2b25  | code 269 | fix 2000 pls 1200 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b25/Cycle-3 | b2b25  | code 299 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b25/Cycle-4 | b2b25  | code 341 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b26/Cycle-1 | b2b26  | code 387 | fix 3000 pls 2000 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b26/Cycle-2 | b2b26  | code 388 | fix 3000 pls 2000 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b26/Cycle-3 | b2b26  | code 618 | fix 499 pls 199 |  | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b27/Cycle-0 | b2b27  | code  | fix  pls  |  | assets/ss.js
+dmc-dreamers/b2b27/Cycle-1 | b2b27 / b2b27wbooks | code 414,508 | fix 1500 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b27/Cycle-2 | b2b27 / b2b27wbooks | code 415,509 | fix 1500 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b27/Cycle-3 | b2b27 / b2b27wbooks | code 416,510 | fix 1500 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b27/Cycle-4 | b2b27 / b2b27wbooks | code 417,511 | fix 1500 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b27/Cycle-5 | b2b27 / b2b27wbooks | code 418,512 | fix 1500 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b27/Cycle-6 | b2b27 / b2b27wbooks | code 419,513 | fix 1500 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b28/Combo1 | b2b28combo1 / b2b28combo1wbooks | code 786,789 | fix 4000 pls 2600 pls2 3450 | BOOKS | assets/info.js assets/script.js
+dmc-dreamers/b2b28/Combo2 | b2b28combo2 / b2b28combo2wbooks | code 787,790 | fix 4000 pls 2600 pls2 3450 | BOOKS | assets/info.js assets/script.js
+dmc-dreamers/b2b28/Combo3 | b2b28combo3 / b2b28combo3wbooks | code 788,791 | fix 8000 pls 5000 pls2 6700 | BOOKS | assets/info.js assets/script.js
+dmc-dreamers/b2b28/Cycle-0 | b2b28  | code  | fix  pls  |  | assets/ss.js
+dmc-dreamers/b2b28/Cycle-1 | b2b28 / b2b28wbooks | code 774,780 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b28/Cycle-2 | b2b28 / b2b28wbooks | code 775,781 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b28/Cycle-3 | b2b28 / b2b28wbooks | code 776,782 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b28/Cycle-4 | b2b28 / b2b28wbooks | code 777,783 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b28/Cycle-5 | b2b28 / b2b28wbooks | code 778,784 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+dmc-dreamers/b2b28/Cycle-6 | b2b28 / b2b28wbooks | code 779,785 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+drfahad/SignatureSeries/Cycle-1 | SignatureSeries  | code 611 | fix 5000 pls 1499 |  | assets/ss.js ../assets/script.js
+drfahad/SignatureSeries/Cycle-2 | SignatureSeries  | code 612 | fix 1000 pls 499 |  | assets/ss.js ../assets/script.js
+drfahad/SignatureSeries/Cycle-3 | SignatureSeries  | code 793 | fix 3000 pls 1499 |  | assets/ss.js ../assets/script.js
+drfahad/SignatureSeries/Cycle-4 | SignatureSeries  | code 794 | fix 3000 pls 1499 |  | assets/ss.js ../assets/script.js
+drfahad/fahadbio28/Combo1 | fahadbio28combo1  | code 731 | fix 3000 pls 2600 |  | assets/ss.js assets/script.js
+drfahad/fahadbio28/Combo2 | fahadbio28combo2  | code 732 | fix 3000 pls 2600 |  | assets/ss.js assets/script.js
+drfahad/fahadbio28/Combo3 | fahadbio28combo3  | code 733 | fix 6000 pls 5000 |  | assets/ss.js assets/script.js
+drfahad/fahadbio28/Cycle-1 | fahadbio28  | code 725 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+drfahad/fahadbio28/Cycle-2 | fahadbio28  | code 726 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+drfahad/fahadbio28/Cycle-3 | fahadbio28  | code 727 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+drfahad/fahadbio28/Cycle-4 | fahadbio28  | code 728 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+drfahad/fahadbio28/Cycle-5 | fahadbio28  | code 729 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+drfahad/fahadbio28/Cycle-6 | fahadbio28  | code 730 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+ebi26 | ebi26  | code 531 | fix 2299 pls 1499 |  | assets/info.js assets/sript.js
+ebi27 | ebi27  | code 537 | fix 2799 pls 1899 |  | assets/info.js assets/sript.js
+emon/amar_online_college | OnlineCollege  | code 186 | fix 1000 pls 500 |  | assets/info.js assets/sript.js
+emon/aoc24 | aoc24  | code 207 | fix 5000 pls 2500 |  | assets/info.js ../js/sript.js
+emon/aoc24_phase_2 | aoc24_p2  | code 236 | fix 5000 pls 2500 |  | assets/info.js ../js/sript.js
+emon/fusion26/Cycle-1 | fusion26  | code 322 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+emon/recursionv1 | recursionv1  | code 242 | fix 1000 pls 799 |  | assets/info.js ../js/sript.js
+emon/recursionv3 | recursionv3  | code 375 | fix 1500 pls 1000 |  | assets/info.js ../js/sript.js
+fahim_aohin/hmath27/Cycle-1 | hmath27  | code 485 | fix 1500 pls 1000 |  | assets/ss.js
+fahim_aohin/hmath27/Cycle-2 | hmath27  | code 486 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+fahim_aohin/hmath27/Cycle-3 | hmath27  | code 487 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+fahim_aohin/hmath27/Cycle-4 | hmath27  | code 488 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+fahim_aohin/math26revision/Cycle-1 | math26revision  | code 552 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+fahim_aohin/math26revision/Cycle-2 | math26revision  | code 553 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+gst25 | gst25 / gst25wbooks | code 599,600 | fix 2000 pls 1000 pls2 2500 | BOOKS | assets/info.js assets/sript.js
+hasnat/3D+Main_Book_Learning_Course | hbio23_3D  | code 192 | fix 2000 pls 1200 |  | assets/info.js ../assets/js/sript.js
+hasnat/hbio23c1 | hbio23c1  | code 165 | fix 1500 pls 1100 |  | assets/info.js ../assets/js/sript.js
+hasnat/hbio23c2 | hbio23c2  | code 201 | fix 2500 pls 1500 |  | assets/info.js ../assets/js/sript.js
+hasnat/hbio28/Combo1 | hbio28combo1 / hbio28combo1wbooks | code 703,706 | fix 4000 pls 2600 pls2 3450 | BOOKS | assets/info.js assets/script.js
+hasnat/hbio28/Combo2 | hbio28combo2 / hbio28combo2wbooks | code 704,707 | fix 4000 pls 2600 pls2 3450 | BOOKS | assets/info.js assets/script.js
+hasnat/hbio28/Combo3 | hbio28combo3 / hbio28combo3wbooks | code 705,708 | fix 8000 pls 5000 pls2 6700 | BOOKS | assets/info.js assets/script.js
+hasnat/hbio28/Cycle-1 | hbio28 / hbio28wbooks | code 622,628 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+hasnat/hbio28/Cycle-2 | hbio28 / hbio28wbooks | code 623,629 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+hasnat/hbio28/Cycle-3 | hbio28 / hbio28wbooks | code 624,630 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+hasnat/hbio28/Cycle-4 | hbio28 / hbio28wbooks | code 625,631 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+hasnat/hbio28/Cycle-5 | hbio28 / hbio28wbooks | code 626,632 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+hasnat/hbio28/Cycle-6 | hbio28 / hbio28wbooks | code 627,633 | fix 2000 pls 1000 pls2 1300 | BOOKS | assets/ss.js ../assets/script.js
+hasnat/hsc24bio/Cycle-1 | HBio24  | code 219 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+hasnat/hsc24bio/Cycle-2 | HBio24  | code 238 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+hasnat/hsc24bio/Cycle-3 | HBio24  | code 228 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+hasnat/hsc24bio/Cycle-4 | HBio24  | code 257 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+hasnat/hsc25bio/Cycle-1 | HBio25  | code 260 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+hasnat/hsc25bio/Cycle-2 | HBio25  | code 277 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+hasnat/hsc25bio/Cycle-3 | HBio25  | code 286 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+hasnat/hsc25bio/Cycle-4 | HBio25  | code 298 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+hasnat/medimission-10 | MediMission10_B25  | code 297 | fix 4000 pls 2000 |  | assets/info.js ../assets/js/sript.js
+hasnat/medimission24 | medimission24  | code 258 | fix 4000 pls 2000 |  | assets/info.js ../assets/js/sript.js
+hemel/BounceBack | BounceBack  | code 658 | fix 2000 pls 1500 |  | assets/info.js
+ict | asg_ICT  | code 304 | fix 1500 pls 1000 |  | assets/info.js assets/sript.js
+jamil/jamileng28/Combo | jamileng28combo  | code 819 | fix 2400 pls 2000 |  | assets/ss.js assets/script.js
+jamil/jamileng28/Cycle-0 | jamileng28  | code 817 | fix 1500 pls 1200 |  | assets/ss.js ../assets/script.js
+jamil/jamileng28/Cycle-1 | jamileng28  | code 817 | fix 1500 pls 1200 |  | assets/ss.js ../assets/script.js
+jamil/jamileng28/Cycle-2 | jamileng28  | code 818 | fix 1500 pls 1200 |  | assets/ss.js ../assets/script.js
+joynal-academy/hsc26commerce | hsc26commerce  | code 379 | fix 2000 pls 1750 |  | assets/info.js ../assets/js/sript.js
+joynal-academy/restart25 | restart25  | code 426 | fix 5000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+joynal-academy/unitchange25 | unitchange25  | code 551 | fix 5000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+kazi/kazieng28/Combo | kazieng28combo  | code 816 | fix 2000 pls 1499 |  | assets/ss.js assets/script.js
+kazi/kazieng28/Cycle-0 | kazieng28  | code 0 | fix 0 pls 0 |  | assets/ss.js
+kazi/kazieng28/Cycle-1 | kazieng28  | code 814 | fix 1000 pls 699 |  | assets/ss.js ../assets/script.js
+kazi/kazieng28/Cycle-2 | kazieng28  | code 815 | fix 1500 pls 999 |  | assets/ss.js ../assets/script.js
+medishark/medishark11 | medishark11  | code 526 | fix 4000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+onushilon/Bangla/Cycle-1 | Onushilon  | code 332 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+onushilon/Bangla/Cycle-2 | Onushilon  | code 292 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+onushilon/HSC/Cycle-1 | Onushilon27  | code 493 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+onushilon/HSClevel/Cycle-2 | Onushilon26  | code 371 | fix 2000 pls 1000 |  | assets/ss.js ../assets/script.js
+phyfusion27/Cycle-1 | phyfusion27  | code 514 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+phyfusion27/Cycle-2 | phyfusion27  | code 515 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+phyfusion27/Cycle-3 | phyfusion27  | code 516 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+phyfusion27/Cycle-4 | phyfusion27  | code 517 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+phyfusion27/Cycle-5 | phyfusion27  | code 518 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+phyfusion27/Cycle-6 | phyfusion27  | code 519 | fix 1500 pls 1000 |  | assets/ss.js ../assets/script.js
+physics/b2m28/Combo1 | b2m28combo1 / b2m28combo1wbooks | code 746,749 | fix 4000 pls 2750 pls2 3750 | BOOKS | assets/info.js assets/script.js
+physics/b2m28/Combo2 | b2m28combo2 / b2m28combo2wbooks | code 747,750 | fix 4000 pls 2750 pls2 3750 | BOOKS | assets/info.js assets/script.js
+physics/b2m28/Combo3 | b2m28combo3 / b2m28combo3wbooks | code 748,751 | fix 8000 pls 5000 pls2 7000 | BOOKS | assets/info.js assets/script.js
+physics/b2m28/Cycle-1 | b2m28 / b2m28wbooks | code 734,740 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+physics/b2m28/Cycle-2 | b2m28 / b2m28wbooks | code 735,741 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+physics/b2m28/Cycle-3 | b2m28 / b2m28wbooks | code 736,742 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+physics/b2m28/Cycle-4 | b2m28 / b2m28wbooks | code 737,743 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+physics/b2m28/Cycle-5 | b2m28 / b2m28wbooks | code 738,744 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+physics/b2m28/Cycle-6 | b2m28 / b2m28wbooks | code 739,745 | fix 1500 pls 1000 pls2 1350 | BOOKS | assets/ss.js ../assets/script.js
+physics/varsityphy25 | varsityphy25  | code 540 | fix 2000 pls 1750 |  | assets/info.js ../js/sript2.js
+presentation | presentation  | code 544 | fix 2000 pls 1500 |  | assets/info.js assets/sript.js
+reza/English_A_to_Z_SSC_23 | reza SSC23  | code 191 | fix 2500 pls 950 |  | assets/info.js assets/sript.js
+reza/HSC_22_Batch_SuperNova | reza admission22  | code 194 | fix 3000 pls 1500 |  | assets/info.js assets/sript.js
+reza/HSC_23_English_A_to_Z | reza HSC23  | code 167 | fix 3000 pls 1023 |  | assets/info.js assets/sript.js
+reza/HSC_23_medi_and_GK | rezamedi23  | code 234 | fix 1500 pls 999 |  | assets/info.js assets/sript.js
+reza/HSC_24_English_1st_A_to_Z | reza HSC24_1st  | code 227 | fix 2500 pls 1500 |  | assets/info.js assets/sript.js
+reza/HSC_24_English_A_to_Z | reza HSC24  | code 212 | fix 2500 pls 1500 |  | assets/info.js assets/sript.js
+reza/HSC_25_English_1st_A_to_Z | reza HSC25_1st  | code 273 | fix 2500 pls 1500 |  | assets/info.js assets/sript.js
+reza/HSC_25_English_A_to_Z | reza HSC25  | code 280 | fix 2500 pls 1500 |  | assets/info.js assets/sript.js
+reza/HSC_26_English_A_to_Z/Cycle-1 | HSC_26_English_A_to_Z  | code 339 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_26_English_A_to_Z/Cycle-2 | HSC_26_English_A_to_Z  | code 362 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_26_English_A_to_Z/Cycle-3 | HSC_26_English_A_to_Z  | code 498 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_26_English_A_to_Z/Cycle-4 | HSC_26_English_A_to_Z  | code 507 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_27_English_A_to_Z/Cycle-1 | HSC_27_English_A_to_Z  | code 489 | fix 1200 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_27_English_A_to_Z/Cycle-2 | HSC_27_English_A_to_Z  | code 490 | fix 1200 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_27_English_A_to_Z/Cycle-3 | HSC_27_English_A_to_Z  | code 491 | fix 1200 pls 800 |  | assets/ss.js ../assets/script.js
+reza/HSC_27_English_A_to_Z/Cycle-4 | HSC_27_English_A_to_Z  | code 492 | fix 1200 pls 800 |  | assets/ss.js ../assets/script.js
+reza/Last_hour_preparation_for_SSC_22 | reza SSC22  | code 163 | fix 500 pls 300 |  | assets/info.js ../assets/js/sript.js
+reza/medi_and_GK | rezamedi  | code 209 | fix 1500 pls 499 |  | assets/info.js assets/sript.js
+robotics | Robotics  | code 255 | fix 10000 pls 6000 |  | assets/info.js assets/sript.js
+robotics/overview | Robotics  | code 255 | fix 10000 pls 6000 |  | ../assets/info.js
+rtd/compactbio28/Combo1 | compactbio28combo1 / compactbio28combo1wbook | code 765,768 | fix 4000 pls 2600 pls2 3450 | BOOKS | assets/info.js assets/script.js
+rtd/compactbio28/Combo2 | compactbio28combo2 / compactbio28combo2wbook | code 766,769 | fix 4000 pls 2600 pls2 3450 | BOOKS | assets/info.js assets/script.js
+rtd/compactbio28/Combo3 | compactbio28combo3 / compactbio28combo3wbook | code 767,770 | fix 8000 pls 5000 pls2 6500 | BOOKS | assets/info.js assets/script.js
+rtd/compactbio28/Cycle-1 | compactbio28 / compactbio28wbook | code 753,759 | fix 2000 pls 1000 pls2 1280 | BOOKS | assets/ss.js ../assets/script.js
+rtd/compactbio28/Cycle-2 | compactbio28 / compactbio28wbook | code 754,760 | fix 2000 pls 1000 pls2 1280 | BOOKS | assets/ss.js ../assets/script.js
+rtd/compactbio28/Cycle-3 | compactbio28 / compactbio28wbook | code 755,761 | fix 2000 pls 1000 pls2 1280 | BOOKS | assets/ss.js ../assets/script.js
+rtd/compactbio28/Cycle-4 | compactbio28 / compactbio28wbook | code 756,762 | fix 2000 pls 1000 pls2 1280 | BOOKS | assets/ss.js ../assets/script.js
+rtd/compactbio28/Cycle-5 | compactbio28 / compactbio28wbook | code 757,763 | fix 2000 pls 1000 pls2 1280 | BOOKS | assets/ss.js ../assets/script.js
+rtd/compactbio28/Cycle-6 | compactbio28 / compactbio28wbook | code 758,764 | fix 2000 pls 1000 pls2 1280 | BOOKS | assets/ss.js ../assets/script.js
+sadman/TestPaperBOSSSSC27 | TestPaperBOSSSSC27  | code 828 | fix 3000 pls 1190 |  | assets/ss.js ../../assets/js/shop.js
+sadman/afschem28/Cycle-1 | afschem28  | code 698 | fix 4000 pls 2500 |  | assets/ss.js ../assets/script.js
+sadman/afschem28/Cycle-2 | afschem28  | code 699 | fix 4000 pls 2500 |  | assets/ss.js ../assets/script.js
+sadman/afssadmanchem28 | afssadmanchem28  | code 826 | fix 6000 pls 1890 |  | assets/ss.js ../../assets/js/shop.js
+sakib/ACS_Varsity_Exam_Batch | varsityxm22  | code 229 | fix 1500 pls 999 |  | assets/info.js assets/js/sript.js
+sakib/Chemistry_Series_Zero_to_Pro_by_Nazmus_Sakib/Cycle-2 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 156 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/Chemistry_Series_Zero_to_Pro_by_Nazmus_Sakib/Cycle-3 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 174 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/Chemistry_Series_Zero_to_Pro_by_Nazmus_Sakib/Cycle-4 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 197 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/Chemistry_Series_Zero_to_Pro_by_Nazmus_Sakib/Cycle-5 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 211 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/DU_Exam_Batch_21 | DU Exam Batch 21  | code 161 | fix 1250 pls 500 |  | assets/info.js ../assets/js/sript.js
+sakib/Guccho_Savior_Batch_2021 | guccho21  | code 172 | fix 1500 pls 999 |  | assets/info.js ../assets/js/sript.js
+sakib/Varsity_+_Medi_Biology_Special_Private_Program-2021 | Varsity + Medi Biology Special Private Program-2021  | code 142 | fix 9000 pls 3000 |  | assets/info.js ../assets/js/sript.js
+sakib/Zero2Pro_HSC24/Cycle-1 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 206 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/Zero2Pro_HSC24/Cycle-2 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 220 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/Zero2Pro_HSC24/Cycle-3 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 221 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/Zero2Pro_HSC24/Cycle-4 | Chemistry Series Zero to Pro by Nazmus Sakib  | code 232 | fix 1500 pls 800 |  | assets/ss.js ../assets/script.js
+sakib/banjon | banjon  | code 262 | fix 1500 pls 1000 |  | assets/info.js ../assets/js/sript.js
+sakib/benjon25_26 | benjon25_26  | code 342 | fix 2000 pls 1200 |  | assets/info.js ../assets/js/sript.js
+sakib/benjon27 | benjon27  | code 528 | fix 2000 pls 1200 |  | assets/info.js ../assets/js/sript.js
+sakib/benjon28 | benjon28  | code 664 | fix 2500 pls 1900 |  | assets/info.js ../assets/js/sript.js
+sakib/quickrevisionbangla | quickrevisionbangla  | code 639 | fix 500 pls 349 |  | assets/info.js ../assets/js/sript.js
+sakib/varsity22 | Varsity22  | code 164 | fix 3500 pls 3000 |  | assets/info.js ../assets/js/sript.js
+sakib/varsitychem25 | acsvarsitychem25  | code 529 | fix 1500 pls 1000 |  | assets/info.js ../assets/js/sript.js
+sanjoy/BUET_Challenger_I/Cycle-1 | BUET Challenger I  | code 267 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+sanjoy/BUET_Challenger_I/Cycle-2 | BUET Challenger I  | code 268 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+sanjoy/BUET_Challenger_I/Cycle-3 | BUET Challenger I  | code 233 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+sanjoy/BUET_Challenger_I/Cycle-4 | BUET Challenger I  | code 237 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+sanjoy/BUET_Challenger_I/Cycle-5 | BUET Challenger I  | code 263 | fix 1000 pls 800 |  | assets/ss.js ../assets/script.js
+sat | sat  | code 827 | fix 12500 pls 9000 |  | assets/info.js assets/sript.js
+sayfur/varsity22-B | sayfurV22-B  | code 202 | fix 7500 pls 2223 |  | assets/info.js ../js/sript.js
+tandra/tundraregion28/Combo | tundraregion28combo  | code 792 | fix 8000 pls 4800 |  | assets/ss.js assets/script.js
+tandra/tundraregion28/Cycle-0 | tundraregion28  | code 659 | fix 3000 pls 999 |  | assets/ss.js ../assets/script.js
+tandra/tundraregion28/Cycle-1 | tundraregion28  | code 660 | fix 4000 pls 2700 |  | assets/ss.js ../assets/script.js
+tandra/tundraregion28/Cycle-2 | tundraregion28  | code 661 | fix 4000 pls 2700 |  | assets/ss.js ../assets/script.js
+tanvir/banglabodh1/Cycle-1 | banglabodh1  | code 637 | fix 600 pls 299 |  | assets/ss.js ../assets/script.js
+tanvir/banglabodh28/Combo | banglabodh28combo  | code 839 | fix 3000 pls 2000 |  | assets/ss.js assets/script.js
+tanvir/banglabodh28/Cycle-1 | banglabodh28  | code 662 | fix 2000 pls 850 |  | assets/ss.js ../assets/script.js
+tanvir/banglabodh28/Cycle-2 | banglabodh28  | code 663 | fix 2000 pls 850 |  | assets/ss.js ../assets/script.js
+testpapersolve26 | testpapersolve26  | code 610 | fix 1200 pls 100 |  | assets/info.js assets/sript.js
+vsb/vsb1st | vsb1st  | code 377 | fix 1025 pls 519 |  | assets/info.js assets/sript.js
+vsb/vsb2nd | vsb2nd  | code 378 | fix 1025 pls 519 |  | assets/info.js assets/sript.js
