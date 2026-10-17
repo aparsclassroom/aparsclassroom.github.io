@@ -207,6 +207,12 @@ img {
   flex: 0 0 auto;
 }
 
+.nav-download .apple-mark {
+  width: 16px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
 @keyframes downloadGlow {
 
   0%,
