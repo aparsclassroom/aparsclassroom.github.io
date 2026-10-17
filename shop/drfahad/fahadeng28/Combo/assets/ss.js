@@ -11,6 +11,8 @@ const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode2),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=876"), // Special combo
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=879"), // Special combo with books
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, count) => total + count, init);

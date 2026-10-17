@@ -6,6 +6,10 @@ let productCode = "869";
 let productCode2 = "872";
 let productCode3 = "870";
 let productCode4 = "873";
+let productCode5 = "876"; // Special combo
+let productCode6 = "879"; // Special combo with books
+let specialCode = "875"; // Special cycle
+let specialCode2 = "878"; // Special cycle with books
 const fix = 2500; // TODO: strike-through price not given yet
 const pls = 999;
 const pls2 = 1399;
@@ -37,6 +41,10 @@ Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + productCode2),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode3),
     getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode4),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + specialCode),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/" + Cycle + "?productCode=" + specialCode2),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode5),
+    getEnrollmentCount("https://" + shopName2 + "/enrollment/?productCode=" + productCode6),
 ])
 .then((enrollments) => {
     const totalEnrollment = enrollments.reduce((total, count) => total + count, init);

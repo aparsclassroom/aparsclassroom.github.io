@@ -256,7 +256,12 @@ firebase.auth().onAuthStateChanged(function (e) {
         var namex = e.displayName;
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
-        const cycleProducts = getConfiguredProductCodes([productCode, productCode2]);
+        const cycleProducts = getConfiguredProductCodes([
+            productCode,
+            productCode2,
+            typeof specialCode !== 'undefined' ? specialCode : null,
+            typeof specialCode2 !== 'undefined' ? specialCode2 : null
+        ]);
         const courseProducts = getConfiguredProductCodes([
             typeof productCode3 !== 'undefined' ? productCode3 : null,
             typeof productCode4 !== 'undefined' ? productCode4 : null,

@@ -210,8 +210,8 @@ document.getElementById('addBooks').addEventListener('change', function () {
 });
 
 const blockedCyclePurchaseChecks = [
-    { cycle: "Cycle-1", products: ["868", "871"] },
-    { cycle: "Cycle-2", products: ["869", "872"] }
+    { cycle: "Cycle-1", products: ["868", "871", "874", "877"] },
+    { cycle: "Cycle-2", products: ["869", "872", "875", "878"] }
 ];
 
 function checkPurchase(products, uid, cycle) {
@@ -249,7 +249,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
         const purchaseChecks = [
-            checkPurchase([productCode, productCode2], e.uid),
+            checkPurchase([productCode, productCode2, "876", "879"], e.uid), // + Special combo codes
             ...blockedCyclePurchaseChecks.map(check => checkPurchase(check.products, e.uid, check.cycle))
         ];
 
