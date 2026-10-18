@@ -1,7 +1,7 @@
 const product = "fahadeng28combo";
 const product2 = "fahadeng28combowbooks";
-const productName = "HSC 28 Academic English Master Course Combo";
-const productName2 = "HSC 28 Academic English Master Course with books Combo";
+const productName = "ACS English Republic: HSC 28 Academic Combo";
+const productName2 = "ACS English Republic: HSC 28 Academic with books Combo";
 let productCode = "870";
 let productCode2 = "873";
 const fix = 4000; // TODO: strike-through price not given yet

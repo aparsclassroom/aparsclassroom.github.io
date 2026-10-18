@@ -1,7 +1,7 @@
 const product = "fahadeng28";
 const product2 = "fahadeng28wbooks";
-const productName = "HSC 28 Academic English Master Course";
-const productName2 = "HSC 28 Academic English Master Course with books";
+const productName = "ACS English Republic: HSC 28 Academic";
+const productName2 = "ACS English Republic: HSC 28 Academic with books";
 let productCode = "868";
 let productCode2 = "871";
 let productCode3 = "870";
