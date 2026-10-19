@@ -68,6 +68,11 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     (data) => data.data && data.data.count
 );
 
+const getRcEnrollmentCount = (code) => getEnrollmentCount(
+    "https://rakibsclassroom.com/api/enrollments/count?product_code=" + code + "&key=RC-Crm-8Ul25v5uZ-FxFIYFwmYG92gD",
+    (data) => data.data && data.data.count
+);
+
 const getAcsCampEnrollmentCount = () => {
     return fetch("https://api.acscamp.com/v1/products/sales-count", {
         method: "POST",
@@ -90,6 +95,7 @@ const getAcsCampEnrollmentCount = () => {
 Promise.all([
     getEnrollmentCount("https://" + shopName2 + "/enrollment/combined?productCodes=" + ebi28EnrollmentProductCodes.join(",")),
     getAfsEnrollmentCount(productCode),
+    getRcEnrollmentCount(productCode),
     getAcsCampEnrollmentCount()
 ])
     .then((counts) => {

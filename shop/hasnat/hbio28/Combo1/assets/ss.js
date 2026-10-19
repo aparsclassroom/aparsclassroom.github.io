@@ -28,6 +28,11 @@ const getAfsEnrollmentCount = (code) => getEnrollmentCount(
     (data) => data.data && data.data.count
 );
 
+const getRcEnrollmentCount = (code) => getEnrollmentCount(
+    "https://rakibsclassroom.com/api/enrollments/count?product_code=" + code + "&key=RC-Crm-8Ul25v5uZ-FxFIYFwmYG92gD",
+    (data) => data.data && data.data.count
+);
+
 Promise.all([
     getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=${productCode}`),
     getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=${productCode2}`),
@@ -35,7 +40,8 @@ Promise.all([
     getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=708`),
     getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=805`),
     getEnrollmentCount(`https://${shopName2}/enrollment/?productCode=806`),
-    getAfsEnrollmentCount(productCode)
+    getAfsEnrollmentCount(productCode),
+    getRcEnrollmentCount(productCode)
 ])
     .then((enrollments) => {
         const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
