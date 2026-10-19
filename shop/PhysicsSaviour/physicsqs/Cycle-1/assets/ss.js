@@ -46,22 +46,39 @@ function onPlayerReady(event) {
     }
 });
 
-fetch(`https://${shopName2}/enrollment?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+const getEnrollmentCount = (url, dataPath = (data) => data.count) => {
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Number(dataPath(data)) || 0)
+        .catch((err) => {
+            console.log(err);
+            return 0;
+        });
+};
+
+const getAfsEnrollmentCount = (code) => getEnrollmentCount(
+    "https://hsc.acsfutureschool.com/api/enrollments/count?product_code=" + code,
+    (data) => data.data && data.data.count
+);
+
+Promise.all([
+    getEnrollmentCount(`https://${shopName2}/enrollment?productCode=${productCode}`),
+    getAfsEnrollmentCount(productCode)
+])
+    .then((enrollments) => {
+        const totalEnrollment = enrollments.reduce((total, count) => total + count, init);
+        const enrolled = document.getElementById('enrolled');
+
+        if (enrolled) {
+            enrolled.setAttribute('countTo', totalEnrollment);
+            const countUp = new CountUp('enrolled', totalEnrollment);
             if (!countUp.error) {
                 countUp.start();
             } else {
                 console.error(countUp.error);
             }
         }
-
     })
     .catch((err) => {
-        console.log(err)
-    })
+        console.log("Enrollment fetch error:", err);
+    });
