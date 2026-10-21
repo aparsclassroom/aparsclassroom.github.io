@@ -135,6 +135,20 @@
 
     <!-- Custom Scripts -->
     <script src="../assets/script.js" defer></script>
+    <style>
+        .copy-coupon {
+            cursor: pointer;
+            display: inline-block;
+            padding: 1px 8px;
+            border: 1px dashed #1ab942;
+            border-radius: 6px;
+            background-color: #f3fbf5;
+            transition: background-color 0.2s;
+        }
+        .copy-coupon:hover { background-color: #e8f5e9; }
+        .copy-coupon i { font-size: 0.85em; margin-left: 4px; opacity: 0.7; }
+        .copy-hint { display: block; font-size: 0.75em; color: #6c757d; margin-top: 2px; }
+    </style>
 </head>
 
 <body>
@@ -502,8 +516,8 @@
 
                         <div class="justify-content-center">
                             <center>
-                                <small class="bangla">কুপন <strong class="copy-coupon" data-coupon="TANDRASPECIAL1"
-                                        style="cursor: pointer;">"TANDRASPECIAL1"</strong> ব্যবহার করলে ২০০ টাকা ডিসকাউন্ট ৩১ অক্টোবর পর্যন্ত </small>
+                                <small class="bangla">কুপন <strong class="copy-coupon" data-coupon="TANDRASPECIAL1" title="Click to copy">TANDRASPECIAL1<i class="far fa-copy"></i></strong> ব্যবহার করলে ২০০ টাকা ডিসকাউন্ট ৩১ অক্টোবর পর্যন্ত </small>
+                                <small class="bangla copy-hint">(কুপনে ক্লিক করলেই অটোমেটিক অ্যাপ্লাই হয়ে যাবে)</small>
                             </center> 
                             <!-- <center>
                                 <small class="bangla">এসএসসি রেজাল্ট উপলক্ষে এই ডিসকাউন্ট চলবে ২২ আগস্ট পর্যন্ত (এইটাই
@@ -705,13 +719,29 @@
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "455ce41f33324d9a9ad0a1d773908871"}'></script><!-- End Cloudflare Web Analytics -->
     <script>
+        // apply the copied coupon through the normal Apply button
+        function applyCopiedCoupon(code) {
+            const cpnBtn = document.getElementById('cpnCheck');
+            const cupInput = document.getElementById('cupon');
+            if (!cpnBtn || !cupInput || typeof productCode === 'undefined') return false;
+            // skip if a coupon is already applied or being checked (disC defaults to "N/A")
+            const applied = document.getElementById('disC').value.trim();
+            if ((applied !== '' && applied !== 'N/A') || cupInput.disabled) return false;
+            cupInput.value = code;
+            cpnBtn.disabled = false;
+            document.getElementById('app').style.display = 'none';
+            document.getElementById('cup').style.display = 'block';
+            cpnBtn.click();
+            return true;
+        }
         // coupon copy code
         document.querySelectorAll('.copy-coupon').forEach(coupon => {
             coupon.addEventListener('click', function () {
                 document.querySelectorAll('.copy-coupon').forEach(c => {
-                    c.style.backgroundColor = '#ffffff';
+                    c.style.backgroundColor = '';
                 });
                 const couponCode = this.getAttribute('data-coupon');
+                const applying = applyCopiedCoupon(couponCode);
                 navigator.clipboard.writeText(couponCode).then(() => {
                     const toast = document.createElement('div');
                     toast.style.cssText = `
@@ -734,7 +764,7 @@
                 font-size: 14px;
                 white-space: nowrap;
             `;
-                    toast.textContent = 'Coupon copied ✓';
+                    toast.textContent = applying ? 'Coupon copied & applied ✓' : 'Coupon copied ✓';
                     document.body.appendChild(toast);
 
                     setTimeout(() => toast.style.opacity = '1', 10);
@@ -744,6 +774,11 @@
                         setTimeout(() => toast.remove(), 300);
                     }, 2000);
                     this.style.backgroundColor = '#e8f5e9';
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.className = 'fas fa-check';
+                        setTimeout(() => icon.className = 'far fa-copy', 2000);
+                    }
                 });
             });
         });
