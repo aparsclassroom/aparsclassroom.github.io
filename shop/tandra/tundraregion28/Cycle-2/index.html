@@ -518,10 +518,10 @@
                                 <small class="bangla">এসএসসি রেজাল্ট উপলক্ষে এই ডিসকাউন্ট চলবে ২২ আগস্ট পর্যন্ত (এইটাই
                                     শেষ ডিসকাউন্ট)</small>
                             </center> -->
-                          <center>
+                          <!-- <center>
                                 <small class="bangla">কুপন <strong class="copy-coupon" data-coupon="TANDRASPECIAL2" title="Click to copy">TANDRASPECIAL2<i class="far fa-copy"></i></strong> ব্যবহার করলে ২০০ টাকা ডিসকাউন্ট ৩১ অক্টোবর পর্যন্ত </small>
                                 <small class="bangla copy-hint">(কুপনে ক্লিক করলেই অটোমেটিক অ্যাপ্লাই হয়ে যাবে)</small>
-                            </center> 
+                            </center>  -->
                             <button id="app" class="btn btn-block btn-outline-secondary">Do you have any
                                 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
                                 <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="loop"
@@ -742,53 +742,53 @@
             return true;
         }
         // coupon copy code
-        document.querySelectorAll('.copy-coupon').forEach(coupon => {
-            coupon.addEventListener('click', function () {
-                document.querySelectorAll('.copy-coupon').forEach(c => {
-                    c.style.backgroundColor = '';
-                });
-                const couponCode = this.getAttribute('data-coupon');
-                const applying = applyCopiedCoupon(couponCode);
-                navigator.clipboard.writeText(couponCode).then(() => {
-                    const toast = document.createElement('div');
-                    toast.style.cssText = `
-                position: fixed;
-                top: 20px;
-                left: 50%; 
-                transform: translateX(-50%);
-                background-color: #28a745;
-                color: white;
-                padding: 12px 24px;
-                border-radius: 8px;
-                z-index: 1000;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-                text-align: center;
-                min-width: 200px;
-                max-width: 90%;
-                margin: 0 auto;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                font-size: 14px;
-                white-space: nowrap;
-            `;
-                    toast.textContent = applying ? 'Coupon copied & applied ✓' : 'Coupon copied ✓';
-                    document.body.appendChild(toast);
+        // document.querySelectorAll('.copy-coupon').forEach(coupon => {
+        //     coupon.addEventListener('click', function () {
+        //         document.querySelectorAll('.copy-coupon').forEach(c => {
+        //             c.style.backgroundColor = '';
+        //         });
+        //         const couponCode = this.getAttribute('data-coupon');
+        //         const applying = applyCopiedCoupon(couponCode);
+        //         navigator.clipboard.writeText(couponCode).then(() => {
+        //             const toast = document.createElement('div');
+        //             toast.style.cssText = `
+        //         position: fixed;
+        //         top: 20px;
+        //         left: 50%; 
+        //         transform: translateX(-50%);
+        //         background-color: #28a745;
+        //         color: white;
+        //         padding: 12px 24px;
+        //         border-radius: 8px;
+        //         z-index: 1000;
+        //         opacity: 0;
+        //         transition: opacity 0.3s ease-in-out;
+        //         text-align: center;
+        //         min-width: 200px;
+        //         max-width: 90%;
+        //         margin: 0 auto;
+        //         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        //         font-size: 14px;
+        //         white-space: nowrap;
+        //     `;
+        //             toast.textContent = applying ? 'Coupon copied & applied ✓' : 'Coupon copied ✓';
+        //             document.body.appendChild(toast);
 
-                    setTimeout(() => toast.style.opacity = '1', 10);
+        //             setTimeout(() => toast.style.opacity = '1', 10);
 
-                    setTimeout(() => {
-                        toast.style.opacity = '0';
-                        setTimeout(() => toast.remove(), 300);
-                    }, 2000);
-                    this.style.backgroundColor = '#e8f5e9';
-                    const icon = this.querySelector('i');
-                    if (icon) {
-                        icon.className = 'fas fa-check';
-                        setTimeout(() => icon.className = 'far fa-copy', 2000);
-                    }
-                });
-            });
-        });
+        //             setTimeout(() => {
+        //                 toast.style.opacity = '0';
+        //                 setTimeout(() => toast.remove(), 300);
+        //             }, 2000);
+        //             this.style.backgroundColor = '#e8f5e9';
+        //             const icon = this.querySelector('i');
+        //             if (icon) {
+        //                 icon.className = 'fas fa-check';
+        //                 setTimeout(() => icon.className = 'far fa-copy', 2000);
+        //             }
+        //         });
+        //     });
+        // });
     </script>
 </body>
 
