@@ -256,7 +256,7 @@ firebase.auth().onAuthStateChanged(function(e) {
         var mail = e.email;
         document.getElementById('uid').value = e.uid;
         const purchaseChecks = [
-            checkPurchase([productCode, productCode2, "721", "723", "722", "724", "694", "696", "695", "697", "798", "799", "805", "806"], e.uid),
+            checkPurchase([productCode, productCode2, "721", "723", "722", "724", "694", "696", "695", "697", "798", "799", "805", "806", "885", "886"], e.uid),
             ...blockedCyclePurchaseChecks.map(check => checkPurchase(check.products, e.uid, check.cycle))
         ];
 

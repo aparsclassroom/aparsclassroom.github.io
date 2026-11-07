@@ -692,6 +692,14 @@ const b2a28ComboProductsByCycle = {
     "Cycle-6": ["695", "697", "798", "799", "805", "806"]
 };
 
+const chem28SpecialComboProductsByCycle = {
+    "Cycle-2": ["885", "886"],
+    "Cycle-3": ["885", "886"],
+    "Cycle-4": ["885", "886"],
+    "Cycle-5": ["885", "886"],
+    "Cycle-6": ["885", "886"]
+};
+
 function findExistingPurchase(results) {
     return results
         .filter(result => result.status === 'fulfilled')
@@ -717,7 +725,8 @@ firebase.auth().onAuthStateChanged(function (e) {
             checkPurchase(cycleProducts, e.uid, Cycle),
             checkPurchase(comboProducts, e.uid),
             checkPurchase(getConfiguredProductCodes(b2a28CycleProductsByCycle[Cycle] || []), e.uid, Cycle),
-            checkPurchase(getConfiguredProductCodes(b2a28ComboProductsByCycle[Cycle] || []), e.uid)
+            checkPurchase(getConfiguredProductCodes(b2a28ComboProductsByCycle[Cycle] || []), e.uid),
+            checkPurchase(getConfiguredProductCodes(chem28SpecialComboProductsByCycle[Cycle] || []), e.uid)
         ]).then((results) => {
             const existingPurchase = findExistingPurchase(results);
             if (existingPurchase) {
