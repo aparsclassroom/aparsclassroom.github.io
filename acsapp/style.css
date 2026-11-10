@@ -460,11 +460,11 @@ h1 {
 
 .phone {
   position: relative;
-  width: min(360px, 86vw);
-  aspect-ratio: 640 / 1442;
+  width: min(400px, 90vw);
+  padding: 8px;
   overflow: hidden;
-  border: 10px solid color-mix(in srgb, var(--text) 88%, #222);
-  border-radius: 42px;
+  border: 12px solid color-mix(in srgb, var(--text) 88%, #222);
+  border-radius: 46px;
   background: #05070a;
   box-shadow: var(--phone-shadow);
 }
@@ -484,8 +484,9 @@ h1 {
 
 .phone img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 640 / 1442;
+  border-radius: 28px;
 }
 
 .float-badge {
@@ -1003,8 +1004,7 @@ h1 {
   }
 
   .phone {
-    width: min(255px, 74vw);
-    border-width: 7px;
+    width: min(280px, 78vw);
     border-radius: 32px;
   }
 
@@ -1209,7 +1209,7 @@ h1 {
   }
 
   .phone {
-    width: min(230px, 72vw);
+    width: min(250px, 76vw);
   }
 
   .journey-step {
