@@ -707,9 +707,13 @@ h1 {
   padding: clamp(24px, 4vw, 46px);
   border: 1px solid var(--line);
   border-radius: 32px;
-  background: #0b1117;
-  color: #eef4ff;
+  background: #ffffff;
+  color: var(--text);
   overflow: hidden;
+}
+
+[data-theme="dark"] .devices {
+  background: #0b1117;
 }
 
 .devices-copy {
@@ -728,7 +732,7 @@ h1 {
 
 .devices-copy p {
   margin: 0;
-  color: #a5b2c7;
+  color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.7;
 }
