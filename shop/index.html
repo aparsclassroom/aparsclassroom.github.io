@@ -174,6 +174,18 @@
             object-fit: cover;
             aspect-ratio: 16/9;
         }
+        /* Compact 2x2 app badge grid on phones so the course categories stay in the first view */
+        @media (max-width: 640px) {
+            .app-badges {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+                max-width: 340px;
+                margin: 1rem auto 0.5rem !important;
+            }
+            .app-badges a { display: block !important; margin: 0 !important; }
+            .app-badges img { width: 100%; height: auto !important; }
+        }
     </style>
 
     <!-- Site Icons -->
@@ -246,7 +258,7 @@
             Bangladesh, specializing in providing high-quality educational resources to students across the country.
             Established in 2018, the platform has quickly gained popularity among Bangladeshi students, with over
             1,000,000 students actively learning and developing their skills through its diverse range of courses.</p>
-        <div class="text-center mb-4">
+        <div class="app-badges text-center mb-4">
             <a href="https://play.google.com/store/apps/details?id=com.asgshop.acs&pcampaignid=web_share"
                 target="_blank" rel="noopener"
                 style="display:inline-block;margin-top:1.25rem;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
@@ -269,6 +281,14 @@
                 onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.25)'"
                 onmouseout="this.style.transform='';this.style.boxShadow=''">
                 <img src="/assets/DownloadOnTheMacAppStore_Badge.svg" alt="Download on the Mac App Store"
+                    style="height:60px;display:block;">
+            </a>
+            <a href="https://snapcraft.io/acs-app"
+                target="_blank" rel="noopener"
+                style="display:inline-block;margin-left:4px;margin-right:4px;margin-top:1.25rem;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
+                onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.25)'"
+                onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <img src="/assets/GetItFromSnapStore_Badge.svg" alt="Get it from the Snap Store"
                     style="height:60px;display:block;">
             </a>
         </div>
@@ -3404,6 +3424,14 @@
                                 onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.25)'"
                                 onmouseout="this.style.transform='';this.style.boxShadow=''">
                                 <img src="/assets/DownloadOnTheMacAppStore_Badge.svg" alt="Download on the Mac App Store"
+                                    style="height:48px;display:block;">
+                            </a>
+                            <a href="https://snapcraft.io/acs-app" target="_blank"
+                                rel="noopener"
+                                style="display:block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
+                                onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.25)'"
+                                onmouseout="this.style.transform='';this.style.boxShadow=''">
+                                <img src="/assets/GetItFromSnapStore_Badge.svg" alt="Get it from the Snap Store"
                                     style="height:48px;display:block;">
                             </a>
                         </div>

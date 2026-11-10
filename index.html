@@ -263,6 +263,20 @@
     .float-badge {
       animation: float 3s ease-in-out infinite;
     }
+    /* Compact 2x2 app badge grid on phones so courses stay in the first view */
+    @media (max-width: 640px) {
+      .app-badges {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px !important;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem !important;
+      }
+      .app-badges a { display: block !important; }
+      .app-badges img { width: 100%; height: auto !important; }
+    }
   </style>
 
 </head>
@@ -380,7 +394,7 @@
         </div>
 
         <!-- App store buttons -->
-        <div class="mt-6 w-full flex flex-wrap justify-center items-center gap-3">
+        <div class="app-badges mt-6 w-full flex flex-wrap justify-center items-center gap-3">
           <a href="https://play.google.com/store/apps/details?id=com.asgshop.acs" target="_blank" rel="noopener"
             style="display:inline-block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
@@ -400,6 +414,13 @@
             onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
             onmouseout="this.style.transform='';this.style.boxShadow=''">
             <img src="/assets/DownloadOnTheMacAppStore_Badge.svg" alt="Download on the Mac App Store"
+              style="height:56px;display:block;">
+          </a>
+          <a href="https://snapcraft.io/acs-app" target="_blank" rel="noopener"
+            style="display:inline-block;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
+            onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
+            onmouseout="this.style.transform='';this.style.boxShadow=''">
+            <img src="/assets/GetItFromSnapStore_Badge.svg" alt="Get it from the Snap Store"
               style="height:56px;display:block;">
           </a>
         </div>
@@ -739,6 +760,13 @@
               onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
               onmouseout="this.style.transform='';this.style.boxShadow=''">
               <img src="/assets/DownloadOnTheMacAppStore_Badge.svg" alt="Download on the Mac App Store"
+                style="height:48px;display:block;">
+            </a>
+            <a href="https://snapcraft.io/acs-app" target="_blank" rel="noopener"
+              style="display:inline-block;margin-left:4px;margin-right:4px;transition:transform 0.15s,box-shadow 0.2s;border-radius:10px;"
+              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.18)'"
+              onmouseout="this.style.transform='';this.style.boxShadow=''">
+              <img src="/assets/GetItFromSnapStore_Badge.svg" alt="Get it from the Snap Store"
                 style="height:48px;display:block;">
             </a>
           </div>
