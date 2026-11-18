@@ -26,16 +26,16 @@ nav:has(#navbar-cta:not(.hidden)) {
 /* Hero */
 .hero-panel {
   background:
-    radial-gradient(800px 380px at 90% -10%, rgba(205, 179, 163, .28), transparent 60%),
-    radial-gradient(600px 320px at -10% 110%, rgba(125, 130, 104, .12), transparent 60%),
-    linear-gradient(160deg, #f8f5ef 0%, #f3efe7 60%, #ede6da 100%);
-  border: 1px solid #e6dfd3;
+    radial-gradient(800px 380px at 90% -10%, rgba(96, 165, 250, .16), transparent 60%),
+    radial-gradient(600px 320px at -10% 110%, rgba(100, 149, 190, .12), transparent 60%),
+    linear-gradient(160deg, #f7faff 0%, #eff5fb 60%, #e8f0f8 100%);
+  border: 1px solid #d5e1ee;
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(90, 81, 72, .05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(90, 81, 72, .05) 1px, transparent 1px);
+    linear-gradient(rgba(55, 85, 120, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 85, 120, .045) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 70%);
@@ -57,7 +57,7 @@ nav:has(#navbar-cta:not(.hidden)) {
 
 .lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px -18px rgba(58, 51, 44, .22);
+  box-shadow: 0 18px 40px -18px rgba(30, 53, 80, .2);
 }
 
 .lift img {
@@ -70,10 +70,10 @@ nav:has(#navbar-cta:not(.hidden)) {
 
 /* Tabs */
 .tab-btn[aria-selected="true"] {
-  background: #5f5147;
+  background: #2563eb;
   color: #fff;
   font-weight: 700;
-  box-shadow: 0 3px 8px rgba(58, 51, 44, .24);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, .28);
 }
 
 .tab-btn {
@@ -81,7 +81,7 @@ nav:has(#navbar-cta:not(.hidden)) {
 }
 
 .tab-btn:focus-visible {
-  outline: 2px solid #8b6a57;
+  outline: 2px solid #60a5fa;
   outline-offset: 2px;
 }
 
@@ -95,7 +95,7 @@ nav:has(#navbar-cta:not(.hidden)) {
 }
 
 #lightbox::backdrop {
-  background: rgba(38, 34, 30, .85);
+  background: rgba(18, 35, 58, .85);
   backdrop-filter: blur(4px);
 }
 
