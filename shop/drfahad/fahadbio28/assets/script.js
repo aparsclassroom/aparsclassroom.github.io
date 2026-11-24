@@ -45,6 +45,11 @@ const fahadBio28CycleComboBlocks = {
     "Cycle-6": ["732", "733"]
 };
 
+// Cycle-7 (884) is a variant of Cycle-8 (892, sold from another page): owning 892 blocks Cycle-7.
+const fahadBio28CycleVariantBlocks = {
+    "Cycle-7": { cycle: "Cycle-8", products: ["892"] }
+};
+
 let fahadBio28EligibilityChecked = false;
 
 function fahadBio28CheckPurchase(products, uid, cycle) {
@@ -94,13 +99,19 @@ function fahadBio28ShowExistingPurchase(result) {
 
 function fahadBio28ValidateCycleEligibility(uid) {
     const blockedCombos = fahadBio28CycleComboBlocks[Cycle] || [];
-    if (!blockedCombos.length) {
+    const variantBlock = fahadBio28CycleVariantBlocks[Cycle];
+    const checks = [];
+    if (blockedCombos.length) {
+        checks.push(fahadBio28CheckPurchase(blockedCombos, uid));
+    }
+    if (variantBlock) {
+        checks.push(fahadBio28CheckPurchase(variantBlock.products, uid, variantBlock.cycle));
+    }
+    if (!checks.length) {
         return Promise.resolve(null);
     }
 
-    return Promise.allSettled([
-        fahadBio28CheckPurchase(blockedCombos, uid)
-    ]).then(fahadBio28FindExistingPurchase);
+    return Promise.allSettled(checks).then(fahadBio28FindExistingPurchase);
 }
 
 document.addEventListener('submit', function(event) {
@@ -156,6 +167,10 @@ firebase.auth().onAuthStateChanged(function(e) {
         if (blockedCombos.length) {
             purchaseChecks.push(fahadBio28CheckPurchase(blockedCombos, e.uid));
         }
+        const variantBlock = fahadBio28CycleVariantBlocks[Cycle];
+        if (variantBlock) {
+            purchaseChecks.push(fahadBio28CheckPurchase(variantBlock.products, e.uid, variantBlock.cycle));
+        }
 
         Promise.allSettled(purchaseChecks)
             .then(result => {
@@ -166,7 +181,7 @@ firebase.auth().onAuthStateChanged(function(e) {
                         icon: "success",
                         button: "View Informations"
                     }).then(() => {
-                        return location.replace(result.Invoice)
+                        return location.replace(fahadBio28InvoiceFromPurchase(result))
                     })
                 } else {
                     const form = document.forms['purchase']
