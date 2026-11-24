@@ -39,21 +39,29 @@ if (screen.width <= 600) {
 //     event.target.setVolume(100);
 //     event.target.playVideo();
 // }
-fetch(`https://${shopName2}/enrollment/${Cycle}?productCode=${productCode}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data) => {
-        document.getElementById('enrolled').setAttribute('countTo', data.count + init);
-        if (document.getElementById('enrolled')) {
-            const countUp = new CountUp('enrolled', document.getElementById("enrolled").getAttribute("countTo"));
+// Count Cycle-8 (892) enrollments too: it is a variant of this cycle sold from another page.
+const enrollmentSources = [
+    { cycle: Cycle, code: productCode },
+    { cycle: "Cycle-8", code: "892" }
+];
+Promise.allSettled(enrollmentSources.map(src =>
+    fetch(`https://${shopName2}/enrollment/${src.cycle}?productCode=${src.code}`)
+        .then(res => res.json())
+))
+    .then((results) => {
+        const total = results
+            .filter(r => r.status === 'fulfilled')
+            .reduce((sum, r) => sum + (Number(r.value.count) || 0), 0);
+        const enrolled = document.getElementById('enrolled');
+        if (enrolled) {
+            enrolled.setAttribute('countTo', total + init);
+            const countUp = new CountUp('enrolled', enrolled.getAttribute("countTo"));
             if (!countUp.error) {
                 countUp.start();
             } else {
                 console.error(countUp.error);
             }
         }
-
     })
     .catch((err) => {
         console.log(err)
