@@ -264,6 +264,9 @@ firebase.auth().onAuthStateChanged(function (e) {
             purchaseChecks.push(b2b28CheckPurchase(blockedComboProducts, e.uid));
         }
 
+        // Buyers of 893 / 894 cannot buy any b2b28 cycle
+        purchaseChecks.push(b2b28CheckPurchase(["893", "894"], e.uid));
+
         Promise.allSettled(purchaseChecks)
         .then((result) => {
             result = b2b28FindExistingPurchase(result) || { status: 404 };

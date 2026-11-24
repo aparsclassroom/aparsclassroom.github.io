@@ -726,7 +726,9 @@ firebase.auth().onAuthStateChanged(function (e) {
             checkPurchase(comboProducts, e.uid),
             checkPurchase(getConfiguredProductCodes(b2a28CycleProductsByCycle[Cycle] || []), e.uid, Cycle),
             checkPurchase(getConfiguredProductCodes(b2a28ComboProductsByCycle[Cycle] || []), e.uid),
-            checkPurchase(getConfiguredProductCodes(chem28SpecialComboProductsByCycle[Cycle] || []), e.uid)
+            checkPurchase(getConfiguredProductCodes(chem28SpecialComboProductsByCycle[Cycle] || []), e.uid),
+            // Buyers of 893 / 894 cannot buy any chem28aloron cycle
+            checkPurchase(["893", "894"], e.uid)
         ]).then((results) => {
             const existingPurchase = findExistingPurchase(results);
             if (existingPurchase) {
