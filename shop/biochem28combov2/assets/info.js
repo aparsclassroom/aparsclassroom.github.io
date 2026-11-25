@@ -1,0 +1,14 @@
+const product = "biochem28combov2";
+const product2 = "biochem28combov2wbooks";
+const productName = "ACS HSC 28 Biology + Chemistry Combo Course";
+const productName2 = "ACS HSC 28 Biology + Chemistry Combo Course with Books";
+let productCode = "893";
+let productCode2 = "894";
+const enrollmentCountEndpoint = `https://${shopName2}/enrollment/?productCode=${productCode}`;
+const enrollmentCountEndpoint2 = `https://${shopName2}/enrollment/?productCode=${productCode2}`;
+const fix = 15000;
+const pls = 9000;
+const pls2 = 12700;
+const init = 0;
+const Platform = "Online";
+const Platform2 = "Physical";
